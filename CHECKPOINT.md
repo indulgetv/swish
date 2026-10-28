@@ -42,10 +42,17 @@ _Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into
 - User has: GitHub repo `indulgetv/swish` (public), Actions write permission, secret `ODDS_API_KEY`.
 - `dev/live-adapter.js` is now merged into `index.html` (kept only for reference).
 
+- **Results tracking (2026-10-28):** `scripts/model.py` = Python port of the browser model (MODEL_VERSION
+  stamped on every pick; `scripts/test_model_parity.py` must report 0 mismatches after any model change —
+  change BOTH files). `scripts/ledger.py`: every run re-saves picks for games not started into
+  `data/picks/<slate>.json` (locked once the game starts; `open*` fields keep the first line); the 07:17/14:17
+  full runs grade them from ESPN game logs (void if not in the box score 10h after tip); summary in
+  `data/results.json/.js` → Results page (records, profit at £10, Brier accuracy vs market, calibration,
+  by market/night, recent picks). 28 Oct backfilled from pre-tip snapshots d5512b5/8f76016 (`scripts/backfill.py`).
+
 ## Next steps (in order)
-1. **Results tracking (most important):** each morning, save every priced prop (line, prices, SWISH chance,
-   market chance) and settle it against the box score. Show hit rate, profit at £10 flat, closing-line value
-   and calibration on the Results page. This is how MODEL_WEIGHT gets raised (or not) based on evidence.
+1. Check the 07:17 run on 29 Oct graded the 28 Oct picks (data/last-run.log: "results: graded …").
+   Line movement needs a second odds fetch near tip-off (e.g. ~23:30 UK, points only) — decide on credits.
 2. Minutes/role model: adjust projections when a teammate is confirmed out (fill-ins are not automated yet).
 3. Add STL / BLK / TOV columns (data already collected; Odds API has fewer lines for these).
 4. Later: confirmed starting lineups near tip-off; paid Odds API plan if more markets per game are wanted.

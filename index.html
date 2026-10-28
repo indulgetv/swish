@@ -1563,6 +1563,33 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
   .panel-h{padding-left:16px;padding-right:16px}
   .irow,.mrow{padding-left:16px;padding-right:16px}
 }
+
+/* ================= Results page ================= */
+.rov .v.pos,.rt .pos{color:var(--over)}
+.rt{width:100%;border-collapse:collapse;font-size:13px}
+.rt th{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.rt td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.rt tr:last-child td{border-bottom:0}
+.rt .l{text-align:left}
+.rt td small{display:block;font-size:11px;color:var(--muted)}
+.rt .negr{color:var(--red)}
+.rt .o{color:var(--over);font-weight:700}.rt .u{color:var(--under);font-weight:700}
+.rt tr.isval td{background:color-mix(in srgb,var(--red) 4%,transparent)}
+.rpad{padding:14px 20px;margin:0}
+.rpad + .rpad{padding-top:0}
+.panel .rpad p{margin:0 0 10px;line-height:1.55}
+.rtwrap{overflow-x:auto}
+.rpicks{min-width:720px}
+.rchip{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.rchip.win{background:rgba(31,138,76,.12);color:var(--over);border-color:rgba(31,138,76,.3)}
+.rchip.loss{background:var(--red-soft);color:var(--red);border-color:var(--red-line)}
+.calbar{position:relative;display:block;width:120px;height:10px;border-radius:99px;background:var(--sunk);overflow:visible}
+.calbar .act{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--under)}
+.calbar .exp{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);border-radius:2px;z-index:1}
+.cols + .cols,.cols + .panel{margin-top:var(--sec)}
+@media (max-width:640px){.calbar{width:70px}.rt th,.rt td{padding:8px 8px}}
+.rt td{white-space:nowrap}.rt td.l{white-space:normal}
+.cols .rt{font-size:12.5px}
 </style>
 </head>
 <body>
@@ -1601,6 +1628,7 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 <button class="totop" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg></button>
 <!-- Live data written by the GitHub automation (scripts/update.py). If it's missing, SWISH falls back to the sample slate. -->
 <script src="data/live.js"></script>
+<script src="data/results.js"></script>
 
 <script>
 /* =================================================================
@@ -2830,18 +2858,82 @@ function injuryCard(g){
 
 /* ---------------- Results ---------------- */
 function viewResults(){
-  return `
-  <header class="hero hero-results">${GFX.results}
+  const R = window.SWISH_RESULTS;
+  const head = `<header class="hero hero-results">${GFX.results}
   <div class="eyebrow">Performance tracking</div>
   <h1 class="title">Results</h1>
-  <p class="lede">Settled selections, closing-line value and calibration will appear here.</p>
-  </header>
-  <div class="rtable">
-    <div class="rhead"><div>Date</div><div>Selection</div><div>Market</div><div class="r">Line</div><div class="r">Price</div><div class="r">Closing</div><div class="r">Result</div></div>
-    <div class="empty"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V10M10 19V5M16 19v-6M22 19H2"/></svg></div>
-      <h3>No settled selections yet</h3>
-      <p>Results are only recorded from real lines and real box scores. Tracking starts once live data is connected, so no sample results are shown.</p></div>
-  </div>`;
+  <p class="lede">Every priced prop is saved before tip-off and graded against the box score the next morning. This is how we find out whether SWISH is any good.</p>
+  </header>`;
+  if (!R || !R.totals || !R.totals.saved) return head + `<div class="notice">No picks saved yet. Picks are saved automatically before each slate tips off.</div>`;
+  const T = R.totals, S = R.strong, L = R.leans, A = R.accuracy, P = R.projection;
+  const rec = r => r.n ? `${r.wins}–${r.losses}${r.pushes ? `–${r.pushes}` : ""}` : "—";
+  const hit = r => r.hitRate == null ? "—" : pct(r.hitRate);
+  const be = r => r.avgPrice ? pct(1 / r.avgPrice) : "52.4%";
+  const gbp = x => x == null ? "—" : money(x);
+  const early = T.graded < 300;
+  const skillTxt = A.skillSwish == null ? "Not enough graded picks yet"
+    : A.skillSwish > 0 ? `SWISH's chances were <b>${pct(A.skillSwish)} more accurate</b> than the bookmakers'`
+    : `SWISH's chances were <b>${pct(-A.skillSwish)} less accurate</b> than the bookmakers'`;
+  const modelTxt = A.skillModel == null ? "" : A.skillModel > 0
+    ? `The model on its own beat the market by ${pct(A.skillModel)} — evidence for giving it more weight (currently ${Math.round(R.modelWeight*100)}%).`
+    : `The model on its own was ${pct(-A.skillModel)} worse than the market — keep its weight at ${Math.round(R.modelWeight*100)}% or lower.`;
+  const chip = p => !p.result ? `<span class="rchip pend">pending</span>` : `<span class="rchip ${p.result}">${p.result === "void" ? "void · DNP" : p.result}</span>`;
+  return head + `
+  <div class="notice ${early ? "" : "live"}"><b>Tracking since ${R.since ? dateFmt(R.since + "T12:00:00") : "—"}.</b> ${T.saved} picks saved · ${T.graded} graded · ${T.pending} waiting for results${T.void ? ` · ${T.void} void (player didn't play)` : ""}.
+    ${R.days.some(d => d.backfilled) ? ` The first night (28 Oct) was rebuilt from data saved before tip-off ("backfilled"); from then on picks are locked in automatically.` : ""}
+    ${early ? `<br><b>Early days:</b> with fewer than 300 graded picks, results are mostly luck. Watch the accuracy and calibration numbers first — profit takes months to mean anything.` : ""}</div>
+  <div class="overview rov">
+    <div class="ov"><div class="eyebrow">Strong value picks</div><div class="v num">${rec(S)}</div><div class="s">${hit(S)} won · need ${be(S)} to break even</div></div>
+    <div class="ov"><div class="eyebrow">Profit · £${R.stake} a pick</div><div class="v num ${S.profit >= 0 ? "pos" : "red"}">${gbp(S.profit)}</div><div class="s">strong value · ROI ${S.roi == null ? "—" : sgnPct(S.roi)}</div></div>
+    <div class="ov"><div class="eyebrow">Every SWISH lean</div><div class="v num">${rec(L)}</div><div class="s">${hit(L)} won · ${gbp(L.profit)}</div></div>
+    <div class="ov"><div class="eyebrow">Accuracy vs bookmakers</div><div class="v num ${A.skillSwish > 0 ? "pos" : A.skillSwish < 0 ? "red" : ""}">${A.skillSwish == null ? "—" : sgnPct(A.skillSwish)}</div><div class="s">${A.n} graded props · higher is better</div></div>
+    <div class="ov"><div class="eyebrow">Average miss</div><div class="v num">${P.maeSwish == null ? "—" : P.maeSwish.toFixed(2)}</div><div class="s">SWISH projection · bookmaker line ${P.maeLine == null ? "—" : P.maeLine.toFixed(2)}</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="panel-h"><h2 class="h">Is SWISH beating the market?</h2></div>
+      <div class="rpad">
+        <p>${skillTxt}${A.skillSwish == null ? "." : ` (Brier score ${A.brierSwish} vs ${A.brierMarket}; lower is better).`} ${modelTxt}</p>
+        <p class="dnote">This is the most important number. It compares SWISH's chances with the bookmakers' against what actually happened, on every graded prop — win or lose. Under about 1,000 props, differences under ±2% are noise.</p>
+        <p>${R.clv.moved ? `Line moved after SWISH saved the pick on <b>${R.clv.moved}</b> props — towards SWISH's side on <b>${R.clv.toward}</b> (${pct(R.clv.toward / R.clv.moved, 0)}). Above 50% is a good sign.` : `<b>Line movement:</b> not measurable yet — lines are only fetched once before tip-off. A second fetch near tip-off would show whether the market moves SWISH's way.`}</p>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h2 class="h">Are SWISH's chances honest?</h2><span class="sub">when SWISH says X%, how often it happened</span></div>
+      <table class="rt"><thead><tr><th class="l">SWISH said</th><th>Picks</th><th>Expected</th><th>Happened</th><th class="l">&nbsp;</th></tr></thead><tbody>
+      ${R.calibration.map(b => `<tr><td class="l">${Math.round(b.from*100)}–${Math.round(b.to*100)}%</td><td>${b.n}</td><td>${b.predicted == null ? "—" : pct(b.predicted, 0)}</td><td><b>${b.actual == null ? "—" : pct(b.actual, 0)}</b></td>
+        <td class="l"><span class="calbar">${b.n ? `<i class="exp" style="left:${(b.predicted*100).toFixed(0)}%"></i><i class="act" style="width:${(b.actual*100).toFixed(0)}%"></i>` : ""}</span></td></tr>`).join("")}
+      </tbody></table>
+      <p class="dnote rpad">Close numbers = honest chances. "Happened" far above or below "Expected" means SWISH is under- or over-confident. Needs 50+ picks per row to read.</p>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="panel-h"><h2 class="h">By market</h2><span class="sub">every SWISH lean</span></div>
+      <table class="rt"><thead><tr><th class="l">Market</th><th>Record</th><th>Won</th><th>Profit</th></tr></thead><tbody>
+      ${Object.entries(R.byMarket).filter(([m, r]) => r.n).map(([m, r]) => `<tr><td class="l">${MARKET_NAMES[m]}</td><td>${rec(r)}</td><td>${hit(r)}</td><td class="${r.profit >= 0 ? "pos" : "negr"}">${gbp(r.profit)}</td></tr>`).join("") || `<tr><td class="l" colspan="4">Nothing graded yet.</td></tr>`}
+      </tbody></table>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h2 class="h">By night</h2><span class="sub">strong value picks</span></div>
+      <div class="clamp-all" data-clamp="r-days"><table class="rt"><thead><tr><th class="l">Slate</th><th>Saved</th><th>Graded</th><th>Record</th><th>Profit</th><th>Running</th></tr></thead><tbody>
+      ${[...R.days].reverse().map(d => `<tr><td class="l">${dateFmt(d.slate + "T12:00:00")}${d.backfilled ? ` <span class="rchip pend">backfilled</span>` : ""}</td><td>${d.saved}</td><td>${d.graded}${d.pending ? ` <small>(${d.pending} waiting)</small>` : ""}</td><td>${rec(d.strong)}</td><td class="${d.strong.profit >= 0 ? "pos" : "negr"}">${gbp(d.strong.profit)}</td><td>${gbp(d.strongCumProfit)}</td></tr>`).join("")}
+      </tbody></table></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-h"><h2 class="h">Recent picks</h2><span class="sub">every lean SWISH saved · newest first</span></div>
+    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l">Night</th><th class="l">Player</th><th class="l">Pick</th><th>Price</th><th>SWISH</th><th>Actual</th><th class="l">Result</th><th>£</th></tr></thead>
+    <tbody class="clamp-all" data-clamp="r-recent">${R.recent.map(p => `<tr class="${p.value ? "isval" : ""}"><td class="l">${dateFmt(p.slate + "T12:00:00")}</td>
+      <td class="l"><b>${esc(p.player)}</b><small>${p.away} @ ${p.home}</small></td>
+      <td class="l"><span class="${p.side === "over" ? "o" : "u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}${p.value ? ` <span class="vd strong">Strong</span>` : ""}</td>
+      <td>${fmtOdds(p.price)}</td><td>${pct(p.modelP, 0)}</td><td><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l">${chip(p)}</td>
+      <td class="${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</td></tr>`).join("")}</tbody></table></div>
+  </div>
+  <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
 }
 
 /* =================================================================

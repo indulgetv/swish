@@ -561,6 +561,19 @@ def main() -> int:
             except Exception as e:
                 errs.append(f"odds: {e}"); log(f"odds FAILED: {e}")
 
+    # ---- results tracking: save tonight's picks until tip-off; grade earlier nights each morning
+    try:
+        import ledger
+        d["meta"]["writtenAt"] = now_iso()
+        up = ledger.upsert(d, DATA_DIR)
+        log(f"results: {up.get('saved', 0)} pre-game picks saved")
+        if args.mode == "full":
+            st = ledger.settle(DATA_DIR, fetch_gamelog, d["meta"]["season"], log=log)
+            log(f"results: graded {st['graded']}, void {st['void']}, still waiting {st['waiting']}")
+        ledger.write_results(DATA_DIR)
+    except Exception as e:
+        errs.append(f"results: {e}"); log(f"results FAILED: {e}")
+
     write_out(d)
     if errs:
         log("completed with warnings:\n  - " + "\n  - ".join(errs[:20]))
