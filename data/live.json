@@ -4,7 +4,7 @@
   "mode": "full",
   "errors": [],
   "season": 2027,
-  "writtenAt": "2026-10-28T23:07:38Z"
+  "writtenAt": "2026-10-28T23:58:00Z"
  },
  "games": [
   {
@@ -12,80 +12,60 @@
    "away": "MIA",
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "pre",
-   "status": "10/28 - 7:00 PM EDT",
+   "state": "in",
+   "status": "7:03 - 2nd",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "ATL -2.5",
-    "overUnder": 243.5,
-    "provider": "DraftKings"
-   }
+   "awayScore": "49",
+   "homeScore": "40",
+   "espnLine": null
   },
   {
    "id": "401909882",
    "away": "WAS",
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "pre",
-   "status": "10/28 - 7:00 PM EDT",
+   "state": "in",
+   "status": "9:00 - 2nd",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "CLE -9.5",
-    "overUnder": 240.5,
-    "provider": "DraftKings"
-   }
+   "awayScore": "50",
+   "homeScore": "43",
+   "espnLine": null
   },
   {
    "id": "401909883",
    "away": "CHA",
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "pre",
-   "status": "10/28 - 7:00 PM EDT",
+   "state": "in",
+   "status": "9:53 - 2nd",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "DET -7.5",
-    "overUnder": 212.5,
-    "provider": "DraftKings"
-   }
+   "awayScore": "28",
+   "homeScore": "22",
+   "espnLine": null
   },
   {
    "id": "401909884",
    "away": "PHI",
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "pre",
-   "status": "10/28 - 7:00 PM EDT",
+   "state": "in",
+   "status": "0.0 - 2nd",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "PHI -7.5",
-    "overUnder": 234.5,
-    "provider": "DraftKings"
-   }
+   "awayScore": "25",
+   "homeScore": "25",
+   "espnLine": null
   },
   {
    "id": "401909885",
    "away": "ORL",
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
-   "state": "pre",
-   "status": "10/28 - 7:30 PM EDT",
+   "state": "in",
+   "status": "8:25 - 1st",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "TOR -4.5",
-    "overUnder": 224.5,
-    "provider": "DraftKings"
-   }
+   "awayScore": "10",
+   "homeScore": "7",
+   "espnLine": null
   },
   {
    "id": "401909886",
@@ -179,7 +159,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "OKC -5.5",
-    "overUnder": 227.5,
+    "overUnder": 226.5,
     "provider": "DraftKings"
    }
   },
@@ -813,12 +793,12 @@
    "team": "DAL",
    "player": "Naji Marshall",
    "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
+   "status": "Out",
+   "rawStatus": "Out",
    "detail": "Illness",
    "comment": "Marshall (illness) is now doubtful for Wednesday against the Thunder.",
-   "updated": "2026-10-28T18:22Z",
-   "returnDate": "2026-10-28"
+   "updated": "2026-10-28T23:47Z",
+   "returnDate": "2026-10-30"
   },
   {
    "team": "DAL",
@@ -866,17 +846,6 @@
   },
   {
    "team": "DAL",
-   "player": "Kyrie Irving",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Knee",
-   "comment": "Irving (knee) is questionable for Wednesday's game against the Thunder.",
-   "updated": "2026-10-27T22:04Z",
-   "returnDate": "2026-10-28"
-  },
-  {
-   "team": "DAL",
    "player": "Dereck Lively II",
    "pos": "C",
    "status": "Out",
@@ -888,6 +857,17 @@
   },
   {
    "team": "DEN",
+   "player": "Cameron Johnson",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Ankle Sprain",
+   "comment": "Johnson (ankle) is listed as out for Wednesday's game against the Pelicans.",
+   "updated": "2026-10-28T23:08Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "DEN",
    "player": "Spencer Jones",
    "pos": "F",
    "status": "Out",
@@ -896,17 +876,6 @@
    "comment": "Jones (hamstring) has been ruled out for Wednesday's game against New Orleans.",
    "updated": "2026-10-27T22:35Z",
    "returnDate": "2026-11-02"
-  },
-  {
-   "team": "DEN",
-   "player": "Cameron Johnson",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Right Ankle Sprain",
-   "comment": "Johnson (ankle) is doubtful to face the Pelicans on Wednesday.",
-   "updated": "2026-10-27T22:35Z",
-   "returnDate": "2026-10-28"
   },
   {
    "team": "DEN",
@@ -943,17 +912,6 @@
   },
   {
    "team": "DET",
-   "player": "Ausar Thompson",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "day-to-day",
-   "comment": "Thompson (ankle) is probable for Wednesday against the Hornets.",
-   "updated": "2026-10-28T16:50Z",
-   "returnDate": null
-  },
-  {
-   "team": "DET",
    "player": "Jalen Duren",
    "pos": "C",
    "status": "Out",
@@ -962,6 +920,17 @@
    "comment": "Duren will be re-evaluated in two weeks due to a right hamstring strain, Eric Vincent of ClutchPoints.com reports.",
    "updated": "2026-10-25T14:56Z",
    "returnDate": "2026-11-09"
+  },
+  {
+   "team": "GSW",
+   "player": "Gui Santos",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Left Knee Tendinitis",
+   "comment": "Santos has been ruled out for Wednesday's game against the Timberwolves due to left knee tendinitis.",
+   "updated": "2026-10-28T22:58Z",
+   "returnDate": "2026-10-30"
   },
   {
    "team": "GSW",
@@ -1028,17 +997,6 @@
    "comment": "Head coach Ime Udoka said Monday that Adams could be out \"a week or two\" due to his right soleus strain, Lachard Binkley of SI.com reports.",
    "updated": "2026-10-26T22:52Z",
    "returnDate": "2026-11-02"
-  },
-  {
-   "team": "IND",
-   "player": "Obi Toppin",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Left Hand Sprain",
-   "comment": "Toppin (hand) is active for Wednesday's game against Philadelphia.",
-   "updated": "2026-10-28T22:04Z",
-   "returnDate": "2026-10-28"
   },
   {
    "team": "IND",
@@ -358852,31 +358810,31 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-28T23:00:53Z",
+   "fetchedAt": "2026-10-28T23:50:28Z",
    "ok": true,
    "count": 12
   },
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-28T23:00:53Z",
+   "fetchedAt": "2026-10-28T23:50:29Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-28T23:00:54Z",
+   "fetchedAt": "2026-10-28T23:50:29Z",
    "ok": true,
-   "count": 91
+   "count": 89
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-28T23:07:24Z",
+   "fetchedAt": "2026-10-28T23:57:47Z",
    "ok": true,
    "count": 394,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-28T23:07:38Z",
+   "fetchedAt": "2026-10-28T23:58:00Z",
    "ok": true
   },
   "odds": {
