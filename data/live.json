@@ -4,7 +4,7 @@
   "mode": "full",
   "errors": [],
   "season": 2027,
-  "writtenAt": "2026-10-28T22:37:46Z"
+  "writtenAt": "2026-10-28T23:07:38Z"
  },
  "games": [
   {
@@ -19,7 +19,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "ATL -2.5",
-    "overUnder": 242.5,
+    "overUnder": 243.5,
     "provider": "DraftKings"
    }
   },
@@ -130,7 +130,7 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "MIN -3.5",
+    "details": "MIN -4.5",
     "overUnder": 227.5,
     "provider": "DraftKings"
    }
@@ -778,25 +778,25 @@
   },
   {
    "team": "CHI",
+   "player": "Tobe Awaka",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Ankle",
+   "comment": "Awaka (ankle) is out for Wednesday's game against the Knicks, Joel Lorenzi of The Athletic reports.",
+   "updated": "2026-10-28T22:24Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "CHI",
    "player": "Patrick Williams",
    "pos": "F",
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Right Groin Soreness",
-   "comment": "Williams (groin) is questionable for Wednesday's game against the Knicks.",
-   "updated": "2026-10-28T22:19Z",
-   "returnDate": "2026-10-28"
-  },
-  {
-   "team": "CHI",
-   "player": "Tobe Awaka",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Ankle",
-   "comment": "Awaka (ankle) is questionable for Wednesday's game against the Knicks.",
-   "updated": "2026-10-27T21:19Z",
-   "returnDate": "2026-10-28"
+   "comment": "Williams (adductor) won't play in Wednesday's game against the Knicks, Joel Lorenzi of The Athletic reports.",
+   "updated": "2026-10-28T22:20Z",
+   "returnDate": "2026-10-30"
   },
   {
    "team": "CHI",
@@ -947,10 +947,10 @@
    "pos": "G",
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
-   "detail": "Not Specified Ankle",
+   "detail": "day-to-day",
    "comment": "Thompson (ankle) is probable for Wednesday against the Hornets.",
    "updated": "2026-10-28T16:50Z",
-   "returnDate": "2026-10-28"
+   "returnDate": null
   },
   {
    "team": "DET",
@@ -962,17 +962,6 @@
    "comment": "Duren will be re-evaluated in two weeks due to a right hamstring strain, Eric Vincent of ClutchPoints.com reports.",
    "updated": "2026-10-25T14:56Z",
    "returnDate": "2026-11-09"
-  },
-  {
-   "team": "GSW",
-   "player": "Yaxel Lendeborg",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Foot",
-   "comment": "Lendeborg (foot) is trending toward playing Wednesday against the Timberwolves, Anthony Slater of ESPN.com reports.",
-   "updated": "2026-10-28T21:55Z",
-   "returnDate": "2026-10-28"
   },
   {
    "team": "GSW",
@@ -1644,6 +1633,17 @@
    "comment": "Nurkic will miss at least the next four weeks due to a partial plantar plate tear of second toe in right foot, Chris Haynes of NBA TV reports.",
    "updated": "2026-10-07T23:07Z",
    "returnDate": "2026-11-04"
+  },
+  {
+   "team": "WAS",
+   "player": "Tre Johnson",
+   "pos": "G",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Achilles Soreness",
+   "comment": "Johnson has been ruled out for Wednesday's game against the Cavaliers due to right Achilles soreness.",
+   "updated": "2026-10-28T22:28Z",
+   "returnDate": "2026-10-30"
   },
   {
    "team": "WAS",
@@ -358852,31 +358852,31 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-28T22:31:04Z",
+   "fetchedAt": "2026-10-28T23:00:53Z",
    "ok": true,
    "count": 12
   },
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-28T22:31:05Z",
+   "fetchedAt": "2026-10-28T23:00:53Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-28T22:31:05Z",
+   "fetchedAt": "2026-10-28T23:00:54Z",
    "ok": true,
    "count": 91
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-28T22:37:33Z",
+   "fetchedAt": "2026-10-28T23:07:24Z",
    "ok": true,
    "count": 394,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-28T22:37:46Z",
+   "fetchedAt": "2026-10-28T23:07:38Z",
    "ok": true
   },
   "odds": {
