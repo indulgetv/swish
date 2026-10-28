@@ -60,6 +60,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .crumb span{color:var(--faint);font-weight:500;margin:0 6px}
 .sample-pill{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber-line);padding:5px 10px;border-radius:99px}
 .sample-pill i{width:6px;height:6px;border-radius:50%;background:#e08a0b}
+.sample-pill.live-pill{color:#1f8a4c;background:rgba(31,138,76,.09);border-color:rgba(31,138,76,.28)}
+.sample-pill.live-pill i{background:#1f8a4c;box-shadow:0 0 0 3px rgba(31,138,76,.18)}
+.notice.live{border-color:rgba(31,138,76,.28);background:rgba(31,138,76,.06)}
+.notice.live b{color:#1f8a4c}
+.pform{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:6px}
+.pform label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600;color:var(--muted)}
+.pform input{font:inherit;font-size:15px;font-variant-numeric:tabular-nums;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);min-width:0}
+.pform input:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+.pform-act{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.pform-msg{font-size:12.5px;color:var(--red);min-height:1em}
+.cell.noline{border-style:dashed;opacity:.92}
+.cell.noline b{color:var(--faint);font-size:12px;font-weight:600}
+@media (max-width:520px){.pform{grid-template-columns:1fr 1fr}}
 .top-right{margin-left:auto}
 .seg{display:inline-flex;background:var(--sunk);border:1px solid var(--line);border-radius:9px;padding:3px}
 .seg button{padding:5px 11px;border-radius:6px;font-size:12px;font-weight:600;color:var(--muted)}
@@ -1308,18 +1321,18 @@ html.calm .hero-home:hover .ballsketch *{animation:none!important;transform:none
       <button data-nav="results"><svg viewBox="0 0 24 24"><path d="M4 19V10M10 19V5M16 19v-6M22 19H2"/></svg>Results</button>
     </nav>
     <div class="side-sec"><div class="side-lbl">Tonight</div><div id="sideGames"></div></div>
-    <div class="side-sec stand"><div class="st-h"><span class="side-lbl">Standings</span><div class="st-tabs" role="tablist" aria-label="Conference"><button role="tab" data-conf="East">East</button><button role="tab" data-conf="West">West</button></div></div><div id="standings"></div><p class="st-note">Sample records · <span class="st-dot"></span> plays tonight</p></div>
+    <div class="side-sec stand"><div class="st-h"><span class="side-lbl">Standings</span><div class="st-tabs" role="tablist" aria-label="Conference"><button role="tab" data-conf="East">East</button><button role="tab" data-conf="West">West</button></div></div><div id="standings"></div><p class="st-note"><span id="stSrc">Sample records</span> · <span class="st-dot"></span> plays tonight</p></div>
     <div class="side-sec prefs"><div class="side-lbl">Display</div>
       <button class="tgl" role="switch" aria-checked="false" data-pref="large"><span class="track"><span class="knob"></span></span>Larger text</button>
       <button class="tgl" role="switch" aria-checked="false" data-pref="dark"><span class="track"><span class="knob"></span></span>Dark mode</button>
       <button class="tgl" role="switch" aria-checked="false" data-pref="calm"><span class="track"><span class="knob"></span></span>Reduce motion</button>
     </div>
-    <div class="side-foot"><b>Stage 1 prototype.</b> All figures are sample data. Projections come from a simple placeholder model and are not predictions of real games.</div>
+    <div class="side-foot" id="sideFoot"><b>Stage 1 prototype.</b> All figures are sample data. Projections come from a simple placeholder model and are not predictions of real games.</div>
   </aside>
   <div class="main">
     <div class="top">
       <div class="crumb" id="crumb"></div>
-      <span class="sample-pill"><i></i>Sample data — not live</span>
+      <span class="sample-pill" id="srcPill"><i></i>Sample data — not live</span>
       <div class="top-right"><button class="themebtn" role="switch" aria-checked="false" data-pref="dark" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button class="helpbtn top" data-help="1"><span>?</span>How it works</button><div class="seg" id="oddsSeg"><button data-odds="dec" aria-label="Decimal odds">Decimal</button><button data-odds="am" aria-label="American odds">American</button></div></div>
     </div>
     <main class="page" id="page" tabindex="-1"></main>
@@ -1327,6 +1340,8 @@ html.calm .hero-home:hover .ballsketch *{animation:none!important;transform:none
 </div>
 <div class="scrim" id="scrim" data-close="1"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Details" aria-hidden="true" tabindex="-1"></aside>
+<!-- Live data written by the GitHub automation (scripts/update.py). If it's missing, SWISH falls back to the sample slate. -->
+<script src="data/live.js"></script>
 
 <script>
 /* =================================================================
@@ -1447,6 +1462,88 @@ function normCdf(x){
 }
 
 /* =================================================================
+   3b. BROWSER STORAGE + LIVE DATA
+   data/live.js (written by the GitHub automation) sets window.SWISH_LIVE.
+   When it is present, fresh and has games, SWISH switches from the
+   sample slate to real data. Nothing sample is mixed into live mode.
+   ================================================================= */
+const store = {
+  get(k, d){ try { const v = localStorage.getItem("swish." + k); return v === null ? d : v; } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem("swish." + k, v); } catch(e){} }
+};
+const LIVE = window.SWISH_LIVE || null;
+const ET_TODAY = new Date().toLocaleDateString("en-CA", {timeZone: "America/New_York"});
+const LIVE_AGE_H = LIVE && LIVE.meta && LIVE.meta.writtenAt ? (Date.now() - new Date(LIVE.meta.writtenAt)) / 3.6e6 : Infinity;
+const IS_LIVE = !!(LIVE && Array.isArray(LIVE.games) && LIVE.games.length && LIVE_AGE_H < 36);
+const LIVE_NOTE = !LIVE ? "No live data file found — showing the sample slate."
+  : !(LIVE.games || []).length ? "No NBA games on the latest live slate — showing the sample slate."
+  : LIVE_AGE_H >= 36 ? "Live data is more than 36 hours old — showing the sample slate until it refreshes." : "";
+const agoTxt = iso => { if (!iso) return "unknown"; const m = Math.round((Date.now() - new Date(iso)) / 60000); return m < 60 ? `${m} min ago` : m < 2880 ? `${Math.round(m/60)}h ago` : `${Math.round(m/1440)} days ago`; };
+const normName = n => (n || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b\.?/g, "").replace(/[^a-z]/g, "");
+const BOOK_NAMES = {fanduel:"FanDuel", draftkings:"DraftKings", betmgm:"BetMGM", skybet:"Sky Bet", paddypower:"Paddy Power", williamhill:"William Hill"};
+const bookName = b => String(b || "").split(/,\s*/).map(x => BOOK_NAMES[x] || x).join(", ");
+
+/* ---- your own bookmaker prices (bet365 etc.), saved in this browser for the slate ---- */
+const MYLINES_KEY = "lines." + (IS_LIVE ? LIVE.meta.slateDate : "sample");
+function loadMyLines(){ try { return JSON.parse(store.get(MYLINES_KEY, "{}")) || {}; } catch(e){ return {}; } }
+function saveMyLines(v){ store.set(MYLINES_KEY, JSON.stringify(v)); }
+const toAmerican = dec => dec >= 2 ? Math.round((dec - 1) * 100) : Math.round(-100 / (dec - 1));
+const parsePrice = (txt, fmt) => {           // accepts decimal (1.91), American (-110) or fractional (10/11)
+  const t = String(txt).trim(); if (!t) return null;
+  if (/^\d+\s*\/\s*\d+$/.test(t)) { const [a, b] = t.split("/").map(Number); return a && b ? toAmerican(1 + a / b) : null; }
+  const v = Number(t.replace(/^\+/, "")); if (!isFinite(v)) return null;
+  if (Math.abs(v) >= 100) return Math.round(v);
+  if (fmt === "am") return null;
+  return v > 1.01 && v < 100 ? toAmerican(v) : null;
+};
+
+if (IS_LIVE){
+  /* teams: every team ESPN gave us (all 30 via standings) */
+  const T = {};
+  Object.entries(LIVE.teams || {}).forEach(([ab, t]) => { T[ab] = {city: t.city || "", name: t.name || ab, color: t.color && t.color.length > 3 ? t.color : "#777", record: t.record, displayName: t.displayName}; });
+  /* standings → same "ABBR W-L" shape the sidebar already reads */
+  const ST = {};
+  ["East","West"].forEach(c => { ST[c] = ((LIVE.standings || {})[c] || []).map(r => `${r.team} ${r.w}-${r.l}`); });
+  const stRow = ab => { for (const c of ["East","West"]) { const i = ((LIVE.standings || {})[c] || []).findIndex(r => r.team === ab); if (i >= 0) return {...LIVE.standings[c][i], conf:c, rank:i+1}; } return null; };
+
+  /* UK game lines → median total + spread per game */
+  const glines = LIVE.gameLines || [];
+  const med = a => { const s = [...a].sort((x,y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : null; };
+  const injOut = ab => (LIVE.injuries || []).filter(i => i.team === ab && i.status === "Out").map(i => i.player);
+
+  const games = (LIVE.games || []).map(g => {
+    const tot = med(glines.filter(l => l.game === g.id && l.market === "totals" && /over/i.test(l.name)).map(l => l.point));
+    const hs = glines.filter(l => l.game === g.id && l.market === "spreads");
+    const homeName = `${(T[g.home]||{}).city} ${(T[g.home]||{}).name}`.trim();
+    const hsp = med(hs.filter(l => normName(l.name) === normName(homeName)).map(l => l.point));
+    const spread = hsp != null ? `${g.home} ${hsp > 0 ? "+" : "−"}${Math.abs(hsp)}` : (g.espnLine && g.espnLine.details) || "—";
+    const total = tot != null ? tot : (g.espnLine && g.espnLine.overUnder) || "—";
+    const lineSource = tot != null ? "UK books" : g.espnLine ? (g.espnLine.provider || "ESPN") : null;
+    const h2h = (LIVE.h2h || {})[g.id] || [];
+    const notes = [];
+    [g.away, g.home].forEach(ab => { const o = injOut(ab); if (o.length) notes.push(`${T[ab] ? T[ab].name : ab} are without ${o.slice(0,4).join(", ")}${o.length > 4 ? ` and ${o.length - 4} more` : ""}.`); });
+    const sa = stRow(g.away), sh = stRow(g.home);
+    if (sa && sh) notes.push(`${T[g.away].name} are ${sa.w}-${sa.l} (${sa.conf} #${sa.rank}); ${T[g.home].name} are ${sh.w}-${sh.l} (${sh.conf} #${sh.rank}).`);
+    if (h2h.length) { const w = h2h.filter(m => (m.hp > m.ap ? m.home : m.away) === g.home).length; notes.push(`${T[g.home].name} have won ${w} of the last ${h2h.length} meetings.`); }
+    const status = g.state === "pre" ? "Scheduled" : g.state === "in" ? `Live · ${g.status || ""}` : (g.status || "Final");
+    return {id: g.id, away: g.away, home: g.home, tipoff: g.tipoff, status, state: g.state, lineups: g.state === "pre" ? "Unconfirmed" : "Set",
+            total, spread, lineSource, h2h, notes: notes.length ? notes : ["No notable injuries or trends flagged yet."],
+            score: g.state !== "pre" ? `${g.awayScore ?? "–"}–${g.homeScore ?? "–"}` : null};
+  });
+
+  const onSlate = new Set(games.flatMap(g => [g.away, g.home]));
+  const inj = (LIVE.injuries || []).filter(i => onSlate.has(i.team)).map(i => ({team: i.team, player: i.player, pos: i.pos || "", status: i.status || "Unknown",
+    detail: i.detail || i.comment || i.rawStatus || "", updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
+
+  Object.assign(DATA, {
+    meta: {source: "LIVE", isLive: true, slateLabel: LIVE.meta.slateDate === ET_TODAY ? "Tonight's slate" : `Slate of ${new Date(LIVE.meta.slateDate + "T12:00:00").toLocaleDateString([], {day:"numeric", month:"short"})}`,
+           generatedAt: LIVE.meta.writtenAt, staleAfterMinutes: 14 * 60},
+    teams: T, standings: ST, games, injuries: inj, rosters: {}, staleOdds: []
+  });
+  DATA.liveTeamRow = stRow;
+}
+
+/* =================================================================
    4. BUILD PLAYERS + PROPS
    ================================================================= */
 const injuryOf = name => DATA.injuries.find(i => i.player === name);
@@ -1543,20 +1640,90 @@ function analyse(p){
   if (ageMin > DATA.meta.staleAfterMinutes) flags.push(`Odds are ${Math.round(ageMin/60)}h old — stale price`);
 
   const lean = edge < 0.01 ? "none" : side;
-  const value = !flags.length && edge >= MIN_EDGE && ev > 0;
+  // "Strong value" is only ever judged against a price you can actually bet (yours, or the sample book) — never a US reference line
+  const value = !flags.length && edge >= MIN_EDGE && ev > 0 && p.source !== "ref";
   return {...p, rawO, rawU, vig, mktO, mktU, modelO, modelU, side, lean, modelP, mktP, price, edge, ev,
           fairOdds: probToAmerican(modelP), hits, h2hHits, cv, variability, flags, value};
 }
 
-const ALL = [];
-PLAYERS.forEach(pl => {
-  if (pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS) return;
-  const markets = pl.projMin >= 22 ? MARKETS.filter(m => m !== "3PM" || pl.avgs["3PM"] >= 0.8) : ["PTS","REB","PRA"];
-  markets.forEach(m => ALL.push(analyse(buildProp(pl, m))));
-});
-const PROP_BY_ID = new Map(ALL.map(p => [p.id, p]));
+/* ---- live: players + props from real ESPN game logs ---- */
+function stdev(a){ if (a.length < 2) return 0; const m = avg(a); return Math.sqrt(a.reduce((s,v) => s + (v - m) ** 2, 0) / (a.length - 1)); }
+function buildLivePlayers(){
+  const out = [];
+  (LIVE.players || []).forEach(p => {
+    const gm = GAME_OF_TEAM[p.team]; if (!gm) return;
+    const played = arr => (arr || []).filter(g => (g.min || 0) > 0);
+    const cur = played(p.season), last = played(p.lastSeason);
+    const recent = [...cur, ...last];                                  // newest first
+    if (!recent.length) return;
+    const r10 = recent.slice(0, 10);
+    const mins = Math.round(avg(r10.map(g => g.min || 0)));
+    const wCur = Math.min(1, cur.length / 10);                         // trust this season more as it fills up
+    const seasonAvg = m => { const a = cur.length ? avg(cur.map(g => g[m])) : 0, b = last.length ? avg(last.map(g => g[m])) : a; return wCur * a + (1 - wCur) * b; };
+    const avgs = {}; MARKETS.forEach(m => avgs[m] = seasonAvg(m));
+    out.push({name: p.name, pos: p.pos || "", team: p.team, min: mins, projMin: mins, avgs, boost: null, scenario: null,
+              status: statusOf(p.name), log: r10.map(g => ({...g, min: Math.round(g.min)})), recent, curGames: cur.length, ...gm});
+  });
+  return out;
+}
+if (IS_LIVE) PLAYERS.push(...buildLivePlayers());
+
+function buildLiveProp(pl, market, myLines){
+  const mine = myLines[`${pl.name}|${market}`];
+  const refs = (LIVE.props || []).filter(x => x.key === normName(pl.name) && x.market === market && x.game === pl.g.id);
+  let src = null;
+  if (mine) src = {line: mine.line, over: mine.over, under: mine.under, book: mine.book || "bet365", updated: mine.at, source: "manual"};
+  else if (refs.length){
+    // consensus reference: the most common line across US books, then that line's average price
+    const cnt = {}; refs.forEach(r => cnt[r.line] = (cnt[r.line] || 0) + 1);
+    const line = +Object.entries(cnt).sort((a,b) => b[1] - a[1] || a[0] - b[0])[0][0];
+    const at = refs.filter(r => r.line === line);
+    const am = xs => Math.round(probToAmericanRaw(avg(xs.map(americanToProb))));
+    src = {line, over: am(at.map(r => r.over)), under: am(at.map(r => r.under)), book: at.map(r => r.book).join(", "),
+           updated: at.map(r => r.updated).sort().pop() || ((LIVE.sections || {}).odds || {}).fetchedAt, source: "ref"};
+  }
+  // ---- projection from real logs: 55% season, 45% last 10, then a small head-to-head blend
+  const recent = pl.recent.map(g => g[market]);
+  const last10 = pl.log.map(g => g[market]);
+  const seasonAvg = pl.avgs[market];
+  const l10 = last10.length ? avg(last10) : seasonAvg;
+  const base = Math.max(0.1, 0.55 * seasonAvg + 0.45 * l10);
+  const h2hGames = pl.recent.filter(g => g.opp === pl.opp).slice(0, 4);
+  const h2h = h2hGames.map(g => g[market]);
+  const n = h2h.length, h2hAvg = n ? avg(h2h) : base;
+  const w = n ? H2H_MAX_WEIGHT * n / (n + H2H_K) : 0;
+  const projection = base * (1 - w) + h2hAvg * w;
+  const sd = Math.max(SD_FLOOR[market], 0.5 * stdev(recent.slice(0, 20)) + 0.5 * CV[market] * projection);
+  const p = {id: hashStr(pl.name + market) % 1e9, player: pl.name, team: pl.team, opp: pl.opp, game: pl.g.id, pos: pl.pos, market,
+             base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection - base, role: null, projection, sd, last10,
+             minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10};
+  if (!src) return {...p, noLine: true};
+  return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt};
+}
+
+/* ALL = props with a line (analysed) · NOLINE = live props still waiting for a price.
+   Rebuilt in place when you save or clear your own bookmaker price. */
+const ALL = [], NOLINE = [], clean = [];
+const PROP_BY_ID = new Map();
+function buildAllProps(){
+  ALL.length = 0; NOLINE.length = 0; clean.length = 0; PROP_BY_ID.clear();
+  const myLines = loadMyLines();
+  PLAYERS.forEach(pl => {
+    if (pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS) return;
+    const markets = pl.projMin >= 22 ? MARKETS.filter(m => m !== "3PM" || pl.avgs["3PM"] >= 0.8) : ["PTS","REB","PRA"];
+    markets.forEach(m => {
+      const p = IS_LIVE ? buildLiveProp(pl, m, myLines) : {...buildProp(pl, m), source: "sample"};
+      if (p.noLine) NOLINE.push(p); else ALL.push(analyse(p));
+    });
+  });
+  [...ALL, ...NOLINE].forEach(p => PROP_BY_ID.set(p.id, p));
+  clean.push(...ALL.filter(p => !p.flags.length));
+}
+buildAllProps();
 const PLAYER_BY_NAME = new Map(PLAYERS.map(pl => [pl.name, pl]));
 const propOf = (name, m) => ALL.find(p => p.player === name && p.market === m);
+const noLineOf = (name, m) => NOLINE.find(p => p.player === name && p.market === m);
+const lineSrc = p => p.source === "manual" ? `Your price · ${p.book}` : p.source === "ref" ? `US reference · ${bookName(p.book)}` : "Bookmaker (sample)";
 const GAMES = [...DATA.games].sort((a,b) => new Date(a.tipoff) - new Date(b.tipoff));
 const gameById = id => DATA.games.find(g => g.id === id);
 const injuriesFor = t => DATA.injuries.filter(i => i.team === t);
@@ -1566,10 +1733,6 @@ const significant = i => i.status !== "Probable";
 /* =================================================================
    5. STATE
    ================================================================= */
-const store = {
-  get(k, d){ try { const v = localStorage.getItem("swish." + k); return v === null ? d : v; } catch(e){ return d; } },
-  set(k, v){ try { localStorage.setItem("swish." + k, v); } catch(e){} }
-};
 const VIEWS = ["dashboard","props","games","injuries","results"];
 const PREFS = { large: store.get("pref.large","0") === "1", calm: store.get("pref.calm","0") === "1",
   dark: store.get("pref.dark", matchMedia("(prefers-color-scheme: dark)").matches ? "1" : "0") === "1" };
@@ -1639,6 +1802,7 @@ const money = x => (x >= 0 ? "+" : "−") + "£" + Math.abs(x).toFixed(2);
 function verdict(p){
   if (p.flags.length) return {k:"check", label:"Check status", meaning:"Ignore until the injury or data issue is resolved"};
   if (p.value)        return {k:"strong", label:"Strong value", meaning:"Big enough gap to count as value"};
+  if (p.source === "ref" && p.edge >= MIN_EDGE && p.ev > 0) return {k:"some", label:"Check your price", meaning:"Big gap against a US reference line — enter your bet365 price to confirm"};
   if (p.edge >= 0.03) return {k:"some", label:"Some value", meaning:"Worth a look, but below the value bar"};
   if (p.edge >= 0.01) return {k:"slight", label:"Slight edge", meaning:"Too small to rely on"};
   return {k:"none", label:"No edge", meaning:"SWISH and the bookmaker roughly agree"};
@@ -1651,8 +1815,9 @@ function plainEnglish(p){
   let t = `SWISH projects ${esc(first)} for <b>${p.projection.toFixed(1)} ${mk}</b> against a line of ${p.line}, so it leans <b>${p.side}</b>. `
         + `It thinks ${p.side} ${p.line} happens about <b>${inTen(p.modelP)} times in 10</b> (${pct(p.modelP,0)}). `
         + `The bookmaker's price suggests ${pct(p.mktP,0)} — about ${inTen(p.mktP)} in 10. `
-        + `The difference, <b>${pts(p.edge)}</b>, is the edge: ${v.k === "strong" ? "big enough to count as value." : v.k === "some" ? "positive, but not big enough to count as strong value." : "small, so don't read much into it."} `
+        + `The difference, <b>${pts(p.edge)}</b>, is the edge: ${v.k === "strong" ? "big enough to count as value." : v.label === "Check your price" ? "big, but only against a reference price." : v.k === "some" ? "positive, but not big enough to count as strong value." : "small, so don't read much into it."} `
         + `Remember: even at ${pct(p.modelP,0)} this loses roughly ${10 - inTen(p.modelP)} times in 10.`;
+  if (p.source === "ref") t += ` <b>Note:</b> this line is a US reference price (${esc(bookName(p.book))}), not your bookmaker's. Enter your bet365 line and price below to get a real value verdict.`;
   if (p.flags.length) t += ` <b>Treat with caution</b> — ${esc(lc1(p.flags[0]))}.`;
   return t;
 }
@@ -1664,7 +1829,6 @@ const leanCol = l => l === "over" ? "var(--over)" : l === "under" ? "var(--under
 /* =================================================================
    7. PICK LISTS (shared by dashboard + best picks)
    ================================================================= */
-const clean = ALL.filter(p => !p.flags.length);
 const PICK_TABS = {
   best:  {label:"Best picks", desc:`Props where SWISH's chance beats the bookmaker's by at least ${(MIN_EDGE*100).toFixed(0)} points, with no injury or data issues. Ranked by average return.`,
           list: () => ALL.filter(p => p.value).sort((a,b) => b.ev - a.ev)},
@@ -1701,7 +1865,7 @@ const TIPS = [
   "Even a 60% chance loses roughly 4 times in 10. Size stakes for losing runs.",
   "Set a budget before you start and stick to it — never chase losses.",
   "Combining legs in a parlay multiplies the bookmaker's margin. Correlated legs aren't independent.",
-  "Everything on this page is sample data — no real odds or results are shown yet."
+  IS_LIVE ? "US prop lines are a reference only. \"Strong value\" appears only once you enter your own bet365 price." : "Everything on this page is sample data — no real odds or results are shown yet."
 ];
 const I = {
   clock:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
@@ -1727,7 +1891,7 @@ function betChecks(){
 function viewDashboard(){
   const today = new Date();
   const valueN = ALL.filter(p => p.value).length;
-  const avgVig = ALL.reduce((a,p) => a + p.vig, 0) / ALL.length;
+  const avgVig = ALL.length ? ALL.reduce((a,p) => a + p.vig, 0) / ALL.length : null;
   const sig = DATA.injuries.filter(significant);
   const top = PICK_TABS.best.list().slice(0, 6);
   return `
@@ -1736,9 +1900,9 @@ function viewDashboard(){
     <div class="hero-main">
       <div class="eyebrow"><span class="live-dot"></span>${today.toLocaleDateString([], {weekday:"long"})} · ${DATA.meta.slateLabel}</div>
       <h1 class="datehead" aria-label="${today.toLocaleDateString([], {day:"numeric", month:"long", year:"numeric"})}"><span class="dh-day num">${today.getDate()}</span><span class="dh-rest"><span class="dh-month">${today.toLocaleDateString([], {month:"long"})}</span><span class="dh-year num">${today.getFullYear()}</span></span></h1>
-      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length} props · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
+      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.length} props · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
       <div class="looks" aria-label="Tonight's top looks">
-        <span class="lk-lbl">Top look per game</span>
+        ${ALL.some(x => !x.flags.length) ? `<span class="lk-lbl">Top look per game</span>` : ""}
         <div class="lk-row">${GAMES.map((g, k) => { const p = ALL.filter(x => x.game === g.id && !x.flags.length).sort((a,b) => b.ev - a.ev)[0]; if (!p) return "";
           return `<button class="lk" data-prop="${p.id}" style="--k:${k}"><span class="lk-g">${g.away}<i>@</i>${g.home}</span><span class="lk-p"><b>${esc(p.player.split(" ").slice(-1)[0])}</b> <span class="${p.side==="over"?"o":"u"}">${p.side==="over"?"O":"U"} ${p.line}</span> ${p.market}</span><span class="lk-c num">${pct(p.modelP,0)}</span></button>`; }).join("")}</div>
       </div>
@@ -1752,27 +1916,27 @@ function viewDashboard(){
    </div>
    <div class="tipline" aria-live="polite"><span class="tl-k">Tip</span><span id="tipText" class="tl-t">${TIPS[0]}</span></div>
   </header>
-  <div class="notice"><b>Everything here is sample data.</b> Games, players, injuries, head-to-head results, bookmaker lines and prices are invented to show how SWISH will work. Nothing reflects real fixtures, real odds or a betting recommendation. Snapshot: ${dateFmt(DATA.meta.generatedAt)}, ${timeFmt(DATA.meta.generatedAt)}.</div>
+  ${liveNotice()}
   <div class="overview">
     <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">first tip ${timeFmt(GAMES[0].tipoff)}</div></div>
-    <div class="ov"><div class="eyebrow">Props analysed</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} passed data checks</div></div>
+    <div class="ov"><div class="eyebrow">Props analysed</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} passed data checks${NOLINE.length ? ` · ${NOLINE.length} need a line` : ""}</div></div>
     <div class="ov"><div class="eyebrow">Strong value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH ≥ ${(MIN_EDGE*100).toFixed(0)} pts above bookie</div></div>
     <div class="ov"><div class="eyebrow">Injury concerns</div><div class="v num">${sig.length}</div><div class="s">${sig.filter(i=>i.status==="Out").length} out · ${sig.filter(i=>i.status!=="Out").length} uncertain</div></div>
-    <div class="ov"><div class="eyebrow">Avg bookmaker margin</div><div class="v num">${pct(avgVig)}</div><div class="s">built into the prices</div></div>
+    <div class="ov"><div class="eyebrow">Avg bookmaker margin</div><div class="v num">${avgVig === null ? "—" : pct(avgVig)}</div><div class="s">${avgVig === null ? "no prices yet" : "built into the prices"}</div></div>
   </div>
   <div class="panel" style="margin-bottom:var(--sec)">
     <div class="panel-h"><h2 class="h">Best picks tonight</h2><button class="textbtn" data-nav="props" style="margin-left:auto">See all picks &amp; squads →</button></div>
-    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">No props meet the value rule.</div>`}
+    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">${IS_LIVE ? "No strong value yet. Strong value is only judged against your own price — open any prop and enter your bet365 line and odds." : "No props meet the value rule."}</div>`}
   </div>
   <div class="cols">
     <div class="panel">
       <div class="panel-h"><h2 class="h">Tonight's games</h2><span class="sub">Times in your time zone</span></div>
       ${GAMES.map(g => {
-        const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length;
+        const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
         return `<button class="mrow" data-goto="${g.id}">
           <div class="t num">${timeFmt(g.tipoff)}<small>${esc(g.status)}</small></div>
           <div><div class="ti">${tid(g.away,"sm")}${tname(g.away)}</div><div class="ti">${tid(g.home,"sm")}${tname(g.home)} <small>home</small></div></div>
-          <div class="meta"><b class="num">${ps.length} props${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
+          <div class="meta"><b class="num">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
           <span class="arrow">→</span></button>`;}).join("")}
     </div>
     <div class="panel">
@@ -1826,7 +1990,7 @@ function renderLegend(){
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
        <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <b style="color:var(--red)">L6 ▾</b> next to a name shows their last 6 games</span>`
-    : `<span><b style="color:var(--ink)">Line / Over / Under</b> = bookmaker (sample) · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
+    : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US reference unless you entered your own price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
 function visiblePlayers(teamCode){
@@ -1855,7 +2019,9 @@ function playerSub(pl){
 
 function cell(pl, m){
   const p = propOf(pl.name, m);
-  if (!p || (state.hideFlagged && p.flags.length)) return `<td><span class="dash">—</span></td>`;
+  if (!p) { const nl = noLineOf(pl.name, m);
+    return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no line yet, SWISH projection ${nl.projection.toFixed(1)}. Enter your line" title="No line yet · SWISH projects ${nl.projection.toFixed(1)} · click to enter your bet365 line"><b>+ line</b><small class="num">${nl.projection.toFixed(1)}</small></button></td>` : `<td><span class="dash">—</span></td>`; }
+  if (state.hideFlagged && p.flags.length) return `<td><span class="dash">—</span></td>`;
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
   return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
     <b class="num">${p.line}</b><small class="${p.flags.length?"":p.lean} num">${p.flags.length ? "⚠ " : ""}${p.projection.toFixed(1)}${arrow}</small></button></td>`;
@@ -1886,7 +2052,7 @@ function formTable(pl, focus){
     <div class="fcards">${cards}</div>
     <div class="fsec"><span>Game log</span><em>newest first · green = cleared tonight's line</em></div>
     <div class="ftable"><table class="form"><thead>${head}</thead><tbody>${rows}</tbody></table></div>
-    <p class="formnote">Sample game logs — real box scores appear once live stats are connected.</p>
+    <p class="formnote">${IS_LIVE ? `Real box scores from ESPN game logs · updated ${agoTxt(((LIVE.sections || {}).players || {}).fetchedAt)}.` : "Sample game logs — real box scores appear once live stats are connected."}</p>
   </div>`;
 }
 
@@ -1953,7 +2119,7 @@ function gameSection(g){
         <span class="tag amber">Lineups ${esc(g.lineups.toLowerCase())}</span>
         ${inj.length ? `<span class="tag red">${inj.map(i => `${esc(i.player.split(" ")[1])} ${esc(i.status.toLowerCase())}`).join(" · ")}</span>` : ""}
       </div>
-      <div class="gcount"><b class="num">${ps.length}</b> props${v ? `<span class="v num">${v} strong value</span>` : ""}</div>
+      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}</div>
       <span class="gswipe" aria-hidden="true"></span>
       <span class="chev">${ICON_CHEV}</span>
     </button>
@@ -1972,8 +2138,94 @@ function renderSections(){
       <button class="btn" data-clear="1">Clear search &amp; filters</button></div>`;
 }
 
+/* ---------------- Live helpers: notice, your-price form, no-line drawer ---------------- */
+function liveNotice(){
+  if (!IS_LIVE) return `<div class="notice"><b>Everything here is sample data.</b> ${LIVE_NOTE ? esc(LIVE_NOTE) + " " : ""}Games, players, injuries, head-to-head results, bookmaker lines and prices are invented to show how SWISH will work. Nothing reflects real fixtures, real odds or a betting recommendation. Snapshot: ${dateFmt(DATA.meta.generatedAt)}, ${timeFmt(DATA.meta.generatedAt)}.</div>`;
+  const sec = LIVE.sections || {}, odds = sec.odds;
+  const refN = ALL.filter(p => p.source === "ref").length, mineN = ALL.filter(p => p.source === "manual").length;
+  const oddsTxt = odds && odds.ok ? `US reference lines for ${refN} props (${odds.eventsPriced || 0} games priced, updated ${agoTxt(odds.fetchedAt)})`
+    : "No prop lines yet today — the odds run is once a day (about 16:40 UK time)";
+  const errs = (LIVE.meta.errors || []).length;
+  return `<div class="notice live"><b>Live data.</b> Schedule, injuries and game logs from ESPN (updated ${agoTxt(DATA.meta.generatedAt)}). ${oddsTxt}.
+    ${mineN ? `You've entered your own price on ${mineN} prop${mineN === 1 ? "" : "s"}. ` : ""}"Strong value" is only judged against your own bet365 price — open any prop to add it.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>`;
+}
+
+function priceForm(p){
+  const mine = loadMyLines()[`${p.player}|${p.market}`];
+  const fmt = state.odds === "dec" ? "dec" : "am";
+  const show = am => am == null ? "" : fmt === "dec" ? americanToDecimal(am).toFixed(2) : (am > 0 ? "+" : "") + am;
+  const v = mine || {};
+  return `<div class="dsec"><div class="dt">Your bookmaker price</div>
+    <p class="dnote" style="margin-top:0">Type the line and both prices exactly as your bookmaker shows them (decimal like 1.91, fractional like 10/11, or American like −110). SWISH then judges value against <b>your</b> price. Saved in this browser for today's slate only.</p>
+    <form class="pform" data-priceform="${p.id}" autocomplete="off">
+      <label>Line<input name="line" inputmode="decimal" placeholder="${p.line != null ? p.line : "e.g. 22.5"}" value="${v.line != null ? v.line : ""}"></label>
+      <label>Over price<input name="over" inputmode="decimal" placeholder="${fmt === "dec" ? "e.g. 1.91" : "e.g. -110"}" value="${show(v.over)}"></label>
+      <label>Under price<input name="under" inputmode="decimal" placeholder="${fmt === "dec" ? "e.g. 1.91" : "e.g. -110"}" value="${show(v.under)}"></label>
+    </form>
+    <div class="pform-act"><button class="btn red" data-saveprice="${p.id}">${mine ? "Update my price" : "Save my price"}</button>${mine ? `<button class="textbtn" data-clearprice="${p.id}">Remove my price</button>` : ""}<span class="pform-msg" id="pformMsg" role="status"></span></div>
+  </div>`;
+}
+
+function noLineDrawerHTML(p){
+  const g = gameById(p.game);
+  const max = Math.max(...p.last10, 1) * 1.12;
+  const inj = injuryOf(p.player);
+  return `
+  <div class="dr-h"><span class="av">${initials(p.player)}</span><div><b>${esc(p.player)}</b><small>${tname(p.team)} · ${p.pos} · vs ${p.opp} · ${timeFmt(g.tipoff)}</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
+  <div class="dr-b">
+    <div class="dr-mk"><b>${MARKET_NAMES[p.market]}</b><span class="vd none">No line yet</span>${p.status!=="Active" ? stPill(p.status) : ""}</div>
+    <div class="bignums">
+      <div><span>Line</span><b class="num">—</b><small>none available</small></div>
+      <div><span>Projection</span><b class="num proj">${p.projection.toFixed(1)}</b><small>SWISH model</small></div>
+      <div><span>Spread</span><b class="num">±${p.sd.toFixed(1)}</b><small>typical miss</small></div>
+    </div>
+    <div class="plain"><div class="plain-h"><span>In plain English</span></div><p>SWISH projects ${esc(p.player.split(" ")[0])} for <b>${p.projection.toFixed(1)} ${MARKET_NAMES[p.market].toLowerCase()}</b>, but there's no bookmaker line for this prop in today's data. Enter your bet365 line and prices below and SWISH will work out its chance, the bookmaker's chance and whether there's value.${inj && (inj.status === "Questionable" || inj.status === "Doubtful") ? ` <b>Treat with caution</b> — listed ${esc(inj.status.toLowerCase())} (${esc(inj.detail.toLowerCase())}).` : ""}</p></div>
+    ${priceForm(p)}
+    <div class="dsec"><div class="dt">How the projection is built</div>
+      <div class="build">
+        <div class="st2"><span>Season average<small>blended with last season while this one is young</small></span><b class="num">${p.seasonAvg.toFixed(1)}</b></div>
+        <div class="st2"><span>Last ${p.last10.length} games<small>recent form</small></span><b class="num">${p.l10.toFixed(1)}</b></div>
+        <div class="st2"><span>Base projection<small>55% season · 45% recent</small></span><b class="num">${p.base.toFixed(1)}</b></div>
+        <div class="st2"><span>Head-to-head vs ${p.opp}<small>${p.n ? `avg ${p.h2hAvg.toFixed(1)} over ${p.n} games · weight ${pct(p.w,1)}` : "no meetings in the last two seasons"}</small></span><b class="num">${sgnNum(p.h2hAdj)}</b></div>
+        <div class="st2 total"><span>SWISH projection</span><b class="num">${p.projection.toFixed(1)}</b></div>
+      </div>
+    </div>
+    <div class="dsec"><div class="dt">Last ${p.last10.length} games</div>
+      <div class="spark">${p.last10.map(v => `<i title="${v}" style="height:${(v/max*100).toFixed(1)}%"></i>`).join("")}</div>
+      <div class="spark-x"><span>${p.last10.length} games ago</span><span></span><span>Latest</span></div>
+    </div>
+    <div class="dsec"><div class="dt">Last 6 games · every stat</div>${formTable(PLAYER_BY_NAME.get(p.player), p.market)}</div>
+  </div>`;
+}
+
+function savePrice(id){
+  const p = PROP_BY_ID.get(id); if (!p) return;
+  const f = document.querySelector(`[data-priceform="${id}"]`), msg = $("pformMsg");
+  const line = Number(String(f.line.value).trim().replace(",", "."));
+  const fmt = state.odds === "dec" ? "dec" : "am";
+  const over = parsePrice(f.over.value.replace(",", "."), fmt), under = parsePrice(f.under.value.replace(",", "."), fmt);
+  if (!f.line.value.trim() || !isFinite(line) || line < 0 || line > 120) { msg.textContent = "Enter the line, e.g. 22.5."; f.line.focus(); return; }
+  if (over === null) { msg.textContent = "Enter the over price, e.g. 1.91 or 10/11."; f.over.focus(); return; }
+  if (under === null) { msg.textContent = "Enter the under price too — SWISH needs both to remove the bookmaker's margin."; f.under.focus(); return; }
+  const margin = americanToProb(over) + americanToProb(under) - 1;
+  if (margin < -0.02 || margin > 0.25) { msg.textContent = "Those two prices don't look like a pair — please check them."; return; }
+  const all = loadMyLines();
+  all[`${p.player}|${p.market}`] = {line, over, under, book: "bet365", at: new Date().toISOString()};
+  saveMyLines(all); refreshAfterPrice(id);
+}
+function clearPrice(id){
+  const p = PROP_BY_ID.get(id); if (!p) return;
+  const all = loadMyLines(); delete all[`${p.player}|${p.market}`]; saveMyLines(all); refreshAfterPrice(id);
+}
+function refreshAfterPrice(id){
+  buildAllProps();
+  render();
+  if (PROP_BY_ID.get(id)) openDrawer(id);
+}
+
 /* ---------------- Drawer (prop detail) ---------------- */
 function drawerHTML(p){
+  if (p.noLine) return noLineDrawerHTML(p);
   const g = gameById(p.game);
   const diff = p.projection - p.line;
   const dCls = Math.abs(diff) < 0.05 ? "flat" : diff > 0 ? "up" : "down";
@@ -1990,7 +2242,7 @@ function drawerHTML(p){
   <div class="dr-b">
     <div class="dr-mk"><b>${MARKET_NAMES[p.market]}</b>${vdPill(p)}${p.status!=="Active" ? stPill(p.status) : ""}</div>
     <div class="bignums">
-      <div><span>Line</span><b class="num">${p.line}</b><small>Bookmaker (sample)</small></div>
+      <div><span>Line</span><b class="num">${p.line}</b><small>${esc(lineSrc(p))}</small></div>
       <div><span>Projection</span><b class="num proj">${p.projection.toFixed(1)}</b><small>SWISH model</small></div>
       <div><span>Difference</span><b class="num diff ${dCls}">${sgnNum(diff)}</b><small>${dCls==="up"?"above line":dCls==="down"?"below line":"on the line"}</small></div>
     </div>
@@ -2022,15 +2274,16 @@ function drawerHTML(p){
       <p class="dnote">Spread ±${p.sd.toFixed(1)} (variability: ${p.variability.toLowerCase()}). Probabilities assume a bell curve around the projection — a rough approximation, especially for low counts like threes.</p>
     </div>
 
-    <div class="dsec"><div class="dt">Previous meetings vs ${team(p.opp).name}</div>
+    ${p.n ? "" : `<div class="dsec"><div class="dt">Previous meetings vs ${team(p.opp).name}</div><p class="dnote">No meetings in the last two seasons, so head-to-head has no weight.</p></div>`}
+    <div class="dsec" ${p.n ? "" : 'hidden'}><div class="dt">Previous meetings vs ${team(p.opp).name}</div>
       <div class="hlist">${p.h2h.map((v,i) => { const hit = p.side==="over" ? v > p.line : v < p.line;
-        return `<div class="hl"><span class="num">${shortDate(g.h2h[i].d)}</span><span class="bar"><i class="${hit?"hit":""}" style="width:${(v/max*100).toFixed(1)}%"></i><span class="ln" style="left:${(p.line/max*100).toFixed(1)}%"></span></span><b class="num">${v}</b></div>`; }).join("")}</div>
+        return `<div class="hl"><span class="num">${shortDate(p.h2hDates ? p.h2hDates[i] : g.h2h[i].d)}</span><span class="bar"><i class="${hit?"hit":""}" style="width:${(v/max*100).toFixed(1)}%"></i><span class="ln" style="left:${(p.line/max*100).toFixed(1)}%"></span></span><b class="num">${v}</b></div>`; }).join("")}</div>
       <p class="dnote">${sideWord(p.side)} ${p.line} in ${p.h2hHits} of ${p.n}. Red tick = tonight's line.</p>
     </div>
 
-    <div class="dsec"><div class="dt">Last 10 games · sample</div>
+    <div class="dsec"><div class="dt">Last ${p.last10.length} games${IS_LIVE ? "" : " · sample"}</div>
       <div class="spark">${bars}<div class="ln" style="bottom:${(p.line/max*100).toFixed(1)}%"></div></div>
-      <div class="spark-x"><span>10 games ago</span><span>${sideWord(p.side)} ${p.line} in <b class="num">${p.hits}/10</b></span><span>Latest</span></div>
+      <div class="spark-x"><span>${p.last10.length} games ago</span><span>${sideWord(p.side)} ${p.line} in <b class="num">${p.hits}/${p.last10.length}</b></span><span>Latest</span></div>
     </div>
 
     <div class="dsec"><div class="dt">Last 6 games · every stat</div>${formTable(PLAYER_BY_NAME.get(p.player), p.market)}</div>
@@ -2040,8 +2293,10 @@ function drawerHTML(p){
       <div class="kv"><span>Bookmaker margin</span><b class="num">${pct(p.vig)}</b></div>
       <div class="kv"><span>Bookmaker's chance (margin removed) · over / under</span><b class="num">${pct(p.mktO)} / ${pct(p.mktU)}</b></div>
       <div class="kv"><span>SWISH's chance · over / under</span><b class="num">${pct(p.modelO)} / ${pct(p.modelU)}</b></div>
+      <div class="kv"><span>Price source</span><b>${esc(lineSrc(p))}</b></div>
       <div class="kv"><span>Odds last updated</span><b class="num">${timeFmt(p.oddsUpdated)}</b></div>
     </div>
+    ${IS_LIVE ? priceForm(p) : ""}
 
     ${others.length ? `<div class="dsec"><div class="dt">Other ${esc(p.player.split(" ")[0])} props</div>
       <div class="others">${others.map(o => `<button class="${o.value?"value":""}" data-prop="${o.id}">${MARKET_NAMES[o.market]} ${o.line} · ${o.lean==="none"?"no edge":sideWord(o.side)+" "+pct(o.modelP,0)}</button>`).join("")}</div></div>` : ""}
@@ -2049,7 +2304,7 @@ function drawerHTML(p){
 }
 
 function helpHTML(){
-  const ex = PICK_TABS.best.list()[0] || ALL[0];
+  const ex = PICK_TABS.best.list()[0] || ALL[0] || null;
   const row = (t, d) => `<div class="gl"><b>${t}</b><p>${d}</p></div>`;
   return `
   <div class="dr-h"><span class="av" style="background:var(--red-soft);color:var(--red)">?</span><div><b>How to read SWISH</b><small>The key numbers, in plain English</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
@@ -2072,16 +2327,16 @@ function helpHTML(){
       <div class="gl"><b><span class="vd none">No edge</span></b><p>SWISH and the bookmaker roughly agree.</p></div>
       <div class="gl"><b><span class="vd check">Check status</span></b><p>An injury, lineup question or stale price. Ignored until it's resolved.</p></div>
     </div>
-    <div class="dsec"><div class="dt">Worked example (sample)</div>
+    ${ex ? `<div class="dsec"><div class="dt">Worked example${IS_LIVE ? "" : " (sample)"}</div>
       <div class="plain"><p>${plainEnglish(ex)}</p><button class="textbtn" data-prop="${ex.id}">Open this prop →</button></div>
-    </div>
+    </div>` : ""}
     <div class="dsec"><div class="dt">Display &amp; keyboard</div>
       <div class="prefrow"><button class="tgl" role="switch" aria-checked="${PREFS.large}" data-pref="large"><span class="track"><span class="knob"></span></span>Larger text</button>
       <button class="tgl" role="switch" aria-checked="${PREFS.dark}" data-pref="dark"><span class="track"><span class="knob"></span></span>Dark mode</button>
       <button class="tgl" role="switch" aria-checked="${PREFS.calm}" data-pref="calm"><span class="track"><span class="knob"></span></span>Reduce motion</button></div>
       <div class="keys"><span><kbd>/</kbd> search players</span><span><kbd>?</kbd> open this guide</span><span><kbd>Esc</kbd> close panel</span><span><kbd>Tab</kbd> move between controls</span></div>
     </div>
-    <div class="pnote warn"><b>Keep in mind:</b> these are estimates from a simple placeholder model using invented data. A 60% chance still loses 4 times in 10, and no label here is a recommendation to bet.</div>
+    <div class="pnote warn"><b>Keep in mind:</b> these are estimates from a simple model${IS_LIVE ? " built on real game logs. US prop lines are a reference only — \"Strong value\" needs your own bet365 price" : " using invented data"}. A 60% chance still loses 4 times in 10, and no label here is a recommendation to bet.</div>
   </div>`;
 }
 let lastFocus = null;
@@ -2116,7 +2371,7 @@ function viewGames(){
   <h1 class="title">Games &amp; Analysis</h1>
   <p class="lede">Head-to-head history, team context and the player trends that feed each projection.</p>
   </header>
-  <div class="notice"><b>Sample data.</b> Head-to-head scores, team ratings and notes are invented for demonstration and are not real results.</div>
+  ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Records and standings from ESPN, head-to-head from completed games this season and last. Totals and spreads: ${GAMES.some(g => g.lineSource === "UK books") ? "UK books where priced, otherwise ESPN's listed line" : "ESPN's listed line (UK lines arrive with the daily odds run)"}.</div>` : `<div class="notice"><b>Sample data.</b> Head-to-head scores, team ratings and notes are invented for demonstration and are not real results.</div>`}
   ${GAMES.map(gameAnalysis).join("")}`;
 }
 
@@ -2124,11 +2379,23 @@ function gameAnalysis(g){
   const A = team(g.away), H = team(g.home);
   const wins = {[g.away]:0,[g.home]:0};
   g.h2h.forEach(m => wins[m.hp > m.ap ? m.home : m.away]++);
-  const avgTotal = avg(g.h2h.map(m => m.hp + m.ap)), overs = g.h2h.filter(m => m.hp + m.ap > g.total).length;
+  const nH = g.h2h.length, numTotal = typeof g.total === "number";
+  const avgTotal = nH ? avg(g.h2h.map(m => m.hp + m.ap)) : 0, overs = numTotal ? g.h2h.filter(m => m.hp + m.ap > g.total).length : 0;
   const leader = wins[g.away] === wins[g.home] ? "Series level" : `${wins[g.away] > wins[g.home] ? A.name : H.name} lead`;
-  const rows = [["Pace",A.pace,H.pace,"high"],["Off. rating",A.ortg,H.ortg,"high"],["Def. rating",A.drtg,H.drtg,"low"],["Last 10",A.last10,H.last10,"rec"]];
-  const better = (a,b,k) => k === "rec" ? [+a.split("-")[0] > +b.split("-")[0], +b.split("-")[0] > +a.split("-")[0]] : k === "high" ? [a > b, b > a] : [a < b, b < a];
-  const trends = ALL.filter(p => p.game === g.id && !p.flags.length).sort((a,b) => Math.abs(b.h2hAvg-b.line)/b.sd - Math.abs(a.h2hAvg-a.line)/a.sd).slice(0, 7);
+  let rows;
+  if (IS_LIVE){
+    const ra = DATA.liveTeamRow(g.away) || {}, rh = DATA.liveTeamRow(g.home) || {};
+    const wp = r => r.w + r.l ? r.w / (r.w + r.l) : 0;
+    const streakN = st => { const m = /^([WL])(\d+)$/.exec(st || ""); return m ? (m[1] === "W" ? +m[2] : -m[2]) : 0; };
+    rows = [["Record", ra.w != null ? `${ra.w}-${ra.l}` : "—", rh.w != null ? `${rh.w}-${rh.l}` : "—", "cmp", wp(ra), wp(rh)],
+            ["Conference rank", ra.rank ? `${ra.conf} #${ra.rank}` : "—", rh.rank ? `${rh.conf} #${rh.rank}` : "—", "cmp", -(ra.rank || 99), -(rh.rank || 99)],
+            ["Games back", ra.gb != null ? String(ra.gb) : "—", rh.gb != null ? String(rh.gb) : "—", "none"],
+            ["Streak", ra.streak || "—", rh.streak || "—", "cmp", streakN(ra.streak), streakN(rh.streak)]];
+  } else {
+    rows = [["Pace",A.pace,H.pace,"high"],["Off. rating",A.ortg,H.ortg,"high"],["Def. rating",A.drtg,H.drtg,"low"],["Last 10",A.last10,H.last10,"rec"]];
+  }
+  const better = (a,b,k,va,vb) => k === "none" || a == null || b == null ? [false,false] : k === "cmp" ? [va > vb, vb > va] : k === "rec" ? [+a.split("-")[0] > +b.split("-")[0], +b.split("-")[0] > +a.split("-")[0]] : k === "high" ? [a > b, b > a] : [a < b, b < a];
+  const trends = ALL.filter(p => p.game === g.id && !p.flags.length && p.n > 0).sort((a,b) => Math.abs(b.h2hAvg-b.line)/b.sd - Math.abs(a.h2hAvg-a.line)/a.sd).slice(0, 7);
   const inj = gameInjuries(g).filter(significant);
   return `
   <section class="ana">
@@ -2145,23 +2412,25 @@ function gameAnalysis(g){
     </div>
     <div class="ana-b">
       <div>
-        <div class="dt">Head-to-head · last ${g.h2h.length} meetings</div>
-        <div class="rec"><b class="num">${g.away} ${wins[g.away]}–${wins[g.home]} ${g.home}</b><span>${leader}</span></div>
+        <div class="dt">Head-to-head · last ${nH} meeting${nH === 1 ? "" : "s"}</div>
+        ${nH ? "" : `<p class="dnote">No meetings between these teams in the last two seasons.</p>`}
+        ${nH ? `<div class="rec"><b class="num">${g.away} ${wins[g.away]}–${wins[g.home]} ${g.home}</b><span>${leader}</span></div>` : ""}
         ${g.h2h.map(m => { const hw = m.hp > m.ap; return `<div class="mtg"><span class="d num">${shortDate(m.d)}</span>
           <span class="sc"><span class="${hw?"l":"w"}">${m.away}</span><b class="num ${hw?"l":"w"}">${m.ap}</b><span class="l">@</span><span class="${hw?"w":"l"}">${m.home}</span><b class="num ${hw?"w":"l"}">${m.hp}</b></span>
           <span class="tot num">Total ${m.hp+m.ap}</span></div>`; }).join("")}
-        <div class="insight">Meetings averaged <b class="num">${avgTotal.toFixed(1)}</b> points vs tonight's total of <b class="num">${g.total}</b>. ${overs} of ${g.h2h.length} went over it.</div>
+        ${nH ? `<div class="insight">Meetings averaged <b class="num">${avgTotal.toFixed(1)}</b> points${numTotal ? ` vs tonight's total of <b class="num">${g.total}</b>${g.lineSource ? ` (${esc(g.lineSource)})` : ""}. ${overs} of ${nH} went over it.` : "."}</div>` : ""}
       </div>
       <div>
-        <div class="dt">Team context · season sample</div>
+        <div class="dt">Team context · ${IS_LIVE ? "this season" : "season sample"}</div>
         <div class="cmp-h"><div>${A.name} ${tid(g.away,"sm")}</div><div></div><div>${tid(g.home,"sm")} ${H.name}</div></div>
-        ${rows.map(([lab,a,b,k]) => { const [ba,bb] = better(a,b,k); return `<div class="cmp"><div class="a"><b class="num ${ba?"better":""}">${a}</b></div><div class="lab">${lab}</div><div><b class="num ${bb?"better":""}">${b}</b></div></div>`; }).join("")}
-        <p class="dnote">Red = stronger figure. Lower defensive rating is better.</p>
+        ${rows.map(([lab,a,b,k,va,vb]) => { const [ba,bb] = better(a,b,k,va,vb); return `<div class="cmp"><div class="a"><b class="num ${ba?"better":""}">${a}</b></div><div class="lab">${lab}</div><div><b class="num ${bb?"better":""}">${b}</b></div></div>`; }).join("")}
+        <p class="dnote">${IS_LIVE ? "Red = stronger figure. Early in the season records are small samples. Pace and efficiency ratings aren't in the free data feed yet." : "Red = stronger figure. Lower defensive rating is better."}</p>
         <div class="dt" style="margin-top:16px">Key notes</div>
         <ul class="notes">${g.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>
       </div>
       <div>
         <div class="dt">Player head-to-head trends</div>
+        ${trends.length ? "" : `<p class="dnote">No priced props with head-to-head history for this game yet.</p>`}
         ${trends.map(p => `<button class="ptrend" data-prop="${p.id}">
           <div><span class="nm">${esc(p.player)}</span><small>${MARKET_NAMES[p.market]} · line ${p.line}</small></div>
           <div class="vs">vs ${p.opp}<br>${p.h2hHits}/${p.n} ${p.h2hAvg > p.line ? "over" : "under"}</div>
@@ -2180,7 +2449,7 @@ function viewInjuries(){
   <h1 class="title">Injuries &amp; Lineups</h1>
   <p class="lede">Who is out or uncertain, and who could absorb their minutes before lineups are confirmed.</p>
   </header>
-  <div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>
+  ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Injury statuses from ESPN's injury feed, updated ${agoTxt(((LIVE.sections || {}).injuries || {}).fetchedAt)}. "Day-to-day" is shown as questionable. Starting lineups are only confirmed shortly before tip-off — fill-in estimates aren't automated yet.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
 }
@@ -2192,13 +2461,13 @@ function injuryCard(g){
       ${list.length ? list.map(i => {
         const affected = ALL.filter(p => p.player === i.player || (p.role && p.role.dependsOn === i.player));
         return `<div class="injc ${stCls(i.status)}">
-          <div class="inj-top"><span class="av">${initials(i.player)}</span><div><div class="nm">${esc(i.player)}</div><small>${esc(PLAYERS.find(x=>x.name===i.player).pos)} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
-          <div class="inj-meta">Updated ${timeFmt(i.updated)} · sample</div>
+          <div class="inj-top"><span class="av">${initials(i.player)}</span><div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
+          <div class="inj-meta">Updated ${i.updated ? `${dateFmt(i.updated)} ${timeFmt(i.updated)}` : "—"}${IS_LIVE ? "" : " · sample"}${i.comment ? ` · ${esc(i.comment)}` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
-            ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player); return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
+            ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
             ${affected.length ? `<div class="affects">${affected.map(p => `<button data-prop="${p.id}">${esc(p.player)} · ${MARKET_NAMES[p.market]} ${p.line}</button>`).join("")}</div>` : ""}
           </div>` : ""}
-        </div>`; }).join("") : `<div class="noinj">No injuries reported (sample).</div>`}
+        </div>`; }).join("") : `<div class="noinj">No injuries reported${IS_LIVE ? "" : " (sample)"}.</div>`}
     </div>`;
   };
   return `
@@ -2239,15 +2508,20 @@ function render(){
   document.querySelectorAll("#nav [data-nav]").forEach(b => b.dataset.nav === state.view ? b.setAttribute("aria-current","page") : b.removeAttribute("aria-current"));
   syncPrefs();
   $("navGames").textContent = GAMES.length;
-  $("navProps").textContent = ALL.length;
+  $("navProps").textContent = ALL.length + NOLINE.length;
   const sig = DATA.injuries.filter(significant).length;
   $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;
+  if (IS_LIVE){
+    $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i>Live · updated ${agoTxt(DATA.meta.generatedAt)}`;
+    $("stSrc").textContent = "Live records (ESPN)";
+    $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; US prop lines from The Odds API as a reference. Projections are model estimates, not predictions or advice.`;
+  }
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num">${timeFmt(g.tipoff)}</span></button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
   $("page").innerHTML = (views[state.view] || viewDashboard)() +
-    `<footer>SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
+    `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. US prop lines are reference prices; your own entered prices are labelled as yours" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
   if (state.view === "props") { renderBest(); renderSections(); bindPropsInputs(); }
   if (state.view === "dashboard") { tickClock(); countUp(); }
   if (state.drawer) $("drawer").innerHTML = state.drawer === "help" ? helpHTML() : drawerHTML(PROP_BY_ID.get(state.drawer));
@@ -2284,7 +2558,7 @@ function renderStandings(){
 function go(view){ state.view = view; store.set("view", view); closeDrawer(); render(); window.scrollTo({top:0}); }
 
 document.addEventListener("click", e => {
-  const t = e.target.closest("[data-conf],[data-goto-best],[data-form],[data-pref],[data-help],[data-nav],[data-odds],[data-market],[data-toggle],[data-prop],[data-expand],[data-goto],[data-clear],[data-tab],[data-close]");
+  const t = e.target.closest("[data-saveprice],[data-clearprice],[data-conf],[data-goto-best],[data-form],[data-pref],[data-help],[data-nav],[data-odds],[data-market],[data-toggle],[data-prop],[data-expand],[data-goto],[data-clear],[data-tab],[data-close]");
   if (!t) return;
   const d = t.dataset;
   if (d.conf) { state.conf = d.conf; store.set("conf", d.conf); renderStandings(); }
@@ -2301,6 +2575,8 @@ document.addEventListener("click", e => {
   }
   else if (d.help) openHelp();
   else if (d.close) closeDrawer();
+  else if (d.saveprice) { e.preventDefault(); savePrice(+d.saveprice); }
+  else if (d.clearprice) { e.preventDefault(); clearPrice(+d.clearprice); }
   else if (d.prop) openDrawer(+d.prop);
   else if (d.nav) go(d.nav);
   else if (d.odds) { state.odds = d.odds; store.set("odds", d.odds); render(); }
@@ -2315,7 +2591,9 @@ document.addEventListener("click", e => {
     const el = $("game-" + d.goto); if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
   }
 });
+document.addEventListener("submit", e => { const f = e.target.closest("[data-priceform]"); if (f) { e.preventDefault(); savePrice(+f.dataset.priceform); } });
 document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.closest && e.target.closest("[data-priceform]")) { e.preventDefault(); savePrice(+e.target.closest("[data-priceform]").dataset.priceform); return; }
   const typing = /^(INPUT|SELECT|TEXTAREA)$/.test((e.target.tagName || ""));
   if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches("tr[data-goto]")) { e.preventDefault(); e.target.click(); return; }
   if (e.key === "Escape" && state.drawerOpen) { e.preventDefault(); closeDrawer(); return; }
@@ -2388,7 +2666,7 @@ function tickClock(){
     $("ccCount").textContent = h ? `${h}h ${pad(m)}m ${pad(sc)}s` : `${pad(m)}m ${pad(sc)}s`;
     $("ccCount").classList.toggle("soon", d < 3600);
   } else {
-    $("ccGame").textContent = "Sample slate";
+    $("ccGame").textContent = IS_LIVE ? DATA.meta.slateLabel : "Sample slate";
     $("ccCount").textContent = "All tipped off";
   }
 }

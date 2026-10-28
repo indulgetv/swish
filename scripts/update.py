@@ -255,7 +255,10 @@ def fetch_gamelog(athlete_id: str, season: int | None):
                      "min": mins, "PTS": parse_made(s[idx["PTS"]]),
                      "REB": parse_made(s[idx["REB"]]) if "REB" in idx else 0,
                      "AST": parse_made(s[idx["AST"]]) if "AST" in idx else 0,
-                     "3PM": parse_made(s[idx["3PT"]]) if "3PT" in idx else 0}
+                     "3PM": parse_made(s[idx["3PT"]]) if "3PT" in idx else 0,
+                     "STL": parse_made(s[idx["STL"]]) if "STL" in idx else None,
+                     "BLK": parse_made(s[idx["BLK"]]) if "BLK" in idx else None,
+                     "TOV": parse_made(s[idx["TO"]]) if "TO" in idx else None}
                 g["PRA"] = g["PTS"] + g["REB"] + g["AST"]
                 games.append(g)
     # de-duplicate and sort newest first
