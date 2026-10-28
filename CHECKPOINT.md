@@ -21,6 +21,9 @@ _Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into
   - Responsive: full width on ultra-wide; fixed bottom tab bar ≤960px; full player names (squad tables
     become name row + stat row ≤760px); lists >8 collapse with "Show all" on phones (news feed and Home
     injury watch on every screen). Logo bug fixed (class clash with the brand `.logo`; now `.haslogo`).
+  - Floating bottom tab bar (shadow + inner glow, red active tab, dark-mode contrast); back-to-top button
+    (top-right under the header on phones, bottom-right on desktop); sidebar widened to 284px;
+    standings "plays tonight" colours: East blue, West orange (`.side-sec.stand[data-stand]`).
   - Games & Analysis uses live records, conference rank, games back, streak and real H2H.
   - Injuries filtered to tonight's teams; ESPN "Day-To-Day" shown as Questionable.
 - `scripts/update.py` — free data pipeline (ESPN feeds for schedule, standings, injuries, rosters,

@@ -37,7 +37,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .r{text-align:right}
 
 /* ---------------- Shell ---------------- */
-.app{display:grid;grid-template-columns:236px 1fr;min-height:100vh}
+.app{display:grid;grid-template-columns:284px 1fr;min-height:100vh}
 .side{position:sticky;top:0;height:100vh;padding:26px 16px;border-right:1px solid var(--line);background:var(--white);display:flex;flex-direction:column}
 .brand{padding:2px 10px 28px}
 .wordmark{display:inline-block;font:italic 900 34px/1 var(--sans);letter-spacing:-.045em;color:var(--ink);transform:skewX(-4deg);padding-right:4px}
@@ -1491,6 +1491,78 @@ html.calm .newspill.hot i{animation:none}
   .nrow > .tid{margin-top:2px}
   .nrow .ntime{grid-column:2;justify-self:start;margin-left:0!important}
 }
+
+/* ================= Wider sidebar so standings & fixtures breathe ================= */
+.side{padding-left:20px;padding-right:20px}
+.sg{padding:8px 12px;gap:8px}
+.sg .tid{width:22px;height:22px}
+.sg .t{font-size:11px}
+.stt{font-size:12.5px}
+.stt td{padding:5px 6px}
+.stt th{padding:0 6px 6px}
+.stt .tid.xs{width:18px;height:18px}
+.stt-t{gap:8px}
+@media (max-width:1180px) and (min-width:961px){.app{grid-template-columns:260px 1fr}}
+
+/* ================= Standings: one colour per conference ================= */
+.side-sec.stand{--conf:#1f6feb}
+.side-sec.stand[data-stand="West"]{--conf:#e8590c}
+html.dark .side-sec.stand{--conf:#5b9dff}
+html.dark .side-sec.stand[data-stand="West"]{--conf:#ff8a3d}
+.side-sec.stand .st-tabs button.on{color:var(--conf)!important}
+.side-sec.stand .stt tr.on td{background:color-mix(in srgb,var(--conf) 11%,transparent)!important;color:var(--ink)}
+.side-sec.stand .stt tr.on td:first-child{color:var(--conf)!important}
+.side-sec.stand .stt tr.on:hover td{background:color-mix(in srgb,var(--conf) 20%,transparent)!important}
+.side-sec.stand .st-dot{background:var(--conf);animation:none;box-shadow:0 0 0 2.5px color-mix(in srgb,var(--conf) 22%,transparent)}
+html.dark .side-sec.stand .stt tr.on td{color:#fff}
+
+/* ================= Injuries page: legend no longer collides with the news box ================= */
+.legend2{margin:var(--sec) 0 0!important;position:relative;z-index:1}
+
+/* ================= Floating bottom menu (phones & tablets) ================= */
+@media (max-width:960px){
+  .nav{left:10px!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;padding:6px!important;gap:4px!important;
+       border-radius:22px;border:1px solid rgba(18,20,23,.08)!important;
+       background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(246,247,249,.98))!important;
+       box-shadow:0 14px 34px rgba(18,20,23,.22),0 3px 8px rgba(18,20,23,.10),
+                  inset 0 1px 0 #fff,inset 0 -14px 24px -18px rgba(214,40,57,.35)!important}
+  .nav::after{content:"";position:absolute;left:22%;right:22%;top:-1px;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,transparent,var(--red),transparent);pointer-events:none}
+  .nav button{color:var(--ink2)!important;border-radius:16px!important;min-height:56px}
+  .nav button svg{opacity:.9}
+  .nav button.on{background:linear-gradient(180deg,#e2343f,#c71f2c)!important;color:#fff!important;box-shadow:0 6px 16px rgba(214,40,57,.38),inset 0 1px 0 rgba(255,255,255,.28)!important}
+  .nav button.on svg{opacity:1;stroke:#fff}
+  .nav button.on .count.alert{background:#fff;color:var(--red)!important}
+  .nav button:not(.on):active{background:var(--red-soft)!important}
+  .nav .count.alert{box-shadow:0 0 0 2px #fff}
+  html.dark .nav{border-color:rgba(255,255,255,.10)!important;
+       background:linear-gradient(180deg,rgba(40,44,52,.99),rgba(24,26,31,.99))!important;
+       box-shadow:0 14px 34px rgba(0,0,0,.65),0 0 0 1px rgba(0,0,0,.4),
+                  inset 0 1px 0 rgba(255,255,255,.10),inset 0 -14px 26px -16px rgba(239,59,72,.45)!important}
+  html.dark .nav button{color:#d7dbe1!important}
+  html.dark .nav .count.alert{box-shadow:0 0 0 2px #23262d}
+  .page{padding-bottom:130px!important}
+}
+
+/* ================= Back to top ================= */
+.totop{position:fixed;right:22px;bottom:26px;z-index:70;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(180deg,#e2343f,#c71f2c);color:#fff;border:0;
+  box-shadow:0 8px 20px rgba(214,40,57,.35),0 2px 6px rgba(18,20,23,.15),inset 0 1px 0 rgba(255,255,255,.3);
+  opacity:0;transform:translateY(10px) scale(.9);pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.totop:hover{filter:brightness(1.08)}
+.totop:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media (max-width:960px){.totop{right:14px;width:42px;height:42px}}
+html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.12),inset 0 1px 0 rgba(255,255,255,.25)}
+
+/* ================= Spacing audit fixes ================= */
+@media (max-width:640px){
+  .overview .ov:last-child:nth-child(odd){grid-column:1/-1;border-left:0}
+  .injbar{gap:10px}
+  .notice{padding:14px 16px}
+  .panel-h{padding-left:16px;padding-right:16px}
+  .irow,.mrow{padding-left:16px;padding-right:16px}
+}
 </style>
 </head>
 <body>
@@ -1526,6 +1598,7 @@ html.calm .newspill.hot i{animation:none}
 </div>
 <div class="scrim" id="scrim" data-close="1"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Details" aria-hidden="true" tabindex="-1"></aside>
+<button class="totop" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg></button>
 <!-- Live data written by the GitHub automation (scripts/update.py). If it's missing, SWISH falls back to the sample slate. -->
 <script src="data/live.js"></script>
 
@@ -2823,6 +2896,7 @@ function setCollapsed(id, c){
 function renderStandings(){
   const el = $("standings"); if (!el) return;
   const conf = state.conf;
+  const sec = el.closest(".side-sec"); if (sec) sec.dataset.stand = conf;    // East = blue, West = orange
   document.querySelectorAll("[data-conf]").forEach(b => { const on = b.dataset.conf === conf; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
   const playing = {}; GAMES.forEach(g => { playing[g.away] = g; playing[g.home] = g; });
   const rows = DATA.standings[conf].map(r => { const [t, wl] = r.split(" "); const [w, l] = wl.split("-").map(Number); return {t, w, l, pct: w + l ? w / (w + l) : 0}; })
@@ -2980,6 +3054,15 @@ function countUp(){
     requestAnimationFrame(step);
   });
 }
+/* back-to-top: shows after scrolling; on phones it sits just under the sticky header, top right */
+(function(){
+  const btn = $("toTop"), mq = matchMedia("(max-width:960px)");
+  const place = () => { if (mq.matches){ const t = document.querySelector(".top"); btn.style.top = ((t ? t.getBoundingClientRect().bottom : 120) + 10) + "px"; btn.style.bottom = "auto"; } else { btn.style.top = "auto"; btn.style.bottom = ""; } };
+  const upd = () => { btn.classList.toggle("show", window.scrollY > 500); place(); };
+  addEventListener("scroll", upd, {passive:true}); addEventListener("resize", upd); mq.addEventListener("change", upd);
+  btn.addEventListener("click", () => { window.scrollTo({top:0, behavior: document.documentElement.classList.contains("calm") ? "auto" : "smooth"}); });
+  upd();
+})();
 setInterval(tickClock, 1000);
 setInterval(() => { if (!document.hidden && !document.documentElement.classList.contains("calm")) rotateTip(); }, 6000);
 render();
