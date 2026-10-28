@@ -15,14 +15,22 @@ _Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into
     Result on the first real slate: 20 strong-value props out of 356 priced (was 213 before safeguards).
   - Real team logos (ESPN image server) everywhere, with coloured-badge fallback.
   - Animated team-colour game headers on Games & Analysis, Injuries and Home (not just Player Props).
+  - Injury timing: "Posted HH:MM · Xm ago" chips, NEW badge (<6h), newest first, status bar (last/next
+    check, news count), "Latest injury news" feed, injury-news counter pill in the top bar, and a prop flag
+    when injury news in that game is newer than the line's fetch time.
+  - Responsive: full width on ultra-wide; fixed bottom tab bar ≤960px; full player names (squad tables
+    become name row + stat row ≤760px); lists >8 collapse with "Show all" on phones (news feed and Home
+    injury watch on every screen). Logo bug fixed (class clash with the brand `.logo`; now `.haslogo`).
   - Games & Analysis uses live records, conference rank, games back, streak and real H2H.
   - Injuries filtered to tonight's teams; ESPN "Day-To-Day" shown as Questionable.
 - `scripts/update.py` — free data pipeline (ESPN feeds for schedule, standings, injuries, rosters,
   player game logs incl. STL/BLK/TOV, head-to-head; The Odds API for US prop reference lines + UK game lines,
   with a monthly credit budget). Writes `data/live.json` and `data/live.js`.
-- `.github/workflows/update-data.yml` — runs automatically (UTC times):
-  full 07:17 & 14:17, odds 16:37, light (scores + injuries) hourly 15:47–03:47, and on every
-  push to `scripts/` or the workflow. Each run saves its output to `data/last-run.log`.
+- `.github/workflows/update-data.yml` — runs automatically (UTC = UK winter time):
+  full 07:17 & 14:17; odds **early 14:37** (only games tipping before 21:30) and **main 21:07**
+  (every game not started); light (scores + injuries) hourly 15:47–20:47, then **every 20 min 21:27–02:47**,
+  last 03:47; plus every push to `scripts/` or the workflow. Odds runs MERGE into existing lines and stamp
+  each line with `fetched`. Output log: `data/last-run.log`.
 - First automated run (2026-10-28 20:05 UTC) checked: 12 games, 394 players, 0 errors.
 - First odds run (manual, 2026-10-28 22:22 UTC): 1,042 prop lines, 11/12 games, 35 credits.
   Fixed: Clippers name mismatch (ESPN "LA Clippers" vs "Los Angeles Clippers").

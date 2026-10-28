@@ -1313,13 +1313,15 @@ html.calm .hero-home:hover .ballsketch *{animation:none!important;transform:none
 .lk-row{gap:4px 0}
 
 /* ================= Team logos ================= */
-.tid > b,.matchup .tm .tid > b{font:700 inherit/1 var(--sans)!important;font-size:inherit!important;color:#fff!important;letter-spacing:0!important;text-shadow:none!important}
-.ghead .tid:not(.logo),.gsec-h .tid:not(.logo){font-size:11px}
-.tid.logo{background:transparent!important;box-shadow:none!important;overflow:visible}
-.tid.logo b{display:none}
-.tid img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 1px 1.5px rgba(18,20,23,.18))}
-html.dark .tid.logo{background:rgba(255,255,255,.92)!important;border-radius:50%;padding:2px}
-html.dark .tid.logo img{filter:none}
+.tid > b,.matchup .tm .tid > b{font-family:var(--sans)!important;font-weight:700!important;font-size:inherit!important;line-height:1!important;color:#fff!important;letter-spacing:0!important;text-shadow:none!important}
+.ghead .tid:not(.haslogo),.gsec-h .tid:not(.haslogo){font-size:11px}
+.tid.haslogo{background:transparent!important;box-shadow:none!important;overflow:visible}
+.tid.haslogo b{display:none}
+.tid{position:relative;box-sizing:border-box}
+/* the logo is pinned to fill its badge exactly (a grid-sized image collapsed to 0px wide in light mode) */
+.tid img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 1px 1.5px rgba(18,20,23,.18))}
+html.dark .tid.haslogo{background:rgba(255,255,255,.92)!important;border-radius:50%}
+html.dark .tid.haslogo img{left:12%;top:12%;width:76%;height:76%;filter:none}
 .gsec-h .tid,.ana-h .tid,.ij-h .tid{width:40px;height:40px}
 .ana-h .tid.lg{width:48px;height:48px}
 
@@ -1344,6 +1346,151 @@ html.dark .gouter.gx:hover > .ana,html.dark .gouter.gx:hover > .ij{box-shadow:0 
 .mrow.ghead .gswipe{opacity:0;transition:opacity .5s var(--ease)}
 .mrow.ghead:hover .gswipe{opacity:1;animation-play-state:running}
 .mrow.ghead::before{z-index:2}
+
+/* ================= Injury news timing ================= */
+.ntime{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--muted);background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:3px 9px;white-space:nowrap}
+.ntime b{font-size:9.5px;letter-spacing:.06em;color:#fff;background:var(--red);border-radius:99px;padding:1px 6px}
+.ntime.fresh{color:var(--red);border-color:var(--red-line);background:var(--red-soft)}
+.inj-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.inj-meta p{flex-basis:100%;margin:2px 0 0;font-size:12px;color:var(--muted);line-height:1.5}
+.injc.isnew{box-shadow:inset 3px 0 0 var(--red)}
+.injbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:var(--sec) 0 0}
+.injbar .ib{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.injbar .ib-k{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.injbar .ib b{font:700 22px/1.1 var(--display)}
+.injbar .ib small{font-size:12px;color:var(--faint)}
+.injbar .ib.hot{border-color:var(--red-line);background:var(--red-soft)}
+.injbar .ib.hot b{color:var(--red)}
+html.dark .injbar .ib{background:rgba(38,42,49,.9)}
+html.dark .injbar .ib.hot{background:rgba(239,59,72,.1)}
+.newsfeed{margin-top:var(--sec)}
+.nrow{display:flex;align-items:center;gap:12px;padding:11px 20px;border-top:1px solid var(--line)}
+.nrow .nr-m{flex:1;min-width:0}
+.nrow .nm{font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nrow .ds{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.45}
+.newspill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--muted);background:var(--surface2);border:1px solid var(--line);padding:5px 10px;border-radius:99px;margin-left:8px;cursor:pointer}
+.newspill i{width:6px;height:6px;border-radius:50%;background:var(--faint)}
+.newspill.hot{color:var(--red);background:var(--red-soft);border-color:var(--red-line)}
+.newspill.hot i{background:var(--red);animation:newsPulse 1.6s ease-in-out infinite}
+@keyframes newsPulse{50%{box-shadow:0 0 0 4px rgba(214,40,57,.18)}}
+html.calm .newspill.hot i{animation:none}
+@media (max-width:760px){.injbar{grid-template-columns:1fr 1fr}.ntime{white-space:normal}}
+
+/* ================= Responsive: wide screens, phones, tablets ================= */
+.page{max-width:none}                              /* use the whole screen, incl. ultra-wide monitors */
+@media (min-width:2200px){:root{--sec:40px}.page{padding:40px 64px 80px}}
+.nav .ns,.seg .ns,.newspill .ns{display:none}
+.clampbtn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:11px 16px;font-size:13px;font-weight:700;color:var(--red);border-top:1px solid var(--line);background:transparent}
+.clampbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .2s var(--ease)}
+.clampbtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.clampbtn:hover{background:var(--red-soft)}
+.clampbtn.m-only{display:none}
+[data-clamp]:not(.clamp-m) > .cl-x{display:none!important}
+/* best-picks rows: named areas so nothing gets cut off */
+.prow2 .rk{grid-area:rk}.prow2 .pl{grid-area:pl}.prow2 .pick{grid-area:pick}.prow2 .vcell{grid-area:v}.prow2 .chev2{grid-area:ch}
+@media (min-width:1181px){.prow2 .rk,.prow2 .pl,.prow2 .pick,.prow2 .vcell,.prow2 .chev2{grid-area:auto}}
+@media (max-width:1180px){
+  .prow2{grid-template-columns:26px minmax(0,1.3fr) minmax(0,1fr) auto 14px;grid-template-areas:"rk pl pick v ch";column-gap:12px}
+  .vcell{align-items:flex-end;text-align:right}
+}
+@media (max-width:960px){
+  /* phones & tablets: brand stays on top, menu becomes a fixed tab bar at the bottom */
+  .side{overflow:visible!important;padding:10px 16px}
+  .nav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid!important;grid-template-columns:repeat(5,1fr);gap:2px;margin:0;
+       padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(18,20,23,.06)}
+  html.dark .nav{background:rgba(20,22,26,.97)}
+  .nav button{flex-direction:column;justify-content:center;gap:4px;padding:7px 2px;min-height:54px;font-size:11px;font-weight:600;border-radius:12px;text-align:center}
+  .nav button svg{width:22px;height:22px;margin:0}
+  .nav button:hover svg{transform:none}
+  .nav button::before{display:none}
+  .nav .nl{display:none}.nav .ns{display:inline}
+  .nav .count:not(.alert){display:none}
+  .nav .count.alert{position:absolute;top:3px;left:calc(50% + 5px);margin:0;font-size:10px;padding:0 5px;line-height:16px;min-width:16px}
+  .page{padding-bottom:110px!important}
+  .clamp-m > .cl-x{display:none!important}
+  .clampbtn.m-only{display:flex}
+  .drawer{z-index:80}.scrim{z-index:75}
+}
+.nav button.on .count.alert{color:#fff}
+@media (max-width:760px){
+  .top{gap:8px;padding:10px 14px}
+  .seg .nl,.newspill .nl{display:none}.seg .ns,.newspill .ns{display:inline}
+  .seg button{padding:5px 9px}
+  .newspill{margin-left:0;white-space:nowrap}
+  .top-right{margin-left:auto;display:flex;align-items:center;gap:6px}
+  .helpbtn.top{margin-right:0}
+}
+@media (max-width:640px){
+  /* pick rows: name + pick on the left, verdict on the right, on two lines */
+  .prow2{grid-template-columns:22px minmax(0,1fr) auto;grid-template-areas:"rk pl v" "rk pick v";row-gap:4px;column-gap:10px;padding-top:12px;padding-bottom:12px}
+  .prow2 .chev2{display:none}
+  .prow2 .pick{font-size:13px}
+  .prow2 .pl b{white-space:normal}
+  .vcell .vd{white-space:nowrap}
+  .overview .ov .v{font-size:30px}
+  .injbar .ib b{font-size:19px}
+  .nrow{padding:11px 14px;flex-wrap:wrap}
+  .nrow .ntime{margin-left:34px}
+  .panel-h{flex-wrap:wrap;row-gap:4px}
+  .hero{padding:22px 18px}
+  .lk-row{display:grid;grid-template-columns:1fr}
+}
+
+/* ================= Full player names everywhere (no cut-off) ================= */
+.sqt td.pl b,.sqt td.pl small,.prow2 .pl b,.smt-r .pl b,.ptrend .nm,.irow .nm,.nrow .nm{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:break-word;line-height:1.25}
+@media (max-width:760px){
+  /* squad tables become rows: full-width name line, then Min + the five markets underneath */
+  .sqt{display:block;table-layout:auto}
+  .sqt thead,.sqt tbody{display:block}
+  .sqt tr{display:grid;grid-template-columns:40px repeat(5,minmax(0,1fr));align-items:center;column-gap:4px;padding:0 10px;border-bottom:1px solid var(--line)}
+  .sqt tbody tr.has-form{border-bottom-color:transparent}
+  .sqt th,.sqt td{border-bottom:0!important;width:auto!important}
+  .sqt thead th:first-child{display:none}
+  .sqt thead tr{padding-top:4px;padding-bottom:4px}
+  .sqt th{padding:6px 0!important;font-size:10px}
+  .sqt td.pl{grid-column:1/-1;padding:10px 0 4px!important}
+  .sqt td.pl b{font-size:14.5px!important;line-height:1.25}
+  .sqt td.pl small{font-size:11.5px!important}
+  .sqt td{padding:2px 0 10px!important}
+  .sqt td.min{font-size:14px}
+  .sqt tr.formrow{display:block;padding:0 6px}
+  .sqt tr.formrow > td{display:block;padding:0 0 12px!important}
+  .cell{min-height:42px}.cell b{font-size:14.5px}.cell small{font-size:10.5px}
+  .formbtn b{display:inline!important}
+}
+
+/* ================= Phone overflow fixes ================= */
+.main{overflow-x:clip}
+@media (max-width:760px){
+  .top{flex-wrap:nowrap}
+  .top-right{flex-shrink:0}
+  .newspill{flex:0 1 auto;min-width:0;overflow:hidden}
+  .newspill .ns{overflow:hidden;text-overflow:ellipsis}
+  .themebtn,.helpbtn.top{width:34px;padding:0;justify-content:center}
+}
+@media (max-width:640px){
+  .ana-h,.ij-h{padding:14px 14px;gap:12px}
+  .ana-h .tid.lg,.ana-h .tid,.ij-h .tid,.gsec-h .tid{width:34px!important;height:34px!important}
+  .matchup{gap:8px;min-width:0;flex-wrap:wrap}
+  .matchup .tm{gap:7px;min-width:0}
+  .matchup .tm b{font-size:17px!important}
+  .ana-h .right,.ij-h .right{margin-left:0;width:100%}
+  .ana-h .right .btn,.ij-h .right .btn{flex:1 1 100%}
+}
+
+@media (max-width:960px){
+  /* a blur/filter on an ancestor would trap the fixed tab bar inside the sidebar */
+  .side,html.dark .side{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;filter:none!important;transform:none!important;background:var(--white)!important}
+  html.dark .side{background:#16181c!important}
+  .side .brand{margin:0}
+}
+@media (max-width:760px){.crumb,.sample-pill{display:none!important}}
+
+@media (max-width:640px){
+  .nrow{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:10px;row-gap:6px;align-items:start}
+  .nrow > .tid{margin-top:2px}
+  .nrow .ntime{grid-column:2;justify-self:start;margin-left:0!important}
+}
 </style>
 </head>
 <body>
@@ -1352,11 +1499,11 @@ html.dark .gouter.gx:hover > .ana,html.dark .gouter.gx:hover > .ij{box-shadow:0 
   <aside class="side">
     <div id="brandSlot"></div>
     <nav class="nav" id="nav">
-      <button data-nav="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></svg>Home</button>
-      <button data-nav="props"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Player Props<span class="count" id="navProps"></span></button>
-      <button data-nav="games"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>Games &amp; Analysis<span class="count" id="navGames"></span></button>
-      <button data-nav="injuries"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2M12 10v6M9 13h6"/></svg>Injuries &amp; Lineups<span class="count alert" id="navInj"></span></button>
-      <button data-nav="results"><svg viewBox="0 0 24 24"><path d="M4 19V10M10 19V5M16 19v-6M22 19H2"/></svg>Results</button>
+      <button data-nav="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></svg><span class="nl">Home</span><span class="ns">Home</span></button>
+      <button data-nav="props"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="nl">Player Props</span><span class="ns">Props</span><span class="count" id="navProps"></span></button>
+      <button data-nav="games"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><span class="nl">Games &amp; Analysis</span><span class="ns">Games</span><span class="count" id="navGames"></span></button>
+      <button data-nav="injuries"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2M12 10v6M9 13h6"/></svg><span class="nl">Injuries &amp; Lineups</span><span class="ns">Injuries</span><span class="count alert" id="navInj"></span></button>
+      <button data-nav="results"><svg viewBox="0 0 24 24"><path d="M4 19V10M10 19V5M16 19v-6M22 19H2"/></svg><span class="nl">Results</span><span class="ns">Results</span></button>
     </nav>
     <div class="side-sec"><div class="side-lbl">Tonight</div><div id="sideGames"></div></div>
     <div class="side-sec stand"><div class="st-h"><span class="side-lbl">Standings</span><div class="st-tabs" role="tablist" aria-label="Conference"><button role="tab" data-conf="East">East</button><button role="tab" data-conf="West">West</button></div></div><div id="standings"></div><p class="st-note"><span id="stSrc">Sample records</span> · <span class="st-dot"></span> plays tonight</p></div>
@@ -1371,7 +1518,8 @@ html.dark .gouter.gx:hover > .ana,html.dark .gouter.gx:hover > .ij{box-shadow:0 
     <div class="top">
       <div class="crumb" id="crumb"></div>
       <span class="sample-pill" id="srcPill"><i></i>Sample data — not live</span>
-      <div class="top-right"><button class="themebtn" role="switch" aria-checked="false" data-pref="dark" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button class="helpbtn top" data-help="1"><span>?</span>How it works</button><div class="seg" id="oddsSeg"><button data-odds="dec" aria-label="Decimal odds">Decimal</button><button data-odds="am" aria-label="American odds">American</button></div></div>
+      <button class="newspill" id="newsPill" data-nav="injuries" hidden></button>
+      <div class="top-right"><button class="themebtn" role="switch" aria-checked="false" data-pref="dark" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button class="helpbtn top" data-help="1"><span>?</span>How it works</button><div class="seg" id="oddsSeg"><button data-odds="dec" aria-label="Decimal odds"><span class="nl">Decimal</span><span class="ns">Dec</span></button><button data-odds="am" aria-label="American odds"><span class="nl">American</span><span class="ns">US</span></button></div></div>
     </div>
     <main class="page" id="page" tabindex="-1"></main>
   </div>
@@ -1709,6 +1857,11 @@ function analyse(p){
   const ageMin = (new Date(DATA.meta.generatedAt) - new Date(p.oddsUpdated)) / 60000;
   if (ageMin > DATA.meta.staleAfterMinutes) flags.push(`Odds are ${Math.round(ageMin/60)}h old — stale price`);
   // a line far from the projection usually means news the game logs can't see (new role, minutes limit, lineup change)
+  if (p.live && p.fetched){
+    const g = gameById(p.game);
+    const late = DATA.injuries.filter(i => (i.team === g.away || i.team === g.home) && significant(i) && i.updated && new Date(i.updated) > new Date(p.fetched)).sort(byNewest);
+    if (late.length) flags.push(`Injury news since this line was fetched: ${late.slice(0,2).map(i => `${i.player} ${i.status.toLowerCase()} (${agoTxt(i.updated)})`).join(", ")}${late.length > 2 ? ` +${late.length - 2} more` : ""} — the line may have moved`);
+  }
   if (p.live && p.games < 5) flags.push(`Only ${p.games} game${p.games === 1 ? "" : "s"} of data — too few to trust the projection`);
   if (p.live && (Math.abs(p.projection - p.line) > BIG_GAP_SD * p.sd || Math.abs(p.projection - p.line) > BIG_GAP_REL * Math.max(p.line, 2))) flags.push(`Line is far from SWISH's projection (${p.line} vs ${p.projection.toFixed(1)}) — the market may know about a role or minutes change; check the news`);
 
@@ -1753,6 +1906,7 @@ function buildLiveProp(pl, market, myLines){
     const at = refs.filter(r => r.line === line);
     const am = xs => Math.round(probToAmericanRaw(avg(xs.map(americanToProb))));
     src = {line, over: am(at.map(r => r.over)), under: am(at.map(r => r.under)), book: at.map(r => r.book).join(", "),
+           fetched: at.map(r => r.fetched).filter(Boolean).sort().pop() || ((LIVE.sections || {}).odds || {}).fetchedAt,
            updated: at.map(r => r.updated).sort().pop() || ((LIVE.sections || {}).odds || {}).fetchedAt, source: "ref"};
   }
   // ---- projection from real logs: 55% season, 45% last 10, then a small head-to-head blend
@@ -1773,7 +1927,7 @@ function buildLiveProp(pl, market, myLines){
              base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection - base, role: null, projection, sd, last10,
              minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length};
   if (!src) return {...p, noLine: true};
-  return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt};
+  return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt, fetched: src.source === "ref" ? src.fetched : null};
 }
 
 /* ALL = props with a line (analysed) · NOLINE = live props still waiting for a price.
@@ -1794,7 +1948,6 @@ function buildAllProps(){
   [...ALL, ...NOLINE].forEach(p => PROP_BY_ID.set(p.id, p));
   clean.push(...ALL.filter(p => !p.flags.length));
 }
-buildAllProps();
 const PLAYER_BY_NAME = new Map(PLAYERS.map(pl => [pl.name, pl]));
 const propOf = (name, m) => ALL.find(p => p.player === name && p.market === m);
 const noLineOf = (name, m) => NOLINE.find(p => p.player === name && p.market === m);
@@ -1804,6 +1957,34 @@ const gameById = id => DATA.games.find(g => g.id === id);
 const injuriesFor = t => DATA.injuries.filter(i => i.team === t);
 const gameInjuries = g => [...injuriesFor(g.away), ...injuriesFor(g.home)];
 const significant = i => i.status !== "Probable";
+
+/* ---- injury news timing ---- */
+const NEW_NEWS_H = 6;                                    // "NEW" = posted in the last 6 hours
+const newsAgeH = i => i.updated ? (Date.now() - new Date(i.updated)) / 3.6e6 : Infinity;
+const isNewNews = i => newsAgeH(i) <= NEW_NEWS_H;
+const byNewest = (a, b) => (new Date(b.updated || 0)) - (new Date(a.updated || 0));
+const injNews = () => DATA.injuries.filter(isNewNews).sort(byNewest);
+function newsChip(i){
+  if (!i.updated) return `<span class="ntime">time not given</span>`;
+  const fresh = isNewNews(i);
+  return `<span class="ntime ${fresh ? "fresh" : ""}" title="Posted ${dateFmt(i.updated)} ${timeFmt(i.updated)}">${fresh ? `<b>NEW</b>` : ""}Posted ${newsAgeH(i) < 20 ? timeFmt(i.updated) : dateFmt(i.updated)} · ${agoTxt(i.updated)}</span>`;
+}
+/* When the automation next checks injuries (times are UTC, matching the GitHub schedule) */
+const INJ_CHECKS_UTC = (() => { const t = [];
+  [[7,17],[14,17]].forEach(x => t.push(x));
+  for (let h = 15; h <= 20; h++) t.push([h,47]);
+  t.push([21,27],[21,47]);
+  [22,23,0,1,2].forEach(h => [7,27,47].forEach(m => t.push([h,m])));
+  t.push([3,47]); return t; })();
+function nextInjuryCheck(){
+  const now = new Date(); let best = null;
+  for (let d = 0; d <= 1; d++) INJ_CHECKS_UTC.forEach(([h,m]) => {
+    const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + d, h, m));
+    if (t > now && (!best || t < best)) best = t; });
+  return best;
+}
+const injCheckedAt = () => IS_LIVE ? ((LIVE.sections || {}).injuries || {}).fetchedAt : DATA.meta.generatedAt;
+buildAllProps();   // after the helpers above, which the flags use
 
 /* =================================================================
    5. STATE
@@ -1822,7 +2003,7 @@ const state = {
   view: VIEWS.includes(store.get("view","dashboard")) ? store.get("view","dashboard") : "dashboard",
   odds: store.get("odds","dec"),
   conf: store.get("conf","East"), market:"ALL", q:"", sort:"minutes", onlyValue:false, hideFlagged:false, bestTab:"best",
-  collapsed:new Set(), drawer:null, formOpen:new Set(), showForm:false
+  collapsed:new Set(), drawer:null, formOpen:new Set(), showForm:false, expanded:new Set()
 };
 
 /* =================================================================
@@ -1840,7 +2021,7 @@ const tname = t => `${team(t).city} ${team(t).name}`;
 /* Team logos from ESPN's image server; if one can't load, the coloured initials badge shows instead */
 const ESPN_LOGO = {GSW:"gs", NYK:"ny", SAS:"sa", NOP:"no", UTA:"utah", WAS:"wsh"};
 const logoUrl = t => `https://a.espncdn.com/i/teamlogos/nba/500/${ESPN_LOGO[t] || String(t).toLowerCase()}.png`;
-const tid = (t, cls="") => `<span class="tid logo ${cls}" style="background:${team(t).color}" title="${esc(tname(t))}"><img src="${logoUrl(t)}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('logo');this.remove()"><b>${t}</b></span>`;
+const tid = (t, cls="") => `<span class="tid haslogo ${cls}" style="background:${team(t).color}" title="${esc(tname(t))}"><img src="${logoUrl(t)}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('haslogo');this.remove()"><b>${t}</b></span>`;
 const timeFmt = iso => new Date(iso).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
 const dateFmt = iso => new Date(iso).toLocaleDateString([], {weekday:"short", day:"numeric", month:"short"});
 const shortDate = iso => new Date(iso).toLocaleDateString([], {day:"numeric", month:"short", year:"2-digit"});
@@ -1969,7 +2150,7 @@ function viewDashboard(){
   const today = new Date();
   const valueN = ALL.filter(p => p.value).length;
   const avgVig = ALL.length ? ALL.reduce((a,p) => a + p.vig, 0) / ALL.length : null;
-  const sig = DATA.injuries.filter(significant);
+  const sig = DATA.injuries.filter(significant).sort(byNewest);
   const top = PICK_TABS.best.list().slice(0, 6);
   return `
   <header class="hero hero-home">${COURT}<svg class="court ballsketch" viewBox="0 0 420 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">  <ellipse class="bs-shadow" cx="190" cy="124" rx="16" ry="3"/>  <g class="bs-trail"><path d="M204 36c-3 12-6 22-9 32" stroke-dasharray="3 6"/><path d="M216 42c-2 10-4 18-6 26" stroke-dasharray="3 6"/></g>  <g class="bs-ball"><circle cx="190" cy="104" r="18"/><path d="M172 104h36M190 86v36"/><path d="M177 91c7 7 7 19 0 26M203 91c-7 7-7 19 0 26"/></g></g></svg>
@@ -1980,8 +2161,8 @@ function viewDashboard(){
       <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.length} props · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
       <div class="looks" aria-label="Tonight's top looks">
         ${ALL.some(x => !x.flags.length) ? `<span class="lk-lbl">Top look per game</span>` : ""}
-        <div class="lk-row">${GAMES.map((g, k) => { const p = ALL.filter(x => x.game === g.id && !x.flags.length).sort((a,b) => b.ev - a.ev)[0]; if (!p) return "";
-          return `<button class="lk" data-prop="${p.id}" style="--k:${k}"><span class="lk-g">${g.away}<i>@</i>${g.home}</span><span class="lk-p"><b>${esc(p.player.split(" ").slice(-1)[0])}</b> <span class="${p.side==="over"?"o":"u"}">${p.side==="over"?"O":"U"} ${p.line}</span> ${p.market}</span><span class="lk-c num">${pct(p.modelP,0)}</span></button>`; }).join("")}</div>
+        <div class="lk-row clamp-m" data-clamp="looks">${GAMES.map((g, k) => { const p = ALL.filter(x => x.game === g.id && !x.flags.length).sort((a,b) => b.ev - a.ev)[0]; if (!p) return "";
+          return `<button class="lk" data-prop="${p.id}" style="--k:${k}"><span class="lk-g">${g.away}<i>@</i>${g.home}</span><span class="lk-p"><b>${esc(p.player)}</b> <span class="${p.side==="over"?"o":"u"}">${p.side==="over"?"O":"U"} ${p.line}</span> ${p.market}</span><span class="lk-c num">${pct(p.modelP,0)}</span></button>`; }).join("")}</div>
       </div>
     </div>
     <div class="clockcard" aria-live="off">
@@ -2008,17 +2189,17 @@ function viewDashboard(){
   <div class="cols">
     <div class="panel">
       <div class="panel-h"><h2 class="h">Tonight's games</h2><span class="sub">Times in your time zone</span></div>
-      ${GAMES.map(g => {
+      <div class="clamp-m" data-clamp="home-games">${GAMES.map(g => {
         const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
         return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
           <div class="t num">${timeFmt(g.tipoff)}<small>${esc(g.status)}</small></div>
           <div><div class="ti">${tid(g.away,"sm")}${tname(g.away)}</div><div class="ti">${tid(g.home,"sm")}${tname(g.home)} <small>home</small></div></div>
           <div class="meta"><b class="num">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
-          <span class="arrow">→</span></button>`;}).join("")}
+          <span class="arrow">→</span></button>`;}).join("")}</div>
     </div>
     <div class="panel">
-      <div class="panel-h"><h2 class="h">Injury watch</h2><span class="sub">Lineups not yet confirmed</span></div>
-      ${sig.map(i => `<button class="irow" data-nav="injuries">${tid(i.team,"sm")}<div><div class="nm">${esc(i.player)}</div><div class="ds">${esc(i.detail)}${i.fillIns.length ? ` · ${esc(i.fillIns[0].player)} could gain minutes` : ""}</div></div>${stPill(i.status)}</button>`).join("")}
+      <div class="panel-h"><h2 class="h">Injury watch</h2><span class="sub">newest first · checked ${agoTxt(injCheckedAt())}</span></div>
+      <div class="clamp-all" data-clamp="home-inj">${sig.map(i => `<button class="irow" data-nav="injuries">${tid(i.team,"sm")}<div><div class="nm">${esc(i.player)}</div><div class="ds">${esc(i.detail)}${i.fillIns.length ? ` · ${esc(i.fillIns[0].player)} could gain minutes` : ""}</div></div>${stPill(i.status)}</button>`).join("")}
     </div>
   </div>`;
 }
@@ -2138,7 +2319,7 @@ function squadMatrix(teamCode){
   const v = ALL.filter(p => p.team === teamCode && p.value).length;
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
-    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min">Min</th>${MARKETS.map(m => `<th class="mk">${m}</th>`).join("")}</tr></thead><tbody>
+    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min">Min</th>${MARKETS.map(m => `<th class="mk">${m}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
         return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in"><div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
@@ -2156,7 +2337,7 @@ function singleMarket(teamCode){
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${MARKET_NAMES[m]} · ${rows.length} players</span></div>
     ${rows.length ? `<div class="smt-h"><span>Player</span><span class="r">Min</span><span class="r">Line</span><span class="r">Over</span><span class="r">Under</span><span class="r">Proj.</span><span>SWISH chance · bookie</span><span>Value</span><span>Last 6 · newest first</span><span class="r">H2H avg</span><span></span></div>
-    ${rows.map(p => {
+    <div class="clamp-m" data-clamp="sm-${teamCode}-${m}">${rows.map(p => {
       const pl = PLAYERS.find(x => x.name === p.player);
       return `<button class="smt-r ${p.value?"value":""}" data-prop="${p.id}">
         <div class="pl"><b>${esc(p.player)}</b>${p.flags.length ? `<small class="warn">⚠ Flagged</small>` : playerSub(pl)}</div>
@@ -2170,7 +2351,7 @@ function singleMarket(teamCode){
         <div class="l6" data-l="Last 6 · newest first">${pl.log.slice(0,6).map(g => `<i class="num ${g[p.market] > p.line ? "o" : ""}" title="${g.home?"vs":"@"} ${g.opp}: ${g[p.market]}">${g[p.market]}</i>`).join("")}</div>
         <div class="big num" data-l="H2H avg" style="font-size:16px">${p.h2hAvg.toFixed(1)}</div>
         <span class="chev2" style="color:var(--faint)">›</span>
-      </button>`;}).join("")}` : `<div class="gempty">No ${MARKET_NAMES[m].toLowerCase()} props match the current filters.</div>`}
+      </button>`;}).join("")}</div>` : `<div class="gempty">No ${MARKET_NAMES[m].toLowerCase()} props match the current filters.</div>`}
   </div>`;
 }
 
@@ -2208,6 +2389,7 @@ function renderSections(){
   if (!$("sections")) return;
   renderLegend();
   const html = GAMES.map(gameSection).join("");
+  setTimeout(() => applyClamps($("sections")), 0);
   $("sections").innerHTML = html.trim() ? html : `
     <div class="empty"><div class="ic">${ICON_SEARCH}</div>
       <h3>No players match${state.q ? ` “${esc(state.q)}”` : ""}</h3>
@@ -2529,24 +2711,36 @@ function viewInjuries(){
   <p class="lede">Who is out or uncertain, and who could absorb their minutes before lineups are confirmed.</p>
   </header>
   ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Injury statuses from ESPN's injury feed, updated ${agoTxt(((LIVE.sections || {}).injuries || {}).fetchedAt)}. "Day-to-day" is shown as questionable. Starting lineups are only confirmed shortly before tip-off — fill-in estimates aren't automated yet.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
+  ${injStatusBar()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
+}
+function injStatusBar(){
+  const checked = injCheckedAt(), next = nextInjuryCheck(), news = injNews();
+  return `<div class="injbar">
+    <div class="ib"><span class="ib-k">Last checked</span><b class="num">${checked ? timeFmt(checked) : "—"}</b><small>${checked ? agoTxt(checked) : ""}</small></div>
+    <div class="ib"><span class="ib-k">Next check</span><b class="num">${IS_LIVE && next ? `~${timeFmt(next.toISOString())}` : "—"}</b><small>${IS_LIVE ? "can run up to 30 min late" : "sample data"}</small></div>
+    <div class="ib ${news.length ? "hot" : ""}"><span class="ib-k">News in last ${NEW_NEWS_H}h</span><b class="num">${news.length}</b><small>${news.length ? `latest ${agoTxt(news[0].updated)}` : "nothing new"}</small></div>
+    <div class="ib"><span class="ib-k">Out · uncertain</span><b class="num">${DATA.injuries.filter(i => i.status === "Out").length} · ${DATA.injuries.filter(i => i.status === "Questionable" || i.status === "Doubtful").length}</b><small>tonight's teams</small></div>
+  </div>
+  ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury news</h2><span class="sub">newest first · last ${NEW_NEWS_H} hours</span></div>
+    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
 }
 
 function injuryCard(g){
   const col = t => {
-    const list = injuriesFor(t);
+    const list = injuriesFor(t).sort(byNewest);
     return `<div><div class="ij-team">${tid(t,"sm")}<b>${tname(t)}</b></div>
-      ${list.length ? list.map(i => {
+      <div class="clamp-m" data-clamp="inj-${t}">${list.length ? list.map(i => {
         const affected = ALL.filter(p => p.player === i.player || (p.role && p.role.dependsOn === i.player));
-        return `<div class="injc ${stCls(i.status)}">
+        return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""}">
           <div class="inj-top"><span class="av">${initials(i.player)}</span><div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
-          <div class="inj-meta">Updated ${i.updated ? `${dateFmt(i.updated)} ${timeFmt(i.updated)}` : "—"}${IS_LIVE ? "" : " · sample"}${i.comment ? ` · ${esc(i.comment)}` : ""}</div>
+          <div class="inj-meta">${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
             ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
             ${affected.length ? `<div class="affects">${affected.map(p => `<button data-prop="${p.id}">${esc(p.player)} · ${MARKET_NAMES[p.market]} ${p.line}</button>`).join("")}</div>` : ""}
           </div>` : ""}
-        </div>`; }).join("") : `<div class="noinj">No injuries reported${IS_LIVE ? "" : " (sample)"}.</div>`}
+        </div>`; }).join("") : `<div class="noinj">No injuries reported${IS_LIVE ? "" : " (sample)"}.</div>`}</div>
     </div>`;
   };
   return `
@@ -2597,6 +2791,11 @@ function render(){
     $("stSrc").textContent = "Live records (ESPN)";
     $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; prop prices from US bookmakers via The Odds API. Projections are model estimates, not predictions or advice.`;
   }
+  const nn = injNews().length, np = $("newsPill");
+  np.hidden = false;
+  np.className = "newspill" + (nn ? " hot" : "");
+  np.innerHTML = `<i></i><b class="num">${nn}</b><span class="nl"> injury update${nn === 1 ? "" : "s"} · last ${NEW_NEWS_H}h</span><span class="ns"> injury news</span>`;
+  np.title = `Injury list checked ${agoTxt(injCheckedAt())}`;
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num">${timeFmt(g.tipoff)}</span></button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
@@ -2604,6 +2803,7 @@ function render(){
     `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. Prop prices are US market prices — check your bookmaker's line matches" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
   if (state.view === "props") { renderBest(); renderSections(); bindPropsInputs(); }
   if (state.view === "dashboard") { tickClock(); countUp(); }
+  applyClamps();
   if (state.drawer) $("drawer").innerHTML = state.drawer === "help" ? helpHTML() : drawerHTML(PROP_BY_ID.get(state.drawer));
 }
 
@@ -2635,10 +2835,25 @@ function renderStandings(){
   }).join("")}</tbody></table>`;
 }
 
+/* ---- "Show all" lists: more than 8 items collapse to 8 with a button (clamp = everywhere, clamp-m = phones/tablets) ---- */
+const CLAMP_N = 8;
+function applyClamps(root = document){
+  root.querySelectorAll("[data-clamp]").forEach(el => {
+    const key = el.dataset.clamp, mobileOnly = el.classList.contains("clamp-m");
+    const anchor = el.tagName === "TBODY" ? el.closest("table") : el;
+    const old = anchor.nextElementSibling; if (old && old.classList.contains("clampbtn")) old.remove();
+    const items = [...el.children].filter(c => !c.classList.contains("formrow"));
+    el.querySelectorAll(":scope > .cl-x").forEach(c => c.classList.remove("cl-x"));
+    if (items.length <= CLAMP_N) return;
+    const open = state.expanded.has(key);
+    if (!open) items.slice(CLAMP_N).forEach(c => { c.classList.add("cl-x"); const n = c.nextElementSibling; if (n && n.classList.contains("formrow")) n.classList.add("cl-x"); });
+    anchor.insertAdjacentHTML("afterend", `<button class="clampbtn ${mobileOnly ? "m-only" : ""}" data-clampkey="${esc(key)}" aria-expanded="${open}">${open ? `Show fewer ${ICON_CHEV}` : `Show all ${items.length} ${ICON_CHEV}`}</button>`);
+  });
+}
 function go(view){ state.view = view; store.set("view", view); closeDrawer(); render(); window.scrollTo({top:0}); }
 
 document.addEventListener("click", e => {
-  const t = e.target.closest("[data-saveprice],[data-clearprice],[data-conf],[data-goto-best],[data-form],[data-pref],[data-help],[data-nav],[data-odds],[data-market],[data-toggle],[data-prop],[data-expand],[data-goto],[data-clear],[data-tab],[data-close]");
+  const t = e.target.closest("[data-clampkey],[data-saveprice],[data-clearprice],[data-conf],[data-goto-best],[data-form],[data-pref],[data-help],[data-nav],[data-odds],[data-market],[data-toggle],[data-prop],[data-expand],[data-goto],[data-clear],[data-tab],[data-close]");
   if (!t) return;
   const d = t.dataset;
   if (d.conf) { state.conf = d.conf; store.set("conf", d.conf); renderStandings(); }
@@ -2655,6 +2870,7 @@ document.addEventListener("click", e => {
   }
   else if (d.help) openHelp();
   else if (d.close) closeDrawer();
+  else if (d.clampkey) { const k = d.clampkey; state.expanded.has(k) ? state.expanded.delete(k) : state.expanded.add(k); const host = document.querySelector(`[data-clamp="${CSS.escape(k)}"]`); applyClamps(host ? host.parentNode : document); }
   else if (d.saveprice) { e.preventDefault(); savePrice(+d.saveprice); }
   else if (d.clearprice) { e.preventDefault(); clearPrice(+d.clearprice); }
   else if (d.prop) openDrawer(+d.prop);

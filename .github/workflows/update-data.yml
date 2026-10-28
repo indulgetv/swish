@@ -1,12 +1,16 @@
 name: Update SWISH data
 
 on:
-  schedule:
-    - cron: "17 7 * * *"        # full: after last night's games finish (07:17 UTC)
-    - cron: "17 14 * * *"       # full: afternoon refresh before the slate (14:17 UTC)
-    - cron: "37 16 * * *"       # odds: once a day, inside the free credit budget (16:37 UTC)
-    - cron: "47 15-23 * * *"    # light: scores + injuries every hour on game evenings
-    - cron: "47 0-3 * * *"      # light: continues past midnight UTC
+  schedule:                       # all times UTC (= UK time in winter, UK minus 1h in summer)
+    - cron: "17 7 * * *"          # full: after last night's games finish
+    - cron: "17 14 * * *"         # full: afternoon refresh (rosters, logs, injuries)
+    - cron: "37 14 * * *"         # odds early: only games tipping before 21:30 (weekend/holiday matinees)
+    - cron: "7 21 * * *"          # odds main: every game not started yet — most lines + injury news are out by now
+    - cron: "47 15-20 * * *"      # light: scores + injuries hourly through the afternoon
+    - cron: "27,47 21 * * *"      # light: every 20 min in the run-up to tip-off…
+    - cron: "7,27,47 22-23 * * *"
+    - cron: "7,27,47 0-2 * * *"   # …and through the games
+    - cron: "47 3 * * *"          # light: last check for late West Coast games
   push:
     branches: [main]
     paths: ["scripts/**", ".github/workflows/**"]
@@ -16,6 +20,10 @@ on:
         description: "full, light or odds"
         default: "full"
         required: true
+      window:
+        description: "odds only: all, early or late"
+        default: "late"
+        required: false
       max_events:
         description: "odds only: max games to price (blank = budget decides)"
         default: ""
@@ -49,18 +57,21 @@ jobs:
           if [ -z "$MODE" ]; then
             case "${{ github.event.schedule }}" in
               "17 7 * * *"|"17 14 * * *") MODE=full ;;
-              "37 16 * * *") MODE=odds ;;
+              "37 14 * * *") MODE=odds; WINDOW=early ;;
+              "7 21 * * *") MODE=odds; WINDOW=late ;;
               *) MODE=light ;;
             esac
           fi
+          WINDOW="${WINDOW:-${{ github.event.inputs.window }}}"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "window=${WINDOW:-late}" >> "$GITHUB_OUTPUT"
           echo "Running in $MODE mode"
 
       - name: Fetch data
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          ARGS="--mode ${{ steps.mode.outputs.mode }}"
+          ARGS="--mode ${{ steps.mode.outputs.mode }} --window ${{ steps.mode.outputs.window }}"
           if [ -n "${{ github.event.inputs.max_events }}" ]; then ARGS="$ARGS --max-events ${{ github.event.inputs.max_events }}"; fi
           mkdir -p data
           python scripts/update.py $ARGS 2>&1 | tee data/last-run.log || true

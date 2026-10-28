@@ -313,6 +313,7 @@ def odds_budget(remaining: int) -> int:
 def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events: int | None):
     """Returns (props, gameLines, info). Spends credits carefully."""
     info = {"creditsUsed": 0, "creditsRemaining": None, "eventsPriced": 0, "notes": []}
+    fetched_at = now_iso()
     # 1) events list (does not cost credits)
     events, hdr = get_json(f"{ODDS_BASE}/events", {"apiKey": key})
     remaining = int(hdr.get("x-requests-remaining") or hdr.get("X-Requests-Remaining") or 0)
@@ -384,7 +385,7 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
                     if "over" in side and "under" in side and point is not None:
                         props.append({"game": gid, "player": who, "key": norm_name(who), "market": mk, "line": point,
                                       "over": side["over"], "under": side["under"], "book": b.get("key"),
-                                      "updated": m.get("last_update") or b.get("last_update")})
+                                      "updated": m.get("last_update") or b.get("last_update"), "fetched": fetched_at})
     if len(todays) > allowed:
         info["notes"].append(f"Priced {allowed} of {len(todays)} games to stay inside the free monthly credits.")
     return props, lines, info
@@ -414,6 +415,9 @@ def main() -> int:
     ap.add_argument("--mode", choices=["full", "light", "odds"], default="full")
     ap.add_argument("--date", help="slate date YYYY-MM-DD (US Eastern); default today")
     ap.add_argument("--max-events", type=int, default=None, help="cap on games priced for props")
+    ap.add_argument("--window", choices=["all", "early", "late"], default="all",
+                    help='odds only: "early" = games tipping before --early-cutoff (UTC); "late" = games not started yet')
+    ap.add_argument("--early-cutoff", default="21:30", help="UTC time HH:MM that splits early from late games")
     ap.add_argument("--markets", default="auto", help='"auto" (fit the daily budget) or a comma list of Odds API market keys')
     args = ap.parse_args()
 
@@ -518,17 +522,42 @@ def main() -> int:
         elif not d["games"]:
             log("odds skipped: no games today")
         else:
+            now = datetime.now(timezone.utc)
+            hh, mm = (int(x) for x in args.early_cutoff.split(":"))
+            cutoff = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
+            def tip(g):
+                try:
+                    return datetime.fromisoformat(g["tipoff"].replace("Z", "+00:00"))
+                except Exception:
+                    return now + timedelta(hours=6)
+            # only games that haven't started; the early window also stops at the cutoff
+            chosen = [g for g in d["games"] if g.get("state") == "pre" and tip(g) > now
+                      and (args.window != "early" or tip(g) < cutoff)]
+            log(f"odds: window={args.window}, {len(chosen)} of {len(d['games'])} games eligible")
+            chosen_ids = {g["id"] for g in chosen}
             by_teams = {}
-            for g in d["games"]:
+            for g in chosen:
                 a, h = d["teams"].get(g["away"], {}), d["teams"].get(g["home"], {})
                 by_teams[(norm_team(f"{a.get('city','')} {a.get('name','')}"), norm_team(f"{h.get('city','')} {h.get('name','')}"))] = g["id"]
                 if a.get("displayName") and h.get("displayName"):
                     by_teams[(norm_team(a["displayName"]), norm_team(h["displayName"]))] = g["id"]
             try:
+                if not chosen:
+                    raise RuntimeError("no eligible games in this window")
                 props, lines, info = fetch_odds(key, by_teams, [m for m in args.markets.split(",") if m], args.max_events)
-                d["props"], d["gameLines"] = props, lines
+                # merge: replace lines only for the games priced now, keep earlier lines for the rest
+                priced = {p["game"] for p in props}
+                d["props"] = [p for p in d.get("props", []) if p.get("game") not in priced] + props
+                gl_games = {l["game"] for l in lines}
+                d["gameLines"] = [l for l in d.get("gameLines", []) if l.get("game") not in gl_games] + lines
+                runs = [r for r in (d["sections"].get("odds") or {}).get("runs", []) if r.get("at", "")[:10] == now_iso()[:10]]
+                runs.append({"at": now_iso(), "window": args.window, "games": sorted(priced), "credits": info["creditsUsed"]})
+                info["runs"] = runs
+                info["eventsPriced"] = len({p["game"] for p in d["props"]})
                 d["sections"]["odds"] = section("The Odds API (US books = reference only; UK game lines)", True, **info)
                 log(f"odds: {len(props)} prop lines, {len(lines)} UK game-line outcomes, {info['creditsUsed']} credits used")
+            except RuntimeError as e:
+                log(f"odds skipped: {e}")
             except Exception as e:
                 errs.append(f"odds: {e}"); log(f"odds FAILED: {e}")
 
