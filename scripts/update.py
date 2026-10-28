@@ -60,6 +60,10 @@ ABBR_FIX = {"GS": "GSW", "NY": "NYK", "SA": "SAS", "NO": "NOP", "UTAH": "UTA", "
 PROP_MARKETS = {"player_points": "PTS", "player_rebounds": "REB", "player_assists": "AST",
                 "player_threes": "3PM", "player_points_rebounds_assists": "PRA"}
 ODDS_MARKETS_DEFAULT = ["player_points", "player_rebounds", "player_assists"]
+# "auto" picks as many of these (in this order) as the day's credit budget allows for EVERY game
+ODDS_MARKETS_PRIORITY = ["player_points", "player_rebounds", "player_assists", "player_threes", "player_points_rebounds_assists"]
+# Team names that differ between ESPN and The Odds API
+TEAM_ALIASES = {"laclippers": "losangelesclippers"}
 REF_BOOKS = ["fanduel", "draftkings", "betmgm"]          # US reference books
 UK_BOOKS = ["skybet", "paddypower", "williamhill"]        # UK game lines
 
@@ -106,6 +110,11 @@ def norm_name(n: str) -> str:
     n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode()
     n = re.sub(r"\b(jr|sr|ii|iii|iv)\b\.?", "", n.lower())
     return re.sub(r"[^a-z]", "", n)
+
+
+def norm_team(n: str) -> str:
+    k = norm_name(n)
+    return TEAM_ALIASES.get(k, k)
 
 
 def slate_date(arg: str | None) -> datetime:
@@ -314,7 +323,7 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
 
     # Match events to today's ESPN games by team names
     def ev_key(e):
-        return (norm_name(e.get("away_team", "")), norm_name(e.get("home_team", "")))
+        return (norm_team(e.get("away_team", "")), norm_team(e.get("home_team", "")))
     todays = [e for e in events if ev_key(e) in game_ids_by_teams]
     props, lines = [], []
 
@@ -338,6 +347,12 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
             info["notes"].append(f"UK game lines failed: {e}")
 
     # 3) US player-prop reference lines, one event at a time within budget
+    if markets == ["auto"]:
+        # cover every game first, then add markets in priority order while the budget allows
+        n = max(1, min(len(ODDS_MARKETS_PRIORITY), budget // max(1, len(todays))))
+        markets = ODDS_MARKETS_PRIORITY[:n]
+        log(f"odds: auto markets for {len(todays)} games -> {', '.join(markets)}")
+    info["markets"] = [PROP_MARKETS.get(m, m) for m in markets]
     per_event = len(markets)
     allowed = budget // per_event if per_event else 0
     if max_events is not None:
@@ -399,7 +414,7 @@ def main() -> int:
     ap.add_argument("--mode", choices=["full", "light", "odds"], default="full")
     ap.add_argument("--date", help="slate date YYYY-MM-DD (US Eastern); default today")
     ap.add_argument("--max-events", type=int, default=None, help="cap on games priced for props")
-    ap.add_argument("--markets", default=",".join(ODDS_MARKETS_DEFAULT))
+    ap.add_argument("--markets", default="auto", help='"auto" (fit the daily budget) or a comma list of Odds API market keys')
     args = ap.parse_args()
 
     day = slate_date(args.date)
@@ -506,9 +521,9 @@ def main() -> int:
             by_teams = {}
             for g in d["games"]:
                 a, h = d["teams"].get(g["away"], {}), d["teams"].get(g["home"], {})
-                by_teams[(norm_name(f"{a.get('city','')} {a.get('name','')}"), norm_name(f"{h.get('city','')} {h.get('name','')}"))] = g["id"]
+                by_teams[(norm_team(f"{a.get('city','')} {a.get('name','')}"), norm_team(f"{h.get('city','')} {h.get('name','')}"))] = g["id"]
                 if a.get("displayName") and h.get("displayName"):
-                    by_teams[(norm_name(a["displayName"]), norm_name(h["displayName"]))] = g["id"]
+                    by_teams[(norm_team(a["displayName"]), norm_team(h["displayName"]))] = g["id"]
             try:
                 props, lines, info = fetch_odds(key, by_teams, [m for m in args.markets.split(",") if m], args.max_events)
                 d["props"], d["gameLines"] = props, lines

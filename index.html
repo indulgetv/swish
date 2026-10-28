@@ -70,8 +70,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pform input:focus-visible{outline:2px solid var(--red);outline-offset:1px}
 .pform-act{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .pform-msg{font-size:12.5px;color:var(--red);min-height:1em}
-.cell.noline{border-style:dashed;opacity:.92}
-.cell.noline b{color:var(--faint);font-size:12px;font-weight:600}
+.cell.noline b{color:var(--faint)}
+.cell.noline small{color:var(--muted)}
+details.optprice summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);padding:4px 0}
+details.optprice summary::-webkit-details-marker{display:none}
+details.optprice summary::before{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--line2);font-size:13px;line-height:1}
+details.optprice[open] summary::before{content:"−"}
+details.optprice summary:hover{color:var(--ink)}
 @media (max-width:520px){.pform{grid-template-columns:1fr 1fr}}
 .top-right{margin-left:auto}
 .seg{display:inline-flex;background:var(--sunk);border:1px solid var(--line);border-radius:9px;padding:3px}
@@ -1306,6 +1311,39 @@ html.calm .hero-home:hover .ballsketch *{animation:none!important;transform:none
 
 .lk{border-left:0;padding:4px 18px 4px 0}
 .lk-row{gap:4px 0}
+
+/* ================= Team logos ================= */
+.tid > b,.matchup .tm .tid > b{font:700 inherit/1 var(--sans)!important;font-size:inherit!important;color:#fff!important;letter-spacing:0!important;text-shadow:none!important}
+.ghead .tid:not(.logo),.gsec-h .tid:not(.logo){font-size:11px}
+.tid.logo{background:transparent!important;box-shadow:none!important;overflow:visible}
+.tid.logo b{display:none}
+.tid img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 1px 1.5px rgba(18,20,23,.18))}
+html.dark .tid.logo{background:rgba(255,255,255,.92)!important;border-radius:50%;padding:2px}
+html.dark .tid.logo img{filter:none}
+.gsec-h .tid,.ana-h .tid,.ij-h .tid{width:40px;height:40px}
+.ana-h .tid.lg{width:48px;height:48px}
+
+/* ================= Animated game headers on every page (Games, Injuries, Home) ================= */
+.ghead{position:relative;overflow:hidden;isolation:isolate}
+.ghead > *:not(.gswipe){position:relative;z-index:1}
+.ghead:hover .gswipe::after{opacity:1}
+.ghead:hover .gswipe{animation-play-state:paused}
+.ghead .tid{transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.ghead:hover .tid{transform:scale(1.1)}
+.ghead .matchup .tm b{transition:color .5s var(--ease)}
+.ghead:hover .matchup .tm:first-child b{color:color-mix(in srgb,var(--ca) 75%,var(--ink))}
+.ghead:hover .matchup .tm:last-child b{color:color-mix(in srgb,var(--cb) 75%,var(--ink))}
+html.dark .ghead:hover .matchup .tm:first-child b{color:color-mix(in srgb,var(--ca) 45%,#fff)}
+html.dark .ghead:hover .matchup .tm:last-child b{color:color-mix(in srgb,var(--cb) 45%,#fff)}
+.gouter.gx{margin:var(--sec) 0 0}
+.gouter.gx > .ana,.gouter.gx > .ij{margin-top:0!important;position:relative;z-index:1}
+.gouter.gx:hover > .ana,.gouter.gx:hover > .ij{box-shadow:0 10px 30px rgba(18,20,23,.12),0 2px 6px rgba(18,20,23,.06)!important;transition:box-shadow .45s var(--ease)}
+html.dark .gouter.gx:hover > .ana,html.dark .gouter.gx:hover > .ij{box-shadow:0 12px 34px rgba(0,0,0,.5)!important}
+.gouter.gx > .ana,.gouter.gx > .ij{content-visibility:visible}
+/* home game rows: team-colour swipe only appears on hover */
+.mrow.ghead .gswipe{opacity:0;transition:opacity .5s var(--ease)}
+.mrow.ghead:hover .gswipe{opacity:1;animation-play-state:running}
+.mrow.ghead::before{z-index:2}
 </style>
 </head>
 <body>
@@ -1436,6 +1474,10 @@ const MIN_EDGE = 0.06;        // value rule: model prob − no-vig market prob �
 const H2H_MAX_WEIGHT = 0.25;  // head-to-head blend, at most 25%…
 const H2H_K = 4;              // …shrunk for small samples: 25% × n/(n+4)
 const MIN_MINUTES_FOR_PROPS = 14;
+const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
+const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
+const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
+const MODEL_WEIGHT = 0.3;     // SWISH chance = 30% model + 70% market (no-vig) until results tracking proves the model
 
 /* =================================================================
    2. SAMPLE GENERATOR — deterministic (same numbers every load).
@@ -1515,7 +1557,8 @@ if (IS_LIVE){
     const tot = med(glines.filter(l => l.game === g.id && l.market === "totals" && /over/i.test(l.name)).map(l => l.point));
     const hs = glines.filter(l => l.game === g.id && l.market === "spreads");
     const homeName = `${(T[g.home]||{}).city} ${(T[g.home]||{}).name}`.trim();
-    const hsp = med(hs.filter(l => normName(l.name) === normName(homeName)).map(l => l.point));
+    const normTeam = n => ({laclippers:"losangelesclippers"})[normName(n)] || normName(n);
+    const hsp = med(hs.filter(l => normTeam(l.name) === normTeam(homeName)).map(l => l.point));
     const spread = hsp != null ? `${g.home} ${hsp > 0 ? "+" : "−"}${Math.abs(hsp)}` : (g.espnLine && g.espnLine.details) || "—";
     const total = tot != null ? tot : (g.espnLine && g.espnLine.overUnder) || "—";
     const lineSource = tot != null ? "UK books" : g.espnLine ? (g.espnLine.provider || "ESPN") : null;
@@ -1616,11 +1659,38 @@ function buildProp(pl, market){
           minutes: pl.projMin, seasonMin: pl.min, status: pl.status, seasonAvg};
 }
 
+/* Chance of over/under from the projection.
+   Counting stats use a negative binomial (skewed right, like real rebound/assist counts);
+   big totals use a bell curve. Whole-number lines exclude the push. */
+const COUNT_MARKETS = ["REB","AST","3PM","STL","BLK","TOV"];
+function nbCdf(k, mean, sd){
+  if (k < 0) return 0;
+  const v = Math.max(sd * sd, mean * 1.05), r = mean * mean / (v - mean), q = r / (r + mean);
+  let pm = Math.pow(q, r), c = pm;
+  for (let i = 1; i <= k; i++){ pm *= (i - 1 + r) / i * (1 - q); c += pm; }
+  return Math.min(1, c);
+}
+function pureChance(p){
+  let over, under, dist;
+  if (COUNT_MARKETS.includes(p.market) && p.projection > 0.05){
+    over = 1 - nbCdf(Math.floor(p.line), p.projection, p.sd);
+    under = nbCdf(Math.ceil(p.line) - 1, p.projection, p.sd); dist = "count";
+  } else {
+    const isInt = Number.isInteger(p.line);
+    over = 1 - normCdf(((isInt ? p.line + 0.5 : p.line) - p.projection) / p.sd);
+    under = normCdf(((isInt ? p.line - 0.5 : p.line) - p.projection) / p.sd); dist = "normal";
+  }
+  const t = over + under || 1;
+  return {over: over / t, dist};
+}
 function analyse(p){
   const rawO = americanToProb(p.over), rawU = americanToProb(p.under);
   const vig = rawO + rawU - 1;
   const mktO = rawO / (rawO + rawU), mktU = 1 - mktO;
-  const modelO = 1 - normCdf((p.line - p.projection) / p.sd), modelU = 1 - modelO;
+  // SWISH's own chance: bell curve for big totals (points, PRA); a skewed count distribution for rebounds, assists, threes
+  const pure = pureChance(p);
+  // Blend with the market until results tracking shows how much the model can be trusted
+  const modelO = MODEL_WEIGHT * pure.over + (1 - MODEL_WEIGHT) * mktO, modelU = 1 - modelO;
   const side = (modelO - mktO) >= (modelU - mktU) ? "over" : "under";
   const modelP = side === "over" ? modelO : modelU;
   const mktP = side === "over" ? mktO : mktU;
@@ -1638,11 +1708,14 @@ function analyse(p){
   if (p.role && !p.role.applied) flags.push(`Depends on ${p.role.dependsOn} (${p.role.status.toLowerCase()}) — projection assumes he plays`);
   const ageMin = (new Date(DATA.meta.generatedAt) - new Date(p.oddsUpdated)) / 60000;
   if (ageMin > DATA.meta.staleAfterMinutes) flags.push(`Odds are ${Math.round(ageMin/60)}h old — stale price`);
+  // a line far from the projection usually means news the game logs can't see (new role, minutes limit, lineup change)
+  if (p.live && p.games < 5) flags.push(`Only ${p.games} game${p.games === 1 ? "" : "s"} of data — too few to trust the projection`);
+  if (p.live && (Math.abs(p.projection - p.line) > BIG_GAP_SD * p.sd || Math.abs(p.projection - p.line) > BIG_GAP_REL * Math.max(p.line, 2))) flags.push(`Line is far from SWISH's projection (${p.line} vs ${p.projection.toFixed(1)}) — the market may know about a role or minutes change; check the news`);
 
   const lean = edge < 0.01 ? "none" : side;
-  // "Strong value" is only ever judged against a price you can actually bet (yours, or the sample book) — never a US reference line
-  const value = !flags.length && edge >= MIN_EDGE && ev > 0 && p.source !== "ref";
-  return {...p, rawO, rawU, vig, mktO, mktU, modelO, modelU, side, lean, modelP, mktP, price, edge, ev,
+  // value is judged against whichever price the prop carries (US market price, your own price, or the sample book)
+  const value = !flags.length && edge >= MIN_EDGE && ev > 0;
+  return {...p, rawO, rawU, vig, mktO, mktU, pureO: pure.over, pureU: 1 - pure.over, dist: pure.dist, modelO, modelU, side, lean, modelP, mktP, price, edge, ev,
           fairOdds: probToAmerican(modelP), hits, h2hHits, cv, variability, flags, value};
 }
 
@@ -1672,7 +1745,7 @@ function buildLiveProp(pl, market, myLines){
   const mine = myLines[`${pl.name}|${market}`];
   const refs = (LIVE.props || []).filter(x => x.key === normName(pl.name) && x.market === market && x.game === pl.g.id);
   let src = null;
-  if (mine) src = {line: mine.line, over: mine.over, under: mine.under, book: mine.book || "bet365", updated: mine.at, source: "manual"};
+  if (mine) src = {line: mine.line, over: mine.over, under: mine.under, book: mine.book || "your bookmaker", updated: mine.at, source: "manual"};
   else if (refs.length){
     // consensus reference: the most common line across US books, then that line's average price
     const cnt = {}; refs.forEach(r => cnt[r.line] = (cnt[r.line] || 0) + 1);
@@ -1693,10 +1766,12 @@ function buildLiveProp(pl, market, myLines){
   const n = h2h.length, h2hAvg = n ? avg(h2h) : base;
   const w = n ? H2H_MAX_WEIGHT * n / (n + H2H_K) : 0;
   const projection = base * (1 - w) + h2hAvg * w;
-  const sd = Math.max(SD_FLOOR[market], 0.5 * stdev(recent.slice(0, 20)) + 0.5 * CV[market] * projection);
+  const sdGame = Math.max(SD_FLOOR[market], 0.5 * stdev(recent.slice(0, 20)) + 0.5 * CV[market] * projection);
+  // total spread = game-to-game swings + the projection's own error (it's an estimate, not a known average)
+  const sd = Math.sqrt(sdGame ** 2 + (PROJ_ERR * projection) ** 2);
   const p = {id: hashStr(pl.name + market) % 1e9, player: pl.name, team: pl.team, opp: pl.opp, game: pl.g.id, pos: pl.pos, market,
              base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection - base, role: null, projection, sd, last10,
-             minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10};
+             minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length};
   if (!src) return {...p, noLine: true};
   return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt};
 }
@@ -1723,7 +1798,7 @@ buildAllProps();
 const PLAYER_BY_NAME = new Map(PLAYERS.map(pl => [pl.name, pl]));
 const propOf = (name, m) => ALL.find(p => p.player === name && p.market === m);
 const noLineOf = (name, m) => NOLINE.find(p => p.player === name && p.market === m);
-const lineSrc = p => p.source === "manual" ? `Your price · ${p.book}` : p.source === "ref" ? `US reference · ${bookName(p.book)}` : "Bookmaker (sample)";
+const lineSrc = p => p.source === "manual" ? `Your price · ${p.book}` : p.source === "ref" ? `US market · ${bookName(p.book)}` : "Bookmaker (sample)";
 const GAMES = [...DATA.games].sort((a,b) => new Date(a.tipoff) - new Date(b.tipoff));
 const gameById = id => DATA.games.find(g => g.id === id);
 const injuriesFor = t => DATA.injuries.filter(i => i.team === t);
@@ -1762,7 +1837,10 @@ const fmtOdds = am => state.odds === "dec" ? americanToDecimal(am).toFixed(2) : 
 const initials = n => n.split(" ").map(s => s[0]).join("").slice(0,2);
 const team = t => DATA.teams[t] || {city:t,name:"",color:"#777"};
 const tname = t => `${team(t).city} ${team(t).name}`;
-const tid = (t, cls="") => `<span class="tid ${cls}" style="background:${team(t).color}">${t}</span>`;
+/* Team logos from ESPN's image server; if one can't load, the coloured initials badge shows instead */
+const ESPN_LOGO = {GSW:"gs", NYK:"ny", SAS:"sa", NOP:"no", UTA:"utah", WAS:"wsh"};
+const logoUrl = t => `https://a.espncdn.com/i/teamlogos/nba/500/${ESPN_LOGO[t] || String(t).toLowerCase()}.png`;
+const tid = (t, cls="") => `<span class="tid logo ${cls}" style="background:${team(t).color}" title="${esc(tname(t))}"><img src="${logoUrl(t)}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('logo');this.remove()"><b>${t}</b></span>`;
 const timeFmt = iso => new Date(iso).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
 const dateFmt = iso => new Date(iso).toLocaleDateString([], {weekday:"short", day:"numeric", month:"short"});
 const shortDate = iso => new Date(iso).toLocaleDateString([], {day:"numeric", month:"short", year:"2-digit"});
@@ -1802,7 +1880,6 @@ const money = x => (x >= 0 ? "+" : "−") + "£" + Math.abs(x).toFixed(2);
 function verdict(p){
   if (p.flags.length) return {k:"check", label:"Check status", meaning:"Ignore until the injury or data issue is resolved"};
   if (p.value)        return {k:"strong", label:"Strong value", meaning:"Big enough gap to count as value"};
-  if (p.source === "ref" && p.edge >= MIN_EDGE && p.ev > 0) return {k:"some", label:"Check your price", meaning:"Big gap against a US reference line — enter your bet365 price to confirm"};
   if (p.edge >= 0.03) return {k:"some", label:"Some value", meaning:"Worth a look, but below the value bar"};
   if (p.edge >= 0.01) return {k:"slight", label:"Slight edge", meaning:"Too small to rely on"};
   return {k:"none", label:"No edge", meaning:"SWISH and the bookmaker roughly agree"};
@@ -1815,9 +1892,9 @@ function plainEnglish(p){
   let t = `SWISH projects ${esc(first)} for <b>${p.projection.toFixed(1)} ${mk}</b> against a line of ${p.line}, so it leans <b>${p.side}</b>. `
         + `It thinks ${p.side} ${p.line} happens about <b>${inTen(p.modelP)} times in 10</b> (${pct(p.modelP,0)}). `
         + `The bookmaker's price suggests ${pct(p.mktP,0)} — about ${inTen(p.mktP)} in 10. `
-        + `The difference, <b>${pts(p.edge)}</b>, is the edge: ${v.k === "strong" ? "big enough to count as value." : v.label === "Check your price" ? "big, but only against a reference price." : v.k === "some" ? "positive, but not big enough to count as strong value." : "small, so don't read much into it."} `
+        + `The difference, <b>${pts(p.edge)}</b>, is the edge: ${v.k === "strong" ? "big enough to count as value." : v.k === "some" ? "positive, but not big enough to count as strong value." : "small, so don't read much into it."} `
         + `Remember: even at ${pct(p.modelP,0)} this loses roughly ${10 - inTen(p.modelP)} times in 10.`;
-  if (p.source === "ref") t += ` <b>Note:</b> this line is a US reference price (${esc(bookName(p.book))}), not your bookmaker's. Enter your bet365 line and price below to get a real value verdict.`;
+  if (p.source === "ref") t += ` <b>Note:</b> this is the US market price (average of ${esc(bookName(p.book))}). UK bookmakers usually post a similar line, but check yours matches before betting — if the line or price is worse, the edge shrinks.`;
   if (p.flags.length) t += ` <b>Treat with caution</b> — ${esc(lc1(p.flags[0]))}.`;
   return t;
 }
@@ -1865,7 +1942,7 @@ const TIPS = [
   "Even a 60% chance loses roughly 4 times in 10. Size stakes for losing runs.",
   "Set a budget before you start and stick to it — never chase losses.",
   "Combining legs in a parlay multiplies the bookmaker's margin. Correlated legs aren't independent.",
-  IS_LIVE ? "US prop lines are a reference only. \"Strong value\" appears only once you enter your own bet365 price." : "Everything on this page is sample data — no real odds or results are shown yet."
+  IS_LIVE ? "Prop prices come from US bookmakers. Your bookmaker's line can differ by half a point or so — always check it matches." : "Everything on this page is sample data — no real odds or results are shown yet."
 ];
 const I = {
   clock:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
@@ -1926,14 +2003,14 @@ function viewDashboard(){
   </div>
   <div class="panel" style="margin-bottom:var(--sec)">
     <div class="panel-h"><h2 class="h">Best picks tonight</h2><button class="textbtn" data-nav="props" style="margin-left:auto">See all picks &amp; squads →</button></div>
-    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">${IS_LIVE ? "No strong value yet. Strong value is only judged against your own price — open any prop and enter your bet365 line and odds." : "No props meet the value rule."}</div>`}
+    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">${IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they're fetched once a day (about 16:40 UK time)." : "No props meet the value rule."}</div>`}
   </div>
   <div class="cols">
     <div class="panel">
       <div class="panel-h"><h2 class="h">Tonight's games</h2><span class="sub">Times in your time zone</span></div>
       ${GAMES.map(g => {
         const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
-        return `<button class="mrow" data-goto="${g.id}">
+        return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
           <div class="t num">${timeFmt(g.tipoff)}<small>${esc(g.status)}</small></div>
           <div><div class="ti">${tid(g.away,"sm")}${tname(g.away)}</div><div class="ti">${tid(g.home,"sm")}${tname(g.home)} <small>home</small></div></div>
           <div class="meta"><b class="num">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
@@ -1990,7 +2067,7 @@ function renderLegend(){
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
        <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <b style="color:var(--red)">L6 ▾</b> next to a name shows their last 6 games</span>`
-    : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US reference unless you entered your own price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
+    : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
 function visiblePlayers(teamCode){
@@ -2020,7 +2097,7 @@ function playerSub(pl){
 function cell(pl, m){
   const p = propOf(pl.name, m);
   if (!p) { const nl = noLineOf(pl.name, m);
-    return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no line yet, SWISH projection ${nl.projection.toFixed(1)}. Enter your line" title="No line yet · SWISH projects ${nl.projection.toFixed(1)} · click to enter your bet365 line"><b>+ line</b><small class="num">${nl.projection.toFixed(1)}</small></button></td>` : `<td><span class="dash">—</span></td>`; }
+    return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no bookmaker line, SWISH projection ${nl.projection.toFixed(1)}" title="No bookmaker line · SWISH projects ${nl.projection.toFixed(1)}"><b class="num">–</b><small class="num">${nl.projection.toFixed(1)}</small></button></td>` : `<td><span class="dash">—</span></td>`; }
   if (state.hideFlagged && p.flags.length) return `<td><span class="dash">—</span></td>`;
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
   return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
@@ -2143,11 +2220,11 @@ function liveNotice(){
   if (!IS_LIVE) return `<div class="notice"><b>Everything here is sample data.</b> ${LIVE_NOTE ? esc(LIVE_NOTE) + " " : ""}Games, players, injuries, head-to-head results, bookmaker lines and prices are invented to show how SWISH will work. Nothing reflects real fixtures, real odds or a betting recommendation. Snapshot: ${dateFmt(DATA.meta.generatedAt)}, ${timeFmt(DATA.meta.generatedAt)}.</div>`;
   const sec = LIVE.sections || {}, odds = sec.odds;
   const refN = ALL.filter(p => p.source === "ref").length, mineN = ALL.filter(p => p.source === "manual").length;
-  const oddsTxt = odds && odds.ok ? `US reference lines for ${refN} props (${odds.eventsPriced || 0} games priced, updated ${agoTxt(odds.fetchedAt)})`
-    : "No prop lines yet today — the odds run is once a day (about 16:40 UK time)";
+  const oddsTxt = odds && odds.ok ? `Bookmaker lines for ${refN} props across ${odds.eventsPriced || 0} games (US market prices, updated ${agoTxt(odds.fetchedAt)})`
+    : "No prop lines yet today — they're fetched once a day (about 16:40 UK time)";
   const errs = (LIVE.meta.errors || []).length;
   return `<div class="notice live"><b>Live data.</b> Schedule, injuries and game logs from ESPN (updated ${agoTxt(DATA.meta.generatedAt)}). ${oddsTxt}.
-    ${mineN ? `You've entered your own price on ${mineN} prop${mineN === 1 ? "" : "s"}. ` : ""}"Strong value" is only judged against your own bet365 price — open any prop to add it.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>`;
+    Value is judged against the US market price${mineN ? ` (or your own price on ${mineN} prop${mineN === 1 ? "" : "s"})` : ""} — check your bookmaker's line matches before betting.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>`;
 }
 
 function priceForm(p){
@@ -2155,15 +2232,15 @@ function priceForm(p){
   const fmt = state.odds === "dec" ? "dec" : "am";
   const show = am => am == null ? "" : fmt === "dec" ? americanToDecimal(am).toFixed(2) : (am > 0 ? "+" : "") + am;
   const v = mine || {};
-  return `<div class="dsec"><div class="dt">Your bookmaker price</div>
-    <p class="dnote" style="margin-top:0">Type the line and both prices exactly as your bookmaker shows them (decimal like 1.91, fractional like 10/11, or American like −110). SWISH then judges value against <b>your</b> price. Saved in this browser for today's slate only.</p>
+  return `<div class="dsec"><details class="optprice" ${mine ? "open" : ""}><summary>Optional · compare with your own bookmaker's price</summary>
+    <p class="dnote" style="margin-top:6px">Only if you want to: type the line and both prices as your bookmaker shows them (1.91, 10/11 or −110). SWISH then judges value against <b>your</b> price instead of the US reference. Saved in this browser for today's slate only.</p>
     <form class="pform" data-priceform="${p.id}" autocomplete="off">
       <label>Line<input name="line" inputmode="decimal" placeholder="${p.line != null ? p.line : "e.g. 22.5"}" value="${v.line != null ? v.line : ""}"></label>
       <label>Over price<input name="over" inputmode="decimal" placeholder="${fmt === "dec" ? "e.g. 1.91" : "e.g. -110"}" value="${show(v.over)}"></label>
       <label>Under price<input name="under" inputmode="decimal" placeholder="${fmt === "dec" ? "e.g. 1.91" : "e.g. -110"}" value="${show(v.under)}"></label>
     </form>
     <div class="pform-act"><button class="btn red" data-saveprice="${p.id}">${mine ? "Update my price" : "Save my price"}</button>${mine ? `<button class="textbtn" data-clearprice="${p.id}">Remove my price</button>` : ""}<span class="pform-msg" id="pformMsg" role="status"></span></div>
-  </div>`;
+  </details></div>`;
 }
 
 function noLineDrawerHTML(p){
@@ -2173,13 +2250,13 @@ function noLineDrawerHTML(p){
   return `
   <div class="dr-h"><span class="av">${initials(p.player)}</span><div><b>${esc(p.player)}</b><small>${tname(p.team)} · ${p.pos} · vs ${p.opp} · ${timeFmt(g.tipoff)}</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
   <div class="dr-b">
-    <div class="dr-mk"><b>${MARKET_NAMES[p.market]}</b><span class="vd none">No line yet</span>${p.status!=="Active" ? stPill(p.status) : ""}</div>
+    <div class="dr-mk"><b>${MARKET_NAMES[p.market]}</b><span class="vd none">No line</span>${p.status!=="Active" ? stPill(p.status) : ""}</div>
     <div class="bignums">
       <div><span>Line</span><b class="num">—</b><small>none available</small></div>
       <div><span>Projection</span><b class="num proj">${p.projection.toFixed(1)}</b><small>SWISH model</small></div>
       <div><span>Spread</span><b class="num">±${p.sd.toFixed(1)}</b><small>typical miss</small></div>
     </div>
-    <div class="plain"><div class="plain-h"><span>In plain English</span></div><p>SWISH projects ${esc(p.player.split(" ")[0])} for <b>${p.projection.toFixed(1)} ${MARKET_NAMES[p.market].toLowerCase()}</b>, but there's no bookmaker line for this prop in today's data. Enter your bet365 line and prices below and SWISH will work out its chance, the bookmaker's chance and whether there's value.${inj && (inj.status === "Questionable" || inj.status === "Doubtful") ? ` <b>Treat with caution</b> — listed ${esc(inj.status.toLowerCase())} (${esc(inj.detail.toLowerCase())}).` : ""}</p></div>
+    <div class="plain"><div class="plain-h"><span>In plain English</span></div><p>SWISH projects ${esc(p.player.split(" ")[0])} for <b>${p.projection.toFixed(1)} ${MARKET_NAMES[p.market].toLowerCase()}</b>, but no bookmaker has posted a line for this prop in today's data, so there's nothing to compare against. Lines are fetched automatically once a day; most points, rebounds and assists props get one.${inj && (inj.status === "Questionable" || inj.status === "Doubtful") ? ` <b>Treat with caution</b> — listed ${esc(inj.status.toLowerCase())} (${esc(inj.detail.toLowerCase())}).` : ""}</p></div>
     ${priceForm(p)}
     <div class="dsec"><div class="dt">How the projection is built</div>
       <div class="build">
@@ -2210,7 +2287,7 @@ function savePrice(id){
   const margin = americanToProb(over) + americanToProb(under) - 1;
   if (margin < -0.02 || margin > 0.25) { msg.textContent = "Those two prices don't look like a pair — please check them."; return; }
   const all = loadMyLines();
-  all[`${p.player}|${p.market}`] = {line, over, under, book: "bet365", at: new Date().toISOString()};
+  all[`${p.player}|${p.market}`] = {line, over, under, book: "your bookmaker", at: new Date().toISOString()};
   saveMyLines(all); refreshAfterPrice(id);
 }
 function clearPrice(id){
@@ -2292,7 +2369,8 @@ function drawerHTML(p){
       <div class="kv"><span>Bookmaker implied · over / under</span><b class="num">${pct(p.rawO)} / ${pct(p.rawU)}</b></div>
       <div class="kv"><span>Bookmaker margin</span><b class="num">${pct(p.vig)}</b></div>
       <div class="kv"><span>Bookmaker's chance (margin removed) · over / under</span><b class="num">${pct(p.mktO)} / ${pct(p.mktU)}</b></div>
-      <div class="kv"><span>SWISH's chance · over / under</span><b class="num">${pct(p.modelO)} / ${pct(p.modelU)}</b></div>
+      <div class="kv"><span>Model alone · over / under<small style="display:block;color:var(--faint);font-weight:500">${p.dist === "count" ? "skewed count curve (suits rebounds/assists/threes)" : "bell curve around the projection"}</small></span><b class="num">${pct(p.pureO)} / ${pct(p.pureU)}</b></div>
+      <div class="kv"><span>SWISH's chance · over / under<small style="display:block;color:var(--faint);font-weight:500">${Math.round(MODEL_WEIGHT*100)}% model + ${Math.round((1-MODEL_WEIGHT)*100)}% market, until results prove the model</small></span><b class="num">${pct(p.modelO)} / ${pct(p.modelU)}</b></div>
       <div class="kv"><span>Price source</span><b>${esc(lineSrc(p))}</b></div>
       <div class="kv"><span>Odds last updated</span><b class="num">${timeFmt(p.oddsUpdated)}</b></div>
     </div>
@@ -2314,7 +2392,7 @@ function helpHTML(){
       ${row("Line","The number the bookmaker sets, e.g. 23.5 points. You bet on the player finishing <b>over</b> or <b>under</b> it.")}
       ${row("Projection","SWISH's estimate of what the player will actually get. Above the line → SWISH leans over; below → under.")}
       ${row("Odds (price)","What the bookmaker pays. In decimal, 1.95 means a £10 bet returns £19.50 if it wins — £9.50 profit plus your stake.")}
-      ${row("SWISH's chance","How often SWISH thinks the bet wins if the game were played many times. 60% ≈ <b>6 times in 10</b>.")}
+      ${row("SWISH's chance",`How often SWISH thinks the bet wins if the game were played many times. 60% ≈ <b>6 times in 10</b>. It's ${Math.round(MODEL_WEIGHT*100)}% SWISH's model and ${Math.round((1-MODEL_WEIGHT)*100)}% the bookmaker's view, because the model hasn't been tested against results yet — so only clear disagreements show up as value.`)}
       ${row("Bookmaker's chance","The chance hidden inside the price, after removing the bookmaker's built-in margin (usually 4–5%).")}
       ${row("The gap (edge)","SWISH's chance minus the bookmaker's, in points. <b>+6 pts</b> means SWISH thinks it wins 6 more times in every 100 than the price suggests. Bigger and positive = better price.")}
       ${row("Average return","What you'd expect to win or lose per £10 <i>on average</i> over many similar bets. Any single bet still either wins or loses.")}
@@ -2336,7 +2414,7 @@ function helpHTML(){
       <button class="tgl" role="switch" aria-checked="${PREFS.calm}" data-pref="calm"><span class="track"><span class="knob"></span></span>Reduce motion</button></div>
       <div class="keys"><span><kbd>/</kbd> search players</span><span><kbd>?</kbd> open this guide</span><span><kbd>Esc</kbd> close panel</span><span><kbd>Tab</kbd> move between controls</span></div>
     </div>
-    <div class="pnote warn"><b>Keep in mind:</b> these are estimates from a simple model${IS_LIVE ? " built on real game logs. US prop lines are a reference only — \"Strong value\" needs your own bet365 price" : " using invented data"}. A 60% chance still loses 4 times in 10, and no label here is a recommendation to bet.</div>
+    <div class="pnote warn"><b>Keep in mind:</b> these are estimates from a simple model${IS_LIVE ? " built on real game logs. Prices are US market prices — check your bookmaker's line matches" : " using invented data"}. A 60% chance still loses 4 times in 10, and no label here is a recommendation to bet.</div>
   </div>`;
 }
 let lastFocus = null;
@@ -2398,8 +2476,9 @@ function gameAnalysis(g){
   const trends = ALL.filter(p => p.game === g.id && !p.flags.length && p.n > 0).sort((a,b) => Math.abs(b.h2hAvg-b.line)/b.sd - Math.abs(a.h2hAvg-a.line)/a.sd).slice(0, 7);
   const inj = gameInjuries(g).filter(significant);
   return `
+  <div class="gouter gx" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gglow" aria-hidden="true"></span>
   <section class="ana">
-    <div class="ana-h">
+    <div class="ana-h ghead" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
       <div class="matchup">
         <div class="tm">${tid(g.away,"lg")}<div><b>${A.name}</b><small>${A.city} · away</small></div></div><span class="at">@</span>
         <div class="tm">${tid(g.home,"lg")}<div><b>${H.name}</b><small>${H.city} · home</small></div></div>
@@ -2438,7 +2517,7 @@ function gameAnalysis(g){
         <p class="dnote">Average in previous meetings, furthest from tonight's line first. Head-to-head moves a projection at most ${pct(H2H_MAX_WEIGHT,0)} of the way, less with fewer games.</p>
       </div>
     </div>
-  </section>`;
+  </section></div>`;
 }
 
 /* ---------------- Injuries & Lineups ---------------- */
@@ -2471,14 +2550,15 @@ function injuryCard(g){
     </div>`;
   };
   return `
+  <div class="gouter gx" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gglow" aria-hidden="true"></span>
   <section class="ij">
-    <div class="ij-h">
-      <div class="matchup"><div class="tm">${tid(g.away)}<div><b>${team(g.away).name}</b></div></div><span class="at">@</span><div class="tm">${tid(g.home)}<div><b>${team(g.home).name}</b></div></div></div>
+    <div class="ij-h ghead" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
+      <div class="matchup"><div class="tm">${tid(g.away)}<div><b>${team(g.away).name}</b><small>${team(g.away).city}</small></div></div><span class="at">@</span><div class="tm">${tid(g.home)}<div><b>${team(g.home).name}</b><small>${team(g.home).city}</small></div></div></div>
       <div class="right"><span class="tag num">${timeFmt(g.tipoff)}</span><button class="btn" data-goto="${g.id}">View squads →</button></div>
     </div>
     <div class="lineup"><b>Lineups ${esc(g.lineups.toLowerCase())}.</b> Projections that depend on an uncertain player are flagged and kept out of picks until status is confirmed.</div>
     <div class="ij-b">${col(g.away)}${col(g.home)}</div>
-  </section>`;
+  </section></div>`;
 }
 
 /* ---------------- Results ---------------- */
@@ -2515,13 +2595,13 @@ function render(){
   if (IS_LIVE){
     $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i>Live · updated ${agoTxt(DATA.meta.generatedAt)}`;
     $("stSrc").textContent = "Live records (ESPN)";
-    $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; US prop lines from The Odds API as a reference. Projections are model estimates, not predictions or advice.`;
+    $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; prop prices from US bookmakers via The Odds API. Projections are model estimates, not predictions or advice.`;
   }
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num">${timeFmt(g.tipoff)}</span></button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
   $("page").innerHTML = (views[state.view] || viewDashboard)() +
-    `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. US prop lines are reference prices; your own entered prices are labelled as yours" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
+    `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. Prop prices are US market prices — check your bookmaker's line matches" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
   if (state.view === "props") { renderBest(); renderSections(); bindPropsInputs(); }
   if (state.view === "dashboard") { tickClock(); countUp(); }
   if (state.drawer) $("drawer").innerHTML = state.drawer === "help" ? helpHTML() : drawerHTML(PROP_BY_ID.get(state.drawer));
