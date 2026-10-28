@@ -1,10 +1,10 @@
 {
  "meta": {
   "slateDate": "2026-10-28",
-  "mode": "odds",
+  "mode": "full",
   "errors": [],
   "season": 2027,
-  "writtenAt": "2026-10-28T22:22:16Z"
+  "writtenAt": "2026-10-28T22:37:46Z"
  },
  "games": [
   {
@@ -19,7 +19,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "ATL -2.5",
-    "overUnder": 241.5,
+    "overUnder": 242.5,
     "provider": "DraftKings"
    }
   },
@@ -780,11 +780,11 @@
    "team": "CHI",
    "player": "Patrick Williams",
    "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
+   "status": "Out",
+   "rawStatus": "Out",
    "detail": "Right Groin Soreness",
    "comment": "Williams (groin) is questionable for Wednesday's game against the Knicks.",
-   "updated": "2026-10-27T21:23Z",
+   "updated": "2026-10-28T22:19Z",
    "returnDate": "2026-10-28"
   },
   {
@@ -970,8 +970,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Foot",
-   "comment": "Lendeborg (foot) went through Wednesday's morning shootaround, per Nick Friedell of The Athletic.",
-   "updated": "2026-10-28T17:16Z",
+   "comment": "Lendeborg (foot) is trending toward playing Wednesday against the Timberwolves, Anthony Slater of ESPN.com reports.",
+   "updated": "2026-10-28T21:55Z",
    "returnDate": "2026-10-28"
   },
   {
@@ -1042,13 +1042,13 @@
   },
   {
    "team": "IND",
-   "player": "Aaron Nesmith",
-   "pos": "G",
+   "player": "Obi Toppin",
+   "pos": "F",
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
-   "detail": "Left Hamstring Strain",
-   "comment": "Nesmith (hamstring) is now questionable for Wednesday's game against Philadelphia.",
-   "updated": "2026-10-28T21:52Z",
+   "detail": "Left Hand Sprain",
+   "comment": "Toppin (hand) is active for Wednesday's game against Philadelphia.",
+   "updated": "2026-10-28T22:04Z",
    "returnDate": "2026-10-28"
   },
   {
@@ -1083,17 +1083,6 @@
    "comment": "Haliburton (hamstring) will miss at least the next two weeks of action, Shams Charania of ESPN reports.",
    "updated": "2026-10-28T21:30Z",
    "returnDate": "2026-11-13"
-  },
-  {
-   "team": "IND",
-   "player": "Obi Toppin",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Left Hand Sprain",
-   "comment": "Toppin is probable to play Wednesday against the 76ers due to a left hand sprain.",
-   "updated": "2026-10-27T21:17Z",
-   "returnDate": "2026-10-28"
   },
   {
    "team": "IND",
@@ -1369,17 +1358,6 @@
    "comment": "The Thunder plan to waive Oweh (Achilles) on Friday.",
    "updated": "2026-10-23T18:52Z",
    "returnDate": "2027-07-01"
-  },
-  {
-   "team": "ORL",
-   "player": "Anthony Black",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Personal",
-   "comment": "Black (personal) was not present at Wednesday's morning shootaround, Jason Beede of the Orlando Sentinel reports.",
-   "updated": "2026-10-28T14:41Z",
-   "returnDate": "2026-10-28"
   },
   {
    "team": "ORL",
@@ -358874,31 +358852,31 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-28T22:22:12Z",
+   "fetchedAt": "2026-10-28T22:31:04Z",
    "ok": true,
    "count": 12
   },
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-28T22:05:02Z",
+   "fetchedAt": "2026-10-28T22:31:05Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-28T22:05:03Z",
+   "fetchedAt": "2026-10-28T22:31:05Z",
    "ok": true,
-   "count": 93
+   "count": 91
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-28T22:10:36Z",
+   "fetchedAt": "2026-10-28T22:37:33Z",
    "ok": true,
    "count": 394,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-28T22:10:44Z",
+   "fetchedAt": "2026-10-28T22:37:46Z",
    "ok": true
   },
   "odds": {
