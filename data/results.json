@@ -1,7 +1,7 @@
 {
- "generatedAt": "2026-10-29T11:20:17Z",
+ "generatedAt": "2026-10-29T11:23:41Z",
  "stake": 10.0,
- "modelVersion": "v1.1 (2026-10-29)",
+ "modelVersion": "v1.2 (2026-10-29)",
  "modelWeight": 0.3,
  "since": "2026-10-28",
  "totals": {
@@ -232,6 +232,65 @@
    "strongCumProfit": -31.71
   }
  ],
+ "overs": {
+  "listed": {
+   "n": 119,
+   "wins": 59,
+   "losses": 60,
+   "pushes": 0,
+   "hitRate": 0.4958,
+   "profit": -77.87,
+   "roi": -0.0654,
+   "avgPrice": 1.903,
+   "predicted": 0.5207
+  },
+  "allOvers": {
+   "n": 350,
+   "wins": 174,
+   "losses": 176,
+   "pushes": 0,
+   "hitRate": 0.4971,
+   "profit": -203.84,
+   "roi": -0.0582,
+   "avgPrice": 1.901,
+   "predicted": 0.4924
+  },
+  "tiers": {
+   "high": {
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "hitRate": null,
+    "profit": 0,
+    "roi": null,
+    "avgPrice": null,
+    "predicted": null
+   },
+   "med": {
+    "n": 33,
+    "wins": 20,
+    "losses": 13,
+    "pushes": 0,
+    "hitRate": 0.6061,
+    "profit": 20.8,
+    "roi": 0.063,
+    "avgPrice": 1.762,
+    "predicted": 0.5682
+   },
+   "low": {
+    "n": 86,
+    "wins": 39,
+    "losses": 47,
+    "pushes": 0,
+    "hitRate": 0.4535,
+    "profit": -98.67,
+    "roi": -0.1147,
+    "avgPrice": 1.957,
+    "predicted": 0.5025
+   }
+  }
+ },
  "recent": [
   {
    "slate": "2026-10-28",
