@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T17:05:26Z"
+  "writtenAt": "2026-10-29T17:10:26Z"
  },
  "games": [
   {
@@ -1081,8 +1081,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Left Ankle",
-   "comment": "Poole (ankle) won't return to Wednesday's game against the Nuggets. He finished with two points (1-3 FG, 0-1 3Pt), one rebound and one steal over seven minutes.",
-   "updated": "2026-10-29T01:33Z",
+   "comment": "Poole (ankle) is now doubtful for Thursday against the Kings.",
+   "updated": "2026-10-29T16:49Z",
    "returnDate": "2026-10-29"
   },
   {
@@ -80169,19 +80169,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T17:05:26Z",
+   "fetchedAt": "2026-10-29T17:10:26Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T17:05:26Z",
+   "fetchedAt": "2026-10-29T17:10:25Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T17:05:26Z",
+   "fetchedAt": "2026-10-29T17:10:26Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80226,7 +80226,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T17:05:26Z"
+    "fetchedAt": "2026-10-29T17:10:26Z"
    },
    "home": {
     "starters": [
@@ -80253,7 +80253,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T17:05:26Z"
+    "fetchedAt": "2026-10-29T17:10:26Z"
    }
   },
   "401909894": {
@@ -80282,7 +80282,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T17:05:26Z"
+    "fetchedAt": "2026-10-29T17:10:26Z"
    },
    "home": {
     "starters": [
@@ -80309,7 +80309,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T17:05:26Z"
+    "fetchedAt": "2026-10-29T17:10:26Z"
    }
   },
   "401909895": {
@@ -80338,7 +80338,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T17:05:26Z"
+    "fetchedAt": "2026-10-29T17:10:26Z"
    },
    "home": {
     "starters": [
@@ -80365,7 +80365,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T17:05:26Z"
+    "fetchedAt": "2026-10-29T17:10:26Z"
    }
   }
  }
