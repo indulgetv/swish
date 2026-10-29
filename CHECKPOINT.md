@@ -77,6 +77,19 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   - Props: "Expected minutes" panel + role chips; new default "Top overs" list ranked by SWISH chance of the over, with
     High (60%+) / Medium (55–60%) confidence; only overs SWISH rates ≥ the bookmaker, no warnings.
 
+- **29 Oct (midday) — v1.2 + overs tracker + timeline:**
+  - Model v1.2 (both files, parity 0): teammates OUT → minutes shortfall vs 240 among available players who've played
+    this season is shared by room below 36 min (×2 same position as the absent), max +6 each, cap 40; projection scaled
+    by new/old minutes; shown as the role adjustment row + "Injury boosts" list. 28 Oct backtest: boosted players' minutes
+    error 3.77→3.43, overall projections ≈ unchanged (one night).
+  - Results: "Top overs tracker" (ledger `overs`: High 60%+ / Medium 55–60% / Low, each graded on the over price).
+  - Home: "Today's updates · UK time" timeline (07:05 / 13:50 / 14:30 early lines / 19:50 / 21:00 lines / tip-off / 01:30).
+    NOTE: update.py odds windows are UTC (21:00–22:30); when UK clocks go forward in March, shift them or the cron jobs.
+  - Squad tables: Min shows average (last 10) and expected tonight in blue; phone game log shows PTS/REB/AST/3PM.
+  - Odds credits: UK game lines (totals/spreads) only bought when the day's budget covers 3 prop markets for every game.
+    Free plan = 500/month (resets monthly, no rollover). 28 Oct run used 35, 465 left. November ≈16/day → auto picks
+    PTS only on 10+ game nights, PTS+REB on ≤8. Ask the user which markets matter most.
+
 ## Next steps (in order)
 1. ~~Daily auto-start~~ DONE 29 Oct: cron-job.org (user's account, timezone Europe/London) POSTs to the GitHub API with a
    fine-grained token (indulgetv/swish only, Actions read & write; if the 90-day option was kept it expires 27 Jan 2027 —
@@ -94,7 +107,7 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
    lines); (d) no "strong" tag on players whose minutes changed a lot vs last season. One night = noise; don't
    change MODEL_WEIGHT yet.
 3. Line movement (closing line value): a second, small odds fetch ~30 min before tip-off — budget the credits.
-4. Minutes/role model: raise teammates' projections when a starter is confirmed out (use the lineups data).
+4. ~~Minutes/role model~~ done (v1.2, injury-based). Still to do: use NBA.com confirmed lineups (starter swaps) and usage (rate) boosts.
 5. Add STL / BLK / TOV columns (data already collected).
 6. After ~2 weeks of results: review accuracy vs market & calibration; only then consider raising MODEL_WEIGHT.
 

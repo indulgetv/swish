@@ -169,6 +169,30 @@ def _record(ps):
             "avgPrice": round(sum(model.american_to_decimal(p["price"]) for p in ps if p["result"] != "push") / (w + l), 3) if w + l else None}
 
 
+def _over_view(p):
+    """the OVER side of a graded pick, as the website's "Top overs" list sees it"""
+    dec = model.american_to_decimal(p["over"])
+    a, line = p.get("actual"), p["line"]
+    res = "win" if a > line else "loss" if a < line else "push"
+    prof = round(STAKE * (dec - 1), 2) if res == "win" else (-STAKE if res == "loss" else 0.0)
+    q = p["modelO"]
+    tier = "high" if q >= 0.6 else "med" if q >= 0.55 else "low"
+    return {"result": res, "profit": prof, "price": p["over"], "q": q, "tier": tier,
+            "listed": not p.get("flags") and p["modelO"] >= p["mktO"]}
+
+
+def _overs_summary(graded):
+    """Does "Top overs" confidence come true? Every graded prop, judged on its over side."""
+    ov = [_over_view(p) for p in graded if p.get("actual") is not None and p.get("over") is not None]
+    listed = [o for o in ov if o["listed"]]
+    def block(xs):
+        r = _record(xs)
+        r["predicted"] = round(sum(o["q"] for o in xs) / len(xs), 4) if xs else None
+        return r
+    return {"listed": block(listed), "allOvers": block(ov),
+            "tiers": {t: block([o for o in listed if o["tier"] == t]) for t in ("high", "med", "low")}}
+
+
 def summarise(data_dir: Path, now: datetime | None = None) -> dict:
     now = now or _now()
     pdir = data_dir / PICKS_DIR_NAME
@@ -233,6 +257,7 @@ def summarise(data_dir: Path, now: datetime | None = None) -> dict:
         "projection": {"n": len(acc), "maeSwish": mae(lambda p: p["projection"]), "maeLine": mae(lambda p: p["line"])},
         "clv": {"moved": len(moved), "toward": len(toward)},
         "byMarket": by_market, "byVersion": by_version, "days": days,
+        "overs": _overs_summary(graded),
         "recent": [{k: p.get(k) for k in keep} for p in recent],
     }
 

@@ -393,8 +393,9 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
     todays = [e for e in events if ev_key(e) in game_ids_by_teams]
     props, lines = [], []
 
-    # 2) UK game lines for today's games (costs = markets x regions)
-    if budget >= 2 and todays:
+    # 2) UK game lines (totals/spreads) — nice to have only: ESPN already gives a free spread/total, so these are
+    #    bought only when the budget also covers points, rebounds and assists for every game (props come first)
+    if todays and budget >= 3 * len(todays) + 2:
         try:
             data, hdr = get_json(f"{ODDS_BASE}/odds", {"apiKey": key, "regions": "uk", "markets": "totals,spreads",
                                                        "bookmakers": ",".join(UK_BOOKS), "oddsFormat": "decimal"})

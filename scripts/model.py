@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.1 (2026-10-29)"
+MODEL_VERSION = "v1.2 (2026-10-29)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -29,6 +29,12 @@ MODEL_WEIGHT = 0.3
 STALE_AFTER_MIN = 14 * 60
 COUNT_MARKETS = {"REB", "AST", "3PM", "STL", "BLK", "TOV"}
 ROLE_CHANGE_MIN = 5        # minutes: this season's role vs last season counts as a role change
+MAX_MIN = 40               # nobody is projected above this many minutes
+SHIFT_MIN_OUT = 10         # a teammate out must be a 10+ minute player to trigger a minutes shift
+TEAM_MIN = 240             # minutes in a regulation game
+MAX_GAIN = 6               # no single player picks up more than 6 extra minutes
+SHIFT_ROOM = 36            # spare minutes are shared by how far each player is below this
+SHIFT_MIN_RECV = 8         # only rotation players (8+ expected minutes) pick them up
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
 
@@ -104,6 +110,48 @@ def minutes_model(cur, last):
     return exp_min, cur_min, last_min, delta
 
 
+def pos_group(pos):
+    u = (pos or "").upper()
+    return "C" if u.startswith("C") else "G" if "G" in u else "F" if "F" in u else u
+
+
+def minute_shifts(live: dict, status_of) -> dict:
+    """Teammates ruled OUT → more minutes for the rest, but only when the players still available can't fill a
+    normal 240-minute game on their own minutes this season (so long-term absences already absorbed are not
+    counted twice). The shortfall is shared among available rotation players in proportion to their minutes,
+    double weight for the same position as the absent players. Each player capped at MAX_MIN."""
+    teams = {t for g in live.get("games", []) for t in (g["away"], g["home"])}
+    by_team = {}
+    for p in live.get("players", []):
+        if p.get("team") not in teams:
+            continue
+        played = lambda arr: [x for x in (arr or []) if (x.get("min") or 0) > 0]
+        cur, last = played(p.get("season")), played(p.get("lastSeason"))
+        if not cur and not last:
+            continue
+        by_team.setdefault(p["team"], []).append({"name": p["name"], "grp": pos_group(p.get("pos")), "exp": minutes_model(cur, last)[0],
+                                                  "cur": len(cur), "status": status_of(p["name"])})
+    out = {}
+    for rows in by_team.values():
+        outs = [r for r in rows if r["status"] == "Out" and r["exp"] >= SHIFT_MIN_OUT]
+        avail = [r for r in rows if r["status"] not in ("Out", "Doubtful") and r["cur"] > 0]
+        short = TEAM_MIN - sum(r["exp"] for r in avail)
+        if not outs or short <= 0:
+            continue
+        grps = {o["grp"] for o in outs}
+        recv = [r for r in avail if r["exp"] >= SHIFT_MIN_RECV]
+        wts = [max(0.0, SHIFT_ROOM - r["exp"]) * (2 if r["grp"] in grps else 1) for r in recv]   # bench/role players have more room than stars
+        tot = sum(wts)
+        if tot <= 0:
+            continue
+        names = [o["name"] for o in sorted(outs, key=lambda o: -o["exp"])]
+        for r, wt in zip(recv, wts):
+            g = min(MAX_MIN, r["exp"] + min(MAX_GAIN, short * wt / tot)) - r["exp"]
+            if g > 0.05:
+                out[r["name"]] = {"gain": g, "from": names}
+    return out
+
+
 def nb_cdf(k: int, mean: float, sd: float) -> float:
     if k < 0:
         return 0.0
@@ -162,6 +210,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
     for x in live.get("props", []):
         props_by.setdefault((x.get("key"), x.get("market"), x.get("game")), []).append(x)
 
+    shifts = minute_shifts(live, lambda n: (injury_of(n) or {}).get("status") or "Active")
     picks = []
     for p in live.get("players", []):
         if p.get("team") not in game_of_team:
@@ -175,7 +224,9 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
         if not recent:
             continue
         r10 = recent[:10]
-        exp_min, cur_min, last_min, role_delta = minutes_model(cur, last)
+        exp0, cur_min, last_min, role_delta = minutes_model(cur, last)
+        shift = shifts.get(p["name"])
+        exp_min = exp0 + shift["gain"] if shift else exp0
         mins = js_round(exp_min)
         role_change = len(cur) >= 2 and last_min is not None and abs(role_delta) >= ROLE_CHANGE_MIN
         w_cur = min(1, len(cur) / 10)
@@ -216,13 +267,14 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
             s_rate = (w_cur * rc + (1 - w_cur) * rl) if rc is not None and rl is not None else (rc if rc is not None else rl)
             l_rate = rate(r10, market)
             rt = 0.55 * (s_rate or 0) + 0.45 * (l_rate or 0)
-            base = max(0.1, rt * exp_min)
+            base = max(0.1, rt * exp0)
             h2h_games = [x for x in recent if x.get("opp") == opp][:4]
             h2h = [x[market] for x in h2h_games]
             n = len(h2h)
-            h2h_avg = (rate(h2h_games, market) or 0) * exp_min if n else base
+            h2h_avg = (rate(h2h_games, market) or 0) * exp0 if n else base
             w = H2H_MAX_WEIGHT * n / (n + H2H_K) if n else 0
-            projection = base * (1 - w) + h2h_avg * w
+            projection0 = base * (1 - w) + h2h_avg * w
+            projection = projection0 * exp_min / exp0 if exp0 > 0 else projection0   # teammate out → more minutes
             sd_game = max(SD_FLOOR[market], 0.5 * stdev(recent_v[:20]) + 0.5 * CV[market] * projection)
             sd = math.sqrt(sd_game ** 2 + (PROJ_ERR * projection) ** 2)
 
@@ -269,6 +321,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                 "fetched": fetched, "oddsUpdated": updated,
                 "projection": round(projection, 3), "sd": round(sd, 3), "minutes": mins, "games": len(recent),
                 "curGames": len(cur), "roleDelta": round(role_delta, 1) if role_change else 0,
+                "minBoost": round(shift["gain"], 1) if shift else 0, "boostFrom": shift["from"] if shift else [],
                 "pureO": round(pure_o, 5), "mktO": round(mkt_o, 5), "modelO": round(model_o, 5), "dist": dist,
                 "side": side, "lean": lean, "modelP": round(model_p, 5), "mktP": round(mkt_p, 5), "price": price,
                 "edge": round(edge, 5), "ev": round(ev, 5), "value": value, "verdict": verdict,

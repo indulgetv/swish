@@ -1609,6 +1609,28 @@ html.dark .lsw{--tick:#ffc531}
 .lsw .mscore,.lsw .t,.lsw .tag.score b{transition:color .7s var(--ease)}
 .lsw.ticking .mscore,.lsw.ticking .t,.lsw.ticking .tag.score b{color:var(--tick)!important;transition:color .12s}
 html.noanim *,html.noanim *::before,html.noanim *::after{animation:none!important;transition:none!important}
+:root{--exp:#2563d9}
+html.dark{--exp:#79a8ff}
+.mpair{display:inline-flex;align-items:baseline;gap:5px;white-space:nowrap}
+.mpair .mavg{color:var(--ink2)}
+.mpair .mexp{color:var(--exp);font-weight:800}
+.mhd{display:block;font-size:8.5px;letter-spacing:.04em;color:var(--muted);text-transform:none;font-weight:600}
+.mhd i{font-style:normal;color:var(--exp)}
+@media (max-width:760px){.mpair{flex-direction:column;align-items:center;gap:0;line-height:1.15}.mpair .mexp{font-size:12px}}
+.sched{margin:10px 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface2)}
+.sched-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sched-h b{font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink2)}
+.srow{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:baseline;padding:6px 0;border-top:1px solid var(--line);font-size:13px}
+.srow:first-of-type{border-top:0}
+.srow .tm{font-weight:800;color:var(--ink2)}
+.srow small{display:block;color:var(--muted);font-size:11.5px}
+.srow .st{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:99px;white-space:nowrap;background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+.srow.done{opacity:.55}.srow.done .st{color:var(--over)}
+.srow.next .st{background:var(--red);color:#fff;border-color:transparent}
+.srow.now .st{background:var(--over-soft);color:var(--over);border-color:transparent}
+.srow.key .tm,.srow.key b{color:var(--red)}
+.ovt td.l small{display:block;font-size:10.5px;color:var(--muted);font-weight:600}
+@media (max-width:760px){.ovt th,.ovt td{padding:8px 5px!important;font-size:12.5px}.ovt th{font-size:9px!important}.ovt td.l{padding-left:12px!important}}
 .rolechip{display:inline-block;margin-left:4px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 5px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
 .rolechip.up{color:var(--over);background:var(--over-soft);border-color:transparent}
 .rolechip.dn{color:var(--red);background:var(--red-soft);border-color:var(--red-line)}
@@ -1785,9 +1807,15 @@ const MIN_MINUTES_FOR_PROPS = 14;
 const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.1 (2026-10-29)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.2 (2026-10-29)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
-const ROLE_NEW_GAMES = 3;     // …and with fewer games than this it's flagged (projection less certain)
+const ROLE_NEW_GAMES = 3;
+const MAX_MIN = 40;           // nobody is projected above this many minutes
+const SHIFT_MIN_OUT = 10;     // a teammate out must be a 10+ minute player to trigger a minutes shift
+const TEAM_MIN = 240;         // minutes in a regulation game
+const MAX_GAIN = 6;           // no single player picks up more than 6 extra minutes
+const SHIFT_ROOM = 36;        // spare minutes are shared by how far each player is below this
+const SHIFT_MIN_RECV = 8;     // …and only rotation players (8+ expected minutes) pick them up     // …and with fewer games than this it's flagged (projection less certain)
 const MODEL_WEIGHT = 0.3;     // SWISH chance = 30% model + 70% market (no-vig) until results tracking proves the model
 
 /* =================================================================
@@ -2055,6 +2083,36 @@ function minutesModel(cur, last){
   const prior = last.length ? mn(last.slice(0, 10)) : curMin;
   return {expMin: w * curMin + (1 - w) * prior, curMin, lastMin, delta: lastMin !== null ? curMin - lastMin : 0};
 }
+const posGroup = pos => { const u = String(pos || "").toUpperCase(); return u.startsWith("C") ? "C" : u.includes("G") ? "G" : u.includes("F") ? "F" : u; };
+/* teammates ruled OUT → more minutes for the rest, only when the available players can't fill a 240-minute game on
+   their own minutes this season (so long-term absences already absorbed aren't counted twice). The shortfall goes to
+   rotation players by how much room they have below 36 minutes (stars are near their cap; role players absorb most),
+   double weight for the absent players' positions, capped at 40. Same rules as scripts/model.py. */
+function applyMinuteShifts(players){
+  const byTeam = {};
+  players.forEach(pl => (byTeam[pl.team] = byTeam[pl.team] || []).push(pl));
+  Object.values(byTeam).forEach(rows => {
+    const outs = rows.filter(r => r.status === "Out" && r.expMin0 >= SHIFT_MIN_OUT);
+    const avail = rows.filter(r => r.status !== "Out" && r.status !== "Doubtful" && r.cur.length > 0);
+    const short = TEAM_MIN - avail.reduce((a, r) => a + r.expMin0, 0);
+    if (!outs.length || short <= 0) return;
+    const grps = new Set(outs.map(o => posGroup(o.pos)));
+    const recv = avail.filter(r => r.expMin0 >= SHIFT_MIN_RECV);
+    const wts = recv.map(r => Math.max(0, SHIFT_ROOM - r.expMin0) * (grps.has(posGroup(r.pos)) ? 2 : 1));
+    const tot = wts.reduce((a, b) => a + b, 0); if (tot <= 0) return;
+    const names = [...outs].sort((a, b) => b.expMin0 - a.expMin0).map(o => o.name);
+    recv.forEach((r, i) => {
+      const g = Math.min(MAX_MIN, r.expMin0 + Math.min(MAX_GAIN, short * wts[i] / tot)) - r.expMin0;
+      if (g > 0.05){
+        r.expMin = r.expMin0 + g; r.projMin = Math.round(r.expMin);
+        r.minBoost = {gain: g, from: names};
+        r.boost = {dependsOn: names.slice(0, 3).join(", ") + (names.length > 3 ? ` +${names.length - 3} more` : ""), minIf: r.projMin, status: "Out",
+                   note: "Minutes the absent players leave behind, shared mostly to role players"};
+      }
+    });
+  });
+  return players;
+}
 function buildLivePlayers(){
   const out = [];
   (LIVE.players || []).forEach(p => {
@@ -2070,11 +2128,11 @@ function buildLivePlayers(){
     const wCur = Math.min(1, cur.length / 10);                         // trust this season more as it fills up
     const seasonAvg = m => { const a = cur.length ? avg(cur.map(g => g[m])) : 0, b = last.length ? avg(last.map(g => g[m])) : a; return wCur * a + (1 - wCur) * b; };
     const avgs = {}; MARKETS.forEach(m => avgs[m] = seasonAvg(m));
-    out.push({name: p.name, pos: p.pos || "", team: p.team, min: mins, projMin: mins, avgs, boost: null, scenario: null,
+    out.push({name: p.name, pos: p.pos || "", team: p.team, min: mins, projMin: mins, avgs, avgMin: avg(r10.map(g => g.min || 0)), expMin0: mm.expMin, minBoost: null, boost: null, scenario: null,
               status: statusOf(p.name), log: r10.map(g => ({...g, min: Math.round(g.min)})), recent, cur, last, curGames: cur.length,
               expMin: mm.expMin, curMin: mm.curMin, lastMin: mm.lastMin, roleDelta: roleChange ? mm.delta : 0, roleChange, ...gm});
   });
-  return out;
+  return applyMinuteShifts(out);
 }
 if (IS_LIVE) PLAYERS.push(...buildLivePlayers());
 
@@ -2102,19 +2160,21 @@ function buildLiveProp(pl, market, myLines){
   const rc = rateOf(pl.cur, market), rl = rateOf(pl.last, market);
   const sRate = rc !== null && rl !== null ? wCur * rc + (1 - wCur) * rl : (rc !== null ? rc : rl);
   const lRate = rateOf(pl.recent.slice(0, 10), market);
-  const base = Math.max(0.1, (0.55 * (sRate || 0) + 0.45 * (lRate || 0)) * pl.expMin);
+  const base = Math.max(0.1, (0.55 * (sRate || 0) + 0.45 * (lRate || 0)) * pl.expMin0);
   const h2hGames = pl.recent.filter(g => g.opp === pl.opp).slice(0, 4);
   const h2h = h2hGames.map(g => g[market]);
-  const n = h2h.length, h2hAvg = n ? (rateOf(h2hGames, market) || 0) * pl.expMin : base;
+  const n = h2h.length, h2hAvg = n ? (rateOf(h2hGames, market) || 0) * pl.expMin0 : base;
   const w = n ? H2H_MAX_WEIGHT * n / (n + H2H_K) : 0;
-  const projection = base * (1 - w) + h2hAvg * w;
+  const projection0 = base * (1 - w) + h2hAvg * w;
+  const projection = pl.expMin0 > 0 ? projection0 * pl.expMin / pl.expMin0 : projection0;   // teammate out → more minutes
+  const role = pl.minBoost ? {...pl.boost, applied: true, value: projection - projection0} : null;
   const sdGame = Math.max(SD_FLOOR[market], 0.5 * stdev(recent.slice(0, 20)) + 0.5 * CV[market] * projection);
   // total spread = game-to-game swings + the projection's own error (it's an estimate, not a known average)
   const sd = Math.sqrt(sdGame ** 2 + (PROJ_ERR * projection) ** 2);
   const p = {id: hashStr(pl.name + market) % 1e9, player: pl.name, team: pl.team, opp: pl.opp, game: pl.g.id, pos: pl.pos, market,
-             base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection - base, role: null, projection, sd, last10,
-             minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length,
-             expMin: pl.expMin, curMin: pl.curMin, lastMin: pl.lastMin, roleDelta: pl.roleDelta, roleChange: pl.roleChange, curGames: pl.curGames};
+             base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection0 - base, role, projection, sd, last10,
+             minutes: pl.projMin, seasonMin: pl.min, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length,
+             expMin: pl.expMin, expMin0: pl.expMin0, minBoost: pl.minBoost, curMin: pl.curMin, lastMin: pl.lastMin, roleDelta: pl.roleDelta, roleChange: pl.roleChange, curGames: pl.curGames};
   if (!src) return {...p, noLine: true};
   return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt, fetched: src.source === "ref" ? src.fetched : null};
 }
@@ -2541,10 +2601,11 @@ function visiblePlayers(teamCode){
   return ps;
 }
 
+const minPair = pl => `<span class="mpair"><span class="mavg" title="Average minutes, last 10 games">${Math.round(pl.avgMin != null ? pl.avgMin : pl.min)}</span><span class="mexp" title="Expected minutes tonight${pl.minBoost ? ` (incl. +${pl.minBoost.gain.toFixed(1)} with ${esc(pl.boost.dependsOn)} out)` : ""}">${pl.projMin}${pl.minBoost ? "▲" : ""}</span></span>`;
 const roleChip = x => x && x.roleChange ? `<span class="rolechip ${x.roleDelta > 0 ? "up" : "dn"}" title="Minutes this season ${Math.round(x.curMin)} vs ${Math.round(x.lastMin)} last season">${x.roleDelta > 0 ? "▲" : "▼"} role ${x.roleDelta > 0 ? "+" : "−"}${Math.abs(Math.round(x.roleDelta))} min</span>` : "";
 const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${roleChip(p)}</div>
       <div class="minbox">
-        <div><span>Tonight</span><b class="num">${p.expMin.toFixed(1)}</b><small>SWISH estimate</small></div>
+        <div><span>Tonight</span><b class="num" style="color:var(--exp)">${p.expMin.toFixed(1)}</b><small>${p.minBoost ? `incl. +${p.minBoost.gain.toFixed(1)} · ${esc([...new Set(p.minBoost.from)].join(", "))} out` : "SWISH estimate"}</small></div>
         <div><span>This season</span><b class="num">${p.curMin !== null ? p.curMin.toFixed(1) : "—"}</b><small>${p.curGames} game${p.curGames === 1 ? "" : "s"}</small></div>
         <div><span>Last season</span><b class="num">${p.lastMin !== null ? p.lastMin.toFixed(1) : "—"}</b><small>last 20 games</small></div>
       </div>
@@ -2586,7 +2647,7 @@ function formTable(pl, focus){
       <div class="fl num">${L === null ? "No line tonight" : `<span>Line <b>${L}</b></span><span><b class="hc">${hits}/6</b> over</span>`}</div>
     </div>`;
   }).join("");
-  const keep = m => ["PTS","REB","AST"].includes(m) || m === focus;
+  const keep = m => ["PTS","REB","AST","3PM"].includes(m) || m === focus;   // phones hide PRA unless it's the market you opened
   const head = `<tr><th class="l dt">Date</th><th class="l">Opponent</th><th>Min</th>${MARKETS.map(m => `<th class="mk ${keep(m)?"keep":""} ${m===focus?"f":""}">${m}</th>`).join("")}</tr>`;
   const rows = games.map((g, r) => { const dd = new Date(g.d).toLocaleDateString([], {day:"numeric", month:"short"}); return `<tr style="--r:${r}"><td class="l num dt">${dd}</td>
     <td class="l"><span class="fopp">${g.home ? "vs" : "@"} ${tid(g.opp,"xs")} ${g.opp}</span><span class="dt2 num">${dd}</span></td><td class="num mn">${g.min}</td>
@@ -2605,11 +2666,11 @@ function squadMatrix(teamCode){
   const v = ALL.filter(p => p.team === teamCode && p.value).length;
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
-    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min">Min</th>${MARKETS.map(m => `<th class="mk">${m}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
+    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${MARKETS.map(m => `<th class="mk">${m}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
         return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in"><div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
-        <td class="min num ${pl.boost?"up":""}">${pl.status==="Out" ? "—" : pl.projMin}</td>
+        <td class="min num ${pl.boost?"up":""}">${pl.status==="Out" ? "—" : minPair(pl)}</td>
         ${pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS ? MARKETS.map(() => `<td><span class="dash">—</span></td>`).join("") : MARKETS.map(m => cell(pl, m)).join("")}</tr>
         ${open ? `<tr class="formrow"><td colspan="${MARKETS.length + 2}" style="--team-c:${team(pl.team).color}"><div class="formwrap"><div class="formttl"><span class="av">${initials(pl.name)}</span><div><b>${esc(pl.name)}</b><small>${tname(pl.team)} · ${pl.pos} · last 6 games</small></div><button class="fclose" data-form="${esc(pl.name)}" aria-label="Hide last 6 games for ${esc(pl.name)}">Hide ${ICON_CHEV}</button></div>${formTable(pl)}</div></td></tr>` : ""}`; }).join("")}
     </tbody></table>` : `<div class="gempty">No players match the current filters.</div>`}
@@ -2627,7 +2688,7 @@ function singleMarket(teamCode){
       const pl = PLAYERS.find(x => x.name === p.player);
       return `<button class="smt-r ${p.value?"value":""}" data-prop="${p.id}">
         <div class="pl"><b>${esc(p.player)}</b>${p.flags.length ? `<small class="warn">⚠ Flagged</small>` : playerSub(pl)}</div>
-        <div class="mins num ${pl.boost?"up":""}" data-l="Min">${pl.projMin}</div>
+        <div class="mins num ${pl.boost?"up":""}" data-l="Min">${pl.status==="Out" ? "—" : minPair(pl)}</div>
         <div class="big num" data-l="Line">${p.line}</div>
         <div class="odd num ${p.lean==="over"?"lo":""}" data-l="Over"><span>${fmtOdds(p.over)}</span></div>
         <div class="odd num ${p.lean==="under"?"lu":""}" data-l="Under"><span>${fmtOdds(p.under)}</span></div>
@@ -2683,6 +2744,37 @@ function renderSections(){
       <button class="btn" data-clear="1">Clear search &amp; filters</button></div>`;
 }
 
+/* ---------------- Today's update timeline (UK times — cron-job.org starts each block) ---------------- */
+function scheduleHTML(){
+  const uk = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/London"}));
+  const nowM = uk.getHours() * 60 + uk.getMinutes();
+  const odds = (LIVE && LIVE.sections && LIVE.sections.odds) || {};
+  const todayUTC = new Date().toISOString().slice(0, 10);
+  const run = w => (odds.runs || []).filter(r => r.window === w && String(r.at || "").slice(0, 10) === todayUTC).pop();
+  const early = GAMES.some(g => { const t = new Date(new Date(g.tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); return t.getHours() < 21 && t.getHours() > 9; });
+  const firstTip = GAMES.length ? timeFmt(GAMES[0].tipoff) : null;
+  const items = [
+    {m: 7*60+5,  t: "07:05", what: "Morning update", sub: "last night's picks graded on Results · stats & rosters refreshed"},
+    {m: 13*60+50, t: "13:50", what: "Afternoon updates start", sub: "injuries & news checked every 5 minutes", until: 19*60+45},
+    ...(early ? [{m: 14*60+30, t: "14:30", what: "Early bookmaker lines", sub: "only for games before 21:30", key: true, done: run("early")}] : []),
+    {m: 19*60+50, t: "19:50", what: "Evening updates start", sub: "every 5 minutes until the games finish", until: 25*60+40},
+    {m: 21*60,   t: "21:00", what: "Bookmaker lines arrive", sub: "props get prices → Top overs & value picks fill in", key: true, done: run("late")},
+    ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes(); return x < 12*60 ? x + 24*60 : x; })(), t: firstTip, what: "First tip-off", sub: "live scores update every 30 seconds, no refresh"}] : []),
+    {m: 25*60+30, t: "01:30", what: "Late updates", sub: "until the last game is final"}
+  ];
+  const nm = nowM < 6*60 ? nowM + 24*60 : nowM;           // after midnight still counts as tonight
+  let nextSet = false;
+  const rows = items.map(it => {
+    let cls = "", st = "later";
+    if (it.done){ cls = "done"; st = `arrived ${timeFmt(it.done.at)}`; }
+    else if (it.until && nm >= it.m && nm < it.until){ cls = "now"; st = "running"; }
+    else if (nm >= it.m){ cls = "done"; st = "done"; }
+    else if (!nextSet){ cls = "next"; st = "next"; nextSet = true; }
+    return `<div class="srow ${cls} ${it.key ? "key" : ""}"><span class="tm num">${it.t}</span><div><b>${it.what}</b><small>${it.sub}</small></div><span class="st">${st}</span></div>`;
+  }).join("");
+  return `<div class="sched"><div class="sched-h"><span>Today's updates · UK time</span><b>last data ${timeFmt(DATA.meta.generatedAt)}</b></div>${rows}</div>`;
+}
+
 /* ---------------- Live helpers: notice, your-price form, no-line drawer ---------------- */
 function liveNotice(){
   if (!IS_LIVE) return `<div class="notice"><b>Everything here is sample data.</b> ${LIVE_NOTE ? esc(LIVE_NOTE) + " " : ""}Games, players, injuries, head-to-head results, bookmaker lines and prices are invented to show how SWISH will work. Nothing reflects real fixtures, real odds or a betting recommendation. Snapshot: ${dateFmt(DATA.meta.generatedAt)}, ${timeFmt(DATA.meta.generatedAt)}.</div>`;
@@ -2692,7 +2784,7 @@ function liveNotice(){
     : "No prop lines yet today — they arrive at about 21:00 UK time (14:30 for early games)";
   const errs = (LIVE.meta.errors || []).length;
   return `<div class="notice live"><b>Live data.</b> Schedule, injuries and game logs from ESPN (updated ${agoTxt(DATA.meta.generatedAt)}). ${oddsTxt}.
-    Value is judged against the US market price${mineN ? ` (or your own price on ${mineN} prop${mineN === 1 ? "" : "s"})` : ""} — check your bookmaker's line matches before betting.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>`;
+    Value is judged against the US market price${mineN ? ` (or your own price on ${mineN} prop${mineN === 1 ? "" : "s"})` : ""} — check your bookmaker's line matches before betting.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>${scheduleHTML()}`;
 }
 
 function priceForm(p){
@@ -2731,8 +2823,9 @@ function noLineDrawerHTML(p){
       <div class="build">
         <div class="st2"><span>Season average<small>blended with last season while this one is young</small></span><b class="num">${p.seasonAvg.toFixed(1)}</b></div>
         <div class="st2"><span>Last ${p.last10.length} games<small>recent form</small></span><b class="num">${p.l10.toFixed(1)}</b></div>
-        <div class="st2"><span>Base projection<small>${p.expMin ? `per-minute rate (55% season · 45% recent) × ${p.expMin.toFixed(1)} min` : "55% season · 45% recent"}</small></span><b class="num">${p.base.toFixed(1)}</b></div>
+        <div class="st2"><span>Base projection<small>${p.expMin ? `per-minute rate (55% season · 45% recent) × ${p.expMin0.toFixed(1)} min` : "55% season · 45% recent"}</small></span><b class="num">${p.base.toFixed(1)}</b></div>
         <div class="st2"><span>Head-to-head vs ${p.opp}<small>${p.n ? `avg ${p.h2hAvg.toFixed(1)} over ${p.n} games · weight ${pct(p.w,1)}` : "no meetings in the last two seasons"}</small></span><b class="num">${sgnNum(p.h2hAdj)}</b></div>
+        ${p.role ? `<div class="st2"><span>Teammate out<small>${esc(p.role.dependsOn)} out · ${p.seasonMin}→${p.minutes} min</small></span><b class="num">${sgnNum(p.role.value)}</b></div>` : ""}
         <div class="st2 total"><span>SWISH projection</span><b class="num">${p.projection.toFixed(1)}</b></div>
       </div>
     </div>
@@ -2811,7 +2904,7 @@ function drawerHTML(p){
     ${minutesBox(p)}
     <div class="dsec"><div class="dt">How the projection is built</div>
       <div class="build">
-        <div class="st2"><span>Base projection<small>${p.live && p.expMin ? `${(p.base / p.expMin).toFixed(2)} per minute × ${p.expMin.toFixed(1)} expected minutes` : `season average ${p.seasonAvg.toFixed(1)} adjusted for recent form`}</small></span><b class="num">${p.base.toFixed(1)}</b></div>
+        <div class="st2"><span>Base projection<small>${p.live && p.expMin ? `${(p.base / p.expMin0).toFixed(2)} per minute × ${p.expMin0.toFixed(1)} expected minutes` : `season average ${p.seasonAvg.toFixed(1)} adjusted for recent form`}</small></span><b class="num">${p.base.toFixed(1)}</b></div>
         <div class="st2"><span>Head-to-head vs ${p.opp}<small>avg ${p.h2hAvg.toFixed(1)} over ${p.n} games · weight ${pct(p.w,1)}</small></span><b class="num">${sgnNum(p.h2hAdj)}</b></div>
         ${p.role ? `<div class="st2 ${p.role.applied?"":"na"}"><span>Minutes / role adjustment<small>${p.role.applied ? `${esc(p.role.dependsOn)} out` : `only if ${esc(p.role.dependsOn)} sits`}</small></span><b class="num">${sgnNum(p.role.value)}</b></div>`
                  : `<div class="st2"><span>Minutes / role adjustment<small>no lineup change</small></span><b class="num">±0.0</b></div>`}
@@ -3095,6 +3188,18 @@ function viewResults(){
       <p class="dnote rpad">Close numbers = honest chances. "Happened" far above or below "Expected" means SWISH is under- or over-confident. Needs 50+ picks per row to read.</p>
     </div>
   </div>
+
+  ${R.overs ? (() => { const O = R.overs, tr = [["high","High <small>60%+</small>"],["med","Medium <small>55–60%</small>"],["low","Low <small>&lt;55%</small>"]];
+    const row = (lab, r) => `<tr><td class="l">${lab}</td><td>${r.n ? rec(r) : "—"}</td><td>${r.predicted == null ? "—" : pct(r.predicted, 0)}</td><td><b>${hit(r)}</b></td><td class="${r.profit >= 0 ? "pos" : "negr"}">${r.n ? gbp(r.profit) : "—"}</td></tr>`;
+    return `<div class="panel">
+      <div class="panel-h"><h2 class="h">Top overs tracker</h2><span class="sub">does the confidence come true?</span></div>
+      <table class="rt ovt"><thead><tr><th class="l">Confidence</th><th>Record</th><th>SWISH said</th><th>Landed</th><th>Profit</th></tr></thead><tbody>
+      ${tr.map(([k, lab]) => row(lab, O.tiers[k])).join("")}
+      ${row("<b>All Top overs</b>", O.listed)}
+      ${row("Every over <small>comparison</small>", O.allOvers)}
+      </tbody></table>
+      <p class="dnote rpad">Every graded prop judged on its <b>over</b>, at the over price, £${R.stake} a pick. "Top overs" = the overs SWISH rates at least as likely as the bookmaker, with no warnings — the same list as the Props page. If "Landed" keeps matching "SWISH said", the confidence is honest. Needs 50+ picks per row before it means much.</p>
+    </div>`; })() : ""}
 
   <div class="cols">
     <div class="panel">
