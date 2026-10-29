@@ -1819,6 +1819,18 @@ html.calm .brand.wave .wordmark i{animation:none!important}
 .jav{flex:none;display:inline-grid;place-items:center;width:36px;height:38px;filter:drop-shadow(0 2px 3px rgba(18,20,23,.18))}
 .jav svg{width:100%;height:100%;display:block;overflow:visible}
 .jav.lg{width:44px;height:47px}
+.jav.sm{width:28px;height:30px;filter:drop-shadow(0 1px 2px rgba(18,20,23,.15))}
+.sqt tr.out .jav{opacity:.45;filter:grayscale(1)}
+/* desktop: two squads sit side by side, so the jersey only shows where the name column has room */
+.squad{container-type:inline-size;container-name:squad}
+@media (min-width:761px){ @container squad (max-width:760px){ .sqt td.pl .jav{display:none} } }
+/* open "Last 6" row on phones: highlight the whole row with a bar on its left edge, clear of the name */
+@media (max-width:760px){
+  .sqt tr.has-form td.pl{box-shadow:none!important}
+  .sqt > tbody > tr.has-form{background:var(--red-soft);box-shadow:inset 3px 0 0 var(--red)}
+  .sqt > tbody > tr.has-form > td{background:transparent!important}
+  .sqt > tbody > tr.has-form > td.pl{padding-left:4px!important}
+}
 html.dark .jav{filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 </style>
 </head>
@@ -2844,7 +2856,7 @@ function squadMatrix(teamCode){
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
     ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${MARKETS.map(m => `<th class="mk">${m}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
-        return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in"><div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
+        return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
         <td class="min num ${pl.boost?"up":""}">${pl.status==="Out" ? "—" : minPair(pl)}</td>
         ${pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS ? MARKETS.map(() => `<td><span class="dash">—</span></td>`).join("") : MARKETS.map(m => cell(pl, m)).join("")}</tr>
