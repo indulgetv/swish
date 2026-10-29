@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T19:05:25Z"
+  "writtenAt": "2026-10-29T19:10:25Z"
  },
  "games": [
   {
@@ -647,24 +647,35 @@
   },
   {
    "team": "CHI",
-   "player": "Tobe Awaka",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Ankle",
-   "comment": "Awaka (ankle) is out for Wednesday's game against the Knicks, Joel Lorenzi of The Athletic reports.",
-   "updated": "2026-10-29T04:36Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "CHI",
    "player": "Patrick Williams",
    "pos": "F",
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Right Groin Soreness",
-   "comment": "Williams (adductor) won't play in Wednesday's game against the Knicks, Joel Lorenzi of The Athletic reports.",
-   "updated": "2026-10-28T22:20Z",
+   "comment": "Williams (adductor) is questionable for Friday's game in Boston.",
+   "updated": "2026-10-29T18:55Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "CHI",
+   "player": "Jalen Smith",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Finger",
+   "comment": "Smith is questionable for Friday's game against Boston with a left finger sprain.",
+   "updated": "2026-10-29T18:55Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "CHI",
+   "player": "Tobe Awaka",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Ankle",
+   "comment": "Awaka (ankle) is questionable for Friday's game in Boston.",
+   "updated": "2026-10-29T18:53Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -80191,19 +80202,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T19:05:25Z",
+   "fetchedAt": "2026-10-29T19:10:25Z",
    "ok": true,
-   "count": 88
+   "count": 89
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T19:05:25Z",
+   "fetchedAt": "2026-10-29T19:10:25Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T19:05:25Z",
+   "fetchedAt": "2026-10-29T19:10:25Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80248,7 +80259,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T19:05:25Z"
+    "fetchedAt": "2026-10-29T19:10:25Z"
    },
    "home": {
     "starters": [
@@ -80275,7 +80286,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T19:05:25Z"
+    "fetchedAt": "2026-10-29T19:10:25Z"
    }
   },
   "401909894": {
@@ -80304,7 +80315,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T19:05:25Z"
+    "fetchedAt": "2026-10-29T19:10:25Z"
    },
    "home": {
     "starters": [
@@ -80331,7 +80342,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T19:05:25Z"
+    "fetchedAt": "2026-10-29T19:10:25Z"
    }
   },
   "401909895": {
@@ -80360,7 +80371,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T19:05:25Z"
+    "fetchedAt": "2026-10-29T19:10:25Z"
    },
    "home": {
     "starters": [
@@ -80387,7 +80398,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T19:05:25Z"
+    "fetchedAt": "2026-10-29T19:10:25Z"
    }
   }
  }
