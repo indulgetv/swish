@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T05:18:21Z"
+  "writtenAt": "2026-10-29T05:23:21Z"
  },
  "games": [
   {
@@ -927,6 +927,17 @@
   },
   {
    "team": "LAC",
+   "player": "Rui Hachimura",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Quadriceps Soreness",
+   "comment": "Hachimura (quadriceps) has been ruled out for Wednesday's game against the Lakers, Joey Linn of SI.com reports.",
+   "updated": "2026-10-29T05:06Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "LAC",
    "player": "Yanic Konan Niederhauser",
    "pos": "C",
    "status": "Out",
@@ -960,17 +971,6 @@
   },
   {
    "team": "LAC",
-   "player": "Rui Hachimura",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Quadriceps Soreness",
-   "comment": "Hachimura (quadriceps) has been ruled out for Wednesday's game against the Lakers, Joey Linn of SI.com reports.",
-   "updated": "2026-10-27T19:47Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "LAC",
    "player": "Bradley Beal",
    "pos": "G",
    "status": "Out",
@@ -993,6 +993,28 @@
   },
   {
    "team": "LAL",
+   "player": "Ziaire Williams",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Foot",
+   "comment": "Williams (foot) is out for Wednesday's game against the Clippers.",
+   "updated": "2026-10-29T05:05Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "LAL",
+   "player": "Luka Doncic",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Back",
+   "comment": "Doncic (back) is out for Wednesday's game against the Clippers.",
+   "updated": "2026-10-29T05:05Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "LAL",
    "player": "Cameron Carr",
    "pos": "G",
    "status": "Out",
@@ -1011,28 +1033,6 @@
    "detail": "Left Knee Inflammation",
    "comment": "Thiero (knee) is out for Wednesday's game against the Clippers.",
    "updated": "2026-10-28T20:10Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "LAL",
-   "player": "Ziaire Williams",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Foot",
-   "comment": "Williams (foot) is out for Wednesday's game against the Clippers.",
-   "updated": "2026-10-28T20:06Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "LAL",
-   "player": "Luka Doncic",
-   "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Back",
-   "comment": "Doncic (back) is out for Wednesday's game against the Clippers.",
-   "updated": "2026-10-28T20:05Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -346486,19 +346486,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T05:18:20Z",
+   "fetchedAt": "2026-10-29T05:23:20Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T05:18:19Z",
+   "fetchedAt": "2026-10-29T05:23:19Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T05:18:20Z",
+   "fetchedAt": "2026-10-29T05:23:20Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
