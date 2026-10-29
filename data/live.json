@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-29",
-  "mode": "odds",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-10-29T21:37:42Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T23:30:36Z"
+  "writtenAt": "2026-10-29T23:35:34Z"
  },
  "games": [
   {
@@ -704,23 +704,12 @@
    "team": "CLE",
    "player": "Meleek Thomas",
    "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
+   "status": "Out",
+   "rawStatus": "Out",
    "detail": "Foot",
-   "comment": "Thomas (foot) is questionable for Thursday's game in Atlanta.",
-   "updated": "2026-10-29T17:06Z",
+   "comment": "Thomas (foot) has been ruled out for Thursday's game against the Hawks, Serena Winters of FanDuel Sports Network Ohio reports.",
+   "updated": "2026-10-29T23:21Z",
    "returnDate": "2026-10-31"
-  },
-  {
-   "team": "CLE",
-   "player": "Jaylon Tyson",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Neck",
-   "comment": "Tyson (neck) is questionable for Thursday's game against the Hawks.",
-   "updated": "2026-10-29T17:05Z",
-   "returnDate": "2026-10-29"
   },
   {
    "team": "DAL",
@@ -81941,7 +81930,7 @@
   {
    "game": "401909894",
    "player": "Herb Jones",
-   "key": "herbjones",
+   "key": "herbertjones",
    "market": "PTS",
    "line": 7.5,
    "over": -111,
@@ -82361,7 +82350,7 @@
   {
    "game": "401909894",
    "player": "Herb Jones",
-   "key": "herbjones",
+   "key": "herbertjones",
    "market": "PTS",
    "line": 7.5,
    "over": -104,
@@ -84181,19 +84170,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T23:25:35Z",
+   "fetchedAt": "2026-10-29T23:35:34Z",
    "ok": true,
-   "count": 96
+   "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T23:30:34Z",
+   "fetchedAt": "2026-10-29T23:35:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T23:25:34Z",
+   "fetchedAt": "2026-10-29T23:35:34Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84273,9 +84262,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:25:34Z"
+    "fetchedAt": "2026-10-29T23:35:34Z"
    },
    "home": {
     "starters": [
@@ -84302,7 +84291,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:25:34Z"
+    "fetchedAt": "2026-10-29T23:35:34Z"
    }
   },
   "401909894": {
@@ -84331,7 +84320,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:25:34Z"
+    "fetchedAt": "2026-10-29T23:35:34Z"
    },
    "home": {
     "starters": [
@@ -84358,7 +84347,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:25:34Z"
+    "fetchedAt": "2026-10-29T23:35:34Z"
    }
   },
   "401909895": {
@@ -84387,7 +84376,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:25:34Z"
+    "fetchedAt": "2026-10-29T23:35:34Z"
    },
    "home": {
     "starters": [
@@ -84414,7 +84403,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:25:34Z"
+    "fetchedAt": "2026-10-29T23:35:34Z"
    }
   }
  }
