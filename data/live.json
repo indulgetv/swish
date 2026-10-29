@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T01:58:25Z"
+  "writtenAt": "2026-10-29T02:03:22Z"
  },
  "games": [
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "1:30 - 4th",
+   "status": "End of 4th",
    "completed": false,
-   "awayScore": "96",
-   "homeScore": "127",
+   "awayScore": "99",
+   "homeScore": "129",
    "espnLine": null
   },
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "1.7 - 3rd",
+   "status": "11:32 - 4th",
    "completed": false,
    "awayScore": "90",
-   "homeScore": "94",
+   "homeScore": "96",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "11:50 - 4th",
+   "status": "11:01 - 4th",
    "completed": false,
-   "awayScore": "95",
-   "homeScore": "69",
+   "awayScore": "97",
+   "homeScore": "71",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "28.8 - 3rd",
+   "status": "End of 3rd",
    "completed": false,
-   "awayScore": "91",
-   "homeScore": "79",
+   "awayScore": "93",
+   "homeScore": "81",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "9:07 - 4th",
+   "status": "6:59 - 4th",
    "completed": false,
-   "awayScore": "81",
-   "homeScore": "76",
+   "awayScore": "88",
+   "homeScore": "80",
    "espnLine": null
   },
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "3:54 - 2nd",
+   "status": "2:13 - 2nd",
    "completed": false,
-   "awayScore": "41",
-   "homeScore": "46",
+   "awayScore": "46",
+   "homeScore": "50",
    "espnLine": null
   },
   {
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "6:16 - 1st",
+   "status": "2:44 - 1st",
    "completed": false,
-   "awayScore": "15",
-   "homeScore": "16",
+   "awayScore": "23",
+   "homeScore": "23",
    "espnLine": null
   },
   {
@@ -358765,7 +358765,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T01:58:20Z",
+   "fetchedAt": "2026-10-29T02:03:20Z",
    "ok": true,
    "count": 12
   },
@@ -358776,7 +358776,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T01:58:20Z",
+   "fetchedAt": "2026-10-29T02:03:20Z",
    "ok": true,
    "count": 87
   },
@@ -358804,7 +358804,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T01:58:20Z",
+   "fetchedAt": "2026-10-29T02:03:20Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359343,7 +359343,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:58:20Z"
+    "fetchedAt": "2026-10-29T02:03:20Z"
    },
    "home": {
     "starters": [
@@ -359370,7 +359370,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:58:20Z"
+    "fetchedAt": "2026-10-29T02:03:20Z"
    }
   }
  }
