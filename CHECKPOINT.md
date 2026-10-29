@@ -115,6 +115,7 @@ _Last updated: 2026-10-29 19:15 by Claude._ Paste the line in **"How to resume"*
     game log columns centred. Logo: tap plays once, gentle wave, smooth settle. Hoop favicon + home-screen icon.
   - Header art behind text on all pages; home court enlarged on phones/tablets; Props header = outlined tank top "10".
   - Desktop game-header gradient: softer, blurred, 19 s loop (no banding).
+- Desktop home list uses the same HOME pill as mobile.
 - Lineups: NBA.com projected starters were in by ~10:20 UK on 29 Oct (status "expected"); confirmed ~30 min before tip.
 
 ## Next steps (in order)
