@@ -145,6 +145,9 @@ A. **Minutes fix — injured players (esp. big ones).** Found 29 Oct: Dejounte M
    5. Steps 2–3 tested inside the projection lab (step 0) before shipping.
 B. **Update the page in place, no reload** (user asked 29 Oct 20:36): fetch new data in the background and redraw only
    what changed (times, injuries, prices, picks), like live scores. Safari currently reloads on each data update.
+C0. Check why some top-up lines weren't saved as picks on 29 Oct (Jaylon Tyson AST, Jock Landale AST, Kingston Flemings AST
+   were in data/live.json props but not in data/picks/2026-10-29.json). Name aliases now in update.py PLAYER_ALIASES
+   (bookmaker "Herb Jones" -> ESPN "Herbert Jones"); add more as they show up.
 C. Parked, user's call: closing-line check (step 3) — only on a paid plan or tiny budget.
 0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
    (project each night using only earlier games, compare with actual) to test/tune minutes, rate weighting, H2H, rest/back-
