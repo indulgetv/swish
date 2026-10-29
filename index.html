@@ -1885,6 +1885,71 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
   .hero-home .court.ballsketch{opacity:.22!important}
   html.dark .hero-home .court.ballsketch{opacity:.32!important}
 }
+/* ? help button: just the icon on phones, perfectly centred */
+@media (max-width:760px){.helpbtn.top .hw{display:none}.helpbtn.top{display:grid!important;place-items:center;padding:0!important;font-size:12px!important}}
+/* tip line holds the height of its longest tip, so nothing below jumps */
+.tl-box{display:grid;flex:1;min-width:0}
+.tl-box > *{grid-area:1/1}
+.tl-ghost{visibility:hidden;pointer-events:none}
+/* time pill: "Updated 17:40" on phones too */
+.sample-pill .ms{display:none}
+@media (max-width:760px){.sample-pill.live-pill i{display:none}.sample-pill .ms{display:inline-block;width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-right:1px}}
+/* props options: their own tidy card */
+.optbar{display:grid;gap:12px;margin:0 0 18px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)}
+.opt-checks{display:flex;flex-wrap:wrap;gap:10px 18px}
+.opt-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.optbtn{white-space:nowrap;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:10px 12px;border-radius:12px;border:1px solid var(--line2);background:var(--white);font-weight:700;font-size:13.5px;color:var(--ink)}
+.optbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.optbtn:active{background:var(--red-soft);color:var(--red);border-color:var(--red-line)}
+html.dark .optbtn{background:rgba(255,255,255,.05)}
+@media (min-width:961px){.optbar{grid-template-columns:1fr auto;align-items:center}.opt-btns{grid-template-columns:auto auto}}
+@media (max-width:760px){.opt-checks{flex-direction:column;gap:12px}.subtools{margin-bottom:10px}}
+/* squad tables on phones: same design, tighter, so more players fit on screen */
+@media (max-width:760px){
+  .sqt td.pl{padding:7px 0 2px!important}
+  .sqt td.pl b{font-size:13.5px!important}
+  .sqt td.pl small{font-size:10.5px!important}
+  .sqt td.pl .jav.sm{width:22px;height:24px}
+  .sqt td.pl .pl-in{gap:7px}
+  .sqt > tbody > tr > td{padding:1px 0 7px!important}
+  .sqt td.min{font-size:12.5px}
+  .cell{min-height:32px!important;border-radius:6px}.cell b{font-size:12.5px!important}.cell small{font-size:9.5px!important;margin-top:1px}
+  .sqt td.pl .formbtn{min-height:26px!important;padding:2px 8px!important;font-size:11px!important;border-radius:7px!important;gap:4px!important}
+  .sqt td.pl .formbtn .ic-form{width:10px;height:10px}
+  .sqt td.pl .formbtn b{font-size:11.5px!important;display:inline!important;line-height:1}
+  .lu-chip,.rolechip{font-size:8.5px!important}
+  .sqt > thead > tr,.sqt > tbody > tr{column-gap:3px!important}
+  /* injury cards + lineups: same treatment */
+  .injc{margin-top:8px;border-radius:11px}
+  .inj-top{padding:9px 11px!important;gap:9px!important}
+  .inj-top .jav{width:28px;height:30px}
+  .inj-top .nm{font-size:13.5px}
+  .inj-meta{padding:0 11px 9px!important;font-size:12px}
+  .inj-meta p{margin-top:6px;font-size:12px;line-height:1.4}
+  .lu-t{padding:6px 0!important;font-size:12.5px}
+}
+/* Home · tonight's games on phones & tablets */
+.homebadge{font-style:normal}
+.mrow .mshort{display:none}
+@media (max-width:960px){.mrow .mlong{display:none}.mrow .mshort{display:inline}.mrow .meta{white-space:nowrap}}
+@media (max-width:960px){
+  .mrow{grid-template-columns:74px 1fr auto!important;gap:12px!important;padding:14px 16px!important}
+  .teams2{display:grid;gap:8px}
+  .teams2 .ti{gap:10px;margin:0}
+  .teams2 .tn{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+  .teams2 .tn small{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .teams2 .tn b{font:700 19px/1.05 var(--display);letter-spacing:.01em;color:var(--ink)}
+  .homebadge{margin-left:auto;align-self:center;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:99px;border:1px solid var(--line2);color:var(--muted)}
+  .mrow .meta{font-size:11.5px}.mrow .meta b{font-size:12px}
+  /* the team colours run down the list one game after another */
+  .mrow.ghead .gswipe{opacity:0;animation:teamslide 19s linear infinite,rowGlow calc(var(--n,3) * 2.4s) ease-in-out infinite;animation-delay:0s,calc(var(--k,0) * 2.4s)}
+  .mrow.ghead::before{animation:rowBar calc(var(--n,3) * 2.4s) ease-in-out infinite;animation-delay:calc(var(--k,0) * 2.4s)}
+}
+@media (max-width:420px){.teams2 .tn b{font-size:17px}}
+@keyframes rowGlow{0%{opacity:0}12%{opacity:1}30%{opacity:1}45%,100%{opacity:0}}
+@keyframes rowBar{0%{transform:scaleY(0)}12%,30%{transform:scaleY(1)}45%,100%{transform:scaleY(0)}}
+html.calm .mrow.ghead::before{animation:none!important}
+html.calm .mrow.ghead .gswipe{animation:none!important;opacity:0}
 </style>
 </head>
 <body>
@@ -1914,7 +1979,7 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
       <div class="crumb" id="crumb"></div>
       <span class="sample-pill" id="srcPill"><i></i>Sample data — not live</span>
       <button class="newspill" id="newsPill" data-nav="injuries" hidden></button>
-      <div class="top-right"><button class="themebtn" role="switch" aria-checked="false" data-pref="dark" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button class="helpbtn top" data-help="1"><span>?</span>How it works</button><div class="seg" id="oddsSeg"><button data-odds="dec" aria-label="Decimal odds"><span class="nl">Decimal</span><span class="ns">Dec</span></button><button data-odds="am" aria-label="American odds"><span class="nl">American</span><span class="ns">US</span></button></div></div>
+      <div class="top-right"><button class="themebtn" role="switch" aria-checked="false" data-pref="dark" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button class="helpbtn top" data-help="1" aria-label="How it works"><span>?</span><em class="hw">How it works</em></button><div class="seg" id="oddsSeg"><button data-odds="dec" aria-label="Decimal odds"><span class="nl">Decimal</span><span class="ns">Dec</span></button><button data-odds="am" aria-label="American odds"><span class="nl">American</span><span class="ns">US</span></button></div></div>
     </div>
     <main class="page" id="page" tabindex="-1"></main>
   </div>
@@ -2749,7 +2814,7 @@ function viewDashboard(){
       <div class="cc-next" id="ccNext"><span class="cc-lbl" id="ccLbl">Next tip-off</span><span id="ccGame" class="cc-game"></span><b id="ccCount" class="num">--</b></div>
     </div>
    </div>
-   <div class="tipline" aria-live="polite"><span class="tl-k">Tip</span><span id="tipText" class="tl-t">${TIPS[0]}</span></div>
+   <div class="tipline" aria-live="polite"><span class="tl-k">Tip</span><span class="tl-box"><span id="tipText" class="tl-t">${TIPS[0]}</span>${TIPS.map(t => `<span class="tl-ghost" aria-hidden="true">${esc(t)}</span>`).join("")}</span></div>
   </header>
   ${liveNotice()}
   <div class="overview">
@@ -2766,12 +2831,12 @@ function viewDashboard(){
   <div class="cols">
     <div class="panel">
       <div class="panel-h"><h2 class="h">Tonight's games</h2><span class="sub">Times in your time zone</span></div>
-      <div class="clamp-m" data-clamp="home-games">${GAMES.map(g => {
+      <div class="clamp-m" data-clamp="home-games" style="--n:${GAMES.length}">${GAMES.map((g, k) => {
         const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
-        return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
+        return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color};--k:${k}"><span class="gswipe" aria-hidden="true"></span>
           ${slot(g, "home")}
-          <div><div class="ti">${tid(g.away,"sm")}${tname(g.away)}</div><div class="ti">${tid(g.home,"sm")}${tname(g.home)} <small>home</small></div></div>
-          <div class="meta"><b class="num">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
+          <div class="teams2"><div class="ti">${tid(g.away,"sm")}<span class="tn"><small>${esc(team(g.away).city)}</small><b>${esc(team(g.away).name)}</b></span></div><div class="ti">${tid(g.home,"sm")}<span class="tn"><small>${esc(team(g.home).city)}</small><b>${esc(team(g.home).name)}</b></span><em class="homebadge">Home</em></div></div>
+          <div class="meta"><b class="num"><span class="mlong">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}</span><span class="mshort">${ps.length}/${ps.length + nl} priced</span>${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj"><span class="mlong">${inj} injury concern${inj>1?"s":""}</span><span class="mshort">${inj} injur${inj>1?"ies":"y"}</span></span>` : "No injury concerns"}</div>
           <span class="arrow">→</span></button>`;}).join("")}</div>
     </div>
     <div class="panel">
@@ -2799,11 +2864,16 @@ function viewProps(){
   </div>
   <div class="subtools">
     <div class="legend" id="legend"></div>
-    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+  </div>
+  <div class="optbar">
+    <div class="opt-checks">
       <label class="check"><input type="checkbox" id="showForm" ${state.showForm?"checked":""}>Show last 6 games for everyone</label>
       <label class="check"><input type="checkbox" id="onlyValue" ${state.onlyValue?"checked":""}>Players with value only</label>
       <label class="check"><input type="checkbox" id="hideFlagged" ${state.hideFlagged?"checked":""}>Hide flagged</label>
-      <button class="textbtn" data-expand="all">Expand all</button><button class="textbtn" data-expand="none">Collapse all</button>
+    </div>
+    <div class="opt-btns">
+      <button class="optbtn" data-expand="all"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>Expand all</button>
+      <button class="optbtn" data-expand="none"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>Collapse all</button>
     </div>
   </div>
   <div id="sections"></div>
@@ -3004,10 +3074,13 @@ function scheduleHTML(){
   const firstTip = GAMES.length ? timeFmt(GAMES[0].tipoff) : null;
   const items = [
     {m: 7*60+5,  t: "07:05", what: "Morning update", sub: "last night's picks graded on Results · stats & rosters refreshed"},
+    {m: 7*60+6, t: "Morning", what: "Expected lineups", sub: "NBA.com's projected starters, picked up by the first update after they're posted · shown as “exp. starter”", lu: "expected"},
     {m: 13*60+50, t: "13:50", what: "Afternoon updates start", sub: "injuries & news checked every 5 minutes", until: 19*60+45},
+
     ...(early ? [{m: 14*60+30, t: "14:30", what: "Early bookmaker lines", sub: "only for games before 21:30", key: true, done: run("early")}] : []),
     {m: 19*60+50, t: "19:50", what: "Evening updates start", sub: "every 5 minutes until the games finish", until: 25*60+40},
     {m: 21*60,   t: "21:00", what: "Bookmaker lines arrive", sub: "props get prices → Top overs & value picks fill in", key: true, done: run("late")},
+    ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes() - 30; return x < 12*60 ? x + 24*60 : x; })(), t: (() => { const d = new Date(new Date(GAMES[0].tipoff).getTime() - 30 * 60000); return timeFmt(d.toISOString()); })(), what: "Confirmed lineups", sub: "teams name their starters about 30 minutes before tip-off; shown as “starter”", lu: "confirmed", key: true}] : []),
     ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes(); return x < 12*60 ? x + 24*60 : x; })(), t: firstTip, what: "First tip-off", sub: "live scores update every 30 seconds, no refresh"}] : []),
     {m: 25*60+30, t: "01:30", what: "Late updates", sub: "until the last game is final"}
   ];
@@ -3015,7 +3088,11 @@ function scheduleHTML(){
   let nextSet = false;
   const rows = items.map(it => {
     let cls = "", st = "later";
-    if (it.done){ cls = "done"; st = `arrived ${timeFmt(it.done.at)}`; }
+    const luNow = Object.values((LIVE && LIVE.lineups) || {}).flatMap(x => Object.values(x || {}).map(v => (v || {}).status));
+    if (it.lu === "expected" && luNow.length){ cls = "done"; st = "posted"; }
+    else if (it.lu === "confirmed" && luNow.length && luNow.every(x => x === "confirmed" || x === "started")){ cls = "done"; st = "confirmed"; }
+    else if (it.lu === "expected"){ /* waiting */ }
+    if (cls){} else if (it.done){ cls = "done"; st = `arrived ${timeFmt(it.done.at)}`; }
     else if (it.until && nm >= it.m && nm < it.until){ cls = "now"; st = "running"; }
     else if (nm >= it.m){ cls = "done"; st = "done"; }
     else if (!nextSet){ cls = "next"; st = "next"; nextSet = true; }
@@ -3511,7 +3588,7 @@ function render(){
   $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;
   if (IS_LIVE){
-    $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i><span class="nl">Data updated </span><span class="ns">Updated </span><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`; $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
+    $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i><span class="nl">Data updated </span><svg class="ms" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`; $("srcPill").setAttribute("aria-label", `Data updated ${timeFmt(DATA.meta.generatedAt)}`); $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
     $("stSrc").textContent = "Live records (ESPN)";
     $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; prop prices from US bookmakers via The Odds API. Projections are model estimates, not predictions or advice.`;
   }
