@@ -173,6 +173,10 @@ def fetch_espn_starters(game_id: str) -> dict:
     return out
 
 
+# Nights (UTC date) that get an extra odds fetch at 23:30 UTC. Costs ~3 credits per game not yet started.
+TOPUP_DATES = {"2026-10-29"}
+
+
 def choose_auto_mode(prev: dict) -> tuple[str, str]:
     """Pick the job for 'now' (UTC). Safe to call every few minutes: full and odds runs only happen once per window."""
     now = datetime.now(timezone.utc)
@@ -195,6 +199,9 @@ def choose_auto_mode(prev: dict) -> tuple[str, str]:
         return "odds", "early"
     if 21 * 60 <= t < 22 * 60 + 30 and "late" not in odds_today:
         return "odds", "late"
+    # one-off late top-up (user's request): re-price games not started yet, to catch lines posted after 21:00
+    if now.strftime("%Y-%m-%d") in TOPUP_DATES and 23 * 60 + 30 <= t < 23 * 60 + 58 and "late" in odds_today and "topup" not in odds_today:
+        return "odds", "topup"
     return "light", "all"
 
 
@@ -489,7 +496,7 @@ def main() -> int:
                     help='"auto" picks the right job for the time of day (safe to call every few minutes)')
     ap.add_argument("--date", help="slate date YYYY-MM-DD (US Eastern); default today")
     ap.add_argument("--max-events", type=int, default=None, help="cap on games priced for props")
-    ap.add_argument("--window", choices=["all", "early", "late"], default="all",
+    ap.add_argument("--window", choices=["all", "early", "late", "topup"], default="all",
                     help='odds only: "early" = games tipping before --early-cutoff (UTC); "late" = games not started yet')
     ap.add_argument("--early-cutoff", default="21:30", help="UTC time HH:MM that splits early from late games")
     ap.add_argument("--markets", default="auto", help='"auto" (fit the daily budget) or a comma list of Odds API market keys')

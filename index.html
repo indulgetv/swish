@@ -2842,6 +2842,7 @@ const PICK_TABS = {
 };
 
 // true once a main (or full) odds fetch has covered every game on tonight's slate — no more prices are coming
+const TOPUP_DATES = ["2026-10-29"];   // same nights as TOPUP_DATES in scripts/update.py
 function pricedAll(){
   const runs = ((LIVE && LIVE.sections && LIVE.sections.odds) || {}).runs || [];
   const got = new Set(runs.filter(r => r.window === "late" || r.window === "all").flatMap(r => r.games || []));
@@ -3199,6 +3200,7 @@ function scheduleHTML(){
     ...(early ? [{m: 14*60+30, t: "14:30", what: "Early bookmaker lines", sub: "only for games before 21:30", key: true, done: run("early")}] : []),
     {m: 19*60+50, t: "19:50", what: "Evening updates start", sub: "every 5 minutes until the games finish", until: 25*60+40},
     {m: 21*60,   t: "21:00", what: "Bookmaker lines arrive", sub: "props get prices → Top overs & value picks fill in", key: true, done: run("late")},
+    ...(TOPUP_DATES.includes(todayUTC) ? [{m: 23*60+30, t: "23:30", what: "Price top-up", sub: "one extra price check tonight · catches lines posted after 21:00", key: true, done: run("topup")}] : []),
     ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes() - 30; return x < 12*60 ? x + 24*60 : x; })(), t: (() => { const d = new Date(new Date(GAMES[0].tipoff).getTime() - 30 * 60000); return timeFmt(d.toISOString()); })(), what: "Confirmed lineups", sub: "teams name their starters about 30 minutes before tip-off; shown as “starter”", lu: "confirmed"}] : []),
     ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes(); return x < 12*60 ? x + 24*60 : x; })(), t: firstTip, what: "First tip-off", sub: "live scores update every 30 seconds, no refresh"}] : []),
     {m: 25*60+30, t: "01:30", what: "Late updates", sub: "until the last game is final"}
