@@ -99,6 +99,12 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   after the ball drops, smooth ease back (no snap when the mouse leaves mid-shot).
 
 ## Next steps (in order)
+0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
+   (project each night using only earlier games, compare with actual) to test/tune minutes, rate weighting, H2H, rest/back-
+   to-backs, blowouts, recent-form decay — ~25k player-games, no Odds credits. Plan: (a) GitHub job downloads all 30 teams'
+   last-season logs into the repo; (b) next session build the replay + run tests; ship only proven changes as new versions.
+   Tested & NOT shipped 29 Oct: game total/spread adjustment (implied team points vs team scoring, ± blowout minutes) made
+   28 Oct projections worse in all 5 variants (MAE 3.31 → 3.33–3.60). Revisit only inside the lab.
 1. ~~Daily auto-start~~ DONE 29 Oct: cron-job.org (user's account, timezone Europe/London) POSTs to the GitHub API with a
    fine-grained token (indulgetv/swish only, Actions read & write; if the 90-day option was kept it expires 27 Jan 2027 —
    renew it and paste into all 4 jobs' Authorization header). Jobs: 07:05 `update-data.yml` body
