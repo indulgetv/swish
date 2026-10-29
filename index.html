@@ -1642,10 +1642,11 @@ html.dark{--exp:#79a8ff}
 .srow:first-of-type{border-top:0}
 .srow .tm{font-weight:800;color:var(--ink2)}
 .srow small{display:block;color:var(--muted);font-size:11.5px}
-.srow .st{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:99px;white-space:nowrap;background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+.srow .st{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:99px;white-space:nowrap;min-width:100px;box-sizing:border-box;text-align:center;justify-content:center;justify-self:end;background:var(--surface);color:var(--muted);border:1px solid var(--line)}
 .srow.done{opacity:.55}.srow.done .st{color:var(--over)}
 .srow.next .st{background:var(--red);color:#fff;border-color:transparent}
 .srow.now .st{background:var(--over-soft);color:var(--over);border-color:transparent}
+@media (max-width:760px){.srow .st{min-width:92px;padding:1px 5px;letter-spacing:.03em}}
 .srow.key .tm,.srow.key b{color:var(--red)}
 .ovt td.l small{display:block;font-size:10.5px;color:var(--muted);font-weight:600}
 @media (max-width:760px){.ovt th,.ovt td{padding:8px 5px!important;font-size:12.5px}.ovt th{font-size:9px!important}.ovt td.l{padding-left:12px!important}}
