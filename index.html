@@ -1675,8 +1675,9 @@ html.dark{--exp:#79a8ff}
    wave = after the ball drops: letters wave/swish in turn while the flashes + crowd go off, then settle back */
 .brand.ready .wordmark i{animation:none}
 .brand.lit .wordmark i{transform:translateY(-3px);color:var(--red)}
-.brand.ready.wave .wordmark i{animation:swishWave .95s var(--ease) both;animation-delay:calc(var(--d) * 75ms)}
-@keyframes swishWave{0%{transform:translateY(-3px) rotate(0)}25%{transform:translateY(-11px) rotate(-9deg)}50%{transform:translateY(2px) rotate(6deg)}75%{transform:translateY(-5px) rotate(-3deg)}100%{transform:translateY(-3px) rotate(0)}}
+.brand.ready .wordmark i{transition:transform .7s cubic-bezier(.22,1,.36,1),color .6s ease;transition-delay:calc(var(--d) * 50ms)}
+.brand.ready.wave .wordmark i{animation:swishWave 1.1s cubic-bezier(.45,0,.55,1) both;animation-delay:calc(var(--d) * 70ms)}
+@keyframes swishWave{0%{transform:translateY(-3px) rotate(0)}35%{transform:translateY(-6px) rotate(-2deg)}70%{transform:translateY(-1.5px) rotate(1deg)}100%{transform:translateY(-3px) rotate(0)}}
 @media (max-width:960px){.crowd{display:flex;left:4px;right:34px;bottom:-12px;height:16px}.crowd i{width:9px;height:15px}.crowd i::before{width:6px;height:6px;left:1.5px}.crowd i::after{width:9px;height:11px}}
 html.calm .brand.wave .wordmark i{animation:none!important}
 </style>
@@ -3399,7 +3400,8 @@ $("brandSlot").outerHTML = `<button class="brand" data-nav="dashboard" aria-labe
     scoreTimer = setTimeout(() => {               // ball drops through the net → flashes, crowd, letters wave
       brand.classList.remove("score", "wave"); void brand.offsetWidth; brand.classList.add("score", "wave");
       clearTimeout(waveTimer);
-      waveTimer = setTimeout(() => { brand.classList.remove("score", "wave"); if (!engaged) brand.classList.remove("lit"); }, 1500);
+      // end the wave first (letters are already back at their lifted spot), then ease them down + back to black
+      waveTimer = setTimeout(() => { brand.classList.remove("score", "wave"); setTimeout(() => { if (!engaged) brand.classList.remove("lit"); }, 250); }, 1600);
     }, SHOT_MS * 0.74);
   }
   const start = () => { engaged = true; brand.classList.add("lit"); clearTimeout(loopTimer); shoot(); };
