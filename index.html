@@ -1771,6 +1771,35 @@ html.calm .brand.wave .wordmark i{animation:none!important}
   .tools .field{min-width:0;width:100%}
   .tools .field input,.tools .field select{min-width:0;width:100%;text-overflow:ellipsis}
 }
+/* Results · Recent picks on phones: one card per pick, no sideways scrolling */
+.rpicks .mlab{display:none}
+@media (max-width:760px){
+  .rtwrap{overflow:visible!important}
+  .rpicks,.rpicks tbody{display:block;width:100%}
+  .rpicks thead{display:none}
+  .rpicks tr{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"pl res" "pk prof" "pk act";column-gap:14px;row-gap:4px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .rpicks td{display:block;border:0!important;padding:0!important;text-align:left!important}
+  .rpicks td.hs{display:none!important}
+  .rpicks td:nth-child(2){grid-area:pl}
+  .rpicks td:nth-child(3){grid-area:pk;font-size:12.5px;align-self:start}
+  .rpicks td.res{grid-area:res;justify-self:end}
+  .rpicks td:last-child{grid-area:prof;justify-self:end;font-weight:700;font-size:13px}
+  .rpicks td.act{grid-area:act;justify-self:end;font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .rpicks td.act b{color:var(--ink);font-size:12.5px;margin-left:4px}
+  .rpicks .mlab{display:inline}
+}
+/* Games cards on phones: more breathing room */
+@media (max-width:760px){
+  .ana-b > div{padding:20px 18px!important}
+  .mtg{padding:11px 0!important}
+  .ptrend{padding:11px 0!important;gap:12px}
+  .notes{gap:11px}
+  .cmp{padding-top:9px!important;padding-bottom:9px!important}
+  .gtags{gap:8px!important;row-gap:8px!important}
+  .rec{margin-bottom:14px!important}
+  .ana-h{padding:18px 18px 16px!important;row-gap:12px!important}
+  .ana-h .gtags{margin-top:2px}
+}
 </style>
 </head>
 <body>
@@ -3344,11 +3373,11 @@ function viewResults(){
 
   <div class="panel">
     <div class="panel-h"><h2 class="h">Recent picks</h2><span class="sub">latest first</span></div>
-    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l hs">Night</th><th class="l">Player</th><th class="l">Pick</th><th class="hs">Price</th><th class="hs">SWISH</th><th>Actual</th><th class="l">Result</th><th>£</th></tr></thead>
+    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l hs">Night</th><th class="l">Player</th><th class="l">Pick</th><th class="hs">Price</th><th class="hs">SWISH</th><th>Scored</th><th class="l">Result</th><th>£</th></tr></thead>
     <tbody class="clamp-all" data-clamp="r-recent">${R.recent.map(p => `<tr class="${p.value ? "isval" : ""}"><td class="l hs">${dateFmt(p.slate + "T12:00:00")}</td>
       <td class="l"><b>${esc(p.player)}</b><small>${p.away} @ ${p.home}</small></td>
       <td class="l"><span class="${p.side === "over" ? "o" : "u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}${p.value ? ` <span class="vd strong">Strong</span>` : ""}</td>
-      <td class="hs">${fmtOdds(p.price)}</td><td class="hs">${pct(p.modelP, 0)}</td><td><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l">${chip(p)}</td>
+      <td class="hs">${fmtOdds(p.price)}</td><td class="hs">${pct(p.modelP, 0)}</td><td class="act"><span class="mlab">Scored</span><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l res">${chip(p)}</td>
       <td class="${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</td></tr>`).join("")}</tbody></table></div>
   </div>
   <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
