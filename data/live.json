@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T00:43:20Z"
+  "writtenAt": "2026-10-29T00:48:20Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "3:13 - 3rd",
+   "status": "End of 3rd",
    "completed": false,
-   "awayScore": "89",
-   "homeScore": "75",
+   "awayScore": "97",
+   "homeScore": "85",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "3:17 - 3rd",
+   "status": "1:08 - 3rd",
    "completed": false,
-   "awayScore": "87",
-   "homeScore": "86",
+   "awayScore": "92",
+   "homeScore": "88",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "7:03 - 3rd",
+   "status": "5:00 - 3rd",
    "completed": false,
-   "awayScore": "56",
-   "homeScore": "57",
+   "awayScore": "58",
+   "homeScore": "64",
    "espnLine": null
   },
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "9:41 - 3rd",
+   "status": "8:59 - 3rd",
    "completed": false,
    "awayScore": "62",
-   "homeScore": "58",
+   "homeScore": "62",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "2:02 - 2nd",
+   "status": "Halftime",
    "completed": false,
-   "awayScore": "51",
-   "homeScore": "60",
+   "awayScore": "53",
+   "homeScore": "69",
    "espnLine": null
   },
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "End of 1st",
+   "status": "9:08 - 2nd",
    "completed": false,
-   "awayScore": "34",
-   "homeScore": "33",
+   "awayScore": "41",
+   "homeScore": "40",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "10:30 - 2nd",
+   "status": "8:29 - 2nd",
    "completed": false,
-   "awayScore": "29",
-   "homeScore": "21",
+   "awayScore": "33",
+   "homeScore": "24",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "End of 1st",
+   "status": "9:58 - 2nd",
    "completed": false,
    "awayScore": "30",
-   "homeScore": "23",
+   "homeScore": "26",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "10:00 - 2nd",
+   "status": "7:12 - 2nd",
    "completed": false,
-   "awayScore": "42",
-   "homeScore": "22",
+   "awayScore": "46",
+   "homeScore": "26",
    "espnLine": null
   },
   {
@@ -1187,10 +1187,10 @@
    "pos": "C",
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
-   "detail": "Left Wrist",
+   "detail": "day-to-day",
    "comment": "Towns finished with 27 points (12-21 FG, 1-5 3Pt, 2-2 FT), 20 rebounds and three assists across 33 minutes in Tuesday's 111-97 victory over the Pistons.",
    "updated": "2026-10-29T00:29Z",
-   "returnDate": "2026-10-28"
+   "returnDate": null
   },
   {
    "team": "NYK",
@@ -358773,7 +358773,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T00:43:19Z",
+   "fetchedAt": "2026-10-29T00:48:20Z",
    "ok": true,
    "count": 12
   },
@@ -358784,7 +358784,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T00:43:20Z",
+   "fetchedAt": "2026-10-29T00:48:20Z",
    "ok": true,
    "count": 87
   },
@@ -358812,7 +358812,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T00:43:19Z",
+   "fetchedAt": "2026-10-29T00:48:20Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359259,7 +359259,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:43:19Z"
+    "fetchedAt": "2026-10-29T00:48:20Z"
    },
    "home": {
     "starters": [
@@ -359286,7 +359286,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:43:19Z"
+    "fetchedAt": "2026-10-29T00:48:20Z"
    }
   },
   "401909891": {
@@ -359315,7 +359315,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:43:19Z"
+    "fetchedAt": "2026-10-29T00:48:20Z"
    },
    "home": {
     "starters": [
@@ -359342,7 +359342,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:43:19Z"
+    "fetchedAt": "2026-10-29T00:48:20Z"
    }
   },
   "401909892": {
@@ -359371,7 +359371,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:43:19Z"
+    "fetchedAt": "2026-10-29T00:48:20Z"
    },
    "home": {
     "starters": [
@@ -359398,7 +359398,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:43:19Z"
+    "fetchedAt": "2026-10-29T00:48:20Z"
    }
   }
  }
