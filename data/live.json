@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T02:18:21Z"
+  "writtenAt": "2026-10-29T02:23:24Z"
  },
  "games": [
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "4:57 - 4th",
+   "status": "3:35 - 4th",
    "completed": false,
-   "awayScore": "116",
-   "homeScore": "112",
+   "awayScore": "124",
+   "homeScore": "115",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "3:44 - 4th",
+   "status": "47.7 - 4th",
    "completed": false,
-   "awayScore": "113",
-   "homeScore": "86",
+   "awayScore": "126",
+   "homeScore": "95",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "8:16 - 4th",
+   "status": "6:25 - 4th",
    "completed": false,
-   "awayScore": "103",
-   "homeScore": "87",
+   "awayScore": "105",
+   "homeScore": "91",
    "espnLine": null
   },
   {
@@ -109,11 +109,11 @@
    "away": "DEN",
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
-   "state": "in",
-   "status": "1:08 - 4th",
-   "completed": false,
+   "state": "post",
+   "status": "Final",
+   "completed": true,
    "awayScore": "104",
-   "homeScore": "89",
+   "homeScore": "91",
    "espnLine": null
   },
   {
@@ -122,9 +122,9 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "Halftime",
+   "status": "10:54 - 3rd",
    "completed": false,
-   "awayScore": "51",
+   "awayScore": "54",
    "homeScore": "55",
    "espnLine": null
   },
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "9:21 - 2nd",
+   "status": "8:05 - 2nd",
    "completed": false,
    "awayScore": "36",
-   "homeScore": "39",
+   "homeScore": "46",
    "espnLine": null
   },
   {
@@ -292,7 +292,7 @@
    "name": "Pelicans",
    "displayName": "New Orleans Pelicans",
    "color": "#0a2240",
-   "record": "0-3"
+   "record": "0-4"
   },
   "DEN": {
    "espnId": "7",
@@ -300,7 +300,7 @@
    "name": "Nuggets",
    "displayName": "Denver Nuggets",
    "color": "#0e2240",
-   "record": "1-2"
+   "record": "2-2"
   },
   "UTA": {
    "espnId": "26",
@@ -358765,7 +358765,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T02:18:20Z",
+   "fetchedAt": "2026-10-29T02:23:17Z",
    "ok": true,
    "count": 12
   },
@@ -358776,7 +358776,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T02:18:20Z",
+   "fetchedAt": "2026-10-29T02:23:17Z",
    "ok": true,
    "count": 87
   },
@@ -358804,7 +358804,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T02:18:20Z",
+   "fetchedAt": "2026-10-29T02:23:17Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359343,7 +359343,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:18:20Z"
+    "fetchedAt": "2026-10-29T02:23:17Z"
    },
    "home": {
     "starters": [
@@ -359370,7 +359370,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:18:20Z"
+    "fetchedAt": "2026-10-29T02:23:17Z"
    }
   }
  }
