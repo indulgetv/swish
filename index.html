@@ -1654,7 +1654,31 @@ html.dark{--exp:#79a8ff}
 @media (max-width:760px){.ov .v.wlv{font-size:23px}.wlv small{margin:0 5px 0 2px;font-size:11px}}
 .wlv b{font:inherit}.wlv small{font-size:12px;font-weight:600;color:var(--muted);margin:0 8px 0 3px;font-family:var(--sans)}
 .ov .s .faint{color:var(--faint)}
-.rec{display:inline-block;min-width:64px}.rec .wlbar{height:5px;margin:4px 0 0}.rec .wlbar .be{top:-2px;bottom:-2px}
+/* ---- phones: results tables line up with the panel headings and never run off the side ---- */
+@media (max-width:760px){
+  .panel-h{flex-direction:column;align-items:flex-start!important;gap:2px!important}
+  .panel-h .sub{margin-left:0!important;text-align:left}
+  .rt th,.rt td{padding:10px 6px!important}
+  .rt th:first-child,.rt td:first-child{padding-left:16px!important}
+  .rt th:last-child,.rt td:last-child{padding-right:16px!important}
+  .rt .hs{display:none}
+  .calbar{width:56px}
+}
+@media (max-width:400px){
+  .calbar{width:34px}
+  .rt th,.rt td{padding-left:4px!important;padding-right:4px!important}
+  .ovt td,.rt td{font-size:12px!important}
+  .wlrec{min-width:50px}
+  .rt th{letter-spacing:.03em!important;font-size:9.5px!important}
+  .rpicks{min-width:0!important}
+  .rpicks td.l{white-space:normal}
+  .rpicks td.l .vd{display:none}
+}
+/* games: past meetings — scores centred between the date and the total */
+.mtg{grid-template-columns:64px 1fr 64px!important}
+.mtg .sc{justify-content:center}
+.rec span{margin-left:2px}
+.wlrec{display:inline-flex;flex-direction:column;align-items:stretch;min-width:64px;text-align:right}.wlrec .wlbar{height:5px;margin:4px 0 0}.wlrec .wlbar .be{top:-2px;bottom:-2px}
 .meter{position:relative;height:8px;margin:10px 0 6px;border-radius:99px;background:linear-gradient(90deg,var(--red-soft),var(--surface2) 50%,var(--over-soft))}
 .meter .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;margin-left:-1px;background:var(--ink2)}
 .meter .dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid var(--white)}
@@ -2365,12 +2389,17 @@ const INJ_CHECKS_UTC = (() => { const t = [];
   t.push([21,27],[21,47]);
   [22,23,0,1,2].forEach(h => [7,27,47].forEach(m => t.push([h,m])));
   t.push([3,47]); return t; })();
+/* next data check, from the daily schedule (UK clock, set by the cron-job.org jobs):
+   07:05 one run · 13:50–19:45 and 19:50–01:40 every 5 min · 01:30 until the last game is final */
 function nextInjuryCheck(){
-  const now = new Date(); let best = null;
-  for (let d = 0; d <= 1; d++) INJ_CHECKS_UTC.forEach(([h,m]) => {
-    const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + d, h, m));
-    if (t > now && (!best || t < best)) best = t; });
-  return best;
+  const now = new Date();
+  const uk = new Date(now.toLocaleString("en-US", {timeZone: "Europe/London"}));
+  let m = uk.getHours() * 60 + uk.getMinutes(); if (m < 6 * 60) m += 24 * 60;
+  const running = (m >= 13 * 60 + 50 && m < 25 * 60 + 40) || (m >= 25 * 60 + 30 && m < 29 * 60);
+  if (running) return {at: new Date(now.getTime() + 5 * 60000), running: true};
+  const starts = [7 * 60 + 5, 13 * 60 + 50, 31 * 60 + 5];          // 31:05 = tomorrow 07:05
+  const nx = starts.find(x => x > m) || starts[0] + 24 * 60;
+  return {at: new Date(now.getTime() + (nx - m) * 60000), running: false};
 }
 const injCheckedAt = () => IS_LIVE ? ((LIVE.sections || {}).injuries || {}).fetchedAt : DATA.meta.generatedAt;
 buildAllProps();   // after the helpers above, which the flags use
@@ -2505,7 +2534,7 @@ function pickRow(p, i){
     <div class="n num hide-s" style="color:var(--red)">${p.projection.toFixed(1)}<small>proj.</small></div>
     <div class="n num hide-s">${p.n ? p.h2hAvg.toFixed(1) : "—"}<small>H2H ${p.h2hHits}/${p.n}</small></div>
     <div class="chance hide-s"><div class="ct"><b class="num" style="color:${leanCol(p.lean)}">${pct(p.modelP,0)}</b><small class="num">bookie ${pct(p.mktP,0)}</small></div><span class="tr"><i style="width:${(p.modelP*100).toFixed(0)}%;background:${leanCol(p.lean)}"></i><span class="mk" style="left:${(p.mktP*100).toFixed(0)}%"></span></span></div>
-    <div class="vcell">${vdPill(p)}<small class="num">${pts(p.edge)}</small></div>
+    <div class="vcell">${vdPill(p)}<small class="num" title="SWISH's chance minus the bookie's, in percentage points">edge ${pts(p.edge)}</small></div>
     <span class="chev2">›</span>
   </button>`;
 }
@@ -3168,11 +3197,11 @@ function injStatusBar(){
   const checked = injCheckedAt(), next = nextInjuryCheck(), news = injNews();
   return `<div class="injbar">
     <div class="ib"><span class="ib-k">Last checked</span><b class="num">${checked ? timeFmt(checked) : "—"}</b><small>${checked ? agoTxt(checked) : ""}</small></div>
-    <div class="ib"><span class="ib-k">Next check</span><b class="num">${IS_LIVE && next ? `~${timeFmt(next.toISOString())}` : "—"}</b><small>${IS_LIVE ? "can run up to 30 min late" : "sample data"}</small></div>
-    <div class="ib ${news.length ? "hot" : ""}"><span class="ib-k">News in last ${NEW_NEWS_H}h</span><b class="num">${news.length}</b><small>${news.length ? `latest ${agoTxt(news[0].updated)}` : "nothing new"}</small></div>
+    <div class="ib"><span class="ib-k">Next check</span><b class="num">${IS_LIVE && next ? `~${timeFmt(next.at.toISOString())}` : "—"}</b><small>${!IS_LIVE ? "sample data" : next.running ? "checking every 5 minutes now" : "next update block"}</small></div>
+    <div class="ib ${news.length ? "hot" : ""}"><span class="ib-k">Changes in last ${NEW_NEWS_H}h</span><b class="num">${news.length}</b><small>${news.length ? `latest ${timeFmt(news[0].updated)}` : "nothing new"}</small></div>
     <div class="ib"><span class="ib-k">Out · uncertain</span><b class="num">${DATA.injuries.filter(i => i.status === "Out").length} · ${DATA.injuries.filter(i => i.status === "Questionable" || i.status === "Doubtful").length}</b><small>tonight's teams</small></div>
   </div>
-  ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury news</h2><span class="sub">newest first · last ${NEW_NEWS_H} hours</span></div>
+  ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury changes</h2><span class="sub">latest first · last ${NEW_NEWS_H} hours</span></div>
     <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
 }
 
@@ -3215,7 +3244,7 @@ function wlCard(title, r, note){
     ${wlBar(r, be)}
     <div class="s">${r && r.n ? `won ${pct(r.hitRate, 0)} · you need ${pct(be, 0)} to make money` : "nothing settled yet"}<br><span class="faint">${note}</span></div></div>`;
 }
-const recCell = r => r && r.n ? `<span class="rec">${r.wins}–${r.losses}${r.pushes ? `–${r.pushes}` : ""}${wlBar(r, r.avgPrice ? 1 / r.avgPrice : 0)}</span>` : "—";
+const recCell = r => r && r.n ? `<span class="wlrec">${r.wins}–${r.losses}${r.pushes ? `–${r.pushes}` : ""}${wlBar(r, r.avgPrice ? 1 / r.avgPrice : 0)}</span>` : "—";
 function viewResults(){
   const R = window.SWISH_RESULTS;
   const head = `<header class="hero hero-results">${GFX.results}
@@ -3273,7 +3302,7 @@ function viewResults(){
 
   ${R.overs ? (() => { const O = R.overs, tr = [["high","High <small>60%+</small>"],["med","Medium <small>55–60%</small>"],["low","Low <small>&lt;55%</small>"]];
     const row = (lab, r) => `<tr><td class="l">${lab}</td><td>${recCell(r)}</td><td>${r.predicted == null ? "—" : pct(r.predicted, 0)}</td><td><b>${hit(r)}</b></td><td class="${r.profit >= 0 ? "pos" : "negr"}">${r.n ? gbp(r.profit) : "—"}</td></tr>`;
-    return `<div class="panel">
+    return `<div class="panel" style="margin-bottom:var(--sec)">
       <div class="panel-h"><h2 class="h">Top overs tracker</h2><span class="sub">does the confidence come true?</span></div>
       <table class="rt ovt"><thead><tr><th class="l">Confidence</th><th>Record</th><th>SWISH said</th><th>Landed</th><th>Profit</th></tr></thead><tbody>
       ${tr.map(([k, lab]) => row(lab, O.tiers[k])).join("")}
@@ -3292,19 +3321,19 @@ function viewResults(){
     </div>
     <div class="panel">
       <div class="panel-h"><h2 class="h">By night</h2><span class="sub">value picks</span></div>
-      <div class="clamp-all" data-clamp="r-days"><table class="rt"><thead><tr><th class="l">Slate</th><th>Saved</th><th>Graded</th><th>Record</th><th>Profit</th><th>Running</th></tr></thead><tbody>
-      ${[...R.days].reverse().map(d => `<tr><td class="l">${dateFmt(d.slate + "T12:00:00")}${d.backfilled ? ` <span class="rchip pend">backfilled</span>` : ""}</td><td>${d.saved}</td><td>${d.graded}${d.pending ? ` <small>(${d.pending} waiting)</small>` : ""}</td><td>${recCell(d.strong)}</td><td class="${d.strong.profit >= 0 ? "pos" : "negr"}">${gbp(d.strong.profit)}</td><td>${gbp(d.strongCumProfit)}</td></tr>`).join("")}
+      <div class="clamp-all" data-clamp="r-days"><table class="rt"><thead><tr><th class="l">Slate</th><th class="hs">Saved</th><th class="hs">Graded</th><th>Record</th><th>Profit</th><th>Running</th></tr></thead><tbody>
+      ${[...R.days].reverse().map(d => `<tr><td class="l">${dateFmt(d.slate + "T12:00:00")}${d.backfilled ? ` <span class="rchip pend">backfilled</span>` : ""}</td><td class="hs">${d.saved}</td><td class="hs">${d.graded}${d.pending ? ` <small>(${d.pending} waiting)</small>` : ""}</td><td>${recCell(d.strong)}</td><td class="${d.strong.profit >= 0 ? "pos" : "negr"}">${gbp(d.strong.profit)}</td><td>${gbp(d.strongCumProfit)}</td></tr>`).join("")}
       </tbody></table></div>
     </div>
   </div>
 
   <div class="panel">
     <div class="panel-h"><h2 class="h">Recent picks</h2><span class="sub">latest first</span></div>
-    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l">Night</th><th class="l">Player</th><th class="l">Pick</th><th>Price</th><th>SWISH</th><th>Actual</th><th class="l">Result</th><th>£</th></tr></thead>
-    <tbody class="clamp-all" data-clamp="r-recent">${R.recent.map(p => `<tr class="${p.value ? "isval" : ""}"><td class="l">${dateFmt(p.slate + "T12:00:00")}</td>
+    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l hs">Night</th><th class="l">Player</th><th class="l">Pick</th><th class="hs">Price</th><th class="hs">SWISH</th><th>Actual</th><th class="l">Result</th><th>£</th></tr></thead>
+    <tbody class="clamp-all" data-clamp="r-recent">${R.recent.map(p => `<tr class="${p.value ? "isval" : ""}"><td class="l hs">${dateFmt(p.slate + "T12:00:00")}</td>
       <td class="l"><b>${esc(p.player)}</b><small>${p.away} @ ${p.home}</small></td>
       <td class="l"><span class="${p.side === "over" ? "o" : "u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}${p.value ? ` <span class="vd strong">Strong</span>` : ""}</td>
-      <td>${fmtOdds(p.price)}</td><td>${pct(p.modelP, 0)}</td><td><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l">${chip(p)}</td>
+      <td class="hs">${fmtOdds(p.price)}</td><td class="hs">${pct(p.modelP, 0)}</td><td><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l">${chip(p)}</td>
       <td class="${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</td></tr>`).join("")}</tbody></table></div>
   </div>
   <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
