@@ -1859,6 +1859,28 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
 .tag.tip{display:inline-flex;align-items:center}
 .tipt{display:inline-flex;align-items:center;gap:0}.tipt .clk{width:.8em;height:.8em;opacity:.7}
 .ib-k .clk{width:12px;height:12px;margin-right:4px;vertical-align:-2px}
+/* touch screens: no "stuck" hover effects on the home header (iPhone keeps :hover after a tap) */
+@media (hover:none){
+  .hero-home:hover .dh-day,.hero-home:hover .dh-month,.hero-home:hover .clockcard,.hero-home:hover .iw,.hero-home:hover .live-dot,.hero-home:hover .court,.hero-home:hover .lk{transform:none!important;text-shadow:none}
+  .hero-home:hover .clockcard{box-shadow:0 14px 30px rgba(18,20,23,.22),inset 0 1px 0 rgba(255,255,255,.08)}
+}
+/* phones & tablets: the home illustration fits the card (court + ball visible), ball bounces in once */
+@media (max-width:960px){
+  .hero-home{overflow:hidden}
+  .hero-home .court{top:14px!important;right:-6%!important;left:auto;height:auto!important;width:min(92%,520px)!important;opacity:.08}
+  html.dark .hero-home .court{opacity:.13}
+  .hero-home .court.ballsketch{opacity:.3!important}
+  html.dark .hero-home .court.ballsketch{opacity:.42!important}
+  .hero-home .ballsketch .bs-ball{animation:bsDrop 1.5s var(--ease) .5s both}
+  .hero-home .ballsketch .bs-shadow{animation:bsShadow 1.5s var(--ease) .5s both}
+  .hero-home .ballsketch .bs-trail{animation:bsTrail 1.1s var(--ease) .5s both}
+  html.calm .hero-home .ballsketch *{animation:none!important;transform:none!important;opacity:1}
+}
+@media (max-width:640px){
+  .hero-home .court{width:84%!important;right:-8%!important;top:22px!important}
+  .hero-home .court.ballsketch{opacity:.22!important}
+  html.dark .hero-home .court.ballsketch{opacity:.32!important}
+}
 </style>
 </head>
 <body>
