@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T00:18:23Z"
+  "writtenAt": "2026-10-29T00:23:20Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "12:00 - 3rd",
+   "status": "10:00 - 3rd",
    "completed": false,
-   "awayScore": "69",
-   "homeScore": "56",
+   "awayScore": "75",
+   "homeScore": "66",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "10.5 - 2nd",
+   "status": "Halftime",
    "completed": false,
    "awayScore": "51",
-   "homeScore": "41",
+   "homeScore": "44",
    "espnLine": null
   },
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "2:45 - 2nd",
+   "status": "0.8 - 2nd",
    "completed": false,
-   "awayScore": "55",
-   "homeScore": "44",
+   "awayScore": "59",
+   "homeScore": "52",
    "espnLine": null
   },
   {
@@ -62,7 +62,7 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "10:46 - 2nd",
+   "status": "9:42 - 2nd",
    "completed": false,
    "awayScore": "29",
    "homeScore": "32",
@@ -74,9 +74,9 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "8:00 - 1st",
+   "status": "6:29 - 1st",
    "completed": false,
-   "awayScore": "11",
+   "awayScore": "13",
    "homeScore": "14",
    "espnLine": null
   },
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "6:23 - 1st",
+   "status": "4:43 - 1st",
    "completed": false,
-   "awayScore": "11",
-   "homeScore": "9",
+   "awayScore": "13",
+   "homeScore": "11",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "8:17 - 1st",
+   "status": "5:37 - 1st",
    "completed": false,
-   "awayScore": "7",
-   "homeScore": "11",
+   "awayScore": "17",
+   "homeScore": "17",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "8:33 - 1st",
+   "status": "4:45 - 1st",
    "completed": false,
-   "awayScore": "10",
-   "homeScore": "5",
+   "awayScore": "23",
+   "homeScore": "11",
    "espnLine": null
   },
   {
@@ -127,8 +127,8 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "SA -13.5",
-    "overUnder": 233.5,
+    "details": "SA -14.5",
+    "overUnder": 232.5,
     "provider": "DraftKings"
    }
   },
@@ -143,7 +143,7 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "OKC -4.5",
+    "details": "OKC -5.5",
     "overUnder": 228.5,
     "provider": "DraftKings"
    }
@@ -1249,17 +1249,6 @@
   },
   {
    "team": "OKC",
-   "player": "Ajay Mitchell",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Ankle",
-   "comment": "Mitchell (ankle) is questionable for Wednesday's game against Dallas.",
-   "updated": "2026-10-27T21:35Z",
-   "returnDate": "2026-10-28"
-  },
-  {
-   "team": "OKC",
    "player": "Cason Wallace",
    "pos": "G",
    "status": "Out",
@@ -1513,24 +1502,13 @@
   },
   {
    "team": "UTA",
-   "player": "Jaxson Hayes",
-   "pos": "C",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Right Shoulder Soreness",
-   "comment": "Hayes (shoulder) is listed as questionable for Wednesday's game against the Spurs.",
-   "updated": "2026-10-27T23:10Z",
-   "returnDate": "2026-10-28"
-  },
-  {
-   "team": "UTA",
    "player": "Lauri Markkanen",
    "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
+   "status": "Out",
+   "rawStatus": "Out",
    "detail": "Right Wrist Not Specified",
-   "comment": "Markkanen (wrist) is questionable for Wednesday's game against the Spurs.",
-   "updated": "2026-10-27T23:05Z",
+   "comment": "Markkanen (wrist) is out for Wednesday's tilt against the Spurs.",
+   "updated": "2026-10-29T00:14Z",
    "returnDate": "2026-10-31"
   },
   {
@@ -358784,7 +358762,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T00:18:21Z",
+   "fetchedAt": "2026-10-29T00:23:20Z",
    "ok": true,
    "count": 12
   },
@@ -358795,9 +358773,9 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T00:18:23Z",
+   "fetchedAt": "2026-10-29T00:23:20Z",
    "ok": true,
-   "count": 88
+   "count": 86
   },
   "players": {
    "source": "ESPN game logs",
@@ -358823,10 +358801,10 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T00:18:22Z",
+   "fetchedAt": "2026-10-29T00:23:20Z",
    "ok": true,
-   "nba": "ok: 14 team lineups posted",
-   "espn": "8 team starting fives from box scores"
+   "nba": "ok: 6 team lineups posted",
+   "espn": "0 team starting fives from box scores"
   }
  },
  "lineups": {
@@ -359270,7 +359248,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:18:21Z"
+    "fetchedAt": "2026-10-29T00:23:20Z"
    },
    "home": {
     "starters": [
@@ -359279,7 +359257,7 @@
       "pos": "SG"
      },
      {
-      "name": "Ace Bailey",
+      "name": "Brice Sensabaugh",
       "pos": "SF"
      },
      {
@@ -359287,7 +359265,7 @@
       "pos": "PG"
      },
      {
-      "name": "Lauri Markkanen",
+      "name": "Ace Bailey",
       "pos": "PF"
      },
      {
@@ -359297,7 +359275,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:18:21Z"
+    "fetchedAt": "2026-10-29T00:23:20Z"
    }
   },
   "401909891": {
@@ -359326,7 +359304,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:18:21Z"
+    "fetchedAt": "2026-10-29T00:23:20Z"
    },
    "home": {
     "starters": [
@@ -359353,7 +359331,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:18:21Z"
+    "fetchedAt": "2026-10-29T00:23:20Z"
    }
   },
   "401909892": {
@@ -359382,7 +359360,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:18:21Z"
+    "fetchedAt": "2026-10-29T00:23:20Z"
    },
    "home": {
     "starters": [
@@ -359409,7 +359387,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:18:21Z"
+    "fetchedAt": "2026-10-29T00:23:20Z"
    }
   }
  }
