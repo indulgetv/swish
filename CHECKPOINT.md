@@ -130,6 +130,22 @@ _Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"*
   Home "Props with a price" now says "with no bookmaker line tonight" once the main fetch has covered every game.
 
 ## Next steps (in order)
+
+**TOMORROW (user agreed 29 Oct 22:47), in this order:**
+A. **Minutes fix — injured players (esp. big ones).** Found 29 Oct: Dejounte Murray (NOP, ~31 min) ruled out 22:22 but
+   teammates gained only ~1 min each, because available NOP players' expected minutes already summed to ~278 (>240),
+   so the shortfall logic saw no room. Plan (all model changes: BOTH files, bump MODEL_VERSION, parity 0, backtest):
+   1. Scale available players' expected minutes to 240 first, then share the absent player's minutes (quick; do first;
+      check against tonight's graded NOP game).
+   2. "With vs without" history: teammate minutes/stats in games the absent player played vs missed (this + last
+      season, ≥2–3 games), fall back to step 1.
+   3. Usage boost: higher per-minute PTS/AST rate when a high-usage player sits (from with/without, else small capped).
+   4. Conditional re-price: after 21:00, if a 25+ min player is ruled out, re-fetch odds for that game only (~3
+      credits). Replaces nightly top-ups. Tonight's one-off top-up uses TOPUP_DATES={"2026-10-29"} — remove after.
+   5. Steps 2–3 tested inside the projection lab (step 0) before shipping.
+B. **Update the page in place, no reload** (user asked 29 Oct 20:36): fetch new data in the background and redraw only
+   what changed (times, injuries, prices, picks), like live scores. Safari currently reloads on each data update.
+C. Parked, user's call: closing-line check (step 3) — only on a paid plan or tiny budget.
 0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
    (project each night using only earlier games, compare with actual) to test/tune minutes, rate weighting, H2H, rest/back-
    to-backs, blowouts, recent-form decay — ~25k player-games, no Odds credits. Plan: (a) GitHub job downloads all 30 teams'
