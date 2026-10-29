@@ -91,6 +91,13 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
     PTS only on 10+ game nights, PTS+REB on ≤8. User chose PTS, REB, AST only (29 Oct) — threes/PRA no longer bought.
   - Guide doc for the user: https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE ("SWISH — how it works"); keep it updated.
 
+- **29 Oct (afternoon) — plain-English pass:** top bar "Data updated HH:MM" + "Injury list checked · last change" (both show on
+  phones in a second row); role/minutes chips explain themselves on hover/tap (`data-tip`, one floating `.tipbox`, text
+  built only from the player's own logs / ESPN injury list); green "▲ +X min · teammate out" chip; Results cards redrawn
+  (won/lost numbers + bar with a break-even tick, "Ahead/Behind the bookies" meter, average-miss bars); headings and
+  notices rewritten in plain English across Home, Props, Games, Injuries, Results. Logo: colour sweep on tap, gentle wave
+  after the ball drops, smooth ease back (no snap when the mouse leaves mid-shot).
+
 ## Next steps (in order)
 1. ~~Daily auto-start~~ DONE 29 Oct: cron-job.org (user's account, timezone Europe/London) POSTs to the GitHub API with a
    fine-grained token (indulgetv/swish only, Actions read & write; if the 90-day option was kept it expires 27 Jan 2027 —

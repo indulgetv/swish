@@ -1490,7 +1490,13 @@ html.calm .newspill.hot i{animation:none}
   html.dark .side{background:#16181c!important}
   .side .brand{margin:0}
 }
-@media (max-width:760px){.crumb,.sample-pill{display:none!important}}
+@media (max-width:760px){.crumb{display:none!important}
+  .top{flex-wrap:wrap;row-gap:8px}
+  .top-right{order:-1;width:100%;justify-content:flex-end;margin-left:0!important}
+  .sample-pill.live-pill{display:inline-flex!important;align-items:center;gap:6px;white-space:nowrap}
+}
+.sample-pill .ns{display:none}
+@media (max-width:760px){.sample-pill .nl{display:none}.sample-pill .ns{display:inline}}
 
 @media (max-width:640px){
   .nrow{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:10px;row-gap:6px;align-items:start}
@@ -1631,6 +1637,27 @@ html.dark{--exp:#79a8ff}
 .srow.key .tm,.srow.key b{color:var(--red)}
 .ovt td.l small{display:block;font-size:10.5px;color:var(--muted);font-weight:600}
 @media (max-width:760px){.ovt th,.ovt td{padding:8px 5px!important;font-size:12.5px}.ovt th{font-size:9px!important}.ovt td.l{padding-left:12px!important}}
+.wlbar{position:relative;display:block;height:8px;margin:8px 0 6px;border-radius:99px;background:var(--red-soft);overflow:visible}
+.wlbar .w{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--over)}
+.wlbar .be{position:absolute;top:-3px;bottom:-3px;width:2px;margin-left:-1px;background:var(--ink);border-radius:2px}
+.ov .v.wlv{white-space:nowrap;font-size:30px}
+@media (max-width:760px){.ov .v.wlv{font-size:23px}.wlv small{margin:0 5px 0 2px;font-size:11px}}
+.wlv b{font:inherit}.wlv small{font-size:12px;font-weight:600;color:var(--muted);margin:0 8px 0 3px;font-family:var(--sans)}
+.ov .s .faint{color:var(--faint)}
+.rec{display:inline-block;min-width:64px}.rec .wlbar{height:5px;margin:4px 0 0}.rec .wlbar .be{top:-2px;bottom:-2px}
+.meter{position:relative;height:8px;margin:10px 0 6px;border-radius:99px;background:linear-gradient(90deg,var(--red-soft),var(--surface2) 50%,var(--over-soft))}
+.meter .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;margin-left:-1px;background:var(--ink2)}
+.meter .dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid var(--white)}
+.meter .dot.pos{background:var(--over)}.meter .dot.neg{background:var(--red)}
+.miss{display:grid;gap:4px;margin:8px 0 6px;font-size:11px;font-weight:700;color:var(--muted)}
+.miss span{position:relative;display:block;padding-left:0}
+.miss span i{display:block;height:6px;border-radius:99px;background:var(--red);margin-bottom:2px}
+.miss span.bk i{background:var(--line2)}
+.rolechip[data-tip]{cursor:help;outline:none}
+.rolechip[data-tip]:focus-visible{box-shadow:0 0 0 2px var(--red)}
+.tipbox{position:fixed;z-index:200;max-width:260px;padding:10px 12px;border-radius:12px;background:#15171b;color:#f2f3f5;font-size:12.5px;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.28);pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease}
+.tipbox.on{opacity:1;transform:none}
+html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .rolechip{display:inline-block;margin-left:4px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 5px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
 .rolechip.up{color:var(--over);background:var(--over-soft);border-color:transparent}
 .rolechip.dn{color:var(--red);background:var(--red-soft);border-color:var(--red-line)}
@@ -2431,7 +2458,7 @@ function overView(p){
 }
 const confOf = q => q.modelP >= 0.6 ? ["high", "High"] : q.modelP >= 0.55 ? ["med", "Medium"] : ["low", "Low"];
 const PICK_TABS = {
-  overs: {label:"Top overs", desc:"Overs only, most likely to land first (SWISH's chance the over hits). Only props where SWISH rates the over at least as likely as the bookmaker does, with no injury or data warnings. Confidence: High = 60%+, Medium = 55–60%. A likely over can still be poor value at a short price — the Value column shows that.",
+  overs: {label:"Top overs", desc:"Overs only, most likely first. Each one is an over SWISH rates at least as highly as the bookie, with no injury worries. High = 60%+ chance, Medium = 55–60%. A likely over at a short price can still be poor value — check the Value column.",
           list: () => clean.map(overView).filter(q => q.edge >= 0).sort((a,b) => b.modelP - a.modelP || b.edge - a.edge)},
   best:  {label:"Best picks", desc:`Props where SWISH's chance beats the bookmaker's by at least ${(MIN_EDGE*100).toFixed(0)} points, with no injury or data issues. Ranked by average return.`,
           list: () => ALL.filter(p => p.value).sort((a,b) => b.ev - a.ev)},
@@ -2522,10 +2549,10 @@ function viewDashboard(){
   ${liveNotice()}
   <div class="overview">
     <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">first tip ${timeFmt(GAMES[0].tipoff)}</div></div>
-    <div class="ov"><div class="eyebrow">Props analysed</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} passed data checks${NOLINE.length ? ` · ${NOLINE.length} need a line` : ""}</div></div>
-    <div class="ov"><div class="eyebrow">Strong value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH ≥ ${(MIN_EDGE*100).toFixed(0)} pts above bookie</div></div>
+    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${NOLINE.length ? ` · ${NOLINE.length} still waiting for a price` : ""}</div></div>
+    <div class="ov"><div class="eyebrow">Value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH rates them ${(MIN_EDGE*100).toFixed(0)}+ points above the bookie</div></div>
     <div class="ov"><div class="eyebrow">Injury concerns</div><div class="v num">${sig.length}</div><div class="s">${sig.filter(i=>i.status==="Out").length} out · ${sig.filter(i=>i.status!=="Out").length} uncertain</div></div>
-    <div class="ov"><div class="eyebrow">Avg bookmaker margin</div><div class="v num">${avgVig === null ? "—" : pct(avgVig)}</div><div class="s">${avgVig === null ? "no prices yet" : "built into the prices"}</div></div>
+    <div class="ov"><div class="eyebrow">Bookie's cut</div><div class="v num">${avgVig === null ? "—" : pct(avgVig)}</div><div class="s">${avgVig === null ? "no prices yet" : "their margin, built into every price"}</div></div>
   </div>
   <div class="panel" style="margin-bottom:var(--sec)">
     <div class="panel-h"><h2 class="h">Best picks tonight</h2><button class="textbtn" data-nav="props" style="margin-left:auto">See all picks &amp; squads →</button></div>
@@ -2543,7 +2570,7 @@ function viewDashboard(){
           <span class="arrow">→</span></button>`;}).join("")}</div>
     </div>
     <div class="panel">
-      <div class="panel-h"><h2 class="h">Injury watch</h2><span class="sub">newest first · checked ${agoTxt(injCheckedAt())}</span></div>
+      <div class="panel-h"><h2 class="h">Injury watch</h2><span class="sub">latest first · checked ${injCheckedAt() ? timeFmt(injCheckedAt()) : "—"}</span></div>
       <div class="clamp-all" data-clamp="home-inj">${sig.map(i => `<button class="irow" data-nav="injuries">${tid(i.team,"sm")}<div><div class="nm">${esc(i.player)}</div><div class="ds">${esc(i.detail)}${i.fillIns.length ? ` · ${esc(i.fillIns[0].player)} could gain minutes` : ""}</div></div>${stPill(i.status)}</button>`).join("")}
     </div>
   </div>`;
@@ -2555,7 +2582,7 @@ function viewProps(){
   <header class="hero hero-props">${GFX.props}
   <div class="eyebrow">${DATA.meta.slateLabel}</div>
   <h1 class="title">Player Props</h1>
-  <p class="lede">Every game and its rotation players first. Best picks and insights are further down. <button class="inlinehelp" data-help="1">New to this? How to read the numbers →</button></p>
+  <p class="lede">Every game's players and tonight's lines. The best picks are further down. <button class="inlinehelp" data-help="1">New to this? How to read the numbers →</button></p>
   </header>
 
   <div class="toolbar">
@@ -2576,7 +2603,7 @@ function viewProps(){
   </div>
   <div id="sections"></div>
 
-  <div class="sechead"><div><div class="eyebrow">Across the slate</div><h2 class="h">Best picks &amp; insights</h2></div><span class="sub">Click any row for the full breakdown</span></div>
+  <div class="sechead"><div><div class="eyebrow">Tonight</div><h2 class="h">Best picks</h2></div><span class="sub">Tap a row for the details</span></div>
   <div class="panel">
     <div class="tabs" id="bestTabs" role="tablist" aria-label="Pick lists">${Object.entries(PICK_TABS).map(([k,t]) => `<button role="tab" aria-selected="${state.bestTab===k}" class="${state.bestTab===k?"on":""}" data-tab="${k}">${t.label}<span class="c">${t.list().length}</span></button>`).join("")}</div>
     <div id="bestList"></div>
@@ -2612,8 +2639,13 @@ function visiblePlayers(teamCode){
 }
 
 const minPair = pl => `<span class="mpair"><span class="mavg" title="Average minutes, last 10 games">${Math.round(pl.avgMin != null ? pl.avgMin : pl.min)}</span><span class="mexp" title="Expected minutes tonight${pl.minBoost ? ` (incl. +${pl.minBoost.gain.toFixed(1)} with ${esc(pl.boost.dependsOn)} out)` : ""}">${pl.projMin}${pl.minBoost ? "▲" : ""}</span></span>`;
-const roleChip = x => x && x.roleChange ? `<span class="rolechip ${x.roleDelta > 0 ? "up" : "dn"}" title="Minutes this season ${Math.round(x.curMin)} vs ${Math.round(x.lastMin)} last season">${x.roleDelta > 0 ? "▲" : "▼"} role ${x.roleDelta > 0 ? "+" : "−"}${Math.abs(Math.round(x.roleDelta))} min</span>` : "";
-const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${roleChip(p)}</div>
+/* the explanation behind a role chip — only numbers from the player's own game logs */
+const roleTip = x => `${x.roleDelta > 0 ? "Bigger" : "Smaller"} role this season. He's averaging about ${Math.round(x.curMin)} minutes over his ${x.curGames} game${x.curGames === 1 ? "" : "s"} this season (recent games count more), against ${Math.round(x.lastMin)} over his last 20 games last season. SWISH expects about ${Math.round(x.expMin)} minutes tonight.${x.curGames < ROLE_NEW_GAMES ? " Only a few games so far, so treat this with care." : ""}`;
+const roleChip = x => x && x.roleChange ? `<span class="rolechip ${x.roleDelta > 0 ? "up" : "dn"}" tabindex="0" data-tip="${esc(roleTip(x))}">${x.roleDelta > 0 ? "▲" : "▼"} role ${x.roleDelta > 0 ? "+" : "−"}${Math.abs(Math.round(x.roleDelta))} min</span>` : "";
+/* minutes boost from teammates ruled out */
+const boostTip = pl => { const names = [...new Set(pl.minBoost.from)]; return `More minutes expected tonight: about ${Math.round(pl.expMin0)} → ${pl.projMin}. ${names.join(", ")} ${names.length === 1 ? "is" : "are"} listed Out on ESPN's injury report, and the players left usually play fewer than a full game's 240 minutes between them. SWISH shares the gap out, mostly to role players, up to +6 minutes each.`; };
+const boostChip = pl => pl && pl.minBoost ? `<span class="rolechip up" tabindex="0" data-tip="${esc(boostTip(pl))}">▲ +${Math.max(1, Math.round(pl.minBoost.gain))} min · teammate out</span>` : "";
+const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${p.minBoost ? boostChip(PLAYER_BY_NAME.get(p.player)) : ""}${roleChip(p)}</div>
       <div class="minbox">
         <div><span>Tonight</span><b class="num" style="color:var(--exp)">${p.expMin.toFixed(1)}</b><small>${p.minBoost ? `incl. +${p.minBoost.gain.toFixed(1)} · ${esc([...new Set(p.minBoost.from)].join(", "))} out` : "SWISH estimate"}</small></div>
         <div><span>This season</span><b class="num">${p.curMin !== null ? p.curMin.toFixed(1) : "—"}</b><small>${p.curGames} game${p.curGames === 1 ? "" : "s"}</small></div>
@@ -2624,6 +2656,7 @@ function playerSub(pl){
   const stx = STARTERS.get(normName(pl.name)); const st = stx ? ` <span class="lu-chip ${stx}">${stx === "expected" ? "exp. starter" : "starter"}</span>` : "";
   if (pl.status === "Out") return `<small class="warn">${stPill("Out")}</small>`;
   if (pl.status === "Questionable" || pl.status === "Doubtful") return `<small class="warn">⚠ ${esc(pl.status)} · ${esc(injuryOf(pl.name).detail)}</small>`;
+  if (pl.minBoost) return `<small>${pl.pos}${st}${boostChip(pl)}${roleChip(pl)}</small>`;
   if (pl.boost) return `<small class="boost">${pl.pos} · ↑ ${pl.min}→${pl.projMin} min (${esc(pl.boost.dependsOn)} out)</small>`;
   if (pl.scenario) return `<small class="warn">${pl.pos} · ${pl.min}→${pl.scenario.minIf} min if ${esc(pl.scenario.dependsOn)} sits</small>`;
   const rc = roleChip(pl);
@@ -2791,11 +2824,11 @@ function liveNotice(){
   if (!IS_LIVE) return `<div class="notice"><b>Everything here is sample data.</b> ${LIVE_NOTE ? esc(LIVE_NOTE) + " " : ""}Games, players, injuries, head-to-head results, bookmaker lines and prices are invented to show how SWISH will work. Nothing reflects real fixtures, real odds or a betting recommendation. Snapshot: ${dateFmt(DATA.meta.generatedAt)}, ${timeFmt(DATA.meta.generatedAt)}.</div>`;
   const sec = LIVE.sections || {}, odds = sec.odds;
   const refN = ALL.filter(p => p.source === "ref").length, mineN = ALL.filter(p => p.source === "manual").length;
-  const oddsTxt = odds && odds.ok ? `Bookmaker lines for ${refN} props across ${odds.eventsPriced || 0} games (US market prices, updated ${agoTxt(odds.fetchedAt)})`
+  const oddsTxt = odds && odds.ok ? `Prices for ${refN} props across ${odds.eventsPriced || 0} games came in at ${timeFmt(odds.fetchedAt)} (US bookmakers)`
     : "No prop lines yet today — they arrive at about 21:00 UK time (14:30 for early games)";
   const errs = (LIVE.meta.errors || []).length;
-  return `<div class="notice live"><b>Live data.</b> Schedule, injuries and game logs from ESPN (updated ${agoTxt(DATA.meta.generatedAt)}). ${oddsTxt}.
-    Value is judged against the US market price${mineN ? ` (or your own price on ${mineN} prop${mineN === 1 ? "" : "s"})` : ""} — check your bookmaker's line matches before betting.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>${scheduleHTML()}`;
+  return `<div class="notice live">Stats, injuries and games come from ESPN, updated ${timeFmt(DATA.meta.generatedAt)}. ${oddsTxt}.
+    Prices are a guide${mineN ? ` (your own price is used on ${mineN} prop${mineN === 1 ? "" : "s"})` : ""} — check your bookmaker's line before you bet.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>${scheduleHTML()}`;
 }
 
 function priceForm(p){
@@ -3020,9 +3053,9 @@ function viewGames(){
   <header class="hero hero-games">${GFX.games}
   <div class="eyebrow">${DATA.meta.slateLabel}</div>
   <h1 class="title">Games &amp; Analysis</h1>
-  <p class="lede">Head-to-head history, team context and the player trends that feed each projection.</p>
+  <p class="lede">Recent meetings, team form and the player trends behind each projection.</p>
   </header>
-  ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Records and standings from ESPN, head-to-head from completed games this season and last. Totals and spreads: ${GAMES.some(g => g.lineSource === "UK books") ? "UK books where priced, otherwise ESPN's listed line" : "ESPN's listed line (UK lines arrive with the daily odds run)"}.</div>` : `<div class="notice"><b>Sample data.</b> Head-to-head scores, team ratings and notes are invented for demonstration and are not real results.</div>`}
+  ${IS_LIVE ? `<div class="notice live">Records and standings come from ESPN. Past meetings cover this season and last. Totals and spreads come from ${GAMES.some(g => g.lineSource === "UK books") ? "UK bookmakers where we have them, otherwise ESPN" : "ESPN"}.</div>` : `<div class="notice"><b>Sample data.</b> Head-to-head scores, team ratings and notes are invented for demonstration and are not real results.</div>`}
   ${GAMES.map(gameAnalysis).join("")}`;
 }
 
@@ -3076,7 +3109,7 @@ function gameAnalysis(g){
         <div class="dt">Team context · ${IS_LIVE ? "this season" : "season sample"}</div>
         <div class="cmp-h"><div>${A.name} ${tid(g.away,"sm")}</div><div></div><div>${tid(g.home,"sm")} ${H.name}</div></div>
         ${rows.map(([lab,a,b,k,va,vb]) => { const [ba,bb] = better(a,b,k,va,vb); return `<div class="cmp"><div class="a"><b class="num ${ba?"better":""}">${a}</b></div><div class="lab">${lab}</div><div><b class="num ${bb?"better":""}">${b}</b></div></div>`; }).join("")}
-        <p class="dnote">${IS_LIVE ? "Red = stronger figure. Early in the season records are small samples. Pace and efficiency ratings aren't in the free data feed yet." : "Red = stronger figure. Lower defensive rating is better."}</p>
+        <p class="dnote">${IS_LIVE ? "Red = the better number. Early in the season, records are based on only a few games." : "Red = stronger figure. Lower defensive rating is better."}</p>
         <div class="dt" style="margin-top:16px">Key notes</div>
         <ul class="notes">${g.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>
       </div>
@@ -3099,9 +3132,9 @@ function viewInjuries(){
   <header class="hero hero-injuries">${GFX.injuries}
   <div class="eyebrow">${DATA.meta.slateLabel}</div>
   <h1 class="title">Injuries &amp; Lineups</h1>
-  <p class="lede">Who is out or uncertain, and who could absorb their minutes before lineups are confirmed.</p>
+  <p class="lede">Who's out or doubtful, and who should pick up their minutes.</p>
   </header>
-  ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Injury statuses from ESPN's injury feed, updated ${agoTxt(((LIVE.sections || {}).injuries || {}).fetchedAt)}. "Day-to-day" is shown as questionable. Lineups: NBA.com's pre-game list when it's reachable (experimental), otherwise ESPN's starting fives once a game starts. Fill-in minutes aren't automated yet.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
+  ${IS_LIVE ? `<div class="notice live">Injury news comes from ESPN, checked ${(((LIVE.sections || {}).injuries || {}).fetchedAt) ? timeFmt(LIVE.sections.injuries.fetchedAt) : "—"}. "Day-to-day" shows as Questionable. Starting lineups come from NBA.com when posted, or ESPN once a game starts. When a player is ruled out, SWISH gives his teammates the extra minutes automatically.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
@@ -3148,12 +3181,22 @@ function injuryCard(g){
 }
 
 /* ---------------- Results ---------------- */
+/* a won/lost record as a picture: green = won, red = lost, the tick = what you need to break even */
+const wlBar = (r, be) => r && r.n ? `<span class="wlbar" title="${r.wins} won, ${r.losses} lost${be ? ` · need ${pct(be, 0)} to break even` : ""}"><i class="w" style="width:${(r.wins / Math.max(1, r.wins + r.losses) * 100).toFixed(1)}%"></i>${be ? `<i class="be" style="left:${(be * 100).toFixed(1)}%"></i>` : ""}</span>` : "";
+function wlCard(title, r, note){
+  const be = r && r.avgPrice ? 1 / r.avgPrice : 0.524;
+  return `<div class="ov"><div class="eyebrow">${title}</div>
+    <div class="v num wlv">${r && r.n ? `<b class="pos">${r.wins}</b><small>won</small> <b class="red">${r.losses}</b><small>lost</small>` : "—"}</div>
+    ${wlBar(r, be)}
+    <div class="s">${r && r.n ? `won ${pct(r.hitRate, 0)} · you need ${pct(be, 0)} to make money` : "nothing settled yet"}<br><span class="faint">${note}</span></div></div>`;
+}
+const recCell = r => r && r.n ? `<span class="rec">${r.wins}–${r.losses}${r.pushes ? `–${r.pushes}` : ""}${wlBar(r, r.avgPrice ? 1 / r.avgPrice : 0)}</span>` : "—";
 function viewResults(){
   const R = window.SWISH_RESULTS;
   const head = `<header class="hero hero-results">${GFX.results}
   <div class="eyebrow">Performance tracking</div>
   <h1 class="title">Results</h1>
-  <p class="lede">Every priced prop is saved before tip-off and graded against the box score the next morning. This is how we find out whether SWISH is any good.</p>
+  <p class="lede">Every pick is saved before tip-off and checked against the box score next morning. This is how we find out if SWISH actually works.</p>
   </header>`;
   if (!R || !R.totals || !R.totals.saved) return head + `<div class="notice">No picks saved yet. Picks are saved automatically before each slate tips off.</div>`;
   const T = R.totals, S = R.strong, L = R.leans, A = R.accuracy, P = R.projection;
@@ -3170,20 +3213,23 @@ function viewResults(){
     : `The model on its own was ${pct(-A.skillModel)} worse than the market — keep its weight at ${Math.round(R.modelWeight*100)}% or lower.`;
   const chip = p => !p.result ? `<span class="rchip pend">pending</span>` : `<span class="rchip ${p.result}">${p.result === "void" ? "void · DNP" : p.result}</span>`;
   return head + `
-  <div class="notice ${early ? "" : "live"}"><b>Tracking since ${R.since ? dateFmt(R.since + "T12:00:00") : "—"}.</b> ${T.saved} picks saved · ${T.graded} graded · ${T.pending} waiting for results${T.void ? ` · ${T.void} void (player didn't play)` : ""}.
-    ${R.days.some(d => d.backfilled) ? ` The first night (28 Oct) was rebuilt from data saved before tip-off ("backfilled"); from then on picks are locked in automatically.` : ""}
-    ${early ? `<br><b>Early days:</b> with fewer than 300 graded picks, results are mostly luck. Watch the accuracy and calibration numbers first — profit takes months to mean anything.` : ""}</div>
+  <div class="notice ${early ? "" : "live"}"><b>Since ${R.since ? dateFmt(R.since + "T12:00:00") : "—"}:</b> ${T.graded} picks checked${T.pending ? `, ${T.pending} still to play` : ""}${T.void ? `, ${T.void} cancelled (player didn't play)` : ""}.
+    ${early ? `<br><b>Early days.</b> Under a few hundred picks, wins and losses are mostly luck. The accuracy numbers settle first; profit takes weeks to mean anything.` : ""}</div>
   <div class="overview rov">
-    <div class="ov"><div class="eyebrow">Strong value picks</div><div class="v num">${rec(S)}</div><div class="s">${hit(S)} won · need ${be(S)} to break even</div></div>
-    <div class="ov"><div class="eyebrow">Profit · £${R.stake} a pick</div><div class="v num ${S.profit >= 0 ? "pos" : "red"}">${gbp(S.profit)}</div><div class="s">strong value · ROI ${S.roi == null ? "—" : sgnPct(S.roi)}</div></div>
-    <div class="ov"><div class="eyebrow">Every SWISH lean</div><div class="v num">${rec(L)}</div><div class="s">${hit(L)} won · ${gbp(L.profit)}</div></div>
-    <div class="ov"><div class="eyebrow">Accuracy vs bookmakers</div><div class="v num ${A.skillSwish > 0 ? "pos" : A.skillSwish < 0 ? "red" : ""}">${A.skillSwish == null ? "—" : sgnPct(A.skillSwish)}</div><div class="s">${A.n} graded props · higher is better</div></div>
-    <div class="ov"><div class="eyebrow">Average miss</div><div class="v num">${P.maeSwish == null ? "—" : P.maeSwish.toFixed(2)}</div><div class="s">SWISH projection · bookmaker line ${P.maeLine == null ? "—" : P.maeLine.toFixed(2)}</div></div>
+    ${wlCard("Value picks", S, `the picks marked Strong value`)}
+    <div class="ov"><div class="eyebrow">Profit · £${R.stake} a value pick</div><div class="v num ${S.profit >= 0 ? "pos" : "red"}">${gbp(S.profit)}</div><div class="s">${S.roi == null ? "nothing settled yet" : `${S.roi >= 0 ? "up" : "down"} ${Math.abs(Math.round(S.roi * 100))}p for every £1 bet`}</div></div>
+    ${wlCard("All picks", L, `every pick SWISH leaned on · ${gbp(L.profit)}`)}
+    <div class="ov"><div class="eyebrow">SWISH vs the bookies</div><div class="v num ${A.skillSwish > 0 ? "pos" : A.skillSwish < 0 ? "red" : ""}">${A.skillSwish == null ? "—" : Math.abs(A.skillSwish) < 0.005 ? "Level" : A.skillSwish > 0 ? "Ahead" : "Behind"}</div>
+      ${A.skillSwish == null ? "" : `<div class="meter" title="${sgnPct(A.skillSwish)}"><i class="mid"></i><i class="dot ${A.skillSwish >= 0 ? "pos" : "neg"}" style="left:${(50 + Math.max(-1, Math.min(1, A.skillSwish / 0.05)) * 50).toFixed(0)}%"></i></div>`}
+      <div class="s">${A.skillSwish == null ? "not enough picks yet" : `${pct(Math.abs(A.skillSwish))} ${A.skillSwish >= 0 ? "better" : "worse"} than the bookies at calling what happens · ${A.n} props`}</div></div>
+    <div class="ov"><div class="eyebrow">How far off, on average</div><div class="v num">${P.maeSwish == null ? "—" : P.maeSwish.toFixed(1)}</div>
+      ${P.maeSwish == null ? "" : `<div class="miss"><span><i style="width:${(P.maeSwish / Math.max(P.maeSwish, P.maeLine) * 100).toFixed(0)}%"></i>SWISH</span><span class="bk"><i style="width:${(P.maeLine / Math.max(P.maeSwish, P.maeLine) * 100).toFixed(0)}%"></i>Bookie line ${P.maeLine.toFixed(1)}</span></div>`}
+      <div class="s">points, rebounds or assists · lower is better</div></div>
   </div>
 
   <div class="cols">
     <div class="panel">
-      <div class="panel-h"><h2 class="h">Is SWISH beating the market?</h2></div>
+      <div class="panel-h"><h2 class="h">Is SWISH beating the bookies?</h2></div>
       <div class="rpad">
         <p>${skillTxt}${A.skillSwish == null ? "." : ` (Brier score ${A.brierSwish} vs ${A.brierMarket}; lower is better).`} ${modelTxt}</p>
         <p class="dnote">This is the most important number. It compares SWISH's chances with the bookmakers' against what actually happened, on every graded prop — win or lose. Under about 1,000 props, differences under ±2% are noise.</p>
@@ -3201,7 +3247,7 @@ function viewResults(){
   </div>
 
   ${R.overs ? (() => { const O = R.overs, tr = [["high","High <small>60%+</small>"],["med","Medium <small>55–60%</small>"],["low","Low <small>&lt;55%</small>"]];
-    const row = (lab, r) => `<tr><td class="l">${lab}</td><td>${r.n ? rec(r) : "—"}</td><td>${r.predicted == null ? "—" : pct(r.predicted, 0)}</td><td><b>${hit(r)}</b></td><td class="${r.profit >= 0 ? "pos" : "negr"}">${r.n ? gbp(r.profit) : "—"}</td></tr>`;
+    const row = (lab, r) => `<tr><td class="l">${lab}</td><td>${recCell(r)}</td><td>${r.predicted == null ? "—" : pct(r.predicted, 0)}</td><td><b>${hit(r)}</b></td><td class="${r.profit >= 0 ? "pos" : "negr"}">${r.n ? gbp(r.profit) : "—"}</td></tr>`;
     return `<div class="panel">
       <div class="panel-h"><h2 class="h">Top overs tracker</h2><span class="sub">does the confidence come true?</span></div>
       <table class="rt ovt"><thead><tr><th class="l">Confidence</th><th>Record</th><th>SWISH said</th><th>Landed</th><th>Profit</th></tr></thead><tbody>
@@ -3214,21 +3260,21 @@ function viewResults(){
 
   <div class="cols">
     <div class="panel">
-      <div class="panel-h"><h2 class="h">By market</h2><span class="sub">every SWISH lean</span></div>
+      <div class="panel-h"><h2 class="h">By market</h2><span class="sub">all picks</span></div>
       <table class="rt"><thead><tr><th class="l">Market</th><th>Record</th><th>Won</th><th>Profit</th></tr></thead><tbody>
-      ${Object.entries(R.byMarket).filter(([m, r]) => r.n).map(([m, r]) => `<tr><td class="l">${MARKET_NAMES[m]}</td><td>${rec(r)}</td><td>${hit(r)}</td><td class="${r.profit >= 0 ? "pos" : "negr"}">${gbp(r.profit)}</td></tr>`).join("") || `<tr><td class="l" colspan="4">Nothing graded yet.</td></tr>`}
+      ${Object.entries(R.byMarket).filter(([m, r]) => r.n).map(([m, r]) => `<tr><td class="l">${MARKET_NAMES[m]}</td><td>${recCell(r)}</td><td>${hit(r)}</td><td class="${r.profit >= 0 ? "pos" : "negr"}">${gbp(r.profit)}</td></tr>`).join("") || `<tr><td class="l" colspan="4">Nothing graded yet.</td></tr>`}
       </tbody></table>
     </div>
     <div class="panel">
-      <div class="panel-h"><h2 class="h">By night</h2><span class="sub">strong value picks</span></div>
+      <div class="panel-h"><h2 class="h">By night</h2><span class="sub">value picks</span></div>
       <div class="clamp-all" data-clamp="r-days"><table class="rt"><thead><tr><th class="l">Slate</th><th>Saved</th><th>Graded</th><th>Record</th><th>Profit</th><th>Running</th></tr></thead><tbody>
-      ${[...R.days].reverse().map(d => `<tr><td class="l">${dateFmt(d.slate + "T12:00:00")}${d.backfilled ? ` <span class="rchip pend">backfilled</span>` : ""}</td><td>${d.saved}</td><td>${d.graded}${d.pending ? ` <small>(${d.pending} waiting)</small>` : ""}</td><td>${rec(d.strong)}</td><td class="${d.strong.profit >= 0 ? "pos" : "negr"}">${gbp(d.strong.profit)}</td><td>${gbp(d.strongCumProfit)}</td></tr>`).join("")}
+      ${[...R.days].reverse().map(d => `<tr><td class="l">${dateFmt(d.slate + "T12:00:00")}${d.backfilled ? ` <span class="rchip pend">backfilled</span>` : ""}</td><td>${d.saved}</td><td>${d.graded}${d.pending ? ` <small>(${d.pending} waiting)</small>` : ""}</td><td>${recCell(d.strong)}</td><td class="${d.strong.profit >= 0 ? "pos" : "negr"}">${gbp(d.strong.profit)}</td><td>${gbp(d.strongCumProfit)}</td></tr>`).join("")}
       </tbody></table></div>
     </div>
   </div>
 
   <div class="panel">
-    <div class="panel-h"><h2 class="h">Recent picks</h2><span class="sub">every lean SWISH saved · newest first</span></div>
+    <div class="panel-h"><h2 class="h">Recent picks</h2><span class="sub">latest first</span></div>
     <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l">Night</th><th class="l">Player</th><th class="l">Pick</th><th>Price</th><th>SWISH</th><th>Actual</th><th class="l">Result</th><th>£</th></tr></thead>
     <tbody class="clamp-all" data-clamp="r-recent">${R.recent.map(p => `<tr class="${p.value ? "isval" : ""}"><td class="l">${dateFmt(p.slate + "T12:00:00")}</td>
       <td class="l"><b>${esc(p.player)}</b><small>${p.away} @ ${p.home}</small></td>
@@ -3255,7 +3301,7 @@ function render(){
   $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;
   if (IS_LIVE){
-    $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i>Live · updated ${agoTxt(DATA.meta.generatedAt)}`;
+    $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i><span class="nl">Data updated </span><span class="ns">Updated </span><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`; $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
     $("stSrc").textContent = "Live records (ESPN)";
     $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; prop prices from US bookmakers via The Odds API. Projections are model estimates, not predictions or advice.`;
   }
@@ -3264,8 +3310,8 @@ function render(){
   const chk = injCheckedAt(), newest = [...DATA.injuries].sort(byNewest)[0];
   const fresh = newest && newsAgeH(newest) <= 1;
   np.className = "newspill" + (fresh ? " hot" : "");
-  np.innerHTML = `<i></i><span class="nl">Injuries checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · newest news <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
-  np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Newest injury news posted ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} updates in the last ${NEW_NEWS_H} hours.`;
+  np.innerHTML = `<i></i><span class="nl">Injury list checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · last change <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
+  np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Last change to a player's status: ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} changes in the last ${NEW_NEWS_H} hours.`;
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span>${slot(g, "side")}</button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
@@ -3474,6 +3520,25 @@ function countUp(){
     requestAnimationFrame(step);
   });
 }
+/* chip explanations: hover or keyboard focus on desktop, tap on phones; tap anywhere else to close */
+(function(){
+  const box = document.createElement("div"); box.className = "tipbox"; box.setAttribute("role", "tooltip"); document.body.appendChild(box);
+  let cur = null, shownAt = 0;
+  const show = el => {
+    cur = el; shownAt = Date.now(); box.textContent = el.dataset.tip; box.classList.add("on");
+    const r = el.getBoundingClientRect(), w = Math.min(260, innerWidth - 24);
+    box.style.maxWidth = w + "px";
+    const bw = box.offsetWidth, bh = box.offsetHeight;
+    box.style.left = Math.max(12, Math.min(innerWidth - bw - 12, r.left + r.width / 2 - bw / 2)) + "px";
+    box.style.top = (r.top - bh - 8 > 8 ? r.top - bh - 8 : r.bottom + 8) + "px";
+  };
+  const hide = () => { cur = null; box.classList.remove("on"); };
+  document.addEventListener("mouseover", e => { const el = e.target.closest("[data-tip]"); if (el && el !== cur) show(el); else if (!el && cur && matchMedia("(hover:hover)").matches) hide(); });
+  document.addEventListener("focusin", e => { const el = e.target.closest && e.target.closest("[data-tip]"); if (el) show(el); });
+  document.addEventListener("focusout", e => { if (cur && e.target === cur) hide(); });
+  document.addEventListener("click", e => { const el = e.target.closest("[data-tip]"); if (el){ e.stopPropagation(); el === cur && box.classList.contains("on") && Date.now() - shownAt > 400 ? hide() : show(el); } else if (cur) hide(); }, true);
+  addEventListener("scroll", hide, {passive: true});
+})();
 /* home button (phones): takes you to Home, or back to the top if you're already there */
 $("homeBtn").addEventListener("click", () => {
   if (state.view !== "dashboard") go("dashboard");
