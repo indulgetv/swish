@@ -699,6 +699,13 @@ def main() -> int:
         d["meta"]["writtenAt"] = now_iso()
         up = ledger.upsert(d, DATA_DIR)
         log(f"results: {up.get('saved', 0)} pre-game picks saved")
+        # each prop's first line tonight (saved by the ledger), so the site can show lines that moved or arrived late
+        try:
+            _pk = json.load(open(DATA_DIR / ledger.PICKS_DIR_NAME / f"{d['meta']['slateDate']}.json")).get("picks", {})
+            d["lineMoves"] = {f"{x['player']}|{x['market']}": {"open": x.get("openLine"), "at": x.get("firstSaved")}
+                              for x in _pk.values() if x.get("openLine") is not None}
+        except Exception as e:
+            log(f"lineMoves skipped: {e}")
         finals = {g["id"] for g in d["games"] if g.get("state") == "post"}
         st = ledger.settle(DATA_DIR, fetch_gamelog, d["meta"]["season"], log=log, final_ids=finals)
         if st["graded"] or st["void"]:

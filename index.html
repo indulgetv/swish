@@ -75,6 +75,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pform-msg{font-size:12.5px;color:var(--red);min-height:1em}
 .cell.noline b{color:var(--faint)}
 .cell.noline small{color:var(--muted)}
+.cell{position:relative}
+.lm{position:absolute;top:2px;right:4px;font:800 8px/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;font-style:normal;pointer-events:none}
+.lm-up,.lm-down{color:var(--amber)}
+.lm-new{color:var(--exp)}
 .nlw{font:800 9px/1.4 var(--sans)!important;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .cell.noline small.nlw-out,.nlw-out{color:var(--red)}
 .cell.noline small.nlw-q,.nlw-q{color:var(--amber)}
@@ -3010,7 +3014,7 @@ function renderLegend(){
   $("legend").innerHTML = state.market === "ALL"
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
-       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM &amp; PRA: SWISH projection only (not bought)</span>` : ""}`
+       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">Corner marks: <b class="nlw lm-up">▲▼</b> line moved since 21:00 · <b class="nlw lm-new">New</b> line added after 21:00</span><span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM &amp; PRA: SWISH projection only (not bought)</span>` : ""}`
     : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
@@ -3055,6 +3059,15 @@ function playerSub(pl){
   return `<small>${pl.pos}${st}${rc}</small>`;
 }
 
+// a line that moved since the main price fetch, or arrived after it (from the ledger's first-saved line)
+function lineMove(p){
+  if (!IS_LIVE || !LIVE.lineMoves || p.line == null) return null;
+  const m = LIVE.lineMoves[p.player + "|" + p.market]; if (!m) return null;
+  const runs = ((LIVE.sections || {}).odds || {}).runs || [], first = runs.find(r => r.window === "late" || r.window === "all");
+  if (first && m.at && new Date(m.at) - new Date(first.at) > 5 * 60e3) return {k: "new", mark: "New", txt: `new line, added ${timeFmt(m.at)}`};
+  if (m.open != null && +m.open !== +p.line) return {k: +p.line > +m.open ? "up" : "down", mark: +p.line > +m.open ? "▲" : "▼", txt: `${m.open} at ${timeFmt(m.at)} → ${p.line} now`};
+  return null;
+}
 // markets SWISH paid for on this slate (from the odds fetch); others are never priced
 const boughtMkts = () => (((LIVE && LIVE.sections && LIVE.sections.odds) || {}).markets) || ["PTS", "REB", "AST"];
 // why a live prop has no bookmaker line — only shown once tonight's main price fetch has covered every game
@@ -3074,8 +3087,9 @@ function cell(pl, m){
     return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no bookmaker line${why ? ` (${why.tip})` : ""}, SWISH projection ${nl.projection.toFixed(1)}" title="No bookmaker line${why ? ` · ${why.tip}` : ""} · SWISH projects ${nl.projection.toFixed(1)}"><b class="num">–</b>${why && why.k !== "skip" ? `<small class="nlw nlw-${why.k}">${why.t}</small>` : `<small class="num">${nl.projection.toFixed(1)}</small>`}</button></td>` : `<td><span class="dash">—</span></td>`; }
   if (state.hideFlagged && p.flags.length) return `<td><span class="dash">—</span></td>`;
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
-  return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
-    <b class="num">${p.line}</b><small class="${p.flags.length?"":p.lean} num">${p.flags.length ? "⚠ " : ""}${p.projection.toFixed(1)}${arrow}</small></button></td>`;
+  const mv = lineMove(p);
+  return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}${mv ? ` (${mv.txt})` : ""}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line}${mv ? ` (${mv.txt})` : ""} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
+    ${mv ? `<i class="lm lm-${mv.k}" aria-hidden="true">${mv.mark}</i>` : ""}<b class="num">${p.line}</b><small class="${p.flags.length?"":p.lean} num">${p.flags.length ? "⚠ " : ""}${p.projection.toFixed(1)}${arrow}</small></button></td>`;
 }
 
 /* last-10 bars: oldest on the left, latest on the right, the number on every bar; hover or tap a bar for that game */
@@ -3401,7 +3415,7 @@ function drawerHTML(p){
       <div class="kv"><span>Model alone · over / under<small style="display:block;color:var(--faint);font-weight:500">${p.dist === "count" ? "skewed count curve (suits rebounds/assists/threes)" : "bell curve around the projection"}</small></span><b class="num">${pct(p.pureO)} / ${pct(p.pureU)}</b></div>
       <div class="kv"><span>SWISH's chance · over / under<small style="display:block;color:var(--faint);font-weight:500">${Math.round(MODEL_WEIGHT*100)}% model + ${Math.round((1-MODEL_WEIGHT)*100)}% market, until results prove the model</small></span><b class="num">${pct(p.modelO)} / ${pct(p.modelU)}</b></div>
       <div class="kv"><span>Price source</span><b>${esc(lineSrc(p))}</b></div>
-      <div class="kv"><span>Odds last updated</span><b class="num">${timeFmt(p.oddsUpdated)}</b></div>
+      <div class="kv"><span>Odds last updated</span><b class="num">${timeFmt(p.oddsUpdated)}</b></div>${(() => { const mv = lineMove(p); return mv ? `<div class="kv"><span>Line change</span><b class="num">${mv.txt}</b></div>` : ""; })()}
     </div>
     ${IS_LIVE ? priceForm(p) : ""}
 
