@@ -3313,11 +3313,10 @@ function viewInjuries(){
   <h1 class="title">Injuries &amp; Lineups</h1>
   <p class="lede">Who's out or doubtful, and who should pick up their minutes.</p>
   </header>
-  ${IS_LIVE ? `<div class="notice live"><b>Where this comes from.</b> Player statuses come from ESPN's injury report, last checked ${(((LIVE.sections || {}).injuries || {}).fetchedAt) ? timeFmt(LIVE.sections.injuries.fetchedAt) : "—"}. ${(() => { const dtd = DATA.injuries.filter(i => /day.?to.?day/i.test(i.raw || "")); return dtd.length
-      ? `ESPN lists ${dtd.map(i => `<b>${esc(i.player)}</b> (${i.team})`).join(", ")} as <i>day-to-day</i> — a minor knock, decided game by game — so SWISH shows ${dtd.length === 1 ? "him" : "them"} as Questionable.`
-      : `Nobody on tonight's teams is listed day-to-day.`; })()}
-    Starting lineups appear once NBA.com posts them (usually a few hours before tip-off); before that, starters are marked "expected".
-    <br><b>How it affects projections.</b> A player marked Out gets no projections. If his team is then short of a normal game's minutes, SWISH shares the gap among his teammates, mostly bench and role players, up to +6 minutes each. Long-term injuries are already reflected in recent games, so they don't add extra minutes. Players marked Questionable or Doubtful are flagged, not boosted, until they're ruled out.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
+  ${IS_LIVE ? `<div class="notice live">${(() => { const nw = injNews();
+      return nw.length
+        ? `<b>New tonight:</b> ${nw.slice(0, 4).map(i => `${esc(i.player)} (${i.team}) ${esc(i.status.toLowerCase())} · ${timeFmt(i.updated)}`).join(" · ")}${nw.length > 4 ? ` · +${nw.length - 4} more below` : ""}`
+        : `<b>No new injury updates</b> for tonight's games in the last ${NEW_NEWS_H} hours · checked ${injCheckedAt() ? timeFmt(injCheckedAt()) : "—"}`; })()}</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
