@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T18:40:25Z"
+  "writtenAt": "2026-10-29T18:45:25Z"
  },
  "games": [
   {
@@ -52,7 +52,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "POR -7.5",
-    "overUnder": 231.5,
+    "overUnder": 232.5,
     "provider": "DraftKings"
    }
   }
@@ -80191,19 +80191,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T18:40:25Z",
+   "fetchedAt": "2026-10-29T18:45:25Z",
    "ok": true,
    "count": 88
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T18:40:25Z",
+   "fetchedAt": "2026-10-29T18:45:25Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T18:40:25Z",
+   "fetchedAt": "2026-10-29T18:45:25Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80248,7 +80248,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:40:25Z"
+    "fetchedAt": "2026-10-29T18:45:25Z"
    },
    "home": {
     "starters": [
@@ -80275,7 +80275,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:40:25Z"
+    "fetchedAt": "2026-10-29T18:45:25Z"
    }
   },
   "401909894": {
@@ -80304,7 +80304,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:40:25Z"
+    "fetchedAt": "2026-10-29T18:45:25Z"
    },
    "home": {
     "starters": [
@@ -80331,7 +80331,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:40:25Z"
+    "fetchedAt": "2026-10-29T18:45:25Z"
    }
   },
   "401909895": {
@@ -80360,7 +80360,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:40:25Z"
+    "fetchedAt": "2026-10-29T18:45:25Z"
    },
    "home": {
     "starters": [
@@ -80387,7 +80387,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:40:25Z"
+    "fetchedAt": "2026-10-29T18:45:25Z"
    }
   }
  }
