@@ -187,6 +187,10 @@ def choose_auto_mode(prev: dict) -> tuple[str, str]:
     odds_today = {r.get("window") for r in runs if str(r.get("at", ""))[:10] == now.strftime("%Y-%m-%d")}
     if (7 * 60 <= t < 9 * 60 or 14 * 60 <= t < 14 * 60 + 30) and last_full > 3:
         return "full", "all"
+    # one-off: data saved before jersey numbers were collected → refresh rosters now (game logs come along with it)
+    players = prev.get("players") or []
+    if players and not any("jersey" in p for p in players) and last_full > 0.25:
+        return "full", "all"
     if 14 * 60 + 30 <= t < 16 * 60 and "early" not in odds_today:
         return "odds", "early"
     if 21 * 60 <= t < 22 * 60 + 30 and "late" not in odds_today:
