@@ -2841,6 +2841,12 @@ const PICK_TABS = {
           list: () => ALL.filter(p => p.role && p.role.applied).sort((a,b) => b.edge - a.edge)}
 };
 
+// true once a main (or full) odds fetch has covered every game on tonight's slate — no more prices are coming
+function pricedAll(){
+  const runs = ((LIVE && LIVE.sections && LIVE.sections.odds) || {}).runs || [];
+  const got = new Set(runs.filter(r => r.window === "late" || r.window === "all").flatMap(r => r.games || []));
+  return GAMES.length > 0 && GAMES.every(g => got.has(String(g.id)));
+}
 function pickRow(p, i){
   const g = gameById(p.game);
   return `<button class="prow2" data-prop="${p.id}">
@@ -2920,7 +2926,7 @@ function viewDashboard(){
   ${liveNotice()}
   <div class="overview">
     <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">first tip ${timeFmt(GAMES[0].tipoff)}</div></div>
-    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${NOLINE.length ? ` · ${NOLINE.length} still waiting for a price` : ""}</div></div>
+    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${NOLINE.length ? ` · ${NOLINE.length} ${pricedAll() ? "with no bookmaker line tonight" : "still waiting for a price"}` : ""}</div></div>
     <div class="ov"><div class="eyebrow">Value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH rates them ${(MIN_EDGE*100).toFixed(0)}+ points above the bookie</div></div>
     <div class="ov"><div class="eyebrow">Injury concerns</div><div class="v num">${sig.length}</div><div class="s">${sig.filter(i=>i.status==="Out").length} out · ${sig.filter(i=>i.status!=="Out").length} uncertain</div></div>
     <div class="ov"><div class="eyebrow">Bookie's cut</div><div class="v num">${avgVig === null ? "—" : pct(avgVig)}</div><div class="s">${avgVig === null ? "no prices yet" : "their margin, built into every price"}</div></div>
