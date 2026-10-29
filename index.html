@@ -1832,6 +1832,13 @@ html.calm .brand.wave .wordmark i{animation:none!important}
   .sqt > tbody > tr.has-form > td.pl{padding-left:4px!important}
 }
 html.dark .jav{filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+/* injuries posted in the last 2 hours stand out */
+.injc.justin{border-color:var(--red)!important;box-shadow:0 0 0 1px var(--red),0 8px 24px -8px rgba(214,40,57,.45)!important;animation:justInGlow 2.4s ease-in-out infinite}
+@keyframes justInGlow{0%,100%{box-shadow:0 0 0 1px var(--red),0 8px 24px -10px rgba(214,40,57,.35)}50%{box-shadow:0 0 0 2px var(--red),0 10px 30px -6px rgba(214,40,57,.6)}}
+.justin-tag{display:inline-flex;align-items:center;gap:7px;margin:0 0 10px;padding:4px 10px 4px 8px;border-radius:99px;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.justin-tag i{width:8px;height:8px;border-radius:50%;background:#fff;animation:newsPulse 1.4s ease-in-out infinite}
+.nrow.justin{background:var(--red-soft);border-radius:12px;box-shadow:inset 3px 0 0 var(--red)}
+html.calm .injc.justin,html.calm .justin-tag i{animation:none}
 </style>
 </head>
 <body>
@@ -2451,6 +2458,9 @@ const team_ = t => team(t).name;
 const NEW_NEWS_H = 6;                                    // "NEW" = posted in the last 6 hours
 const newsAgeH = i => i.updated ? (Date.now() - new Date(i.updated)) / 3.6e6 : Infinity;
 const isNewNews = i => newsAgeH(i) <= NEW_NEWS_H;
+const JUST_IN_H = 2;                                      // "JUST IN" = posted in the last 2 hours
+const isJustIn = i => newsAgeH(i) <= JUST_IN_H;
+const minsAgo = i => { const m = Math.max(1, Math.round(newsAgeH(i) * 60)); return m < 60 ? `${m} min ago` : `${Math.floor(m / 60)}h ${m % 60 ? `${m % 60}m ` : ""}ago`; };
 const byNewest = (a, b) => (new Date(b.updated || 0)) - (new Date(a.updated || 0));
 const injNews = () => DATA.injuries.filter(isNewNews).sort(byNewest);
 function newsChip(i){
@@ -3293,7 +3303,7 @@ function injStatusBar(){
     <div class="ib"><span class="ib-k">Out · uncertain</span><b class="num">${DATA.injuries.filter(i => i.status === "Out").length} · ${DATA.injuries.filter(i => i.status === "Questionable" || i.status === "Doubtful").length}</b><small>tonight's teams</small></div>
   </div>
   ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury changes</h2><span class="sub">latest first · last ${NEW_NEWS_H} hours</span></div>
-    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
+    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow ${isJustIn(i) ? "justin" : ""}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
 }
 
 function injuryCard(g){
@@ -3302,7 +3312,8 @@ function injuryCard(g){
     return `<div><div class="ij-team">${tid(t,"sm")}<b>${tname(t)}</b></div>
       <div class="clamp-m" data-clamp="inj-${t}">${list.length ? list.map(i => {
         const affected = ALL.filter(p => p.player === i.player || (p.role && p.role.dependsOn === i.player));
-        return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""}">
+        return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""} ${isJustIn(i) ? "justin" : ""}">
+          ${isJustIn(i) ? `<div class="justin-tag"><i></i>Just in · ${minsAgo(i)}</div>` : ""}
           <div class="inj-top">${jerseyAv(i.player, i.team)}<div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
           <div class="inj-meta">${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
