@@ -2,10 +2,12 @@
  "meta": {
   "slateDate": "2026-10-29",
   "mode": "light",
-  "errors": [],
+  "errors": [
+   "schedule: Expecting value: line 1 column 1 (char 0)"
+  ],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T04:03:21Z"
+  "writtenAt": "2026-10-29T04:08:31Z"
  },
  "games": [
   {
@@ -346486,19 +346488,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T04:03:20Z",
+   "fetchedAt": "2026-10-29T04:08:30Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
    "fetchedAt": "2026-10-29T04:03:20Z",
-   "ok": true,
+   "ok": false,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T04:03:20Z",
+   "fetchedAt": "2026-10-29T04:08:30Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
