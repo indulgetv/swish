@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T10:55:16Z",
+ "generatedAt": "2026-10-29T11:00:16Z",
  "stake": 10.0,
  "modelVersion": "v1.1 (2026-10-29)",
  "modelWeight": 0.3,
@@ -7,8 +7,8 @@
  "totals": {
   "saved": 356,
   "graded": 350,
-  "void": 3,
-  "pending": 3
+  "void": 6,
+  "pending": 0
  },
  "strong": {
   "n": 19,
@@ -176,8 +176,8 @@
    "saved": 356,
    "games": 11,
    "graded": 350,
-   "void": 3,
-   "pending": 3,
+   "void": 6,
+   "pending": 0,
    "backfilled": true,
    "strong": {
     "n": 19,
@@ -1323,7 +1323,7 @@
     "status"
    ],
    "actual": null,
-   "result": null,
+   "result": "void",
    "profit": null,
    "backfilled": true,
    "locked": true,
