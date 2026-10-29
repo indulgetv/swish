@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T20:50:25Z"
+  "writtenAt": "2026-10-29T20:55:25Z"
  },
  "games": [
   {
@@ -599,7 +599,7 @@
    "detail": "Right Shoulder Sprain",
    "comment": "Bilodeau (shoulder) has been ruled out for Sunday's game against Indiana.",
    "updated": "2026-10-25T17:19Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-11-01"
   },
   {
    "team": "CHA",
@@ -817,8 +817,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Right Hip Bruise",
-   "comment": "Joe (hip) is out for Wednesday's game against the Hornets.",
-   "updated": "2026-10-29T04:32Z",
+   "comment": "Joe (hip) is listed as questionable for Friday's game against Brooklyn.",
+   "updated": "2026-10-29T20:34Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -80224,19 +80224,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T20:50:25Z",
+   "fetchedAt": "2026-10-29T20:55:25Z",
    "ok": true,
    "count": 91
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T20:50:24Z",
+   "fetchedAt": "2026-10-29T20:55:25Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T20:50:24Z",
+   "fetchedAt": "2026-10-29T20:55:25Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80281,7 +80281,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:50:24Z"
+    "fetchedAt": "2026-10-29T20:55:25Z"
    },
    "home": {
     "starters": [
@@ -80308,7 +80308,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:50:24Z"
+    "fetchedAt": "2026-10-29T20:55:25Z"
    }
   },
   "401909894": {
@@ -80337,7 +80337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:50:24Z"
+    "fetchedAt": "2026-10-29T20:55:25Z"
    },
    "home": {
     "starters": [
@@ -80364,7 +80364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:50:24Z"
+    "fetchedAt": "2026-10-29T20:55:25Z"
    }
   },
   "401909895": {
@@ -80393,7 +80393,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:50:24Z"
+    "fetchedAt": "2026-10-29T20:55:25Z"
    },
    "home": {
     "starters": [
@@ -80420,7 +80420,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:50:24Z"
+    "fetchedAt": "2026-10-29T20:55:25Z"
    }
   }
  }
