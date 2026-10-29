@@ -100,7 +100,8 @@ def upsert(live: dict, data_dir: Path, now: datetime | None = None, backfilled: 
 
 
 # ----------------------------------------------------------------------------- 2) grade picks
-def settle(data_dir: Path, fetch_gamelog, season: int, now: datetime | None = None, days: int = 4, log=print) -> dict:
+def settle(data_dir: Path, fetch_gamelog, season: int, now: datetime | None = None, days: int = 4, log=print,
+           final_ids: set | None = None) -> dict:
     """fetch_gamelog(espnId, season) -> list of games (newest first) with id / PTS / REB / AST / 3PM / PRA."""
     now = now or _now()
     pdir = data_dir / PICKS_DIR_NAME
@@ -115,7 +116,8 @@ def settle(data_dir: Path, fetch_gamelog, season: int, now: datetime | None = No
             if p.get("result"):
                 continue
             tip = model.parse_ts(p.get("tipoff"))
-            if not tip or now < tip + timedelta(hours=3, minutes=30):
+            # grade once ESPN marks the game final (or, for older slates, 3.5h after tip-off)
+            if not tip or (p["game"] not in (final_ids or set()) and now < tip + timedelta(hours=3, minutes=30)):
                 stats["waiting"] += 1
                 continue
             pid = p.get("espnId")

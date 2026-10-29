@@ -680,8 +680,9 @@ def main() -> int:
         d["meta"]["writtenAt"] = now_iso()
         up = ledger.upsert(d, DATA_DIR)
         log(f"results: {up.get('saved', 0)} pre-game picks saved")
-        if args.mode == "full":
-            st = ledger.settle(DATA_DIR, fetch_gamelog, d["meta"]["season"], log=log)
+        finals = {g["id"] for g in d["games"] if g.get("state") == "post"}
+        st = ledger.settle(DATA_DIR, fetch_gamelog, d["meta"]["season"], log=log, final_ids=finals)
+        if st["graded"] or st["void"]:
             log(f"results: graded {st['graded']}, void {st['void']}, still waiting {st['waiting']}")
         ledger.write_results(DATA_DIR)
     except Exception as e:

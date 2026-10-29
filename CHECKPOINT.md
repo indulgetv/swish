@@ -50,13 +50,25 @@ _Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into
   `data/results.json/.js` → Results page (records, profit at £10, Brier accuracy vs market, calibration,
   by market/night, recent picks). 28 Oct backfilled from pre-tip snapshots d5512b5/8f76016 (`scripts/backfill.py`).
 
+- **Reliable updates (29 Oct 00:20):** GitHub's cron NEVER fired for this repo (0 scheduled runs ever).
+  Fix: `update.py --mode auto` picks the job by UK/UTC time (full 07:00–09:00 & 14:00–14:30 if none in 3h; odds early
+  14:30–16:00 and late 21:00–22:30 once each per day; otherwise light). `live-loop.yml` runs auto every 5 min for up
+  to 5.8h (workflow_dispatch; backup cron 20:53). Picks are graded as soon as a game is final, in any mode.
+  Site loads data with cache-busting, polls `data/stamp.json` every 60s and reloads itself on new data.
+  Times shown in UK 24-hour format. Injury pill shows "checked HH:MM · newest news HH:MM".
+- Lineups: NBA.com daily lineups file WORKS from GitHub (expected → confirmed); ESPN box-score starters once live.
+
 ## Next steps (in order)
-1. Check the 07:17 run on 29 Oct graded the 28 Oct picks (data/last-run.log: "results: graded …").
-   Line movement needs a second odds fetch near tip-off (e.g. ~23:30 UK, points only) — decide on credits.
-2. Minutes/role model: adjust projections when a teammate is confirmed out (fill-ins are not automated yet).
-3. Add STL / BLK / TOV columns (data already collected; Odds API has fewer lines for these).
-4. Lineups: NBA.com daily lineups (experimental, `fetch_nba_lineups`) + ESPN box-score starters once a game starts (`fetch_espn_starters`), stored in live.json `lineups`. If NBA.com is blocked from GitHub, the only pre-tip option is a paid feed. Live scores shown site-wide (20-min refresh).
-5. Later: paid Odds API plan if more markets per game are wanted.
+1. **Make updates start every day without GitHub cron (most urgent).** The live loop started manually on 29 Oct
+   00:18 runs until ~06:00 only. Set up a free external pinger (e.g. cron-job.org) that calls the GitHub API
+   `POST /repos/indulgetv/swish/actions/workflows/live-loop.yml/dispatches` with body {"ref":"main"}
+   at ~13:50 and ~19:50 UK daily (each loop runs 5.8h), plus ~07:05 for the morning full run. Needs a fine-grained
+   GitHub token (this repo only, Actions: read & write) stored in the pinger. Walk the user through it step by step.
+2. Check the 28 Oct picks were graded (Results page / data/picks/2026-10-28.json "result" fields).
+3. Line movement (closing line value): a second, small odds fetch ~30 min before tip-off — budget the credits.
+4. Minutes/role model: raise teammates' projections when a starter is confirmed out (use the lineups data).
+5. Add STL / BLK / TOV columns (data already collected).
+6. After ~2 weeks of results: review accuracy vs market & calibration; only then consider raising MODEL_WEIGHT.
 
 ## How to resume
 > "Continue SWISH from CHECKPOINT.md in indulgetv/swish — start at the first unfinished next step."
