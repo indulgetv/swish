@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-29",
-  "mode": "full",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T23:40:27Z"
+  "writtenAt": "2026-10-29T23:45:34Z"
  },
  "games": [
   {
@@ -84170,19 +84170,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T23:38:38Z",
+   "fetchedAt": "2026-10-29T23:45:34Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T23:38:37Z",
+   "fetchedAt": "2026-10-29T23:45:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T23:38:38Z",
+   "fetchedAt": "2026-10-29T23:45:34Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84264,7 +84264,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:38:38Z"
+    "fetchedAt": "2026-10-29T23:45:34Z"
    },
    "home": {
     "starters": [
@@ -84291,7 +84291,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:38:38Z"
+    "fetchedAt": "2026-10-29T23:45:34Z"
    }
   },
   "401909894": {
@@ -84318,9 +84318,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:38:38Z"
+    "fetchedAt": "2026-10-29T23:45:34Z"
    },
    "home": {
     "starters": [
@@ -84329,7 +84329,7 @@
       "pos": "SG"
      },
      {
-      "name": "Herbert Jones",
+      "name": "Karlo Matković",
       "pos": "SF"
      },
      {
@@ -84337,17 +84337,17 @@
       "pos": "PG"
      },
      {
-      "name": "Zion Williamson",
+      "name": "Herbert Jones",
       "pos": "PF"
      },
      {
-      "name": "DeAndre Jordan",
+      "name": "Zion Williamson",
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:38:38Z"
+    "fetchedAt": "2026-10-29T23:45:34Z"
    }
   },
   "401909895": {
@@ -84376,7 +84376,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:38:38Z"
+    "fetchedAt": "2026-10-29T23:45:34Z"
    },
    "home": {
     "starters": [
@@ -84403,7 +84403,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:38:38Z"
+    "fetchedAt": "2026-10-29T23:45:34Z"
    }
   }
  },
