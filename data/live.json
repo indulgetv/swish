@@ -4,7 +4,7 @@
   "mode": "full",
   "errors": [],
   "season": 2027,
-  "writtenAt": "2026-10-28T23:58:00Z"
+  "writtenAt": "2026-10-29T00:12:55Z"
  },
  "games": [
   {
@@ -13,10 +13,10 @@
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "7:03 - 2nd",
+   "status": "Halftime",
    "completed": false,
-   "awayScore": "49",
-   "homeScore": "40",
+   "awayScore": "69",
+   "homeScore": "56",
    "espnLine": null
   },
   {
@@ -25,10 +25,10 @@
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "9:00 - 2nd",
+   "status": "42.3 - 2nd",
    "completed": false,
-   "awayScore": "50",
-   "homeScore": "43",
+   "awayScore": "69",
+   "homeScore": "57",
    "espnLine": null
   },
   {
@@ -37,10 +37,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "9:53 - 2nd",
+   "status": "4:10 - 2nd",
    "completed": false,
-   "awayScore": "28",
-   "homeScore": "22",
+   "awayScore": "40",
+   "homeScore": "33",
    "espnLine": null
   },
   {
@@ -49,10 +49,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "0.0 - 2nd",
+   "status": "6:46 - 2nd",
    "completed": false,
-   "awayScore": "25",
-   "homeScore": "25",
+   "awayScore": "43",
+   "homeScore": "37",
    "espnLine": null
   },
   {
@@ -61,10 +61,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "8:25 - 1st",
+   "status": "2:52 - 1st",
    "completed": false,
-   "awayScore": "10",
-   "homeScore": "7",
+   "awayScore": "21",
+   "homeScore": "21",
    "espnLine": null
   },
   {
@@ -110,7 +110,7 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "MIN -4.5",
+    "details": "MIN -3.5",
     "overUnder": 227.5,
     "provider": "DraftKings"
    }
@@ -127,7 +127,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "DEN -4.5",
-    "overUnder": 240.5,
+    "overUnder": 241.5,
     "provider": "DraftKings"
    }
   },
@@ -158,8 +158,8 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "OKC -5.5",
-    "overUnder": 226.5,
+    "details": "OKC -4.5",
+    "overUnder": 228.5,
     "provider": "DraftKings"
    }
   },
@@ -796,8 +796,8 @@
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Illness",
-   "comment": "Marshall (illness) is now doubtful for Wednesday against the Thunder.",
-   "updated": "2026-10-28T23:47Z",
+   "comment": "Marshall (illness) won't play in Wednesday's game against Oklahoma City.",
+   "updated": "2026-10-28T23:52Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -832,17 +832,6 @@
    "comment": "De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
    "updated": "2026-10-27T22:09Z",
    "returnDate": "2026-10-30"
-  },
-  {
-   "team": "DAL",
-   "player": "Caleb Martin",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Thumb Sprain",
-   "comment": "Martin (thumb) is questionable for Wednesday's game against the Thunder.",
-   "updated": "2026-10-27T22:07Z",
-   "returnDate": "2026-10-28"
   },
   {
    "team": "DAL",
@@ -1220,6 +1209,17 @@
   },
   {
    "team": "OKC",
+   "player": "Jalen Williams",
+   "pos": "G",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Left Leg Fracture",
+   "comment": "Williams (leg) underwent successful surgery Wednesday to \"address a fractured left fibula and reconstruction of ankle ligaments following a fracture and dislocation.\" He will be re-evaluated before the end of the regular season, Tim MacMahon of ESPN.com reports.",
+   "updated": "2026-10-28T23:41Z",
+   "returnDate": "2027-03-02"
+  },
+  {
+   "team": "OKC",
    "player": "Alex Caruso",
    "pos": "G",
    "status": "Out",
@@ -1272,17 +1272,6 @@
    "comment": "Mitchell (ankle) is questionable for Wednesday's game against Dallas.",
    "updated": "2026-10-27T21:35Z",
    "returnDate": "2026-10-28"
-  },
-  {
-   "team": "OKC",
-   "player": "Jalen Williams",
-   "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Leg Fracture",
-   "comment": "Williams has been diagnosed with a dislocated left ankle and fractured fibula, which will require surgery, Shams Charania of ESPN reports.",
-   "updated": "2026-10-26T22:07Z",
-   "returnDate": "2027-03-02"
   },
   {
    "team": "OKC",
@@ -358810,31 +358799,31 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-28T23:50:28Z",
+   "fetchedAt": "2026-10-29T00:05:49Z",
    "ok": true,
    "count": 12
   },
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-28T23:50:29Z",
+   "fetchedAt": "2026-10-29T00:05:50Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-28T23:50:29Z",
+   "fetchedAt": "2026-10-29T00:05:52Z",
    "ok": true,
-   "count": 89
+   "count": 88
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-28T23:57:47Z",
+   "fetchedAt": "2026-10-29T00:12:37Z",
    "ok": true,
    "count": 394,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-28T23:58:00Z",
+   "fetchedAt": "2026-10-29T00:12:55Z",
    "ok": true
   },
   "odds": {
@@ -358846,6 +358835,637 @@
    "eventsPriced": 11,
    "notes": [],
    "budgetToday": 125
+  },
+  "lineups": {
+   "source": "NBA.com daily lineups (experimental) + ESPN box scores",
+   "fetchedAt": "2026-10-29T00:05:52Z",
+   "ok": true,
+   "nba": "ok: 24 team lineups posted",
+   "espn": "10 team starting fives from box scores"
+  }
+ },
+ "lineups": {
+  "401909881": {
+   "away": {
+    "starters": [
+     {
+      "name": "Giannis Antetokounmpo"
+     },
+     {
+      "name": "Andrew Wiggins"
+     },
+     {
+      "name": "Bam Adebayo"
+     },
+     {
+      "name": "Klay Thompson"
+     },
+     {
+      "name": "Davion Mitchell"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Onyeka Okongwu"
+     },
+     {
+      "name": "Jalen Johnson"
+     },
+     {
+      "name": "CJ McCollum"
+     },
+     {
+      "name": "Nickeil Alexander-Walker"
+     },
+     {
+      "name": "Dyson Daniels"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909882": {
+   "away": {
+    "starters": [
+     {
+      "name": "Anthony Davis"
+     },
+     {
+      "name": "AJ Dybantsa"
+     },
+     {
+      "name": "Kyshawn George"
+     },
+     {
+      "name": "Alex Sarr"
+     },
+     {
+      "name": "Trae Young"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:51Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Jarrett Allen"
+     },
+     {
+      "name": "Evan Mobley"
+     },
+     {
+      "name": "James Harden"
+     },
+     {
+      "name": "Donovan Mitchell"
+     },
+     {
+      "name": "Peyton Watson"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:51Z"
+   }
+  },
+  "401909883": {
+   "away": {
+    "starters": [
+     {
+      "name": "Moussa Diabate"
+     },
+     {
+      "name": "Brandon Miller"
+     },
+     {
+      "name": "Naz Reid"
+     },
+     {
+      "name": "Dennis Schroder"
+     },
+     {
+      "name": "Sion James"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:51Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Duncan Robinson"
+     },
+     {
+      "name": "John Collins"
+     },
+     {
+      "name": "Paul Reed"
+     },
+     {
+      "name": "Cade Cunningham"
+     },
+     {
+      "name": "Ausar Thompson"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:51Z"
+   }
+  },
+  "401909884": {
+   "away": {
+    "starters": [
+     {
+      "name": "LeBron James"
+     },
+     {
+      "name": "Joel Embiid"
+     },
+     {
+      "name": "Jaylen Brown"
+     },
+     {
+      "name": "Tyrese Maxey"
+     },
+     {
+      "name": "VJ Edgecombe"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:51Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Pascal Siakam"
+     },
+     {
+      "name": "Jay Huff"
+     },
+     {
+      "name": "Kelly Oubre Jr."
+     },
+     {
+      "name": "Andrew Nembhard"
+     },
+     {
+      "name": "Aaron Nesmith"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:51Z"
+   }
+  },
+  "401909885": {
+   "away": {
+    "starters": [
+     {
+      "name": "Franz Wagner"
+     },
+     {
+      "name": "Wendell Carter Jr."
+     },
+     {
+      "name": "Desmond Bane"
+     },
+     {
+      "name": "Anthony Black"
+     },
+     {
+      "name": "Jase Richardson"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:52Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "RJ Barrett"
+     },
+     {
+      "name": "Scottie Barnes"
+     },
+     {
+      "name": "Jakob Poeltl"
+     },
+     {
+      "name": "Immanuel Quickley"
+     },
+     {
+      "name": "Ja'Kobe Walter"
+     }
+    ],
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T00:05:52Z"
+   }
+  },
+  "401909886": {
+   "away": {
+    "starters": [
+     {
+      "name": "Mikal Bridges",
+      "pos": "SG"
+     },
+     {
+      "name": "OG Anunoby",
+      "pos": "SF"
+     },
+     {
+      "name": "Jalen Brunson",
+      "pos": "PG"
+     },
+     {
+      "name": "Josh Hart",
+      "pos": "PF"
+     },
+     {
+      "name": "Karl-Anthony Towns",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Norman Powell",
+      "pos": "SG"
+     },
+     {
+      "name": "Matas Buzelis",
+      "pos": "SF"
+     },
+     {
+      "name": "Josh Giddey",
+      "pos": "PG"
+     },
+     {
+      "name": "Caleb Wilson",
+      "pos": "PF"
+     },
+     {
+      "name": "Jalen Smith",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909887": {
+   "away": {
+    "starters": [
+     {
+      "name": "Amen Thompson",
+      "pos": "SG"
+     },
+     {
+      "name": "Kevin Durant",
+      "pos": "SF"
+     },
+     {
+      "name": "Fred VanVleet",
+      "pos": "PG"
+     },
+     {
+      "name": "Tari Eason",
+      "pos": "PF"
+     },
+     {
+      "name": "Jabari Smith Jr.",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Tyler Herro",
+      "pos": "SG"
+     },
+     {
+      "name": "Jaime Jaquez Jr.",
+      "pos": "SF"
+     },
+     {
+      "name": "Ryan Rollins",
+      "pos": "PG"
+     },
+     {
+      "name": "Kyle Kuzma",
+      "pos": "PF"
+     },
+     {
+      "name": "Myles Turner",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909888": {
+   "away": {
+    "starters": [
+     {
+      "name": "Brandin Podziemski",
+      "pos": "SG"
+     },
+     {
+      "name": "Yaxel Lendeborg",
+      "pos": "SF"
+     },
+     {
+      "name": "Stephen Curry",
+      "pos": "PG"
+     },
+     {
+      "name": "Georges Niang",
+      "pos": "PF"
+     },
+     {
+      "name": "Draymond Green",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Ayo Dosunmu",
+      "pos": "SG"
+     },
+     {
+      "name": "Jaden McDaniels",
+      "pos": "SF"
+     },
+     {
+      "name": "LaMelo Ball",
+      "pos": "PG"
+     },
+     {
+      "name": "Jonathan Kuminga",
+      "pos": "PF"
+     },
+     {
+      "name": "Rudy Gobert",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909889": {
+   "away": {
+    "starters": [
+     {
+      "name": "Christian Braun",
+      "pos": "SG"
+     },
+     {
+      "name": "Trevon Brazile",
+      "pos": "SF"
+     },
+     {
+      "name": "Jamal Murray",
+      "pos": "PG"
+     },
+     {
+      "name": "Aaron Gordon",
+      "pos": "PF"
+     },
+     {
+      "name": "Nikola Jokić",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Dejounte Murray",
+      "pos": "SG"
+     },
+     {
+      "name": "Trey Murphy III",
+      "pos": "SF"
+     },
+     {
+      "name": "Jeremiah Fears",
+      "pos": "PG"
+     },
+     {
+      "name": "Zion Williamson",
+      "pos": "PF"
+     },
+     {
+      "name": "DeAndre Jordan",
+      "pos": "C"
+     }
+    ],
+    "status": "confirmed",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909890": {
+   "away": {
+    "starters": [
+     {
+      "name": "Stephon Castle",
+      "pos": "SG"
+     },
+     {
+      "name": "Dylan Harper",
+      "pos": "SF"
+     },
+     {
+      "name": "De'Aaron Fox",
+      "pos": "PG"
+     },
+     {
+      "name": "Devin Vassell",
+      "pos": "PF"
+     },
+     {
+      "name": "Victor Wembanyama",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Darryn Peterson",
+      "pos": "SG"
+     },
+     {
+      "name": "Ace Bailey",
+      "pos": "SF"
+     },
+     {
+      "name": "Keyonte George",
+      "pos": "PG"
+     },
+     {
+      "name": "Lauri Markkanen",
+      "pos": "PF"
+     },
+     {
+      "name": "Jaxson Hayes",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909891": {
+   "away": {
+    "starters": [
+     {
+      "name": "Jared McCain",
+      "pos": "SG"
+     },
+     {
+      "name": "Ajay Mitchell",
+      "pos": "SF"
+     },
+     {
+      "name": "Shai Gilgeous-Alexander",
+      "pos": "PG"
+     },
+     {
+      "name": "Kenrich Williams",
+      "pos": "PF"
+     },
+     {
+      "name": "Isaiah Hartenstein",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Max Christie",
+      "pos": "SG"
+     },
+     {
+      "name": "Cooper Flagg",
+      "pos": "SF"
+     },
+     {
+      "name": "Kyrie Irving",
+      "pos": "PG"
+     },
+     {
+      "name": "P.J. Washington",
+      "pos": "PF"
+     },
+     {
+      "name": "Daniel Gafford",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
+  },
+  "401909892": {
+   "away": {
+    "starters": [
+     {
+      "name": "Quentin Grimes",
+      "pos": "SG"
+     },
+     {
+      "name": "Matisse Thybulle",
+      "pos": "SF"
+     },
+     {
+      "name": "Austin Reaves",
+      "pos": "PG"
+     },
+     {
+      "name": "Sandro Mamukelashvili",
+      "pos": "PF"
+     },
+     {
+      "name": "Walker Kessler",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Kris Dunn",
+      "pos": "SG"
+     },
+     {
+      "name": "Kobe Sanders",
+      "pos": "SF"
+     },
+     {
+      "name": "Darius Garland",
+      "pos": "PG"
+     },
+     {
+      "name": "Derrick Jones Jr.",
+      "pos": "PF"
+     },
+     {
+      "name": "Isaiah Jackson",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-29T00:05:50Z"
+   }
   }
  }
 }
