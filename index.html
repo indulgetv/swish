@@ -1670,6 +1670,15 @@ html.dark{--exp:#79a8ff}
 
 .freshbar{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:90;background:var(--ink);color:#fff;font-weight:700;font-size:13px;padding:10px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 .newspill b{font-weight:800}
+/* ---- logo show, driven by classes so it works the same on touch screens ----
+   lit  = letters sweep to red one by one (hover on desktop, a tap on phones)
+   wave = after the ball drops: letters wave/swish in turn while the flashes + crowd go off, then settle back */
+.brand.ready .wordmark i{animation:none}
+.brand.lit .wordmark i{transform:translateY(-3px);color:var(--red)}
+.brand.ready.wave .wordmark i{animation:swishWave .95s var(--ease) both;animation-delay:calc(var(--d) * 75ms)}
+@keyframes swishWave{0%{transform:translateY(-3px) rotate(0)}25%{transform:translateY(-11px) rotate(-9deg)}50%{transform:translateY(2px) rotate(6deg)}75%{transform:translateY(-5px) rotate(-3deg)}100%{transform:translateY(-3px) rotate(0)}}
+@media (max-width:960px){.crowd{display:flex;left:4px;right:34px;bottom:-12px;height:16px}.crowd i{width:9px;height:15px}.crowd i::before{width:6px;height:6px;left:1.5px}.crowd i::after{width:9px;height:11px}}
+html.calm .brand.wave .wordmark i{animation:none!important}
 </style>
 </head>
 <body>
@@ -3378,7 +3387,8 @@ $("brandSlot").outerHTML = `<button class="brand" data-nav="dashboard" aria-labe
   const reduced = () => document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches;
   const SHOT_MS = 1200, GAP_MS = 700;
 
-  let engaged = false, loopTimer = null, scoreTimer = null;
+  let engaged = false, loopTimer = null, scoreTimer = null, waveTimer = null;
+  setTimeout(() => brand.classList.add("ready"), 1400);     // intro letter rise done → letters free for the wave
   function shoot(){
     if (logo.classList.contains("shoot") || reduced()) return;
     const L = logo.getBoundingClientRect(), R = rim.getBoundingClientRect(), z = L.width / logo.offsetWidth || 1;
@@ -3386,17 +3396,18 @@ $("brandSlot").outerHTML = `<button class="brand" data-nav="dashboard" aria-labe
     ball.style.offsetPath = `path("M ${cx-118} ${cy+36} C ${cx-80} ${cy-56}, ${cx+1} ${cy-54}, ${cx} ${cy+38}")`;
     logo.classList.add("shoot");
     clearTimeout(scoreTimer);
-    scoreTimer = setTimeout(() => {               // ball drops through the net → celebrate
-      brand.classList.remove("score"); void brand.offsetWidth; brand.classList.add("score");
-      setTimeout(() => brand.classList.remove("score"), 1500);
+    scoreTimer = setTimeout(() => {               // ball drops through the net → flashes, crowd, letters wave
+      brand.classList.remove("score", "wave"); void brand.offsetWidth; brand.classList.add("score", "wave");
+      clearTimeout(waveTimer);
+      waveTimer = setTimeout(() => { brand.classList.remove("score", "wave"); if (!engaged) brand.classList.remove("lit"); }, 1500);
     }, SHOT_MS * 0.74);
   }
-  const start = () => { engaged = true; clearTimeout(loopTimer); shoot(); };
-  const stop  = () => { engaged = false; clearTimeout(loopTimer); };
+  const start = () => { engaged = true; brand.classList.add("lit"); clearTimeout(loopTimer); shoot(); };
+  const stop  = () => { engaged = false; clearTimeout(loopTimer); if (!brand.classList.contains("wave")) brand.classList.remove("lit"); };
   if (matchMedia("(hover:hover) and (pointer:fine)").matches){
     brand.addEventListener("mouseenter", start);
     brand.addEventListener("mouseleave", stop);
-  } else brand.addEventListener("click", () => { engaged = false; clearTimeout(loopTimer); shoot(); });   // phones: one shot per tap
+  } else brand.addEventListener("click", () => { engaged = false; clearTimeout(loopTimer); if (!reduced()) brand.classList.add("lit"); shoot(); });   // phones: one show per tap, then back to normal
   brand.addEventListener("focus", () => { if (brand.matches(":focus-visible")) start(); });           // keyboard only
   brand.addEventListener("blur", stop);
   ball.addEventListener("animationend", e => {
