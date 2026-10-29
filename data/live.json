@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T20:35:26Z"
+  "writtenAt": "2026-10-29T20:39:49Z"
  },
  "games": [
   {
@@ -878,14 +878,14 @@
   },
   {
    "team": "HOU",
-   "player": "Alperen Sengun",
-   "pos": "C",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Back Soreness",
-   "comment": "Sengun (back) has been ruled out for Wednesday's game against the Bucks.",
-   "updated": "2026-10-29T04:38Z",
-   "returnDate": "2026-10-30"
+   "player": "Reed Sheppard",
+   "pos": "G",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Back",
+   "comment": "Sheppard (back) is out for Friday's game against the Mavericks.",
+   "updated": "2026-10-29T20:36Z",
+   "returnDate": "2026-10-31"
   },
   {
    "team": "HOU",
@@ -894,8 +894,19 @@
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Left Forearm Strain",
-   "comment": "Smart (forearm) is out for Wednesday's game against the Bucks.",
-   "updated": "2026-10-28T17:34Z",
+   "comment": "Smart (forearm) is questionable for Friday's game against the Mavericks.",
+   "updated": "2026-10-29T20:35Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "HOU",
+   "player": "Alperen Sengun",
+   "pos": "C",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Back Soreness",
+   "comment": "Sengun (back) is questionable for Friday's game against the Mavericks.",
+   "updated": "2026-10-29T20:34Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -80213,19 +80224,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T20:35:26Z",
+   "fetchedAt": "2026-10-29T20:39:49Z",
    "ok": true,
-   "count": 90
+   "count": 91
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T20:35:25Z",
+   "fetchedAt": "2026-10-29T20:39:48Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T20:35:25Z",
+   "fetchedAt": "2026-10-29T20:39:48Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80270,7 +80281,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:35:25Z"
+    "fetchedAt": "2026-10-29T20:39:48Z"
    },
    "home": {
     "starters": [
@@ -80297,7 +80308,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:35:25Z"
+    "fetchedAt": "2026-10-29T20:39:48Z"
    }
   },
   "401909894": {
@@ -80326,7 +80337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:35:25Z"
+    "fetchedAt": "2026-10-29T20:39:48Z"
    },
    "home": {
     "starters": [
@@ -80353,7 +80364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:35:25Z"
+    "fetchedAt": "2026-10-29T20:39:48Z"
    }
   },
   "401909895": {
@@ -80382,7 +80393,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:35:25Z"
+    "fetchedAt": "2026-10-29T20:39:48Z"
    },
    "home": {
     "starters": [
@@ -80409,7 +80420,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T20:35:25Z"
+    "fetchedAt": "2026-10-29T20:39:48Z"
    }
   }
  }
