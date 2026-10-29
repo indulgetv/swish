@@ -119,6 +119,11 @@ _Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"*
 - Home header shows "(prices due 14:30/21:00 · prices coming in · no prices yet)" next to the props count while no prop has a price (`pricesDueTxt()`).
 - Lineups: NBA.com projected starters were in by ~10:20 UK on 29 Oct (status "expected"); confirmed ~30 min before tip.
 
+- **29 Oct (19:20–19:45):** Home header shows "(prices due 21:00 / 14:30)" while no prop has a line yet. Timeline status
+  badges same width (100px; 92px ≤760px), text centred. Credits talk: Nov free plan ≈16/day vs ~22 needed for full
+  PTS/REB/AST, so auto drops to PTS-only on busy nights. Paid 20K plan ≈ $30/mo (third-party source; check the official page).
+  User decision: stay free for now; closing-line check (step 3) parked — only worth it on a paid plan or a ~3 credits/night cap.
+
 ## Next steps (in order)
 0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
    (project each night using only earlier games, compare with actual) to test/tune minutes, rate weighting, H2H, rest/back-
