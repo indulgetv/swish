@@ -3398,14 +3398,15 @@ $("brandSlot").outerHTML = `<button class="brand" data-nav="dashboard" aria-labe
     logo.classList.add("shoot");
     clearTimeout(scoreTimer);
     scoreTimer = setTimeout(() => {               // ball drops through the net → flashes, crowd, letters wave
-      brand.classList.remove("score", "wave"); void brand.offsetWidth; brand.classList.add("score", "wave");
+      brand.classList.remove("score", "wave"); void brand.offsetWidth; brand.classList.add("lit", "score", "wave");
       clearTimeout(waveTimer);
       // end the wave first (letters are already back at their lifted spot), then ease them down + back to black
       waveTimer = setTimeout(() => { brand.classList.remove("score", "wave"); setTimeout(() => { if (!engaged) brand.classList.remove("lit"); }, 250); }, 1600);
     }, SHOT_MS * 0.74);
   }
   const start = () => { engaged = true; brand.classList.add("lit"); clearTimeout(loopTimer); shoot(); };
-  const stop  = () => { engaged = false; clearTimeout(loopTimer); if (!brand.classList.contains("wave")) brand.classList.remove("lit"); };
+  // leaving mid-shot lets that shot finish and celebrate; the letters ease down once the wave is over (no snap)
+  const stop  = () => { engaged = false; clearTimeout(loopTimer); if (!logo.classList.contains("shoot") && !brand.classList.contains("wave")) brand.classList.remove("lit"); };
   if (matchMedia("(hover:hover) and (pointer:fine)").matches){
     brand.addEventListener("mouseenter", start);
     brand.addEventListener("mouseleave", stop);
