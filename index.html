@@ -2028,6 +2028,19 @@ html.dark .nrow.tcol{background:linear-gradient(100deg,color-mix(in srgb,var(--t
   .teams2 .tn b{font:inherit;color:inherit}
   .homebadge{margin-left:10px;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:99px;border:1px solid var(--line2);color:var(--muted);vertical-align:1px}
 }
+/* best picks, desktop: even columns, numbers centred under their headings, no dead gaps */
+@media (min-width:1181px){
+  .plist-h,.prow2{grid-template-columns:24px minmax(120px,1.25fr) minmax(120px,1fr) 50px 50px 60px minmax(100px,.9fr) 112px 12px;column-gap:10px}
+  .plist-h span{white-space:nowrap}
+  .plist-h span:nth-child(4),.plist-h span:nth-child(5),.plist-h span:nth-child(6){text-align:center}
+  .prow2 .n{text-align:center}
+}
+@media (min-width:1500px){
+  .plist-h,.prow2{grid-template-columns:28px minmax(160px,1.25fr) minmax(150px,1fr) 64px 64px 76px minmax(150px,.9fr) 140px 16px;column-gap:14px}
+}
+@media (min-width:1800px){
+  .plist-h,.prow2{grid-template-columns:28px minmax(190px,1.25fr) minmax(180px,1fr) 72px 72px 84px minmax(190px,.9fr) 150px 16px;column-gap:18px}
+}
 </style>
 </head>
 <body>
@@ -2842,7 +2855,7 @@ function pickRow(p, i){
     <span class="chev2">›</span>
   </button>`;
 }
-const pickHead = `<div class="plist-h"><span>#</span><span>Player</span><span>Pick</span><span class="r">Line</span><span class="r">Proj.</span><span class="r">H2H avg</span><span>SWISH chance · bookie</span><span>Value</span><span></span></div>`;
+const pickHead = `<div class="plist-h"><span>#</span><span>Player</span><span>Pick</span><span class="r">Line</span><span class="r">Proj.</span><span class="r">H2H avg</span><span>SWISH vs bookie</span><span>Value</span><span></span></div>`;
 
 /* =================================================================
    8. VIEWS
@@ -3100,7 +3113,7 @@ function singleMarket(teamCode){
   const rows = ps.map(pl => propOf(pl.name, m)).filter(p => p && !(state.hideFlagged && p.flags.length));
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${MARKET_NAMES[m]} · ${rows.length} players</span></div>
-    ${rows.length ? `<div class="smt-h"><span>Player</span><span class="r">Min</span><span class="r">Line</span><span class="r">Over</span><span class="r">Under</span><span class="r">Proj.</span><span>SWISH chance · bookie</span><span>Value</span><span>Last 6 · newest first</span><span class="r">H2H avg</span><span></span></div>
+    ${rows.length ? `<div class="smt-h"><span>Player</span><span class="r">Min</span><span class="r">Line</span><span class="r">Over</span><span class="r">Under</span><span class="r">Proj.</span><span>SWISH vs bookie</span><span>Value</span><span>Last 6 · newest first</span><span class="r">H2H avg</span><span></span></div>
     <div class="clamp-m" data-clamp="sm-${teamCode}-${m}">${rows.map(p => {
       const pl = PLAYERS.find(x => x.name === p.player);
       return `<button class="smt-r ${p.value?"value":""}" data-prop="${p.id}">
