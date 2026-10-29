@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T01:23:26Z"
+  "writtenAt": "2026-10-29T01:28:27Z"
  },
  "games": [
   {
@@ -25,11 +25,11 @@
    "away": "WAS",
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "in",
-   "status": "34.2 - 4th",
-   "completed": false,
+   "state": "post",
+   "status": "Final",
+   "completed": true,
    "awayScore": "111",
-   "homeScore": "117",
+   "homeScore": "121",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "4:22 - 4th",
+   "status": "1:23 - 4th",
    "completed": false,
-   "awayScore": "79",
-   "homeScore": "87",
+   "awayScore": "86",
+   "homeScore": "94",
    "espnLine": null
   },
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "8:29 - 4th",
+   "status": "7:08 - 4th",
    "completed": false,
-   "awayScore": "87",
-   "homeScore": "92",
+   "awayScore": "90",
+   "homeScore": "94",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "3:02 - 3rd",
+   "status": "1:00 - 3rd",
    "completed": false,
-   "awayScore": "69",
-   "homeScore": "95",
+   "awayScore": "76",
+   "homeScore": "101",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "10:56 - 3rd",
+   "status": "8:37 - 3rd",
    "completed": false,
-   "awayScore": "60",
-   "homeScore": "37",
+   "awayScore": "64",
+   "homeScore": "49",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "12:00 - 3rd",
+   "status": "9:13 - 3rd",
    "completed": false,
-   "awayScore": "57",
-   "homeScore": "45",
+   "awayScore": "65",
+   "homeScore": "48",
    "espnLine": null
   },
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "6:55 - 1st",
+   "status": "4:20 - 1st",
    "completed": false,
-   "awayScore": "15",
-   "homeScore": "16",
+   "awayScore": "18",
+   "homeScore": "24",
    "espnLine": null
   },
   {
@@ -184,7 +184,7 @@
    "name": "Cavaliers",
    "displayName": "Cleveland Cavaliers",
    "color": "#860038",
-   "record": "2-1"
+   "record": "3-1"
   },
   "WAS": {
    "espnId": "27",
@@ -192,7 +192,7 @@
    "name": "Wizards",
    "displayName": "Washington Wizards",
    "color": "#e31837",
-   "record": "2-2"
+   "record": "2-3"
   },
   "DET": {
    "espnId": "8",
@@ -358758,7 +358758,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T01:23:20Z",
+   "fetchedAt": "2026-10-29T01:28:20Z",
    "ok": true,
    "count": 12
   },
@@ -358769,7 +358769,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T01:23:21Z",
+   "fetchedAt": "2026-10-29T01:28:21Z",
    "ok": true,
    "count": 86
   },
@@ -358797,7 +358797,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T01:23:20Z",
+   "fetchedAt": "2026-10-29T01:28:20Z",
    "ok": true,
    "nba": "ok: 4 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359290,7 +359290,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:23:20Z"
+    "fetchedAt": "2026-10-29T01:28:20Z"
    },
    "home": {
     "starters": [
@@ -359317,7 +359317,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:23:20Z"
+    "fetchedAt": "2026-10-29T01:28:20Z"
    }
   },
   "401909892": {
@@ -359346,7 +359346,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:23:20Z"
+    "fetchedAt": "2026-10-29T01:28:20Z"
    },
    "home": {
     "starters": [
@@ -359373,7 +359373,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:23:20Z"
+    "fetchedAt": "2026-10-29T01:28:20Z"
    }
   }
  }
