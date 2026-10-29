@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T01:18:21Z"
+  "writtenAt": "2026-10-29T01:23:26Z"
  },
  "games": [
   {
@@ -13,10 +13,10 @@
    "away": "MIA",
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "in",
-   "status": "39.7 - 4th",
-   "completed": false,
-   "awayScore": "128",
+   "state": "post",
+   "status": "Final",
+   "completed": true,
+   "awayScore": "129",
    "homeScore": "117",
    "espnLine": null
   },
@@ -26,10 +26,10 @@
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "3:28 - 4th",
+   "status": "34.2 - 4th",
    "completed": false,
-   "awayScore": "105",
-   "homeScore": "113",
+   "awayScore": "111",
+   "homeScore": "117",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "6:16 - 4th",
+   "status": "4:22 - 4th",
    "completed": false,
    "awayScore": "79",
-   "homeScore": "85",
+   "homeScore": "87",
    "espnLine": null
   },
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "9:54 - 4th",
+   "status": "8:29 - 4th",
    "completed": false,
-   "awayScore": "81",
-   "homeScore": "90",
+   "awayScore": "87",
+   "homeScore": "92",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "5:42 - 3rd",
+   "status": "3:02 - 3rd",
    "completed": false,
-   "awayScore": "63",
-   "homeScore": "84",
+   "awayScore": "69",
+   "homeScore": "95",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "Halftime",
+   "status": "10:56 - 3rd",
    "completed": false,
-   "awayScore": "57",
-   "homeScore": "35",
+   "awayScore": "60",
+   "homeScore": "37",
    "espnLine": null
   },
   {
@@ -110,7 +110,7 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "Halftime",
+   "status": "12:00 - 3rd",
    "completed": false,
    "awayScore": "57",
    "homeScore": "45",
@@ -122,9 +122,9 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "7:54 - 1st",
+   "status": "6:55 - 1st",
    "completed": false,
-   "awayScore": "9",
+   "awayScore": "15",
    "homeScore": "16",
    "espnLine": null
   },
@@ -168,7 +168,7 @@
    "name": "Hawks",
    "displayName": "Atlanta Hawks",
    "color": "#c8102e",
-   "record": "2-2"
+   "record": "2-3"
   },
   "MIA": {
    "espnId": "14",
@@ -176,7 +176,7 @@
    "name": "Heat",
    "displayName": "Miami Heat",
    "color": "#98002e",
-   "record": "0-4"
+   "record": "1-4"
   },
   "CLE": {
    "espnId": "5",
@@ -1025,6 +1025,17 @@
   },
   {
    "team": "LAC",
+   "player": "Yanic Konan Niederhauser",
+   "pos": "C",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Foot Surgery",
+   "comment": "Niederhauser (foot) remains out for Wednesday's game against the Lakers. He also won't travel with the team for the upcoming two-game road trip in Minnesota and Golden State, Ohm Youngmisuk of ESPN.com reports.",
+   "updated": "2026-10-29T01:15Z",
+   "returnDate": "2026-11-08"
+  },
+  {
+   "team": "LAC",
    "player": "Max Strus",
    "pos": "G",
    "status": "Out",
@@ -1065,17 +1076,6 @@
    "detail": "Right Knee Inflammation",
    "comment": "Beal (knee) will not be ready for the start of the regular season, NBA writer Justin Russo reports.",
    "updated": "2026-10-15T01:03Z",
-   "returnDate": "2026-11-08"
-  },
-  {
-   "team": "LAC",
-   "player": "Yanic Konan Niederhauser",
-   "pos": "C",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Foot Surgery",
-   "comment": "Niederhauser (foot) won't be ready for the start of the season, Law Murray of The Athletic reports.",
-   "updated": "2026-09-28T18:07Z",
    "returnDate": "2026-11-08"
   },
   {
@@ -1176,17 +1176,6 @@
    "comment": "Missi has been diagnosed with a left knee bone bruise and he will miss an extended period of time, Brett Siegel of ClutchPoints.com reports.",
    "updated": "2026-10-24T22:17Z",
    "returnDate": "2026-11-02"
-  },
-  {
-   "team": "NYK",
-   "player": "Landry Shamet",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "day-to-day",
-   "comment": "Shamet (ankle) exited Wednesday's game against the Bulls, Brett Siegel of ClutchPoints.com reports.",
-   "updated": "2026-10-29T00:55Z",
-   "returnDate": null
   },
   {
    "team": "NYK",
@@ -358769,7 +358758,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T01:18:20Z",
+   "fetchedAt": "2026-10-29T01:23:20Z",
    "ok": true,
    "count": 12
   },
@@ -358780,9 +358769,9 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T01:18:21Z",
+   "fetchedAt": "2026-10-29T01:23:21Z",
    "ok": true,
-   "count": 87
+   "count": 86
   },
   "players": {
    "source": "ESPN game logs",
@@ -358808,7 +358797,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T01:18:20Z",
+   "fetchedAt": "2026-10-29T01:23:20Z",
    "ok": true,
    "nba": "ok: 4 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359301,7 +359290,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:18:20Z"
+    "fetchedAt": "2026-10-29T01:23:20Z"
    },
    "home": {
     "starters": [
@@ -359328,7 +359317,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:18:20Z"
+    "fetchedAt": "2026-10-29T01:23:20Z"
    }
   },
   "401909892": {
@@ -359357,7 +359346,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:18:20Z"
+    "fetchedAt": "2026-10-29T01:23:20Z"
    },
    "home": {
     "starters": [
@@ -359384,7 +359373,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:18:20Z"
+    "fetchedAt": "2026-10-29T01:23:20Z"
    }
   }
  }
