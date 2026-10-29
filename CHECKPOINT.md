@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-29 19:15 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -97,6 +97,25 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   (won/lost numbers + bar with a break-even tick, "Ahead/Behind the bookies" meter, average-miss bars); headings and
   notices rewritten in plain English across Home, Props, Games, Injuries, Results. Logo: colour sweep on tap, gentle wave
   after the ball drops, smooth ease back (no snap when the mouse leaves mid-shot).
+
+- **29 Oct (evening) — UI session, all tested on phone/tablet/desktop, light+dark:**
+  - Back-of-jersey vest avatars (team colours, official ESPN number — pipeline now saves `jersey` + team `alt` colour;
+    auto mode forces a one-off full run if saved players lack jerseys). Shown in squad tables (desktop: name · Last 6
+    on one line; icon-only Last 6 with a floating "Last 6" hover tag when two squads sit side by side), Last 6 panel,
+    prop panel, injury cards. NO real player photos (Claude won't add them — user informed).
+  - Phones: one-row top bar (↻ time pill, amber injury button, icon-only ?), home/back button, glass bottom menu with
+    dividers (faint glow), page drawn edge-to-edge (viewport-fit=cover), compact squad rows, options card with lit
+    Expand/Collapse buttons + state line, Best-picks tabs as a fixed grid, results tables fit, recent picks compact,
+    Games cards centred (team context symmetric), headers brighten as they reach screen centre, home game list:
+    city/nickname stack + HOME badge, team colours cascade down the list (3.9 s per game).
+  - Injuries: one-line "New tonight" announcement; "Just in" (<2 h) glowing cards; changes list tinted by team colour;
+    "ESPN: day-to-day" tag; plain tiles; next check from real schedule.
+  - Tip-off clock icons; timeline shows Expected (morning) + Confirmed (~30 min pre-tip, blue) lineups.
+  - Prop panel: interactive last-10 bars (oldest→latest, numbers, tap/hover tooltip; fixed reversed order bug);
+    game log columns centred. Logo: tap plays once, gentle wave, smooth settle. Hoop favicon + home-screen icon.
+  - Header art behind text on all pages; home court enlarged on phones/tablets; Props header = outlined tank top "10".
+  - Desktop game-header gradient: softer, blurred, 19 s loop (no banding).
+- Lineups: NBA.com projected starters were in by ~10:20 UK on 29 Oct (status "expected"); confirmed ~30 min before tip.
 
 ## Next steps (in order)
 0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
