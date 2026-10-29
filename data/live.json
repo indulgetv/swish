@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T04:48:21Z"
+  "writtenAt": "2026-10-29T04:53:21Z"
  },
  "games": [
   {
@@ -643,11 +643,11 @@
    "team": "CHI",
    "player": "Tobe Awaka",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Ankle",
    "comment": "Awaka (ankle) is out for Wednesday's game against the Knicks, Joel Lorenzi of The Athletic reports.",
-   "updated": "2026-10-28T22:24Z",
+   "updated": "2026-10-29T04:36Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -674,13 +674,24 @@
   },
   {
    "team": "DAL",
+   "player": "Sergio de Larrea",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Right Knee Strain",
+   "comment": "De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
+   "updated": "2026-10-29T04:40Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "DAL",
    "player": "Naji Marshall",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Illness",
    "comment": "Marshall (illness) won't play in Wednesday's game against Oklahoma City.",
-   "updated": "2026-10-28T23:52Z",
+   "updated": "2026-10-29T04:39Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -703,17 +714,6 @@
    "detail": "Right Knee Surgery",
    "comment": "Aldama (knee) is out for Wednesday's game against the Thunder.",
    "updated": "2026-10-28T18:19Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "DAL",
-   "player": "Sergio de Larrea",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Knee Strain",
-   "comment": "De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
-   "updated": "2026-10-27T22:09Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -797,11 +797,11 @@
    "team": "GSW",
    "player": "Gui Santos",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Left Knee Tendinitis",
    "comment": "Santos has been ruled out for Wednesday's game against the Timberwolves due to left knee tendinitis.",
-   "updated": "2026-10-28T22:58Z",
+   "updated": "2026-10-29T04:38Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -839,6 +839,17 @@
   },
   {
    "team": "HOU",
+   "player": "Alperen Sengun",
+   "pos": "C",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Back Soreness",
+   "comment": "Sengun (back) has been ruled out for Wednesday's game against the Bucks.",
+   "updated": "2026-10-29T04:38Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "HOU",
    "player": "Marcus Smart",
    "pos": "G",
    "status": "Out",
@@ -846,17 +857,6 @@
    "detail": "Left Forearm Strain",
    "comment": "Smart (forearm) is out for Wednesday's game against the Bucks.",
    "updated": "2026-10-28T17:34Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "HOU",
-   "player": "Alperen Sengun",
-   "pos": "C",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Back Soreness",
-   "comment": "Sengun (back) has been ruled out for Wednesday's game against the Bucks.",
-   "updated": "2026-10-27T20:19Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -1402,11 +1402,11 @@
    "team": "UTA",
    "player": "Lauri Markkanen",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Right Wrist Not Specified",
    "comment": "Markkanen (wrist) is out for Wednesday's tilt against the Spurs.",
-   "updated": "2026-10-29T00:14Z",
+   "updated": "2026-10-29T04:39Z",
    "returnDate": "2026-10-31"
   },
   {
@@ -346486,19 +346486,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T04:48:20Z",
+   "fetchedAt": "2026-10-29T04:53:21Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T04:48:19Z",
+   "fetchedAt": "2026-10-29T04:53:20Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T04:48:20Z",
+   "fetchedAt": "2026-10-29T04:53:20Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
