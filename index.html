@@ -2746,6 +2746,7 @@ function renderSections(){
 
 /* ---------------- Today's update timeline (UK times — cron-job.org starts each block) ---------------- */
 function scheduleHTML(){
+  const timeFmt = iso => new Date(iso).toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit", hourCycle:"h23", timeZone:"Europe/London"});   // this card is always UK time
   const uk = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/London"}));
   const nowM = uk.getHours() * 60 + uk.getMinutes();
   const odds = (LIVE && LIVE.sections && LIVE.sections.odds) || {};
