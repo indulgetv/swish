@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T18:50:25Z"
+  "writtenAt": "2026-10-29T18:55:25Z"
  },
  "games": [
   {
@@ -955,6 +955,17 @@
   },
   {
    "team": "LAC",
+   "player": "Yanic Konan Niederhauser",
+   "pos": "C",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Foot Surgery",
+   "comment": "Niederhauser (foot) had his third-year team option picked up Thursday by the Clippers, Ohm Youngmisuk of ESPN.com reports.",
+   "updated": "2026-10-29T18:44Z",
+   "returnDate": "2026-11-08"
+  },
+  {
+   "team": "LAC",
    "player": "Rui Hachimura",
    "pos": "F",
    "status": "Questionable",
@@ -963,17 +974,6 @@
    "comment": "Hachimura (quadriceps) has been ruled out for Wednesday's game against the Lakers, Joey Linn of SI.com reports.",
    "updated": "2026-10-29T05:06Z",
    "returnDate": "2026-10-30"
-  },
-  {
-   "team": "LAC",
-   "player": "Yanic Konan Niederhauser",
-   "pos": "C",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Foot Surgery",
-   "comment": "Niederhauser (foot) remains out for Wednesday's game against the Lakers. He also won't travel with the team for the upcoming two-game road trip in Minnesota and Golden State, Ohm Youngmisuk of ESPN.com reports.",
-   "updated": "2026-10-29T01:15Z",
-   "returnDate": "2026-11-08"
   },
   {
    "team": "LAC",
@@ -80191,19 +80191,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T18:50:25Z",
+   "fetchedAt": "2026-10-29T18:55:25Z",
    "ok": true,
    "count": 88
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T18:50:24Z",
+   "fetchedAt": "2026-10-29T18:55:24Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T18:50:25Z",
+   "fetchedAt": "2026-10-29T18:55:24Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80248,7 +80248,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:50:25Z"
+    "fetchedAt": "2026-10-29T18:55:24Z"
    },
    "home": {
     "starters": [
@@ -80275,7 +80275,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:50:25Z"
+    "fetchedAt": "2026-10-29T18:55:24Z"
    }
   },
   "401909894": {
@@ -80304,7 +80304,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:50:25Z"
+    "fetchedAt": "2026-10-29T18:55:24Z"
    },
    "home": {
     "starters": [
@@ -80331,7 +80331,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:50:25Z"
+    "fetchedAt": "2026-10-29T18:55:24Z"
    }
   },
   "401909895": {
@@ -80360,7 +80360,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:50:25Z"
+    "fetchedAt": "2026-10-29T18:55:24Z"
    },
    "home": {
     "starters": [
@@ -80387,7 +80387,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T18:50:25Z"
+    "fetchedAt": "2026-10-29T18:55:24Z"
    }
   }
  }
