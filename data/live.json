@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T03:53:21Z"
+  "writtenAt": "2026-10-29T03:58:21Z"
  },
  "games": [
   {
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "5:08 - 4th",
+   "status": "3:43 - 4th",
    "completed": false,
    "awayScore": "93",
-   "homeScore": "111",
+   "homeScore": "113",
    "espnLine": null
   },
   {
@@ -1256,17 +1256,6 @@
    "comment": "Wallace has been diagnosed with a torn labrum in his left shoulder and will require surgery, Shams Charania of ESPN reports.",
    "updated": "2026-10-26T22:05Z",
    "returnDate": "2027-03-02"
-  },
-  {
-   "team": "OKC",
-   "player": "Otega Oweh",
-   "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Achilles Surgery",
-   "comment": "The Thunder plan to waive Oweh (Achilles) on Friday.",
-   "updated": "2026-10-23T18:52Z",
-   "returnDate": "2027-07-01"
   },
   {
    "team": "ORL",
@@ -358761,7 +358750,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T03:53:20Z",
+   "fetchedAt": "2026-10-29T03:58:20Z",
    "ok": true,
    "count": 12
   },
@@ -358772,9 +358761,9 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T03:53:20Z",
+   "fetchedAt": "2026-10-29T03:58:21Z",
    "ok": true,
-   "count": 87
+   "count": 86
   },
   "players": {
    "source": "ESPN game logs",
@@ -358800,7 +358789,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T03:53:20Z",
+   "fetchedAt": "2026-10-29T03:58:20Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   }
