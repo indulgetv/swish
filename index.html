@@ -75,6 +75,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pform-msg{font-size:12.5px;color:var(--red);min-height:1em}
 .cell.noline b{color:var(--faint)}
 .cell.noline small{color:var(--muted)}
+.nlw{font:800 9px/1.4 var(--sans)!important;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.cell.noline small.nlw-out,.nlw-out{color:var(--red)}
+.cell.noline small.nlw-q,.nlw-q{color:var(--amber)}
+.cell.noline small.nlw-mkt,.nlw-mkt{color:var(--exp)}
+.cell.noline small.nlw-none,.nlw-none{color:var(--faint)}
+.cell.noline small.nlw-skip,.nlw-skip{color:var(--faint);opacity:.7;font-weight:700!important}
+.lg-nl .nlw{margin:0 2px}
 details.optprice summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);padding:4px 0}
 details.optprice summary::-webkit-details-marker{display:none}
 details.optprice summary::before{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--line2);font-size:13px;line-height:1}
@@ -2927,7 +2934,7 @@ function viewDashboard(){
   ${liveNotice()}
   <div class="overview">
     <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">first tip ${timeFmt(GAMES[0].tipoff)}</div></div>
-    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${NOLINE.length ? ` · ${NOLINE.length} ${pricedAll() ? "with no bookmaker line tonight" : "still waiting for a price"}` : ""}</div></div>
+    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${(() => { const n = NOLINE.filter(p => boughtMkts().includes(p.market)).length; return n ? ` · ${n} ${pricedAll() ? "with no bookmaker line tonight" : "still waiting for a price"}` : ""; })()}</div></div>
     <div class="ov"><div class="eyebrow">Value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH rates them ${(MIN_EDGE*100).toFixed(0)}+ points above the bookie</div></div>
     <div class="ov"><div class="eyebrow">Injury concerns</div><div class="v num">${sig.length}</div><div class="s">${sig.filter(i=>i.status==="Out").length} out · ${sig.filter(i=>i.status!=="Out").length} uncertain</div></div>
     <div class="ov"><div class="eyebrow">Bookie's cut</div><div class="v num">${avgVig === null ? "—" : pct(avgVig)}</div><div class="s">${avgVig === null ? "no prices yet" : "their margin, built into every price"}</div></div>
@@ -3003,7 +3010,7 @@ function renderLegend(){
   $("legend").innerHTML = state.market === "ALL"
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
-       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>`
+       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM &amp; PRA: SWISH projection only (not bought)</span>` : ""}`
     : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
@@ -3048,10 +3055,23 @@ function playerSub(pl){
   return `<small>${pl.pos}${st}${rc}</small>`;
 }
 
+// markets SWISH paid for on this slate (from the odds fetch); others are never priced
+const boughtMkts = () => (((LIVE && LIVE.sections && LIVE.sections.odds) || {}).markets) || ["PTS", "REB", "AST"];
+// why a live prop has no bookmaker line — only shown once tonight's main price fetch has covered every game
+function noLineWhy(pl, m){
+  if (!IS_LIVE || !pricedAll()) return null;
+  const st = (injuryOf(pl.name) || {}).status || pl.status;
+  if (st === "Out") return {k: "out", t: "Out", tip: "Ruled out tonight"};
+  if (st === "Doubtful" || st === "Questionable") return {k: "q", t: st === "Doubtful" ? "Doubt" : "Q", tip: `Listed ${st.toLowerCase()} — bookmakers often wait for the decision before posting lines`};
+  if (!boughtMkts().includes(m)) return {k: "skip", t: "Not bought", tip: `SWISH only buys ${boughtMkts().map(x => MARKET_NAMES[x].toLowerCase()).join(", ")} prices (free plan)`};
+  if (ALL.some(p => p.player === pl.name)) return {k: "mkt", t: "No mkt", tip: `Bookmakers priced his other stats, but not ${MARKET_NAMES[m].toLowerCase()}`};
+  return {k: "none", t: "None", tip: "No bookmaker posted any props for this player tonight"};
+}
 function cell(pl, m){
   const p = propOf(pl.name, m);
   if (!p) { const nl = noLineOf(pl.name, m);
-    return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no bookmaker line, SWISH projection ${nl.projection.toFixed(1)}" title="No bookmaker line · SWISH projects ${nl.projection.toFixed(1)}"><b class="num">–</b><small class="num">${nl.projection.toFixed(1)}</small></button></td>` : `<td><span class="dash">—</span></td>`; }
+    const why = nl ? noLineWhy(pl, m) : null;
+    return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no bookmaker line${why ? ` (${why.tip})` : ""}, SWISH projection ${nl.projection.toFixed(1)}" title="No bookmaker line${why ? ` · ${why.tip}` : ""} · SWISH projects ${nl.projection.toFixed(1)}"><b class="num">–</b>${why && why.k !== "skip" ? `<small class="nlw nlw-${why.k}">${why.t}</small>` : `<small class="num">${nl.projection.toFixed(1)}</small>`}</button></td>` : `<td><span class="dash">—</span></td>`; }
   if (state.hideFlagged && p.flags.length) return `<td><span class="dash">—</span></td>`;
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
   return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
@@ -3103,7 +3123,7 @@ function squadMatrix(teamCode){
   const v = ALL.filter(p => p.team === teamCode && p.value).length;
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
-    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${MARKETS.map(m => `<th class="mk">${m}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
+    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
         return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
