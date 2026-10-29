@@ -9025,7 +9025,13 @@
    "openOver": -112,
    "openUnder": -116,
    "firstSaved": "2026-10-28T23:07:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-10-29T02:38:20Z",
+   "profit": 8.93
   },
   "401909886|Tre Jones|AST": {
    "game": "401909886",
@@ -9074,7 +9080,13 @@
    "openOver": -124,
    "openUnder": -106,
    "firstSaved": "2026-10-28T23:07:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-10-29T02:38:20Z",
+   "profit": -10.0
   },
   "401909886|Norman Powell|PTS": {
    "game": "401909886",
@@ -9421,7 +9433,13 @@
    "openOver": -108,
    "openUnder": -120,
    "firstSaved": "2026-10-28T23:07:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 23,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-10-29T02:38:20Z",
+   "profit": 9.26
   },
   "401909886|OG Anunoby|REB": {
    "game": "401909886",
@@ -9470,7 +9488,13 @@
    "openOver": 101,
    "openUnder": -132,
    "firstSaved": "2026-10-28T23:07:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-10-29T02:38:20Z",
+   "profit": 10.1
   },
   "401909886|OG Anunoby|AST": {
    "game": "401909886",
@@ -9521,7 +9545,13 @@
    "openOver": -187,
    "openUnder": 138,
    "firstSaved": "2026-10-28T23:07:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-10-29T02:38:20Z",
+   "profit": -10.0
   },
   "401909886|Mikal Bridges|PTS": {
    "game": "401909886",
@@ -17770,5 +17800,5 @@
    "locked": true
   }
  },
- "updated": "2026-10-29T02:33:20Z"
+ "updated": "2026-10-29T02:38:20Z"
 }
