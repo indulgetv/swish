@@ -64,6 +64,8 @@ ODDS_MARKETS_DEFAULT = ["player_points", "player_rebounds", "player_assists"]
 ODDS_MARKETS_PRIORITY = ["player_points", "player_rebounds", "player_assists"]   # the user bets PTS/REB/AST; threes/PRA not bought
 # Team names that differ between ESPN and The Odds API
 TEAM_ALIASES = {"laclippers": "losangelesclippers"}
+# bookmaker player name (normalised) -> ESPN's (normalised), for players the two spell differently
+PLAYER_ALIASES = {"herbjones": "herbertjones"}
 REF_BOOKS = ["fanduel", "draftkings", "betmgm"]          # US reference books
 UK_BOOKS = ["skybet", "paddypower", "williamhill"]        # UK game lines
 
@@ -461,7 +463,7 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
                     pairs.setdefault(k, {})[o.get("name", "").lower()] = o.get("price")
                 for (who, point), side in pairs.items():
                     if "over" in side and "under" in side and point is not None:
-                        props.append({"game": gid, "player": who, "key": norm_name(who), "market": mk, "line": point,
+                        props.append({"game": gid, "player": who, "key": PLAYER_ALIASES.get(norm_name(who), norm_name(who)), "market": mk, "line": point,
                                       "over": side["over"], "under": side["under"], "book": b.get("key"),
                                       "updated": m.get("last_update") or b.get("last_update"), "fetched": fetched_at})
     if len(todays) > allowed:
@@ -513,6 +515,10 @@ def main() -> int:
         d["meta"]["lastFullAt"] = now_iso()
     for k in ("games", "teams", "standings", "injuries", "players", "h2h", "props", "gameLines", "sections", "lineups"):
         d[k] = prev.get(k, {} if k in ("teams", "standings", "h2h", "sections", "lineups") else [])
+    # bookmaker spellings saved earlier -> ESPN's, so every run matches them
+    for _p in d.get("props") or []:
+        if _p.get("key") in PLAYER_ALIASES:
+            _p["key"] = PLAYER_ALIASES[_p["key"]]
     # A new slate day invalidates the previous day's games / props
     if prev.get("meta", {}).get("slateDate") != d["meta"]["slateDate"]:
         d["games"], d["props"], d["gameLines"], d["h2h"], d["lineups"] = [], [], [], {}, {}
