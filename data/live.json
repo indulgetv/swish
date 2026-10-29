@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T16:14:54Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T21:05:25Z"
+  "writtenAt": "2026-10-29T21:10:25Z"
  },
  "games": [
   {
@@ -922,14 +922,36 @@
   },
   {
    "team": "IND",
-   "player": "Ivica Zubac",
-   "pos": "C",
+   "player": "Andrew Nembhard",
+   "pos": "G",
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
-   "detail": "Left Ankle Sprain",
-   "comment": "Zubac (ankle) is out for Wednesday's game against the 76ers.",
-   "updated": "2026-10-29T04:33Z",
+   "detail": "Neck Soreness",
+   "comment": "Nembhard (neck) is listed as probable for Friday's game against Miami.",
+   "updated": "2026-10-29T21:08Z",
    "returnDate": "2026-10-30"
+  },
+  {
+   "team": "IND",
+   "player": "Aaron Nesmith",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Hamstring",
+   "comment": "Nesmith (hamstring) is probable for Friday's game against the Heat.",
+   "updated": "2026-10-29T21:07Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "IND",
+   "player": "Ivica Zubac",
+   "pos": "C",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Left Ankle Sprain",
+   "comment": "Zubac (ankle) is out for Friday's game against the Heat.",
+   "updated": "2026-10-29T21:04Z",
+   "returnDate": "2026-11-01"
   },
   {
    "team": "IND",
@@ -83886,19 +83908,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T21:05:25Z",
+   "fetchedAt": "2026-10-29T21:10:25Z",
    "ok": true,
-   "count": 91
+   "count": 93
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T21:05:24Z",
+   "fetchedAt": "2026-10-29T21:10:25Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T21:05:25Z",
+   "fetchedAt": "2026-10-29T21:10:25Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -83970,7 +83992,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:05:25Z"
+    "fetchedAt": "2026-10-29T21:10:25Z"
    },
    "home": {
     "starters": [
@@ -83997,7 +84019,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:05:25Z"
+    "fetchedAt": "2026-10-29T21:10:25Z"
    }
   },
   "401909894": {
@@ -84026,7 +84048,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:05:25Z"
+    "fetchedAt": "2026-10-29T21:10:25Z"
    },
    "home": {
     "starters": [
@@ -84053,7 +84075,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:05:25Z"
+    "fetchedAt": "2026-10-29T21:10:25Z"
    }
   },
   "401909895": {
@@ -84082,7 +84104,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:05:25Z"
+    "fetchedAt": "2026-10-29T21:10:25Z"
    },
    "home": {
     "starters": [
@@ -84109,7 +84131,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:05:25Z"
+    "fetchedAt": "2026-10-29T21:10:25Z"
    }
   }
  }
