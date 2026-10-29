@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T02:48:24Z"
+  "writtenAt": "2026-10-29T02:53:22Z"
  },
  "games": [
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "2:16 - 3rd",
+   "status": "End of 3rd",
    "completed": false,
-   "awayScore": "76",
-   "homeScore": "81",
+   "awayScore": "85",
+   "homeScore": "85",
    "espnLine": null
   },
   {
@@ -146,10 +146,10 @@
    "home": "LAC",
    "tipoff": "2026-10-29T02:30Z",
    "state": "in",
-   "status": "7:00 - 1st",
+   "status": "6:20 - 1st",
    "completed": false,
-   "awayScore": "10",
-   "homeScore": "5",
+   "awayScore": "12",
+   "homeScore": "7",
    "espnLine": null
   }
  ],
@@ -358761,7 +358761,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T02:48:20Z",
+   "fetchedAt": "2026-10-29T02:53:20Z",
    "ok": true,
    "count": 12
   },
@@ -358772,7 +358772,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T02:48:20Z",
+   "fetchedAt": "2026-10-29T02:53:20Z",
    "ok": true,
    "count": 87
   },
@@ -358800,7 +358800,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T02:48:20Z",
+   "fetchedAt": "2026-10-29T02:53:20Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   }
