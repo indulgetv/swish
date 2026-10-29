@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T02:28:26Z"
+  "writtenAt": "2026-10-29T02:33:21Z"
  },
  "games": [
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "1:33 - 4th",
+   "status": "6.2 - 4th",
    "completed": false,
    "awayScore": "130",
-   "homeScore": "124",
+   "homeScore": "127",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "4:42 - 4th",
+   "status": "2:16 - 4th",
    "completed": false,
-   "awayScore": "109",
-   "homeScore": "96",
+   "awayScore": "115",
+   "homeScore": "104",
    "espnLine": null
   },
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "9:45 - 3rd",
+   "status": "7:09 - 3rd",
    "completed": false,
-   "awayScore": "59",
-   "homeScore": "57",
+   "awayScore": "66",
+   "homeScore": "68",
    "espnLine": null
   },
   {
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "6:10 - 2nd",
+   "status": "5:00 - 2nd",
    "completed": false,
-   "awayScore": "40",
-   "homeScore": "49",
+   "awayScore": "42",
+   "homeScore": "54",
    "espnLine": null
   },
   {
@@ -358765,7 +358765,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T02:28:20Z",
+   "fetchedAt": "2026-10-29T02:33:19Z",
    "ok": true,
    "count": 12
   },
@@ -358776,7 +358776,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T02:28:20Z",
+   "fetchedAt": "2026-10-29T02:33:20Z",
    "ok": true,
    "count": 87
   },
@@ -358804,7 +358804,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T02:28:20Z",
+   "fetchedAt": "2026-10-29T02:33:19Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359343,7 +359343,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:28:20Z"
+    "fetchedAt": "2026-10-29T02:33:19Z"
    },
    "home": {
     "starters": [
@@ -359370,7 +359370,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:28:20Z"
+    "fetchedAt": "2026-10-29T02:33:19Z"
    }
   }
  }
