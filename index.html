@@ -1859,6 +1859,10 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
 .tag.tip{display:inline-flex;align-items:center}
 .tipt{display:inline-flex;align-items:center;gap:0}.tipt .clk{width:.8em;height:.8em;opacity:.7}
 .ib-k .clk{width:12px;height:12px;margin-right:4px;vertical-align:-2px}
+/* page header illustrations always sit behind the words */
+.hero{isolation:isolate}
+.hero > .court{z-index:0}
+.hero > *:not(.court){position:relative;z-index:1}
 /* touch screens: no "stuck" hover effects on the home header (iPhone keeps :hover after a tap) */
 @media (hover:none){
   .hero-home:hover .dh-day,.hero-home:hover .dh-month,.hero-home:hover .clockcard,.hero-home:hover .iw,.hero-home:hover .live-dot,.hero-home:hover .court,.hero-home:hover .lk{transform:none!important;text-shadow:none}
@@ -1867,7 +1871,7 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
 /* phones & tablets: the home illustration fits the card (court + ball visible), ball bounces in once */
 @media (max-width:960px){
   .hero-home{overflow:hidden}
-  .hero-home .court{top:-16px!important;right:-12%!important;left:auto;height:auto!important;width:min(82%,760px)!important;opacity:.08}
+  .hero-home .court{top:-16px!important;right:-14%!important;left:auto;height:auto!important;width:min(96%,880px)!important;opacity:.08}
   html.dark .hero-home .court{opacity:.13}
   .hero-home .court.ballsketch{opacity:.3!important}
   html.dark .hero-home .court.ballsketch{opacity:.42!important}
@@ -1877,7 +1881,7 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
   html.calm .hero-home .ballsketch *{animation:none!important;transform:none!important;opacity:1}
 }
 @media (max-width:640px){
-  .hero-home .court{width:150%!important;right:-62%!important;top:-6px!important}
+  .hero-home .court{width:190%!important;right:-88%!important;top:-14px!important}
   .hero-home .court.ballsketch{opacity:.22!important}
   html.dark .hero-home .court.ballsketch{opacity:.32!important}
 }
