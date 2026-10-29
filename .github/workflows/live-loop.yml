@@ -1,0 +1,58 @@
+name: SWISH live loop
+
+# Keeps data fresh every few minutes for a set number of hours (GitHub's own schedules can be late or skipped).
+# Start it from the Actions tab ("Run workflow"), from an external cron service, or let it start nightly below.
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "How long to keep updating (max 5.8)"
+        default: "5.5"
+        required: true
+      every:
+        description: "Minutes between updates"
+        default: "5"
+        required: true
+  schedule:
+    - cron: "53 20 * * *"   # backup start before the evening slate, if GitHub's scheduler fires
+
+permissions:
+  contents: write
+
+concurrency:
+  group: swish-live-loop
+  cancel-in-progress: false
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update every few minutes
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          HOURS: ${{ github.event.inputs.hours || '5.5' }}
+          EVERY: ${{ github.event.inputs.every || '5' }}
+        run: |
+          git config user.name  "swish-bot"
+          git config user.email "swish-bot@users.noreply.github.com"
+          END=$(( $(date +%s) + $(python -c "print(int(min(float('$HOURS'), 5.8) * 3600))") ))
+          while [ "$(date +%s)" -lt "$END" ]; do
+            START=$(date +%s)
+            git fetch -q origin "${GITHUB_REF_NAME}" && git reset -q --hard "origin/${GITHUB_REF_NAME}"   # start each round from the latest data
+            mkdir -p data
+            python scripts/update.py --mode auto 2>&1 | tee data/last-run.log || true
+            git add data/
+            if ! git diff --cached --quiet; then
+              git commit -q -m "data: live update $(date -u +'%Y-%m-%d %H:%M UTC')"
+              if git pull -q --rebase origin "${GITHUB_REF_NAME}"; then git push -q || echo "push failed — next round will redo it"
+              else git rebase --abort || true; echo "another run wrote data at the same time — skipping this round"; fi
+            fi
+            # stop early once tonight's last game is final and it's after 05:00 UTC
+            if [ "$(date -u +%H)" -ge 5 ] && [ "$(date -u +%H)" -lt 12 ] && python -c "import json,sys;d=json.load(open('data/live.json'));sys.exit(0 if d['games'] and all(g['state']=='post' for g in d['games']) else 1)"; then echo "All games final — stopping."; break; fi
+            SLEEP=$(( EVERY * 60 - ($(date +%s) - START) )); [ "$SLEEP" -gt 0 ] && sleep "$SLEEP"
+          done

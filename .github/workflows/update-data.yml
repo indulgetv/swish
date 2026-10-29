@@ -17,8 +17,8 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "full, light or odds"
-        default: "full"
+        description: "auto (picks by time of day), full, light or odds"
+        default: "auto"
         required: true
       window:
         description: "odds only: all, early or late"
@@ -54,14 +54,7 @@ jobs:
           if [ -z "$MODE" ]; then
             if [ "${{ github.event_name }}" = "push" ]; then MODE=full; fi
           fi
-          if [ -z "$MODE" ]; then
-            case "${{ github.event.schedule }}" in
-              "17 7 * * *"|"17 14 * * *") MODE=full ;;
-              "37 14 * * *") MODE=odds; WINDOW=early ;;
-              "7 21 * * *") MODE=odds; WINDOW=late ;;
-              *) MODE=light ;;
-            esac
-          fi
+          if [ -z "$MODE" ]; then MODE=auto; fi      # schedules: the script picks full / odds / light by time of day
           WINDOW="${WINDOW:-${{ github.event.inputs.window }}}"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "window=${WINDOW:-late}" >> "$GITHUB_OUTPUT"

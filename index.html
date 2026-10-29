@@ -1610,6 +1610,9 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 .lu-st.confirmed,.lu-st.started,.lu-chip.confirmed,.lu-chip.started{background:rgba(31,138,76,.1);color:var(--over);border-color:rgba(31,138,76,.3)}
 .lu-chip{margin-left:4px;font-size:9px;padding:0 5px}
 @media (max-width:760px){.lu{grid-template-columns:1fr}}
+
+.freshbar{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:90;background:var(--ink);color:#fff;font-weight:700;font-size:13px;padding:10px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.newspill b{font-weight:800}
 </style>
 </head>
 <body>
@@ -1645,10 +1648,11 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 </div>
 <div class="scrim" id="scrim" data-close="1"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Details" aria-hidden="true" tabindex="-1"></aside>
+<button class="freshbar" id="freshBar" hidden onclick="location.reload()">New data available — tap to refresh</button>
 <button class="totop" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg></button>
 <!-- Live data written by the GitHub automation (scripts/update.py). If it's missing, SWISH falls back to the sample slate. -->
-<script src="data/live.js"></script>
-<script src="data/results.js"></script>
+<script>/* load the newest data, never a cached copy */ var _v = Date.now();
+document.write('<script src="data/live.js?v=' + _v + '"><\/script><script src="data/results.js?v=' + _v + '"><\/script>');</script>
 
 <script>
 /* =================================================================
@@ -2166,9 +2170,9 @@ const tname = t => `${team(t).city} ${team(t).name}`;
 const ESPN_LOGO = {GSW:"gs", NYK:"ny", SAS:"sa", NOP:"no", UTA:"utah", WAS:"wsh"};
 const logoUrl = t => `https://a.espncdn.com/i/teamlogos/nba/500/${ESPN_LOGO[t] || String(t).toLowerCase()}.png`;
 const tid = (t, cls="") => `<span class="tid haslogo ${cls}" style="background:${team(t).color}" title="${esc(tname(t))}"><img src="${logoUrl(t)}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('haslogo');this.remove()"><b>${t}</b></span>`;
-const timeFmt = iso => new Date(iso).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
-const dateFmt = iso => new Date(iso).toLocaleDateString([], {weekday:"short", day:"numeric", month:"short"});
-const shortDate = iso => new Date(iso).toLocaleDateString([], {day:"numeric", month:"short", year:"2-digit"});
+const timeFmt = iso => new Date(iso).toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit", hourCycle:"h23"});   // UK 24-hour, in your own time zone
+const dateFmt = iso => new Date(iso).toLocaleDateString("en-GB", {weekday:"short", day:"numeric", month:"short"});
+const shortDate = iso => new Date(iso).toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"2-digit"});
 const stCls = s => ({Out:"out",Doubtful:"doubtful",Questionable:"questionable",Probable:"probable"}[s] || "neutral");
 const stPill = s => `<span class="st ${stCls(s)}">${esc(s)}</span>`;
 const sideWord = s => s === "over" ? "Over" : "Under";
@@ -3003,9 +3007,11 @@ function render(){
   }
   const nn = injNews().length, np = $("newsPill");
   np.hidden = false;
-  np.className = "newspill" + (nn ? " hot" : "");
-  np.innerHTML = `<i></i><b class="num">${nn}</b><span class="nl"> injury update${nn === 1 ? "" : "s"} · last ${NEW_NEWS_H}h</span><span class="ns"> injury news</span>`;
-  np.title = `Injury list checked ${agoTxt(injCheckedAt())}`;
+  const chk = injCheckedAt(), newest = [...DATA.injuries].sort(byNewest)[0];
+  const fresh = newest && newsAgeH(newest) <= 1;
+  np.className = "newspill" + (fresh ? " hot" : "");
+  np.innerHTML = `<i></i><span class="nl">Injuries checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · newest news <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
+  np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Newest injury news posted ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} updates in the last ${NEW_NEWS_H} hours.`;
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span></button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
@@ -3199,6 +3205,25 @@ function countUp(){
   addEventListener("scroll", upd, {passive:true}); addEventListener("resize", upd); mq.addEventListener("change", upd);
   btn.addEventListener("click", () => { window.scrollTo({top:0, behavior: document.documentElement.classList.contains("calm") ? "auto" : "smooth"}); });
   upd();
+})();
+/* fresh data: poll a tiny stamp file; reload when the automation has written newer data */
+(function(){
+  try { const y = sessionStorage.getItem("swish.scrollY"); if (y !== null){ sessionStorage.removeItem("swish.scrollY"); setTimeout(() => window.scrollTo(0, +y), 60); } } catch(e){}
+  if (!LIVE || !LIVE.meta) return;
+  const loaded = new Date(LIVE.meta.writtenAt);
+  async function check(){
+    try {
+      const r = await fetch("data/stamp.json?t=" + Date.now(), {cache: "no-store"}); if (!r.ok) return;
+      const st = await r.json();
+      if (st.writtenAt && new Date(st.writtenAt) > loaded){
+        const busy = state.drawerOpen || /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
+        if (!busy && !document.hidden){ try { sessionStorage.setItem("swish.scrollY", String(window.scrollY)); } catch(e){} location.reload(); }
+        else { const b = $("freshBar"); if (b) b.hidden = false; }
+      }
+    } catch(e){}
+  }
+  setInterval(check, 60000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) check(); });
 })();
 setInterval(tickClock, 1000);
 setInterval(() => { if (!document.hidden && !document.documentElement.classList.contains("calm")) rotateTip(); }, 6000);
