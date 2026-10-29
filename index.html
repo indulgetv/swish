@@ -1825,12 +1825,21 @@ html.calm .brand.wave .wordmark i{animation:none!important}
 /* desktop: two squads sit side by side, so the jersey only shows where the name column has room */
 .squad{container-type:inline-size;container-name:squad}
 @media (min-width:761px){
-  .sqt td.pl .jav{width:22px;height:24px}
-  .sqt td.pl .pl-in{gap:4px 8px;flex-wrap:wrap}
-  .sqt td.pl .pl-in > div{flex:1 1 calc(100% - 32px);min-width:0}
-  .sqt td.pl .pl-in > .formbtn{order:3;margin-left:30px}
+  /* desktop: jersey · name · Last 6 on one line, with breathing room before the Min column */
+  .sqt td.pl{padding-right:18px!important}
+  .sqt td.pl .jav{width:24px;height:26px}
+  .sqt td.pl .pl-in{gap:10px;flex-wrap:nowrap;align-items:center}
+  .sqt td.pl .pl-in > div{flex:1 1 auto;min-width:0}
+  .sqt td.pl .pl-in > .formbtn{margin-left:auto;flex:none}
   .sqt td.pl b{overflow-wrap:normal!important;word-break:normal}
   .lu-chip,.rolechip{white-space:nowrap}
+  .sqt th.min{padding-left:6px}
+  /* when two squads sit side by side and the name column is narrow, the button shrinks to its icon */
+  @container squad (max-width:820px){
+    .sqt td.pl .formbtn b{display:none!important}
+    .sqt td.pl .formbtn{padding:4px 7px!important}
+    .sqt th.mk{width:56px}
+  }
 }
 /* open "Last 6" row on phones: highlight the whole row with a bar on its left edge, clear of the name */
 @media (max-width:760px){
@@ -1975,6 +1984,13 @@ html.calm .mrow.ghead .gswipe{animation:none!important;opacity:0}
 @keyframes optPop{from{transform:scale(0)}to{transform:scale(1)}}
 .optbtn:not(.on){opacity:.85}
 .opt-state{grid-column:1/-1;font-size:12px;color:var(--muted);text-align:center;margin-top:-2px}
+/* latest injury changes: each row tinted in the player's team colour, spaced apart */
+.newsfeed .clamp{display:grid;gap:10px;padding:4px 14px 14px}
+.nrow.tcol{position:relative;border:0!important;border-radius:14px;padding:13px 14px 13px 18px!important;overflow:hidden;
+  background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 22%,transparent) 0%,color-mix(in srgb,var(--tc) 8%,transparent) 45%,transparent 85%),var(--surface2)!important;
+  box-shadow:inset 4px 0 0 var(--tc),inset 0 0 0 1px color-mix(in srgb,var(--tc) 25%,transparent)!important}
+html.dark .nrow.tcol{background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 34%,transparent) 0%,color-mix(in srgb,var(--tc) 12%,transparent) 45%,transparent 85%),rgba(255,255,255,.03)!important}
+.nrow.tcol.justin{box-shadow:inset 4px 0 0 var(--tc),0 0 0 2px var(--red)!important}
 </style>
 </head>
 <body>
@@ -3471,7 +3487,7 @@ function injStatusBar(){
     <div class="ib"><span class="ib-k">Out tonight</span><b class="num">${nOut}</b><small>${nDoubt ? `+ ${nDoubt} doubtful or questionable` : "no one doubtful"}</small></div>
   </div>
   ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury changes</h2><span class="sub">latest first · last ${NEW_NEWS_H} hours</span></div>
-    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow ${isJustIn(i) ? "justin" : ""}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
+    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow tcol ${isJustIn(i) ? "justin" : ""}" style="--tc:${team(i.team).color}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
 }
 
 function injuryCard(g){
