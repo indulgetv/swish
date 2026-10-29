@@ -1493,13 +1493,20 @@ html.calm .newspill.hot i{animation:none}
   html.dark .side{background:#16181c!important}
   .side .brand{margin:0}
 }
-@media (max-width:760px){.crumb{display:none!important}
-  .top{flex-wrap:wrap;row-gap:8px}
-  .top-right{order:-1;width:100%;justify-content:flex-end;margin-left:0!important}
-  .sample-pill.live-pill{display:inline-flex!important;align-items:center;gap:6px;white-space:nowrap}
+.sample-pill .ns,.newspill .nsi{display:none}
+@media (max-width:760px){
+  .crumb{display:none!important}
+  .top{flex-wrap:nowrap;gap:6px!important;padding:9px 12px!important}
+  .sample-pill.live-pill{display:inline-flex!important;align-items:center;gap:5px;white-space:nowrap;padding:5px 9px;font-size:12px}
+  .sample-pill .nl{display:none}.sample-pill .ns{display:none}
+  .newspill{padding:5px 9px;font-size:12px;gap:5px}
+  .newspill .ns{display:none!important}.newspill .nsi{display:inline-flex!important;align-items:center;gap:4px}
+  .newspill .nsi svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
+  .top-right{gap:5px!important}
+  .themebtn{width:34px;height:34px;margin-right:0}
+  .helpbtn.top{margin-right:0;width:34px;height:34px;justify-content:center;padding:0!important}
+  .seg button{padding:5px 8px}
 }
-.sample-pill .ns{display:none}
-@media (max-width:760px){.sample-pill .nl{display:none}.sample-pill .ns{display:inline}}
 
 @media (max-width:640px){
   .nrow{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:10px;row-gap:6px;align-items:start}
@@ -1672,6 +1679,7 @@ html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .minbox b{display:block;font:700 22px/1.2 var(--display);color:var(--ink)}
 .minbox small{font-size:11px;color:var(--muted)}
 .homebtn{display:none}
+.homebtn .ib{display:none}.homebtn.back .ib{display:block}.homebtn.back .ih{display:none}
 @media (max-width:960px){
   .homebtn{display:grid;place-items:center;margin-left:auto;flex:none;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(179,18,31,.35),inset 0 1px 0 rgba(255,255,255,.25)}
   .homebtn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -1717,7 +1725,7 @@ html.calm .brand.wave .wordmark i{animation:none!important}
 <div class="app">
   <aside class="side">
     <div id="brandSlot"></div>
-    <button class="homebtn" id="homeBtn" aria-label="Home" title="Home"><svg viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></svg></button>
+    <button class="homebtn" id="homeBtn" aria-label="Home" title="Home"><svg class="ib" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg><svg class="ih" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></svg></button>
     <nav class="nav" id="nav">
       <button data-nav="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></svg><span class="nl">Home</span><span class="ns">Home</span></button>
       <button data-nav="props"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="nl">Player Props</span><span class="ns">Props</span><span class="count" id="navProps"></span></button>
@@ -3313,7 +3321,7 @@ function render(){
   const chk = injCheckedAt(), newest = [...DATA.injuries].sort(byNewest)[0];
   const fresh = newest && newsAgeH(newest) <= 1;
   np.className = "newspill" + (fresh ? " hot" : "");
-  np.innerHTML = `<i></i><span class="nl">Injury list checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · last change <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
+  np.innerHTML = `<i></i><span class="nl">Injury list checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · last change <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span><span class="nsi" aria-label="Injury list checked">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
   np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Last change to a player's status: ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} changes in the last ${NEW_NEWS_H} hours.`;
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span>${slot(g, "side")}</button>`).join("");
@@ -3370,7 +3378,20 @@ function applyClamps(root = document){
     anchor.insertAdjacentHTML("afterend", `<button class="clampbtn ${mobileOnly ? "m-only" : ""}" data-clampkey="${esc(key)}" aria-expanded="${open}">${open ? `Show fewer ${ICON_CHEV}` : `Show all ${items.length} ${ICON_CHEV}`}</button>`);
   });
 }
-function go(view){ state.view = view; store.set("view", view); closeDrawer(); render(); window.scrollTo({top:0}); }
+/* page history: the phone's home button turns into a back arrow after you move between pages, and the phone's own
+   back gesture works too. Back returns you to the page AND the spot you were reading. */
+const NAV = [];
+function updHomeBtn(){ const b = $("homeBtn"); if (!b) return; const back = NAV.length > 0 && state.view !== "dashboard"; b.classList.toggle("back", back); b.setAttribute("aria-label", back ? "Back" : "Home"); b.title = back ? "Back" : "Home"; }
+function go(view, back){
+  if (!back && view !== state.view){ NAV.push({view: state.view, y: window.scrollY}); try { history.pushState({swish: view}, ""); } catch(e){} }
+  state.view = view; store.set("view", view); closeDrawer(); render(); window.scrollTo({top:0}); updHomeBtn();
+}
+function goBack(){
+  const p = NAV.pop();
+  if (!p){ go("dashboard", true); return; }
+  go(p.view, true); setTimeout(() => window.scrollTo(0, p.y), 30);
+}
+addEventListener("popstate", () => { if (state.drawerOpen){ closeDrawer(); return; } goBack(); });
 
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-clampkey],[data-saveprice],[data-clearprice],[data-conf],[data-goto-best],[data-form],[data-pref],[data-help],[data-nav],[data-odds],[data-market],[data-toggle],[data-prop],[data-expand],[data-goto],[data-clear],[data-tab],[data-close]");
@@ -3544,6 +3565,7 @@ function countUp(){
 })();
 /* home button (phones): takes you to Home, or back to the top if you're already there */
 $("homeBtn").addEventListener("click", () => {
+  if (NAV.length && state.view !== "dashboard"){ try { history.back(); } catch(e){ goBack(); } return; }
   if (state.view !== "dashboard") go("dashboard");
   else window.scrollTo({top:0, behavior: document.documentElement.classList.contains("calm") ? "auto" : "smooth"});
 });
