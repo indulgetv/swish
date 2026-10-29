@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-29",
-  "mode": "odds",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-10-29T14:25:17Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T15:55:25Z"
+  "writtenAt": "2026-10-29T16:00:25Z"
  },
  "games": [
   {
@@ -1384,6 +1384,17 @@
   },
   {
    "team": "TOR",
+   "player": "Kawhi Leonard",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Left Knee Inflammation",
+   "comment": "Leonard (knee) is expected to be sidelined for at least three to four weeks, Chris Haynes of NBA TV reports.",
+   "updated": "2026-10-29T15:39Z",
+   "returnDate": "2026-11-23"
+  },
+  {
+   "team": "TOR",
    "player": "Nate Bittle",
    "pos": "C",
    "status": "Out",
@@ -1392,17 +1403,6 @@
    "comment": "Bittle (foot) has been ruled out for Wednesday's game against the Magic, Cody Taylor of USA Today reports.",
    "updated": "2026-10-27T19:31Z",
    "returnDate": "2026-11-02"
-  },
-  {
-   "team": "TOR",
-   "player": "Kawhi Leonard",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Knee Inflammation",
-   "comment": "Leonard (knee) is expected to miss multiple weeks due to swelling in his left knee, Shams Charania of ESPN reports.",
-   "updated": "2026-10-27T15:31Z",
-   "returnDate": "2026-11-23"
   },
   {
    "team": "UTA",
@@ -80073,19 +80073,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T14:25:18Z",
+   "fetchedAt": "2026-10-29T16:00:25Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T15:55:25Z",
+   "fetchedAt": "2026-10-29T16:00:24Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T14:25:17Z",
+   "fetchedAt": "2026-10-29T16:00:24Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80130,7 +80130,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T14:25:17Z"
+    "fetchedAt": "2026-10-29T16:00:24Z"
    },
    "home": {
     "starters": [
@@ -80157,7 +80157,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T14:25:17Z"
+    "fetchedAt": "2026-10-29T16:00:24Z"
    }
   },
   "401909894": {
@@ -80186,7 +80186,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T14:25:17Z"
+    "fetchedAt": "2026-10-29T16:00:24Z"
    },
    "home": {
     "starters": [
@@ -80213,7 +80213,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T14:25:17Z"
+    "fetchedAt": "2026-10-29T16:00:24Z"
    }
   },
   "401909895": {
@@ -80242,7 +80242,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T14:25:17Z"
+    "fetchedAt": "2026-10-29T16:00:24Z"
    },
    "home": {
     "starters": [
@@ -80269,7 +80269,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T14:25:17Z"
+    "fetchedAt": "2026-10-29T16:00:24Z"
    }
   }
  }
