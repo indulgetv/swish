@@ -2002,6 +2002,29 @@ html.dark .nrow.tcol{background:linear-gradient(100deg,color-mix(in srgb,var(--t
 .nrow.tcol.justin{box-shadow:inset 4px 0 0 var(--tc),0 0 0 2px var(--red)!important}
 .lg-l6{display:inline-flex;align-items:center;gap:4px;padding:1px 7px;border-radius:6px;border:1px solid var(--red-line);background:var(--red-soft);color:var(--red);font-size:11px;vertical-align:1px}
 .lg-l6 .ic-form{width:10px;height:10px;fill:currentColor}
+/* ? help button: icon only everywhere */
+.helpbtn.top .hw{display:none}
+.helpbtn.top{width:36px;height:36px;padding:0!important;display:grid!important;place-items:center;margin-right:8px}
+/* injury pill looks like a button on every device */
+.newspill{cursor:pointer;color:var(--amber)!important;background:var(--amber-soft)!important;border-color:var(--amber-line)!important;font-weight:700!important;box-shadow:0 2px 6px -2px rgba(201,138,0,.35)}
+.newspill i{background:var(--amber)!important}
+.newspill::after{content:"›";font-size:15px;line-height:1;margin-left:2px;font-weight:800}
+.newspill.hot{color:#fff!important;background:var(--red)!important;border-color:transparent!important}.newspill.hot i{background:#fff!important}
+.newspill:active{transform:scale(.97)}
+/* timeline: lineups in blue so they don't read as another red "prices" step */
+.srow.lurow .tm,.srow.lurow b{color:var(--exp)}
+/* home accent bar runs the full height, tip badge lines up with the first line of the tip */
+.hero-home::after{bottom:0!important}
+.tipline{align-items:flex-start!important}
+.tipline .tl-k{margin-top:2px;flex:none}
+/* desktop: tonight's games back to "City Name  home" on one line */
+@media (min-width:961px){
+  .teams2 .ti{font-weight:600}
+  .teams2 .tn{display:inline}
+  .teams2 .tn small{font:inherit;color:inherit;margin-right:.28em}
+  .teams2 .tn b{font:inherit;color:inherit}
+  .homebadge{margin-left:6px;font-size:11px;font-weight:500;color:var(--faint);text-transform:lowercase}
+}
 </style>
 </head>
 <body>
@@ -2719,7 +2742,7 @@ const lc1 = s => s.charAt(0).toLowerCase() + s.slice(1);
 /* Per-page header graphics — same stroke style as the home court; drawn in on load */
 const GFX = {
   props: `<svg class="court gfx" viewBox="0 0 420 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M150 34l26-14h68l26 14 22 30-26 16-12-14v118H166V66l-12 14-26-16z"/><path d="M190 20c4 12 36 12 40 0"/><path d="M194 96h14l-14 22h14M216 96h14v11h-12h12v11h-14" stroke-width="2.4"/>
+    <path d="M180 22h14.4c2.8 14.4 8 20 15.6 20s12.8-5.6 15.6-20h14.4c1.6 26.4 12.4 44.8 28.8 50.4v107.6H151.2V72.4c16.4-5.6 27.2-24 28.8-50.4z"/><path d="M186 26c3 13 10 20 24 20s21-7 24-20M184 26c-2 24-12 40-26 46M236 26c2 24 12 40 26 46" stroke-width="1.6" opacity=".7"/><text x="210" y="146" text-anchor="middle" font-size="66" font-weight="800" fill="none" stroke="currentColor" stroke-width="2.2" style="font-family:var(--display);letter-spacing:2px">10</text>
     <path d="M300 196V150M326 196V128M352 196V104M378 196V80M404 196V58" stroke-width="10" opacity=".55"/>
     <path d="M292 160l28-24 26 10 30-40 30-20"/><circle cx="406" cy="86" r="5"/><path d="M286 200h132"/></g></svg>`,
   games: `<svg class="court gfx" viewBox="0 0 420 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3144,7 +3167,7 @@ function scheduleHTML(){
     ...(early ? [{m: 14*60+30, t: "14:30", what: "Early bookmaker lines", sub: "only for games before 21:30", key: true, done: run("early")}] : []),
     {m: 19*60+50, t: "19:50", what: "Evening updates start", sub: "every 5 minutes until the games finish", until: 25*60+40},
     {m: 21*60,   t: "21:00", what: "Bookmaker lines arrive", sub: "props get prices → Top overs & value picks fill in", key: true, done: run("late")},
-    ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes() - 30; return x < 12*60 ? x + 24*60 : x; })(), t: (() => { const d = new Date(new Date(GAMES[0].tipoff).getTime() - 30 * 60000); return timeFmt(d.toISOString()); })(), what: "Confirmed lineups", sub: "teams name their starters about 30 minutes before tip-off; shown as “starter”", lu: "confirmed", key: true}] : []),
+    ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes() - 30; return x < 12*60 ? x + 24*60 : x; })(), t: (() => { const d = new Date(new Date(GAMES[0].tipoff).getTime() - 30 * 60000); return timeFmt(d.toISOString()); })(), what: "Confirmed lineups", sub: "teams name their starters about 30 minutes before tip-off; shown as “starter”", lu: "confirmed"}] : []),
     ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes(); return x < 12*60 ? x + 24*60 : x; })(), t: firstTip, what: "First tip-off", sub: "live scores update every 30 seconds, no refresh"}] : []),
     {m: 25*60+30, t: "01:30", what: "Late updates", sub: "until the last game is final"}
   ];
@@ -3160,7 +3183,7 @@ function scheduleHTML(){
     else if (it.until && nm >= it.m && nm < it.until){ cls = "now"; st = "running"; }
     else if (nm >= it.m){ cls = "done"; st = "done"; }
     else if (!nextSet){ cls = "next"; st = "next"; nextSet = true; }
-    return `<div class="srow ${cls} ${it.key ? "key" : ""}"><span class="tm num">${it.t}</span><div><b>${it.what}</b><small>${it.sub}</small></div><span class="st">${st}</span></div>`;
+    return `<div class="srow ${cls} ${it.key ? "key" : ""} ${it.lu ? "lurow" : ""}"><span class="tm num">${it.t}</span><div><b>${it.what}</b><small>${it.sub}</small></div><span class="st">${st}</span></div>`;
   }).join("");
   return `<div class="sched"><div class="sched-h"><span>Today's updates · UK time</span><b>last data ${timeFmt(DATA.meta.generatedAt)}</b></div>${rows}</div>`;
 }
