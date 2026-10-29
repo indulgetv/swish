@@ -1824,7 +1824,14 @@ html.calm .brand.wave .wordmark i{animation:none!important}
 .sqt tr.out .jav{opacity:.45;filter:grayscale(1)}
 /* desktop: two squads sit side by side, so the jersey only shows where the name column has room */
 .squad{container-type:inline-size;container-name:squad}
-@media (min-width:761px){ @container squad (max-width:760px){ .sqt td.pl .jav{display:none} } }
+@media (min-width:761px){
+  .sqt td.pl .jav{width:22px;height:24px}
+  .sqt td.pl .pl-in{gap:4px 8px;flex-wrap:wrap}
+  .sqt td.pl .pl-in > div{flex:1 1 calc(100% - 32px);min-width:0}
+  .sqt td.pl .pl-in > .formbtn{order:3;margin-left:30px}
+  .sqt td.pl b{overflow-wrap:normal!important;word-break:normal}
+  .lu-chip,.rolechip{white-space:nowrap}
+}
 /* open "Last 6" row on phones: highlight the whole row with a bar on its left edge, clear of the name */
 @media (max-width:760px){
   .sqt tr.has-form td.pl{box-shadow:none!important}
@@ -1942,14 +1949,32 @@ html.dark .optbtn{background:rgba(255,255,255,.05)}
   .homebadge{margin-left:auto;align-self:center;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:99px;border:1px solid var(--line2);color:var(--muted)}
   .mrow .meta{font-size:11.5px}.mrow .meta b{font-size:12px}
   /* the team colours run down the list one game after another */
-  .mrow.ghead .gswipe{opacity:0;animation:teamslide 19s linear infinite,rowGlow calc(var(--n,3) * 2.4s) ease-in-out infinite;animation-delay:0s,calc(var(--k,0) * 2.4s)}
-  .mrow.ghead::before{animation:rowBar calc(var(--n,3) * 2.4s) ease-in-out infinite;animation-delay:calc(var(--k,0) * 2.4s)}
+  .mrow.ghead .gswipe{opacity:0;animation:teamslide 19s linear infinite,rowGlow calc(var(--n,3) * 3.9s) ease-in-out infinite;animation-delay:0s,calc(var(--k,0) * 3.9s)}
+  .mrow.ghead::before{animation:rowBar calc(var(--n,3) * 3.9s) ease-in-out infinite;animation-delay:calc(var(--k,0) * 3.9s)}
 }
 @media (max-width:420px){.teams2 .tn b{font-size:17px}}
 @keyframes rowGlow{0%{opacity:0}12%{opacity:1}30%{opacity:1}45%,100%{opacity:0}}
 @keyframes rowBar{0%{transform:scaleY(0)}12%,30%{transform:scaleY(1)}45%,100%{transform:scaleY(0)}}
 html.calm .mrow.ghead::before{animation:none!important}
 html.calm .mrow.ghead .gswipe{animation:none!important;opacity:0}
+/* game log in panels: every number column centred under its heading */
+.form th:not(.l),.form td:not(.l){text-align:center!important}
+.form td .pill{margin:0 auto}
+/* interactive last-10 bars */
+.spark{height:92px!important;gap:6px!important;padding-top:20px!important}
+.spark i{position:relative;cursor:pointer;background:var(--line2);transition:filter .15s ease,transform .15s ease;outline:none}
+.spark i.hit{background:var(--over)!important}
+.spark i.miss{background:color-mix(in srgb,var(--red) 55%,var(--line2))}
+.spark i b{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);margin-bottom:3px;font-size:10.5px;font-weight:700;color:var(--ink2);font-style:normal}
+.spark i:hover,.spark i:focus-visible{filter:brightness(1.15);transform:scaleY(1.04);transform-origin:bottom}
+.spark .ln{z-index:1;pointer-events:none}
+/* Expand / Collapse: the one that's in effect lights up */
+.optbtn{position:relative;transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .15s ease}
+.optbtn.on{background:linear-gradient(180deg,#e2343f,#c71f2c)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 6px 18px -4px rgba(214,40,57,.55),inset 0 1px 0 rgba(255,255,255,.28)}
+.optbtn.on::after{content:"✓";position:absolute;top:-7px;right:-7px;width:20px;height:20px;border-radius:50%;background:#fff;color:#c71f2c;font-size:12px;font-weight:900;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:optPop .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes optPop{from{transform:scale(0)}to{transform:scale(1)}}
+.optbtn:not(.on){opacity:.85}
+.opt-state{grid-column:1/-1;font-size:12px;color:var(--muted);text-align:center;margin-top:-2px}
 </style>
 </head>
 <body>
@@ -2874,6 +2899,7 @@ function viewProps(){
     <div class="opt-btns">
       <button class="optbtn" data-expand="all"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>Expand all</button>
       <button class="optbtn" data-expand="none"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>Collapse all</button>
+      <div class="opt-state" id="optState"></div>
     </div>
   </div>
   <div id="sections"></div>
@@ -2949,6 +2975,16 @@ function cell(pl, m){
     <b class="num">${p.line}</b><small class="${p.flags.length?"":p.lean} num">${p.flags.length ? "⚠ " : ""}${p.projection.toFixed(1)}${arrow}</small></button></td>`;
 }
 
+/* last-10 bars: oldest on the left, latest on the right, the number on every bar; hover or tap a bar for that game */
+function sparkBars(p, max, withLine){
+  const log = ((PLAYER_BY_NAME.get(p.player) || {}).log || []).slice(0, p.last10.length);
+  return p.last10.map((v, i) => {
+    const g = log[i] || {}, hit = withLine && (p.side === "over" ? v > p.line : v < p.line);
+    const when = g.d ? `${new Date(g.d).toLocaleDateString("en-GB", {day: "numeric", month: "short"})} ${g.home ? "vs" : "@"} ${g.opp || ""}` : `${i + 1} game${i ? "s" : ""} ago`;
+    const tip = `${when} · ${v} ${MARKET_NAMES[p.market].toLowerCase()}${g.min ? ` in ${g.min} min` : ""}${withLine ? ` · ${hit ? "beat" : "missed"} tonight's ${sideWord(p.side).toLowerCase()} ${p.line}` : ""}`;
+    return `<i class="${withLine ? (hit ? "hit" : "miss") : ""}" tabindex="0" data-tip="${esc(tip)}" style="height:${Math.max(4, v / max * 100).toFixed(1)}%"><b class="num">${v}</b></i>`;
+  }).reverse().join("");
+}
 function formTable(pl, focus){
   const games = pl.log.slice(0, 6);
   const lineOf = m => { const p = propOf(pl.name, m); return p ? p.line : null; };
@@ -3060,6 +3096,7 @@ function renderSections(){
       <h3>No players match${state.q ? ` “${esc(state.q)}”` : ""}</h3>
       <p>Try a different name, a team (e.g. Celtics or BOS), or clear the search and filters.</p>
       <button class="btn" data-clear="1">Clear search &amp; filters</button></div>`;
+  updOpt();
 }
 
 /* ---------------- Today's update timeline (UK times — cron-job.org starts each block) ---------------- */
@@ -3156,7 +3193,7 @@ function noLineDrawerHTML(p){
       </div>
     </div>
     <div class="dsec"><div class="dt">Last ${p.last10.length} games</div>
-      <div class="spark">${p.last10.map(v => `<i title="${v}" style="height:${(v/max*100).toFixed(1)}%"></i>`).join("")}</div>
+      <div class="spark">${sparkBars(p, max, false)}</div>
       <div class="spark-x"><span>${p.last10.length} games ago</span><span></span><span>Latest</span></div>
     </div>
     <div class="dsec"><div class="dt">Last 6 games · every stat</div>${formTable(PLAYER_BY_NAME.get(p.player), p.market)}</div>
@@ -3195,7 +3232,7 @@ function drawerHTML(p){
   const diff = p.projection - p.line;
   const dCls = Math.abs(diff) < 0.05 ? "flat" : diff > 0 ? "up" : "down";
   const max = Math.max(...p.last10, ...p.h2h, p.line) * 1.12;
-  const bars = p.last10.map(v => `<i class="${(p.side==="over"? v>p.line : v<p.line)?"hit":""}" title="${v}" style="height:${(v/max*100).toFixed(1)}%"></i>`).join("");
+  const bars = sparkBars(p, max, true);
   const others = ALL.filter(x => x.player === p.player && x.id !== p.id);
   const notes = [];
   if (p.flags.length) notes.push(`<div class="pnote warn"><b>Excluded from picks:</b> ${p.flags.map(esc).join("; ")}.</div>`);
@@ -3604,7 +3641,7 @@ function render(){
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
   $("page").innerHTML = (views[state.view] || viewDashboard)() +
     `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. Prop prices are US market prices — check your bookmaker's line matches" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
-  if (state.view === "props") { renderBest(); renderSections(); bindPropsInputs(); }
+  if (state.view === "props") { renderBest(); renderSections(); bindPropsInputs(); updOpt(); }
   if (state.view === "dashboard") { tickClock(); countUp(); }
   applyClamps();
   if (state.drawer) $("drawer").innerHTML = state.drawer === "help" ? helpHTML() : drawerHTML(PROP_BY_ID.get(state.drawer));
@@ -3622,6 +3659,14 @@ function setCollapsed(id, c){
   const sec = $("game-" + id); if (!sec) return;
   sec.classList.toggle("collapsed", c);
   const h = sec.querySelector(".gsec-h"); if (h) h.setAttribute("aria-expanded", String(!c));
+  updOpt();
+}
+/* light up "Expand all" when every game is open, "Collapse all" when every game is closed */
+function updOpt(){
+  const st = $("optState"); if (!st) return;
+  const shut = GAMES.filter(g => { const e = $("game-" + g.id); return e && e.classList.contains("collapsed"); }).length, n = GAMES.length;
+  document.querySelectorAll(".optbtn").forEach(b => b.classList.toggle("on", b.dataset.expand === "all" ? shut === 0 : shut === n));
+  st.textContent = shut === 0 ? `All ${n} games open` : shut === n ? `All ${n} games closed — tap a game to open it` : `${n - shut} of ${n} games open`;
 }
 function renderStandings(){
   const el = $("standings"); if (!el) return;
