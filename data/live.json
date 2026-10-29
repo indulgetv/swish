@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T01:43:21Z"
+  "writtenAt": "2026-10-29T01:48:21Z"
  },
  "games": [
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "2:20 - 4th",
+   "status": "36.9 - 4th",
    "completed": false,
-   "awayScore": "104",
-   "homeScore": "100",
+   "awayScore": "112",
+   "homeScore": "106",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "7:08 - 4th",
+   "status": "5:01 - 4th",
    "completed": false,
-   "awayScore": "85",
-   "homeScore": "111",
+   "awayScore": "91",
+   "homeScore": "117",
    "espnLine": null
   },
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "5:21 - 3rd",
+   "status": "3:05 - 3rd",
    "completed": false,
-   "awayScore": "68",
-   "homeScore": "84",
+   "awayScore": "77",
+   "homeScore": "89",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "4:18 - 3rd",
+   "status": "2:54 - 3rd",
    "completed": false,
-   "awayScore": "78",
-   "homeScore": "61",
+   "awayScore": "87",
+   "homeScore": "64",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "7:07 - 3rd",
+   "status": "5:44 - 3rd",
    "completed": false,
-   "awayScore": "73",
-   "homeScore": "53",
+   "awayScore": "78",
+   "homeScore": "57",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "3:26 - 3rd",
+   "status": "59.0 - 3rd",
    "completed": false,
-   "awayScore": "77",
-   "homeScore": "63",
+   "awayScore": "79",
+   "homeScore": "73",
    "espnLine": null
   },
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "10:52 - 2nd",
+   "status": "8:59 - 2nd",
    "completed": false,
-   "awayScore": "24",
-   "homeScore": "32",
+   "awayScore": "27",
+   "homeScore": "36",
    "espnLine": null
   },
   {
@@ -133,16 +133,12 @@
    "away": "OKC",
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
-   "state": "pre",
-   "status": "10/28 - 9:30 PM EDT",
+   "state": "in",
+   "status": "11:34 - 1st",
    "completed": false,
    "awayScore": "0",
    "homeScore": "0",
-   "espnLine": {
-    "details": "OKC -5.5",
-    "overUnder": 228.5,
-    "provider": "DraftKings"
-   }
+   "espnLine": null
   },
   {
    "id": "401909892",
@@ -156,7 +152,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "LAC -1.5",
-    "overUnder": 224.5,
+    "overUnder": 225.5,
     "provider": "DraftKings"
    }
   }
@@ -358780,7 +358776,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T01:43:20Z",
+   "fetchedAt": "2026-10-29T01:48:20Z",
    "ok": true,
    "count": 12
   },
@@ -358791,7 +358787,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T01:43:20Z",
+   "fetchedAt": "2026-10-29T01:48:21Z",
    "ok": true,
    "count": 88
   },
@@ -358819,10 +358815,10 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T01:43:20Z",
+   "fetchedAt": "2026-10-29T01:48:21Z",
    "ok": true,
    "nba": "ok: 4 team lineups posted",
-   "espn": "0 team starting fives from box scores"
+   "espn": "2 team starting fives from box scores"
   }
  },
  "lineups": {
@@ -359290,56 +359286,46 @@
    "away": {
     "starters": [
      {
-      "name": "Jared McCain",
-      "pos": "SG"
+      "name": "Isaiah Hartenstein"
      },
      {
-      "name": "Ajay Mitchell",
-      "pos": "SF"
+      "name": "Kenrich Williams"
      },
      {
-      "name": "Shai Gilgeous-Alexander",
-      "pos": "PG"
+      "name": "Shai Gilgeous-Alexander"
      },
      {
-      "name": "Kenrich Williams",
-      "pos": "PF"
+      "name": "Jared McCain"
      },
      {
-      "name": "Isaiah Hartenstein",
-      "pos": "C"
+      "name": "Ajay Mitchell"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:43:20Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T01:48:21Z"
    },
    "home": {
     "starters": [
      {
-      "name": "Max Christie",
-      "pos": "SG"
+      "name": "Daniel Gafford"
      },
      {
-      "name": "Cooper Flagg",
-      "pos": "SF"
+      "name": "P.J. Washington"
      },
      {
-      "name": "Kyrie Irving",
-      "pos": "PG"
+      "name": "Cooper Flagg"
      },
      {
-      "name": "P.J. Washington",
-      "pos": "PF"
+      "name": "Kyrie Irving"
      },
      {
-      "name": "Daniel Gafford",
-      "pos": "C"
+      "name": "Max Christie"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:43:20Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T01:48:21Z"
    }
   },
   "401909892": {
@@ -359368,7 +359354,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:43:20Z"
+    "fetchedAt": "2026-10-29T01:48:20Z"
    },
    "home": {
     "starters": [
@@ -359395,7 +359381,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:43:20Z"
+    "fetchedAt": "2026-10-29T01:48:20Z"
    }
   }
  }
