@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T02:08:25Z"
+  "writtenAt": "2026-10-29T02:13:21Z"
  },
  "games": [
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "9:55 - 4th",
+   "status": "7:04 - 4th",
    "completed": false,
-   "awayScore": "98",
-   "homeScore": "99",
+   "awayScore": "107",
+   "homeScore": "109",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "7:28 - 4th",
+   "status": "6:41 - 4th",
    "completed": false,
-   "awayScore": "102",
-   "homeScore": "82",
+   "awayScore": "105",
+   "homeScore": "84",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "0.0 - 4th",
+   "status": "9:04 - 4th",
    "completed": false,
-   "awayScore": "95",
-   "homeScore": "81",
+   "awayScore": "100",
+   "homeScore": "87",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "5:08 - 4th",
+   "status": "3:00 - 4th",
    "completed": false,
-   "awayScore": "93",
-   "homeScore": "83",
+   "awayScore": "99",
+   "homeScore": "87",
    "espnLine": null
   },
   {
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "1:56 - 1st",
+   "status": "End of 1st",
    "completed": false,
-   "awayScore": "28",
-   "homeScore": "25",
+   "awayScore": "30",
+   "homeScore": "33",
    "espnLine": null
   },
   {
@@ -358765,7 +358765,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T02:08:20Z",
+   "fetchedAt": "2026-10-29T02:13:20Z",
    "ok": true,
    "count": 12
   },
@@ -358776,7 +358776,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T02:08:21Z",
+   "fetchedAt": "2026-10-29T02:13:21Z",
    "ok": true,
    "count": 87
   },
@@ -358804,7 +358804,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T02:08:20Z",
+   "fetchedAt": "2026-10-29T02:13:20Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359333,7 +359333,7 @@
       "pos": "PG"
      },
      {
-      "name": "Sandro Mamukelashvili",
+      "name": "Jake LaRavia",
       "pos": "PF"
      },
      {
@@ -359341,9 +359341,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:08:20Z"
+    "fetchedAt": "2026-10-29T02:13:20Z"
    },
    "home": {
     "starters": [
@@ -359368,9 +359368,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:08:20Z"
+    "fetchedAt": "2026-10-29T02:13:20Z"
    }
   }
  }
