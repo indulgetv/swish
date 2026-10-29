@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T04:38:21Z"
+  "writtenAt": "2026-10-29T04:43:21Z"
  },
  "games": [
   {
@@ -1039,11 +1039,11 @@
    "team": "MIA",
    "player": "Simone Fontecchio",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Illness",
    "comment": "Fontecchio (illness) is out for Wednesday's game against the Hawks.",
-   "updated": "2026-10-28T15:04Z",
+   "updated": "2026-10-29T04:32Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -1446,11 +1446,11 @@
    "team": "WAS",
    "player": "Tre Johnson",
    "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Right Achilles Soreness",
    "comment": "Johnson has been ruled out for Wednesday's game against the Cavaliers due to right Achilles soreness.",
-   "updated": "2026-10-28T22:28Z",
+   "updated": "2026-10-29T04:33Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -346486,19 +346486,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T04:38:21Z",
+   "fetchedAt": "2026-10-29T04:43:20Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T04:38:20Z",
+   "fetchedAt": "2026-10-29T04:43:20Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T04:38:20Z",
+   "fetchedAt": "2026-10-29T04:43:20Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
