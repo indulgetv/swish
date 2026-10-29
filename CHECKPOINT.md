@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -64,7 +64,15 @@ _Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into
    `POST /repos/indulgetv/swish/actions/workflows/live-loop.yml/dispatches` with body {"ref":"main"}
    at ~13:50 and ~19:50 UK daily (each loop runs 5.8h), plus ~07:05 for the morning full run. Needs a fine-grained
    GitHub token (this repo only, Actions: read & write) stored in the pinger. Walk the user through it step by step.
-2. Check the 28 Oct picks were graded (Results page / data/picks/2026-10-28.json "result" fields).
+2. ~~Check the 28 Oct picks were graded~~ DONE 29 Oct: 350/356 graded (6 pending = Gui Santos & Markkanen, not in
+   box score → void on next full run). Strong 8-11 (−£31.71), all 182-168 (−£103 at £10). Brier: market 0.2497,
+   SWISH 0.2514, model-only 0.2661 → model alone is worse than the market; 0.60–0.65 bucket predicted 62%, hit 48%.
+   Strong losses were mostly minutes/role changes (Rollins 17 min, Reed 38, Kuminga, Shannon, Dosunmu).
+   Model leans under on REB (79/47) & AST (50/39) but results went over 53%/51%. `scripts/review.py` prints all this.
+   Today's ideas, in order: (a) projection = per-minute rate × expected minutes, current-season minutes weighted
+   heavier; (b) cap SWISH chance / shrink edges until calibrated; (c) check the REB/AST under-lean (NB skew at .5
+   lines); (d) no "strong" tag on players whose minutes changed a lot vs last season. One night = noise; don't
+   change MODEL_WEIGHT yet.
 3. Line movement (closing line value): a second, small odds fetch ~30 min before tip-off — budget the credits.
 4. Minutes/role model: raise teammates' projections when a starter is confirmed out (use the lineups data).
 5. Add STL / BLK / TOV columns (data already collected).
