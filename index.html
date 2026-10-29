@@ -91,6 +91,7 @@ details.optprice summary:hover{color:var(--ink)}
 .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 h1.title{font:700 42px/1.02 var(--display);letter-spacing:.005em;margin-top:6px}
 .lede{color:var(--ink2);margin-top:6px;font-size:15px}
+.lede-wait{color:var(--ink3,var(--ink2));opacity:.8;white-space:nowrap}
 h2.h{font:700 22px/1.1 var(--display);letter-spacing:.01em}
 .sub{color:var(--muted);font-size:13px}
 .notice{margin:20px 0 24px;padding:12px 16px;border-radius:var(--r-sm);background:var(--white);border:1px solid var(--line);border-left:3px solid var(--red);font-size:13px;color:var(--ink2)}
@@ -2211,6 +2212,16 @@ const LIVE = window.SWISH_LIVE || null;
 const ET_TODAY = new Date().toLocaleDateString("en-CA", {timeZone: "America/New_York"});
 const LIVE_AGE_H = LIVE && LIVE.meta && LIVE.meta.writtenAt ? (Date.now() - new Date(LIVE.meta.writtenAt)) / 3.6e6 : Infinity;
 const IS_LIVE = !!(LIVE && Array.isArray(LIVE.games) && LIVE.games.length && LIVE_AGE_H < 36);
+// Header note while no prop has a price yet. Same windows as update.py's odds jobs and the Home timeline.
+function pricesDueTxt() {
+  const ukOf = d => new Date(new Date(d).toLocaleString("en-US", {timeZone: "Europe/London"}));
+  const n = ukOf(Date.now()), m = n.getHours() * 60 + n.getMinutes();
+  const early = (typeof GAMES !== "undefined" ? GAMES : []).some(g => { const h = ukOf(g.tipoff).getHours(); return h < 21 && h > 9; });
+  if (early && m < 14 * 60 + 30) return "prices due 14:30";
+  if (m < 21 * 60) return "prices due 21:00";
+  if (m < 22 * 60 + 30) return "prices coming in";
+  return "no prices yet";
+}
 const LIVE_NOTE = !LIVE ? "No live data file found — showing the sample slate."
   : !(LIVE.games || []).length ? "No NBA games on the latest live slate — showing the sample slate."
   : LIVE_AGE_H >= 36 ? "Live data is more than 36 hours old — showing the sample slate until it refreshes." : "";
@@ -2875,7 +2886,7 @@ function viewDashboard(){
     <div class="hero-main">
       <div class="eyebrow"><span class="live-dot"></span>${today.toLocaleDateString([], {weekday:"long"})} · ${DATA.meta.slateLabel}</div>
       <h1 class="datehead" aria-label="${today.toLocaleDateString([], {day:"numeric", month:"long", year:"numeric"})}"><span class="dh-day num">${today.getDate()}</span><span class="dh-rest"><span class="dh-month">${today.toLocaleDateString([], {month:"long"})}</span><span class="dh-year num">${today.getFullYear()}</span></span></h1>
-      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.length} props · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
+      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.length} props${IS_LIVE && !ALL.length ? ` <span class="lede-wait">(${pricesDueTxt()})</span>` : ""} · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
       <div class="looks" aria-label="Tonight's top looks">
         ${ALL.some(x => !x.flags.length) ? `<span class="lk-lbl">Top look per game</span>` : ""}
         <div class="lk-row clamp-m" data-clamp="looks">${GAMES.map((g, k) => { const p = ALL.filter(x => x.game === g.id && !x.flags.length).sort((a,b) => b.ev - a.ev)[0]; if (!p) return "";
