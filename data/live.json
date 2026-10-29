@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-29",
-  "mode": "light",
+  "mode": "full",
   "errors": [],
-  "lastFullAt": "2026-10-29T16:14:54Z",
+  "lastFullAt": "2026-10-29T21:37:42Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T21:35:34Z"
+  "writtenAt": "2026-10-29T21:38:47Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "ATL -1.5",
     "overUnder": 237.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -37,7 +37,7 @@
    "espnLine": {
     "details": "NO -6.5",
     "overUnder": 235.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -53,7 +53,7 @@
    "espnLine": {
     "details": "POR -7.5",
     "overUnder": 233.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   }
  ],
@@ -1303,7 +1303,7 @@
    "detail": "Left Knee Soreness",
    "comment": "Walker (knee) has been ruled out for Wednesday's game against the Pacers.",
    "updated": "2026-10-29T04:33Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-31"
   },
   {
    "team": "PHI",
@@ -83903,38 +83903,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-29T16:14:55Z",
+   "fetchedAt": "2026-10-29T21:37:43Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T21:35:34Z",
+   "fetchedAt": "2026-10-29T21:37:43Z",
    "ok": true,
    "count": 93
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T21:35:34Z",
+   "fetchedAt": "2026-10-29T21:37:42Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T21:35:34Z",
+   "fetchedAt": "2026-10-29T21:37:43Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-29T16:16:00Z",
+   "fetchedAt": "2026-10-29T21:38:44Z",
    "ok": true,
    "count": 96,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-29T16:16:02Z",
+   "fetchedAt": "2026-10-29T21:38:47Z",
    "ok": true
   },
   "odds": {
@@ -83992,7 +83992,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:35:34Z"
+    "fetchedAt": "2026-10-29T21:37:43Z"
    },
    "home": {
     "starters": [
@@ -84019,7 +84019,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:35:34Z"
+    "fetchedAt": "2026-10-29T21:37:43Z"
    }
   },
   "401909894": {
@@ -84048,7 +84048,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:35:34Z"
+    "fetchedAt": "2026-10-29T21:37:43Z"
    },
    "home": {
     "starters": [
@@ -84075,7 +84075,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:35:34Z"
+    "fetchedAt": "2026-10-29T21:37:43Z"
    }
   },
   "401909895": {
@@ -84104,7 +84104,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:35:34Z"
+    "fetchedAt": "2026-10-29T21:37:43Z"
    },
    "home": {
     "starters": [
@@ -84131,7 +84131,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T21:35:34Z"
+    "fetchedAt": "2026-10-29T21:37:43Z"
    }
   }
  }
