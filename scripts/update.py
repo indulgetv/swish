@@ -129,6 +129,50 @@ def section(source: str, ok: bool, **extra) -> dict:
 
 
 # ----------------------------------------------------------------------------- ESPN: schedule
+NBA_HDR = {"User-Agent": UA["User-Agent"], "Accept": "application/json", "Referer": "https://www.nba.com/", "Origin": "https://www.nba.com"}
+
+
+def fetch_nba_lineups(day: datetime) -> dict:
+    """NBA.com's daily lineups file (the data behind nba.com/players/todays-lineups).
+    Returns {TEAM: {"starters": [{name, pos}], "status": "confirmed"|"expected"}}. Experimental: may be blocked."""
+    url = f"https://stats.nba.com/js/data/leaders/00_daily_lineups_{day.strftime('%Y%m%d')}.json"
+    req = urllib.request.Request(url, headers=NBA_HDR)
+    with urllib.request.urlopen(req, timeout=20) as r:
+        data = json.loads(r.read().decode("utf-8"))
+    out = {}
+    for g in data.get("games", []):
+        for side in ("homeTeam", "awayTeam"):
+            t = g.get(side) or {}
+            ab = fix_abbr(t.get("teamAbbreviation") or t.get("teamTricode"))
+            starters, statuses = [], []
+            for pl in t.get("players", []):
+                pos = (pl.get("position") or "").strip()
+                if not pos:                                 # bench players have no starting position
+                    continue
+                name = pl.get("playerName") or f"{pl.get('firstName', '')} {pl.get('lastName', '')}".strip()
+                starters.append({"name": name, "pos": pos})
+                statuses.append((pl.get("lineupStatus") or "").lower())
+            if ab and starters:
+                out[ab] = {"starters": starters[:5], "status": "confirmed" if statuses and all(s == "confirmed" for s in statuses) else "expected"}
+    return out
+
+
+def fetch_espn_starters(game_id: str) -> dict:
+    """Starting fives from ESPN's box score (available once the game has started)."""
+    data, _ = get_json(f"{ESPN_SITE}/summary", {"event": game_id})
+    out = {}
+    for team in ((data.get("boxscore") or {}).get("players") or []):
+        ab = fix_abbr((team.get("team") or {}).get("abbreviation"))
+        names = []
+        for grp in team.get("statistics") or []:
+            for a in grp.get("athletes") or []:
+                if a.get("starter"):
+                    names.append((a.get("athlete") or {}).get("displayName"))
+        if ab and names:
+            out[ab] = [n for n in names if n][:5]
+    return out
+
+
 def fetch_scoreboard(day: datetime):
     data, _ = get_json(f"{ESPN_SITE}/scoreboard", {"dates": day.strftime("%Y%m%d")})
     season_year = (data.get("season") or {}).get("year")
@@ -424,11 +468,11 @@ def main() -> int:
     day = slate_date(args.date)
     prev = load_previous()
     d = {"meta": {"slateDate": day.strftime("%Y-%m-%d"), "mode": args.mode, "errors": []}}
-    for k in ("games", "teams", "standings", "injuries", "players", "h2h", "props", "gameLines", "sections"):
-        d[k] = prev.get(k, {} if k in ("teams", "standings", "h2h", "sections") else [])
+    for k in ("games", "teams", "standings", "injuries", "players", "h2h", "props", "gameLines", "sections", "lineups"):
+        d[k] = prev.get(k, {} if k in ("teams", "standings", "h2h", "sections", "lineups") else [])
     # A new slate day invalidates the previous day's games / props
     if prev.get("meta", {}).get("slateDate") != d["meta"]["slateDate"]:
-        d["games"], d["props"], d["gameLines"], d["h2h"] = [], [], [], {}
+        d["games"], d["props"], d["gameLines"], d["h2h"], d["lineups"] = [], [], [], {}, {}
         d["sections"] = {k: v for k, v in d["sections"].items() if k in ("standings", "injuries")}
     errs = d["meta"]["errors"]
 
@@ -458,6 +502,45 @@ def main() -> int:
             log("standings: ok")
         except Exception as e:
             errs.append(f"standings: {e}"); log(f"standings FAILED: {e}")
+
+    # ---- lineups (full + light): NBA.com pre-game list (experimental) + ESPN starters once a game starts
+    if args.mode in ("full", "light") and d["games"]:
+        lu = d.setdefault("lineups", {})
+        info = {}
+        if any(g.get("state") == "pre" for g in d["games"]):
+            try:
+                nba = fetch_nba_lineups(day)
+                n_posted = 0
+                for g in d["games"]:
+                    for side in ("away", "home"):
+                        t = nba.get(g[side])
+                        cur = (lu.get(g["id"]) or {}).get(side) or {}
+                        if t and t["starters"] and cur.get("status") != "started":
+                            lu.setdefault(g["id"], {})[side] = {**t, "source": "NBA.com", "fetchedAt": now_iso()}
+                            n_posted += 1
+                info["nba"] = f"ok: {n_posted} team lineups posted"
+                log(f"lineups: NBA.com ok, {n_posted} team lineups posted")
+            except Exception as e:
+                info["nba"] = f"failed: {e}"
+                log(f"lineups: NBA.com not available ({e})")
+        started = 0
+        for g in d["games"]:
+            have = lu.get(g["id"]) or {}
+            if g.get("state") in ("in", "post") and not all((have.get(s) or {}).get("status") == "started" for s in ("away", "home")):
+                try:
+                    st = fetch_espn_starters(g["id"])
+                    for side in ("away", "home"):
+                        names = st.get(g[side]) or []
+                        if names:
+                            lu.setdefault(g["id"], {})[side] = {"starters": [{"name": n} for n in names], "status": "started",
+                                                                "source": "ESPN box score", "fetchedAt": now_iso()}
+                            started += 1
+                except Exception as e:
+                    errs.append(f"starters {g['id']}: {e}")
+        info["espn"] = f"{started} team starting fives from box scores"
+        if started:
+            log(f"lineups: {started} starting fives from ESPN box scores")
+        d["sections"]["lineups"] = section("NBA.com daily lineups (experimental) + ESPN box scores", True, **info)
 
     # ---- injuries (full + light)
     if args.mode in ("full", "light"):

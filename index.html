@@ -1590,6 +1590,26 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 @media (max-width:640px){.calbar{width:70px}.rt th,.rt td{padding:8px 8px}}
 .rt td{white-space:nowrap}.rt td.l{white-space:normal}
 .cols .rt{font-size:12.5px}
+
+/* ================= Live scores + lineups ================= */
+.tag.score{font-weight:700;background:var(--surface2)}
+.tag.score.live{color:var(--red);background:var(--red-soft);border-color:var(--red-line)}
+.tag.score.live i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:2px;animation:newsPulse 1.6s ease-in-out infinite}
+.tag.score.final{color:var(--ink2)}
+.mscore{font:700 19px/1 var(--display)}
+.mscore.live{color:var(--red)}
+.sg .t.live{color:var(--red);font-weight:700}
+.lu{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;background:var(--surface2)!important;border-bottom:1px solid var(--line)}
+.lu-t{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px}
+.lu-t > b{font-weight:700}
+.lu-p{flex-basis:100%;color:var(--ink2);line-height:1.5}
+.lu-p small{color:var(--faint);font-size:10.5px}
+.lu-none{color:var(--muted);font-size:12px}
+.lu-src{flex-basis:100%;color:var(--faint);font-size:11px}
+.lu-st,.lu-chip{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:1px 7px;border-radius:99px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line)}
+.lu-st.confirmed,.lu-st.started,.lu-chip.confirmed,.lu-chip.started{background:rgba(31,138,76,.1);color:var(--over);border-color:rgba(31,138,76,.3)}
+.lu-chip{margin-left:4px;font-size:9px;padding:0 5px}
+@media (max-width:760px){.lu{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1818,7 +1838,11 @@ if (IS_LIVE){
     if (sa && sh) notes.push(`${T[g.away].name} are ${sa.w}-${sa.l} (${sa.conf} #${sa.rank}); ${T[g.home].name} are ${sh.w}-${sh.l} (${sh.conf} #${sh.rank}).`);
     if (h2h.length) { const w = h2h.filter(m => (m.hp > m.ap ? m.home : m.away) === g.home).length; notes.push(`${T[g.home].name} have won ${w} of the last ${h2h.length} meetings.`); }
     const status = g.state === "pre" ? "Scheduled" : g.state === "in" ? `Live · ${g.status || ""}` : (g.status || "Final");
-    return {id: g.id, away: g.away, home: g.home, tipoff: g.tipoff, status, state: g.state, lineups: g.state === "pre" ? "Unconfirmed" : "Set",
+    const LU = (LIVE.lineups || {})[g.id] || {};
+    const luSt = ["away","home"].map(s => (LU[s] || {}).status);
+    const lineupWord = luSt.every(x => x === "started") ? "Confirmed" : luSt.every(x => x === "confirmed" || x === "started") ? "Confirmed"
+      : luSt.some(Boolean) ? "Expected" : g.state === "pre" ? "Not posted yet" : "Not available";
+    return {id: g.id, away: g.away, home: g.home, tipoff: g.tipoff, status, state: g.state, lineups: lineupWord, lineupData: LU, awayScore: g.awayScore, homeScore: g.homeScore, clock: g.status,
             total, spread, lineSource, h2h, notes: notes.length ? notes : ["No notable injuries or trends flagged yet."],
             score: g.state !== "pre" ? `${g.awayScore ?? "–"}–${g.homeScore ?? "–"}` : null};
   });
@@ -2059,6 +2083,25 @@ const injuriesFor = t => DATA.injuries.filter(i => i.team === t);
 const gameInjuries = g => [...injuriesFor(g.away), ...injuriesFor(g.home)];
 const significant = i => i.status !== "Probable";
 
+/* ---- live scores + lineups ---- */
+const scoresAt = () => IS_LIVE ? ((LIVE.sections || {}).games || {}).fetchedAt : null;
+function scoreTag(g, cls = "tag"){
+  if (!g.state || g.state === "pre") return "";
+  const live = g.state === "in";
+  return `<span class="${cls} score ${live ? "live" : "final"}" title="Score updated ${agoTxt(scoresAt())} — checks every 20 minutes">${live ? `<i></i>LIVE ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? ` · ${esc(g.clock)}` : ""}</span>`;
+}
+const starterSet = () => { const s = new Map(); DATA.games.forEach(g => ["away","home"].forEach(side => { const t = (g.lineupData || {})[side]; (t && t.starters || []).forEach(p => s.set(normName(p.name), t.status)); })); return s; };
+const STARTERS = IS_LIVE ? starterSet() : new Map();
+function lineupBlock(g){
+  const LU = g.lineupData || {};
+  const team = side => { const t = LU[side];
+    if (!t || !t.starters || !t.starters.length) return `<div class="lu-t">${tid(g[side],"sm")}<b>${team_(g[side])}</b><span class="lu-none">${g.state === "pre" ? "not posted yet" : "not available"}</span></div>`;
+    const lbl = t.status === "started" ? "started" : t.status === "confirmed" ? "confirmed" : "expected";
+    return `<div class="lu-t">${tid(g[side],"sm")}<b>${team_(g[side])}</b><span class="lu-st ${lbl}">${lbl}</span><span class="lu-p">${t.starters.map(p => esc(p.name) + (p.pos ? ` <small>${esc(p.pos)}</small>` : "")).join(" · ")}</span><small class="lu-src">${esc(t.source || "")} · ${agoTxt(t.fetchedAt)}</small></div>`; };
+  return `<div class="lineup lu">${team("away")}${team("home")}</div>`;
+}
+const team_ = t => team(t).name;
+
 /* ---- injury news timing ---- */
 const NEW_NEWS_H = 6;                                    // "NEW" = posted in the last 6 hours
 const newsAgeH = i => i.updated ? (Date.now() - new Date(i.updated)) / 3.6e6 : Infinity;
@@ -2293,7 +2336,7 @@ function viewDashboard(){
       <div class="clamp-m" data-clamp="home-games">${GAMES.map(g => {
         const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
         return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
-          <div class="t num">${timeFmt(g.tipoff)}<small>${esc(g.status)}</small></div>
+          <div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : timeFmt(g.tipoff)}<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small></div>
           <div><div class="ti">${tid(g.away,"sm")}${tname(g.away)}</div><div class="ti">${tid(g.home,"sm")}${tname(g.home)} <small>home</small></div></div>
           <div class="meta"><b class="num">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
           <span class="arrow">→</span></button>`;}).join("")}</div>
@@ -2368,12 +2411,13 @@ function visiblePlayers(teamCode){
 }
 
 function playerSub(pl){
+  const stx = STARTERS.get(normName(pl.name)); const st = stx ? ` <span class="lu-chip ${stx}">${stx === "expected" ? "exp. starter" : "starter"}</span>` : "";
   if (pl.status === "Out") return `<small class="warn">${stPill("Out")}</small>`;
   if (pl.status === "Questionable" || pl.status === "Doubtful") return `<small class="warn">⚠ ${esc(pl.status)} · ${esc(injuryOf(pl.name).detail)}</small>`;
   if (pl.boost) return `<small class="boost">${pl.pos} · ↑ ${pl.min}→${pl.projMin} min (${esc(pl.boost.dependsOn)} out)</small>`;
   if (pl.scenario) return `<small class="warn">${pl.pos} · ${pl.min}→${pl.scenario.minIf} min if ${esc(pl.scenario.dependsOn)} sits</small>`;
-  if (pl.status === "Probable") return `<small>${pl.pos} · probable</small>`;
-  return `<small>${pl.pos}</small>`;
+  if (pl.status === "Probable") return `<small>${pl.pos} · probable${st}</small>`;
+  return `<small>${pl.pos}${st}</small>`;
 }
 
 function cell(pl, m){
@@ -2473,7 +2517,7 @@ function gameSection(g){
         <div class="tm">${tid(g.home)}<div><b>${team(g.home).name}</b><small>${team(g.home).city}</small></div></div>
       </div>
       <div class="gtags">
-        <span class="tag num">${timeFmt(g.tipoff)} · ${esc(g.status)}</span>
+        ${scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)} · ${esc(g.status)}</span>`}
         <span class="tag num">Total ${g.total} · ${g.spread}</span>
         <span class="tag amber">Lineups ${esc(g.lineups.toLowerCase())}</span>
         ${inj.length ? `<span class="tag red">${inj.map(i => `${esc(i.player.split(" ")[1])} ${esc(i.status.toLowerCase())}`).join(" · ")}</span>` : ""}
@@ -2767,7 +2811,7 @@ function gameAnalysis(g){
         <div class="tm">${tid(g.home,"lg")}<div><b>${H.name}</b><small>${H.city} · home</small></div></div>
       </div>
       <div class="right">
-        <span class="tag num">${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
+        ${scoreTag(g)}<span class="tag num">${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
         ${inj.length ? `<button class="tag red" data-nav="injuries">${inj.length} injury concern${inj.length>1?"s":""}</button>` : ""}
         <button class="btn red" data-goto="${g.id}">View squads &amp; props →</button>
       </div>
@@ -2811,7 +2855,7 @@ function viewInjuries(){
   <h1 class="title">Injuries &amp; Lineups</h1>
   <p class="lede">Who is out or uncertain, and who could absorb their minutes before lineups are confirmed.</p>
   </header>
-  ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Injury statuses from ESPN's injury feed, updated ${agoTxt(((LIVE.sections || {}).injuries || {}).fetchedAt)}. "Day-to-day" is shown as questionable. Starting lineups are only confirmed shortly before tip-off — fill-in estimates aren't automated yet.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
+  ${IS_LIVE ? `<div class="notice live"><b>Live data.</b> Injury statuses from ESPN's injury feed, updated ${agoTxt(((LIVE.sections || {}).injuries || {}).fetchedAt)}. "Day-to-day" is shown as questionable. Lineups: NBA.com's pre-game list when it's reachable (experimental), otherwise ESPN's starting fives once a game starts. Fill-in minutes aren't automated yet.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
@@ -2849,8 +2893,9 @@ function injuryCard(g){
   <section class="ij">
     <div class="ij-h ghead" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
       <div class="matchup"><div class="tm">${tid(g.away)}<div><b>${team(g.away).name}</b><small>${team(g.away).city}</small></div></div><span class="at">@</span><div class="tm">${tid(g.home)}<div><b>${team(g.home).name}</b><small>${team(g.home).city}</small></div></div></div>
-      <div class="right"><span class="tag num">${timeFmt(g.tipoff)}</span><button class="btn" data-goto="${g.id}">View squads →</button></div>
+      <div class="right">${scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)}</span>`}<button class="btn" data-goto="${g.id}">View squads →</button></div>
     </div>
+    ${IS_LIVE ? lineupBlock(g) : ""}
     <div class="lineup"><b>Lineups ${esc(g.lineups.toLowerCase())}.</b> Projections that depend on an uncertain player are flagged and kept out of picks until status is confirmed.</div>
     <div class="ij-b">${col(g.away)}${col(g.home)}</div>
   </section></div>`;
@@ -2962,7 +3007,7 @@ function render(){
   np.innerHTML = `<i></i><b class="num">${nn}</b><span class="nl"> injury update${nn === 1 ? "" : "s"} · last ${NEW_NEWS_H}h</span><span class="ns"> injury news</span>`;
   np.title = `Injury list checked ${agoTxt(injCheckedAt())}`;
   renderStandings();
-  $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num">${timeFmt(g.tipoff)}</span></button>`).join("");
+  $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span></button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
   $("page").innerHTML = (views[state.view] || viewDashboard)() +
     `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. Prop prices are US market prices — check your bookmaker's line matches" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;

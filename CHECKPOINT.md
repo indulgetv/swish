@@ -55,7 +55,8 @@ _Last updated: 2026-10-28 by Claude._ Paste the line in **"How to resume"** into
    Line movement needs a second odds fetch near tip-off (e.g. ~23:30 UK, points only) — decide on credits.
 2. Minutes/role model: adjust projections when a teammate is confirmed out (fill-ins are not automated yet).
 3. Add STL / BLK / TOV columns (data already collected; Odds API has fewer lines for these).
-4. Later: confirmed starting lineups near tip-off; paid Odds API plan if more markets per game are wanted.
+4. Lineups: NBA.com daily lineups (experimental, `fetch_nba_lineups`) + ESPN box-score starters once a game starts (`fetch_espn_starters`), stored in live.json `lineups`. If NBA.com is blocked from GitHub, the only pre-tip option is a paid feed. Live scores shown site-wide (20-min refresh).
+5. Later: paid Odds API plan if more markets per game are wanted.
 
 ## How to resume
 > "Continue SWISH from CHECKPOINT.md in indulgetv/swish — start at the first unfinished next step."
