@@ -2108,7 +2108,7 @@ if (IS_LIVE){
 
   const onSlate = new Set(games.flatMap(g => [g.away, g.home]));
   const inj = (LIVE.injuries || []).filter(i => onSlate.has(i.team)).map(i => ({team: i.team, player: i.player, pos: i.pos || "", status: i.status || "Unknown",
-    detail: i.detail || i.comment || i.rawStatus || "", updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
+    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
 
   Object.assign(DATA, {
     meta: {source: "LIVE", isLive: true, slateLabel: LIVE.meta.slateDate === ET_TODAY ? "Tonight's slate" : `Slate of ${new Date(LIVE.meta.slateDate + "T12:00:00").toLocaleDateString([], {day:"numeric", month:"short"})}`,
@@ -3313,7 +3313,9 @@ function viewInjuries(){
   <h1 class="title">Injuries &amp; Lineups</h1>
   <p class="lede">Who's out or doubtful, and who should pick up their minutes.</p>
   </header>
-  ${IS_LIVE ? `<div class="notice live"><b>Where this comes from.</b> Player statuses come from ESPN's injury report, last checked ${(((LIVE.sections || {}).injuries || {}).fetchedAt) ? timeFmt(LIVE.sections.injuries.fetchedAt) : "—"}. When ESPN lists a player as <i>day-to-day</i> (a minor knock, decided game by game), SWISH shows him as Questionable.
+  ${IS_LIVE ? `<div class="notice live"><b>Where this comes from.</b> Player statuses come from ESPN's injury report, last checked ${(((LIVE.sections || {}).injuries || {}).fetchedAt) ? timeFmt(LIVE.sections.injuries.fetchedAt) : "—"}. ${(() => { const dtd = DATA.injuries.filter(i => /day.?to.?day/i.test(i.raw || "")); return dtd.length
+      ? `ESPN lists ${dtd.map(i => `<b>${esc(i.player)}</b> (${i.team})`).join(", ")} as <i>day-to-day</i> — a minor knock, decided game by game — so SWISH shows ${dtd.length === 1 ? "him" : "them"} as Questionable.`
+      : `Nobody on tonight's teams is listed day-to-day.`; })()}
     Starting lineups appear once NBA.com posts them (usually a few hours before tip-off); before that, starters are marked "expected".
     <br><b>How it affects projections.</b> A player marked Out gets no projections. If his team is then short of a normal game's minutes, SWISH shares the gap among his teammates, mostly bench and role players, up to +6 minutes each. Long-term injuries are already reflected in recent games, so they don't add extra minutes. Players marked Questionable or Doubtful are flagged, not boosted, until they're ruled out.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
@@ -3342,7 +3344,7 @@ function injuryCard(g){
         return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""} ${isJustIn(i) ? "justin" : ""}">
           ${isJustIn(i) ? `<div class="justin-tag"><i></i>Just in · ${minsAgo(i)}</div>` : ""}
           <div class="inj-top">${jerseyAv(i.player, i.team)}<div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
-          <div class="inj-meta">${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
+          <div class="inj-meta">${/day.?to.?day/i.test(i.raw || "") ? `<span class="ntime">ESPN: day-to-day</span> ` : ""}${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
             ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
             ${affected.length ? `<div class="affects">${affected.map(p => `<button data-prop="${p.id}">${esc(p.player)} · ${MARKET_NAMES[p.market]} ${p.line}</button>`).join("")}</div>` : ""}
