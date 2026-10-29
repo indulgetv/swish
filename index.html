@@ -1745,8 +1745,8 @@ html.dark .tipbox{background:#f2f3f5;color:#15171b}
 html.calm .brand.wave .wordmark i{animation:none!important}
 /* ---- bottom menu (phones & tablets): tight shadow that never runs off the screen edge, glass dividers ---- */
 @media (max-width:960px){
-  .nav{box-shadow:0 6px 18px -6px rgba(18,20,23,.22),0 1px 3px rgba(18,20,23,.08),inset 0 1px 0 #fff,inset 0 -14px 24px -18px rgba(214,40,57,.30)!important}
-  html.dark .nav{box-shadow:0 6px 18px -6px rgba(0,0,0,.7),0 0 0 1px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.10),inset 0 -14px 26px -16px rgba(239,59,72,.40)!important}
+  .nav{box-shadow:0 6px 18px -6px rgba(18,20,23,.22),0 1px 3px rgba(18,20,23,.08),inset 0 1px 0 #fff,inset 0 -10px 20px -16px rgba(214,40,57,.08)!important}
+  html.dark .nav{box-shadow:0 6px 18px -6px rgba(0,0,0,.7),0 0 0 1px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.10),inset 0 -10px 22px -16px rgba(239,59,72,.14)!important}
   .nav{max-width:620px;margin:0 auto!important}
   .side{padding-top:max(10px,env(safe-area-inset-top))!important;padding-left:max(16px,env(safe-area-inset-left))!important;padding-right:max(16px,env(safe-area-inset-right))!important}
   .page{padding-bottom:calc(110px + env(safe-area-inset-bottom))!important}
@@ -1854,6 +1854,11 @@ html.calm .injc.justin,html.calm .justin-tag i{animation:none}
   #bestTabs button:last-child:nth-child(odd){grid-column:1/-1}
   .plist,.bestwrap{overscroll-behavior-x:none}
 }
+/* tip-off clock icons */
+.clk{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;vertical-align:-.14em;margin-right:5px;flex:none}
+.tag.tip{display:inline-flex;align-items:center}
+.tipt{display:inline-flex;align-items:center;gap:0}.tipt .clk{width:.8em;height:.8em;opacity:.7}
+.ib-k .clk{width:12px;height:12px;margin-right:4px;vertical-align:-2px}
 </style>
 </head>
 <body>
@@ -2398,12 +2403,13 @@ function scoreTag(g, cls = "tag"){
   const live = g.state === "in";
   return `<span class="${cls} score ${live ? "live" : "final"}" title="${LS.ok ? `Live from ESPN · checked ${agoTxt(LS.at)} · updates every 30 seconds` : `Score updated ${agoTxt(scoresAt())} — checks every 5 minutes`}">${live ? `<i></i>LIVE ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? ` · ${esc(g.clock)}` : ""}</span>`;
 }
+const CLK = `<svg class="clk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
 /* score slots: every place a score shows is wrapped so live updates can repaint just that bit (no page reload) */
 const SLOT = {
-  home: g => `<div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : timeFmt(g.tipoff)}<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small></div>`,
+  home: g => `<div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : `<span class="tipt">${CLK}${timeFmt(g.tipoff)}</span>`}<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small></div>`,
   tag:  g => scoreTag(g),
-  tagS: g => scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)} · ${esc(g.status)}</span>`,
-  tagT: g => scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)}</span>`,
+  tagS: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
+  tagT: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
 };
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
@@ -2497,7 +2503,10 @@ function nextInjuryCheck(){
   const uk = new Date(now.toLocaleString("en-US", {timeZone: "Europe/London"}));
   let m = uk.getHours() * 60 + uk.getMinutes(); if (m < 6 * 60) m += 24 * 60;
   const running = (m >= 13 * 60 + 50 && m < 25 * 60 + 40) || (m >= 25 * 60 + 30 && m < 29 * 60);
-  if (running) return {at: new Date(now.getTime() + 5 * 60000), running: true};
+  if (running){
+    const last = new Date(injCheckedAt() || now), nx = new Date(last.getTime() + 5 * 60000);
+    return {at: nx > now ? nx : new Date(now.getTime() + 60000), running: true};
+  }
   const starts = [7 * 60 + 5, 13 * 60 + 50, 31 * 60 + 5];          // 31:05 = tomorrow 07:05
   const nx = starts.find(x => x > m) || starts[0] + 24 * 60;
   return {at: new Date(now.getTime() + (nx - m) * 60000), running: false};
@@ -3260,7 +3269,7 @@ function gameAnalysis(g){
         <div class="tm">${tid(g.home,"lg")}<div><b>${H.name}</b><small>${H.city} · home</small></div></div>
       </div>
       <div class="right">
-        ${slot(g, "tag")}<span class="tag num">${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
+        ${slot(g, "tag")}<span class="tag num tip" title="Tip-off, your time">${CLK}${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
         ${inj.length ? `<button class="tag red" data-nav="injuries">${inj.length} injury concern${inj.length>1?"s":""}</button>` : ""}
         <button class="btn red" data-goto="${g.id}">View squads &amp; props →</button>
       </div>
@@ -3311,11 +3320,12 @@ function viewInjuries(){
 }
 function injStatusBar(){
   const checked = injCheckedAt(), next = nextInjuryCheck(), news = injNews();
+  const nOut = DATA.injuries.filter(i => i.status === "Out").length, nDoubt = DATA.injuries.filter(i => i.status === "Questionable" || i.status === "Doubtful").length;
   return `<div class="injbar">
-    <div class="ib"><span class="ib-k">Last checked</span><b class="num">${checked ? timeFmt(checked) : "—"}</b><small>${checked ? agoTxt(checked) : ""}</small></div>
-    <div class="ib"><span class="ib-k">Next check</span><b class="num">${IS_LIVE && next ? `~${timeFmt(next.at.toISOString())}` : "—"}</b><small>${!IS_LIVE ? "sample data" : next.running ? "checking every 5 minutes now" : "next update block"}</small></div>
-    <div class="ib ${news.length ? "hot" : ""}"><span class="ib-k">Changes in last ${NEW_NEWS_H}h</span><b class="num">${news.length}</b><small>${news.length ? `latest ${timeFmt(news[0].updated)}` : "nothing new"}</small></div>
-    <div class="ib"><span class="ib-k">Out · uncertain</span><b class="num">${DATA.injuries.filter(i => i.status === "Out").length} · ${DATA.injuries.filter(i => i.status === "Questionable" || i.status === "Doubtful").length}</b><small>tonight's teams</small></div>
+    <div class="ib"><span class="ib-k">${CLK}Injury list checked</span><b class="num">${checked ? timeFmt(checked) : "—"}</b><small>${checked ? agoTxt(checked) : ""}</small></div>
+    <div class="ib"><span class="ib-k">${CLK}Next check</span><b class="num">${IS_LIVE && next ? timeFmt(next.at.toISOString()) : "—"}</b><small>${!IS_LIVE ? "sample data" : next.running ? "every 5 minutes until the games finish" : "when the next update block starts"}</small></div>
+    <div class="ib ${news.length ? "hot" : ""}"><span class="ib-k">New in the last ${NEW_NEWS_H} hours</span><b class="num">${news.length}</b><small>${news.length ? `most recent at ${timeFmt(news[0].updated)}` : "no status changes"}</small></div>
+    <div class="ib"><span class="ib-k">Out tonight</span><b class="num">${nOut}</b><small>${nDoubt ? `+ ${nDoubt} doubtful or questionable` : "no one doubtful"}</small></div>
   </div>
   ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury changes</h2><span class="sub">latest first · last ${NEW_NEWS_H} hours</span></div>
     <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow ${isJustIn(i) ? "justin" : ""}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
