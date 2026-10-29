@@ -1966,7 +1966,7 @@ html.dark .optbtn{background:rgba(255,255,255,.05)}
 /* Home · tonight's games on phones & tablets */
 .homebadge{font-style:normal}
 .mrow .mshort{display:none}
-@media (max-width:960px){.mrow .mlong{display:none}.mrow .mshort{display:inline}.mrow .meta{white-space:nowrap}}
+@media (max-width:960px){.mrow .mlong{display:none}.mrow .mshort{display:inline}.mrow .meta{white-space:nowrap}.mrow .mval{display:block;color:var(--red)}.mrow .mdot{display:none}}
 @media (max-width:960px){
   .mrow{grid-template-columns:74px 1fr auto!important;gap:12px!important;padding:14px 16px!important}
   .teams2{display:grid;gap:8px}
@@ -2951,7 +2951,7 @@ function viewDashboard(){
         return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color};--k:${k}"><span class="gswipe" aria-hidden="true"></span>
           ${slot(g, "home")}
           <div class="teams2"><div class="ti">${tid(g.away,"sm")}<span class="tn"><small>${esc(team(g.away).city)}</small><b>${esc(team(g.away).name)}</b></span></div><div class="ti">${tid(g.home,"sm")}<span class="tn"><small>${esc(team(g.home).city)}</small><b>${esc(team(g.home).name)}</b></span><em class="homebadge">Home</em></div></div>
-          <div class="meta"><b class="num"><span class="mlong">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}</span><span class="mshort">${ps.length}/${ps.length + nl} priced</span>${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj"><span class="mlong">${inj} injury concern${inj>1?"s":""}</span><span class="mshort">${inj} injur${inj>1?"ies":"y"}</span></span>` : "No injury concerns"}</div>
+          <div class="meta"><b class="num"><span class="mlong">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}</span><span class="mshort">${ps.length}/${ps.length + nl} priced</span>${v ? `<span class="mval"><span class="mdot"> · </span>${v} value</span>` : ""}</b>${inj ? `<span class="inj"><span class="mlong">${inj} injury concern${inj>1?"s":""}</span><span class="mshort">${inj} injur${inj>1?"ies":"y"}</span></span>` : "No injury concerns"}</div>
           <span class="arrow">→</span></button>`;}).join("")}</div>
     </div>
     <div class="panel">
