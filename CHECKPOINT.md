@@ -58,6 +58,10 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   Times shown in UK 24-hour format. Injury pill shows "checked HH:MM · newest news HH:MM".
 - Lineups: NBA.com daily lineups file WORKS from GitHub (expected → confirmed); ESPN box-score starters once live.
 
+- **Live scores in the browser (29 Oct):** `pollScores()` in index.html fetches ESPN's scoreboard every 30 s from
+  10 min before a tip-off until final, and repaints only the score spots (`slot(g, kind)` / `SLOT` / `data-ls`) with
+  a small bump animation — no reload. While it works, "light" data updates show the refresh bar instead of reloading.
+
 ## Next steps (in order)
 1. **Make updates start every day without GitHub cron (most urgent).** The live loop started manually on 29 Oct
    00:18 runs until ~06:00 only. Set up a free external pinger (e.g. cron-job.org) that calls the GitHub API

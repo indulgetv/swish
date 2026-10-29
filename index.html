@@ -1598,6 +1598,10 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 .tag.score.final{color:var(--ink2)}
 .mscore{font:700 19px/1 var(--display)}
 .mscore.live{color:var(--red)}
+.lsw{display:contents}
+.lsw.bump .mscore,.lsw.bump .tag.score b,.lsw.bump .t{animation:scoreBump 1s var(--ease)}
+@keyframes scoreBump{0%{transform:scale(1)}25%{transform:scale(1.18);color:var(--red)}100%{transform:scale(1)}}
+html.calm .lsw.bump *{animation:none!important}
 .sg .t.live{color:var(--red);font-weight:700}
 .lu{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;background:var(--surface2)!important;border-bottom:1px solid var(--line)}
 .lu-t{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px}
@@ -2092,8 +2096,53 @@ const scoresAt = () => IS_LIVE ? ((LIVE.sections || {}).games || {}).fetchedAt :
 function scoreTag(g, cls = "tag"){
   if (!g.state || g.state === "pre") return "";
   const live = g.state === "in";
-  return `<span class="${cls} score ${live ? "live" : "final"}" title="Score updated ${agoTxt(scoresAt())} — checks every 20 minutes">${live ? `<i></i>LIVE ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? ` · ${esc(g.clock)}` : ""}</span>`;
+  return `<span class="${cls} score ${live ? "live" : "final"}" title="${LS.ok ? `Live from ESPN · checked ${agoTxt(LS.at)} · updates every 30 seconds` : `Score updated ${agoTxt(scoresAt())} — checks every 5 minutes`}">${live ? `<i></i>LIVE ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? ` · ${esc(g.clock)}` : ""}</span>`;
 }
+/* score slots: every place a score shows is wrapped so live updates can repaint just that bit (no page reload) */
+const SLOT = {
+  home: g => `<div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : timeFmt(g.tipoff)}<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small></div>`,
+  tag:  g => scoreTag(g),
+  tagS: g => scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)} · ${esc(g.status)}</span>`,
+  tagT: g => scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)}</span>`,
+  side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
+};
+const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
+/* live scores straight from ESPN in the browser: every 30 s from 10 min before a tip-off until the game is final */
+const LS = {ok: false, at: null};
+function scoresWindow(){
+  const now = Date.now();
+  return GAMES.some(g => g.state === "in" || (g.state === "pre" && new Date(g.tipoff) - now < 10 * 60e3 && now - new Date(g.tipoff) < 6 * 3600e3));
+}
+function paintGame(g, scored){
+  document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => {
+    el.innerHTML = SLOT[el.dataset.lk](g);
+    if (scored){ el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
+  });
+}
+async function pollScores(){
+  if (!IS_LIVE || document.hidden || !scoresWindow()) return;
+  try {
+    const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${LIVE.meta.slateDate.replace(/-/g, "")}`, {cache: "no-store"});
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    (j.events || []).forEach(ev => {
+      const g = DATA.games.find(x => x.id === String(ev.id)); if (!g) return;
+      const c = (ev.competitions || [{}])[0], st = ((c.status || ev.status || {}).type) || {};
+      if (!st.state) return;
+      const sc = {}; (c.competitors || []).forEach(t => { sc[t.homeAway] = t.score; });
+      const clock = st.shortDetail || st.detail || "";
+      const scored = String(sc.away) !== String(g.awayScore) || String(sc.home) !== String(g.homeScore);
+      if (!scored && st.state === g.state && clock === g.clock) return;
+      g.state = st.state; g.awayScore = sc.away; g.homeScore = sc.home; g.clock = clock;
+      g.status = st.state === "pre" ? "Scheduled" : st.state === "in" ? `Live · ${clock}` : (clock || "Final");
+      g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
+      paintGame(g, scored && st.state !== "pre");
+    });
+    LS.ok = true; LS.at = new Date().toISOString();
+  } catch(e){ LS.ok = false; }
+}
+setInterval(pollScores, 30000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) pollScores(); });
 const starterSet = () => { const s = new Map(); DATA.games.forEach(g => ["away","home"].forEach(side => { const t = (g.lineupData || {})[side]; (t && t.starters || []).forEach(p => s.set(normName(p.name), t.status)); })); return s; };
 const STARTERS = IS_LIVE ? starterSet() : new Map();
 function lineupBlock(g){
@@ -2340,7 +2389,7 @@ function viewDashboard(){
       <div class="clamp-m" data-clamp="home-games">${GAMES.map(g => {
         const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
         return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
-          <div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : timeFmt(g.tipoff)}<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small></div>
+          ${slot(g, "home")}
           <div><div class="ti">${tid(g.away,"sm")}${tname(g.away)}</div><div class="ti">${tid(g.home,"sm")}${tname(g.home)} <small>home</small></div></div>
           <div class="meta"><b class="num">${IS_LIVE ? `${ps.length} priced${nl ? ` · ${nl} need a line` : ""}` : `${ps.length} props`}${v ? ` · ${v} value` : ""}</b>${inj ? `<span class="inj">${inj} injury concern${inj>1?"s":""}</span>` : "No injury concerns"}</div>
           <span class="arrow">→</span></button>`;}).join("")}</div>
@@ -2521,7 +2570,7 @@ function gameSection(g){
         <div class="tm">${tid(g.home)}<div><b>${team(g.home).name}</b><small>${team(g.home).city}</small></div></div>
       </div>
       <div class="gtags">
-        ${scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)} · ${esc(g.status)}</span>`}
+        ${slot(g, "tagS")}
         <span class="tag num">Total ${g.total} · ${g.spread}</span>
         <span class="tag amber">Lineups ${esc(g.lineups.toLowerCase())}</span>
         ${inj.length ? `<span class="tag red">${inj.map(i => `${esc(i.player.split(" ")[1])} ${esc(i.status.toLowerCase())}`).join(" · ")}</span>` : ""}
@@ -2815,7 +2864,7 @@ function gameAnalysis(g){
         <div class="tm">${tid(g.home,"lg")}<div><b>${H.name}</b><small>${H.city} · home</small></div></div>
       </div>
       <div class="right">
-        ${scoreTag(g)}<span class="tag num">${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
+        ${slot(g, "tag")}<span class="tag num">${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
         ${inj.length ? `<button class="tag red" data-nav="injuries">${inj.length} injury concern${inj.length>1?"s":""}</button>` : ""}
         <button class="btn red" data-goto="${g.id}">View squads &amp; props →</button>
       </div>
@@ -2897,7 +2946,7 @@ function injuryCard(g){
   <section class="ij">
     <div class="ij-h ghead" style="--ca:${team(g.away).color};--cb:${team(g.home).color}"><span class="gswipe" aria-hidden="true"></span>
       <div class="matchup"><div class="tm">${tid(g.away)}<div><b>${team(g.away).name}</b><small>${team(g.away).city}</small></div></div><span class="at">@</span><div class="tm">${tid(g.home)}<div><b>${team(g.home).name}</b><small>${team(g.home).city}</small></div></div></div>
-      <div class="right">${scoreTag(g) || `<span class="tag num">${timeFmt(g.tipoff)}</span>`}<button class="btn" data-goto="${g.id}">View squads →</button></div>
+      <div class="right">${slot(g, "tagT")}<button class="btn" data-goto="${g.id}">View squads →</button></div>
     </div>
     ${IS_LIVE ? lineupBlock(g) : ""}
     <div class="lineup"><b>Lineups ${esc(g.lineups.toLowerCase())}.</b> Projections that depend on an uncertain player are flagged and kept out of picks until status is confirmed.</div>
@@ -3013,7 +3062,7 @@ function render(){
   np.innerHTML = `<i></i><span class="nl">Injuries checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · newest news <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
   np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Newest injury news posted ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} updates in the last ${NEW_NEWS_H} hours.`;
   renderStandings();
-  $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span><span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span></button>`).join("");
+  $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span>${slot(g, "side")}</button>`).join("");
   const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
   $("page").innerHTML = (views[state.view] || viewDashboard)() +
     `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. Prop prices are US market prices — check your bookmaker's line matches" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
@@ -3217,7 +3266,8 @@ function countUp(){
       const st = await r.json();
       if (st.writtenAt && new Date(st.writtenAt) > loaded){
         const busy = state.drawerOpen || /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
-        if (!busy && !document.hidden){ try { sessionStorage.setItem("swish.scrollY", String(window.scrollY)); } catch(e){} location.reload(); }
+        const quiet = LS.ok && st.mode === "light";   // only scores/injuries changed and scores are already live here
+        if (!busy && !quiet && !document.hidden){ try { sessionStorage.setItem("swish.scrollY", String(window.scrollY)); } catch(e){} location.reload(); }
         else { const b = $("freshBar"); if (b) b.hidden = false; }
       }
     } catch(e){}
@@ -3228,6 +3278,7 @@ function countUp(){
 setInterval(tickClock, 1000);
 setInterval(() => { if (!document.hidden && !document.documentElement.classList.contains("calm")) rotateTip(); }, 6000);
 render();
+pollScores();
 </script>
 </body>
 </html>
