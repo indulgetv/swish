@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T01:33:24Z"
+  "writtenAt": "2026-10-29T01:38:25Z"
  },
  "games": [
   {
@@ -37,11 +37,11 @@
    "away": "CHA",
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
-   "state": "in",
-   "status": "1:23 - 4th",
-   "completed": false,
-   "awayScore": "86",
-   "homeScore": "94",
+   "state": "post",
+   "status": "Final",
+   "completed": true,
+   "awayScore": "89",
+   "homeScore": "97",
    "espnLine": null
   },
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "4:57 - 4th",
+   "status": "4:09 - 4th",
    "completed": false,
-   "awayScore": "96",
-   "homeScore": "94",
+   "awayScore": "101",
+   "homeScore": "96",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "11:26 - 4th",
+   "status": "9:16 - 4th",
    "completed": false,
-   "awayScore": "78",
-   "homeScore": "103",
+   "awayScore": "83",
+   "homeScore": "107",
    "espnLine": null
   },
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "9:08 - 3rd",
+   "status": "7:03 - 3rd",
    "completed": false,
-   "awayScore": "65",
-   "homeScore": "69",
+   "awayScore": "68",
+   "homeScore": "81",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "8:19 - 3rd",
+   "status": "6:47 - 3rd",
    "completed": false,
-   "awayScore": "64",
-   "homeScore": "49",
+   "awayScore": "71",
+   "homeScore": "51",
    "espnLine": null
   },
   {
@@ -98,9 +98,9 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "10:00 - 3rd",
+   "status": "8:01 - 3rd",
    "completed": false,
-   "awayScore": "71",
+   "awayScore": "73",
    "homeScore": "50",
    "espnLine": null
   },
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "7:46 - 3rd",
+   "status": "4:49 - 3rd",
    "completed": false,
-   "awayScore": "67",
-   "homeScore": "53",
+   "awayScore": "75",
+   "homeScore": "62",
    "espnLine": null
   },
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "3:07 - 1st",
+   "status": "End of 1st",
    "completed": false,
-   "awayScore": "20",
-   "homeScore": "26",
+   "awayScore": "22",
+   "homeScore": "32",
    "espnLine": null
   },
   {
@@ -200,7 +200,7 @@
    "name": "Pistons",
    "displayName": "Detroit Pistons",
    "color": "#1d428a",
-   "record": "3-1"
+   "record": "4-1"
   },
   "CHA": {
    "espnId": "30",
@@ -208,7 +208,7 @@
    "name": "Hornets",
    "displayName": "Charlotte Hornets",
    "color": "#008ca8",
-   "record": "3-1"
+   "record": "3-2"
   },
   "IND": {
    "espnId": "11",
@@ -1168,6 +1168,17 @@
   },
   {
    "team": "NOP",
+   "player": "Jordan Poole",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Ankle",
+   "comment": "Poole (ankle) won't return to Wednesday's game against the Nuggets. He finished with two points (1-3 FG, 0-1 3Pt), one rebound and one steal over seven minutes.",
+   "updated": "2026-10-29T01:33Z",
+   "returnDate": "2026-10-29"
+  },
+  {
+   "team": "NOP",
    "player": "Yves Missi",
    "pos": "C",
    "status": "Out",
@@ -1495,6 +1506,17 @@
    "comment": "Leonard (knee) is expected to miss multiple weeks due to swelling in his left knee, Shams Charania of ESPN reports.",
    "updated": "2026-10-27T15:31Z",
    "returnDate": "2026-11-23"
+  },
+  {
+   "team": "UTA",
+   "player": "Darryn Peterson",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Head",
+   "comment": "Peterson exited to the locker room in the first quarter of Wednesday's game against the Spurs due to an apparent head injury, Shreyas Laddha of The Salt Lake Tribune reports.",
+   "updated": "2026-10-29T01:24Z",
+   "returnDate": "2026-10-28"
   },
   {
    "team": "UTA",
@@ -358758,7 +358780,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T01:33:20Z",
+   "fetchedAt": "2026-10-29T01:38:20Z",
    "ok": true,
    "count": 12
   },
@@ -358769,9 +358791,9 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T01:33:21Z",
+   "fetchedAt": "2026-10-29T01:38:21Z",
    "ok": true,
-   "count": 86
+   "count": 88
   },
   "players": {
    "source": "ESPN game logs",
@@ -358797,7 +358819,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T01:33:20Z",
+   "fetchedAt": "2026-10-29T01:38:20Z",
    "ok": true,
    "nba": "ok: 4 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359290,7 +359312,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:33:20Z"
+    "fetchedAt": "2026-10-29T01:38:20Z"
    },
    "home": {
     "starters": [
@@ -359317,7 +359339,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:33:20Z"
+    "fetchedAt": "2026-10-29T01:38:20Z"
    }
   },
   "401909892": {
@@ -359346,7 +359368,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:33:20Z"
+    "fetchedAt": "2026-10-29T01:38:20Z"
    },
    "home": {
     "starters": [
@@ -359373,7 +359395,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:33:20Z"
+    "fetchedAt": "2026-10-29T01:38:20Z"
    }
   }
  }
