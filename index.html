@@ -2065,6 +2065,8 @@ html.dark .tag.lu-go{color:#0d2418;border-color:rgba(255,255,255,.35);box-shadow
 html.dark .lu-st.confirmed,html.dark .lu-st.started,html.dark .lu-chip.confirmed,html.dark .lu-chip.started{
   background-image:linear-gradient(110deg,transparent 35%,rgba(160,255,200,.22) 50%,transparent 65%)}
 @keyframes luSheen{0%,70%{background-position:150% 0}100%{background-position:-50% 0}}
+.lu-mob{display:none}
+@media (max-width:1180px){.gcount .lu-mob{display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px}}
 html.calm .tag.lu-go,html.calm .lu-st,html.calm .lu-chip{animation:none}
 @media (prefers-reduced-motion:reduce){.tag.lu-go,.lu-st,.lu-chip{animation:none}}
 </style>
@@ -3188,6 +3190,12 @@ function singleMarket(teamCode){
   </div>`;
 }
 
+// "Murray" — or "K. Murray" / "D. Murray" when two players in the list share a surname
+const surname = n => { const w = String(n || "").split(" ").filter(x => !/^(jr\.?|sr\.?|ii|iii|iv)$/i.test(x)); return w.length > 1 ? w.slice(1).join(" ") : (w[0] || ""); };
+function injNames(list){
+  const c = {}; list.forEach(i => { const s = surname(i.player); c[s] = (c[s] || 0) + 1; });
+  return list.map(i => { const s = surname(i.player); return c[s] > 1 ? `${i.player[0]}. ${s}` : s; });
+}
 function gameSection(g){
   const q = state.q.trim();
   const vis = [...visiblePlayers(g.away), ...visiblePlayers(g.home)];
@@ -3208,9 +3216,9 @@ function gameSection(g){
         ${slot(g, "tagS")}
         <span class="tag num">Total ${g.total} · ${g.spread}</span>
         <span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(g.lineups.toLowerCase())}</span>
-        ${inj.length ? `<span class="tag red">${inj.map(i => `${esc(i.player.split(" ")[1])} ${esc(i.status.toLowerCase())}`).join(" · ")}</span>` : ""}
+        ${inj.length ? `<span class="tag red">${injNames(inj).map((n, k) => `${esc(n)} ${esc(inj[k].status.toLowerCase())}`).join(" · ")}</span>` : ""}
       </div>
-      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}</div>
+      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(g.lineups.toLowerCase())}</span></div>
       <span class="gswipe" aria-hidden="true"></span>
       <span class="chev">${ICON_CHEV}</span>
     </button>
