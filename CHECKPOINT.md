@@ -124,6 +124,11 @@ _Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"*
   PTS/REB/AST, so auto drops to PTS-only on busy nights. Paid 20K plan ≈ $30/mo (third-party source; check the official page).
   User decision: stay free for now; closing-line check (step 3) parked — only worth it on a paid plan or a ~3 credits/night cap.
 
+- **29 Oct (21:40):** one-off price top-up tonight at 23:30 UK (`TOPUP_DATES` in update.py + index.html, both must match).
+  Re-prices games not started (~11 credits) to catch lines posted after 21:00 (questionable players, late markets).
+  Only nights listed in TOPUP_DATES get it; user to decide tomorrow whether to keep it (Nov budget ≈16 credits/day).
+  Home "Props with a price" now says "with no bookmaker line tonight" once the main fetch has covered every game.
+
 ## Next steps (in order)
 0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
    (project each night using only earlier games, compare with actual) to test/tune minutes, rate weighting, H2H, rest/back-
