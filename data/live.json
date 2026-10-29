@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-29",
-  "mode": "light",
+  "mode": "full",
   "errors": [],
-  "lastFullAt": "2026-10-29T21:37:42Z",
+  "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T23:35:34Z"
+  "writtenAt": "2026-10-29T23:40:27Z"
  },
  "games": [
   {
@@ -84165,38 +84165,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-29T21:37:43Z",
+   "fetchedAt": "2026-10-29T23:38:38Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T23:35:34Z",
+   "fetchedAt": "2026-10-29T23:38:38Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T23:35:34Z",
+   "fetchedAt": "2026-10-29T23:38:37Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T23:35:34Z",
+   "fetchedAt": "2026-10-29T23:38:38Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-29T21:38:44Z",
+   "fetchedAt": "2026-10-29T23:40:25Z",
    "ok": true,
    "count": 96,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-29T21:38:47Z",
+   "fetchedAt": "2026-10-29T23:40:27Z",
    "ok": true
   },
   "odds": {
@@ -84264,7 +84264,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:35:34Z"
+    "fetchedAt": "2026-10-29T23:38:38Z"
    },
    "home": {
     "starters": [
@@ -84289,9 +84289,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:35:34Z"
+    "fetchedAt": "2026-10-29T23:38:38Z"
    }
   },
   "401909894": {
@@ -84320,7 +84320,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:35:34Z"
+    "fetchedAt": "2026-10-29T23:38:38Z"
    },
    "home": {
     "starters": [
@@ -84347,7 +84347,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:35:34Z"
+    "fetchedAt": "2026-10-29T23:38:38Z"
    }
   },
   "401909895": {
@@ -84376,7 +84376,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:35:34Z"
+    "fetchedAt": "2026-10-29T23:38:38Z"
    },
    "home": {
     "starters": [
@@ -84403,8 +84403,450 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:35:34Z"
+    "fetchedAt": "2026-10-29T23:38:38Z"
    }
+  }
+ },
+ "lineMoves": {
+  "Nickeil Alexander-Walker|PTS": {
+   "open": 17.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Nickeil Alexander-Walker|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Nickeil Alexander-Walker|AST": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Dyson Daniels|PTS": {
+   "open": 10.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Dyson Daniels|REB": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Dyson Daniels|AST": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Luguentz Dort|PTS": {
+   "open": 7.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Luguentz Dort|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jalen Johnson|PTS": {
+   "open": 21.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jalen Johnson|REB": {
+   "open": 9.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jalen Johnson|AST": {
+   "open": 7.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jock Landale|PTS": {
+   "open": 7.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jock Landale|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "CJ McCollum|PTS": {
+   "open": 15.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "CJ McCollum|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "CJ McCollum|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Onyeka Okongwu|PTS": {
+   "open": 11.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Onyeka Okongwu|REB": {
+   "open": 6.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Onyeka Okongwu|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Aaron Wiggins|PTS": {
+   "open": 11.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Aaron Wiggins|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Aaron Wiggins|AST": {
+   "open": 1.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jarrett Allen|PTS": {
+   "open": 12.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jarrett Allen|REB": {
+   "open": 8.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "James Harden|PTS": {
+   "open": 17.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "James Harden|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "James Harden|AST": {
+   "open": 6.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Sam Merrill|PTS": {
+   "open": 8.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Donovan Mitchell|PTS": {
+   "open": 24.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Donovan Mitchell|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Donovan Mitchell|AST": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Evan Mobley|PTS": {
+   "open": 17.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Evan Mobley|REB": {
+   "open": 9.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Evan Mobley|AST": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Peyton Watson|PTS": {
+   "open": 13.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Peyton Watson|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Peyton Watson|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cameron Boozer|PTS": {
+   "open": 15.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cameron Boozer|REB": {
+   "open": 8.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cameron Boozer|AST": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cedric Coward|PTS": {
+   "open": 12.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cedric Coward|REB": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cedric Coward|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zach Edey|PTS": {
+   "open": 8.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zach Edey|REB": {
+   "open": 7.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jerami Grant|PTS": {
+   "open": 10.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jerami Grant|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Ty Jerome|PTS": {
+   "open": 24.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Ty Jerome|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Ty Jerome|AST": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Cam Spencer|PTS": {
+   "open": 6.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Isaiah Stewart|PTS": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Isaiah Stewart|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jaylen Wells|PTS": {
+   "open": 11.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jaylen Wells|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jeremiah Fears|PTS": {
+   "open": 12.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jeremiah Fears|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jeremiah Fears|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "DeAndre Jordan|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Bennedict Mathurin|PTS": {
+   "open": 9.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Trey Murphy III|PTS": {
+   "open": 17.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Trey Murphy III|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Trey Murphy III|AST": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Derik Queen|PTS": {
+   "open": 11.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Derik Queen|REB": {
+   "open": 7.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Derik Queen|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zion Williamson|PTS": {
+   "open": 19.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zion Williamson|REB": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zion Williamson|AST": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Deni Avdija|PTS": {
+   "open": 22.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Deni Avdija|REB": {
+   "open": 6.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Deni Avdija|AST": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Toumani Camara|PTS": {
+   "open": 11.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Toumani Camara|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Donovan Clingan|PTS": {
+   "open": 10.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Donovan Clingan|REB": {
+   "open": 10.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Scoot Henderson|PTS": {
+   "open": 8.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jrue Holiday|PTS": {
+   "open": 12.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jrue Holiday|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Jrue Holiday|AST": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Damian Lillard|PTS": {
+   "open": 20.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Damian Lillard|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Damian Lillard|AST": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Ja Morant|PTS": {
+   "open": 18.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Ja Morant|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Ja Morant|AST": {
+   "open": 5.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Precious Achiuwa|PTS": {
+   "open": 10.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Precious Achiuwa|REB": {
+   "open": 7.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Precious Achiuwa|AST": {
+   "open": 1.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Darius Acuff Jr.|PTS": {
+   "open": 22.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Darius Acuff Jr.|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Darius Acuff Jr.|AST": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "De'Andre Hunter|PTS": {
+   "open": 11.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "De'Andre Hunter|REB": {
+   "open": 4.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "De'Andre Hunter|AST": {
+   "open": 1.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zach LaVine|PTS": {
+   "open": 21.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zach LaVine|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Zach LaVine|AST": {
+   "open": 3.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Domantas Sabonis|PTS": {
+   "open": 17.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Domantas Sabonis|REB": {
+   "open": 14.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Domantas Sabonis|AST": {
+   "open": 6.5,
+   "at": "2026-10-29T21:00:26Z"
+  },
+  "Luguentz Dort|AST": {
+   "open": 1.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Kingston Flemings|PTS": {
+   "open": 7.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Kingston Flemings|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Jarrett Allen|AST": {
+   "open": 1.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Sam Merrill|REB": {
+   "open": 2.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Sam Merrill|AST": {
+   "open": 1.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Jaylon Tyson|PTS": {
+   "open": 8.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Jaylon Tyson|REB": {
+   "open": 3.5,
+   "at": "2026-10-29T23:30:36Z"
+  },
+  "Herbert Jones|PTS": {
+   "open": 7.5,
+   "at": "2026-10-29T23:35:34Z"
   }
  }
 }
