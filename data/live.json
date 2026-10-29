@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T02:38:24Z"
+  "writtenAt": "2026-10-29T02:43:24Z"
  },
  "games": [
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "50.7 - 4th",
+   "status": "0.0 - 4th",
    "completed": false,
-   "awayScore": "116",
-   "homeScore": "109",
+   "awayScore": "117",
+   "homeScore": "114",
    "espnLine": null
   },
   {
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "5:29 - 3rd",
+   "status": "4:12 - 3rd",
    "completed": false,
-   "awayScore": "69",
-   "homeScore": "74",
+   "awayScore": "74",
+   "homeScore": "76",
    "espnLine": null
   },
   {
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "2:46 - 2nd",
+   "status": "28.8 - 2nd",
    "completed": false,
-   "awayScore": "51",
-   "homeScore": "56",
+   "awayScore": "57",
+   "homeScore": "63",
    "espnLine": null
   },
   {
@@ -145,16 +145,12 @@
    "away": "LAL",
    "home": "LAC",
    "tipoff": "2026-10-29T02:30Z",
-   "state": "pre",
-   "status": "10/28 - 10:30 PM EDT",
+   "state": "in",
+   "status": "10:25 - 1st",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "LAC -1.5",
-    "overUnder": 224.5,
-    "provider": "DraftKings"
-   }
+   "awayScore": "3",
+   "homeScore": "2",
+   "espnLine": null
   }
  ],
  "teams": {
@@ -358765,7 +358761,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T02:38:19Z",
+   "fetchedAt": "2026-10-29T02:43:20Z",
    "ok": true,
    "count": 12
   },
@@ -358776,7 +358772,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T02:38:20Z",
+   "fetchedAt": "2026-10-29T02:43:21Z",
    "ok": true,
    "count": 87
   },
@@ -358804,10 +358800,9 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T02:38:20Z",
+   "fetchedAt": "2026-10-29T02:43:20Z",
    "ok": true,
-   "nba": "ok: 2 team lineups posted",
-   "espn": "0 team starting fives from box scores"
+   "espn": "2 team starting fives from box scores"
   }
  },
  "lineups": {
@@ -359321,56 +359316,46 @@
    "away": {
     "starters": [
      {
-      "name": "Quentin Grimes",
-      "pos": "SG"
+      "name": "Jake LaRavia"
      },
      {
-      "name": "Matisse Thybulle",
-      "pos": "SF"
+      "name": "Walker Kessler"
      },
      {
-      "name": "Austin Reaves",
-      "pos": "PG"
+      "name": "Matisse Thybulle"
      },
      {
-      "name": "Jake LaRavia",
-      "pos": "PF"
+      "name": "Austin Reaves"
      },
      {
-      "name": "Walker Kessler",
-      "pos": "C"
+      "name": "Quentin Grimes"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:38:20Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T02:43:20Z"
    },
    "home": {
     "starters": [
      {
-      "name": "Kris Dunn",
-      "pos": "SG"
+      "name": "Derrick Jones Jr."
      },
      {
-      "name": "Kobe Sanders",
-      "pos": "SF"
+      "name": "Isaiah Jackson"
      },
      {
-      "name": "Darius Garland",
-      "pos": "PG"
+      "name": "Kris Dunn"
      },
      {
-      "name": "Derrick Jones Jr.",
-      "pos": "PF"
+      "name": "Darius Garland"
      },
      {
-      "name": "Isaiah Jackson",
-      "pos": "C"
+      "name": "Kobe Sanders"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-29T02:38:20Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-29T02:43:20Z"
    }
   }
  }
