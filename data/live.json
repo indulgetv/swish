@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T04:33:21Z"
+  "writtenAt": "2026-10-29T04:38:21Z"
  },
  "games": [
   {
@@ -775,11 +775,11 @@
    "team": "DET",
    "player": "Isaiah Joe",
    "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Right Hip Bruise",
    "comment": "Joe (hip) is out for Wednesday's game against the Hornets.",
-   "updated": "2026-10-28T16:54Z",
+   "updated": "2026-10-29T04:32Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -872,6 +872,17 @@
   },
   {
    "team": "IND",
+   "player": "Ivica Zubac",
+   "pos": "C",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Ankle Sprain",
+   "comment": "Zubac (ankle) is out for Wednesday's game against the 76ers.",
+   "updated": "2026-10-29T04:33Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "IND",
    "player": "T.J. McConnell",
    "pos": "G",
    "status": "Out",
@@ -902,17 +913,6 @@
    "comment": "Haliburton (hamstring) will miss at least the next two weeks of action, Shams Charania of ESPN reports.",
    "updated": "2026-10-28T21:30Z",
    "returnDate": "2026-11-13"
-  },
-  {
-   "team": "IND",
-   "player": "Ivica Zubac",
-   "pos": "C",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Ankle Sprain",
-   "comment": "Zubac (ankle) is out for Wednesday's game against the 76ers.",
-   "updated": "2026-10-27T21:13Z",
-   "returnDate": "2026-10-30"
   },
   {
    "team": "IND",
@@ -1224,6 +1224,17 @@
   },
   {
    "team": "PHI",
+   "player": "Jabari Walker",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Knee Soreness",
+   "comment": "Walker (knee) has been ruled out for Wednesday's game against the Pacers.",
+   "updated": "2026-10-29T04:33Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "PHI",
    "player": "Tacko Fall",
    "pos": "C",
    "status": "Out",
@@ -1232,17 +1243,6 @@
    "comment": "Fall (quadriceps) is out for Wednesday's game in Indiana.",
    "updated": "2026-10-27T21:10Z",
    "returnDate": "2026-11-04"
-  },
-  {
-   "team": "PHI",
-   "player": "Jabari Walker",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Knee Soreness",
-   "comment": "Walker (knee) has been ruled out for Wednesday's game against the Pacers.",
-   "updated": "2026-10-27T21:08Z",
-   "returnDate": "2026-10-30"
   },
   {
    "team": "PHI",
@@ -346486,19 +346486,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T04:33:20Z",
+   "fetchedAt": "2026-10-29T04:38:21Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T04:33:19Z",
+   "fetchedAt": "2026-10-29T04:38:20Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T04:33:20Z",
+   "fetchedAt": "2026-10-29T04:38:20Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
