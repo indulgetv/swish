@@ -2845,7 +2845,7 @@ function pickRow(p, i){
   const g = gameById(p.game);
   return `<button class="prow2" data-prop="${p.id}">
     <span class="rk num">${i+1}</span>
-    <div class="pl">${tid(p.team,"sm")}<div style="min-width:0"><b>${esc(p.player)}</b><small>${g.away} @ ${g.home}${p.role && p.role.applied ? " · role ↑" : ""}</small></div></div>
+    <div class="pl">${jerseyAv(p.player, p.team, "sm")}<div style="min-width:0"><b>${esc(p.player)}</b><small>${g.away} @ ${g.home}${p.role && p.role.applied ? " · role ↑" : ""}</small></div></div>
     <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "⚠ flagged" : `odds ${fmtOdds(p.price)}`}${p.overOnly ? `<span class="conf ${confOf(p)[0]}">${confOf(p)[1]}</span>` : ""}</small></div>
     <div class="n num hide-s">${p.line}<small>line</small></div>
     <div class="n num hide-s" style="color:var(--red)">${p.projection.toFixed(1)}<small>proj.</small></div>
