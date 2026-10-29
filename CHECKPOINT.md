@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-29 19:15 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -141,7 +141,9 @@ _Last updated: 2026-10-29 19:15 by Claude._ Paste the line in **"How to resume"*
    heavier; (b) cap SWISH chance / shrink edges until calibrated; (c) check the REB/AST under-lean (NB skew at .5
    lines); (d) no "strong" tag on players whose minutes changed a lot vs last season. One night = noise; don't
    change MODEL_WEIGHT yet.
-3. Line movement (closing line value): a second, small odds fetch ~30 min before tip-off — budget the credits.
+3. Line movement (closing line value): a second, automatic odds fetch ~30 min before tip-off. Explained to user 29 Oct
+   (credits = The Odds API free plan, 500/month, ~1 per game per market). Budget options: re-check only flagged props, or PTS only.
+   Ask the user before it starts spending credits.
 4. ~~Minutes/role model~~ done (v1.2, injury-based). Still to do: use NBA.com confirmed lineups (starter swaps) and usage (rate) boosts.
 5. Add STL / BLK / TOV columns (data already collected).
 6. After ~2 weeks of results: review accuracy vs market & calibration; only then consider raising MODEL_WEIGHT.
