@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T00:33:21Z"
+  "writtenAt": "2026-10-29T00:38:20Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "5:32 - 3rd",
+   "status": "4:27 - 3rd",
    "completed": false,
    "awayScore": "84",
-   "homeScore": "72",
+   "homeScore": "75",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "7:55 - 3rd",
+   "status": "5:59 - 3rd",
    "completed": false,
-   "awayScore": "78",
-   "homeScore": "69",
+   "awayScore": "82",
+   "homeScore": "73",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "Halftime",
+   "status": "9:29 - 3rd",
    "completed": false,
-   "awayScore": "51",
-   "homeScore": "44",
+   "awayScore": "54",
+   "homeScore": "48",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "6:46 - 2nd",
+   "status": "4:18 - 2nd",
    "completed": false,
-   "awayScore": "38",
-   "homeScore": "45",
+   "awayScore": "46",
+   "homeScore": "55",
    "espnLine": null
   },
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "3:11 - 1st",
+   "status": "29.6 - 1st",
    "completed": false,
-   "awayScore": "21",
-   "homeScore": "22",
+   "awayScore": "31",
+   "homeScore": "28",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "1:11 - 1st",
+   "status": "0.0 - 1st",
    "completed": false,
-   "awayScore": "20",
-   "homeScore": "19",
+   "awayScore": "23",
+   "homeScore": "21",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "2:36 - 1st",
+   "status": "1:10 - 1st",
    "completed": false,
-   "awayScore": "22",
-   "homeScore": "19",
+   "awayScore": "26",
+   "homeScore": "23",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "20.5 - 1st",
+   "status": "11:29 - 2nd",
    "completed": false,
-   "awayScore": "35",
-   "homeScore": "18",
+   "awayScore": "37",
+   "homeScore": "20",
    "espnLine": null
   },
   {
@@ -128,7 +128,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "SA -14.5",
-    "overUnder": 232.5,
+    "overUnder": 233.5,
     "provider": "DraftKings"
    }
   },
@@ -1180,6 +1180,17 @@
    "comment": "Missi has been diagnosed with a left knee bone bruise and he will miss an extended period of time, Brett Siegel of ClutchPoints.com reports.",
    "updated": "2026-10-24T22:17Z",
    "returnDate": "2026-11-02"
+  },
+  {
+   "team": "NYK",
+   "player": "Karl-Anthony Towns",
+   "pos": "C",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Wrist",
+   "comment": "Towns finished with 27 points (12-21 FG, 1-5 3Pt, 2-2 FT), 20 rebounds and three assists across 33 minutes in Tuesday's 111-97 victory over the Pistons.",
+   "updated": "2026-10-29T00:29Z",
+   "returnDate": "2026-10-28"
   },
   {
    "team": "NYK",
@@ -358762,7 +358773,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T00:33:20Z",
+   "fetchedAt": "2026-10-29T00:38:20Z",
    "ok": true,
    "count": 12
   },
@@ -358773,9 +358784,9 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T00:33:21Z",
+   "fetchedAt": "2026-10-29T00:38:20Z",
    "ok": true,
-   "count": 86
+   "count": 87
   },
   "players": {
    "source": "ESPN game logs",
@@ -358801,7 +358812,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T00:33:20Z",
+   "fetchedAt": "2026-10-29T00:38:20Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359226,11 +359237,11 @@
    "away": {
     "starters": [
      {
-      "name": "Stephon Castle",
+      "name": "Dylan Harper",
       "pos": "SG"
      },
      {
-      "name": "Dylan Harper",
+      "name": "Stephon Castle",
       "pos": "SF"
      },
      {
@@ -359246,9 +359257,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:33:20Z"
+    "fetchedAt": "2026-10-29T00:38:20Z"
    },
    "home": {
     "starters": [
@@ -359257,7 +359268,7 @@
       "pos": "SG"
      },
      {
-      "name": "Brice Sensabaugh",
+      "name": "Josh Green",
       "pos": "SF"
      },
      {
@@ -359273,9 +359284,9 @@
       "pos": "C"
      }
     ],
-    "status": "expected",
+    "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:33:20Z"
+    "fetchedAt": "2026-10-29T00:38:20Z"
    }
   },
   "401909891": {
@@ -359304,7 +359315,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:33:20Z"
+    "fetchedAt": "2026-10-29T00:38:20Z"
    },
    "home": {
     "starters": [
@@ -359331,7 +359342,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:33:20Z"
+    "fetchedAt": "2026-10-29T00:38:20Z"
    }
   },
   "401909892": {
@@ -359360,7 +359371,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:33:20Z"
+    "fetchedAt": "2026-10-29T00:38:20Z"
    },
    "home": {
     "starters": [
@@ -359387,7 +359398,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T00:33:20Z"
+    "fetchedAt": "2026-10-29T00:38:20Z"
    }
   }
  }
