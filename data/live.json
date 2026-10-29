@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T02:43:24Z"
+  "writtenAt": "2026-10-29T02:48:24Z"
  },
  "games": [
   {
@@ -97,10 +97,10 @@
    "away": "GSW",
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
-   "state": "in",
-   "status": "0.0 - 4th",
-   "completed": false,
-   "awayScore": "117",
+   "state": "post",
+   "status": "Final",
+   "completed": true,
+   "awayScore": "119",
    "homeScore": "114",
    "espnLine": null
   },
@@ -122,10 +122,10 @@
    "home": "UTA",
    "tipoff": "2026-10-29T01:00Z",
    "state": "in",
-   "status": "4:12 - 3rd",
+   "status": "2:16 - 3rd",
    "completed": false,
-   "awayScore": "74",
-   "homeScore": "76",
+   "awayScore": "76",
+   "homeScore": "81",
    "espnLine": null
   },
   {
@@ -134,10 +134,10 @@
    "home": "DAL",
    "tipoff": "2026-10-29T01:30Z",
    "state": "in",
-   "status": "28.8 - 2nd",
+   "status": "Halftime",
    "completed": false,
-   "awayScore": "57",
-   "homeScore": "63",
+   "awayScore": "59",
+   "homeScore": "65",
    "espnLine": null
   },
   {
@@ -146,10 +146,10 @@
    "home": "LAC",
    "tipoff": "2026-10-29T02:30Z",
    "state": "in",
-   "status": "10:25 - 1st",
+   "status": "7:00 - 1st",
    "completed": false,
-   "awayScore": "3",
-   "homeScore": "2",
+   "awayScore": "10",
+   "homeScore": "5",
    "espnLine": null
   }
  ],
@@ -272,7 +272,7 @@
    "name": "Timberwolves",
    "displayName": "Minnesota Timberwolves",
    "color": "#266092",
-   "record": "3-1"
+   "record": "3-2"
   },
   "GSW": {
    "espnId": "9",
@@ -280,7 +280,7 @@
    "name": "Warriors",
    "displayName": "Golden State Warriors",
    "color": "#fdb927",
-   "record": "1-3"
+   "record": "2-3"
   },
   "NOP": {
    "espnId": "3",
@@ -358761,7 +358761,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T02:43:20Z",
+   "fetchedAt": "2026-10-29T02:48:20Z",
    "ok": true,
    "count": 12
   },
@@ -358772,7 +358772,7 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T02:43:21Z",
+   "fetchedAt": "2026-10-29T02:48:20Z",
    "ok": true,
    "count": 87
   },
@@ -358800,9 +358800,9 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T02:43:20Z",
+   "fetchedAt": "2026-10-29T02:48:20Z",
    "ok": true,
-   "espn": "2 team starting fives from box scores"
+   "espn": "0 team starting fives from box scores"
   }
  },
  "lineups": {
