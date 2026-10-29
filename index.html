@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<script>try{var d=localStorage.getItem("swish.pref.dark");if(d==="1"||(d===null&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script>
+<script>try{if(sessionStorage.getItem("swish.silent"))document.documentElement.classList.add("noanim")}catch(e){}try{var d=localStorage.getItem("swish.pref.dark");if(d==="1"||(d===null&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script>
 <title>swish · NBA Prop Analytics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -846,7 +846,13 @@ tr.formrow > td{padding:0 14px 16px 16px!important}
 .pill.o{background:var(--over-soft);color:var(--over);box-shadow:inset 0 0 0 1px rgba(11,125,82,.18)}
 .formnote{margin-top:8px}
 @media (max-width:1320px){.fcards{grid-template-columns:repeat(5,minmax(0,1fr))}.fv{font-size:24px}}
-@media (max-width:760px){.fcards{grid-template-columns:repeat(3,1fr)}.ftable{overflow-x:auto}.form{min-width:470px}}
+@media (max-width:760px){.fcards{grid-template-columns:repeat(3,1fr)}
+  .ftable,.drawer .ftable{overflow-x:visible}.form{min-width:0;width:100%;table-layout:auto;font-size:13px}
+  .form .mk:not(.keep),.form .dt{display:none}
+  .form td .dt2{display:block;font-size:10.5px;font-weight:600;color:var(--muted);margin-top:1px}
+  .form th{padding:7px 3px!important;font-size:9.5px}.form td{padding:7px 3px!important}
+  .form .l{padding-left:10px!important}.fopp{gap:5px}.form .pill{min-width:26px}
+}
 @media (max-width:420px){.fcards{grid-template-columns:repeat(2,1fr)}}
 .drawer .fcards{grid-template-columns:repeat(3,1fr)}
 .drawer .ftable{overflow-x:auto}
@@ -1441,17 +1447,17 @@ html.calm .newspill.hot i{animation:none}
 @media (max-width:760px){
   /* squad tables become rows: full-width name line, then Min + the five markets underneath */
   .sqt{display:block;table-layout:auto}
-  .sqt thead,.sqt tbody{display:block}
-  .sqt tr{display:grid;grid-template-columns:40px repeat(5,minmax(0,1fr));align-items:center;column-gap:4px;padding:0 10px;border-bottom:1px solid var(--line)}
+  .sqt > thead,.sqt > tbody{display:block}
+  .sqt > thead > tr,.sqt > tbody > tr{display:grid;grid-template-columns:40px repeat(5,minmax(0,1fr));align-items:center;column-gap:4px;padding:0 10px;border-bottom:1px solid var(--line)}
   .sqt tbody tr.has-form{border-bottom-color:transparent}
-  .sqt th,.sqt td{border-bottom:0!important;width:auto!important}
+  .sqt > * > tr > th,.sqt > * > tr > td{border-bottom:0!important;width:auto!important}
   .sqt thead th:first-child{display:none}
   .sqt thead tr{padding-top:4px;padding-bottom:4px}
-  .sqt th{padding:6px 0!important;font-size:10px}
+  .sqt > thead th{padding:6px 0!important;font-size:10px}
   .sqt td.pl{grid-column:1/-1;padding:10px 0 4px!important}
   .sqt td.pl b{font-size:14.5px!important;line-height:1.25}
   .sqt td.pl small{font-size:11.5px!important}
-  .sqt td{padding:2px 0 10px!important}
+  .sqt > tbody > tr > td{padding:2px 0 10px!important}
   .sqt td.min{font-size:14px}
   .sqt tr.formrow{display:block;padding:0 6px}
   .sqt tr.formrow > td{display:block;padding:0 0 12px!important}
@@ -1598,10 +1604,35 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 .tag.score.final{color:var(--ink2)}
 .mscore{font:700 19px/1 var(--display)}
 .mscore.live{color:var(--red)}
-.lsw{display:contents}
-.lsw.bump .mscore,.lsw.bump .tag.score b,.lsw.bump .t{animation:scoreBump 1s var(--ease)}
-@keyframes scoreBump{0%{transform:scale(1)}25%{transform:scale(1.18);color:var(--red)}100%{transform:scale(1)}}
-html.calm .lsw.bump *{animation:none!important}
+.lsw{display:contents;--tick:#c98a00}
+html.dark .lsw{--tick:#ffc531}
+.lsw .mscore,.lsw .t,.lsw .tag.score b{transition:color .7s var(--ease)}
+.lsw.ticking .mscore,.lsw.ticking .t,.lsw.ticking .tag.score b{color:var(--tick)!important;transition:color .12s}
+html.noanim *,html.noanim *::before,html.noanim *::after{animation:none!important;transition:none!important}
+.rolechip{display:inline-block;margin-left:4px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 5px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
+.rolechip.up{color:var(--over);background:var(--over-soft);border-color:transparent}
+.rolechip.dn{color:var(--red);background:var(--red-soft);border-color:var(--red-line)}
+.conf{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:99px;margin-left:6px;vertical-align:1px}
+.conf.high{background:var(--over-soft);color:var(--over)}.conf.med{background:var(--amber-soft);color:var(--amber)}.conf.low{background:var(--surface2);color:var(--muted)}
+.minbox{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.minbox > div{padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface2)}
+.minbox span{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.minbox b{display:block;font:700 22px/1.2 var(--display);color:var(--ink)}
+.minbox small{font-size:11px;color:var(--muted)}
+.homebtn{display:none}
+@media (max-width:960px){
+  .homebtn{display:grid;place-items:center;margin-left:auto;flex:none;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(179,18,31,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+  .homebtn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .homebtn:active{transform:scale(.94)}
+  .totop{display:none!important}
+}
+@media (hover:none){.brand:hover .wordmark i{transform:none;color:inherit}.brand:hover .hoop .net{stroke:var(--faint)}}
+#ccGame,#ccCount{transition:opacity .28s var(--ease),transform .28s var(--ease)}
+.cc-next.swap #ccGame,.cc-next.swap #ccCount{opacity:0;transform:translateY(4px)}
+.cc-dots{display:inline-flex;gap:4px;margin-left:8px;vertical-align:1px}
+.cc-dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s}
+.cc-dots i.on{background:#ff5560}
+.form .dt2{display:none}
 .sg .t.live{color:var(--red);font-weight:700}
 .lu{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;background:var(--surface2)!important;border-bottom:1px solid var(--line)}
 .lu-t{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px}
@@ -1624,6 +1655,7 @@ html.calm .lsw.bump *{animation:none!important}
 <div class="app">
   <aside class="side">
     <div id="brandSlot"></div>
+    <button class="homebtn" id="homeBtn" aria-label="Home" title="Home"><svg viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></svg></button>
     <nav class="nav" id="nav">
       <button data-nav="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></svg><span class="nl">Home</span><span class="ns">Home</span></button>
       <button data-nav="props"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="nl">Player Props</span><span class="ns">Props</span><span class="count" id="navProps"></span></button>
@@ -1652,7 +1684,6 @@ html.calm .lsw.bump *{animation:none!important}
 </div>
 <div class="scrim" id="scrim" data-close="1"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Details" aria-hidden="true" tabindex="-1"></aside>
-<button class="freshbar" id="freshBar" hidden onclick="location.reload()">New data available — tap to refresh</button>
 <button class="totop" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg></button>
 <!-- Live data written by the GitHub automation (scripts/update.py). If it's missing, SWISH falls back to the sample slate. -->
 <script>/* load the newest data, never a cached copy */ var _v = Date.now();
@@ -1754,6 +1785,9 @@ const MIN_MINUTES_FOR_PROPS = 14;
 const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
+const MODEL_VERSION = "v1.1 (2026-10-29)";   // keep in step with scripts/model.py
+const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
+const ROLE_NEW_GAMES = 3;     // …and with fewer games than this it's flagged (projection less certain)
 const MODEL_WEIGHT = 0.3;     // SWISH chance = 30% model + 70% market (no-vig) until results tracking proves the model
 
 /* =================================================================
@@ -1995,6 +2029,7 @@ function analyse(p){
     const late = DATA.injuries.filter(i => (i.team === g.away || i.team === g.home) && significant(i) && i.updated && new Date(i.updated) > new Date(p.fetched)).sort(byNewest);
     if (late.length) flags.push(`Injury news since this line was fetched: ${late.slice(0,2).map(i => `${i.player} ${i.status.toLowerCase()} (${agoTxt(i.updated)})`).join(", ")}${late.length > 2 ? ` +${late.length - 2} more` : ""} — the line may have moved`);
   }
+  if (p.live && p.roleChange && p.curGames < ROLE_NEW_GAMES) flags.push(`Minutes changed a lot vs last season (${Math.round(p.lastMin)}→${Math.round(p.curMin)}) with only ${p.curGames} game${p.curGames === 1 ? "" : "s"} this season — new role, projection less certain`);
   if (p.live && p.games < 5) flags.push(`Only ${p.games} game${p.games === 1 ? "" : "s"} of data — too few to trust the projection`);
   if (p.live && (Math.abs(p.projection - p.line) > BIG_GAP_SD * p.sd || Math.abs(p.projection - p.line) > BIG_GAP_REL * Math.max(p.line, 2))) flags.push(`Line is far from SWISH's projection (${p.line} vs ${p.projection.toFixed(1)}) — the market may know about a role or minutes change; check the news`);
 
@@ -2007,6 +2042,19 @@ function analyse(p){
 
 /* ---- live: players + props from real ESPN game logs ---- */
 function stdev(a){ if (a.length < 2) return 0; const m = avg(a); return Math.sqrt(a.reduce((s,v) => s + (v - m) ** 2, 0) / (a.length - 1)); }
+/* per-minute rate over a set of games (null if no minutes) */
+function rateOf(games, m){ const mins = games.reduce((s,g) => s + (g.min || 0), 0); return mins > 0 ? games.reduce((s,g) => s + g[m], 0) / mins : null; }
+/* expected minutes tonight: this season's minutes (last 3 weighted with last 10) take over from last season after ~5 games */
+function minutesModel(cur, last){
+  const mn = a => avg(a.map(g => g.min || 0));
+  const baseMin = mn([...cur, ...last].slice(0, 10));
+  const lastMin = last.length ? mn(last.slice(0, 20)) : null;
+  if (!cur.length) return {expMin: baseMin, curMin: null, lastMin, delta: 0};
+  const curMin = 0.5 * mn(cur.slice(0, 3)) + 0.5 * mn(cur.slice(0, 10));
+  const w = Math.min(1, cur.length / 5);
+  const prior = last.length ? mn(last.slice(0, 10)) : curMin;
+  return {expMin: w * curMin + (1 - w) * prior, curMin, lastMin, delta: lastMin !== null ? curMin - lastMin : 0};
+}
 function buildLivePlayers(){
   const out = [];
   (LIVE.players || []).forEach(p => {
@@ -2016,12 +2064,15 @@ function buildLivePlayers(){
     const recent = [...cur, ...last];                                  // newest first
     if (!recent.length) return;
     const r10 = recent.slice(0, 10);
-    const mins = Math.round(avg(r10.map(g => g.min || 0)));
+    const mm = minutesModel(cur, last);
+    const mins = Math.round(mm.expMin);
+    const roleChange = cur.length >= 2 && mm.lastMin !== null && Math.abs(mm.delta) >= ROLE_CHANGE_MIN;
     const wCur = Math.min(1, cur.length / 10);                         // trust this season more as it fills up
     const seasonAvg = m => { const a = cur.length ? avg(cur.map(g => g[m])) : 0, b = last.length ? avg(last.map(g => g[m])) : a; return wCur * a + (1 - wCur) * b; };
     const avgs = {}; MARKETS.forEach(m => avgs[m] = seasonAvg(m));
     out.push({name: p.name, pos: p.pos || "", team: p.team, min: mins, projMin: mins, avgs, boost: null, scenario: null,
-              status: statusOf(p.name), log: r10.map(g => ({...g, min: Math.round(g.min)})), recent, curGames: cur.length, ...gm});
+              status: statusOf(p.name), log: r10.map(g => ({...g, min: Math.round(g.min)})), recent, cur, last, curGames: cur.length,
+              expMin: mm.expMin, curMin: mm.curMin, lastMin: mm.lastMin, roleDelta: roleChange ? mm.delta : 0, roleChange, ...gm});
   });
   return out;
 }
@@ -2042,15 +2093,19 @@ function buildLiveProp(pl, market, myLines){
            fetched: at.map(r => r.fetched).filter(Boolean).sort().pop() || ((LIVE.sections || {}).odds || {}).fetchedAt,
            updated: at.map(r => r.updated).sort().pop() || ((LIVE.sections || {}).odds || {}).fetchedAt, source: "ref"};
   }
-  // ---- projection from real logs: 55% season, 45% last 10, then a small head-to-head blend
+  // ---- projection (v1.1): per-minute rate (55% season, 45% last 10) × expected minutes, then a small head-to-head blend
   const recent = pl.recent.map(g => g[market]);
   const last10 = pl.log.map(g => g[market]);
   const seasonAvg = pl.avgs[market];
   const l10 = last10.length ? avg(last10) : seasonAvg;
-  const base = Math.max(0.1, 0.55 * seasonAvg + 0.45 * l10);
+  const wCur = Math.min(1, pl.cur.length / 10);
+  const rc = rateOf(pl.cur, market), rl = rateOf(pl.last, market);
+  const sRate = rc !== null && rl !== null ? wCur * rc + (1 - wCur) * rl : (rc !== null ? rc : rl);
+  const lRate = rateOf(pl.recent.slice(0, 10), market);
+  const base = Math.max(0.1, (0.55 * (sRate || 0) + 0.45 * (lRate || 0)) * pl.expMin);
   const h2hGames = pl.recent.filter(g => g.opp === pl.opp).slice(0, 4);
   const h2h = h2hGames.map(g => g[market]);
-  const n = h2h.length, h2hAvg = n ? avg(h2h) : base;
+  const n = h2h.length, h2hAvg = n ? (rateOf(h2hGames, market) || 0) * pl.expMin : base;
   const w = n ? H2H_MAX_WEIGHT * n / (n + H2H_K) : 0;
   const projection = base * (1 - w) + h2hAvg * w;
   const sdGame = Math.max(SD_FLOOR[market], 0.5 * stdev(recent.slice(0, 20)) + 0.5 * CV[market] * projection);
@@ -2058,7 +2113,8 @@ function buildLiveProp(pl, market, myLines){
   const sd = Math.sqrt(sdGame ** 2 + (PROJ_ERR * projection) ** 2);
   const p = {id: hashStr(pl.name + market) % 1e9, player: pl.name, team: pl.team, opp: pl.opp, game: pl.g.id, pos: pl.pos, market,
              base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection - base, role: null, projection, sd, last10,
-             minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length};
+             minutes: pl.projMin, seasonMin: pl.projMin, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length,
+             expMin: pl.expMin, curMin: pl.curMin, lastMin: pl.lastMin, roleDelta: pl.roleDelta, roleChange: pl.roleChange, curGames: pl.curGames};
   if (!src) return {...p, noLine: true};
   return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt, fetched: src.source === "ref" ? src.fetched : null};
 }
@@ -2113,11 +2169,24 @@ function scoresWindow(){
   const now = Date.now();
   return GAMES.some(g => g.state === "in" || (g.state === "pre" && new Date(g.tipoff) - now < 10 * 60e3 && now - new Date(g.tipoff) < 6 * 3600e3));
 }
-function paintGame(g, scored){
-  document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => {
-    el.innerHTML = SLOT[el.dataset.lk](g);
-    if (scored){ el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
-  });
+function paintGame(g){
+  document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => { el.innerHTML = SLOT[el.dataset.lk](g); });
+}
+/* a new score ticks up one point at a time, in yellow, then settles back to the live red */
+const TICKING = new Map();
+function animateScore(g, from){
+  const toA = +g.awayScore, toH = +g.homeScore; let a = +from.a, h = +from.h;
+  const calm = document.documentElement.classList.contains("calm");
+  if (calm || !isFinite(a) || !isFinite(h) || toA < a || toH < h || (toA - a) + (toH - h) > 40) { paintGame(g); return; }
+  clearInterval(TICKING.get(g.id));
+  const els = () => document.querySelectorAll(`[data-ls="${g.id}"]`);
+  const step = () => {
+    if (a < toA) a++; if (h < toH) h++;
+    const tmp = {...g, awayScore: a, homeScore: h};
+    els().forEach(el => { el.innerHTML = SLOT[el.dataset.lk](tmp); el.classList.add("ticking"); });
+    if (a >= toA && h >= toH){ clearInterval(TICKING.get(g.id)); TICKING.delete(g.id); setTimeout(() => els().forEach(el => el.classList.remove("ticking")), 500); }
+  };
+  TICKING.set(g.id, setInterval(step, 160)); step();
 }
 async function pollScores(){
   if (!IS_LIVE || document.hidden || !scoresWindow()) return;
@@ -2133,10 +2202,11 @@ async function pollScores(){
       const clock = st.shortDetail || st.detail || "";
       const scored = String(sc.away) !== String(g.awayScore) || String(sc.home) !== String(g.homeScore);
       if (!scored && st.state === g.state && clock === g.clock) return;
+      const from = {a: g.awayScore, h: g.homeScore}, wasPre = g.state === "pre";
       g.state = st.state; g.awayScore = sc.away; g.homeScore = sc.home; g.clock = clock;
       g.status = st.state === "pre" ? "Scheduled" : st.state === "in" ? `Live · ${clock}` : (clock || "Final");
       g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
-      paintGame(g, scored && st.state !== "pre");
+      if (scored && !wasPre && st.state !== "pre") animateScore(g, from); else paintGame(g);
     });
     LS.ok = true; LS.at = new Date().toISOString();
   } catch(e){ LS.ok = false; }
@@ -2199,7 +2269,7 @@ function syncPrefs(){
 const state = {
   view: VIEWS.includes(store.get("view","dashboard")) ? store.get("view","dashboard") : "dashboard",
   odds: store.get("odds","dec"),
-  conf: store.get("conf","East"), market:"ALL", q:"", sort:"minutes", onlyValue:false, hideFlagged:false, bestTab:"best",
+  conf: store.get("conf","East"), market:"ALL", q:"", sort:"minutes", onlyValue:false, hideFlagged:false, bestTab:"overs",
   collapsed:new Set(), drawer:null, formOpen:new Set(), showForm:false, expanded:new Set()
 };
 
@@ -2284,7 +2354,15 @@ const leanCol = l => l === "over" ? "var(--over)" : l === "under" ? "var(--under
 /* =================================================================
    7. PICK LISTS (shared by dashboard + best picks)
    ================================================================= */
+function overView(p){
+  const edge = p.modelO - p.mktO, ev = p.modelO * (americanToDecimal(p.over) - 1) - (1 - p.modelO);
+  return {...p, side: "over", lean: edge < 0.01 ? "none" : "over", modelP: p.modelO, mktP: p.mktO, price: p.over, edge, ev,
+          value: !p.flags.length && edge >= MIN_EDGE && ev > 0, overOnly: true};
+}
+const confOf = q => q.modelP >= 0.6 ? ["high", "High"] : q.modelP >= 0.55 ? ["med", "Medium"] : ["low", "Low"];
 const PICK_TABS = {
+  overs: {label:"Top overs", desc:"Overs only, most likely to land first (SWISH's chance the over hits). Only props where SWISH rates the over at least as likely as the bookmaker does, with no injury or data warnings. Confidence: High = 60%+, Medium = 55–60%. A likely over can still be poor value at a short price — the Value column shows that.",
+          list: () => clean.map(overView).filter(q => q.edge >= 0).sort((a,b) => b.modelP - a.modelP || b.edge - a.edge)},
   best:  {label:"Best picks", desc:`Props where SWISH's chance beats the bookmaker's by at least ${(MIN_EDGE*100).toFixed(0)} points, with no injury or data issues. Ranked by average return.`,
           list: () => ALL.filter(p => p.value).sort((a,b) => b.ev - a.ev)},
   gaps:  {label:"Biggest gaps", desc:"Largest difference between SWISH's projection and the bookmaker line, measured in standard deviations so markets are comparable.",
@@ -2300,7 +2378,7 @@ function pickRow(p, i){
   return `<button class="prow2" data-prop="${p.id}">
     <span class="rk num">${i+1}</span>
     <div class="pl">${tid(p.team,"sm")}<div style="min-width:0"><b>${esc(p.player)}</b><small>${g.away} @ ${g.home}${p.role && p.role.applied ? " · role ↑" : ""}</small></div></div>
-    <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "⚠ flagged" : `odds ${fmtOdds(p.price)}`}</small></div>
+    <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "⚠ flagged" : `odds ${fmtOdds(p.price)}`}${p.overOnly ? `<span class="conf ${confOf(p)[0]}">${confOf(p)[1]}</span>` : ""}</small></div>
     <div class="n num hide-s">${p.line}<small>line</small></div>
     <div class="n num hide-s" style="color:var(--red)">${p.projection.toFixed(1)}<small>proj.</small></div>
     <div class="n num hide-s">${p.n ? p.h2hAvg.toFixed(1) : "—"}<small>H2H ${p.h2hHits}/${p.n}</small></div>
@@ -2366,7 +2444,7 @@ function viewDashboard(){
       <div class="cc-top"><span>Your time</span><span id="ccZone" class="num"></span></div>
       <div class="cc-time num"><span id="ccHM">--:--</span><span class="cc-sec" id="ccS">--</span></div>
       <div class="cc-bar" aria-hidden="true">${Array.from({length:12}, (_,i) => `<i data-seg="${i}"></i>`).join("")}</div>
-      <div class="cc-next"><span class="cc-lbl">Next tip-off</span><span id="ccGame" class="cc-game"></span><b id="ccCount" class="num">--</b></div>
+      <div class="cc-next" id="ccNext"><span class="cc-lbl" id="ccLbl">Next tip-off</span><span id="ccGame" class="cc-game"></span><b id="ccCount" class="num">--</b></div>
     </div>
    </div>
    <div class="tipline" aria-live="polite"><span class="tl-k">Tip</span><span id="tipText" class="tl-t">${TIPS[0]}</span></div>
@@ -2381,7 +2459,7 @@ function viewDashboard(){
   </div>
   <div class="panel" style="margin-bottom:var(--sec)">
     <div class="panel-h"><h2 class="h">Best picks tonight</h2><button class="textbtn" data-nav="props" style="margin-left:auto">See all picks &amp; squads →</button></div>
-    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">${IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they're fetched once a day (about 16:40 UK time)." : "No props meet the value rule."}</div>`}
+    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">${IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they arrive at about 21:00 UK time (14:30 for early games)." : "No props meet the value rule."}</div>`}
   </div>
   <div class="cols">
     <div class="panel">
@@ -2463,14 +2541,23 @@ function visiblePlayers(teamCode){
   return ps;
 }
 
+const roleChip = x => x && x.roleChange ? `<span class="rolechip ${x.roleDelta > 0 ? "up" : "dn"}" title="Minutes this season ${Math.round(x.curMin)} vs ${Math.round(x.lastMin)} last season">${x.roleDelta > 0 ? "▲" : "▼"} role ${x.roleDelta > 0 ? "+" : "−"}${Math.abs(Math.round(x.roleDelta))} min</span>` : "";
+const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${roleChip(p)}</div>
+      <div class="minbox">
+        <div><span>Tonight</span><b class="num">${p.expMin.toFixed(1)}</b><small>SWISH estimate</small></div>
+        <div><span>This season</span><b class="num">${p.curMin !== null ? p.curMin.toFixed(1) : "—"}</b><small>${p.curGames} game${p.curGames === 1 ? "" : "s"}</small></div>
+        <div><span>Last season</span><b class="num">${p.lastMin !== null ? p.lastMin.toFixed(1) : "—"}</b><small>last 20 games</small></div>
+      </div>
+      <p class="dnote">This season's minutes (recent games weighted up) take over from last season's after about 5 games. SWISH multiplies the per-minute rate by these minutes, so a bigger or smaller role shows up straight away.${p.roleChange ? ` <b>Role change:</b> ${p.roleDelta > 0 ? "up" : "down"} ${Math.abs(Math.round(p.roleDelta))} minutes on last season.` : ""}</p></div>`;
 function playerSub(pl){
   const stx = STARTERS.get(normName(pl.name)); const st = stx ? ` <span class="lu-chip ${stx}">${stx === "expected" ? "exp. starter" : "starter"}</span>` : "";
   if (pl.status === "Out") return `<small class="warn">${stPill("Out")}</small>`;
   if (pl.status === "Questionable" || pl.status === "Doubtful") return `<small class="warn">⚠ ${esc(pl.status)} · ${esc(injuryOf(pl.name).detail)}</small>`;
   if (pl.boost) return `<small class="boost">${pl.pos} · ↑ ${pl.min}→${pl.projMin} min (${esc(pl.boost.dependsOn)} out)</small>`;
   if (pl.scenario) return `<small class="warn">${pl.pos} · ${pl.min}→${pl.scenario.minIf} min if ${esc(pl.scenario.dependsOn)} sits</small>`;
-  if (pl.status === "Probable") return `<small>${pl.pos} · probable${st}</small>`;
-  return `<small>${pl.pos}${st}</small>`;
+  const rc = roleChip(pl);
+  if (pl.status === "Probable") return `<small>${pl.pos} · probable${st}${rc}</small>`;
+  return `<small>${pl.pos}${st}${rc}</small>`;
 }
 
 function cell(pl, m){
@@ -2499,10 +2586,11 @@ function formTable(pl, focus){
       <div class="fl num">${L === null ? "No line tonight" : `<span>Line <b>${L}</b></span><span><b class="hc">${hits}/6</b> over</span>`}</div>
     </div>`;
   }).join("");
-  const head = `<tr><th class="l">Date</th><th class="l">Opponent</th><th>Min</th>${MARKETS.map(m => `<th class="${m===focus?"f":""}">${m}</th>`).join("")}</tr>`;
-  const rows = games.map((g, r) => `<tr style="--r:${r}"><td class="l num">${new Date(g.d).toLocaleDateString([], {day:"numeric", month:"short"})}</td>
-    <td class="l"><span class="fopp">${g.home ? "vs" : "@"} ${tid(g.opp,"xs")} ${g.opp}</span></td><td class="num mn">${g.min}</td>
-    ${MARKETS.map(m => { const L = lineOf(m); const o = L !== null && g[m] > L; return `<td class="num ${m===focus?"f":""}"><span class="${o ? "pill o" : "pill"}">${g[m]}</span></td>`; }).join("")}</tr>`).join("");
+  const keep = m => ["PTS","REB","AST"].includes(m) || m === focus;
+  const head = `<tr><th class="l dt">Date</th><th class="l">Opponent</th><th>Min</th>${MARKETS.map(m => `<th class="mk ${keep(m)?"keep":""} ${m===focus?"f":""}">${m}</th>`).join("")}</tr>`;
+  const rows = games.map((g, r) => { const dd = new Date(g.d).toLocaleDateString([], {day:"numeric", month:"short"}); return `<tr style="--r:${r}"><td class="l num dt">${dd}</td>
+    <td class="l"><span class="fopp">${g.home ? "vs" : "@"} ${tid(g.opp,"xs")} ${g.opp}</span><span class="dt2 num">${dd}</span></td><td class="num mn">${g.min}</td>
+    ${MARKETS.map(m => { const L = lineOf(m); const o = L !== null && g[m] > L; return `<td class="num mk ${keep(m)?"keep":""} ${m===focus?"f":""}"><span class="${o ? "pill o" : "pill"}">${g[m]}</span></td>`; }).join("")}</tr>`; }).join("");
   return `<div class="formbox">
     <div class="fsec"><span>Last-6 averages vs tonight's lines</span><em>bars oldest → newest · red line = tonight's line</em></div>
     <div class="fcards">${cards}</div>
@@ -2601,7 +2689,7 @@ function liveNotice(){
   const sec = LIVE.sections || {}, odds = sec.odds;
   const refN = ALL.filter(p => p.source === "ref").length, mineN = ALL.filter(p => p.source === "manual").length;
   const oddsTxt = odds && odds.ok ? `Bookmaker lines for ${refN} props across ${odds.eventsPriced || 0} games (US market prices, updated ${agoTxt(odds.fetchedAt)})`
-    : "No prop lines yet today — they're fetched once a day (about 16:40 UK time)";
+    : "No prop lines yet today — they arrive at about 21:00 UK time (14:30 for early games)";
   const errs = (LIVE.meta.errors || []).length;
   return `<div class="notice live"><b>Live data.</b> Schedule, injuries and game logs from ESPN (updated ${agoTxt(DATA.meta.generatedAt)}). ${oddsTxt}.
     Value is judged against the US market price${mineN ? ` (or your own price on ${mineN} prop${mineN === 1 ? "" : "s"})` : ""} — check your bookmaker's line matches before betting.${errs ? ` <b style="color:var(--red)">${errs} data issue${errs === 1 ? "" : "s"} in the last run — see data/last-run.log.</b>` : ""}</div>`;
@@ -2636,13 +2724,14 @@ function noLineDrawerHTML(p){
       <div><span>Projection</span><b class="num proj">${p.projection.toFixed(1)}</b><small>SWISH model</small></div>
       <div><span>Spread</span><b class="num">±${p.sd.toFixed(1)}</b><small>typical miss</small></div>
     </div>
-    <div class="plain"><div class="plain-h"><span>In plain English</span></div><p>SWISH projects ${esc(p.player.split(" ")[0])} for <b>${p.projection.toFixed(1)} ${MARKET_NAMES[p.market].toLowerCase()}</b>, but no bookmaker has posted a line for this prop in today's data, so there's nothing to compare against. Lines are fetched automatically once a day; most points, rebounds and assists props get one.${inj && (inj.status === "Questionable" || inj.status === "Doubtful") ? ` <b>Treat with caution</b> — listed ${esc(inj.status.toLowerCase())} (${esc(inj.detail.toLowerCase())}).` : ""}</p></div>
+    <div class="plain"><div class="plain-h"><span>In plain English</span></div><p>SWISH projects ${esc(p.player.split(" ")[0])} for <b>${p.projection.toFixed(1)} ${MARKET_NAMES[p.market].toLowerCase()}</b>, but no bookmaker has posted a line for this prop in today's data, so there's nothing to compare against. Lines are fetched automatically at about 21:00 UK time (14:30 for early games); most points, rebounds and assists props get one.${inj && (inj.status === "Questionable" || inj.status === "Doubtful") ? ` <b>Treat with caution</b> — listed ${esc(inj.status.toLowerCase())} (${esc(inj.detail.toLowerCase())}).` : ""}</p></div>
     ${priceForm(p)}
+    ${minutesBox(p)}
     <div class="dsec"><div class="dt">How the projection is built</div>
       <div class="build">
         <div class="st2"><span>Season average<small>blended with last season while this one is young</small></span><b class="num">${p.seasonAvg.toFixed(1)}</b></div>
         <div class="st2"><span>Last ${p.last10.length} games<small>recent form</small></span><b class="num">${p.l10.toFixed(1)}</b></div>
-        <div class="st2"><span>Base projection<small>55% season · 45% recent</small></span><b class="num">${p.base.toFixed(1)}</b></div>
+        <div class="st2"><span>Base projection<small>${p.expMin ? `per-minute rate (55% season · 45% recent) × ${p.expMin.toFixed(1)} min` : "55% season · 45% recent"}</small></span><b class="num">${p.base.toFixed(1)}</b></div>
         <div class="st2"><span>Head-to-head vs ${p.opp}<small>${p.n ? `avg ${p.h2hAvg.toFixed(1)} over ${p.n} games · weight ${pct(p.w,1)}` : "no meetings in the last two seasons"}</small></span><b class="num">${sgnNum(p.h2hAdj)}</b></div>
         <div class="st2 total"><span>SWISH projection</span><b class="num">${p.projection.toFixed(1)}</b></div>
       </div>
@@ -2719,10 +2808,10 @@ function drawerHTML(p){
       <div><span>Fair odds</span><b class="num">${fmtOdds(p.fairOdds)}</b><small>SWISH's fair price · offered ${fmtOdds(p.price)}</small></div>
     </div>
     ${notes.join("")}
-
+    ${minutesBox(p)}
     <div class="dsec"><div class="dt">How the projection is built</div>
       <div class="build">
-        <div class="st2"><span>Base projection<small>season average ${p.seasonAvg.toFixed(1)} adjusted for recent form</small></span><b class="num">${p.base.toFixed(1)}</b></div>
+        <div class="st2"><span>Base projection<small>${p.live && p.expMin ? `${(p.base / p.expMin).toFixed(2)} per minute × ${p.expMin.toFixed(1)} expected minutes` : `season average ${p.seasonAvg.toFixed(1)} adjusted for recent form`}</small></span><b class="num">${p.base.toFixed(1)}</b></div>
         <div class="st2"><span>Head-to-head vs ${p.opp}<small>avg ${p.h2hAvg.toFixed(1)} over ${p.n} games · weight ${pct(p.w,1)}</small></span><b class="num">${sgnNum(p.h2hAdj)}</b></div>
         ${p.role ? `<div class="st2 ${p.role.applied?"":"na"}"><span>Minutes / role adjustment<small>${p.role.applied ? `${esc(p.role.dependsOn)} out` : `only if ${esc(p.role.dependsOn)} sits`}</small></span><b class="num">${sgnNum(p.role.value)}</b></div>`
                  : `<div class="st2"><span>Minutes / role adjustment<small>no lineup change</small></span><b class="num">±0.0</b></div>`}
@@ -3198,9 +3287,11 @@ $("brandSlot").outerHTML = `<button class="brand" data-nav="dashboard" aria-labe
   }
   const start = () => { engaged = true; clearTimeout(loopTimer); shoot(); };
   const stop  = () => { engaged = false; clearTimeout(loopTimer); };
-  brand.addEventListener("mouseenter", start);
-  brand.addEventListener("mouseleave", stop);
-  brand.addEventListener("focus", start);
+  if (matchMedia("(hover:hover) and (pointer:fine)").matches){
+    brand.addEventListener("mouseenter", start);
+    brand.addEventListener("mouseleave", stop);
+  } else brand.addEventListener("click", () => { engaged = false; clearTimeout(loopTimer); shoot(); });   // phones: one shot per tap
+  brand.addEventListener("focus", () => { if (brand.matches(":focus-visible")) start(); });           // keyboard only
   brand.addEventListener("blur", stop);
   ball.addEventListener("animationend", e => {
     if (e.animationName !== "shotPath") return;
@@ -3210,7 +3301,15 @@ $("brandSlot").outerHTML = `<button class="brand" data-nav="dashboard" aria-labe
 })();
 /* ---- Home header: live clock, next tip-off countdown, rotating tips, count-ups ---- */
 const pad = n => String(n).padStart(2, "0");
-let tipIdx = 0;
+let tipIdx = 0, ccIdx = 0, ccShown = null;
+/* flick through every upcoming tip-off, one every 4 seconds */
+setInterval(() => {
+  const box = $("ccNext"); if (!box || document.hidden) return;
+  const n = GAMES.filter(g => new Date(g.tipoff) > new Date()).length; if (n < 2) return;
+  if (document.documentElement.classList.contains("calm")) { ccIdx = (ccIdx + 1) % n; tickClock(); return; }
+  box.classList.add("swap");
+  setTimeout(() => { ccIdx = (ccIdx + 1) % n; tickClock(); box.classList.remove("swap"); }, 300);
+}, 4000);
 function tickClock(){
   const hm = $("ccHM"); if (!hm) return;
   const now = new Date();
@@ -3220,16 +3319,25 @@ function tickClock(){
   $("ccZone").textContent = tz;
   const seg = Math.floor(now.getSeconds() / 5);
   document.querySelectorAll(".cc-bar i").forEach(el => el.classList.toggle("on", +el.dataset.seg <= seg));
-  const next = GAMES.find(g => new Date(g.tipoff) > now);
-  if (next){
-    let d = Math.floor((new Date(next.tipoff) - now) / 1000);
+  const up = GAMES.filter(g => new Date(g.tipoff) > now);
+  if (up.length){
+    if (ccIdx >= up.length) ccIdx = 0;
+    const next = up[ccIdx];
+    const d = Math.floor((new Date(next.tipoff) - now) / 1000);
     const h = Math.floor(d / 3600), m = Math.floor(d % 3600 / 60), sc = d % 60;
-    $("ccGame").innerHTML = `${tid(next.away,"xs")}${next.away} @ ${tid(next.home,"xs")}${next.home}`;
+    const key = next.id + "|" + up.length + "|" + ccIdx;
+    if (ccShown !== key || !$("ccGame").firstChild){          // logos only re-drawn when the game shown changes (no blinking)
+      ccShown = key;
+      $("ccGame").innerHTML = `${tid(next.away,"xs")}${next.away} @ ${tid(next.home,"xs")}${next.home}`;
+      $("ccLbl").innerHTML = (ccIdx === 0 ? "Next tip-off" : next.tipoff === up[0].tipoff ? `Also at ${timeFmt(next.tipoff)}` : `Then · ${timeFmt(next.tipoff)}`) + (up.length > 1 ? `<span class="cc-dots">${up.map((_, i) => `<i class="${i === ccIdx ? "on" : ""}"></i>`).join("")}</span>` : "");
+    }
     $("ccCount").textContent = h ? `${h}h ${pad(m)}m ${pad(sc)}s` : `${pad(m)}m ${pad(sc)}s`;
     $("ccCount").classList.toggle("soon", d < 3600);
-  } else {
+  } else if (ccShown !== "none") {
+    ccShown = "none";
+    $("ccLbl").textContent = "Next tip-off";
     $("ccGame").textContent = IS_LIVE ? DATA.meta.slateLabel : "Sample slate";
-    $("ccCount").textContent = "All tipped off";
+    $("ccCount").textContent = "All tipped off"; $("ccCount").classList.remove("soon");
   }
 }
 function rotateTip(){
@@ -3238,7 +3346,7 @@ function rotateTip(){
   setTimeout(() => { tipIdx = (tipIdx + 1) % TIPS.length; el.textContent = TIPS[tipIdx]; el.classList.remove("out"); }, 380);
 }
 function countUp(){
-  const calm = document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const calm = document.documentElement.classList.contains("calm") || document.documentElement.classList.contains("noanim") || matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll("[data-count]").forEach(el => {
     const target = +el.dataset.count; if (calm || !target) { el.textContent = target; return; }
     const t0 = performance.now(), dur = 900;
@@ -3246,6 +3354,11 @@ function countUp(){
     requestAnimationFrame(step);
   });
 }
+/* home button (phones): takes you to Home, or back to the top if you're already there */
+$("homeBtn").addEventListener("click", () => {
+  if (state.view !== "dashboard") go("dashboard");
+  else window.scrollTo({top:0, behavior: document.documentElement.classList.contains("calm") ? "auto" : "smooth"});
+});
 /* back-to-top: shows after scrolling; on phones it sits just under the sticky header, top right */
 (function(){
   const btn = $("toTop"), mq = matchMedia("(max-width:960px)");
@@ -3255,29 +3368,59 @@ function countUp(){
   btn.addEventListener("click", () => { window.scrollTo({top:0, behavior: document.documentElement.classList.contains("calm") ? "auto" : "smooth"}); });
   upd();
 })();
-/* fresh data: poll a tiny stamp file; reload when the automation has written newer data */
+/* fresh data: poll a tiny stamp file. When the automation writes newer data, swap it in quietly:
+   wait until you're not typing or scrolling, remember exactly where you are (page, scroll, open panel, filters,
+   latest live scores), reload without any entrance animations and put everything back. No button to press. */
 (function(){
-  try { const y = sessionStorage.getItem("swish.scrollY"); if (y !== null){ sessionStorage.removeItem("swish.scrollY"); setTimeout(() => window.scrollTo(0, +y), 60); } } catch(e){}
   if (!LIVE || !LIVE.meta) return;
   const loaded = new Date(LIVE.meta.writtenAt);
+  let pending = false, lastTouch = 0, retry = null;
+  ["scroll","touchstart","pointerdown","keydown","wheel"].forEach(ev => addEventListener(ev, () => { lastTouch = Date.now(); }, {passive:true}));
+  function swap(){
+    clearTimeout(retry);
+    const typing = /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
+    if (document.hidden || typing || Date.now() - lastTouch < 2500){ retry = setTimeout(swap, 3000); return; }
+    const dr = $("drawer");
+    const snap = {y: window.scrollY, drawer: state.drawer, dy: dr ? dr.scrollTop : 0, market: state.market, q: state.q, sort: state.sort,
+      onlyValue: state.onlyValue, hideFlagged: state.hideFlagged, bestTab: state.bestTab, showForm: state.showForm,
+      collapsed: [...state.collapsed], formOpen: [...state.formOpen], expanded: [...state.expanded],
+      scores: LS.ok ? DATA.games.map(g => ({id: g.id, state: g.state, a: g.awayScore, h: g.homeScore, clock: g.clock, status: g.status})) : null, at: Date.now()};
+    try { sessionStorage.setItem("swish.silent", JSON.stringify(snap)); } catch(e){}
+    location.reload();
+  }
   async function check(){
+    if (pending) return;
     try {
       const r = await fetch("data/stamp.json?t=" + Date.now(), {cache: "no-store"}); if (!r.ok) return;
       const st = await r.json();
-      if (st.writtenAt && new Date(st.writtenAt) > loaded){
-        const busy = state.drawerOpen || /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
-        const quiet = LS.ok && st.mode === "light";   // only scores/injuries changed and scores are already live here
-        if (!busy && !quiet && !document.hidden){ try { sessionStorage.setItem("swish.scrollY", String(window.scrollY)); } catch(e){} location.reload(); }
-        else { const b = $("freshBar"); if (b) b.hidden = false; }
-      }
+      if (st.writtenAt && new Date(st.writtenAt) > loaded){ pending = true; swap(); }
     } catch(e){}
   }
   setInterval(check, 60000);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) check(); });
 })();
+/* coming back from a quiet data swap: restore what you were looking at */
+const SILENT = (() => { try { const v = sessionStorage.getItem("swish.silent"); sessionStorage.removeItem("swish.silent"); return v ? JSON.parse(v) : null; } catch(e){ return null; } })();
+if (SILENT && Date.now() - SILENT.at < 60000){
+  ["market","q","sort","onlyValue","hideFlagged","bestTab","showForm"].forEach(k => { if (SILENT[k] !== undefined) state[k] = SILENT[k]; });
+  state.collapsed = new Set(SILENT.collapsed || []); state.formOpen = new Set(SILENT.formOpen || []); state.expanded = new Set(SILENT.expanded || []);
+  (SILENT.scores || []).forEach(x => {            // keep live scores that are newer than the data file
+    const g = DATA.games.find(y => y.id === x.id); if (!g) return;
+    const rank = s => s === "post" ? 2 : s === "in" ? 1 : 0;
+    if (rank(x.state) > rank(g.state) || (x.state === g.state && (+x.a + +x.h) > (+g.awayScore + +g.homeScore))){
+      g.state = x.state; g.awayScore = x.a; g.homeScore = x.h; g.clock = x.clock; g.status = x.status;
+    }
+  });
+}
 setInterval(tickClock, 1000);
 setInterval(() => { if (!document.hidden && !document.documentElement.classList.contains("calm")) rotateTip(); }, 6000);
 render();
+if (SILENT && Date.now() - SILENT.at < 60000){
+  window.scrollTo(0, SILENT.y || 0);
+  if (SILENT.drawer && SILENT.drawer !== "help" && PROP_BY_ID.has(SILENT.drawer)){ openDrawer(SILENT.drawer); const dr = $("drawer"); if (dr) dr.scrollTop = SILENT.dy || 0; }
+  else if (SILENT.drawer === "help") openHelp();
+}
+setTimeout(() => document.documentElement.classList.remove("noanim"), 900);
 pollScores();
 </script>
 </body>

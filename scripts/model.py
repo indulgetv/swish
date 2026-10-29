@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.0 (2026-10-28)"
+MODEL_VERSION = "v1.1 (2026-10-29)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -28,6 +28,8 @@ BIG_GAP_REL = 0.4
 MODEL_WEIGHT = 0.3
 STALE_AFTER_MIN = 14 * 60
 COUNT_MARKETS = {"REB", "AST", "3PM", "STL", "BLK", "TOV"}
+ROLE_CHANGE_MIN = 5        # minutes: this season's role vs last season counts as a role change
+ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
 
 # ----------------------------------------------------------------------------- small helpers (match the JS)
@@ -79,6 +81,27 @@ def parse_ts(s):
         return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
     except Exception:
         return None
+
+
+def rate(games, m):
+    """per-minute rate over a set of games (None if no minutes)"""
+    mins = sum(g.get("min") or 0 for g in games)
+    return sum(g[m] for g in games) / mins if mins > 0 else None
+
+
+def minutes_model(cur, last):
+    """expected minutes tonight + this season's minutes vs last season's (role change)"""
+    r10 = (cur + last)[:10]
+    base_min = avg([g.get("min") or 0 for g in r10])
+    last_min = avg([g.get("min") or 0 for g in last[:20]]) if last else None
+    if not cur:
+        return base_min, None, last_min, 0.0
+    cur_min = 0.5 * avg([g.get("min") or 0 for g in cur[:3]]) + 0.5 * avg([g.get("min") or 0 for g in cur[:10]])
+    w = min(1, len(cur) / 5)
+    prior = avg([g.get("min") or 0 for g in last[:10]]) if last else cur_min
+    exp_min = w * cur_min + (1 - w) * prior
+    delta = cur_min - last_min if last_min is not None else 0.0
+    return exp_min, cur_min, last_min, delta
 
 
 def nb_cdf(k: int, mean: float, sd: float) -> float:
@@ -152,7 +175,9 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
         if not recent:
             continue
         r10 = recent[:10]
-        mins = js_round(avg([x.get("min") or 0 for x in r10]))
+        exp_min, cur_min, last_min, role_delta = minutes_model(cur, last)
+        mins = js_round(exp_min)
+        role_change = len(cur) >= 2 and last_min is not None and abs(role_delta) >= ROLE_CHANGE_MIN
         w_cur = min(1, len(cur) / 10)
 
         def season_avg(m):
@@ -186,11 +211,16 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
             last10 = [x[market] for x in r10]
             s_avg = avgs[market]
             l10 = avg(last10) if last10 else s_avg
-            base = max(0.1, 0.55 * s_avg + 0.45 * l10)
+            # v1.1: per-minute rate × expected minutes (role changes show up in minutes first)
+            rc, rl = rate(cur, market), rate(last, market)
+            s_rate = (w_cur * rc + (1 - w_cur) * rl) if rc is not None and rl is not None else (rc if rc is not None else rl)
+            l_rate = rate(r10, market)
+            rt = 0.55 * (s_rate or 0) + 0.45 * (l_rate or 0)
+            base = max(0.1, rt * exp_min)
             h2h_games = [x for x in recent if x.get("opp") == opp][:4]
             h2h = [x[market] for x in h2h_games]
             n = len(h2h)
-            h2h_avg = avg(h2h) if n else base
+            h2h_avg = (rate(h2h_games, market) or 0) * exp_min if n else base
             w = H2H_MAX_WEIGHT * n / (n + H2H_K) if n else 0
             projection = base * (1 - w) + h2h_avg * w
             sd_game = max(SD_FLOOR[market], 0.5 * stdev(recent_v[:20]) + 0.5 * CV[market] * projection)
@@ -221,6 +251,8 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                         and parse_ts(i.get("updated")) and parse_ts(i.get("updated")) > ts_f]
                 if late:
                     flags.append(("injury_after_line", "Injury news after the line: " + ", ".join(f"{i['player']} {i['status'].lower()}" for i in late[:3])))
+            if role_change and len(cur) < ROLE_NEW_GAMES:
+                flags.append(("new_role", f"Minutes changed a lot vs last season ({js_round(last_min)}→{js_round(cur_min)}) with only {len(cur)} games this season"))
             if len(recent) < 5:
                 flags.append(("few_games", f"Only {len(recent)} games of data"))
             gap = abs(projection - line)
@@ -236,6 +268,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                 "line": line, "over": over_am, "under": under_am, "book": ", ".join(r["book"] for r in at),
                 "fetched": fetched, "oddsUpdated": updated,
                 "projection": round(projection, 3), "sd": round(sd, 3), "minutes": mins, "games": len(recent),
+                "curGames": len(cur), "roleDelta": round(role_delta, 1) if role_change else 0,
                 "pureO": round(pure_o, 5), "mktO": round(mkt_o, 5), "modelO": round(model_o, 5), "dist": dist,
                 "side": side, "lean": lean, "modelP": round(model_p, 5), "mktP": round(mkt_p, 5), "price": price,
                 "edge": round(edge, 5), "ev": round(ev, 5), "value": value, "verdict": verdict,

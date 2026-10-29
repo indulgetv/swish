@@ -62,8 +62,22 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   10 min before a tip-off until final, and repaints only the score spots (`slot(g, kind)` / `SLOT` / `data-ls`) with
   a small bump animation — no reload. While it works, "light" data updates show the refresh bar instead of reloading.
 
+- **29 Oct (late morning) — mobile fixes + model v1.1:**
+  - No refresh bar: new data swaps in quietly (waits until you stop scrolling/typing, reloads with no entrance animations,
+    restores page, scroll, open prop panel, filters and latest live scores via sessionStorage `swish.silent`).
+  - Live scores tick up one point at a time in yellow, then back to red (`animateScore`, `.lsw.ticking`).
+  - Game log fits phones: date under opponent, columns PTS/REB/AST + the market you opened (3PM/PRA hidden ≤760px);
+    squad-table phone CSS no longer leaks into the nested game log (child selectors `.sqt > tbody > tr`).
+  - Phones: red home button top-right of the logo bar (replaces back-to-top); logo plays once per tap (no sticky loop).
+  - Clock card: logos no longer blink; flicks through every upcoming tip-off every 4s with dots.
+  - Model v1.1 (both files, parity 0 mismatches on 28 Oct snapshot d5512b5): projection = per-minute rate × expected minutes;
+    expected minutes = this season (0.5·last 3 + 0.5·last 10) taking over from last season after ~5 games; role change =
+    this season vs last season minutes ≥5; flag `new_role` if <3 games this season. Backtest on 28 Oct: minutes error
+    4.78→4.27, Brier model-only 0.2655→0.2629 (market 0.2495) — small gain, one night.
+  - Props: "Expected minutes" panel + role chips; new default "Top overs" list ranked by SWISH chance of the over, with
+    High (60%+) / Medium (55–60%) confidence; only overs SWISH rates ≥ the bookmaker, no warnings.
+
 ## Next steps (in order)
-0. Fix mobile-preview bugs the user spotted (29 Oct) — get screenshots.
 1. ~~Daily auto-start~~ DONE 29 Oct: cron-job.org (user's account, timezone Europe/London) POSTs to the GitHub API with a
    fine-grained token (indulgetv/swish only, Actions read & write; if the 90-day option was kept it expires 27 Jan 2027 —
    renew it and paste into all 4 jobs' Authorization header). Jobs: 07:05 `update-data.yml` body
