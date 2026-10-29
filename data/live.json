@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": null,
   "season": 2027,
-  "writtenAt": "2026-10-29T01:03:21Z"
+  "writtenAt": "2026-10-29T01:08:20Z"
  },
  "games": [
   {
@@ -14,9 +14,9 @@
    "home": "ATL",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "6:06 - 4th",
+   "status": "4:36 - 4th",
    "completed": false,
-   "awayScore": "112",
+   "awayScore": "116",
    "homeScore": "107",
    "espnLine": null
   },
@@ -26,9 +26,9 @@
    "home": "CLE",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "8:51 - 4th",
+   "status": "7:41 - 4th",
    "completed": false,
-   "awayScore": "97",
+   "awayScore": "101",
    "homeScore": "102",
    "espnLine": null
   },
@@ -38,10 +38,10 @@
    "home": "DET",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "11:57 - 4th",
+   "status": "10:32 - 4th",
    "completed": false,
    "awayScore": "70",
-   "homeScore": "76",
+   "homeScore": "80",
    "espnLine": null
   },
   {
@@ -50,10 +50,10 @@
    "home": "IND",
    "tipoff": "2026-10-28T23:00Z",
    "state": "in",
-   "status": "1:39 - 3rd",
+   "status": "46.0 - 3rd",
    "completed": false,
-   "awayScore": "74",
-   "homeScore": "82",
+   "awayScore": "75",
+   "homeScore": "85",
    "espnLine": null
   },
   {
@@ -62,10 +62,10 @@
    "home": "TOR",
    "tipoff": "2026-10-28T23:30Z",
    "state": "in",
-   "status": "11:12 - 3rd",
+   "status": "9:57 - 3rd",
    "completed": false,
    "awayScore": "53",
-   "homeScore": "72",
+   "homeScore": "77",
    "espnLine": null
   },
   {
@@ -74,10 +74,10 @@
    "home": "CHI",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "4:07 - 2nd",
+   "status": "2:23 - 2nd",
    "completed": false,
-   "awayScore": "47",
-   "homeScore": "47",
+   "awayScore": "53",
+   "homeScore": "54",
    "espnLine": null
   },
   {
@@ -86,10 +86,10 @@
    "home": "MIL",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "1:25 - 2nd",
+   "status": "Halftime",
    "completed": false,
-   "awayScore": "49",
-   "homeScore": "33",
+   "awayScore": "57",
+   "homeScore": "35",
    "espnLine": null
   },
   {
@@ -98,10 +98,10 @@
    "home": "MIN",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "3:25 - 2nd",
+   "status": "2:15 - 2nd",
    "completed": false,
    "awayScore": "57",
-   "homeScore": "43",
+   "homeScore": "45",
    "espnLine": null
   },
   {
@@ -110,10 +110,10 @@
    "home": "NOP",
    "tipoff": "2026-10-29T00:00Z",
    "state": "in",
-   "status": "2:00 - 2nd",
+   "status": "Halftime",
    "completed": false,
-   "awayScore": "53",
-   "homeScore": "39",
+   "awayScore": "57",
+   "homeScore": "45",
    "espnLine": null
   },
   {
@@ -1029,6 +1029,28 @@
   },
   {
    "team": "LAC",
+   "player": "Max Strus",
+   "pos": "G",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Foot Plantar Fasciitis",
+   "comment": "Strus (foot) is making progress but is set to miss at least one more week, Ohm Youngmisuk of ESPN.com reports.",
+   "updated": "2026-10-29T01:03Z",
+   "returnDate": "2026-11-08"
+  },
+  {
+   "team": "LAC",
+   "player": "Brandon Ingram",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Achilles Surgery",
+   "comment": "Ingram (Achilles) is making progress but is set to miss at least one more week, Ohm Youngmisuk of ESPN.com reports.",
+   "updated": "2026-10-29T01:00Z",
+   "returnDate": "2026-11-08"
+  },
+  {
+   "team": "LAC",
    "player": "Rui Hachimura",
    "pos": "F",
    "status": "Out",
@@ -1051,17 +1073,6 @@
   },
   {
    "team": "LAC",
-   "player": "Max Strus",
-   "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Foot Plantar Fasciitis",
-   "comment": "Strus has been diagnosed with a partially torn plantar fascia in his right foot and he will be re-evaluated in four weeks, Ohm Youngmisuk of ESPN.com reports.",
-   "updated": "2026-10-05T22:21Z",
-   "returnDate": "2026-11-08"
-  },
-  {
-   "team": "LAC",
    "player": "Yanic Konan Niederhauser",
    "pos": "C",
    "status": "Out",
@@ -1069,17 +1080,6 @@
    "detail": "Right Foot Surgery",
    "comment": "Niederhauser (foot) won't be ready for the start of the season, Law Murray of The Athletic reports.",
    "updated": "2026-09-28T18:07Z",
-   "returnDate": "2026-11-08"
-  },
-  {
-   "team": "TOR",
-   "player": "Brandon Ingram",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Achilles Surgery",
-   "comment": "Ingram won't be ready for the start of the season due to a partially torn Achilles, per Joey Linn of SI.com.",
-   "updated": "2026-09-28T18:01Z",
    "returnDate": "2026-11-08"
   },
   {
@@ -1180,6 +1180,17 @@
    "comment": "Missi has been diagnosed with a left knee bone bruise and he will miss an extended period of time, Brett Siegel of ClutchPoints.com reports.",
    "updated": "2026-10-24T22:17Z",
    "returnDate": "2026-11-02"
+  },
+  {
+   "team": "NYK",
+   "player": "Landry Shamet",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Right Ankle",
+   "comment": "Shamet (ankle) exited Wednesday's game against the Bulls, Brett Siegel of ClutchPoints.com reports.",
+   "updated": "2026-10-29T00:55Z",
+   "returnDate": "2026-10-28"
   },
   {
    "team": "NYK",
@@ -358762,7 +358773,7 @@
  "sections": {
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T01:03:20Z",
+   "fetchedAt": "2026-10-29T01:08:20Z",
    "ok": true,
    "count": 12
   },
@@ -358773,9 +358784,9 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T01:03:21Z",
+   "fetchedAt": "2026-10-29T01:08:20Z",
    "ok": true,
-   "count": 86
+   "count": 87
   },
   "players": {
    "source": "ESPN game logs",
@@ -358801,7 +358812,7 @@
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T01:03:20Z",
+   "fetchedAt": "2026-10-29T01:08:20Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -359248,7 +359259,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:03:20Z"
+    "fetchedAt": "2026-10-29T01:08:20Z"
    },
    "home": {
     "starters": [
@@ -359275,7 +359286,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:03:20Z"
+    "fetchedAt": "2026-10-29T01:08:20Z"
    }
   },
   "401909891": {
@@ -359304,7 +359315,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:03:20Z"
+    "fetchedAt": "2026-10-29T01:08:20Z"
    },
    "home": {
     "starters": [
@@ -359331,7 +359342,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:03:20Z"
+    "fetchedAt": "2026-10-29T01:08:20Z"
    }
   },
   "401909892": {
@@ -359360,7 +359371,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:03:20Z"
+    "fetchedAt": "2026-10-29T01:08:20Z"
    },
    "home": {
     "starters": [
@@ -359387,7 +359398,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T01:03:20Z"
+    "fetchedAt": "2026-10-29T01:08:20Z"
    }
   }
  }
