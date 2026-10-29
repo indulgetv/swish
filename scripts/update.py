@@ -210,6 +210,7 @@ def fetch_scoreboard(day: datetime):
                 "name": t.get("name") or t.get("shortDisplayName") or ab,
                 "displayName": t.get("displayName"),
                 "color": "#" + (t.get("color") or "777777"),
+                "alt": "#" + t["alternateColor"] if t.get("alternateColor") else None,
                 "record": next((r.get("summary") for r in c.get("records", []) if r.get("type") in ("total", None) or r.get("name") == "overall"), None),
             }
             sides[c.get("homeAway")] = {"abbr": ab, "score": c.get("score")}
@@ -290,7 +291,7 @@ def fetch_roster(team_id: str):
         items = a.get("items") if isinstance(a, dict) and "items" in a else [a]
         for p in items:
             players.append({"espnId": p.get("id"), "name": p.get("displayName") or p.get("fullName"),
-                            "pos": (p.get("position") or {}).get("abbreviation")})
+                            "pos": (p.get("position") or {}).get("abbreviation"), "jersey": p.get("jersey")})
     return [p for p in players if p["espnId"] and p["name"]]
 
 
@@ -606,7 +607,7 @@ def main() -> int:
                     continue
                 if not cur and not prev_season:
                     continue
-                players.append({"name": p["name"], "espnId": p["espnId"], "team": ab, "pos": p["pos"],
+                players.append({"name": p["name"], "espnId": p["espnId"], "team": ab, "pos": p["pos"], "jersey": p.get("jersey"),
                                 "season": cur[:82], "lastSeason": prev_season[:82]})
             log(f"players: {ab} done ({sum(1 for x in players if x['team'] == ab)} with logs)")
         if players:

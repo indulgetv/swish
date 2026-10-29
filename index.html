@@ -1815,6 +1815,11 @@ html.calm .brand.wave .wordmark i{animation:none!important}
   .ana-h{padding:18px 18px 16px!important;row-gap:12px!important}
   .ana-h .gtags{margin-top:2px}
 }
+/* back-of-jersey avatars */
+.jav{flex:none;display:inline-grid;place-items:center;width:36px;height:38px;filter:drop-shadow(0 2px 3px rgba(18,20,23,.18))}
+.jav svg{width:100%;height:100%;display:block;overflow:visible}
+.jav.lg{width:44px;height:47px}
+html.dark .jav{filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 </style>
 </head>
 <body>
@@ -2026,7 +2031,7 @@ const parsePrice = (txt, fmt) => {           // accepts decimal (1.91), American
 if (IS_LIVE){
   /* teams: every team ESPN gave us (all 30 via standings) */
   const T = {};
-  Object.entries(LIVE.teams || {}).forEach(([ab, t]) => { T[ab] = {city: t.city || "", name: t.name || ab, color: t.color && t.color.length > 3 ? t.color : "#777", record: t.record, displayName: t.displayName}; });
+  Object.entries(LIVE.teams || {}).forEach(([ab, t]) => { T[ab] = {city: t.city || "", name: t.name || ab, color: t.color && t.color.length > 3 ? t.color : "#777", alt: t.alt && t.alt.length > 3 ? t.alt : null, record: t.record, displayName: t.displayName}; });
   /* standings → same "ABBR W-L" shape the sidebar already reads */
   const ST = {};
   ["East","West"].forEach(c => { ST[c] = ((LIVE.standings || {})[c] || []).map(r => `${r.team} ${r.w}-${r.l}`); });
@@ -2273,7 +2278,7 @@ function buildLivePlayers(){
     const wCur = Math.min(1, cur.length / 10);                         // trust this season more as it fills up
     const seasonAvg = m => { const a = cur.length ? avg(cur.map(g => g[m])) : 0, b = last.length ? avg(last.map(g => g[m])) : a; return wCur * a + (1 - wCur) * b; };
     const avgs = {}; MARKETS.forEach(m => avgs[m] = seasonAvg(m));
-    out.push({name: p.name, pos: p.pos || "", team: p.team, min: mins, projMin: mins, avgs, avgMin: avg(r10.map(g => g.min || 0)), expMin0: mm.expMin, minBoost: null, boost: null, scenario: null,
+    out.push({name: p.name, pos: p.pos || "", jersey: p.jersey || null, team: p.team, min: mins, projMin: mins, avgs, avgMin: avg(r10.map(g => g.min || 0)), expMin0: mm.expMin, minBoost: null, boost: null, scenario: null,
               status: statusOf(p.name), log: r10.map(g => ({...g, min: Math.round(g.min)})), recent, cur, last, curGames: cur.length,
               expMin: mm.expMin, curMin: mm.curMin, lastMin: mm.lastMin, roleDelta: roleChange ? mm.delta : 0, roleChange, ...gm});
   });
@@ -2493,6 +2498,20 @@ const sgnPct = (x, d=1) => (x >= 0 ? "+" : "−") + Math.abs(x*100).toFixed(d) +
 const sgnNum = (x, d=1) => (x > 0.049 ? "+" : x < -0.049 ? "−" : "±") + Math.abs(x).toFixed(d);
 const fmtOdds = am => state.odds === "dec" ? americanToDecimal(am).toFixed(2) : (am > 0 ? "+" : "") + Math.round(am);
 const initials = n => n.split(" ").map(s => s[0]).join("").slice(0,2);
+/* back-of-jersey avatar: the team's tank top in its own colours, with the player's number (from ESPN's roster) */
+const lum = hex => { const h = String(hex || "").replace("#", ""); if (h.length < 6) return 0.5; const c = [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+function jerseyAv(name, teamCode, cls = ""){
+  const pl = PLAYER_BY_NAME.get(name) || {}, tm = team(teamCode || pl.team) || {};
+  const body = tm.color || "#6b7280";
+  let trim = tm.alt && Math.abs(lum(tm.alt) - lum(body)) > 0.12 ? tm.alt : (lum(body) > 0.45 ? "#15171b" : "#ffffff");
+  const ink = lum(body) > 0.5 ? "#15171b" : "#ffffff";
+  const num = pl.jersey != null && String(pl.jersey).trim() !== "" ? String(pl.jersey).trim() : initials(name);
+  const fs = num.length >= 3 ? 12 : num.length === 2 ? 15.5 : 17;
+  return `<span class="jav ${cls}" title="${esc(name)}${pl.jersey ? ` · #${esc(pl.jersey)}` : ""}" aria-hidden="true"><svg viewBox="0 0 40 44">
+    <path d="M11 2.5h4.2c.6 2.6 2.6 3.8 4.8 3.8s4.2-1.2 4.8-3.8H29l1 6.5c1.6 2.3 4.2 3.3 6.8 3.6l-.8 6.6c-1.9.6-3.4 1.4-4.3 2.6V41.5H8.3V21.8c-.9-1.2-2.4-2-4.3-2.6l-.8-6.6c2.6-.3 5.2-1.3 6.8-3.6z" fill="${body}" stroke="${trim}" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M15.2 2.5c.6 2.6 2.6 3.8 4.8 3.8s4.2-1.2 4.8-3.8" fill="none" stroke="${trim}" stroke-width="2.2" stroke-linecap="round"/>
+    <text x="20" y="${num.length >= 3 ? 30 : 31.5}" text-anchor="middle" style="font-family:var(--display)" font-weight="700" font-size="${fs + 2}" fill="${ink}" stroke="${trim}" stroke-width="0.6" paint-order="stroke">${esc(num)}</text></svg></span>`;
+}
 const team = t => DATA.teams[t] || {city:t,name:"",color:"#777"};
 const tname = t => `${team(t).city} ${team(t).name}`;
 /* Team logos from ESPN's image server; if one can't load, the coloured initials badge shows instead */
@@ -2828,7 +2847,7 @@ function squadMatrix(teamCode){
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
         <td class="min num ${pl.boost?"up":""}">${pl.status==="Out" ? "—" : minPair(pl)}</td>
         ${pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS ? MARKETS.map(() => `<td><span class="dash">—</span></td>`).join("") : MARKETS.map(m => cell(pl, m)).join("")}</tr>
-        ${open ? `<tr class="formrow"><td colspan="${MARKETS.length + 2}" style="--team-c:${team(pl.team).color}"><div class="formwrap"><div class="formttl"><span class="av">${initials(pl.name)}</span><div><b>${esc(pl.name)}</b><small>${tname(pl.team)} · ${pl.pos} · last 6 games</small></div><button class="fclose" data-form="${esc(pl.name)}" aria-label="Hide last 6 games for ${esc(pl.name)}">Hide ${ICON_CHEV}</button></div>${formTable(pl)}</div></td></tr>` : ""}`; }).join("")}
+        ${open ? `<tr class="formrow"><td colspan="${MARKETS.length + 2}" style="--team-c:${team(pl.team).color}"><div class="formwrap"><div class="formttl">${jerseyAv(pl.name, pl.team)}<div><b>${esc(pl.name)}</b><small>${tname(pl.team)} · ${pl.pos} · last 6 games</small></div><button class="fclose" data-form="${esc(pl.name)}" aria-label="Hide last 6 games for ${esc(pl.name)}">Hide ${ICON_CHEV}</button></div>${formTable(pl)}</div></td></tr>` : ""}`; }).join("")}
     </tbody></table>` : `<div class="gempty">No players match the current filters.</div>`}
   </div>`;
 }
@@ -2965,7 +2984,7 @@ function noLineDrawerHTML(p){
   const max = Math.max(...p.last10, 1) * 1.12;
   const inj = injuryOf(p.player);
   return `
-  <div class="dr-h"><span class="av">${initials(p.player)}</span><div><b>${esc(p.player)}</b><small>${tname(p.team)} · ${p.pos} · vs ${p.opp} · ${timeFmt(g.tipoff)}</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
+  <div class="dr-h">${jerseyAv(p.player, p.team, "lg")}<div><b>${esc(p.player)}</b><small>${tname(p.team)} · ${p.pos} · vs ${p.opp} · ${timeFmt(g.tipoff)}</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
   <div class="dr-b">
     <div class="dr-mk"><b>${MARKET_NAMES[p.market]}</b><span class="vd none">No line</span>${p.status!=="Active" ? stPill(p.status) : ""}</div>
     <div class="bignums">
@@ -3034,7 +3053,7 @@ function drawerHTML(p){
     ? `<div class="pnote info">Projection includes <b>${sgnNum(p.role.value)}</b> because ${esc(p.role.dependsOn)} is out (${p.seasonMin}→${p.minutes} min) — ${esc(lc1(p.role.note))}.</div>`
     : `<div class="pnote info">If ${esc(p.role.dependsOn)} (${esc(p.role.status.toLowerCase())}) sits, add about <b>${sgnNum(p.role.value)}</b> (${p.seasonMin}→${p.role.minIf} min). Not included until confirmed.</div>`);
   return `
-  <div class="dr-h"><span class="av">${initials(p.player)}</span><div><b>${esc(p.player)}</b><small>${tname(p.team)} · ${p.pos} · vs ${p.opp} · ${timeFmt(g.tipoff)}</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
+  <div class="dr-h">${jerseyAv(p.player, p.team, "lg")}<div><b>${esc(p.player)}</b><small>${tname(p.team)} · ${p.pos} · vs ${p.opp} · ${timeFmt(g.tipoff)}</small></div><button class="x" data-close="1" aria-label="Close">×</button></div>
   <div class="dr-b">
     <div class="dr-mk"><b>${MARKET_NAMES[p.market]}</b>${vdPill(p)}${p.status!=="Active" ? stPill(p.status) : ""}</div>
     <div class="bignums">
@@ -3271,7 +3290,7 @@ function injuryCard(g){
       <div class="clamp-m" data-clamp="inj-${t}">${list.length ? list.map(i => {
         const affected = ALL.filter(p => p.player === i.player || (p.role && p.role.dependsOn === i.player));
         return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""}">
-          <div class="inj-top"><span class="av">${initials(i.player)}</span><div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
+          <div class="inj-top">${jerseyAv(i.player, i.team)}<div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
           <div class="inj-meta">${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
             ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
