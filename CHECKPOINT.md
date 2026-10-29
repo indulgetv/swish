@@ -63,11 +63,13 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   a small bump animation — no reload. While it works, "light" data updates show the refresh bar instead of reloading.
 
 ## Next steps (in order)
-1. **Make updates start every day without GitHub cron (most urgent).** The live loop started manually on 29 Oct
-   00:18 runs until ~06:00 only. Set up a free external pinger (e.g. cron-job.org) that calls the GitHub API
-   `POST /repos/indulgetv/swish/actions/workflows/live-loop.yml/dispatches` with body {"ref":"main"}
-   at ~13:50 and ~19:50 UK daily (each loop runs 5.8h), plus ~07:05 for the morning full run. Needs a fine-grained
-   GitHub token (this repo only, Actions: read & write) stored in the pinger. Walk the user through it step by step.
+0. Fix mobile-preview bugs the user spotted (29 Oct) — get screenshots.
+1. ~~Daily auto-start~~ DONE 29 Oct: cron-job.org (user's account, timezone Europe/London) POSTs to the GitHub API with a
+   fine-grained token (indulgetv/swish only, Actions read & write; if the 90-day option was kept it expires 27 Jan 2027 —
+   renew it and paste into all 4 jobs' Authorization header). Jobs: 07:05 `update-data.yml` body
+   {"ref":"main","inputs":{"mode":"full"}}; 13:50, 19:50, 01:30 `live-loop.yml` body {"ref":"main"}. Tested: 204 + runs
+   started. Header X-GitHub-Api-Version 2022-11-28 is deprecated, sunset 10 Mar 2028 — update the header before then.
+   Loops share a concurrency group, so overlapping starts queue rather than clash.
 2. ~~Check the 28 Oct picks were graded~~ DONE 29 Oct: 350/356 graded (6 pending = Gui Santos & Markkanen, not in
    box score → void on next full run). Strong 8-11 (−£31.71), all 182-168 (−£103 at £10). Brier: market 0.2497,
    SWISH 0.2514, model-only 0.2661 → model alone is worse than the market; 0.60–0.65 bucket predicted 62%, hit 48%.
