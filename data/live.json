@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-29",
-  "mode": "full",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-10-29T10:50:25Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T10:51:50Z"
+  "writtenAt": "2026-10-29T10:55:16Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "ATL -1.5",
     "overUnder": 239.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -36,8 +36,8 @@
    "homeScore": "0",
    "espnLine": {
     "details": "NO -5.5",
-    "overUnder": 237.5,
-    "provider": "Draft Kings"
+    "overUnder": 236.5,
+    "provider": "DraftKings"
    }
   },
   {
@@ -53,7 +53,7 @@
    "espnLine": {
     "details": "POR -7.5",
     "overUnder": 234.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   }
  ],
@@ -80067,19 +80067,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T10:50:26Z",
+   "fetchedAt": "2026-10-29T10:55:16Z",
    "ok": true,
    "count": 86
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T10:50:25Z",
+   "fetchedAt": "2026-10-29T10:55:16Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T10:50:26Z",
+   "fetchedAt": "2026-10-29T10:55:16Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -80124,7 +80124,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T10:50:26Z"
+    "fetchedAt": "2026-10-29T10:55:16Z"
    },
    "home": {
     "starters": [
@@ -80151,7 +80151,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T10:50:26Z"
+    "fetchedAt": "2026-10-29T10:55:16Z"
    }
   },
   "401909894": {
@@ -80180,7 +80180,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T10:50:26Z"
+    "fetchedAt": "2026-10-29T10:55:16Z"
    },
    "home": {
     "starters": [
@@ -80207,7 +80207,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T10:50:26Z"
+    "fetchedAt": "2026-10-29T10:55:16Z"
    }
   },
   "401909895": {
@@ -80236,7 +80236,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T10:50:26Z"
+    "fetchedAt": "2026-10-29T10:55:16Z"
    },
    "home": {
     "starters": [
@@ -80263,7 +80263,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T10:50:26Z"
+    "fetchedAt": "2026-10-29T10:55:16Z"
    }
   }
  }
