@@ -33,7 +33,7 @@
   --sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:#f2f3f6}
+html{background:#f2f3f6;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.45}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .num{font-variant-numeric:tabular-nums}
@@ -1771,22 +1771,35 @@ html.calm .brand.wave .wordmark i{animation:none!important}
   .tools .field{min-width:0;width:100%}
   .tools .field input,.tools .field select{min-width:0;width:100%;text-overflow:ellipsis}
 }
-/* Results · Recent picks on phones: one card per pick, no sideways scrolling */
-.rpicks .mlab{display:none}
+/* Results · Recent picks on phones: same table, fewer columns — pick under the name, £ under the result */
+.rpicks .mpick,.rpicks .mprof{display:none}
 @media (max-width:760px){
   .rtwrap{overflow:visible!important}
-  .rpicks,.rpicks tbody{display:block;width:100%}
-  .rpicks thead{display:none}
-  .rpicks tr{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"pl res" "pk prof" "pk act";column-gap:14px;row-gap:4px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
-  .rpicks td{display:block;border:0!important;padding:0!important;text-align:left!important}
-  .rpicks td.hs{display:none!important}
-  .rpicks td:nth-child(2){grid-area:pl}
-  .rpicks td:nth-child(3){grid-area:pk;font-size:12.5px;align-self:start}
-  .rpicks td.res{grid-area:res;justify-self:end}
-  .rpicks td:last-child{grid-area:prof;justify-self:end;font-weight:700;font-size:13px}
-  .rpicks td.act{grid-area:act;justify-self:end;font-size:11.5px;color:var(--muted);white-space:nowrap}
-  .rpicks td.act b{color:var(--ink);font-size:12.5px;margin-left:4px}
-  .rpicks .mlab{display:inline}
+  .rpicks{min-width:0!important;width:100%;table-layout:fixed}
+  .rpicks .hs,.rpicks .dk{display:none!important}
+  .rpicks .mpick{display:block;margin-top:3px;font-size:12px;font-weight:600}
+  .rpicks .mprof{display:block;margin-top:4px;font-size:12px;font-weight:700}
+  .rpicks th:nth-child(2),.rpicks td:nth-child(2){width:auto}
+  .rpicks th.sc2,.rpicks td.act{width:64px;text-align:center!important}
+  .rpicks th.rs2,.rpicks td.res{width:84px;text-align:right!important}
+  .rpicks td.act b{font-size:15px}
+}
+/* Games cards on phones & tablets: everything centred */
+@media (max-width:960px){
+  .ana-h .matchup{justify-content:center}
+  .ana-h{justify-content:center;text-align:center}
+  .ana-h .matchup{width:100%}
+  .ana-h .right{justify-content:center!important;margin-left:0!important;width:100%}
+  .ana-b > div{text-align:center}
+  .ana-b .dt{text-align:center}
+  .ana-b .rec{justify-content:center;flex-wrap:wrap;row-gap:4px}
+  .ana-b .insight{text-align:center}
+  .ana-b .dnote{text-align:center}
+  .ana-b .notes{align-items:center}
+  .ana-b .notes li{padding-left:0;text-align:center}
+  .ana-b .notes li::before{display:none}
+  .ana-b .notes li + li{padding-top:11px;border-top:1px solid var(--line)}
+  .ana-b .ptrend{text-align:left}
 }
 /* Games cards on phones: more breathing room */
 @media (max-width:760px){
@@ -3373,12 +3386,12 @@ function viewResults(){
 
   <div class="panel">
     <div class="panel-h"><h2 class="h">Recent picks</h2><span class="sub">latest first</span></div>
-    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l hs">Night</th><th class="l">Player</th><th class="l">Pick</th><th class="hs">Price</th><th class="hs">SWISH</th><th>Scored</th><th class="l">Result</th><th>£</th></tr></thead>
+    <div class="rtwrap"><table class="rt rpicks"><thead><tr><th class="l hs">Night</th><th class="l">Player</th><th class="l dk">Pick</th><th class="hs">Price</th><th class="hs">SWISH</th><th class="sc2">Scored</th><th class="l rs2">Result</th><th class="dk">£</th></tr></thead>
     <tbody class="clamp-all" data-clamp="r-recent">${R.recent.map(p => `<tr class="${p.value ? "isval" : ""}"><td class="l hs">${dateFmt(p.slate + "T12:00:00")}</td>
-      <td class="l"><b>${esc(p.player)}</b><small>${p.away} @ ${p.home}</small></td>
-      <td class="l"><span class="${p.side === "over" ? "o" : "u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}${p.value ? ` <span class="vd strong">Strong</span>` : ""}</td>
-      <td class="hs">${fmtOdds(p.price)}</td><td class="hs">${pct(p.modelP, 0)}</td><td class="act"><span class="mlab">Scored</span><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l res">${chip(p)}</td>
-      <td class="${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</td></tr>`).join("")}</tbody></table></div>
+      <td class="l"><b>${esc(p.player)}</b><small>${p.away} @ ${p.home}</small><span class="mpick"><span class="${p.side === "over" ? "o" : "u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}</span></td>
+      <td class="l dk"><span class="${p.side === "over" ? "o" : "u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}${p.value ? ` <span class="vd strong">Strong</span>` : ""}</td>
+      <td class="hs">${fmtOdds(p.price)}</td><td class="hs">${pct(p.modelP, 0)}</td><td class="act"><b>${p.actual == null ? "—" : p.actual}</b></td><td class="l res">${chip(p)}<span class="mprof ${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</span></td>
+      <td class="dk ${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</td></tr>`).join("")}</tbody></table></div>
   </div>
   <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
 }
