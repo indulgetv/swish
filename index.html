@@ -1756,6 +1756,21 @@ html.calm .brand.wave .wordmark i{animation:none!important}
   html.dark .nav button + button::after{background:linear-gradient(180deg,transparent,rgba(255,255,255,.14) 30%,rgba(255,255,255,.14) 70%,transparent);box-shadow:1px 0 0 rgba(0,0,0,.35)}
   .nav button.on::after,.nav button.on + button::after{opacity:0}
 }
+/* ---- Props filters on phones & tablets: a proper padded card, buttons in two tidy rows ---- */
+@media (max-width:960px){
+  .toolbar{padding:14px!important;border:1px solid var(--line);border-radius:18px!important;gap:12px}
+  .tools{margin-left:0!important;width:100%;display:grid!important;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:8px}
+  .tools .field{min-width:0;width:100%}
+  .tools .field select,.tools .field input{width:100%;min-width:0}
+}
+@media (max-width:760px){
+  .toolbar{display:grid!important;grid-template-columns:1fr;gap:14px}
+  .chips{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .chips .chip{width:100%;justify-content:center;text-align:center;padding:10px 6px;margin:0}
+  .tools{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:8px;width:100%}
+  .tools .field{min-width:0;width:100%}
+  .tools .field input,.tools .field select{min-width:0;width:100%;text-overflow:ellipsis}
+}
 </style>
 </head>
 <body>
@@ -2642,7 +2657,7 @@ function viewProps(){
   <div class="toolbar">
     <div class="chips" id="marketChips">${MARKET_FILTERS.map(([k,l]) => `<button class="chip ${state.market===k?"on":""}" aria-pressed="${state.market===k}" data-market="${k}">${l}</button>`).join("")}</div>
     <div class="tools">
-      <label class="field">${ICON_SEARCH}<input id="q" aria-label="Search player or team" placeholder="Search player or team  ( / )" value="${esc(state.q)}" autocomplete="off"></label>
+      <label class="field">${ICON_SEARCH}<input id="q" aria-label="Search player or team" placeholder="Player or team" value="${esc(state.q)}" autocomplete="off"></label>
       <label class="field"><select id="sort" aria-label="Sort players">${[["minutes","Sort: minutes"],["edge","Sort: best edge"],["name","Sort: name"]].map(([k,l]) => `<option value="${k}" ${state.sort===k?"selected":""}>${l}</option>`).join("")}</select></label>
     </div>
   </div>
