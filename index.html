@@ -1991,6 +1991,8 @@ html.calm .mrow.ghead .gswipe{animation:none!important;opacity:0}
   box-shadow:inset 4px 0 0 var(--tc),inset 0 0 0 1px color-mix(in srgb,var(--tc) 25%,transparent)!important}
 html.dark .nrow.tcol{background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 34%,transparent) 0%,color-mix(in srgb,var(--tc) 12%,transparent) 45%,transparent 85%),rgba(255,255,255,.03)!important}
 .nrow.tcol.justin{box-shadow:inset 4px 0 0 var(--tc),0 0 0 2px var(--red)!important}
+.lg-l6{display:inline-flex;align-items:center;gap:4px;padding:1px 7px;border-radius:6px;border:1px solid var(--red-line);background:var(--red-soft);color:var(--red);font-size:11px;vertical-align:1px}
+.lg-l6 .ic-form{width:10px;height:10px;fill:currentColor}
 </style>
 </head>
 <body>
@@ -2936,7 +2938,7 @@ function renderLegend(){
   $("legend").innerHTML = state.market === "ALL"
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
-       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <b style="color:var(--red)">L6 ▾</b> next to a name shows their last 6 games</span>`
+       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>`
     : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
