@@ -3174,8 +3174,8 @@ function scheduleHTML(){
   const firstTip = GAMES.length ? timeFmt(GAMES[0].tipoff) : null;
   const items = [
     {m: 7*60+5,  t: "07:05", what: "Morning update", sub: "last night's picks graded on Results · stats & rosters refreshed"},
-    {m: 7*60+6, t: "Morning", what: "Expected lineups", sub: "NBA.com's projected starters, picked up by the first update after they're posted · shown as “exp. starter”", lu: "expected"},
     {m: 13*60+50, t: "13:50", what: "Afternoon updates start", sub: "injuries & news checked every 5 minutes", until: 19*60+45},
+    {m: 13*60+51, t: "13:50", what: "Expected lineups", sub: "NBA.com posts projected starters mid-morning; they show here from the 13:50 update · marked “exp. starter”", lu: "expected"},
 
     ...(early ? [{m: 14*60+30, t: "14:30", what: "Early bookmaker lines", sub: "only for games before 21:30", key: true, done: run("early")}] : []),
     {m: 19*60+50, t: "19:50", what: "Evening updates start", sub: "every 5 minutes until the games finish", until: 25*60+40},
