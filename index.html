@@ -2052,6 +2052,21 @@ html.dark .nrow.tcol{background:linear-gradient(100deg,color-mix(in srgb,var(--t
 @media (min-width:1800px){
   .plist-h,.prow2{grid-template-columns:28px minmax(190px,1.25fr) minmax(180px,1fr) 72px 72px 84px minmax(190px,.9fr) 150px 16px;column-gap:18px}
 }
+/* lineups confirmed: pastel gradient that drifts, with a gentle breathe; green starter chips get a soft passing sheen */
+.tag.lu-go{color:#123524;font-weight:700;border:1px solid rgba(255,255,255,.55);
+  background:linear-gradient(115deg,#b9f3d0,#bfe6ff,#d9ccff,#ffd6e8,#c8f7dc,#b9f3d0);background-size:300% 100%;
+  box-shadow:0 2px 10px rgba(120,220,170,.35);animation:luDrift 7s ease-in-out infinite,luBreathe 3.2s ease-in-out infinite;transform-origin:center}
+html.dark .tag.lu-go{color:#0d2418;border-color:rgba(255,255,255,.35);box-shadow:0 0 14px rgba(140,240,190,.28)}
+@keyframes luDrift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes luBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.lu-st.confirmed,.lu-st.started,.lu-chip.confirmed,.lu-chip.started{
+  background-image:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);background-size:250% 100%;background-repeat:no-repeat;
+  background-position:150% 0;animation:luSheen 5s ease-in-out infinite}
+html.dark .lu-st.confirmed,html.dark .lu-st.started,html.dark .lu-chip.confirmed,html.dark .lu-chip.started{
+  background-image:linear-gradient(110deg,transparent 35%,rgba(160,255,200,.22) 50%,transparent 65%)}
+@keyframes luSheen{0%,70%{background-position:150% 0}100%{background-position:-50% 0}}
+html.calm .tag.lu-go,html.calm .lu-st,html.calm .lu-chip{animation:none}
+@media (prefers-reduced-motion:reduce){.tag.lu-go,.lu-st,.lu-chip{animation:none}}
 </style>
 </head>
 <body>
@@ -3192,7 +3207,7 @@ function gameSection(g){
       <div class="gtags">
         ${slot(g, "tagS")}
         <span class="tag num">Total ${g.total} · ${g.spread}</span>
-        <span class="tag amber">Lineups ${esc(g.lineups.toLowerCase())}</span>
+        <span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(g.lineups.toLowerCase())}</span>
         ${inj.length ? `<span class="tag red">${inj.map(i => `${esc(i.player.split(" ")[1])} ${esc(i.status.toLowerCase())}`).join(" · ")}</span>` : ""}
       </div>
       <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}</div>
