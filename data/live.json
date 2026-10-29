@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T21:37:42Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T22:20:34Z"
+  "writtenAt": "2026-10-29T22:25:34Z"
  },
  "games": [
   {
@@ -724,35 +724,13 @@
   },
   {
    "team": "DAL",
-   "player": "Naji Marshall",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Illness",
-   "comment": "Marshall is questionable for Friday's game against the Rockets with an illness.",
-   "updated": "2026-10-29T22:03Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "DAL",
-   "player": "Sergio de Larrea",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Right Knee Strain",
-   "comment": "De Larrea (knee) has been ruled out for Wednesday's game against the Thunder.",
-   "updated": "2026-10-29T04:40Z",
-   "returnDate": "2026-11-02"
-  },
-  {
-   "team": "DAL",
    "player": "Tarik Biberovic",
    "pos": "F",
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Right Heel Inflammation",
-   "comment": "Biberovic (knee) is out for Wednesday's game against the Thunder.",
-   "updated": "2026-10-28T18:21Z",
+   "comment": "Biberovic (heel) is listed as doubtful for Friday's game versus the Rockets.",
+   "updated": "2026-10-29T22:09Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -762,8 +740,30 @@
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Right Knee Surgery",
-   "comment": "Aldama (knee) is out for Wednesday's game against the Thunder.",
-   "updated": "2026-10-28T18:19Z",
+   "comment": "Aldama (knee) is listed as doubtful for Friday's game against Houston.",
+   "updated": "2026-10-29T22:07Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "DAL",
+   "player": "Sergio de Larrea",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Knee Strain",
+   "comment": "De Larrea (knee) is out for Friday's game against the Rockets.",
+   "updated": "2026-10-29T22:06Z",
+   "returnDate": "2026-11-02"
+  },
+  {
+   "team": "DAL",
+   "player": "Naji Marshall",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Illness",
+   "comment": "Marshall is questionable for Friday's game against the Rockets with an illness.",
+   "updated": "2026-10-29T22:03Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -1010,6 +1010,17 @@
   },
   {
    "team": "LAC",
+   "player": "Rui Hachimura",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Quadriceps Soreness",
+   "comment": "Hachimura (quadriceps) is questionable for Friday's game against Minnesota, Tomer Azarly of ClutchPoints.com reports.",
+   "updated": "2026-10-29T22:13Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "LAC",
    "player": "Yanic Konan Niederhauser",
    "pos": "C",
    "status": "Out",
@@ -1018,17 +1029,6 @@
    "comment": "Niederhauser (foot) had his third-year team option picked up Thursday by the Clippers, Ohm Youngmisuk of ESPN.com reports.",
    "updated": "2026-10-29T18:44Z",
    "returnDate": "2026-11-08"
-  },
-  {
-   "team": "LAC",
-   "player": "Rui Hachimura",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Left Quadriceps Soreness",
-   "comment": "Hachimura (quadriceps) has been ruled out for Wednesday's game against the Lakers, Joey Linn of SI.com reports.",
-   "updated": "2026-10-29T05:06Z",
-   "returnDate": "2026-10-30"
   },
   {
    "team": "LAC",
@@ -1153,14 +1153,25 @@
   },
   {
    "team": "NOP",
+   "player": "Dejounte Murray",
+   "pos": "G",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Personal",
+   "comment": "Murray produced 10 points (4-11 FG, 0-2 3Pt, 2-2 FT), eight rebounds, five assists and one steal in 30 minutes during Wednesday's 104-91 loss to the Nuggets.",
+   "updated": "2026-10-29T22:19Z",
+   "returnDate": "2026-10-31"
+  },
+  {
+   "team": "NOP",
    "player": "Jordan Poole",
    "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
+   "status": "Out",
+   "rawStatus": "Out",
    "detail": "Left Ankle",
    "comment": "Poole (ankle) is now doubtful for Thursday against the Kings.",
-   "updated": "2026-10-29T16:49Z",
-   "returnDate": "2026-10-29"
+   "updated": "2026-10-29T22:17Z",
+   "returnDate": "2026-10-31"
   },
   {
    "team": "NOP",
@@ -83930,19 +83941,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T22:20:34Z",
+   "fetchedAt": "2026-10-29T22:25:34Z",
    "ok": true,
-   "count": 95
+   "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T22:20:34Z",
+   "fetchedAt": "2026-10-29T22:25:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T22:20:34Z",
+   "fetchedAt": "2026-10-29T22:25:34Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84014,7 +84025,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T22:20:34Z"
+    "fetchedAt": "2026-10-29T22:25:34Z"
    },
    "home": {
     "starters": [
@@ -84041,7 +84052,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T22:20:34Z"
+    "fetchedAt": "2026-10-29T22:25:34Z"
    }
   },
   "401909894": {
@@ -84070,7 +84081,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T22:20:34Z"
+    "fetchedAt": "2026-10-29T22:25:34Z"
    },
    "home": {
     "starters": [
@@ -84097,7 +84108,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T22:20:34Z"
+    "fetchedAt": "2026-10-29T22:25:34Z"
    }
   },
   "401909895": {
@@ -84126,7 +84137,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T22:20:34Z"
+    "fetchedAt": "2026-10-29T22:25:34Z"
    },
    "home": {
     "starters": [
@@ -84153,7 +84164,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T22:20:34Z"
+    "fetchedAt": "2026-10-29T22:25:34Z"
    }
   }
  }
