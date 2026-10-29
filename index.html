@@ -3313,7 +3313,9 @@ function viewInjuries(){
   <h1 class="title">Injuries &amp; Lineups</h1>
   <p class="lede">Who's out or doubtful, and who should pick up their minutes.</p>
   </header>
-  ${IS_LIVE ? `<div class="notice live">Injury news comes from ESPN, checked ${(((LIVE.sections || {}).injuries || {}).fetchedAt) ? timeFmt(LIVE.sections.injuries.fetchedAt) : "—"}. "Day-to-day" shows as Questionable. Starting lineups come from NBA.com when posted, or ESPN once a game starts. When a player is ruled out, SWISH gives his teammates the extra minutes automatically.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
+  ${IS_LIVE ? `<div class="notice live"><b>Where this comes from.</b> Player statuses come from ESPN's injury report, last checked ${(((LIVE.sections || {}).injuries || {}).fetchedAt) ? timeFmt(LIVE.sections.injuries.fetchedAt) : "—"}. ESPN's "day-to-day" is shown here as Questionable.
+    Starting lineups appear once NBA.com posts them (usually a few hours before tip-off); before that, starters are marked "expected".
+    <br><b>How it affects projections.</b> A player marked Out gets no projections. If his team is then short of a normal game's minutes, SWISH shares the gap among his teammates, mostly bench and role players, up to +6 minutes each. Long-term injuries are already reflected in recent games, so they don't add extra minutes. Players marked Questionable or Doubtful are flagged, not boosted, until they're ruled out.</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
