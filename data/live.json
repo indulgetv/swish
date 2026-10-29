@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T14:25:17Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T15:50:25Z"
+  "writtenAt": "2026-10-29T15:55:25Z"
  },
  "games": [
   {
@@ -64,7 +64,8 @@
    "name": "Hawks",
    "displayName": "Atlanta Hawks",
    "color": "#c8102e",
-   "record": "2-3"
+   "record": "2-3",
+   "alt": "#fdb927"
   },
   "MIA": {
    "espnId": "14",
@@ -80,7 +81,8 @@
    "name": "Cavaliers",
    "displayName": "Cleveland Cavaliers",
    "color": "#860038",
-   "record": "3-1"
+   "record": "3-1",
+   "alt": "#bc945c"
   },
   "WAS": {
    "espnId": "27",
@@ -192,7 +194,8 @@
    "name": "Pelicans",
    "displayName": "New Orleans Pelicans",
    "color": "#0a2240",
-   "record": "0-4"
+   "record": "0-4",
+   "alt": "#b4975a"
   },
   "DEN": {
    "espnId": "7",
@@ -268,7 +271,8 @@
    "name": "Kings",
    "displayName": "Sacramento Kings",
    "color": "#5a2d81",
-   "record": "0-4"
+   "record": "0-4",
+   "alt": "#6a7a82"
   },
   "PHX": {
    "espnId": "21",
@@ -282,7 +286,8 @@
    "name": "Trail Blazers",
    "displayName": "Portland Trail Blazers",
    "color": "#e03a3e",
-   "record": "3-0"
+   "record": "3-0",
+   "alt": "#000000"
   },
   "MEM": {
    "espnId": "29",
@@ -290,7 +295,8 @@
    "name": "Grizzlies",
    "displayName": "Memphis Grizzlies",
    "color": "#5d76a9",
-   "record": "4-0"
+   "record": "4-0",
+   "alt": "#12173f"
   }
  },
  "standings": {
@@ -80073,7 +80079,7 @@
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T15:50:25Z",
+   "fetchedAt": "2026-10-29T15:55:25Z",
    "ok": true,
    "count": 3
   },
