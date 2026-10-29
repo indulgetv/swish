@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-29T23:50:41Z"
+  "writtenAt": "2026-10-29T23:55:34Z"
  },
  "games": [
   {
@@ -84170,19 +84170,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-29T23:50:41Z",
+   "fetchedAt": "2026-10-29T23:55:34Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-29T23:50:36Z",
+   "fetchedAt": "2026-10-29T23:55:33Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-29T23:50:36Z",
+   "fetchedAt": "2026-10-29T23:55:34Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84264,7 +84264,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:50:36Z"
+    "fetchedAt": "2026-10-29T23:55:34Z"
    },
    "home": {
     "starters": [
@@ -84291,7 +84291,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:50:36Z"
+    "fetchedAt": "2026-10-29T23:55:34Z"
    }
   },
   "401909894": {
@@ -84320,16 +84320,16 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:50:36Z"
+    "fetchedAt": "2026-10-29T23:55:34Z"
    },
    "home": {
     "starters": [
      {
-      "name": "Trey Murphy III",
+      "name": "Herbert Jones",
       "pos": "SG"
      },
      {
-      "name": "Herbert Jones",
+      "name": "Trey Murphy III",
       "pos": "SF"
      },
      {
@@ -84347,7 +84347,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:50:36Z"
+    "fetchedAt": "2026-10-29T23:55:34Z"
    }
   },
   "401909895": {
@@ -84376,7 +84376,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:50:36Z"
+    "fetchedAt": "2026-10-29T23:55:34Z"
    },
    "home": {
     "starters": [
@@ -84403,7 +84403,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-29T23:50:36Z"
+    "fetchedAt": "2026-10-29T23:55:34Z"
    }
   }
  },
