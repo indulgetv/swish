@@ -60,8 +60,8 @@ ABBR_FIX = {"GS": "GSW", "NY": "NYK", "SA": "SAS", "NO": "NOP", "UTAH": "UTA", "
 PROP_MARKETS = {"player_points": "PTS", "player_rebounds": "REB", "player_assists": "AST",
                 "player_threes": "3PM", "player_points_rebounds_assists": "PRA"}
 ODDS_MARKETS_DEFAULT = ["player_points", "player_rebounds", "player_assists"]
-# "auto" picks as many of these (in this order) as the day's credit budget allows for EVERY game
-ODDS_MARKETS_PRIORITY = ["player_points", "player_rebounds", "player_assists", "player_threes", "player_points_rebounds_assists"]
+# "auto" picks as many of these (in this order) as the day's credit budget allows for EVERY game (user preference: PTS, REB, AST only)
+ODDS_MARKETS_PRIORITY = ["player_points", "player_rebounds", "player_assists"]   # the user bets PTS/REB/AST; threes/PRA not bought
 # Team names that differ between ESPN and The Odds API
 TEAM_ALIASES = {"laclippers": "losangelesclippers"}
 REF_BOOKS = ["fanduel", "draftkings", "betmgm"]          # US reference books

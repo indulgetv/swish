@@ -88,7 +88,8 @@ _Last updated: 2026-10-29 by Claude._ Paste the line in **"How to resume"** into
   - Squad tables: Min shows average (last 10) and expected tonight in blue; phone game log shows PTS/REB/AST/3PM.
   - Odds credits: UK game lines (totals/spreads) only bought when the day's budget covers 3 prop markets for every game.
     Free plan = 500/month (resets monthly, no rollover). 28 Oct run used 35, 465 left. November ≈16/day → auto picks
-    PTS only on 10+ game nights, PTS+REB on ≤8. Ask the user which markets matter most.
+    PTS only on 10+ game nights, PTS+REB on ≤8. User chose PTS, REB, AST only (29 Oct) — threes/PRA no longer bought.
+  - Guide doc for the user: https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE ("SWISH — how it works"); keep it updated.
 
 ## Next steps (in order)
 1. ~~Daily auto-start~~ DONE 29 Oct: cron-job.org (user's account, timezone Europe/London) POSTs to the GitHub API with a
