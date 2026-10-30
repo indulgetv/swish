@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 10:45 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 11:20 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -169,6 +169,16 @@ _Last updated: 2026-10-30 10:45 by Claude._ Paste the line in **"How to resume"*
     strong 8–12 → 6–11 (−£45→−£54). Herbert Jones PTS flips under→over (he started for Murray, played 32, scored 16).
     Night 1 had no saved lineups, so the starter rule is tested on ONE night (3 games) only. Small gain, not proof.
   - Rolechips in squad names now ellipsis-truncate (no longer run under the Last 6 button on desktop).
+- **30 Oct (late morning) — model v1.4 "Minutes unclear" flag** (user doesn't want SWISH guessing who gains minutes):
+  a player with 25+ expected minutes (`KEY_MIN`) newly OUT (played in team's last game) → every prop on his team gets
+  flag `min_unclear` ("Minutes unclear — X out; waiting for the confirmed lineup") until NBA.com marks that team's lineup
+  "confirmed" (~30 min pre-tip). Any flag = verdict "check", not strong, not in Top overs. Shared minutes still in the
+  projection (estimate). Both files (`key_absences` / `keyAbsences` + `KEY_OUT`), parity 0 on 3 slates.
+  Backtest (tiny): 28 Oct (no lineups saved that night) 82/366 props flagged on 5 teams — strong removed 1–2 (−£8.60),
+  Top overs removed 6–2 (+£22.62); 29 Oct without lineups: 15 NOP props, Top overs removed 1–1. It's a safety rule.
+  Parity tip: the page falls back to the sample slate when live data is >36h old, so test old snapshots with the
+  browser clock set to the slate time (playwright `page.clock.install`).
+  Agreed order after this: C0 → B → projection lab (with-vs-without = its first test) → A4 late re-price (ask first).
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
