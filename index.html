@@ -2223,12 +2223,12 @@ html.calm .sg .t.ht .htl::before,html.calm .sg .t.ht .htl span{animation:none}
       <button class="tgl" role="switch" aria-checked="false" data-pref="dark"><span class="track"><span class="knob"></span></span>Dark mode</button>
       <button class="tgl" role="switch" aria-checked="false" data-pref="calm"><span class="track"><span class="knob"></span></span>Reduce motion</button>
     </div>
-    <div class="side-foot" id="sideFoot"><b>Stage 1 prototype.</b> All figures are sample data. Projections come from a simple placeholder model and are not predictions of real games.</div>
+    <div class="side-foot" id="sideFoot"></div>
   </aside>
   <div class="main">
     <div class="top">
       <div class="crumb" id="crumb"></div>
-      <span class="sample-pill" id="srcPill"><i></i>Sample data — not live</span>
+      <span class="sample-pill" id="srcPill" style="visibility:hidden"></span>
       <button class="newspill" id="newsPill" data-nav="injuries" hidden></button>
       <div class="top-right"><button class="themebtn" role="switch" aria-checked="false" data-pref="dark" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button class="helpbtn top" data-help="1" aria-label="How it works"><span>?</span><em class="hw">How it works</em></button><div class="seg" id="oddsSeg"><button data-odds="dec" aria-label="Decimal odds"><span class="nl">Decimal</span><span class="ns">Dec</span></button><button data-odds="am" aria-label="American odds"><span class="nl">American</span><span class="ns">US</span></button></div></div>
     </div>
@@ -4024,7 +4024,12 @@ function render(){
     $("srcPill").className = "sample-pill live-pill" + (UPD_FLASH && Date.now() - UPD_FLASH < 3600 ? " justupd" : ""); setHTML($("srcPill"), `<i></i><span class="nl">Data updated </span><svg class="ms" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="updw">Updated</span><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`); $("srcPill").setAttribute("aria-label", `Data updated ${timeFmt(DATA.meta.generatedAt)}`); $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
     $("stSrc").textContent = "Live records (ESPN)";
     $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; prop prices from US bookmakers via The Odds API. Projections are model estimates, not predictions or advice.`;
+  } else {
+    // only when there really is no live data file: the page starts with these blank, so "Sample data" never flashes up first
+    $("srcPill").className = "sample-pill"; setHTML($("srcPill"), `<i></i>Sample data — not live`);
+    setHTML($("sideFoot"), `<b>Stage 1 prototype.</b> All figures are sample data. Projections come from a simple placeholder model and are not predictions of real games.`);
   }
+  $("srcPill").style.visibility = "";
   const nn = injNews().length, np = $("newsPill");
   np.hidden = false;
   const chk = injCheckedAt(), newest = [...DATA.injuries].filter(i => i.news !== null).sort(byNewest)[0];   // last REAL change
