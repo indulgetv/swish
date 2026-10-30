@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T02:45:35Z"
+  "writtenAt": "2026-10-30T02:50:44Z"
  },
  "games": [
   {
@@ -38,10 +38,10 @@
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
    "state": "in",
-   "status": "9:53 - 2nd",
+   "status": "7:38 - 2nd",
    "completed": false,
-   "awayScore": "28",
-   "homeScore": "32",
+   "awayScore": "35",
+   "homeScore": "41",
    "espnLine": null
   }
  ],
@@ -692,11 +692,11 @@
    "team": "CLE",
    "player": "Meleek Thomas",
    "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Foot",
    "comment": "Thomas (foot) has been ruled out for Thursday's game against the Hawks, Serena Winters of FanDuel Sports Network Ohio reports.",
-   "updated": "2026-10-29T23:21Z",
+   "updated": "2026-10-30T02:39Z",
    "returnDate": "2026-10-31"
   },
   {
@@ -84147,19 +84147,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T02:45:35Z",
+   "fetchedAt": "2026-10-30T02:50:43Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T02:45:34Z",
+   "fetchedAt": "2026-10-30T02:50:43Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T02:45:34Z",
+   "fetchedAt": "2026-10-30T02:50:43Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },
