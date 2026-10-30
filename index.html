@@ -2248,7 +2248,7 @@ const MIN_MINUTES_FOR_PROPS = 14;
 const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.4 (2026-10-30)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.5 (2026-10-30)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
 const MAX_MIN = 40;           // nobody is projected above this many minutes
@@ -2257,6 +2257,7 @@ const TEAM_MIN = 240;         // minutes in a regulation game
 const MAX_GAIN = 6;           // no single player picks up more than 6 extra minutes
 const FRESH_GAMES = 1;       // an absence is "new" if the player played in his team's last game
 const KEY_MIN = 25;           // newly-out 25+ min player → his team's minutes "unclear" until lineups are confirmed
+const STARTER_PULL = 1 / 3;   // v1.5: move a third of the way to that target (lab: the full move overshot)
 const STARTER_SHARE = 0.9;    // listed starter outside the usual top 5: at least 90% of the other starters' minutes
 const SHIFT_ROOM = 36;        // spare minutes are shared by how far each player is below this
 const SHIFT_MIN_RECV = 8;     // …and only rotation players (8+ expected minutes) pick them up     // …and with fewer games than this it's flagged (projection less certain)
@@ -2543,12 +2544,11 @@ function minutesModel(cur, last){
   return {expMin: w * curMin + (1 - w) * prior, curMin, lastMin, delta: lastMin !== null ? curMin - lastMin : 0};
 }
 const posGroup = pos => { const u = String(pos || "").toUpperCase(); return u.startsWith("C") ? "C" : u.includes("G") ? "G" : u.includes("F") ? "F" : u; };
-/* v1.3 minutes shifts (same rules as scripts/model.py):
-   1) teammates ruled OUT: a NEW absence (played in his team's last game) frees his share of a 240-minute game —
-      his minutes × 240 / (available + absent minutes). Long-term absences only count the gap below 240 (already absorbed).
-      Spare minutes go to rotation players by room below 36 minutes, double weight for the absent players' positions, +6 max, cap 40.
-   2) starting tonight: a player outside his team's usual top-5 minutes who NBA.com lists as a starter (expected or
-      confirmed) gets at least 90% of the other starters' average minutes. Names compared without accents. */
+/* v1.5 minutes shifts (same rules as scripts/model.py; tested in the projection lab on two seasons):
+   1) teammates ruled OUT: only the gap below a 240-minute game is shared — to rotation players by room below 36 minutes,
+      double weight for the absent players' positions, +6 max, cap 40.
+   2) starting tonight: a player outside his team's usual top-5 minutes whom NBA.com lists as a starter moves a third of
+      the way towards 90% of the other starters' average minutes. Names compared without accents. */
 function applyMinuteShifts(players){
   const byTeam = {};
   players.forEach(pl => (byTeam[pl.team] = byTeam[pl.team] || []).push(pl));
@@ -2557,11 +2557,7 @@ function applyMinuteShifts(players){
     const outs = rows.filter(r => r.status === "Out" && r.expMin0 >= SHIFT_MIN_OUT);
     if (!outs.length) return;
     const avail = rows.filter(r => r.status !== "Out" && r.status !== "Doubtful" && r.cur.length > 0);
-    const teamDates = new Set([...new Set(rows.flatMap(r => r.cur.map(g => g.d)).filter(Boolean))].sort().reverse().slice(0, FRESH_GAMES));
-    const fresh = outs.filter(o => o.cur.some(g => teamDates.has(g.d)));
-    const sAv = avail.reduce((a, r) => a + r.expMin0, 0), sNew = fresh.reduce((a, r) => a + r.expMin0, 0);
-    const freed = sNew > 0 ? sNew * TEAM_MIN / (sAv + sNew) : 0;
-    const short = Math.max(TEAM_MIN - sAv, freed);
+    const short = TEAM_MIN - avail.reduce((a, r) => a + r.expMin0, 0);   // v1.5: back to the v1.2 rule (lab: "freed share" made minutes worse)
     if (short <= 0) return;
     const grps = new Set(outs.map(o => posGroup(o.pos)));
     const recv = avail.filter(r => r.expMin0 >= SHIFT_MIN_RECV);
@@ -2584,7 +2580,7 @@ function applyMinuteShifts(players){
     const others = st.filter(r => top5.has(r.name)).map(r => exp[r.name]);
     if (!others.length) return;
     const target = Math.min(MAX_MIN, STARTER_SHARE * others.reduce((a, b) => a + b, 0) / others.length);
-    st.forEach(r => { if (!top5.has(r.name) && target > exp[r.name]){ gain[r.name] = (gain[r.name] || 0) + target - exp[r.name]; from[r.name] = from[r.name] || []; starterTonight[r.name] = true; } });
+    st.forEach(r => { if (!top5.has(r.name) && target > exp[r.name]){ gain[r.name] = (gain[r.name] || 0) + STARTER_PULL * (target - exp[r.name]); from[r.name] = from[r.name] || []; starterTonight[r.name] = true; } });
   });
   players.forEach(r => {
     const g = gain[r.name]; if (!g) return;
@@ -3168,8 +3164,8 @@ const roleChip = x => x && x.roleChange ? `<span class="rolechip ${x.roleDelta >
 /* minutes boost from teammates ruled out */
 const boostWhy = b => { const names = [...new Set(b.from)]; return [names.length ? `${names.join(", ")} out` : "", b.starter ? "starting tonight" : ""].filter(Boolean).join(" · "); };
 const boostTip = pl => { const names = [...new Set(pl.minBoost.from)]; return `More minutes expected tonight: about ${Math.round(pl.expMin0)} → ${pl.projMin}.` +
-  (names.length ? ` ${names.join(", ")} ${names.length === 1 ? "is" : "are"} newly listed Out on ESPN's injury report; SWISH shares the minutes they would normally play, mostly to role players, up to +6 minutes each.` : "") +
-  (pl.minBoost.starter ? ` NBA.com lists him in tonight's starting five although he isn't usually one of his team's top-5 minutes players, so SWISH raises him to about 90% of the other starters' minutes.` : ""); };
+  (names.length ? ` ${names.join(", ")} ${names.length === 1 ? "is" : "are"} listed Out on ESPN's injury report, and the players left usually play fewer than a full game's 240 minutes between them; SWISH shares the gap, mostly to role players, up to +6 minutes each.` : "") +
+  (pl.minBoost.starter ? ` NBA.com lists him in tonight's starting five although he isn't usually one of his team's top-5 minutes players, so SWISH moves his minutes part of the way towards the other starters'. (Tested on two past seasons: a full jump overshot.)` : ""); };
 const boostChip = pl => pl && pl.minBoost ? `<span class="rolechip up" tabindex="0" data-tip="${esc(boostTip(pl))}">▲ +${Math.max(1, Math.round(pl.minBoost.gain))} min · ${pl.minBoost.starter ? "new starter" : "teammate out"}</span>` : "";
 const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${p.minBoost ? boostChip(PLAYER_BY_NAME.get(p.player)) : ""}${roleChip(p)}</div>
       <div class="minbox">

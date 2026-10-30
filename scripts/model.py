@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.4 (2026-10-30)"
+MODEL_VERSION = "v1.5 (2026-10-30)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -37,6 +37,7 @@ SHIFT_ROOM = 36            # spare minutes are shared by how far each player is 
 SHIFT_MIN_RECV = 8         # only rotation players (8+ expected minutes) pick them up
 FRESH_GAMES = 1            # an absence is "new" if the player played in his team's last game (2-3 tested worse)
 KEY_MIN = 25               # a newly-out player with 25+ expected minutes makes his team's minutes "unclear" until lineups are confirmed
+STARTER_PULL = 1 / 3       # v1.5: move a third of the way to that target (lab: full move overshot by ~2.6 min)
 STARTER_SHARE = 0.9        # a bench player listed to start tonight: at least 90% of the other starters' average minutes
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
@@ -119,14 +120,12 @@ def pos_group(pos):
 
 
 def minute_shifts(live: dict, status_of) -> dict:
-    """Teammates ruled OUT → more minutes for the rest (v1.3).
-    The players' own expected minutes add up to more than 240 (deep-bench players' averages only count games they
-    played), so the old "shortfall below 240" alone often found no room. Now: a NEW absence (the player played in one
-    of his team's last 3 games) frees the share of a 240-minute game he would normally get:
-        freed = his minutes × 240 / (available players' minutes + absent players' minutes).
-    Long-term absences (no recent games) are already absorbed in his teammates' minutes, so only the old rule applies:
-    the gap below 240, if any. Spare minutes go to rotation players by how far they are below 36 minutes, double
-    weight for the absent players' positions, max +6 each, cap 40."""
+    """Minutes shifts (v1.5, tested in the projection lab on 2024-25 and 2025-26):
+    1) Teammates ruled OUT: only when the available players can't fill a 240-minute game on their own minutes, the gap
+       goes to rotation players by room below 36 min, double weight for the absent players' positions, +6 max, cap 40.
+       (v1.3's "freed share of 240" for new absences made minutes worse over two seasons, so it was removed.)
+    2) Starting tonight: a player outside his team's usual top-5 minutes whom NBA.com lists as a starter moves a THIRD
+       of the way (STARTER_PULL) towards 90% of the other starters' average minutes. (The full move overshot by ~2.6 min.)"""
     teams = {t for g in live.get("games", []) for t in (g["away"], g["home"])}
     by_team = {}
     for p in live.get("players", []):
@@ -144,12 +143,7 @@ def minute_shifts(live: dict, status_of) -> dict:
         avail = [r for r in rows if r["status"] not in ("Out", "Doubtful") and r["cur"] > 0]
         if not outs:
             continue
-        team_dates = sorted({d for r in rows for d in r["dates"] if d}, reverse=True)[:FRESH_GAMES]
-        fresh = [o for o in outs if o["dates"] & set(team_dates)]
-        s_av = sum(r["exp"] for r in avail)
-        s_new = sum(o["exp"] for o in fresh)
-        freed = s_new * TEAM_MIN / (s_av + s_new) if s_new > 0 else 0.0
-        short = max(TEAM_MIN - s_av, freed)
+        short = TEAM_MIN - sum(r["exp"] for r in avail)      # v1.5: back to the v1.2 rule (lab: the "freed share" made minutes worse)
         if short <= 0:
             continue
         grps = {o["grp"] for o in outs}
@@ -185,7 +179,7 @@ def minute_shifts(live: dict, status_of) -> dict:
             for r in st:
                 if r["name"] not in top5 and target > exp[r["name"]]:
                     prev = out.get(r["name"], {"gain": 0, "from": []})
-                    out[r["name"]] = {"gain": prev["gain"] + target - exp[r["name"]], "from": prev["from"], "starter": True}
+                    out[r["name"]] = {"gain": prev["gain"] + STARTER_PULL * (target - exp[r["name"]]), "from": prev["from"], "starter": True}
     return out
 
 

@@ -1,0 +1,205 @@
+{
+ "label": "v1.4-no-lineups",
+ "modelVersion": "v1.4 (2026-10-30)",
+ "season": 2026,
+ "lineups": false,
+ "createdAt": "2026-10-30T11:40:59Z",
+ "nights": 166,
+ "overall": {
+  "n": 61991,
+  "played": 59634,
+  "minMAE": 5.356,
+  "minBias": -1.398,
+  "PTS": {
+   "n": 23075,
+   "MAE": 5.054,
+   "bias": -0.483,
+   "brier": 0.2466,
+   "overRate": 0.4504,
+   "predOver": 0.5201
+  },
+  "REB": {
+   "n": 23075,
+   "MAE": 2.075,
+   "bias": -0.282,
+   "brier": 0.2418,
+   "overRate": 0.438,
+   "predOver": 0.4788
+  },
+  "AST": {
+   "n": 15841,
+   "MAE": 1.599,
+   "bias": -0.062,
+   "brier": 0.2416,
+   "overRate": 0.4575,
+   "predOver": 0.4654
+  }
+ },
+ "subsets": {
+  "minutesBoosted": {
+   "n": 11040,
+   "played": 10729,
+   "minMAE": 5.402,
+   "minBias": -1.029,
+   "PTS": {
+    "n": 4045,
+    "MAE": 5.077,
+    "bias": 0.268,
+    "brier": 0.2399,
+    "overRate": 0.5634,
+    "predOver": 0.6104
+   },
+   "REB": {
+    "n": 4045,
+    "MAE": 2.114,
+    "bias": -0.139,
+    "brier": 0.2443,
+    "overRate": 0.515,
+    "predOver": 0.5624
+   },
+   "AST": {
+    "n": 2950,
+    "MAE": 1.593,
+    "bias": 0.029,
+    "brier": 0.2447,
+    "overRate": 0.5142,
+    "predOver": 0.5149
+   }
+  },
+  "newStarter": null,
+  "minutesUnclear": {
+   "n": 4805,
+   "played": 4653,
+   "minMAE": 5.52,
+   "minBias": -1.46,
+   "PTS": {
+    "n": 1752,
+    "MAE": 5.11,
+    "bias": 0.182,
+    "brier": 0.2451,
+    "overRate": 0.5571,
+    "predOver": 0.6243
+   },
+   "REB": {
+    "n": 1752,
+    "MAE": 2.156,
+    "bias": -0.212,
+    "brier": 0.2478,
+    "overRate": 0.5177,
+    "predOver": 0.5729
+   },
+   "AST": {
+    "n": 1301,
+    "MAE": 1.665,
+    "bias": -0.001,
+    "brier": 0.2496,
+    "overRate": 0.5096,
+    "predOver": 0.5201
+   }
+  },
+  "earlySeason(<5 games)": {
+   "n": 5670,
+   "played": 5042,
+   "minMAE": 7.151,
+   "minBias": -3.774,
+   "PTS": {
+    "n": 2169,
+    "MAE": 5.337,
+    "bias": -1.486,
+    "brier": 0.2448,
+    "overRate": 0.3449,
+    "predOver": 0.4856
+   },
+   "REB": {
+    "n": 2169,
+    "MAE": 2.343,
+    "bias": -0.927,
+    "brier": 0.2334,
+    "overRate": 0.331,
+    "predOver": 0.4529
+   },
+   "AST": {
+    "n": 1332,
+    "MAE": 1.666,
+    "bias": -0.244,
+    "brier": 0.2358,
+    "overRate": 0.3971,
+    "predOver": 0.4364
+   }
+  }
+ },
+ "calibration": [
+  {
+   "from": 0,
+   "to": 0.35,
+   "n": 8628,
+   "predicted": 0.2866,
+   "actual": 0.3142
+  },
+  {
+   "from": 0.35,
+   "to": 0.45,
+   "n": 15209,
+   "predicted": 0.4045,
+   "actual": 0.3944
+  },
+  {
+   "from": 0.45,
+   "to": 0.55,
+   "n": 18771,
+   "predicted": 0.4989,
+   "actual": 0.4495
+  },
+  {
+   "from": 0.55,
+   "to": 0.65,
+   "n": 12407,
+   "predicted": 0.5937,
+   "actual": 0.5112
+  },
+  {
+   "from": 0.65,
+   "to": 1,
+   "n": 6976,
+   "predicted": 0.7262,
+   "actual": 0.6099
+  }
+ ],
+ "byMonth": {
+  "2025-10": {
+   "n": 4159,
+   "minMAE": 6.126,
+   "ptsMAE": 5.306
+  },
+  "2025-11": {
+   "n": 10509,
+   "minMAE": 5.008,
+   "ptsMAE": 4.988
+  },
+  "2025-12": {
+   "n": 9916,
+   "minMAE": 5.074,
+   "ptsMAE": 5.059
+  },
+  "2026-01": {
+   "n": 11779,
+   "minMAE": 4.909,
+   "ptsMAE": 4.744
+  },
+  "2026-02": {
+   "n": 8762,
+   "minMAE": 5.98,
+   "ptsMAE": 5.284
+  },
+  "2026-03": {
+   "n": 12229,
+   "minMAE": 5.312,
+   "ptsMAE": 5.013
+  },
+  "2026-04": {
+   "n": 4637,
+   "minMAE": 6.126,
+   "ptsMAE": 5.451
+  }
+ }
+}
