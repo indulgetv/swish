@@ -220,6 +220,13 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   weekday or "tonight", its status (first match: Out › Doubtful › Questionable › Probable/expected to play) replaces the
   status field; ESPN's kept in `espnStatus`, `statusFrom: "report"`. Both model files read the corrected status, so parity
   is unaffected. Page shows a small blue blip on the status pill (`injPill`, `.st.upd`; tap/hover explains). 10 corrected that night.
+- **30 Oct 19:40 — refresh polish + phone header (user tested in-place refresh on Safari: no white flash, but entrance
+  animations replayed):** cause = removing `html.noanim` restarts every one-off animation. Now `settleAnimations()` removes
+  noanim and `finish()`es every non-infinite animation (document.getAnimations), on in-place refresh and quiet reload.
+  `flashUpdated()`: green pill gets `.justupd` for 3.6 s → "↻ Updated" (phones hide the time meanwhile; icon spins twice;
+  off with Reduce motion). Fires only when new data arrives. Phones (≤960px): `.qbtn` "?" in the header left of Home
+  (black, white outline; red on tap and while help is open, `syncHelpBtn()`); top-bar help button hidden; theme button
+  42×42 beside Dec/US on the far right. Desktop unchanged. Tested phone dark/light + desktop.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
