@@ -221,7 +221,7 @@ def reprice_candidates(prev: dict, now: datetime) -> tuple[list[str], dict]:
         if g.get("state") != "pre" or not tip or tip < now + timedelta(minutes=10) or g["id"] not in fetched:
             continue
         hits = [i["player"] for i in prev.get("injuries") or []
-                if i.get("team") in (g["away"], g["home"]) and i.get("status") in ("Out", "Doubtful")
+                if i.get("team") in (g["away"], g["home"]) and i.get("status") in ("Out", "Doubtful") and i.get("confirmed", True)
                 and exp.get(i.get("player"), 0) >= REPRICE_MIN and ts(i.get("updated")) and ts(i.get("updated")) > fetched[g["id"]]
                 and (g["id"], i.get("player")) not in done_players
                 and (g["id"], model.norm_name(i.get("player"))) in had_lines]
@@ -349,6 +349,61 @@ def status_from_note(comment: str | None, slate_day: datetime) -> str | None:
         if re.search(pat, c):
             return status
     return None
+
+
+# What counts as injury NEWS (shown in "Latest injury changes", NEW counters, the Injuries badge). ESPN re-dates a
+# player's entry for any note — contract options, G League practice, trade talk — so only availability language counts.
+STRONG_RE = (r"ruled out|\bout for\b|\b(?:is|remains|will be) out\b|will miss|won't play|will not play|not expected to play|doubtful|"
+             r"questionable|probable|game-time decision|expected to play|will play|is available|upgraded|downgraded|cleared to play|"
+             r"will return|returns? to (?:action|play|the lineup)|will start\b|inactive|set to miss|expected to miss|not be ready")
+INJURY_RE = (r"surgery|procedure|torn|tear\b|fracture|sprain|strain|diagnosed|sidelined|re-evaluated|out indefinitely|season-ending|timeline|"
+             r"miss (?:the )?(?:next|at least|remainder|rest)|without a timetable|(?:weeks|months)\b")
+NOT_NEWS_RE = (r"team option|contract|extension|signed|waive|trade|g league|practic|drills|recalled|assigned|two-way|"
+               r"exercised|picked up|rookie scale|hopes to|making progress|progressing|getting closer|doing better")
+LONG_OUT_RE = (r"surgery|procedure|torn|tear\b|fracture|season|indefinitely|without a timetable|timeline|extended period|re-evaluated|weeks|months|"
+               r"miss (?:the )?(?:next|at least|remainder|rest)")
+
+
+WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+
+def note_kind(comment: str | None, slate_day: datetime | None = None) -> str | None:
+    """'status' (availability for TONIGHT), 'injury' (a new injury / timeline) or None (not injury news).
+    A status note that names a different day ("ruled out for Wednesday's game") is about another game → not news."""
+    c = (comment or "").lower()
+    if not c:
+        return None
+    if re.search(STRONG_RE, c):
+        if slate_day is not None:
+            tonight = slate_day.strftime("%A").lower()
+            other = [w for w in WEEKDAYS if w != tonight and re.search(rf"\b{w}(?:'s)?\s+(?:game|contest|tilt|matchup|season opener|against|versus|vs\.?|in)\b", c)]
+            if other and tonight not in c and "tonight" not in c:
+                return None
+        return "status"
+    if re.search(NOT_NEWS_RE, c):
+        return None
+    if re.search(INJURY_RE, c):
+        return "injury"
+    return None
+
+
+def confirm_injuries(injuries: list[dict], prev: list[dict], slate_day: datetime) -> None:
+    """Confirmation: a status is 'confirmed' once two signals agree — the note says the same thing (about tonight, or a
+    long-term absence for Out), or the same status has been seen in 3 updates in a row (~10 min apart at 5-min updates).
+    Until then it's shown as unconfirmed (outline pill). Also marks which entries are real news."""
+    before = {(i.get("team"), i.get("player")): i for i in prev or []}
+    for i in injuries:
+        i["news"] = note_kind(i.get("comment"), slate_day)
+        old = before.get((i.get("team"), i.get("player")))
+        if old and old.get("status") == i.get("status"):
+            i["checks"] = (old.get("checks") or 3) + 1        # entries saved before this rule existed count as settled
+            i["since"] = old.get("since") or i.get("updated")
+        else:
+            i["checks"], i["since"] = 1, now_iso()
+        c = (i.get("comment") or "").lower()
+        agree = status_from_note(i.get("comment"), slate_day) == i.get("status") or \
+            (i.get("status") == "Out" and bool(re.search(LONG_OUT_RE, c)))
+        i["confirmed"] = bool(agree or i["checks"] >= 3)
 
 
 def apply_notes(injuries: list[dict], slate_day: datetime) -> int:
@@ -683,6 +738,7 @@ def main() -> int:
             name_to_abbr = {t.get("displayName") or f"{t.get('city','')} {t.get('name','')}".strip(): ab for ab, t in d["teams"].items()}
             d["injuries"] = fetch_injuries(name_to_abbr)
             fixed = apply_notes(d["injuries"], day)
+            confirm_injuries(d["injuries"], prev.get("injuries") or [], day)
             if fixed:
                 log("injuries: " + "; ".join(f"{i['player']} {i['espnStatus']}→{i['status']}" for i in d["injuries"] if i.get("statusFrom") == "report") + " (latest report note)")
             d["sections"]["injuries"] = section("ESPN injuries", True, count=len(d["injuries"]))
