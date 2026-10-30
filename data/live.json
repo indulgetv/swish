@@ -3,9 +3,9 @@
   "slateDate": "2026-10-30",
   "mode": "full",
   "errors": [],
-  "lastFullAt": "2026-10-30T11:55:25Z",
+  "lastFullAt": "2026-10-30T12:32:14Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T12:01:25Z"
+  "writtenAt": "2026-10-30T12:38:30Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "WSH -1.5",
     "overUnder": 219.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -37,7 +37,7 @@
    "espnLine": {
     "details": "BOS -15.5",
     "overUnder": 235.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -51,9 +51,9 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "DET -7.5",
+    "details": "DET -8.5",
     "overUnder": 222.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -69,7 +69,7 @@
    "espnLine": {
     "details": "NY -2.5",
     "overUnder": 227.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -85,7 +85,7 @@
    "espnLine": {
     "details": "TOR -5.5",
     "overUnder": 226.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -101,7 +101,7 @@
    "espnLine": {
     "details": "MIA -8.5",
     "overUnder": 236.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -117,7 +117,7 @@
    "espnLine": {
     "details": "HOU -6.5",
     "overUnder": 225.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -133,7 +133,7 @@
    "espnLine": {
     "details": "MIN -6.5",
     "overUnder": 223.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -149,7 +149,7 @@
    "espnLine": {
     "details": "LAL -2.5",
     "overUnder": 234.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -165,7 +165,7 @@
    "espnLine": {
     "details": "DEN -4.5",
     "overUnder": 231.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   }
  ],
@@ -295357,38 +295357,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-30T11:55:26Z",
+   "fetchedAt": "2026-10-30T12:32:15Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T11:55:26Z",
+   "fetchedAt": "2026-10-30T12:32:15Z",
    "ok": true,
    "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T11:55:25Z",
+   "fetchedAt": "2026-10-30T12:32:14Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T11:55:26Z",
+   "fetchedAt": "2026-10-30T12:32:15Z",
    "ok": true,
    "nba": "ok: 20 team lineups posted",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-30T12:01:15Z",
+   "fetchedAt": "2026-10-30T12:38:22Z",
    "ok": true,
    "count": 334,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-30T12:01:25Z",
+   "fetchedAt": "2026-10-30T12:38:30Z",
    "ok": true
   }
  },
@@ -295419,7 +295419,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295446,7 +295446,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909278": {
@@ -295475,7 +295475,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295502,7 +295502,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909279": {
@@ -295531,7 +295531,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295558,7 +295558,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909280": {
@@ -295587,7 +295587,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295614,7 +295614,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909281": {
@@ -295643,7 +295643,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295670,7 +295670,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909282": {
@@ -295699,7 +295699,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295726,7 +295726,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909283": {
@@ -295755,7 +295755,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295782,7 +295782,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909284": {
@@ -295811,7 +295811,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295838,7 +295838,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909285": {
@@ -295867,7 +295867,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295894,7 +295894,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   },
   "401909286": {
@@ -295923,7 +295923,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    },
    "home": {
     "starters": [
@@ -295950,7 +295950,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T11:55:26Z"
+    "fetchedAt": "2026-10-30T12:32:15Z"
    }
   }
  },
