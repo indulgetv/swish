@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:50:34Z"
+  "writtenAt": "2026-10-30T00:55:35Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "7:30 - 2nd",
+   "status": "4:57 - 2nd",
    "completed": false,
-   "awayScore": "33",
-   "homeScore": "24",
+   "awayScore": "37",
+   "homeScore": "33",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "8:50 - 2nd",
+   "status": "5:51 - 2nd",
    "completed": false,
-   "awayScore": "32",
-   "homeScore": "36",
+   "awayScore": "39",
+   "homeScore": "43",
    "espnLine": null
   },
   {
@@ -84151,19 +84151,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:50:34Z",
+   "fetchedAt": "2026-10-30T00:55:35Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:50:34Z",
+   "fetchedAt": "2026-10-30T00:55:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:50:34Z",
+   "fetchedAt": "2026-10-30T00:55:34Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84337,7 +84337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:50:34Z"
+    "fetchedAt": "2026-10-30T00:55:34Z"
    },
    "home": {
     "starters": [
@@ -84364,7 +84364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:50:34Z"
+    "fetchedAt": "2026-10-30T00:55:34Z"
    }
   }
  },
