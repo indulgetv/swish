@@ -227,6 +227,13 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   off with Reduce motion). Fires only when new data arrives. Phones (≤960px): `.qbtn` "?" in the header left of Home
   (black, white outline; red on tap and while help is open, `syncHelpBtn()`); top-bar help button hidden; theme button
   42×42 beside Dec/US on the far right. Desktop unchanged. Tested phone dark/light + desktop.
+- **30 Oct 19:50 — header polish (user feedback):** "?" on phones = liquid-glass button (blurred tint, bright rim, top
+  highlight), NO colour change on tap/open. Side panels (help, prop details) on phones = `min(560px, 100vw − 40px)` with
+  rounded left corners, a strip of the page stays visible (was full screen). Update moment (`flashUpdated` → `.justupd` on
+  the green pill + `html.updflash`, 3.6 s): pill glows bright green with a light sweep, "↻ Updated" springs open, the time
+  slides up; on phones the red Injuries pill folds to an icon (`.nsc`) then reopens. Gap updates: update-data.yml cron
+  `20-50/5 19 * * *` (afternoon loop ends ~19:20, evening starts 19:50; GitHub schedules can be late). 19:12 push run
+  failed only at "Save" (push collisions) — data fine on later runs.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
