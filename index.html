@@ -4364,7 +4364,7 @@ async function refreshInPlace(){
 (function(){
   if (!LIVE || !LIVE.meta) return;
   let loaded = new Date(LIVE.meta.writtenAt);
-  let pending = false, lastTouch = 0, retry = null;
+  let pending = false, lastTouch = 0, retry = null, waitingSince = 0;
   ["scroll","touchstart","pointerdown","keydown","wheel"].forEach(ev => addEventListener(ev, () => { lastTouch = Date.now(); }, {passive:true}));
   function reloadQuietly(){
     const dr = $("drawer");
@@ -4377,10 +4377,13 @@ async function refreshInPlace(){
   }
   async function swap(){
     clearTimeout(retry);
+    if (!waitingSince) waitingSince = Date.now();
     const typing = /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
-    if (document.hidden || typing || Date.now() - lastTouch < 2500){ retry = setTimeout(swap, 3000); return; }
+    // wait for a pause in scrolling — but never more than 20 s (the in-place update keeps your place anyway)
+    const busy = Date.now() - lastTouch < 1500 && Date.now() - waitingSince < 20000;
+    if (document.hidden || typing || busy){ retry = setTimeout(swap, 1500); return; }
     if (!IS_LIVE) return reloadQuietly();
-    try { const at = await refreshInPlace(); loaded = new Date(at); pending = false; }
+    try { const at = await refreshInPlace(); loaded = new Date(at); pending = false; waitingSince = 0; }
     catch(e){ reloadQuietly(); }
   }
   async function check(){
@@ -4391,8 +4394,12 @@ async function refreshInPlace(){
       if (st.writtenAt && new Date(st.writtenAt) > loaded){ pending = true; swap(); }
     } catch(e){}
   }
-  setInterval(check, 60000);
+  setInterval(check, 20000);                                       // tiny file: checking often costs nothing
+  // coming back to the page (other app, unlocked phone, back button): check straight away — iPhone Safari doesn't always
+  // send "visibilitychange", so listen for focus and pageshow too
   document.addEventListener("visibilitychange", () => { if (!document.hidden) check(); });
+  addEventListener("focus", check);
+  addEventListener("pageshow", check);
 })();
 /* coming back from a quiet data swap: restore what you were looking at */
 const SILENT = (() => { try { const v = sessionStorage.getItem("swish.silent"); sessionStorage.removeItem("swish.silent"); return v ? JSON.parse(v) : null; } catch(e){ return null; } })();

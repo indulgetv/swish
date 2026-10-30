@@ -82,7 +82,9 @@ jobs:
             git commit -m "data: ${{ steps.mode.outputs.mode }} update $(date -u +'%Y-%m-%d %H:%M UTC')"
             # another update may have saved at the same moment: retry a few times instead of failing
             for i in 1 2 3 4 5; do
-              if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
+              # -X theirs: if another update saved the same file meanwhile, this run's fresh data wins (the next 5-min
+              # update refreshes anything it overwrote) — plain retries can't get past a real file conflict
+              if git pull --rebase -X theirs --autostash origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
               git rebase --abort 2>/dev/null || true
               sleep $((i * 7))
             done
