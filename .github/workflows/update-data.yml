@@ -7,6 +7,7 @@ on:
     - cron: "37 14 * * *"         # odds early: only games tipping before 21:30 (weekend/holiday matinees)
     - cron: "7 21 * * *"          # odds main: every game not started yet — most lines + injury news are out by now
     - cron: "47 15-20 * * *"      # light: scores + injuries hourly through the afternoon
+    - cron: "27,32,42,52 19 * * *"  # light: fills the gap between the afternoon 5-minute loop (ends ~19:20) and the evening one (19:50)
     - cron: "27,47 21 * * *"      # light: every 20 min in the run-up to tip-off…
     - cron: "7,27,47 22-23 * * *"
     - cron: "7,27,47 0-2 * * *"   # …and through the games

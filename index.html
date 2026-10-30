@@ -1438,6 +1438,7 @@ html.calm .newspill.hot i{animation:none}
   .clamp-m > .cl-x{display:none!important}
   .clampbtn.m-only{display:flex}
   .drawer{z-index:80}.scrim{z-index:75}
+  .drawer{width:min(560px,calc(100vw - 40px));border-radius:20px 0 0 20px}   /* a strip of the page stays visible on the left */
 }
 .nav button.on .count.alert{color:#fff}
 @media (max-width:760px){
@@ -1758,11 +1759,17 @@ html.calm .sample-pill.justupd .ms{animation:none}
   .homebtn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
   .homebtn:active{transform:scale(.94)}
   .homebtn{margin-left:10px}
-  /* "?" sits in the header beside Home: black with a white outline, red while "How to read SWISH" is open */
-  .qbtn{display:grid;place-items:center;margin-left:auto;flex:none;width:40px;height:40px;border-radius:50%;background:#121418;color:#fff;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(18,20,24,.35),0 6px 14px rgba(0,0,0,.22);transition:background .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease),transform .15s var(--ease)}
-  .qbtn span{font:800 18px/1 var(--display)}
-  .qbtn.on{background:var(--red);border-color:#ffd4d8;box-shadow:0 6px 16px rgba(179,18,31,.4),inset 0 1px 0 rgba(255,255,255,.25)}
-  .qbtn:active{transform:scale(.94);background:var(--red);border-color:#ffd4d8}
+  /* "?" sits in the header beside Home — liquid-glass: tinted, blurred, with a bright rim and a soft top highlight */
+  .qbtn{position:relative;display:grid;place-items:center;margin-left:auto;flex:none;width:42px;height:42px;border-radius:50%;overflow:hidden;color:#fff;
+    background:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.22),rgba(255,255,255,0) 60%),linear-gradient(160deg,rgba(40,44,52,.78),rgba(14,16,20,.82));
+    -webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);
+    border:1px solid rgba(255,255,255,.55);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.08),0 8px 18px rgba(0,0,0,.22);
+    transition:transform .15s var(--ease)}
+  .qbtn::before{content:"";position:absolute;left:18%;right:18%;top:4px;height:38%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
+  .qbtn span{position:relative;font:800 18px/1 var(--display);text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  html.dark .qbtn{background:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.2),rgba(255,255,255,0) 60%),linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border-color:rgba(255,255,255,.42)}
+  .qbtn:active{transform:scale(.94)}
   .top .helpbtn.top{display:none!important}
   /* light/dark switch: same height as Dec/US, sitting right beside it on the far right */
   .top-right{align-items:center!important;gap:6px!important}
