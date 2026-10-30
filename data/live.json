@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T03:45:43Z"
+  "writtenAt": "2026-10-30T03:50:44Z"
  },
  "games": [
   {
@@ -38,10 +38,10 @@
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
    "state": "in",
-   "status": "2:52 - 3rd",
+   "status": "0.0 - 3rd",
    "completed": false,
-   "awayScore": "85",
-   "homeScore": "75",
+   "awayScore": "91",
+   "homeScore": "83",
    "espnLine": null
   }
  ],
@@ -84158,19 +84158,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T03:45:43Z",
+   "fetchedAt": "2026-10-30T03:50:43Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T03:45:43Z",
+   "fetchedAt": "2026-10-30T03:50:43Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T03:45:43Z",
+   "fetchedAt": "2026-10-30T03:50:43Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },
