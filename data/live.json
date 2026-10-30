@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T03:35:44Z"
+  "writtenAt": "2026-10-30T03:40:44Z"
  },
  "games": [
   {
@@ -38,10 +38,10 @@
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
    "state": "in",
-   "status": "7:13 - 3rd",
+   "status": "4:52 - 3rd",
    "completed": false,
-   "awayScore": "67",
-   "homeScore": "66",
+   "awayScore": "75",
+   "homeScore": "71",
    "espnLine": null
   }
  ],
@@ -1083,6 +1083,17 @@
    "comment": "Williams (foot) is questionable for Friday's game against Golden State.",
    "updated": "2026-10-30T00:02Z",
    "returnDate": "2026-10-30"
+  },
+  {
+   "team": "MEM",
+   "player": "Quinten Post",
+   "pos": "C",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Right Ankle Not Specified",
+   "comment": "Post is being considered doubtful to return to Thursday's game against the Trail Blazers due to a right ankle injury.",
+   "updated": "2026-10-30T03:27Z",
+   "returnDate": "2026-10-29"
   },
   {
    "team": "MIA",
@@ -84147,19 +84158,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T03:35:43Z",
+   "fetchedAt": "2026-10-30T03:40:44Z",
    "ok": true,
-   "count": 94
+   "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T03:35:43Z",
+   "fetchedAt": "2026-10-30T03:40:43Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T03:35:43Z",
+   "fetchedAt": "2026-10-30T03:40:43Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },
