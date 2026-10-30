@@ -650,6 +650,17 @@ def main() -> int:
     if args.mode == "auto":
         args.mode, args.window = choose_auto_mode(prev)
         log(f"auto: running {args.mode}{' (' + args.window + ')' if args.mode == 'odds' else ''}")
+        # GitHub's own timers are backups for the 5-minute loops: if a loop (or anything else) saved data in the last
+        # 3.5 minutes, a backup light update would only duplicate it moments later, so it stands down.
+        if args.mode == "light" and os.environ.get("GITHUB_EVENT_NAME") == "schedule":
+            try:
+                last = datetime.fromisoformat(str((prev.get("meta") or {}).get("writtenAt")).replace("Z", "+00:00"))
+                age = (datetime.now(timezone.utc) - last).total_seconds() / 60
+                if age < 3.5:
+                    log(f"skip: data saved {age:.1f} min ago by another update — no duplicate")
+                    return 0
+            except Exception:
+                pass
     d = {"meta": {"slateDate": day.strftime("%Y-%m-%d"), "mode": args.mode, "errors": [],
                   "lastFullAt": (prev.get("meta") or {}).get("lastFullAt")}}
     if args.mode == "full":
