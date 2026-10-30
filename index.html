@@ -279,8 +279,7 @@ h2.h{font:700 22px/1.1 var(--display);letter-spacing:.01em}
 .cell.value{background:var(--red-soft);border-color:var(--red-line)}
 .cell.value::after{content:"";position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:50%;background:var(--red)}
 .cell.value:hover{border-color:var(--red)}
-.cell.flagged b{color:var(--faint)}
-.cell.flagged small{color:var(--amber)}
+.cell .hold{position:absolute;top:5px;left:5px;width:6px;height:6px;border-radius:50%;background:var(--amber);opacity:.85;pointer-events:none}
 .dash{color:var(--line2);font-weight:600}
 
 /* single-market table */
@@ -663,7 +662,6 @@ button.tag.red:hover{background:var(--red-line)}
 .bignums div,.trio div,.build,.fill,.insight,.noinj,.cmpbars,.plain{box-shadow:var(--inset)}
 .cell{background:#fbfbfc;box-shadow:var(--inset);border-color:var(--line)}
 .cell.value{box-shadow:inset 0 1px 4px rgba(179,18,31,.14)}
-.cell.flagged{background:var(--amber-soft);border-color:var(--amber-line)}
 .overview{overflow:hidden}
 .hero{box-shadow:var(--shadow), inset 0 -10px 18px -16px rgba(18,20,23,.14)}
 .mrow,.irow{box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
@@ -676,7 +674,8 @@ button.tag.red:hover{background:var(--red-line)}
 .vd.some{background:var(--red-soft);color:var(--red);box-shadow:inset 0 0 0 1px var(--red-line)}
 .vd.slight{background:var(--sunk);color:var(--ink2)}
 .vd.none{background:var(--sunk);color:var(--faint)}
-.vd.check{background:var(--amber-soft);color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber-line)}
+.vd.check{background:transparent;color:var(--amber);padding-left:0;padding-right:0;gap:6px;cursor:default}
+.vd.check::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber)}
 .vcell{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
 .vcell small{font-size:11px;color:var(--muted);padding-left:2px}
 .chance{display:flex;flex-direction:column;gap:5px}
@@ -3047,8 +3046,15 @@ const COURT = `<svg class="court" viewBox="0 0 420 220" aria-hidden="true"><g fi
 const inTen = p => Math.round(p * 10);
 const pts = x => (x >= 0.0005 ? "+" : x <= -0.0005 ? "−" : "±") + Math.abs(x*100).toFixed(1) + "%";
 const money = x => (x >= 0 ? "+" : "−") + "£" + Math.abs(x).toFixed(2);
+/* the first warning on a prop, in two or three words (shown as "On hold · …") */
+function holdReason(p){
+  const f = p.flags[0] || "";
+  return /^Listed /.test(f) ? "injury doubt" : /^Depends on/.test(f) ? "teammate doubt" : /stale price/.test(f) ? "old price"
+    : /^Injury news since/.test(f) ? "new injury news" : /^Minutes unclear/.test(f) ? "lineup due" : /new role/.test(f) ? "new role"
+    : /^Only \d+ game/.test(f) ? "few games" : /^Line is far/.test(f) ? "big gap" : "check news";
+}
 function verdict(p){
-  if (p.flags.length) return {k:"check", label:"Check status", meaning:"Ignore until the injury or data issue is resolved"};
+  if (p.flags.length) return {k:"check", label:"On hold · " + holdReason(p), meaning:"Not a pick yet — " + p.flags[0].replace(/ — .*$/, "").toLowerCase()};
   if (p.value)        return {k:"strong", label:"Strong value", meaning:"Big enough gap to count as value"};
   if (p.edge >= 0.03) return {k:"some", label:"Some value", meaning:"Worth a look, but below the value bar"};
   if (p.edge >= 0.01) return {k:"slight", label:"Slight edge", meaning:"Too small to rely on"};
@@ -3106,7 +3112,7 @@ function pickRow(p, i){
   return `<button class="prow2" data-prop="${p.id}">
     <span class="rk num">${i+1}</span>
     <div class="pl">${jerseyAv(p.player, p.team, "sm")}<div style="min-width:0"><b>${esc(p.player)}</b><small>${g.away} @ ${g.home}${p.role && p.role.applied ? " · role ↑" : ""}</small></div></div>
-    <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "⚠ flagged" : `odds ${fmtOdds(p.price)}`}${p.overOnly ? `<span class="conf ${confOf(p)[0]}">${confOf(p)[1]}</span>` : ""}</small></div>
+    <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "on hold" : `odds ${fmtOdds(p.price)}`}${p.overOnly ? `<span class="conf ${confOf(p)[0]}">${confOf(p)[1]}</span>` : ""}</small></div>
     <div class="n num hide-s">${p.line}<small>line</small></div>
     <div class="n num hide-s" style="color:var(--red)">${p.projection.toFixed(1)}<small>proj.</small></div>
     <div class="n num hide-s">${p.n ? p.h2hAvg.toFixed(1) : "—"}<small>H2H ${p.h2hHits}/${p.n}</small></div>
@@ -3240,7 +3246,7 @@ function viewProps(){
     <div class="opt-checks">
       <label class="check"><input type="checkbox" id="showForm" ${state.showForm?"checked":""}>Show last 6 games for everyone</label>
       <label class="check"><input type="checkbox" id="onlyValue" ${state.onlyValue?"checked":""}>Players with value only</label>
-      <label class="check"><input type="checkbox" id="hideFlagged" ${state.hideFlagged?"checked":""}>Hide flagged</label>
+      <label class="check"><input type="checkbox" id="hideFlagged" ${state.hideFlagged?"checked":""}>Hide on-hold</label>
     </div>
     <div class="opt-btns">
       <button class="optbtn" data-expand="all"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>Expand all</button>
@@ -3268,7 +3274,7 @@ function renderLegend(){
   $("legend").innerHTML = state.market === "ALL"
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
-       <span><i class="sw" style="background:var(--amber-soft);border:1px solid var(--amber-line)"></i>⚠ Flagged</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">Corner marks: <b class="nlw lm-up">▲▼</b> line moved since 21:00 · <b class="nlw lm-new">New</b> line added after 21:00</span><span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM &amp; PRA: SWISH projection only (not bought)</span>` : ""}`
+       <span><i class="sw" style="width:7px;height:7px;border-radius:50%;background:var(--amber)"></i>On hold (injury, lineup or data question; not a pick until it clears, tap for why)</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">Corner marks: <b class="nlw lm-up">▲▼</b> line moved since 21:00 · <b class="nlw lm-new">New</b> line added after 21:00</span><span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM &amp; PRA: SWISH projection only (not bought)</span>` : ""}`
     : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
@@ -3346,7 +3352,7 @@ function cell(pl, m){
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
   const mv = lineMove(p);
   return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}${mv ? ` (${mv.txt})` : ""}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line}${mv ? ` (${mv.txt})` : ""} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
-    ${mv ? `<i class="lm lm-${mv.k}" aria-hidden="true">${mv.mark}</i>` : ""}<b class="num">${p.line}</b><small class="${p.flags.length?"":p.lean} num">${p.flags.length ? "⚠ " : ""}${p.projection.toFixed(1)}${arrow}</small></button></td>`;
+    ${mv ? `<i class="lm lm-${mv.k}" aria-hidden="true">${mv.mark}</i>` : ""}<b class="num">${p.line}</b>${p.flags.length ? `<i class="hold" aria-hidden="true"></i>` : ""}<small class="${p.flags.length?"none":p.lean} num">${p.projection.toFixed(1)}${arrow}</small></button></td>`;
 }
 
 /* last-10 bars: oldest on the left, latest on the right, the number on every bar; hover or tap a bar for that game */
@@ -3415,7 +3421,7 @@ function singleMarket(teamCode){
     <div class="clamp-m" data-clamp="sm-${teamCode}-${m}">${rows.map(p => {
       const pl = PLAYERS.find(x => x.name === p.player);
       return `<button class="smt-r ${p.value?"value":""}" data-prop="${p.id}">
-        <div class="pl"><b>${esc(p.player)}</b>${p.flags.length ? `<small class="warn">⚠ Flagged</small>` : playerSub(pl)}</div>
+        <div class="pl"><b>${esc(p.player)}</b>${p.flags.length ? `<small class="warn">On hold · ${holdReason(p)}</small>` : playerSub(pl)}</div>
         <div class="mins num ${pl.boost?"up":""}" data-l="Min">${pl.status==="Out" ? "—" : minPair(pl)}</div>
         <div class="big num" data-l="Line">${p.line}</div>
         <div class="odd num ${p.lean==="over"?"lo":""}" data-l="Over"><span>${fmtOdds(p.over)}</span></div>
@@ -3712,7 +3718,7 @@ function helpHTML(){
       <div class="gl"><b><span class="vd some">Some value</span></b><p>Gap of 3–${(MIN_EDGE*100).toFixed(0)} points. Positive, but not strong enough to highlight.</p></div>
       <div class="gl"><b><span class="vd slight">Slight edge</span></b><p>Gap of 1–3 points. Too small to rely on — within the model's margin of error.</p></div>
       <div class="gl"><b><span class="vd none">No edge</span></b><p>SWISH and the bookmaker roughly agree.</p></div>
-      <div class="gl"><b><span class="vd check">Check status</span></b><p>An injury, lineup question or stale price. Ignored until it's resolved.</p></div>
+      <div class="gl"><b><span class="vd check">On hold</span></b><p>An injury doubt, lineup still to come, new player, old price or a line far from SWISH's number. It's a label, not a button: SWISH won't make it a pick until the question clears. Tap the prop to see the reason.</p></div>
     </div>
     ${ex ? `<div class="dsec"><div class="dt">Worked example${IS_LIVE ? "" : " (sample)"}</div>
       <div class="plain"><p>${plainEnglish(ex)}</p><button class="textbtn" data-prop="${ex.id}">Open this prop →</button></div>
