@@ -129,6 +129,20 @@ _Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"*
   Only nights listed in TOPUP_DATES get it; user to decide tomorrow whether to keep it (Nov budget ≈16 credits/day).
   Home "Props with a price" now says "with no bookmaker line tonight" once the main fetch has covered every game.
 
+- **29–30 Oct (23:20–00:10), all tested phone/tablet/desktop, light+dark:**
+  - Home game rows (≤960px): "N value" on its own line (was running off the edge).
+  - 23:30 top-up ran: 11 credits (443 left); +12 lines, −3 (Dejounte Murray), 29 moved. Name alias fix
+    `PLAYER_ALIASES` in update.py ("Herb Jones" → "Herbert Jones"), applied to saved props every run.
+  - Line changes: update.py writes `lineMoves` ({"player|market": {open, at}} from the ledger's openLine/firstSaved);
+    Props cells get corner marks ▲/▼ (moved since the main fetch) or New (added after it); panel "Line change" row.
+  - Lineups: "Lineups confirmed" = pastel drifting gradient + gentle breathe (`.tag.lu-go`); green starter chips get a
+    soft sheen; both off with reduced motion / calm. Badge lives in the live-score slots (`SLOT.lu`, `SLOT.luM`), so it
+    disappears when a game goes live; shown on Props headers (desktop row + `.lu-mob` under the count ≤1180px) and
+    Games & Analysis tiles. Injury tags use initials when surnames clash (`injNames`); injuries always on their own row
+    in desktop game headers (`.gbreak`).
+  - Live scores already work on phones/tablets (simulated); nothing to build.
+  - Tip-off times: SWISH shows the official listed time (ESPN); bet365 shows ~10 min later. User: leave as is for now.
+
 ## Next steps (in order)
 
 **TOMORROW (user agreed 29 Oct 22:47), in this order:**
