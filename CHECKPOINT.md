@@ -65,7 +65,7 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 3. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
 4. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
-5. Guide: add the Overs/Unders split + "On hold" wording.
+5. (Done 30 Oct 22:35: guide updated for Overs/Unders split + "On hold"; heading now v1.6.)
 6. Why GitHub timers went silent after 20:09 on 30 Oct.
 7. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
 8. Later: STL/BLK/TOV columns; closing-line check only on a paid plan; after ~2 weeks review calibration vs market.
