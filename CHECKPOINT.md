@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 12:10 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -203,6 +203,18 @@ _Last updated: 2026-10-30 12:10 by Claude._ Paste the line in **"How to resume"*
   `lab/results/v1.6-lineups.json` calibration (played rows only). After any new lab test: add it to experiments.json,
   re-run build_page_data.py, push. Also loaded by refreshInPlace(). Tested phone dark + desktop light.
   Next lab tests: with-vs-without, usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
+- **30 Oct (afternoon) — A4 late re-price DONE (user approved credits):** update.py `reprice_candidates()` +
+  auto window "reprice": after the early/late odds run, if a player with 25+ expected min (`REPRICE_MIN`) who still had
+  lines when the game was priced is listed Out/Doubtful with an ESPN `updated` time newer than that game's lines, re-buy
+  that ONE game's PTS/REB/AST (no UK game lines; inside the daily budget; max `REPRICE_MAX_PER_NIGHT` = 4; one trigger
+  per player). Runs log {"window":"reprice","game","for"} in sections.odds.runs. Dry run on 29 Oct 22:30 data → SAC@NOP for
+  Murray only. TOPUP_DATES removed from update.py and index.html; Home timeline shows "Late price update" rows.
+- **30 Oct — with-vs-without TESTED AND REJECTED:** `with_without()` in model.py (switched off: `WW_MODE = 0`). 9 variants
+  (shrink K 3/10/25, need 2/3/6 games without, replace vs add to the 240-gap rule) — all worse than v1.6 on both seasons
+  (e.g. 2025-26 Brier 0.24215 → 0.24222–0.24266). Reason: past "without" games are few and confounded. Logged on the Model
+  lab page. User wants "who replaces him" from real info, not guesses: best free signals = NBA.com confirmed lineups (used)
+  + ESPN injury comments (they quote beat reporters). X/Twitter API and RotoWire-type feeds are paid → not used (free rule).
+  Possible next: show the ESPN injury/news text inside the prop panel; ESPN news API (free) feed on the Injuries page.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
