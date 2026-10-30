@@ -1741,11 +1741,32 @@ html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .minbox b{display:block;font:700 22px/1.2 var(--display);color:var(--ink)}
 .minbox small{font-size:11px;color:var(--muted)}
 .homebtn{display:none}
+.qbtn{display:none}
+/* "Updated" stretch on the green pill */
+.sample-pill .updw{display:inline-block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;font-weight:700;vertical-align:bottom;transition:max-width .55s var(--ease),opacity .35s var(--ease),margin .55s var(--ease)}
+.sample-pill.justupd .updw{max-width:90px;opacity:1;margin-right:4px}
+.sample-pill.justupd .nl{display:none}
+@media (max-width:960px){.sample-pill.justupd .num{display:none}.sample-pill.justupd .updw{margin-right:0}}   /* phones: "↻ Updated" replaces "↻ 19:22" for a moment */
+.sample-pill.justupd{box-shadow:0 0 0 3px rgba(31,138,76,.16);transition:box-shadow .4s var(--ease)}
+.sample-pill.justupd .ms{display:inline-block!important;width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-right:1px;animation:updSpin .9s var(--ease) 2}
+@keyframes updSpin{to{transform:rotate(360deg)}}
+html.calm .sample-pill.justupd .ms{animation:none}
+@media (prefers-reduced-motion:reduce){.sample-pill.justupd .ms{animation:none}.sample-pill .updw{transition:none}}
 .homebtn .ib{display:none}.homebtn.back .ib{display:block}.homebtn.back .ih{display:none}
 @media (max-width:960px){
   .homebtn{display:grid;place-items:center;margin-left:auto;flex:none;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(179,18,31,.35),inset 0 1px 0 rgba(255,255,255,.25)}
   .homebtn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
   .homebtn:active{transform:scale(.94)}
+  .homebtn{margin-left:10px}
+  /* "?" sits in the header beside Home: black with a white outline, red while "How to read SWISH" is open */
+  .qbtn{display:grid;place-items:center;margin-left:auto;flex:none;width:40px;height:40px;border-radius:50%;background:#121418;color:#fff;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(18,20,24,.35),0 6px 14px rgba(0,0,0,.22);transition:background .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease),transform .15s var(--ease)}
+  .qbtn span{font:800 18px/1 var(--display)}
+  .qbtn.on{background:var(--red);border-color:#ffd4d8;box-shadow:0 6px 16px rgba(179,18,31,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+  .qbtn:active{transform:scale(.94);background:var(--red);border-color:#ffd4d8}
+  .top .helpbtn.top{display:none!important}
+  /* light/dark switch: same height as Dec/US, sitting right beside it on the far right */
+  .top-right{align-items:center!important;gap:6px!important}
+  .top-right .themebtn{width:42px!important;height:42px!important;margin-right:0!important;border-radius:9px}   /* = the Dec/US switch (42px) */
   .totop{display:none!important}
 }
 @media (hover:none){.brand:hover .wordmark i{transform:none;color:inherit}.brand:hover .hoop .net{stroke:var(--faint)}}
@@ -2140,6 +2161,7 @@ html.calm .sg .t.ht .htl::before,html.calm .sg .t.ht .htl span{animation:none}
 <div class="app">
   <aside class="side">
     <div id="brandSlot"></div>
+    <button class="qbtn" data-help="1" aria-label="How to read SWISH" title="How to read SWISH"><span>?</span></button>
     <button class="homebtn" id="homeBtn" aria-label="Home" title="Home"><svg class="ib" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg><svg class="ih" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></svg></button>
     <nav class="nav" id="nav">
       <button data-nav="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></svg><span class="nl">Home</span><span class="ns">Home</span></button>
@@ -3635,10 +3657,13 @@ function showDrawer(html, label){
   document.body.classList.add("locked");
   setTimeout(() => { const x = dr.querySelector(".x"); (x || dr).focus({preventScroll:true}); }, 60);
 }
-function openHelp(){ state.drawer = "help"; showDrawer(helpHTML(), "How to read SWISH"); }
+function openHelp(){ state.drawer = "help"; showDrawer(helpHTML(), "How to read SWISH"); syncHelpBtn(); }
+/* the header "?" turns red while "How to read SWISH" is open */
+function syncHelpBtn(){ document.querySelectorAll(".qbtn").forEach(b => b.classList.toggle("on", state.drawer === "help" && $("drawer").classList.contains("on"))); }
 function openDrawer(id){
   const p = PROP_BY_ID.get(id); if (!p) return;
   state.drawer = id;
+  setTimeout(syncHelpBtn, 0);
   showDrawer(drawerHTML(p), `${p.player} ${MARKET_NAMES[p.market]} details`);
 }
 function closeDrawer(){
@@ -3646,6 +3671,7 @@ function closeDrawer(){
   state.drawer = null; state.drawerOpen = false;
   $("drawer").classList.remove("on"); $("drawer").setAttribute("aria-hidden","true");
   $("scrim").classList.remove("on"); document.body.classList.remove("locked");
+  syncHelpBtn();
   if (wasOpen && lastFocus && document.body.contains(lastFocus)) lastFocus.focus({preventScroll:true});
 }
 
@@ -3941,7 +3967,7 @@ function render(){
   $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;
   if (IS_LIVE){
-    $("srcPill").className = "sample-pill live-pill"; $("srcPill").innerHTML = `<i></i><span class="nl">Data updated </span><svg class="ms" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`; $("srcPill").setAttribute("aria-label", `Data updated ${timeFmt(DATA.meta.generatedAt)}`); $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
+    $("srcPill").className = "sample-pill live-pill" + (UPD_FLASH && Date.now() - UPD_FLASH < 3600 ? " justupd" : ""); $("srcPill").innerHTML = `<i></i><span class="nl">Data updated </span><svg class="ms" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="updw">Updated</span><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`; $("srcPill").setAttribute("aria-label", `Data updated ${timeFmt(DATA.meta.generatedAt)}`); $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
     $("stSrc").textContent = "Live records (ESPN)";
     $("sideFoot").innerHTML = `<b>Live data.</b> Stats, injuries and schedule from ESPN; prop prices from US bookmakers via The Odds API. Projections are model estimates, not predictions or advice.`;
   }
@@ -4242,6 +4268,19 @@ $("homeBtn").addEventListener("click", () => {
    the page in place (no reload): same page, scroll, open prop panel, filters, and the latest live scores.
    Waits until you're not typing or scrolling. Falls back to the old quiet reload only if the slate date changes
    (a new day) or something goes wrong. */
+/* Turn animations back on WITHOUT replaying them: removing "noanim" would restart every one-off entrance animation
+   (the page "re-loading" look), so jump those straight to their end state. Looping ones (live dots, sheens) keep going. */
+function settleAnimations(){
+  document.documentElement.classList.remove("noanim");
+  try { document.getAnimations().forEach(a => { const it = a.effect && a.effect.getComputedTiming ? a.effect.getComputedTiming().iterations : 1; if (it !== Infinity) a.finish(); }); } catch(e){}
+}
+/* green "data updated" pill: stretches out to say "Updated" for a few seconds after each background refresh */
+let UPD_FLASH = 0;
+function flashUpdated(){
+  const p = $("srcPill"); if (!p) return;
+  p.classList.remove("justupd"); void p.offsetWidth; p.classList.add("justupd");
+  clearTimeout(flashUpdated.t); flashUpdated.t = setTimeout(() => { p.classList.remove("justupd"); UPD_FLASH = 0; }, 3600);
+}
 function loadScript(src){ return new Promise((ok, bad) => { const s = document.createElement("script"); s.src = src; s.onload = () => { s.remove(); ok(); }; s.onerror = () => { s.remove(); bad(new Error("load " + src)); }; document.head.appendChild(s); }); }
 async function refreshInPlace(){
   const t = Date.now();
@@ -4270,9 +4309,11 @@ async function refreshInPlace(){
   STARTERS.clear(); starterSet().forEach((v, k) => STARTERS.set(k, v));
   document.documentElement.classList.add("noanim");
   render();
+  UPD_FLASH = Date.now();
   window.scrollTo(0, y);
   if (openId && openId !== "help" && PROP_BY_ID.has(openId)){ openDrawer(openId); const d2 = $("drawer"); if (d2) d2.scrollTop = dy; }
-  setTimeout(() => document.documentElement.classList.remove("noanim"), 900);
+  settleAnimations();
+  flashUpdated();
   return nl.meta.writtenAt;
 }
 (function(){
@@ -4329,7 +4370,7 @@ if (SILENT && Date.now() - SILENT.at < 60000){
   if (SILENT.drawer && SILENT.drawer !== "help" && PROP_BY_ID.has(SILENT.drawer)){ openDrawer(SILENT.drawer); const dr = $("drawer"); if (dr) dr.scrollTop = SILENT.dy || 0; }
   else if (SILENT.drawer === "help") openHelp();
 }
-setTimeout(() => document.documentElement.classList.remove("noanim"), 900);
+if (document.documentElement.classList.contains("noanim")){ settleAnimations(); if (SILENT && Date.now() - SILENT.at < 60000) flashUpdated(); }   // quiet reload: don't replay entrances
 pollScores();
 </script>
 </body>
