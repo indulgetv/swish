@@ -282,6 +282,13 @@ _Last updated: 2026-10-30 21:55 by Claude._ Paste the line in **"How to resume"*
   made → don't ship it; ship only the stretch. Scripts: scratch only (lean.py / cal.py logic = per-market avg pO vs actual,
   buckets, logistic fit y ~ a + b·logit(pO) on `replay.py --lineups --dump` rows).
 
+- **30 Oct 22:05 — warnings made quiet + clear (published to main at user's request):** flagged prop cells no longer
+  show ⚠ + amber box; a small amber dot top-left (`.cell .hold`), projection in neutral grey. Verdict "Check status" →
+  "On hold · <reason>" (`holdReason()`: injury doubt / teammate doubt / old price / new injury news / lineup due / new role /
+  few games / big gap), styled as plain amber text with a dot (not button-like). "Hide flagged" → "Hide on-hold".
+  Rules unchanged (on-hold props still never picks). Tonight: 43/344 on hold (few_games 17, min_unclear 17, status 9, big_gap 8).
+  Idea for the lab: is `big_gap` worth keeping? (does the market beat SWISH on those props?)
+
 ## Next steps (in order)
 
 **FIRST on 31 Oct (user asked 30 Oct 21:21 — remind them): declutter 3PM + PRA.** They have no prices (only PTS/REB/AST
