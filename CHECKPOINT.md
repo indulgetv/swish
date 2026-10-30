@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 12:30 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 12:10 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -192,9 +192,17 @@ _Last updated: 2026-10-30 12:30 by Claude._ Paste the line in **"How to resume"*
   - "Minutes unclear" flag (v1.4) kept; it doesn't change projections.
   Saved-picks backtest v1.5 vs v1.2: minutes 4.01→4.00, all picks unchanged 230–228, strong 8–12 → 6–9.
   Herbert Jones 29 Oct: v1.5 moves him only ~22.5 → ~24.6 min, so he stays an under — the lab says, on average, that's right.
-  NOT visible on the website yet; user asked where to see lab results → offer a "Model lab" section on Results.
-  Next lab tests (in order): minutes over-projection (DNP-aware expected minutes), with-vs-without, usage boost,
-  confidence shrink (needs care: only the 30% model part), bench AST, back-to-backs, blowouts (ESPN lines 2025-26 only).
+- **30 Oct (midday) — model v1.6 (lab-tested, both seasons):** `trim_minutes()` / `trimMinutes()`: expected minutes above
+  28 lose 10% of the excess (`HIGH_MIN_TRIM`, `HIGH_MIN_FROM`); final sd × `SD_SCALE = 1.15`. Lab, players who played:
+  Brier 0.24282→0.24215 (2025-26), 0.24401→0.24348 (2024-25); PTS miss 4.912→4.905. sd ×1.3/×1.45 worse; trim 0.2 ≈ 0.1.
+  Half of the "1.2 min too many" was players who didn't play at all (void bets). Real-line saved picks: model-only Brier
+  0.2640→0.2622, minutes 4.01→3.98; strong picks 20→5 (intended: fewer overconfident edges). Parity 0 on 3 slates.
+  Still overconfident at the top on pretend lines (72%→66%) — pretend lines aren't market lines; watch live calibration.
+- **Model lab on the website:** Results page → "Model lab" (`labPanel()`), data from `data/lab.js` built by
+  `python3 lab/build_page_data.py` from `lab/experiments.json` (hand-kept list of tests with their numbers) + the latest
+  `lab/results/v1.6-lineups.json` calibration (played rows only). After any new lab test: add it to experiments.json,
+  re-run build_page_data.py, push. Also loaded by refreshInPlace(). Tested phone dark + desktop light.
+  Next lab tests: with-vs-without, usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
