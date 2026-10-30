@@ -2092,6 +2092,9 @@ html.dark .tag.score.live{background:#16181d!important;border-color:rgba(255,255
 @keyframes lvSpin{to{--lvang:360deg}}
 html.calm .tag.score.live::before{animation:none}
 @media (prefers-reduced-motion:reduce){.tag.score.live::before{animation:none}}
+/* light mode: injury tags keep a clear red tab (they faded into the pink game headers) */
+html:not(.dark) .tag.red{background:#fde2e4;border:1px solid #f4bcc1;color:#b3121f}
+html:not(.dark) button.tag.red:hover{background:#fbd3d7}
 </style>
 </head>
 <body>
