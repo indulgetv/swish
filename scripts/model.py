@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.2 (2026-10-29)"
+MODEL_VERSION = "v1.3 (2026-10-30)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -35,6 +35,8 @@ TEAM_MIN = 240             # minutes in a regulation game
 MAX_GAIN = 6               # no single player picks up more than 6 extra minutes
 SHIFT_ROOM = 36            # spare minutes are shared by how far each player is below this
 SHIFT_MIN_RECV = 8         # only rotation players (8+ expected minutes) pick them up
+FRESH_GAMES = 1            # an absence is "new" if the player played in his team's last game (2-3 tested worse)
+STARTER_SHARE = 0.9        # a bench player listed to start tonight: at least 90% of the other starters' average minutes
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
 
@@ -116,10 +118,14 @@ def pos_group(pos):
 
 
 def minute_shifts(live: dict, status_of) -> dict:
-    """Teammates ruled OUT → more minutes for the rest, but only when the players still available can't fill a
-    normal 240-minute game on their own minutes this season (so long-term absences already absorbed are not
-    counted twice). The shortfall is shared among available rotation players in proportion to their minutes,
-    double weight for the same position as the absent players. Each player capped at MAX_MIN."""
+    """Teammates ruled OUT → more minutes for the rest (v1.3).
+    The players' own expected minutes add up to more than 240 (deep-bench players' averages only count games they
+    played), so the old "shortfall below 240" alone often found no room. Now: a NEW absence (the player played in one
+    of his team's last 3 games) frees the share of a 240-minute game he would normally get:
+        freed = his minutes × 240 / (available players' minutes + absent players' minutes).
+    Long-term absences (no recent games) are already absorbed in his teammates' minutes, so only the old rule applies:
+    the gap below 240, if any. Spare minutes go to rotation players by how far they are below 36 minutes, double
+    weight for the absent players' positions, max +6 each, cap 40."""
     teams = {t for g in live.get("games", []) for t in (g["away"], g["home"])}
     by_team = {}
     for p in live.get("players", []):
@@ -130,13 +136,20 @@ def minute_shifts(live: dict, status_of) -> dict:
         if not cur and not last:
             continue
         by_team.setdefault(p["team"], []).append({"name": p["name"], "grp": pos_group(p.get("pos")), "exp": minutes_model(cur, last)[0],
-                                                  "cur": len(cur), "status": status_of(p["name"])})
+                                                  "cur": len(cur), "dates": {x.get("d") for x in cur}, "status": status_of(p["name"])})
     out = {}
     for rows in by_team.values():
         outs = [r for r in rows if r["status"] == "Out" and r["exp"] >= SHIFT_MIN_OUT]
         avail = [r for r in rows if r["status"] not in ("Out", "Doubtful") and r["cur"] > 0]
-        short = TEAM_MIN - sum(r["exp"] for r in avail)
-        if not outs or short <= 0:
+        if not outs:
+            continue
+        team_dates = sorted({d for r in rows for d in r["dates"] if d}, reverse=True)[:FRESH_GAMES]
+        fresh = [o for o in outs if o["dates"] & set(team_dates)]
+        s_av = sum(r["exp"] for r in avail)
+        s_new = sum(o["exp"] for o in fresh)
+        freed = s_new * TEAM_MIN / (s_av + s_new) if s_new > 0 else 0.0
+        short = max(TEAM_MIN - s_av, freed)
+        if short <= 0:
             continue
         grps = {o["grp"] for o in outs}
         recv = [r for r in avail if r["exp"] >= SHIFT_MIN_RECV]
@@ -149,6 +162,29 @@ def minute_shifts(live: dict, status_of) -> dict:
             g = min(MAX_MIN, r["exp"] + min(MAX_GAIN, short * wt / tot)) - r["exp"]
             if g > 0.05:
                 out[r["name"]] = {"gain": g, "from": names}
+    # ---- starting tonight (NBA.com expected/confirmed starters): a player outside his team's usual top-5 minutes who
+    # is listed to start gets close to the other starters' minutes. Names compared without accents (Matković/Matkovic).
+    starters = set()
+    for lu in (live.get("lineups") or {}).values():
+        for side in ("away", "home"):
+            for s_ in ((lu or {}).get(side) or {}).get("starters") or []:
+                starters.add(norm_name(s_.get("name")))
+    if starters:
+        for rows in by_team.values():
+            avail = [r for r in rows if r["status"] not in ("Out", "Doubtful") and r["cur"] > 0]
+            exp = {r["name"]: r["exp"] + out.get(r["name"], {}).get("gain", 0) for r in avail}
+            st = [r for r in avail if norm_name(r["name"]) in starters]
+            if len(st) < 5:
+                continue
+            top5 = {r["name"] for r in sorted(avail, key=lambda r: -exp[r["name"]])[:5]}
+            others = [exp[r["name"]] for r in st if r["name"] in top5]
+            if not others:
+                continue
+            target = min(MAX_MIN, STARTER_SHARE * sum(others) / len(others))
+            for r in st:
+                if r["name"] not in top5 and target > exp[r["name"]]:
+                    prev = out.get(r["name"], {"gain": 0, "from": []})
+                    out[r["name"]] = {"gain": prev["gain"] + target - exp[r["name"]], "from": prev["from"], "starter": True}
     return out
 
 
@@ -321,7 +357,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                 "fetched": fetched, "oddsUpdated": updated,
                 "projection": round(projection, 3), "sd": round(sd, 3), "minutes": mins, "games": len(recent),
                 "curGames": len(cur), "roleDelta": round(role_delta, 1) if role_change else 0,
-                "minBoost": round(shift["gain"], 1) if shift else 0, "boostFrom": shift["from"] if shift else [],
+                "minBoost": round(shift["gain"], 1) if shift else 0, "boostFrom": shift["from"] if shift else [], "starterTonight": bool(shift and shift.get("starter")),
                 "pureO": round(pure_o, 5), "mktO": round(mkt_o, 5), "modelO": round(model_o, 5), "dist": dist,
                 "side": side, "lean": lean, "modelP": round(model_p, 5), "mktP": round(mkt_p, 5), "price": price,
                 "edge": round(edge, 5), "ev": round(ev, 5), "value": value, "verdict": verdict,

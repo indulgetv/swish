@@ -742,6 +742,7 @@ html.calm *,html.calm *::before,html.calm *::after{animation:none!important;tran
 /* ================= Last 6 games ================= */
 .pl-in{display:flex;align-items:center;gap:8px}
 .pl-in > div{min-width:0;flex:1}
+.pl-in > div > small .rolechip{max-width:100%;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}   /* chips never run under the Last 6 button */
 .formbtn{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;font-size:10.5px;font-weight:700;color:var(--red);padding:3px 7px;border-radius:6px;border:1px solid var(--red-line);background:var(--white);transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease);min-height:24px}
 .formbtn span{font-size:9px}
 .formbtn:hover{background:var(--red-soft)}
@@ -2247,13 +2248,15 @@ const MIN_MINUTES_FOR_PROPS = 14;
 const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.2 (2026-10-29)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.3 (2026-10-30)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
 const MAX_MIN = 40;           // nobody is projected above this many minutes
 const SHIFT_MIN_OUT = 10;     // a teammate out must be a 10+ minute player to trigger a minutes shift
 const TEAM_MIN = 240;         // minutes in a regulation game
 const MAX_GAIN = 6;           // no single player picks up more than 6 extra minutes
+const FRESH_GAMES = 1;       // an absence is "new" if the player played in his team's last game
+const STARTER_SHARE = 0.9;    // listed starter outside the usual top 5: at least 90% of the other starters' minutes
 const SHIFT_ROOM = 36;        // spare minutes are shared by how far each player is below this
 const SHIFT_MIN_RECV = 8;     // …and only rotation players (8+ expected minutes) pick them up     // …and with fewer games than this it's flagged (projection less certain)
 const MODEL_WEIGHT = 0.3;     // SWISH chance = 30% model + 70% market (no-vig) until results tracking proves the model
@@ -2534,18 +2537,26 @@ function minutesModel(cur, last){
   return {expMin: w * curMin + (1 - w) * prior, curMin, lastMin, delta: lastMin !== null ? curMin - lastMin : 0};
 }
 const posGroup = pos => { const u = String(pos || "").toUpperCase(); return u.startsWith("C") ? "C" : u.includes("G") ? "G" : u.includes("F") ? "F" : u; };
-/* teammates ruled OUT → more minutes for the rest, only when the available players can't fill a 240-minute game on
-   their own minutes this season (so long-term absences already absorbed aren't counted twice). The shortfall goes to
-   rotation players by how much room they have below 36 minutes (stars are near their cap; role players absorb most),
-   double weight for the absent players' positions, capped at 40. Same rules as scripts/model.py. */
+/* v1.3 minutes shifts (same rules as scripts/model.py):
+   1) teammates ruled OUT: a NEW absence (played in his team's last game) frees his share of a 240-minute game —
+      his minutes × 240 / (available + absent minutes). Long-term absences only count the gap below 240 (already absorbed).
+      Spare minutes go to rotation players by room below 36 minutes, double weight for the absent players' positions, +6 max, cap 40.
+   2) starting tonight: a player outside his team's usual top-5 minutes who NBA.com lists as a starter (expected or
+      confirmed) gets at least 90% of the other starters' average minutes. Names compared without accents. */
 function applyMinuteShifts(players){
   const byTeam = {};
   players.forEach(pl => (byTeam[pl.team] = byTeam[pl.team] || []).push(pl));
+  const gain = {}, from = {}, starterTonight = {};
   Object.values(byTeam).forEach(rows => {
     const outs = rows.filter(r => r.status === "Out" && r.expMin0 >= SHIFT_MIN_OUT);
+    if (!outs.length) return;
     const avail = rows.filter(r => r.status !== "Out" && r.status !== "Doubtful" && r.cur.length > 0);
-    const short = TEAM_MIN - avail.reduce((a, r) => a + r.expMin0, 0);
-    if (!outs.length || short <= 0) return;
+    const teamDates = new Set([...new Set(rows.flatMap(r => r.cur.map(g => g.d)).filter(Boolean))].sort().reverse().slice(0, FRESH_GAMES));
+    const fresh = outs.filter(o => o.cur.some(g => teamDates.has(g.d)));
+    const sAv = avail.reduce((a, r) => a + r.expMin0, 0), sNew = fresh.reduce((a, r) => a + r.expMin0, 0);
+    const freed = sNew > 0 ? sNew * TEAM_MIN / (sAv + sNew) : 0;
+    const short = Math.max(TEAM_MIN - sAv, freed);
+    if (short <= 0) return;
     const grps = new Set(outs.map(o => posGroup(o.pos)));
     const recv = avail.filter(r => r.expMin0 >= SHIFT_MIN_RECV);
     const wts = recv.map(r => Math.max(0, SHIFT_ROOM - r.expMin0) * (grps.has(posGroup(r.pos)) ? 2 : 1));
@@ -2553,13 +2564,29 @@ function applyMinuteShifts(players){
     const names = [...outs].sort((a, b) => b.expMin0 - a.expMin0).map(o => o.name);
     recv.forEach((r, i) => {
       const g = Math.min(MAX_MIN, r.expMin0 + Math.min(MAX_GAIN, short * wts[i] / tot)) - r.expMin0;
-      if (g > 0.05){
-        r.expMin = r.expMin0 + g; r.projMin = Math.round(r.expMin);
-        r.minBoost = {gain: g, from: names};
-        r.boost = {dependsOn: names.slice(0, 3).join(", ") + (names.length > 3 ? ` +${names.length - 3} more` : ""), minIf: r.projMin, status: "Out",
-                   note: "Minutes the absent players leave behind, shared mostly to role players"};
-      }
+      if (g > 0.05){ gain[r.name] = g; from[r.name] = names; }
     });
+  });
+  const starters = new Set();
+  Object.values((LIVE && LIVE.lineups) || {}).forEach(lu => ["away", "home"].forEach(side => (((lu || {})[side] || {}).starters || []).forEach(s => starters.add(normName(s.name)))));
+  if (starters.size) Object.values(byTeam).forEach(rows => {
+    const avail = rows.filter(r => r.status !== "Out" && r.status !== "Doubtful" && r.cur.length > 0);
+    const exp = {}; avail.forEach(r => exp[r.name] = r.expMin0 + (gain[r.name] || 0));
+    const st = avail.filter(r => starters.has(normName(r.name)));
+    if (st.length < 5) return;
+    const top5 = new Set([...avail].sort((a, b) => exp[b.name] - exp[a.name]).slice(0, 5).map(r => r.name));
+    const others = st.filter(r => top5.has(r.name)).map(r => exp[r.name]);
+    if (!others.length) return;
+    const target = Math.min(MAX_MIN, STARTER_SHARE * others.reduce((a, b) => a + b, 0) / others.length);
+    st.forEach(r => { if (!top5.has(r.name) && target > exp[r.name]){ gain[r.name] = (gain[r.name] || 0) + target - exp[r.name]; from[r.name] = from[r.name] || []; starterTonight[r.name] = true; } });
+  });
+  players.forEach(r => {
+    const g = gain[r.name]; if (!g) return;
+    r.expMin = r.expMin0 + g; r.projMin = Math.round(r.expMin);
+    const names = from[r.name] || [];
+    r.minBoost = {gain: g, from: names, starter: !!starterTonight[r.name]};
+    r.boost = {dependsOn: names.length ? names.slice(0, 3).join(", ") + (names.length > 3 ? ` +${names.length - 3} more` : "") : "Starting tonight", minIf: r.projMin, status: names.length ? "Out" : "Starter",
+               note: starterTonight[r.name] ? "Listed to start tonight (NBA.com) — minutes raised towards the other starters'" : "Minutes the absent players leave behind, shared mostly to role players"};
   });
   return players;
 }
@@ -2927,7 +2954,7 @@ const PICK_TABS = {
           list: () => clean.filter(p => p.lean !== "none").sort((a,b) => Math.abs(b.projection-b.line)/b.sd - Math.abs(a.projection-a.line)/a.sd)},
   h2h:   {label:"H2H standouts", desc:"Players whose previous meetings with tonight's opponent clear the line most consistently on the model's side (minimum 3 meetings).",
           list: () => clean.filter(p => p.n >= 3 && p.lean !== "none").sort((a,b) => (b.h2hHits/b.n - a.h2hHits/a.n) || (Math.abs(b.h2hAvg-b.line)/b.sd - Math.abs(a.h2hAvg-a.line)/a.sd))},
-  boost: {label:"Injury boosts", desc:"Players gaining minutes because a teammate is confirmed out. Bookmakers often adjust these lines quickly — check the price, not just the projection.",
+  boost: {label:"Minute boosts", desc:"Players gaining minutes because a teammate is newly ruled out, or because NBA.com lists them in tonight's starting five. Bookmakers often adjust these lines quickly — check the price, not just the projection.",
           list: () => ALL.filter(p => p.role && p.role.applied).sort((a,b) => b.edge - a.edge)}
 };
 
@@ -3112,16 +3139,19 @@ function visiblePlayers(teamCode){
   return ps;
 }
 
-const minPair = pl => `<span class="mpair"><span class="mavg" title="Average minutes, last 10 games">${Math.round(pl.avgMin != null ? pl.avgMin : pl.min)}</span><span class="mexp" title="Expected minutes tonight${pl.minBoost ? ` (incl. +${pl.minBoost.gain.toFixed(1)} with ${esc(pl.boost.dependsOn)} out)` : ""}">${pl.projMin}${pl.minBoost ? "▲" : ""}</span></span>`;
+const minPair = pl => `<span class="mpair"><span class="mavg" title="Average minutes, last 10 games">${Math.round(pl.avgMin != null ? pl.avgMin : pl.min)}</span><span class="mexp" title="Expected minutes tonight${pl.minBoost ? ` (incl. +${pl.minBoost.gain.toFixed(1)} · ${esc(boostWhy(pl.minBoost))})` : ""}">${pl.projMin}${pl.minBoost ? "▲" : ""}</span></span>`;
 /* the explanation behind a role chip — only numbers from the player's own game logs */
 const roleTip = x => `${x.roleDelta > 0 ? "Bigger" : "Smaller"} role this season. He's averaging about ${Math.round(x.curMin)} minutes over his ${x.curGames} game${x.curGames === 1 ? "" : "s"} this season (recent games count more), against ${Math.round(x.lastMin)} over his last 20 games last season. SWISH expects about ${Math.round(x.expMin)} minutes tonight.${x.curGames < ROLE_NEW_GAMES ? " Only a few games so far, so treat this with care." : ""}`;
 const roleChip = x => x && x.roleChange ? `<span class="rolechip ${x.roleDelta > 0 ? "up" : "dn"}" tabindex="0" data-tip="${esc(roleTip(x))}">${x.roleDelta > 0 ? "▲" : "▼"} role ${x.roleDelta > 0 ? "+" : "−"}${Math.abs(Math.round(x.roleDelta))} min</span>` : "";
 /* minutes boost from teammates ruled out */
-const boostTip = pl => { const names = [...new Set(pl.minBoost.from)]; return `More minutes expected tonight: about ${Math.round(pl.expMin0)} → ${pl.projMin}. ${names.join(", ")} ${names.length === 1 ? "is" : "are"} listed Out on ESPN's injury report, and the players left usually play fewer than a full game's 240 minutes between them. SWISH shares the gap out, mostly to role players, up to +6 minutes each.`; };
-const boostChip = pl => pl && pl.minBoost ? `<span class="rolechip up" tabindex="0" data-tip="${esc(boostTip(pl))}">▲ +${Math.max(1, Math.round(pl.minBoost.gain))} min · teammate out</span>` : "";
+const boostWhy = b => { const names = [...new Set(b.from)]; return [names.length ? `${names.join(", ")} out` : "", b.starter ? "starting tonight" : ""].filter(Boolean).join(" · "); };
+const boostTip = pl => { const names = [...new Set(pl.minBoost.from)]; return `More minutes expected tonight: about ${Math.round(pl.expMin0)} → ${pl.projMin}.` +
+  (names.length ? ` ${names.join(", ")} ${names.length === 1 ? "is" : "are"} newly listed Out on ESPN's injury report; SWISH shares the minutes they would normally play, mostly to role players, up to +6 minutes each.` : "") +
+  (pl.minBoost.starter ? ` NBA.com lists him in tonight's starting five although he isn't usually one of his team's top-5 minutes players, so SWISH raises him to about 90% of the other starters' minutes.` : ""); };
+const boostChip = pl => pl && pl.minBoost ? `<span class="rolechip up" tabindex="0" data-tip="${esc(boostTip(pl))}">▲ +${Math.max(1, Math.round(pl.minBoost.gain))} min · ${pl.minBoost.starter ? "new starter" : "teammate out"}</span>` : "";
 const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${p.minBoost ? boostChip(PLAYER_BY_NAME.get(p.player)) : ""}${roleChip(p)}</div>
       <div class="minbox">
-        <div><span>Tonight</span><b class="num" style="color:var(--exp)">${p.expMin.toFixed(1)}</b><small>${p.minBoost ? `incl. +${p.minBoost.gain.toFixed(1)} · ${esc([...new Set(p.minBoost.from)].join(", "))} out` : "SWISH estimate"}</small></div>
+        <div><span>Tonight</span><b class="num" style="color:var(--exp)">${p.expMin.toFixed(1)}</b><small>${p.minBoost ? `incl. +${p.minBoost.gain.toFixed(1)} · ${esc(boostWhy(p.minBoost))}` : "SWISH estimate"}</small></div>
         <div><span>This season</span><b class="num">${p.curMin !== null ? p.curMin.toFixed(1) : "—"}</b><small>${p.curGames} game${p.curGames === 1 ? "" : "s"}</small></div>
         <div><span>Last season</span><b class="num">${p.lastMin !== null ? p.lastMin.toFixed(1) : "—"}</b><small>last 20 games</small></div>
       </div>
@@ -3131,7 +3161,7 @@ function playerSub(pl){
   if (pl.status === "Out") return `<small class="warn">${stPill("Out")}</small>`;
   if (pl.status === "Questionable" || pl.status === "Doubtful") return `<small class="warn">⚠ ${esc(pl.status)} · ${esc(injuryOf(pl.name).detail)}</small>`;
   if (pl.minBoost) return `<small>${pl.pos}${st}${boostChip(pl)}${roleChip(pl)}</small>`;
-  if (pl.boost) return `<small class="boost">${pl.pos} · ↑ ${pl.min}→${pl.projMin} min (${esc(pl.boost.dependsOn)} out)</small>`;
+  if (pl.boost) return `<small class="boost">${pl.pos} · ↑ ${pl.min}→${pl.projMin} min (${esc(pl.minBoost ? boostWhy(pl.minBoost) : pl.boost.dependsOn + " out")})</small>`;
   if (pl.scenario) return `<small class="warn">${pl.pos} · ${pl.min}→${pl.scenario.minIf} min if ${esc(pl.scenario.dependsOn)} sits</small>`;
   const rc = roleChip(pl);
   if (pl.status === "Probable") return `<small>${pl.pos} · probable${st}${rc}</small>`;
