@@ -64,6 +64,13 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   Rules unchanged (on-hold props still never picks). Tonight: 43/344 on hold (few_games 17, min_unclear 17, status 9, big_gap 8).
   Idea for the lab: is `big_gap` worth keeping? (does the market beat SWISH on those props?)
 
+- **30 Oct 22:20 — UK prices question:** The Odds API UK region has ~20 books incl. Sky Bet, Paddy Power, William Hill,
+  Coral, Ladbrokes, Betfair — NOT bet365 (only bet365_au, paid, AFL/NRL). Unknown whether UK books return NBA player props.
+  User approved a 1-credit test: `.github/workflows/uk-props-test.yml` (workflow_dispatch only) runs `tools/uk_props_test.py`
+  (next game not started, regions=uk, markets=player_points) → `data/uk-props-test.json`. Scheduled in-chat reminder for
+  31 Oct 15:00 UK to run it. User updated project instructions: UK-based, bet365 UK; use UK odds wherever possible, US = backup.
+  Model lab privacy: parked to 31 Oct (option: remove from site + private claude.ai page; optional private `swish-lab` repo).
+
 ## Next steps (in order)
 1. **Declutter 3PM + PRA** (user asked; remind them): remove those columns + filter chips from Props; count only PTS/REB/AST
    in "props" totals; keep computing them in the background; optional info line in the prop panel (ask). No model change.
