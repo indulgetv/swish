@@ -143,6 +143,20 @@ _Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"*
   - Live scores already work on phones/tablets (simulated); nothing to build.
   - Tip-off times: SWISH shows the official listed time (ESPN); bet365 shows ~10 min later. User: leave as is for now.
 
+- **30 Oct (00:20–01:15) — live-game polish, all tested phone/tablet/desktop, light+dark:**
+  - Live: flashing red dot (`.ldot`) in the sidebar + LIVE score tags; LIVE tag restyled as a neutral card with a red glow
+    travelling round its edge (`@property --lvang`, `.tag.score.live::before`). Final: one gold pop (`flashFinal`) then still.
+  - Light mode injury tags: stronger red tab (border) so they don't clash with LIVE.
+  - (Other session, 00:50) phones/tablets: Props headers show green "Game started" / "Game over" (`SLOT.luM`); Games &
+    Analysis: once live the header keeps only the score + button, tip-off/total/spread/injuries move to a "Tonight's game"
+    row in the H2H card (`anaBadges`, `SLOT.anaInfo` / `anaInfoB`). Keep to ONE chat at a time to avoid clashing pushes.
+  - Starter chips go still once their game starts (`.gsec:has(.gsec-h .tag.score) .lu-chip`).
+  - Sidebar halftime (clock matches /half/): score dims, amber "HT" tag with a sweep + letter ripple, fixed 22×14 box.
+- **Night 2 result (29 Oct):** 51–58 (−£126.96 at £10), 1 pending (DeAndre Jordan REB). Only strong pick after the top-up:
+  Herbert Jones UNDER 7.5 pts → scored 16 (lost) — minutes from Dejounte Murray's absence; same issue as A1 below.
+  Running total (2 nights): 233–226, −£230.30; strong 8–12; Top overs Medium tier 21–14 (+£19.27) — tiny sample.
+  TOPUP_DATES={"2026-10-29"} is date-gated, so it no longer runs; remove it when A4 (conditional re-price) ships.
+
 ## Next steps (in order)
 
 **TOMORROW (user agreed 29 Oct 22:47), in this order:**
