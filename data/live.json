@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-30",
-  "mode": "light",
+  "mode": "full",
   "errors": [],
-  "lastFullAt": "2026-10-30T07:00:42Z",
+  "lastFullAt": "2026-10-30T10:16:41Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T08:16:55Z"
+  "writtenAt": "2026-10-30T10:22:36Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "WSH -1.5",
     "overUnder": 220.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -35,9 +35,9 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "BOS -15.5",
+    "details": "BOS -14.5",
     "overUnder": 235.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -52,8 +52,8 @@
    "homeScore": "0",
    "espnLine": {
     "details": "DET -7.5",
-    "overUnder": 221.5,
-    "provider": "Draft Kings"
+    "overUnder": 222.5,
+    "provider": "DraftKings"
    }
   },
   {
@@ -68,8 +68,8 @@
    "homeScore": "0",
    "espnLine": {
     "details": "NY -1.5",
-    "overUnder": 228.5,
-    "provider": "Draft Kings"
+    "overUnder": 227.5,
+    "provider": "DraftKings"
    }
   },
   {
@@ -85,7 +85,7 @@
    "espnLine": {
     "details": "TOR -5.5",
     "overUnder": 226.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -101,7 +101,7 @@
    "espnLine": {
     "details": "MIA -7.5",
     "overUnder": 236.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -117,7 +117,7 @@
    "espnLine": {
     "details": "HOU -5.5",
     "overUnder": 226.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -131,9 +131,9 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "MIN -7.5",
-    "overUnder": 222.5,
-    "provider": "Draft Kings"
+    "details": "MIN -6.5",
+    "overUnder": 223.5,
+    "provider": "DraftKings"
    }
   },
   {
@@ -147,9 +147,9 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "LAL -1.5",
-    "overUnder": 234.5,
-    "provider": "Draft Kings"
+    "details": "LAL -2.5",
+    "overUnder": 233.5,
+    "provider": "DraftKings"
    }
   },
   {
@@ -165,7 +165,7 @@
    "espnLine": {
     "details": "DEN -4.5",
     "overUnder": 231.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   }
  ],
@@ -295357,41 +295357,602 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-30T07:00:43Z",
+   "fetchedAt": "2026-10-30T10:16:42Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T08:16:54Z",
+   "fetchedAt": "2026-10-30T10:16:43Z",
    "ok": true,
    "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T08:16:53Z",
+   "fetchedAt": "2026-10-30T10:16:42Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T08:16:54Z",
+   "fetchedAt": "2026-10-30T10:16:42Z",
    "ok": true,
-   "nba": "failed: HTTP Error 404: Not Found",
+   "nba": "ok: 20 team lineups posted",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-30T07:06:41Z",
+   "fetchedAt": "2026-10-30T10:22:25Z",
    "ok": true,
    "count": 334,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-30T07:06:49Z",
+   "fetchedAt": "2026-10-30T10:22:36Z",
    "ok": true
   }
  },
- "lineups": {},
+ "lineups": {
+  "401909277": {
+   "away": {
+    "starters": [
+     {
+      "name": "Sion James",
+      "pos": "SG"
+     },
+     {
+      "name": "Brandon Miller",
+      "pos": "SF"
+     },
+     {
+      "name": "Dennis Schröder",
+      "pos": "PG"
+     },
+     {
+      "name": "Naz Reid",
+      "pos": "PF"
+     },
+     {
+      "name": "Moussa Diabaté",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Kyshawn George",
+      "pos": "SG"
+     },
+     {
+      "name": "AJ Dybantsa",
+      "pos": "SF"
+     },
+     {
+      "name": "Trae Young",
+      "pos": "PG"
+     },
+     {
+      "name": "Anthony Davis",
+      "pos": "PF"
+     },
+     {
+      "name": "Alex Sarr",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909278": {
+   "away": {
+    "starters": [
+     {
+      "name": "Norman Powell",
+      "pos": "SG"
+     },
+     {
+      "name": "Matas Buzelis",
+      "pos": "SF"
+     },
+     {
+      "name": "Josh Giddey",
+      "pos": "PG"
+     },
+     {
+      "name": "Caleb Wilson",
+      "pos": "PF"
+     },
+     {
+      "name": "Jalen Smith",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Paul George",
+      "pos": "SG"
+     },
+     {
+      "name": "Jayson Tatum",
+      "pos": "SF"
+     },
+     {
+      "name": "Derrick White",
+      "pos": "PG"
+     },
+     {
+      "name": "Jordan Walsh",
+      "pos": "PF"
+     },
+     {
+      "name": "Mitchell Robinson",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909279": {
+   "away": {
+    "starters": [
+     {
+      "name": "Duncan Robinson",
+      "pos": "SG"
+     },
+     {
+      "name": "Ausar Thompson",
+      "pos": "SF"
+     },
+     {
+      "name": "Cade Cunningham",
+      "pos": "PG"
+     },
+     {
+      "name": "John Collins",
+      "pos": "PF"
+     },
+     {
+      "name": "Paul Reed",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Nolan Traore",
+      "pos": "SG"
+     },
+     {
+      "name": "Michael Porter Jr.",
+      "pos": "SF"
+     },
+     {
+      "name": "Mikel Brown Jr.",
+      "pos": "PG"
+     },
+     {
+      "name": "Julius Randle",
+      "pos": "PF"
+     },
+     {
+      "name": "Day'Ron Sharpe",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909280": {
+   "away": {
+    "starters": [
+     {
+      "name": "Mikal Bridges",
+      "pos": "SG"
+     },
+     {
+      "name": "Josh Hart",
+      "pos": "SF"
+     },
+     {
+      "name": "Jalen Brunson",
+      "pos": "PG"
+     },
+     {
+      "name": "OG Anunoby",
+      "pos": "PF"
+     },
+     {
+      "name": "Karl-Anthony Towns",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "VJ Edgecombe",
+      "pos": "SG"
+     },
+     {
+      "name": "Jaylen Brown",
+      "pos": "SF"
+     },
+     {
+      "name": "Tyrese Maxey",
+      "pos": "PG"
+     },
+     {
+      "name": "LeBron James",
+      "pos": "PF"
+     },
+     {
+      "name": "Joel Embiid",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909281": {
+   "away": {
+    "starters": [
+     {
+      "name": "Anthony Black",
+      "pos": "SG"
+     },
+     {
+      "name": "Desmond Bane",
+      "pos": "SF"
+     },
+     {
+      "name": "Jase Richardson",
+      "pos": "PG"
+     },
+     {
+      "name": "Franz Wagner",
+      "pos": "PF"
+     },
+     {
+      "name": "Wendell Carter Jr.",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "RJ Barrett",
+      "pos": "SG"
+     },
+     {
+      "name": "Ja'Kobe Walter",
+      "pos": "SF"
+     },
+     {
+      "name": "Immanuel Quickley",
+      "pos": "PG"
+     },
+     {
+      "name": "Scottie Barnes",
+      "pos": "PF"
+     },
+     {
+      "name": "Jakob Poeltl",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909282": {
+   "away": {
+    "starters": [
+     {
+      "name": "Kelly Oubre Jr.",
+      "pos": "SG"
+     },
+     {
+      "name": "Aaron Nesmith",
+      "pos": "SF"
+     },
+     {
+      "name": "Andrew Nembhard",
+      "pos": "PG"
+     },
+     {
+      "name": "Pascal Siakam",
+      "pos": "PF"
+     },
+     {
+      "name": "Jay Huff",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Klay Thompson",
+      "pos": "SG"
+     },
+     {
+      "name": "Andrew Wiggins",
+      "pos": "SF"
+     },
+     {
+      "name": "Davion Mitchell",
+      "pos": "PG"
+     },
+     {
+      "name": "Giannis Antetokounmpo",
+      "pos": "PF"
+     },
+     {
+      "name": "Bam Adebayo",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909283": {
+   "away": {
+    "starters": [
+     {
+      "name": "Amen Thompson",
+      "pos": "SG"
+     },
+     {
+      "name": "Kevin Durant",
+      "pos": "SF"
+     },
+     {
+      "name": "Fred VanVleet",
+      "pos": "PG"
+     },
+     {
+      "name": "Jabari Smith Jr.",
+      "pos": "PF"
+     },
+     {
+      "name": "Alperen Sengun",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Max Christie",
+      "pos": "SG"
+     },
+     {
+      "name": "Cooper Flagg",
+      "pos": "SF"
+     },
+     {
+      "name": "Kyrie Irving",
+      "pos": "PG"
+     },
+     {
+      "name": "P.J. Washington",
+      "pos": "PF"
+     },
+     {
+      "name": "Daniel Gafford",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909284": {
+   "away": {
+    "starters": [
+     {
+      "name": "Kris Dunn",
+      "pos": "SG"
+     },
+     {
+      "name": "Rui Hachimura",
+      "pos": "SF"
+     },
+     {
+      "name": "Darius Garland",
+      "pos": "PG"
+     },
+     {
+      "name": "Derrick Jones Jr.",
+      "pos": "PF"
+     },
+     {
+      "name": "Isaiah Jackson",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Ayo Dosunmu",
+      "pos": "SG"
+     },
+     {
+      "name": "Jonathan Kuminga",
+      "pos": "SF"
+     },
+     {
+      "name": "LaMelo Ball",
+      "pos": "PG"
+     },
+     {
+      "name": "Jaden McDaniels",
+      "pos": "PF"
+     },
+     {
+      "name": "Rudy Gobert",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909285": {
+   "away": {
+    "starters": [
+     {
+      "name": "Austin Reaves",
+      "pos": "SG"
+     },
+     {
+      "name": "Ziaire Williams",
+      "pos": "SF"
+     },
+     {
+      "name": "Luka Dončić",
+      "pos": "PG"
+     },
+     {
+      "name": "Matisse Thybulle",
+      "pos": "PF"
+     },
+     {
+      "name": "Walker Kessler",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Brandin Podziemski",
+      "pos": "SG"
+     },
+     {
+      "name": "Yaxel Lendeborg",
+      "pos": "SF"
+     },
+     {
+      "name": "Stephen Curry",
+      "pos": "PG"
+     },
+     {
+      "name": "Georges Niang",
+      "pos": "PF"
+     },
+     {
+      "name": "Draymond Green",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  },
+  "401909286": {
+   "away": {
+    "starters": [
+     {
+      "name": "Christian Braun",
+      "pos": "SG"
+     },
+     {
+      "name": "Cameron Johnson",
+      "pos": "SF"
+     },
+     {
+      "name": "Jamal Murray",
+      "pos": "PG"
+     },
+     {
+      "name": "Aaron Gordon",
+      "pos": "PF"
+     },
+     {
+      "name": "Nikola Jokić",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   },
+   "home": {
+    "starters": [
+     {
+      "name": "Jalen Green",
+      "pos": "SG"
+     },
+     {
+      "name": "Dillon Brooks",
+      "pos": "SF"
+     },
+     {
+      "name": "Devin Booker",
+      "pos": "PG"
+     },
+     {
+      "name": "Miles Bridges",
+      "pos": "PF"
+     },
+     {
+      "name": "Khaman Maluach",
+      "pos": "C"
+     }
+    ],
+    "status": "expected",
+    "source": "NBA.com",
+    "fetchedAt": "2026-10-30T10:16:42Z"
+   }
+  }
+ },
  "lineMoves": {}
 }
