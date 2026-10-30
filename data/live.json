@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:00:34Z"
+  "writtenAt": "2026-10-30T00:05:35Z"
  },
  "games": [
   {
@@ -768,13 +768,24 @@
   },
   {
    "team": "DEN",
+   "player": "Alpha Diallo",
+   "pos": "F",
+   "status": "Out",
+   "rawStatus": "Out",
+   "detail": "Right Personal",
+   "comment": "Diallo (personal) is listed as questionable for Friday's game against the Suns.",
+   "updated": "2026-10-29T23:50Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "DEN",
    "player": "Cameron Johnson",
    "pos": "F",
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Right Ankle Sprain",
-   "comment": "Johnson (ankle) is listed as out for Wednesday's game against the Pelicans.",
-   "updated": "2026-10-28T23:08Z",
+   "comment": "Johnson (ankle) is questionable for Friday's game against Phoenix.",
+   "updated": "2026-10-29T23:49Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -787,17 +798,6 @@
    "comment": "Jones (hamstring) has been ruled out for Wednesday's game against New Orleans.",
    "updated": "2026-10-27T22:35Z",
    "returnDate": "2026-11-02"
-  },
-  {
-   "team": "DEN",
-   "player": "Alpha Diallo",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Personal",
-   "comment": "Diallo is out for Wednesday's game against the Pelicans due to personal reasons.",
-   "updated": "2026-10-27T22:34Z",
-   "returnDate": "2026-10-30"
   },
   {
    "team": "DEN",
@@ -84170,19 +84170,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:00:34Z",
+   "fetchedAt": "2026-10-30T00:05:34Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:00:34Z",
+   "fetchedAt": "2026-10-30T00:05:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:00:34Z",
+   "fetchedAt": "2026-10-30T00:05:34Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84264,7 +84264,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:00:34Z"
+    "fetchedAt": "2026-10-30T00:05:34Z"
    },
    "home": {
     "starters": [
@@ -84291,7 +84291,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:00:34Z"
+    "fetchedAt": "2026-10-30T00:05:34Z"
    }
   },
   "401909894": {
@@ -84320,7 +84320,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:00:34Z"
+    "fetchedAt": "2026-10-30T00:05:34Z"
    },
    "home": {
     "starters": [
@@ -84347,7 +84347,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:00:34Z"
+    "fetchedAt": "2026-10-30T00:05:34Z"
    }
   },
   "401909895": {
@@ -84376,7 +84376,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:00:34Z"
+    "fetchedAt": "2026-10-30T00:05:34Z"
    },
    "home": {
     "starters": [
@@ -84403,7 +84403,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:00:34Z"
+    "fetchedAt": "2026-10-30T00:05:34Z"
    }
   }
  },
