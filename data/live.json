@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T02:50:44Z"
+  "writtenAt": "2026-10-30T02:55:44Z"
  },
  "games": [
   {
@@ -38,10 +38,10 @@
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
    "state": "in",
-   "status": "7:38 - 2nd",
+   "status": "4:54 - 2nd",
    "completed": false,
-   "awayScore": "35",
-   "homeScore": "41",
+   "awayScore": "41",
+   "homeScore": "45",
    "espnLine": null
   }
  ],
@@ -1119,24 +1119,24 @@
   },
   {
    "team": "NOP",
-   "player": "Dejounte Murray",
+   "player": "Jordan Poole",
    "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Personal",
-   "comment": "Murray (personal) is out for Thursday's game against the Kings, Jim Eichenhofer of the Pelicans' official site reports.",
-   "updated": "2026-10-29T22:22Z",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Ankle",
+   "comment": "Poole (ankle) has been ruled out for Thursday's game against the Kings.",
+   "updated": "2026-10-30T02:40Z",
    "returnDate": "2026-10-31"
   },
   {
    "team": "NOP",
-   "player": "Jordan Poole",
+   "player": "Dejounte Murray",
    "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Ankle",
-   "comment": "Poole (ankle) has been ruled out for Thursday's game against the Kings.",
-   "updated": "2026-10-29T22:19Z",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Personal",
+   "comment": "Murray (personal) is out for Thursday's game against the Kings, Jim Eichenhofer of the Pelicans' official site reports.",
+   "updated": "2026-10-30T02:39Z",
    "returnDate": "2026-10-31"
   },
   {
@@ -84147,19 +84147,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T02:50:43Z",
+   "fetchedAt": "2026-10-30T02:55:43Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T02:50:43Z",
+   "fetchedAt": "2026-10-30T02:55:43Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T02:50:43Z",
+   "fetchedAt": "2026-10-30T02:55:43Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },
