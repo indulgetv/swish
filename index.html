@@ -1620,6 +1620,24 @@ html.dark .totop{box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,25
 .rchip{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
 .rchip.win{background:rgba(31,138,76,.12);color:var(--over);border-color:rgba(31,138,76,.3)}
 .rchip.loss{background:var(--red-soft);color:var(--red);border-color:var(--red-line)}
+/* Model lab (Results page) */
+.lab-list{display:flex;flex-direction:column}
+.lab-row{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1.4fr) auto;gap:6px 18px;align-items:start;padding:14px 18px;border-top:1px solid var(--line)}
+.lab-row:first-child{border-top:0}
+.lab-row .li b{display:block;font-size:14px;line-height:1.35}
+.lab-row .li small{display:block;color:var(--muted);font-size:12px;line-height:1.4;margin-top:3px}
+.lab-row .ln{font-size:12.5px;line-height:1.55}
+.lab-row .ln .bt{color:var(--over);font-weight:700}
+.lab-row .ln .wr{color:var(--red);font-weight:700}
+.lab-row .ln small{display:block;color:var(--muted);font-size:11.5px}
+.lab-row .lv{text-align:right;white-space:nowrap}
+.lab-row .lv small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.lab-next{margin:0;padding:4px 18px 16px 36px;font-size:13px;line-height:1.7}
+@media (max-width:760px){
+  .lab-row{grid-template-columns:minmax(0,1fr) auto;padding:12px 14px}
+  .lab-row .ln{grid-column:1 / -1;grid-row:2}
+  .lab-next{padding:4px 14px 14px 30px}
+}
 .calbar{position:relative;display:block;width:120px;height:10px;border-radius:99px;background:var(--sunk);overflow:visible}
 .calbar .act{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--under)}
 .calbar .exp{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);border-radius:2px;z-index:1}
@@ -2150,7 +2168,7 @@ html.calm .sg .t.ht .htl::before,html.calm .sg .t.ht .htl span{animation:none}
 <button class="totop" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg></button>
 <!-- Live data written by the GitHub automation (scripts/update.py). If it's missing, SWISH falls back to the sample slate. -->
 <script>/* load the newest data, never a cached copy */ var _v = Date.now();
-document.write('<script src="data/live.js?v=' + _v + '"><\/script><script src="data/results.js?v=' + _v + '"><\/script>');</script>
+document.write('<script src="data/live.js?v=' + _v + '"><\/script><script src="data/results.js?v=' + _v + '"><\/script><script src="data/lab.js?v=' + _v + '"><\/script>');</script>
 
 <script>
 /* =================================================================
@@ -3771,6 +3789,37 @@ function wlCard(title, r, note){
     <div class="s">${r && r.n ? `won ${pct(r.hitRate, 0)} · you need ${pct(be, 0)} to make money` : "nothing settled yet"}<br><span class="faint">${note}</span></div></div>`;
 }
 const recCell = r => r && r.n ? `<span class="wlrec">${r.wins}–${r.losses}${r.pushes ? `–${r.pushes}` : ""}${wlBar(r, r.avgPrice ? 1 / r.avgPrice : 0)}</span>` : "—";
+/* Model lab: ideas tested by replaying past seasons (data/lab.js, written by lab/build_page_data.py) */
+function labPanel(){
+  const L = window.SWISH_LAB; if (!L || !L.experiments) return "";
+  const f = (x, d) => x == null ? "—" : Number(x).toFixed(d);
+  const cmp = (b, a, d, word) => {
+    if (b == null || a == null) return "";
+    const better = a < b, same = Math.abs(a - b) < Math.pow(10, -d) / 2;
+    return `${word} <b class="num">${f(b, d)} → ${f(a, d)}</b> <span class="${same ? "" : better ? "bt" : "wr"}">${same ? "same" : better ? "better" : "worse"}</span>`;
+  };
+  const line = (x, tag) => [cmp((x.before || {}).minutes, (x.after || {}).minutes, 2, "Minutes miss"),
+                            cmp((x.before || {}).points, (x.after || {}).points, 3, "Points miss"),
+                            cmp((x.before || {}).accuracy, (x.after || {}).accuracy, 4, "Accuracy score")].filter(Boolean).join(" · ") + (tag ? ` <small>${tag}</small>` : "");
+  const rows = [...L.experiments].reverse().map(x => `<div class="lab-row">
+      <div class="li"><b>${esc(x.idea)}</b><small>${esc(x.why)}</small></div>
+      <div class="ln">${line(x)}<small>${esc(x.scope)}</small>${x.check ? `<div>${line(x.check)}<small>Checked again on 2024-25</small></div>` : ""}${x.note ? `<small>${esc(x.note)}</small>` : ""}</div>
+      <div class="lv"><span class="rchip ${x.verdict === "shipped" ? "win" : "loss"}">${x.verdict === "shipped" ? "Shipped" : "Rejected"}</span><small>${esc(x.version)}</small></div>
+    </div>`).join("");
+  const C = (L.current || {}).calibration || [];
+  return `<div class="panel" style="margin-bottom:var(--sec)">
+    <div class="panel-h"><h2 class="h">Model lab</h2><span class="sub">ideas tested on the last two seasons before they go live</span></div>
+    <p class="dnote rpad" style="margin-top:0">SWISH replays the 2025-26 season night by night (and checks on 2024-25), using only the games before each night, then compares its guesses with what happened — about 110,000 projections, no bets involved. An idea only goes live if it's better on both seasons. Lower misses and a lower accuracy score are better; small numbers matter because they're averaged over tens of thousands of games.</p>
+    <div class="lab-list">${rows}</div>
+    ${C.length ? `<div class="panel-h" style="border-top:1px solid var(--line)"><h2 class="h" style="font-size:15px">Are the current model's chances honest?</h2><span class="sub">${esc((L.current || {}).modelVersion || "")} · 2025-26 replay · players who played</span></div>
+    <table class="rt"><thead><tr><th class="l">SWISH said</th><th>Props</th><th>Expected</th><th>Happened</th><th class="l">&nbsp;</th></tr></thead><tbody>
+    ${C.map(b => `<tr><td class="l">${Math.round(b.from*100)}–${Math.round(b.to*100)}%</td><td>${b.n.toLocaleString()}</td><td>${pct(b.predicted, 0)}</td><td><b>${pct(b.actual, 0)}</b></td>
+      <td class="l"><span class="calbar"><i class="exp" style="left:${(b.predicted*100).toFixed(0)}%"></i><i class="act" style="width:${(b.actual*100).toFixed(0)}%"></i></span></td></tr>`).join("")}
+    </tbody></table>
+    <p class="dnote rpad">Still a little overconfident at the top end, measured against pretend lines (each player's recent average) because past bookmaker lines aren't free. On live picks SWISH's chance is 70% bookmaker, which pulls it closer to honest.</p>` : ""}
+    ${L.next && L.next.length ? `<div class="panel-h" style="border-top:1px solid var(--line)"><h2 class="h" style="font-size:15px">Next to test</h2></div><ol class="lab-next">${L.next.map(n => `<li>${esc(n)}</li>`).join("")}</ol>` : ""}
+  </div>`;
+}
 function viewResults(){
   const R = window.SWISH_RESULTS;
   const head = `<header class="hero hero-results">${GFX.results}
@@ -3837,6 +3886,8 @@ function viewResults(){
       </tbody></table>
       <p class="dnote rpad">Every graded prop judged on its <b>over</b>, at the over price, £${R.stake} a pick. "Top overs" = the overs SWISH rates at least as likely as the bookmaker, with no warnings — the same list as the Props page. If "Landed" keeps matching "SWISH said", the confidence is honest. Needs 50+ picks per row before it means much.</p>
     </div>`; })() : ""}
+
+  ${labPanel()}
 
   <div class="cols">
     <div class="panel">
@@ -4192,6 +4243,7 @@ async function refreshInPlace(){
   if (!nl || !nl.meta || !Array.isArray(nl.games) || !nl.games.length) { window.SWISH_LIVE = before; throw new Error("no data"); }
   if (!before || !before.meta || nl.meta.slateDate !== before.meta.slateDate) throw new Error("new slate");   // a new day → full reload
   try { await loadScript("data/results.js?t=" + t); } catch(e){}                                           // results are optional
+  try { await loadScript("data/lab.js?t=" + t); } catch(e){}
   // keep live scores the browser already has if they're ahead of the file
   const rank = s => s === "post" ? 2 : s === "in" ? 1 : 0;
   const keep = LS.ok ? DATA.games.map(g => ({id: g.id, state: g.state, a: g.awayScore, h: g.homeScore, clock: g.clock, status: g.status})) : [];

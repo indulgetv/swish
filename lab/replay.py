@@ -157,7 +157,7 @@ def stats(rs):
 def summarise(rows, label, a):
     buckets = []
     for lo, hi in ((0, .35), (.35, .45), (.45, .55), (.55, .65), (.65, 1.01)):
-        x = [r for r in rows if lo <= r["pO"] < hi]
+        x = [r for r in rows if lo <= r["pO"] < hi and r["played"]]      # players who didn't play = void bets, left out
         if x:
             buckets.append({"from": lo, "to": min(hi, 1), "n": len(x), "predicted": round(statistics.mean(r["pO"] for r in x), 4),
                             "actual": round(statistics.mean(1 if r["act"] > r["line"] else 0 for r in x), 4)})
