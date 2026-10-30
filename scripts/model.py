@@ -40,6 +40,12 @@ SHIFT_ROOM = 36            # spare minutes are shared by how far each player is 
 SHIFT_MIN_RECV = 8         # only rotation players (8+ expected minutes) pick them up
 FRESH_GAMES = 1            # an absence is "new" if the player played in his team's last game (2-3 tested worse)
 KEY_MIN = 25               # a newly-out player with 25+ expected minutes makes his team's minutes "unclear" until lineups are confirmed
+WW_MODE = 0                # with-vs-without (lab test): 0 off · 1 replace the 240-gap rule where history exists · 2 add to it
+WW_K = 3                   # shrink: a teammate's gain counts n/(n+WW_K) with n games without the absent player
+WW_MIN_WITH = 3            # need 3+ games together and 2+ games without him
+WW_MIN_WITHOUT = 2
+WW_MIN_OUT = 15            # absent player must normally play 15+ minutes
+WW_CAP = (-4.0, 10.0)      # per teammate, minutes
 STARTER_PULL = 1 / 3       # v1.5: move a third of the way to that target (lab: full move overshot by ~2.6 min)
 STARTER_SHARE = 0.9        # a bench player listed to start tonight: at least 90% of the other starters' average minutes
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
@@ -127,6 +133,37 @@ def pos_group(pos):
     return "C" if u.startswith("C") else "G" if "G" in u else "F" if "F" in u else u
 
 
+def with_without(rows, outs, avail) -> dict:
+    """For each available teammate: his minutes in games WITHOUT a newly-out player vs games WITH him (this season and
+    last), from game logs only. Games 'with' = both played the same game (same game id and opponent); 'without' = the
+    teammate's games inside the span they played together in which the absent player has no log. Shrunk towards 0 by
+    n/(n+WW_K). Only new absences (he played in the team's last game) — long-term absences are already in recent minutes."""
+    team_last = max((d for r in rows for d in r["dates"] if d), default=None)
+    fresh = [o for o in outs if o["exp"] >= WW_MIN_OUT and team_last in o["dates"]]
+    res = {}
+    for o in fresh:
+        o_games = [{(x.get("id"), x.get("opp")) for x in season if x.get("id")} for season in o["logs"]]
+        o_ids = [{gid for gid, _ in s_} for s_ in o_games]
+        for r in avail:
+            if r["name"] == o["name"]:
+                continue
+            w_min, wo_min = [], []
+            for si, season in enumerate(r["logs"]):
+                together = [x for x in season if (x.get("id"), x.get("opp")) in o_games[si]]
+                if not together:
+                    continue
+                lo, hi = min(x["d"] for x in together), max(x["d"] for x in together)
+                w_min += [x.get("min") or 0 for x in together]
+                wo_min += [x.get("min") or 0 for x in season if lo <= x["d"] <= hi and x.get("id") not in o_ids[si]]
+            if len(w_min) < WW_MIN_WITH or len(wo_min) < WW_MIN_WITHOUT:
+                continue
+            n = len(wo_min)
+            g = (avg(wo_min) - avg(w_min)) * n / (n + WW_K)
+            prev_g, src = res.get(r["name"], (0.0, []))
+            res[r["name"]] = (prev_g + g, src + [o["name"]])
+    return {k: (max(WW_CAP[0], min(WW_CAP[1], v[0])), v[1]) for k, v in res.items()}
+
+
 def minute_shifts(live: dict, status_of) -> dict:
     """Minutes shifts (v1.5, tested in the projection lab on 2024-25 and 2025-26):
     1) Teammates ruled OUT: only when the available players can't fill a 240-minute game on their own minutes, the gap
@@ -144,13 +181,21 @@ def minute_shifts(live: dict, status_of) -> dict:
         if not cur and not last:
             continue
         by_team.setdefault(p["team"], []).append({"name": p["name"], "grp": pos_group(p.get("pos")), "exp": minutes_model(cur, last)[0],
-                                                  "cur": len(cur), "dates": {x.get("d") for x in cur}, "status": status_of(p["name"])})
+                                                  "cur": len(cur), "dates": {x.get("d") for x in cur}, "status": status_of(p["name"]),
+                                                  "logs": (cur, last)})
     out = {}
     for rows in by_team.values():
         outs = [r for r in rows if r["status"] == "Out" and r["exp"] >= SHIFT_MIN_OUT]
         avail = [r for r in rows if r["status"] not in ("Out", "Doubtful") and r["cur"] > 0]
         if not outs:
             continue
+        if WW_MODE:
+            ww = with_without(rows, outs, avail)
+            for name, (gain, src) in ww.items():
+                if abs(gain) > 0.05:
+                    out[name] = {"gain": gain, "from": src, "ww": True}
+            if WW_MODE == 1 and ww:
+                continue                                   # history decides this team; skip the 240-gap rule
         short = TEAM_MIN - sum(r["exp"] for r in avail)      # v1.5: back to the v1.2 rule (lab: the "freed share" made minutes worse)
         if short <= 0:
             continue
