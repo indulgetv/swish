@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 11:50 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 11:45 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -207,7 +207,15 @@ C0. ~~Missing top-up picks~~ DONE 30 Oct: not a bug. Players expected under 22 m
    is modelled under v1.3+ because the new-absence rule takes him to 22). Only 3–8 lines a night are skipped (mostly AST).
    Whether low-minute AST is predictable → test in the projection lab, don't change now. Aliases: PLAYER_ALIASES in update.py.
 C. Parked, user's call: closing-line check (step 3) — only on a paid plan or tiny budget.
-0. **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
+0. **Projection lab — part 1 DONE 30 Oct (11:19–11:34 UTC, free):** `lab/download.py` + `.github/workflows/lab-download.yml`
+   (runs on push to those files or by hand; resumable). Saved `lab/data/season-2025.json.gz` (2024-25: 1,234 games, 26,275
+   player-games, 580 players, no ESPN game lines) and `season-2026.json.gz` (2025-26: 1,235 games, 26,628 player-games, 592
+   players, 980 games with ESPN spread/total). Per player per game: starter, DNP + reason, min, PTS/REB/AST/3PM/STL/BLK/TOV,
+   FGM/FGA/FTM/FTA, OREB/DREB, PF, +/-. Checks: 10 starters + box score = final score in every game except 7 (2025-26).
+   NEXT (part 2): replay 2025-26 night by night with only earlier games (2024-25 as "last season"), port the v1.4
+   projection, measure minutes/projection error; then test with-vs-without, usage boost, starter demotion, bench AST,
+   rest/back-to-backs, blowouts (ESPN lines), recent-form weighting. Ship only proven changes.
+   Original idea notes: **Idea saved for later (user's call, 29 Oct): projection testing lab.** Replay last season day by day from ESPN game logs
    (project each night using only earlier games, compare with actual) to test/tune minutes, rate weighting, H2H, rest/back-
    to-backs, blowouts, recent-form decay — ~25k player-games, no Odds credits. Plan: (a) GitHub job downloads all 30 teams'
    last-season logs into the repo; (b) next session build the replay + run tests; ship only proven changes as new versions.
