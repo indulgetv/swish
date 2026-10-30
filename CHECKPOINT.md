@@ -57,6 +57,13 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   Reminder set in the 30 Oct chat for 31 Oct 15:00 UK to run it.
 - User's instructions now: UK-based, bet365 UK; use UK odds wherever possible, US prices = backup.
 
+- **30 Oct 22:05 — warnings made quiet + clear (published to main at user's request):** flagged prop cells no longer
+  show ⚠ + amber box; a small amber dot top-left (`.cell .hold`), projection in neutral grey. Verdict "Check status" →
+  "On hold · <reason>" (`holdReason()`: injury doubt / teammate doubt / old price / new injury news / lineup due / new role /
+  few games / big gap), styled as plain amber text with a dot (not button-like). "Hide flagged" → "Hide on-hold".
+  Rules unchanged (on-hold props still never picks). Tonight: 43/344 on hold (few_games 17, min_unclear 17, status 9, big_gap 8).
+  Idea for the lab: is `big_gap` worth keeping? (does the market beat SWISH on those props?)
+
 ## Next steps (in order)
 1. **Declutter 3PM + PRA** (user asked; remind them): remove those columns + filter chips from Props; count only PTS/REB/AST
    in "props" totals; keep computing them in the background; optional info line in the prop panel (ask). No model change.
