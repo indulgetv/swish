@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-10-30T23:30:29Z",
+ "generatedAt": "2026-10-30T23:35:29Z",
  "stake": 10.0,
  "modelVersion": "v1.6 (2026-10-30)",
  "modelWeight": 0.3,
  "since": "2026-10-28",
  "totals": {
-  "saved": 806,
+  "saved": 808,
   "graded": 459,
   "void": 7,
-  "pending": 340
+  "pending": 342
  },
  "strong": {
   "n": 20,
@@ -277,11 +277,11 @@
   },
   {
    "slate": "2026-10-30",
-   "saved": 340,
+   "saved": 342,
    "games": 10,
    "graded": 0,
    "void": 0,
-   "pending": 340,
+   "pending": 342,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1720,10 +1720,8 @@
    "mktP": 0.50105,
    "edge": 0.0112,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1743,15 +1741,13 @@
    "line": 13.5,
    "side": "under",
    "price": -118,
-   "projection": 12.011,
-   "modelP": 0.53841,
+   "projection": 11.898,
+   "modelP": 0.54078,
    "mktP": 0.51152,
-   "edge": 0.02689,
+   "edge": 0.02926,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1771,15 +1767,13 @@
    "line": 6.5,
    "side": "under",
    "price": -108,
-   "projection": 6.088,
-   "modelP": 0.52058,
+   "projection": 6.031,
+   "modelP": 0.52298,
    "mktP": 0.48864,
-   "edge": 0.03194,
+   "edge": 0.03435,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "some",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1799,15 +1793,13 @@
    "line": 1.5,
    "side": "under",
    "price": -129,
-   "projection": 1.231,
-   "modelP": 0.57116,
+   "projection": 1.22,
+   "modelP": 0.57233,
    "mktP": 0.52732,
-   "edge": 0.04384,
+   "edge": 0.04502,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "some",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1832,10 +1824,8 @@
    "mktP": 0.53958,
    "edge": 0.01477,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1860,10 +1850,8 @@
    "mktP": 0.49895,
    "edge": 0.04246,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "some",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1888,10 +1876,8 @@
    "mktP": 0.48582,
    "edge": 0.03299,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "some",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1916,10 +1902,8 @@
    "mktP": 0.57041,
    "edge": 0.0533,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "some",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1946,7 +1930,6 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "min_unclear",
     "few_games"
    ],
    "actual": null,
