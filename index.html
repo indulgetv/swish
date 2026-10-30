@@ -2066,6 +2066,7 @@ html.dark .lu-st.confirmed,html.dark .lu-st.started,html.dark .lu-chip.confirmed
   background-image:linear-gradient(110deg,transparent 35%,rgba(160,255,200,.22) 50%,transparent 65%)}
 @keyframes luSheen{0%,70%{background-position:150% 0}100%{background-position:-50% 0}}
 .lu-mob{display:none}
+.gtags .gbreak{flex-basis:100%;height:0}
 @media (max-width:1180px){.gcount .lu-mob{display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px}}
 html.calm .tag.lu-go,html.calm .lu-st,html.calm .lu-chip{animation:none}
 @media (prefers-reduced-motion:reduce){.tag.lu-go,.lu-st,.lu-chip{animation:none}}
@@ -3218,7 +3219,7 @@ function gameSection(g){
         ${slot(g, "tagS")}
         <span class="tag num">Total ${g.total} · ${g.spread}</span>
         ${slot(g, "lu")}
-        ${inj.length ? `<span class="tag red">${injNames(inj).map((n, k) => `${esc(n)} ${esc(inj[k].status.toLowerCase())}`).join(" · ")}</span>` : ""}
+        ${inj.length ? `<span class="gbreak" aria-hidden="true"></span><span class="tag red">${injNames(inj).map((n, k) => `${esc(n)} ${esc(inj[k].status.toLowerCase())}`).join(" · ")}</span>` : ""}
       </div>
       <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}${slot(g, "luM")}</div>
       <span class="gswipe" aria-hidden="true"></span>
