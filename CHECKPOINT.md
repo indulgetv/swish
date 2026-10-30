@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 21:55 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -265,6 +265,23 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   was showing its amber "›" on load). index.html is the only page.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
+- **30 Oct 21:45 — Best picks split (on `pending`, commit "Best picks: show top 5 overs and top 5 unders"):** Home
+  "Best picks tonight" and the Props "Best picks" tab now show two groups — Overs then Unders, top 5 each
+  (`BEST_PER_SIDE`, `sidesHTML()`), own ranking per side, "top 5 of 8" / "2 tonight" / "none tonight" counts. User asked
+  because 8 of 10 strong picks were unders. Tested phone dark, tablet light, desktop light, ultra-wide dark; no errors.
+  NOTE: GitHub timers haven't fired since 20:09, and the 19:50 loop predates the pending rule → `pending` (this + the
+  20:55 "nothing pre-render" fix) goes live when the 01:30 loop starts (~01:40 UK, queued behind the 19:50 loop).
+- **30 Oct 21:50 — LAB: is the under-lean real? (both seasons, ~117k played projections, pretend lines):**
+  REB: SWISH avg over chance 47% vs actual 46–47% → no overall bias. When projection > line but SWISH says under
+  (about a third of REB, 39–42% of AST), those went over only 47–51% → the skew logic is roughly right; the lean is mostly
+  real, not a bug. AST: slight under-bias (says 45% overs, actual 46.5–48%; says 30% → happens 35–39%).
+  PTS: the opposite — overs over-rated (says 59% → 52%). Main problem = OVERCONFIDENCE on every market.
+  Calibration test (fit one season, test the other, logit recalibration per market): "stretch" ≈ 0.70 (shrink the model's
+  own chance toward 50% on the logit scale) improved Brier out-of-sample in all 6 cases (PTS 0.2457→0.2437 / 0.2428→0.2404,
+  REB 0.2426→0.2417 / 0.2414→0.2404, AST 0.2467→0.2451 / 0.2422→0.2420). The "shift" part depends on how pretend lines are
+  made → don't ship it; ship only the stretch. Scripts: scratch only (lean.py / cal.py logic = per-market avg pO vs actual,
+  buckets, logistic fit y ~ a + b·logit(pO) on `replay.py --lineups --dump` rows).
+
 ## Next steps (in order)
 
 **FIRST on 31 Oct (user asked 30 Oct 21:21 — remind them): declutter 3PM + PRA.** They have no prices (only PTS/REB/AST
@@ -274,6 +291,12 @@ are bought; adding them ≈ 60 credits/night ≈ 1,800/month, too much for the f
 3. Keep computing them in the background (free) so they can be switched back on with a paid plan.
 4. Optional (user to choose): one info line with the PRA / threes projection inside a player's prop panel.
 No model/picks/results change (those only ever used PTS/REB/AST). Release via the `pending` branch.
+
+**SECOND on 31 Oct: model v1.7 = confidence stretch** (lab result above, user asked for this test 30 Oct 21:40).
+`MODEL_STRETCH = 0.70`: pure model over chance → sigmoid(0.70 · logit(p)) before the 30/70 market blend. Both files,
+bump MODEL_VERSION, parity 0, re-run replay on both seasons (log in lab/experiments.json + build_page_data.py), backtest saved
+picks (expect fewer strong picks both sides, esp. big-gap REB/AST unders and confident PTS overs). Ask user before shipping.
+Also check why the pending branch waited (GitHub timers silent after 20:09).
 
 **Order agreed 29 Oct 22:47; A1 DONE 30 Oct (v1.3). Continue with A2:**
 A. **Minutes fix — injured players (esp. big ones).** Found 29 Oct: Dejounte Murray (NOP, ~31 min) ruled out 22:22 but
