@@ -254,6 +254,15 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   clash; plain retries can't). Backup GitHub timers stand down if data < 6 min old (was 3.5).
   Desktop (>960px) update moment: badge text/size fixed, dot cross-fades to the spinning arrow (.ms absolute), glow +
   sweep + time slide only; `setHTML()` rebuilds the badge only when its HTML changes (no mid-animation restarts).
+- **30 Oct 20:50 — WAITING CHANGES RIDE WITH THE NEXT UPDATE (user's rule):** during the afternoon/evening, push site or
+  model changes to branch **`pending`**, NOT main (`git push origin HEAD:refs/heads/pending`, built on top of
+  origin/pending). The live loop (from its next start — the 30 Oct evening loop started before this) and update-data.yml
+  (every GitHub timer) merge origin/pending at the start of their run and publish it with that update; a timer that has no
+  data change still pushes the release. Bot pushes don't trigger other workflows → no extra full update. Tell the user
+  which update it will go out with. Pushing straight to main is for real breakages only.
+- **30 Oct 20:55 — nothing pre-render ever shows:** `html:not(.ready) .app{visibility:hidden}`, `.ready` added right after
+  the first render() (3 s safety timer in the head script); global `[hidden]{display:none!important}` (the empty newsPill
+  was showing its amber "›" on load). index.html is the only page.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
