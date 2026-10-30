@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T04:35:45Z"
+  "writtenAt": "2026-10-30T04:40:44Z"
  },
  "games": [
   {
@@ -1241,8 +1241,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Right Ankle Not Specified",
-   "comment": "Post is being considered doubtful to return to Thursday's game against the Trail Blazers due to a right ankle injury.",
-   "updated": "2026-10-30T03:27Z",
+   "comment": "Post (ankle) didn't return to Thursday's game against Portland. He recorded 10 points (3-5 FG, 2-3 3Pt, 2-2 FT) and four rebounds in seven minutes before exiting.",
+   "updated": "2026-10-30T04:28Z",
    "returnDate": "2026-10-31"
   },
   {
@@ -80333,19 +80333,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T04:35:44Z",
+   "fetchedAt": "2026-10-30T04:40:43Z",
    "ok": true,
    "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T04:35:43Z",
+   "fetchedAt": "2026-10-30T04:40:42Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T04:35:44Z",
+   "fetchedAt": "2026-10-30T04:40:43Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
