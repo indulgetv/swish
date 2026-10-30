@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-30",
-  "mode": "light",
+  "mode": "full",
   "errors": [],
-  "lastFullAt": "2026-10-30T19:38:10Z",
+  "lastFullAt": "2026-10-30T19:55:58Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T19:55:29Z"
+  "writtenAt": "2026-10-30T19:59:34Z"
  },
  "games": [
   {
@@ -693,7 +693,11 @@
    "detail": "Left Foot Fracture",
    "comment": "Gueye underwent surgery Tuesday to repair a fractured left foot that he suffered during a workout last week, Brad Rowland of the Locked On Podcast Network reports.",
    "updated": "2026-10-19T19:38Z",
-   "returnDate": "2026-11-20"
+   "returnDate": "2026-11-20",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-19T19:38Z",
+   "confirmed": true
   },
   {
    "team": "ATL",
@@ -704,7 +708,11 @@
    "detail": "Right Knee",
    "comment": "Veesaar was diagnosed with a torn right ACL and is expected to miss the 2026-27 season, the Hawks announced Monday.",
    "updated": "2026-09-21T19:50Z",
-   "returnDate": "2027-07-01"
+   "returnDate": "2027-07-01",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-09-21T19:50Z",
+   "confirmed": true
   },
   {
    "team": "BOS",
@@ -715,7 +723,11 @@
    "detail": "Illness",
    "comment": "Carter has been diagnosed with mononucleosis and is without a timetable for a return, Gary Washburn of The Boston Globe reports.",
    "updated": "2026-10-18T14:49Z",
-   "returnDate": "2026-11-08"
+   "returnDate": "2026-11-08",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-18T14:49Z",
+   "confirmed": true
   },
   {
    "team": "BKN",
@@ -726,7 +738,11 @@
    "detail": "Illness",
    "comment": "Clowney (illness) was downgraded to questionable for Friday's game versus Detroit, Erik Slater of ClutchPoints.com reports.",
    "updated": "2026-10-30T14:16Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T14:16Z",
+   "confirmed": true
   },
   {
    "team": "BKN",
@@ -737,7 +753,11 @@
    "detail": "Right Leg Bruise",
    "comment": "The Nets exercised Demin's third-year team option for the 2027-28 season, Sharif Phillips-Keaton of USA Today reports Thursday.",
    "updated": "2026-10-29T17:09Z",
-   "returnDate": "2026-11-07"
+   "returnDate": "2026-11-07",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-29T17:09Z",
+   "confirmed": true
   },
   {
    "team": "BKN",
@@ -748,7 +768,11 @@
    "detail": "Right Shoulder Sprain",
    "comment": "Bilodeau (shoulder) has been ruled out for Sunday's game against Indiana.",
    "updated": "2026-10-25T17:19Z",
-   "returnDate": "2026-11-01"
+   "returnDate": "2026-11-01",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-25T17:19Z",
+   "confirmed": true
   },
   {
    "team": "CHA",
@@ -761,7 +785,11 @@
    "updated": "2026-10-30T15:34Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Questionable",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T15:34Z",
+   "confirmed": true
   },
   {
    "team": "CHA",
@@ -772,7 +800,11 @@
    "detail": "Left Hamstring",
    "comment": "Knueppel (hamstring) was recalled from the G League's Greensboro Swarm on Friday. He remains out for Friday's contest against the Wizards.",
    "updated": "2026-10-30T15:12Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T15:12Z",
+   "confirmed": true
   },
   {
    "team": "CHA",
@@ -783,7 +815,11 @@
    "detail": "Left Calf Strain",
    "comment": "Head coach Charles Lee said Monday that White (calf) remains without a timeline for a return, though Lee added that he'll have a better idea of where things stand following the Hornets' two-game road trip, Rod Boone of The Charlotte Observer reports.",
    "updated": "2026-10-26T22:41Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T22:41Z",
+   "confirmed": true
   },
   {
    "team": "CHA",
@@ -794,7 +830,11 @@
    "detail": "Right Hamstring",
    "comment": "Williams (hamstring) will be re-evaluated following Charlotte's upcoming two-game road trip, Rod Boone reports.",
    "updated": "2026-10-26T22:34Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T22:34Z",
+   "confirmed": true
   },
   {
    "team": "CHA",
@@ -805,7 +845,11 @@
    "detail": "Right Knee Surgery",
    "comment": "Boswell (knee) is out for Wednesday's season opener against the Nets.",
    "updated": "2026-10-20T20:55Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-20T20:55Z",
+   "confirmed": true
   },
   {
    "team": "CHI",
@@ -816,7 +860,11 @@
    "detail": "Left Finger",
    "comment": "Smith is questionable for Friday's game against Boston with a left finger sprain.",
    "updated": "2026-10-29T18:55Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T18:55Z",
+   "confirmed": true
   },
   {
    "team": "CHI",
@@ -827,7 +875,11 @@
    "detail": "Ankle",
    "comment": "Awaka (ankle) is questionable for Friday's game in Boston.",
    "updated": "2026-10-29T18:53Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T18:53Z",
+   "confirmed": true
   },
   {
    "team": "CHI",
@@ -838,7 +890,11 @@
    "detail": "Not Specified Hamstring",
    "comment": "Claxton (hamstring) participated in individual drills Monday morning and hopes to join the team for practice next week, Joe Cowley of the Chicago Sun-Times reports.",
    "updated": "2026-10-26T22:20Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-26T22:20Z",
+   "confirmed": true
   },
   {
    "team": "CLE",
@@ -849,7 +905,11 @@
    "detail": "Foot",
    "comment": "Thomas (foot) has been ruled out for Thursday's game against the Hawks, Serena Winters of FanDuel Sports Network Ohio reports.",
    "updated": "2026-10-30T02:39Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T02:39Z",
+   "confirmed": true
   },
   {
    "team": "DAL",
@@ -862,7 +922,11 @@
    "updated": "2026-10-29T22:09Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Out",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T22:09Z",
+   "confirmed": true
   },
   {
    "team": "DAL",
@@ -875,7 +939,11 @@
    "updated": "2026-10-29T22:07Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Out",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T22:07Z",
+   "confirmed": true
   },
   {
    "team": "DAL",
@@ -886,7 +954,11 @@
    "detail": "Right Knee Strain",
    "comment": "De Larrea (knee) is out for Friday's game against the Rockets.",
    "updated": "2026-10-29T22:06Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T22:06Z",
+   "confirmed": true
   },
   {
    "team": "DAL",
@@ -897,7 +969,11 @@
    "detail": "Illness",
    "comment": "Marshall is questionable for Friday's game against the Rockets with an illness.",
    "updated": "2026-10-29T22:03Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T22:03Z",
+   "confirmed": true
   },
   {
    "team": "DAL",
@@ -908,7 +984,11 @@
    "detail": "Right Foot Surgery",
    "comment": "Lively (foot) has been ruled out for Friday's game against the Pacers.",
    "updated": "2026-10-22T20:10Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-22T20:10Z",
+   "confirmed": true
   },
   {
    "team": "DEN",
@@ -921,7 +1001,11 @@
    "updated": "2026-10-30T18:41Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Out",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T18:41Z",
+   "confirmed": true
   },
   {
    "team": "DEN",
@@ -934,7 +1018,11 @@
    "updated": "2026-10-29T23:50Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Out",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T23:50Z",
+   "confirmed": true
   },
   {
    "team": "DEN",
@@ -945,7 +1033,11 @@
    "detail": "Not Specified Hamstring Not Specified",
    "comment": "Jones (hamstring) has been ruled out for Wednesday's game against New Orleans.",
    "updated": "2026-10-27T22:35Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-27T22:35Z",
+   "confirmed": true
   },
   {
    "team": "DEN",
@@ -956,7 +1048,11 @@
    "detail": "Left Knee Sprain",
    "comment": "Strawther (knee) was diagnosed with a left knee sprain Friday and will be re-evaluated in six weeks, Vinny Benedetto of The Denver Gazette reports.",
    "updated": "2026-10-17T00:52Z",
-   "returnDate": "2026-11-29"
+   "returnDate": "2026-11-29",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-17T00:52Z",
+   "confirmed": true
   },
   {
    "team": "DET",
@@ -967,7 +1063,11 @@
    "detail": "Right Hip Bruise",
    "comment": "Joe (hip) is listed as questionable for Friday's game against Brooklyn.",
    "updated": "2026-10-29T20:34Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T20:34Z",
+   "confirmed": true
   },
   {
    "team": "DET",
@@ -978,7 +1078,11 @@
    "detail": "Right Hamstring Strain",
    "comment": "Duren will be re-evaluated in two weeks due to a right hamstring strain, Eric Vincent of ClutchPoints.com reports.",
    "updated": "2026-10-25T14:56Z",
-   "returnDate": "2026-11-09"
+   "returnDate": "2026-11-09",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-25T14:56Z",
+   "confirmed": true
   },
   {
    "team": "GSW",
@@ -991,7 +1095,11 @@
    "updated": "2026-10-30T00:06Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Questionable",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T00:06Z",
+   "confirmed": true
   },
   {
    "team": "GSW",
@@ -1002,7 +1110,11 @@
    "detail": "Illness",
    "comment": "The Warriors are exploring potential trades involving Porzingis (personal), who remains away from the team indefinitely while dealing with ongoing health concerns, Anthony Slater of ESPN.com reports.",
    "updated": "2026-10-28T14:25Z",
-   "returnDate": "2026-12-01"
+   "returnDate": "2026-12-01",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-28T14:25Z",
+   "confirmed": true
   },
   {
    "team": "GSW",
@@ -1013,7 +1125,11 @@
    "detail": "Left Knee Surgery",
    "comment": "Moody (knee) is progressing toward a potential return between December and January after rupturing his left patellar tendon in March, Anthony Slater of ESPN reports.",
    "updated": "2026-10-16T16:14Z",
-   "returnDate": "2026-12-01"
+   "returnDate": "2026-12-01",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-16T16:14Z",
+   "confirmed": true
   },
   {
    "team": "GSW",
@@ -1024,7 +1140,11 @@
    "detail": "Right Knee Surgery",
    "comment": "Butler (knee) could return sometime between January and February as he continues recovering from a torn right ACL, Anthony Slater of ESPN reports.",
    "updated": "2026-10-16T16:11Z",
-   "returnDate": "2027-01-02"
+   "returnDate": "2027-01-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-16T16:11Z",
+   "confirmed": true
   },
   {
    "team": "HOU",
@@ -1035,7 +1155,11 @@
    "detail": "Back",
    "comment": "Houston picked up Sheppard's (back) fourth-year team option Friday, per Lachard Binkley of SI.com.",
    "updated": "2026-10-30T19:19Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T19:19Z",
+   "confirmed": true
   },
   {
    "team": "HOU",
@@ -1048,7 +1172,11 @@
    "updated": "2026-10-29T20:35Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Out",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T20:35Z",
+   "confirmed": true
   },
   {
    "team": "HOU",
@@ -1059,7 +1187,11 @@
    "detail": "Back Soreness",
    "comment": "Sengun (back) is questionable for Friday's game against the Mavericks.",
    "updated": "2026-10-29T20:34Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T20:34Z",
+   "confirmed": true
   },
   {
    "team": "HOU",
@@ -1070,7 +1202,11 @@
    "detail": "Right Calf Strain",
    "comment": "Head coach Ime Udoka said Monday that Adams could be out \"a week or two\" due to his right soleus strain, Lachard Binkley of SI.com reports.",
    "updated": "2026-10-26T22:52Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T22:52Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1081,7 +1217,11 @@
    "detail": "Right Hamstring Strain",
    "comment": "McConnell (hamstring) is practicing in the G League at Noblesville Boom training camp, per Alex Golden of SI.com.",
    "updated": "2026-10-30T19:09Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T19:09Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1092,7 +1232,11 @@
    "detail": "Right Knee Surgery",
    "comment": "Furphy (knee) is practicing with the G League's Noblesville Boom, per Alex Golden of SI.com.",
    "updated": "2026-10-30T19:06Z",
-   "returnDate": "2027-01-02"
+   "returnDate": "2027-01-02",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T19:06Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1105,7 +1249,11 @@
    "updated": "2026-10-29T21:08Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Questionable",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T21:08Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1118,7 +1266,11 @@
    "updated": "2026-10-29T21:07Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Questionable",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T21:07Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1129,7 +1281,11 @@
    "detail": "Left Ankle Sprain",
    "comment": "Zubac (ankle) is out for Friday's game against the Heat.",
    "updated": "2026-10-29T21:04Z",
-   "returnDate": "2026-11-01"
+   "returnDate": "2026-11-01",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T21:04Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1140,7 +1296,11 @@
    "detail": "Left Knee",
    "comment": "Head coach Rick Carlise confirmed Sheppard will miss \"months\" after undergoing surgery to repair a torn meniscus in his left knee, Tony East of Forbes.com reports.",
    "updated": "2026-10-28T21:41Z",
-   "returnDate": "2027-01-02"
+   "returnDate": "2027-01-02",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-28T21:41Z",
+   "confirmed": true
   },
   {
    "team": "IND",
@@ -1151,7 +1311,11 @@
    "detail": "Left Hamstring Strain",
    "comment": "Haliburton (hamstring) will miss at least the next two weeks of action, Shams Charania of ESPN reports.",
    "updated": "2026-10-28T21:30Z",
-   "returnDate": "2026-11-13"
+   "returnDate": "2026-11-13",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-28T21:30Z",
+   "confirmed": true
   },
   {
    "team": "LAC",
@@ -1164,7 +1328,11 @@
    "updated": "2026-10-30T18:00Z",
    "returnDate": "2026-10-30",
    "espnStatus": "Questionable",
-   "statusFrom": "report"
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T18:00Z",
+   "confirmed": true
   },
   {
    "team": "LAC",
@@ -1175,7 +1343,11 @@
    "detail": "Right Foot Surgery",
    "comment": "Niederhauser (foot) had his third-year team option picked up Thursday by the Clippers, Ohm Youngmisuk of ESPN.com reports.",
    "updated": "2026-10-29T18:44Z",
-   "returnDate": "2026-11-08"
+   "returnDate": "2026-11-08",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-29T18:44Z",
+   "confirmed": true
   },
   {
    "team": "LAC",
@@ -1186,7 +1358,11 @@
    "detail": "Right Foot Plantar Fasciitis",
    "comment": "Strus (foot) is making progress but is set to miss at least one more week, Ohm Youngmisuk of ESPN.com reports.",
    "updated": "2026-10-29T01:03Z",
-   "returnDate": "2026-11-08"
+   "returnDate": "2026-11-08",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T01:03Z",
+   "confirmed": true
   },
   {
    "team": "LAC",
@@ -1197,7 +1373,11 @@
    "detail": "Right Achilles Surgery",
    "comment": "Ingram (Achilles) is making progress but is set to miss at least one more week, Ohm Youngmisuk of ESPN.com reports.",
    "updated": "2026-10-29T01:00Z",
-   "returnDate": "2026-11-08"
+   "returnDate": "2026-11-08",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T01:00Z",
+   "confirmed": true
   },
   {
    "team": "LAC",
@@ -1208,7 +1388,11 @@
    "detail": "Right Knee Inflammation",
    "comment": "Beal (knee) will not be ready for the start of the regular season, NBA writer Justin Russo reports.",
    "updated": "2026-10-15T01:03Z",
-   "returnDate": "2026-11-08"
+   "returnDate": "2026-11-08",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-15T01:03Z",
+   "confirmed": true
   },
   {
    "team": "LAC",
@@ -1219,7 +1403,11 @@
    "detail": "Left Shoulder Surgery",
    "comment": "Miller underwent surgery Wednesday to repair a torn left rotator cuff and will be re-evaluated in six months, per Law Murray of The Athletic.",
    "updated": "2026-08-26T20:04Z",
-   "returnDate": "2027-03-02"
+   "returnDate": "2027-03-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-08-26T20:04Z",
+   "confirmed": true
   },
   {
    "team": "LAL",
@@ -1230,7 +1418,11 @@
    "detail": "Left Knee Inflammation",
    "comment": "Thiero (knee) has been ruled out for Friday's game against the Warriors.",
    "updated": "2026-10-30T00:05Z",
-   "returnDate": "2026-11-01"
+   "returnDate": "2026-11-01",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T00:05Z",
+   "confirmed": true
   },
   {
    "team": "LAL",
@@ -1241,7 +1433,11 @@
    "detail": "Foot",
    "comment": "Williams (foot) is questionable for Friday's game against Golden State.",
    "updated": "2026-10-30T00:02Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T00:02Z",
+   "confirmed": true
   },
   {
    "team": "MEM",
@@ -1252,7 +1448,11 @@
    "detail": "Right Ankle Not Specified",
    "comment": "Post (ankle) didn't return to Thursday's game against Portland. He recorded 10 points (3-5 FG, 2-3 3Pt, 2-2 FT) and four rebounds in seven minutes before exiting.",
    "updated": "2026-10-30T04:28Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T04:28Z",
+   "confirmed": true
   },
   {
    "team": "MIA",
@@ -1263,7 +1463,11 @@
    "detail": "Illness",
    "comment": "Fontecchio (illness) is listed as questionable for Friday's game against Indiana.",
    "updated": "2026-10-29T20:48Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T20:48Z",
+   "confirmed": true
   },
   {
    "team": "MIN",
@@ -1274,7 +1478,11 @@
    "detail": "Right Knee Surgery",
    "comment": "Edwards underwent a successful arthroscopic procedure on his right knee Thursday, the Timberwolves announced.",
    "updated": "2026-10-29T18:33Z",
-   "returnDate": "2026-12-21"
+   "returnDate": "2026-12-21",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-29T18:33Z",
+   "confirmed": true
   },
   {
    "team": "MIN",
@@ -1285,7 +1493,11 @@
    "detail": "Right Achilles Surgery",
    "comment": "DiVincenzo (Achilles) remains confident that he'll return during the 2026-27 season, Jon Krawczynski of The Athletic reports.",
    "updated": "2026-10-05T20:53Z",
-   "returnDate": "2027-04-02"
+   "returnDate": "2027-04-02",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-05T20:53Z",
+   "confirmed": true
   },
   {
    "team": "NOP",
@@ -1296,7 +1508,11 @@
    "detail": "Left Ankle",
    "comment": "Poole (ankle) has been ruled out for Thursday's game against the Kings.",
    "updated": "2026-10-30T02:40Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T02:40Z",
+   "confirmed": true
   },
   {
    "team": "NOP",
@@ -1307,7 +1523,11 @@
    "detail": "Personal",
    "comment": "Murray (personal) is out for Thursday's game against the Kings, Jim Eichenhofer of the Pelicans' official site reports.",
    "updated": "2026-10-30T02:39Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T02:39Z",
+   "confirmed": true
   },
   {
    "team": "NOP",
@@ -1318,7 +1538,11 @@
    "detail": "Left Knee Bruise",
    "comment": "Missi has been diagnosed with a left knee bone bruise and he will miss an extended period of time, Brett Siegel of ClutchPoints.com reports.",
    "updated": "2026-10-24T22:17Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-24T22:17Z",
+   "confirmed": true
   },
   {
    "team": "NYK",
@@ -1329,7 +1553,11 @@
    "detail": "Left Ankle Sprain",
    "comment": "Alvarado (ankle) has been ruled out for Friday's game against Philadelphia.",
    "updated": "2026-10-29T22:50Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T22:50Z",
+   "confirmed": true
   },
   {
    "team": "OKC",
@@ -1340,7 +1568,11 @@
    "detail": "Right Knee",
    "comment": "Holmgren (knee) has been ruled out for Wednesday's game against the Mavericks.",
    "updated": "2026-10-29T04:41Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-29T04:41Z",
+   "confirmed": true
   },
   {
    "team": "OKC",
@@ -1351,7 +1583,11 @@
    "detail": "Left Leg Fracture",
    "comment": "Williams (leg) underwent successful surgery Wednesday to \"address a fractured left fibula and reconstruction of ankle ligaments following a fracture and dislocation.\" He will be re-evaluated before the end of the regular season, Tim MacMahon of ESPN.com reports.",
    "updated": "2026-10-28T23:41Z",
-   "returnDate": "2027-03-02"
+   "returnDate": "2027-03-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-28T23:41Z",
+   "confirmed": true
   },
   {
    "team": "OKC",
@@ -1362,7 +1598,11 @@
    "detail": "Right Ankle",
    "comment": "Caruso (ankle) is expected to miss time due to an ankle sprain, Clemente Almanza of USA Today reports.",
    "updated": "2026-10-28T18:06Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-28T18:06Z",
+   "confirmed": true
   },
   {
    "team": "OKC",
@@ -1373,7 +1613,11 @@
    "detail": "Knee",
    "comment": "Sorber (knee) has been ruled out for Wednesday's game against the Mavericks.",
    "updated": "2026-10-27T21:43Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-27T21:43Z",
+   "confirmed": true
   },
   {
    "team": "OKC",
@@ -1384,7 +1628,11 @@
    "detail": "Back",
    "comment": "Topic (back) will remain on the inactive list for Wednesday's game in Dallas.",
    "updated": "2026-10-27T21:38Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-27T21:38Z",
+   "confirmed": true
   },
   {
    "team": "OKC",
@@ -1395,7 +1643,11 @@
    "detail": "Left Shoulder",
    "comment": "Wallace has been diagnosed with a torn labrum in his left shoulder and will require surgery, Shams Charania of ESPN reports.",
    "updated": "2026-10-26T22:05Z",
-   "returnDate": "2027-03-02"
+   "returnDate": "2027-03-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T22:05Z",
+   "confirmed": true
   },
   {
    "team": "ORL",
@@ -1406,7 +1658,11 @@
    "detail": "Left Knee Not Specified",
    "comment": "Isaac (knee) is out for Friday's game in Toronto.",
    "updated": "2026-10-29T18:29Z",
-   "returnDate": "2026-11-10"
+   "returnDate": "2026-11-10",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T18:29Z",
+   "confirmed": true
   },
   {
    "team": "ORL",
@@ -1417,7 +1673,11 @@
    "detail": "Right Knee",
    "comment": "Suggs has been diagnosed with a mild bone bruise in his right knee and will be re-evaluated in two weeks, Shams Charania of ESPN reports.",
    "updated": "2026-10-26T18:44Z",
-   "returnDate": "2026-11-10"
+   "returnDate": "2026-11-10",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T18:44Z",
+   "confirmed": true
   },
   {
    "team": "ORL",
@@ -1428,7 +1688,11 @@
    "detail": "Right Ankle Sprain",
    "comment": "Banchero is expected to be sidelined for the next four-to-six weeks due to a right high-ankle sprain, Shams Charania of ESPN reports.",
    "updated": "2026-10-24T16:47Z",
-   "returnDate": "2026-11-22"
+   "returnDate": "2026-11-22",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-24T16:47Z",
+   "confirmed": true
   },
   {
    "team": "ORL",
@@ -1439,7 +1703,11 @@
    "detail": "Right Hamstring Strain",
    "comment": "Penda was diagnosed with a partially torn right hamstring Saturday, Jason Beede of the Orlando Sentinel reports.",
    "updated": "2026-10-17T22:19Z",
-   "returnDate": "2026-11-18"
+   "returnDate": "2026-11-18",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-17T22:19Z",
+   "confirmed": true
   },
   {
    "team": "ORL",
@@ -1450,7 +1718,11 @@
    "detail": "Left Ankle Surgery",
    "comment": "Team president Jeff Weltman said Monday that Nelson (ankle) remains about a month away from returning to the court after offseason surgery, per Philip Rossman-Reich of OrlandoMagicDaily.com.",
    "updated": "2026-09-28T21:33Z",
-   "returnDate": "2026-11-18"
+   "returnDate": "2026-11-18",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-09-28T21:33Z",
+   "confirmed": true
   },
   {
    "team": "PHI",
@@ -1461,7 +1733,11 @@
    "detail": "Left Knee Soreness",
    "comment": "Walker (knee) has been ruled out for Friday's game versus New York.",
    "updated": "2026-10-29T21:34Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T21:34Z",
+   "confirmed": true
   },
   {
    "team": "PHI",
@@ -1472,7 +1748,11 @@
    "detail": "Knee",
    "comment": "Brown (knee) is questionable for Friday's game against the Knicks.",
    "updated": "2026-10-29T21:34Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T21:34Z",
+   "confirmed": true
   },
   {
    "team": "PHI",
@@ -1483,7 +1763,11 @@
    "detail": "Left Quadriceps Strain",
    "comment": "Fall (quadriceps) is out for Wednesday's game in Indiana.",
    "updated": "2026-10-27T21:10Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-27T21:10Z",
+   "confirmed": true
   },
   {
    "team": "PHI",
@@ -1494,7 +1778,11 @@
    "detail": "Not Specified Back Fracture",
    "comment": "Barlow will miss at least the next two weeks of action due to a lumbar spine bone stress response, Adam Aaronson of PhillyVoice.com reports.",
    "updated": "2026-10-19T21:07Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-19T21:07Z",
+   "confirmed": true
   },
   {
    "team": "PHI",
@@ -1505,7 +1793,11 @@
    "detail": "Right Achilles Surgery",
    "comment": "Hukporti has sustained a season-ending ruptured right Achilles tendon, per Shams Charania of ESPN.",
    "updated": "2026-10-06T19:17Z",
-   "returnDate": "2027-10-01"
+   "returnDate": "2027-10-01",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-06T19:17Z",
+   "confirmed": true
   },
   {
    "team": "PHX",
@@ -1516,7 +1808,11 @@
    "detail": "Not Specified Oblique Strain",
    "comment": "Ighodaro (oblique) is listed as questionable for Friday's game against Denver.",
    "updated": "2026-10-30T00:20Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T00:20Z",
+   "confirmed": true
   },
   {
    "team": "PHX",
@@ -1527,7 +1823,11 @@
    "detail": "Left Shoulder Surgery",
    "comment": "Williams underwent surgery Thursday to repair a torn labrum in his left shoulder and will miss an extended period of time, Shams Charania of ESPN reports.",
    "updated": "2026-09-11T16:03Z",
-   "returnDate": "2027-02-03"
+   "returnDate": "2027-02-03",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-09-11T16:03Z",
+   "confirmed": true
   },
   {
    "team": "POR",
@@ -1538,7 +1838,11 @@
    "detail": "Left Hamstring Not Specified",
    "comment": "Morant has been diagnosed with a Grade 2 left hamstring strain and is expected to miss four weeks, Portland announced Friday.",
    "updated": "2026-10-30T18:45Z",
-   "returnDate": "2026-12-01"
+   "returnDate": "2026-12-01",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-30T18:45Z",
+   "confirmed": true
   },
   {
    "team": "POR",
@@ -1549,7 +1853,11 @@
    "detail": "Left Knee",
    "comment": "Williams (knee) has been ruled out for Thursday's game against Memphis, Casey Holdahl of the Trail Blazers' official site reports.",
    "updated": "2026-10-30T04:23Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-30T04:23Z",
+   "confirmed": true
   },
   {
    "team": "POR",
@@ -1560,7 +1868,11 @@
    "detail": "Left Ankle Soreness",
    "comment": "Youngblood (ankle/two-way player) is out for Tuesday's game against the Lakers.",
    "updated": "2026-10-27T04:58Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-27T04:58Z",
+   "confirmed": true
   },
   {
    "team": "POR",
@@ -1571,7 +1883,11 @@
    "detail": "Right Knee Surgery",
    "comment": "Sharpe suffered a torn meniscus in his knee and is expected to miss six months, per Shams Charania of ESPN.",
    "updated": "2026-08-24T20:23Z",
-   "returnDate": "2027-03-02"
+   "returnDate": "2027-03-02",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-08-24T20:23Z",
+   "confirmed": true
   },
   {
    "team": "SAC",
@@ -1582,7 +1898,11 @@
    "detail": "Left Calf Strain",
    "comment": "Cardwell (calf) will be re-evaluated in one week, Brenden Nunes of KHTK Sactown Sports 1140 reports.",
    "updated": "2026-10-26T22:09Z",
-   "returnDate": "2026-11-06"
+   "returnDate": "2026-11-06",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T22:09Z",
+   "confirmed": true
   },
   {
    "team": "SAC",
@@ -1593,7 +1913,11 @@
    "detail": "Right Knee Dislocated",
    "comment": "Raynaud (knee) is progressing in his rehabilitation and will be re-evaluated in approximately two weeks, Brenden Nunes of KHTK Sactown Sports 1140 reports.",
    "updated": "2026-10-26T22:07Z",
-   "returnDate": "2026-11-10"
+   "returnDate": "2026-11-10",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-26T22:07Z",
+   "confirmed": true
   },
   {
    "team": "SAC",
@@ -1604,7 +1928,11 @@
    "detail": "Ankle",
    "comment": "Murray (ankle) will be re-evaluated in 10-to-14 days, NBA reporter Marc Stein reports.",
    "updated": "2026-10-26T22:01Z",
-   "returnDate": "2026-11-06"
+   "returnDate": "2026-11-06",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-26T22:01Z",
+   "confirmed": true
   },
   {
    "team": "SAC",
@@ -1615,7 +1943,11 @@
    "detail": "Right Achilles Surgery",
    "comment": "Simmons underwent successful surgery Tuesday to repair a torn right Achilles tendon, James Ham of ESPN 1320 Sacramento reports.",
    "updated": "2026-10-21T04:22Z",
-   "returnDate": "2027-10-01"
+   "returnDate": "2027-10-01",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-21T04:22Z",
+   "confirmed": true
   },
   {
    "team": "SAS",
@@ -1626,7 +1958,11 @@
    "detail": "Left Calf Strain",
    "comment": "Harris (calf) is out for Wednesday's game against Utah, Paul Garcia of ProjectSpurs.com reports.",
    "updated": "2026-10-28T18:24Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-28T18:24Z",
+   "confirmed": true
   },
   {
    "team": "SAS",
@@ -1637,7 +1973,11 @@
    "detail": "Right Knee Surgery",
    "comment": "Quaintance has been around the team but has not yet been cleared for basketball activities, Matt Guzman of SI.com reports.",
    "updated": "2026-10-05T21:43Z",
-   "returnDate": "2026-12-03"
+   "returnDate": "2026-12-03",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-05T21:43Z",
+   "confirmed": true
   },
   {
    "team": "TOR",
@@ -1648,7 +1988,11 @@
    "detail": "Left Knee Inflammation",
    "comment": "Leonard (knee) is expected to be sidelined for at least three to four weeks, Chris Haynes of NBA TV reports.",
    "updated": "2026-10-29T15:39Z",
-   "returnDate": "2026-11-23"
+   "returnDate": "2026-11-23",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-29T15:39Z",
+   "confirmed": true
   },
   {
    "team": "TOR",
@@ -1659,7 +2003,11 @@
    "detail": "Right Foot Fracture",
    "comment": "Bittle (foot) has been ruled out for Wednesday's game against the Magic, Cody Taylor of USA Today reports.",
    "updated": "2026-10-27T19:31Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-27T19:31Z",
+   "confirmed": true
   },
   {
    "team": "UTA",
@@ -1670,7 +2018,11 @@
    "detail": "Right Wrist Not Specified",
    "comment": "Markkanen (wrist) is out for Wednesday's tilt against the Spurs.",
    "updated": "2026-10-29T04:39Z",
-   "returnDate": "2026-10-31"
+   "returnDate": "2026-10-31",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-29T04:39Z",
+   "confirmed": true
   },
   {
    "team": "UTA",
@@ -1681,7 +2033,11 @@
    "detail": "Right Knee Not Specified",
    "comment": "Jackson has been diagnosed with a torn MCL in his right knee and will be sidelined for 6-to-8 weeks, per Shams Charania of ESPN.",
    "updated": "2026-10-27T19:25Z",
-   "returnDate": "2026-12-14"
+   "returnDate": "2026-12-14",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-27T19:25Z",
+   "confirmed": true
   },
   {
    "team": "UTA",
@@ -1692,7 +2048,11 @@
    "detail": "Left Knee Bruise",
    "comment": "Alexander won't play Wednesday against the Grizzlies due to a left knee bone bruise.",
    "updated": "2026-10-24T23:18Z",
-   "returnDate": "2026-11-06"
+   "returnDate": "2026-11-06",
+   "news": null,
+   "checks": 4,
+   "since": "2026-10-24T23:18Z",
+   "confirmed": true
   },
   {
    "team": "UTA",
@@ -1703,7 +2063,11 @@
    "detail": "Right Foot Strain",
    "comment": "Nurkic will miss at least the next four weeks due to a partial plantar plate tear of second toe in right foot, Chris Haynes of NBA TV reports.",
    "updated": "2026-10-07T23:07Z",
-   "returnDate": "2026-11-04"
+   "returnDate": "2026-11-04",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-07T23:07Z",
+   "confirmed": true
   },
   {
    "team": "WAS",
@@ -1714,7 +2078,11 @@
    "detail": "Right Achilles Soreness",
    "comment": "Johnson (Achilles) is listed as questionable for Friday's game against Charlotte.",
    "updated": "2026-10-29T21:10Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-29T21:10Z",
+   "confirmed": true
   },
   {
    "team": "WAS",
@@ -1725,7 +2093,11 @@
    "detail": "Right Foot Not Specified",
    "comment": "Champagnie (foot) is expected to miss several months, per Josh Robbins of The Athletic.",
    "updated": "2026-10-28T18:38Z",
-   "returnDate": "2027-02-25"
+   "returnDate": "2027-02-25",
+   "news": "status",
+   "checks": 4,
+   "since": "2026-10-28T18:38Z",
+   "confirmed": true
   },
   {
    "team": "WAS",
@@ -1736,7 +2108,11 @@
    "detail": "Left Hip Pinched Nerve",
    "comment": "The Wizards announced Thursday that Vukcevic (hip) will be re-evaluated in four weeks.",
    "updated": "2026-10-01T19:11Z",
-   "returnDate": "2026-11-02"
+   "returnDate": "2026-11-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-10-01T19:11Z",
+   "confirmed": true
   },
   {
    "team": "WAS",
@@ -1747,7 +2123,11 @@
    "detail": "Left Knee Surgery",
    "comment": "The Wizards announced Thursday that Watkins has undergone surgery for a torn ACL.",
    "updated": "2026-07-30T20:11Z",
-   "returnDate": "2027-04-02"
+   "returnDate": "2027-04-02",
+   "news": "injury",
+   "checks": 4,
+   "since": "2026-07-30T20:11Z",
+   "confirmed": true
   }
  ],
  "players": [
@@ -295366,38 +295746,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-10-30T19:38:11Z",
+   "fetchedAt": "2026-10-30T19:55:59Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T19:55:29Z",
+   "fetchedAt": "2026-10-30T19:55:59Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T19:55:29Z",
+   "fetchedAt": "2026-10-30T19:55:58Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T19:55:29Z",
+   "fetchedAt": "2026-10-30T19:55:59Z",
    "ok": true,
    "nba": "ok: 20 team lineups posted",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-10-30T19:44:08Z",
+   "fetchedAt": "2026-10-30T19:59:26Z",
    "ok": true,
    "count": 334,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-10-30T19:44:16Z",
+   "fetchedAt": "2026-10-30T19:59:34Z",
    "ok": true
   }
  },
@@ -295428,7 +295808,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295455,7 +295835,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909278": {
@@ -295484,7 +295864,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295511,7 +295891,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909279": {
@@ -295540,7 +295920,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295567,7 +295947,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909280": {
@@ -295596,7 +295976,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295623,7 +296003,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909281": {
@@ -295652,7 +296032,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295679,7 +296059,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909282": {
@@ -295708,7 +296088,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295735,7 +296115,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909283": {
@@ -295764,7 +296144,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295791,7 +296171,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909284": {
@@ -295820,7 +296200,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295847,7 +296227,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909285": {
@@ -295876,7 +296256,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295903,7 +296283,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   },
   "401909286": {
@@ -295932,7 +296312,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    },
    "home": {
     "starters": [
@@ -295959,7 +296339,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:55:29Z"
+    "fetchedAt": "2026-10-30T19:55:59Z"
    }
   }
  },
