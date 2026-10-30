@@ -267,6 +267,14 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
 
 ## Next steps (in order)
 
+**FIRST on 31 Oct (user asked 30 Oct 21:21 — remind them): declutter 3PM + PRA.** They have no prices (only PTS/REB/AST
+are bought; adding them ≈ 60 credits/night ≈ 1,800/month, too much for the free plan), so they can never be picks.
+1. Remove the 3PM and PRA columns and filter chips from the Props page.
+2. Count only PTS/REB/AST props in "props" totals (Home said "870 props" when ~344 were priced).
+3. Keep computing them in the background (free) so they can be switched back on with a paid plan.
+4. Optional (user to choose): one info line with the PRA / threes projection inside a player's prop panel.
+No model/picks/results change (those only ever used PTS/REB/AST). Release via the `pending` branch.
+
 **Order agreed 29 Oct 22:47; A1 DONE 30 Oct (v1.3). Continue with A2:**
 A. **Minutes fix — injured players (esp. big ones).** Found 29 Oct: Dejounte Murray (NOP, ~31 min) ruled out 22:22 but
    teammates gained only ~1 min each, because available NOP players' expected minutes already summed to ~278 (>240),
