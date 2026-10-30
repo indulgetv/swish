@@ -1,0 +1,53 @@
+name: Lab — download past seasons
+
+# Projection lab, part 1: downloads every regular-season box score for the 2024-25 and 2025-26 seasons from ESPN
+# (free; no Odds API credits). Runs when lab/download.py or this file changes, or by hand from the Actions tab.
+# Resumable: a re-run only fetches games that are still missing.
+
+on:
+  push:
+    branches: [main]
+    paths: ["lab/download.py", ".github/workflows/lab-download.yml"]
+  workflow_dispatch:
+    inputs:
+      seasons:
+        description: "ESPN season years, space separated (2026 = 2025-26)"
+        default: "2025 2026"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: swish-lab
+  cancel-in-progress: false
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download seasons
+        run: |
+          SEASONS="${{ github.event.inputs.seasons }}"
+          [ -z "$SEASONS" ] && SEASONS="2025 2026"
+          for S in $SEASONS; do python lab/download.py --season "$S" || true; done
+
+      - name: Save
+        run: |
+          git config user.name  "swish-bot"
+          git config user.email "swish-bot@users.noreply.github.com"
+          git add lab/data/
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "lab: past-season box scores $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((i * 10))
+          done
+          exit 1
