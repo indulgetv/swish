@@ -2396,7 +2396,7 @@ function applyLive(){
 
   const onSlate = new Set(games.flatMap(g => [g.away, g.home]));
   const inj = (LIVE.injuries || []).filter(i => onSlate.has(i.team)).map(i => ({team: i.team, player: i.player, pos: i.pos || "", status: i.status || "Unknown",
-    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
+    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
 
   Object.assign(DATA, {
     meta: {source: "LIVE", isLive: true, slateLabel: LIVE.meta.slateDate === ET_TODAY ? "Tonight's slate" : `Slate of ${new Date(LIVE.meta.slateDate + "T12:00:00").toLocaleDateString([], {day:"numeric", month:"short"})}`,
@@ -2834,6 +2834,8 @@ const isJustIn = i => newsAgeH(i) <= JUST_IN_H;
 const minsAgo = i => { const m = Math.max(1, Math.round(newsAgeH(i) * 60)); return m < 60 ? `${m} min ago` : `${Math.floor(m / 60)}h ${m % 60 ? `${m % 60}m ` : ""}ago`; };
 const byNewest = (a, b) => (new Date(b.updated || 0)) - (new Date(a.updated || 0));
 const injNews = () => DATA.injuries.filter(isNewNews).sort(byNewest);
+/* ESPN's status field lags its reporter notes; when the note about tonight disagrees, SWISH goes by the note (update.py) */
+const noteChip = i => i.espnStatus ? `<span class="ntime" title="ESPN's status field still says ${esc(i.espnStatus)}; the newer reporter note says ${esc(i.status.toLowerCase())} for tonight, so SWISH uses the note">ESPN status still ${esc(i.espnStatus)} · using the newer note</span> ` : "";
 function newsChip(i){
   if (!i.updated) return `<span class="ntime">time not given</span>`;
   const fresh = isNewNews(i);
@@ -3747,7 +3749,7 @@ function injStatusBar(){
     <div class="ib"><span class="ib-k">Out tonight</span><b class="num">${nOut}</b><small>${nDoubt ? `+ ${nDoubt} doubtful or questionable` : "no one doubtful"}</small></div>
   </div>
   ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury changes</h2><span class="sub">latest first · last ${NEW_NEWS_H} hours</span></div>
-    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow tcol ${isJustIn(i) ? "justin" : ""}" style="--tc:${team(i.team).color}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
+    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow tcol ${isJustIn(i) ? "justin" : ""}" style="--tc:${team(i.team).color}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${noteChip(i)}${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
 }
 
 function injuryCard(g){
@@ -3759,7 +3761,7 @@ function injuryCard(g){
         return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""} ${isJustIn(i) ? "justin" : ""}">
           ${isJustIn(i) ? `<div class="justin-tag"><i></i>Just in · ${minsAgo(i)}</div>` : ""}
           <div class="inj-top">${jerseyAv(i.player, i.team)}<div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
-          <div class="inj-meta">${/day.?to.?day/i.test(i.raw || "") ? `<span class="ntime">ESPN: day-to-day</span> ` : ""}${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
+          <div class="inj-meta">${noteChip(i)}${/day.?to.?day/i.test(i.raw || "") && !i.espnStatus ? `<span class="ntime">ESPN: day-to-day</span> ` : ""}${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
             ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
             ${affected.length ? `<div class="affects">${affected.map(p => `<button data-prop="${p.id}">${esc(p.player)} · ${MARKET_NAMES[p.market]} ${p.line}</button>`).join("")}</div>` : ""}

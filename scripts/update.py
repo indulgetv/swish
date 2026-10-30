@@ -330,6 +330,38 @@ STATUS_MAP = {"out": "Out", "doubtful": "Doubtful", "questionable": "Questionabl
               "day-to-day": "Questionable", "day to day": "Questionable", "suspension": "Out", "out for season": "Out"}
 
 
+# ESPN often updates the reporter's note before the status field (30 Oct: Cameron Johnson "Out" while the 18:41 note
+# said "expected to play" tonight). When the note names TONIGHT (its weekday or "tonight"), the note wins.
+NOTE_RULES = [  # first match wins
+    ("Out", r"ruled out|will not play|won't play|will miss|not expected to play|\b(?:is|remains|will be) out\b|inactive"),
+    ("Doubtful", r"\bdoubtful\b"),
+    ("Questionable", r"\bquestionable\b|game-time decision"),
+    ("Probable", r"\bprobable\b|expected to play|will play|is available|cleared to play|will return|upgraded to available|will start\b|set to play|plans to play"),
+]
+
+
+def status_from_note(comment: str | None, slate_day: datetime) -> str | None:
+    """Tonight's status as written in the reporter's note, or None if the note isn't about tonight."""
+    c = (comment or "").lower()
+    if not c or not (slate_day.strftime("%A").lower() in c or "tonight" in c):
+        return None
+    for status, pat in NOTE_RULES:
+        if re.search(pat, c):
+            return status
+    return None
+
+
+def apply_notes(injuries: list[dict], slate_day: datetime) -> int:
+    """Use the note's status when it disagrees with ESPN's status field. Keeps ESPN's in espnStatus. Returns changes."""
+    n = 0
+    for i in injuries:
+        st = status_from_note(i.get("comment"), slate_day)
+        if st and st != i.get("status"):
+            i["espnStatus"], i["status"], i["statusFrom"] = i.get("status"), st, "report"
+            n += 1
+    return n
+
+
 def fetch_injuries(name_to_abbr: dict):
     data, _ = get_json(f"{ESPN_SITE}/injuries")
     out = []
@@ -650,6 +682,9 @@ def main() -> int:
         try:
             name_to_abbr = {t.get("displayName") or f"{t.get('city','')} {t.get('name','')}".strip(): ab for ab, t in d["teams"].items()}
             d["injuries"] = fetch_injuries(name_to_abbr)
+            fixed = apply_notes(d["injuries"], day)
+            if fixed:
+                log("injuries: " + "; ".join(f"{i['player']} {i['espnStatus']}→{i['status']}" for i in d["injuries"] if i.get("statusFrom") == "report") + " (latest report note)")
             d["sections"]["injuries"] = section("ESPN injuries", True, count=len(d["injuries"]))
             log(f"injuries: {len(d['injuries'])} entries")
         except Exception as e:
