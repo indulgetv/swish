@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T01:35:34Z"
+  "writtenAt": "2026-10-30T01:40:35Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "6:37 - 3rd",
+   "status": "4:01 - 3rd",
    "completed": false,
-   "awayScore": "61",
-   "homeScore": "67",
+   "awayScore": "69",
+   "homeScore": "76",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "8:43 - 3rd",
+   "status": "6:35 - 3rd",
    "completed": false,
-   "awayScore": "67",
-   "homeScore": "76",
+   "awayScore": "69",
+   "homeScore": "88",
    "espnLine": null
   },
   {
@@ -43,8 +43,8 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "POR -8.5",
-    "overUnder": 231.5,
+    "details": "POR -7.5",
+    "overUnder": 232.5,
     "provider": "Draft Kings"
    }
   }
@@ -1087,17 +1087,6 @@
    "comment": "Williams (foot) is questionable for Friday's game against Golden State.",
    "updated": "2026-10-30T00:02Z",
    "returnDate": "2026-10-30"
-  },
-  {
-   "team": "MEM",
-   "player": "Ty Jerome",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "day-to-day",
-   "comment": "Jerome is questionable for Thursday's game against the Trail Blazers due to back tightness.",
-   "updated": "2026-10-30T01:16Z",
-   "returnDate": null
   },
   {
    "team": "MIA",
@@ -84162,19 +84151,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T01:35:34Z",
+   "fetchedAt": "2026-10-30T01:40:35Z",
    "ok": true,
-   "count": 95
+   "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T01:35:34Z",
+   "fetchedAt": "2026-10-30T01:40:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T01:35:34Z",
+   "fetchedAt": "2026-10-30T01:40:34Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84348,7 +84337,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T01:35:34Z"
+    "fetchedAt": "2026-10-30T01:40:34Z"
    },
    "home": {
     "starters": [
@@ -84375,7 +84364,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T01:35:34Z"
+    "fetchedAt": "2026-10-30T01:40:34Z"
    }
   }
  },
