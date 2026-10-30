@@ -176,6 +176,15 @@ h2.h{font:700 22px/1.1 var(--display);letter-spacing:.01em}
 .tabs button.on{color:var(--red);border-bottom-color:var(--red)}
 .tabs button .c{font-size:11px;color:var(--faint);margin-left:4px}
 .tabdesc{padding:10px 20px;font-size:12px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--line)}
+.pgrp{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 20px 8px;border-bottom:1px solid var(--line);background:var(--surface2);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.pgrp + .prow2,.pgrp + .gempty{border-top:0}
+.prow2 + .pgrp,.gempty + .pgrp{border-top:1px solid var(--line)}
+.pgrp-t{display:flex;align-items:center;gap:8px}
+.pgrp-t i{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px color-mix(in srgb,currentColor 18%,transparent)}
+.pgrp.over .pgrp-t{color:var(--over)} .pgrp.under .pgrp-t{color:var(--under)}
+.pgrp-c{color:var(--muted);font-weight:600;letter-spacing:.02em;text-transform:none;font-size:11.5px}
+.pgrp-e{padding:14px 20px;text-align:left}
+@media (max-width:760px){.pgrp{padding:9px 14px 8px}.pgrp-e{padding:12px 14px}}
 .plist-h,.prow2{display:grid;grid-template-columns:28px minmax(160px,1.5fr) minmax(150px,1.3fr) 58px 60px 66px 128px 108px 16px;gap:12px;align-items:center;padding:0 20px}
 .plist-h{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 .prow2{width:100%;text-align:left;padding-top:10px;padding-bottom:10px;border-bottom:1px solid var(--line);transition:background .12s var(--ease)}
@@ -3076,7 +3085,7 @@ const confOf = q => q.modelP >= 0.6 ? ["high", "High"] : q.modelP >= 0.55 ? ["me
 const PICK_TABS = {
   overs: {label:"Top overs", desc:"Overs only, most likely first. Each one is an over SWISH rates at least as highly as the bookie, with no injury worries. High = 60%+ chance, Medium = 55–60%. A likely over at a short price can still be poor value — check the Value column.",
           list: () => clean.map(overView).filter(q => q.edge >= 0).sort((a,b) => b.modelP - a.modelP || b.edge - a.edge)},
-  best:  {label:"Best picks", desc:`Props where SWISH's chance beats the bookmaker's by at least ${(MIN_EDGE*100).toFixed(0)} points, with no injury or data issues. Ranked by average return.`,
+  best:  {label:"Best picks", desc:`Props where SWISH's chance beats the bookmaker's by at least ${(MIN_EDGE*100).toFixed(0)} points, with no injury or data issues. Shown as the top 5 overs and top 5 unders, each ranked by average return.`,
           list: () => ALL.filter(p => p.value).sort((a,b) => b.ev - a.ev)},
   gaps:  {label:"Biggest gaps", desc:"Largest difference between SWISH's projection and the bookmaker line, measured in standard deviations so markets are comparable.",
           list: () => clean.filter(p => p.lean !== "none").sort((a,b) => Math.abs(b.projection-b.line)/b.sd - Math.abs(a.projection-a.line)/a.sd)},
@@ -3107,6 +3116,16 @@ function pickRow(p, i){
   </button>`;
 }
 const pickHead = `<div class="plist-h"><span>#</span><span>Player</span><span>Pick</span><span class="r">Line</span><span class="r">Proj.</span><span class="r">H2H avg</span><span>SWISH vs bookie</span><span>Value</span><span></span></div>`;
+/* Best picks split into Overs and Unders so one side can't fill the whole table (each side keeps its own ranking) */
+const BEST_PER_SIDE = 5;
+function sidesHTML(list, per){
+  const grp = (side, word) => {
+    const all = list.filter(p => p.side === side), rows = all.slice(0, per);
+    return `<div class="pgrp ${side}"><span class="pgrp-t"><i></i>${word}</span><span class="pgrp-c num">${all.length ? (all.length > per ? `top ${per} of ${all.length}` : `${all.length} tonight`) : "none tonight"}</span></div>`
+      + (rows.length ? rows.map(pickRow).join("") : `<div class="gempty pgrp-e">No ${word.toLowerCase()} pass the value rule tonight.</div>`);
+  };
+  return pickHead + grp("over", "Overs") + grp("under", "Unders");
+}
 
 /* =================================================================
    8. VIEWS
@@ -3145,7 +3164,7 @@ function viewDashboard(){
   const valueN = ALL.filter(p => p.value).length;
   const avgVig = ALL.length ? ALL.reduce((a,p) => a + p.vig, 0) / ALL.length : null;
   const sig = DATA.injuries.filter(significant).sort(byNewest);
-  const top = PICK_TABS.best.list().slice(0, 6);
+  const top = PICK_TABS.best.list();
   return `
   <header class="hero hero-home">${COURT}<svg class="court ballsketch" viewBox="0 0 420 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">  <ellipse class="bs-shadow" cx="190" cy="124" rx="16" ry="3"/>  <g class="bs-trail"><path d="M204 36c-3 12-6 22-9 32" stroke-dasharray="3 6"/><path d="M216 42c-2 10-4 18-6 26" stroke-dasharray="3 6"/></g>  <g class="bs-ball"><circle cx="190" cy="104" r="18"/><path d="M172 104h36M190 86v36"/><path d="M177 91c7 7 7 19 0 26M203 91c-7 7-7 19 0 26"/></g></g></svg>
    <div class="hero-grid">
@@ -3178,7 +3197,7 @@ function viewDashboard(){
   </div>
   <div class="panel" style="margin-bottom:var(--sec)">
     <div class="panel-h"><h2 class="h">Best picks tonight</h2><button class="textbtn" data-nav="props" style="margin-left:auto">See all picks &amp; squads →</button></div>
-    ${pickHead}${top.length ? top.map(pickRow).join("") : `<div class="gempty">${IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they arrive at about 21:00 UK time (14:30 for early games)." : "No props meet the value rule."}</div>`}
+    ${top.length ? sidesHTML(top, BEST_PER_SIDE) : `<div class="gempty">${IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they arrive at about 21:00 UK time (14:30 for early games)." : "No props meet the value rule."}</div>`}
   </div>
   <div class="cols">
     <div class="panel">
@@ -3239,8 +3258,10 @@ function viewProps(){
 }
 
 function renderBest(){
-  const t = PICK_TABS[state.bestTab], list = t.list().slice(0, 10);
-  $("bestList").innerHTML = `<div class="tabdesc">${t.desc}</div>${pickHead}${list.length ? list.map(pickRow).join("") : `<div class="gempty">Nothing in this list on the current slate.</div>`}`;
+  const t = PICK_TABS[state.bestTab], full = t.list(), list = full.slice(0, 10);
+  const body = !full.length ? `<div class="gempty">Nothing in this list on the current slate.</div>`
+    : state.bestTab === "best" ? sidesHTML(full, BEST_PER_SIDE) : pickHead + list.map(pickRow).join("");
+  $("bestList").innerHTML = `<div class="tabdesc">${t.desc}</div>${body}`;
 }
 
 function renderLegend(){
