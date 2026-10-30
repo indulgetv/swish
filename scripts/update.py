@@ -175,8 +175,59 @@ def fetch_espn_starters(game_id: str) -> dict:
     return out
 
 
-# Nights (UTC date) that get an extra odds fetch at 23:30 UTC. Costs ~3 credits per game not yet started.
-TOPUP_DATES = {"2026-10-29"}
+# Late re-price (replaces the one-off 29 Oct top-up): after the 21:00 prices, if a player SWISH expects to play
+# REPRICE_MIN+ minutes is newly listed Out/Doubtful AFTER that game's lines were fetched, re-buy that ONE game's
+# PTS/REB/AST lines (~3 credits) before tip-off. Max REPRICE_MAX_PER_NIGHT a night; always inside the daily budget.
+REPRICE_MIN = 25
+REPRICE_MAX_PER_NIGHT = 4
+REPRICE_GAMES: list[str] = []          # set by choose_auto_mode
+REPRICE_WHY: dict = {}                 # game id → players that triggered it
+
+
+def reprice_candidates(prev: dict, now: datetime) -> tuple[list[str], dict]:
+    """Games (not started, tipping 10+ min from now) whose lines are older than an Out/Doubtful report on a key player."""
+    try:
+        import model
+    except Exception:
+        return [], {}
+    def ts(x):
+        try:
+            return datetime.fromisoformat(str(x).replace("Z", "+00:00"))
+        except Exception:
+            return None
+    runs = ((prev.get("sections") or {}).get("odds") or {}).get("runs") or []
+    today = now.strftime("%Y-%m-%d")
+    done_players = {(r.get("game"), n) for r in runs if r.get("window") == "reprice" for n in (r.get("for") or [])}
+    n_today = sum(1 for r in runs if r.get("window") == "reprice" and str(r.get("at", ""))[:10] == today)
+    if n_today >= REPRICE_MAX_PER_NIGHT:
+        return [], {}
+    fetched = {}
+    for pr in prev.get("props") or []:
+        t = ts(pr.get("fetched"))
+        if t and (pr.get("game") not in fetched or t > fetched[pr["game"]]):
+            fetched[pr["game"]] = t
+    exp = {}
+    for pl in prev.get("players") or []:
+        played = lambda a: [x for x in (a or []) if (x.get("min") or 0) > 0]
+        cur, last = played(pl.get("season")), played(pl.get("lastSeason"))
+        if cur or last:
+            exp[pl["name"]] = model.minutes_model(cur, last)[0]
+    # only players the bookmakers still had lines for when the game was priced — so the news really is newer than the
+    # lines (ESPN sometimes re-dates an old "Out" when it edits the comment)
+    had_lines = {(pr.get("game"), pr.get("key")) for pr in prev.get("props") or []}
+    out, why = [], {}
+    for g in prev.get("games") or []:
+        tip = ts(g.get("tipoff"))
+        if g.get("state") != "pre" or not tip or tip < now + timedelta(minutes=10) or g["id"] not in fetched:
+            continue
+        hits = [i["player"] for i in prev.get("injuries") or []
+                if i.get("team") in (g["away"], g["home"]) and i.get("status") in ("Out", "Doubtful")
+                and exp.get(i.get("player"), 0) >= REPRICE_MIN and ts(i.get("updated")) and ts(i.get("updated")) > fetched[g["id"]]
+                and (g["id"], i.get("player")) not in done_players
+                and (g["id"], model.norm_name(i.get("player"))) in had_lines]
+        if hits:
+            out.append(g["id"]); why[g["id"]] = hits
+    return out[: REPRICE_MAX_PER_NIGHT - n_today], why
 
 
 def choose_auto_mode(prev: dict) -> tuple[str, str]:
@@ -201,9 +252,12 @@ def choose_auto_mode(prev: dict) -> tuple[str, str]:
         return "odds", "early"
     if 21 * 60 <= t < 22 * 60 + 30 and "late" not in odds_today:
         return "odds", "late"
-    # one-off late top-up (user's request): re-price games not started yet, to catch lines posted after 21:00
-    if now.strftime("%Y-%m-%d") in TOPUP_DATES and 23 * 60 + 30 <= t < 23 * 60 + 58 and "late" in odds_today and "topup" not in odds_today:
-        return "odds", "topup"
+    # late re-price: a key player ruled out after a game's lines were bought → re-buy that game only
+    if "late" in odds_today or "early" in odds_today:
+        games, why = reprice_candidates(prev, now)
+        if games:
+            REPRICE_GAMES[:] = games; REPRICE_WHY.clear(); REPRICE_WHY.update(why)
+            return "odds", "reprice"
     return "light", "all"
 
 
@@ -389,7 +443,7 @@ def odds_budget(remaining: int) -> int:
     return max(0, remaining // max(1, days_left))
 
 
-def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events: int | None):
+def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events: int | None, game_lines: bool = True):
     """Returns (props, gameLines, info). Spends credits carefully."""
     info = {"creditsUsed": 0, "creditsRemaining": None, "eventsPriced": 0, "notes": []}
     fetched_at = now_iso()
@@ -409,7 +463,7 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
 
     # 2) UK game lines (totals/spreads) — nice to have only: ESPN already gives a free spread/total, so these are
     #    bought only when the budget also covers points, rebounds and assists for every game (props come first)
-    if todays and budget >= 3 * len(todays) + 2:
+    if game_lines and todays and budget >= 3 * len(todays) + 2:
         try:
             data, hdr = get_json(f"{ODDS_BASE}/odds", {"apiKey": key, "regions": "uk", "markets": "totals,spreads",
                                                        "bookmakers": ",".join(UK_BOOKS), "oddsFormat": "decimal"})
@@ -498,7 +552,7 @@ def main() -> int:
                     help='"auto" picks the right job for the time of day (safe to call every few minutes)')
     ap.add_argument("--date", help="slate date YYYY-MM-DD (US Eastern); default today")
     ap.add_argument("--max-events", type=int, default=None, help="cap on games priced for props")
-    ap.add_argument("--window", choices=["all", "early", "late", "topup"], default="all",
+    ap.add_argument("--window", choices=["all", "early", "late", "reprice"], default="all",
                     help='odds only: "early" = games tipping before --early-cutoff (UTC); "late" = games not started yet')
     ap.add_argument("--early-cutoff", default="21:30", help="UTC time HH:MM that splits early from late games")
     ap.add_argument("--markets", default="auto", help='"auto" (fit the daily budget) or a comma list of Odds API market keys')
@@ -664,7 +718,10 @@ def main() -> int:
                     return now + timedelta(hours=6)
             # only games that haven't started; the early window also stops at the cutoff
             chosen = [g for g in d["games"] if g.get("state") == "pre" and tip(g) > now
-                      and (args.window != "early" or tip(g) < cutoff)]
+                      and (args.window != "early" or tip(g) < cutoff)
+                      and (args.window != "reprice" or g["id"] in REPRICE_GAMES)]
+            if args.window == "reprice":
+                log("odds: late re-price for " + "; ".join(f"{g['away']}@{g['home']} ({', '.join(REPRICE_WHY.get(g['id'], []))})" for g in chosen))
             log(f"odds: window={args.window}, {len(chosen)} of {len(d['games'])} games eligible")
             chosen_ids = {g["id"] for g in chosen}
             by_teams = {}
@@ -676,14 +733,22 @@ def main() -> int:
             try:
                 if not chosen:
                     raise RuntimeError("no eligible games in this window")
-                props, lines, info = fetch_odds(key, by_teams, [m for m in args.markets.split(",") if m], args.max_events)
+                props, lines, info = fetch_odds(key, by_teams, [m for m in args.markets.split(",") if m], args.max_events,
+                                                game_lines=args.window != "reprice")
                 # merge: replace lines only for the games priced now, keep earlier lines for the rest
                 priced = {p["game"] for p in props}
                 d["props"] = [p for p in d.get("props", []) if p.get("game") not in priced] + props
                 gl_games = {l["game"] for l in lines}
                 d["gameLines"] = [l for l in d.get("gameLines", []) if l.get("game") not in gl_games] + lines
                 runs = [r for r in (d["sections"].get("odds") or {}).get("runs", []) if r.get("at", "")[:10] == now_iso()[:10]]
-                runs.append({"at": now_iso(), "window": args.window, "games": sorted(priced), "credits": info["creditsUsed"]})
+                run = {"at": now_iso(), "window": args.window, "games": sorted(priced), "credits": info["creditsUsed"]}
+                if args.window == "reprice":
+                    run["game"] = chosen[0]["id"] if len(chosen) == 1 else None
+                    run["for"] = sorted({n for g in chosen for n in REPRICE_WHY.get(g["id"], [])})
+                    for g in chosen:          # one record per game so each player only triggers once
+                        runs.append({**run, "game": g["id"], "for": REPRICE_WHY.get(g["id"], []), "games": [g["id"]] if g["id"] in priced else []})
+                else:
+                    runs.append(run)
                 info["runs"] = runs
                 info["eventsPriced"] = len({p["game"] for p in d["props"]})
                 d["sections"]["odds"] = section("The Odds API (US books = reference only; UK game lines)", True, **info)
