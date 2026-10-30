@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-30T12:32:14Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T19:10:31Z"
+  "writtenAt": "2026-10-30T19:15:31Z"
  },
  "games": [
   {
@@ -36,7 +36,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "BOS -15.5",
-    "overUnder": 235.5,
+    "overUnder": 236.5,
     "provider": "DraftKings"
    }
   },
@@ -754,12 +754,14 @@
    "team": "CHA",
    "player": "Dennis Schroder",
    "pos": "G",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Foot",
    "comment": "Schroder (foot) is probable for Friday against the Wizards.",
    "updated": "2026-10-30T15:34Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Questionable",
+   "statusFrom": "report"
   },
   {
    "team": "CHA",
@@ -853,23 +855,27 @@
    "team": "DAL",
    "player": "Tarik Biberovic",
    "pos": "F",
-   "status": "Out",
+   "status": "Doubtful",
    "rawStatus": "Out",
    "detail": "Right Heel Inflammation",
    "comment": "Biberovic (heel) is listed as doubtful for Friday's game versus the Rockets.",
    "updated": "2026-10-29T22:09Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Out",
+   "statusFrom": "report"
   },
   {
    "team": "DAL",
    "player": "Santi Aldama",
    "pos": "F",
-   "status": "Out",
+   "status": "Doubtful",
    "rawStatus": "Out",
    "detail": "Right Knee Surgery",
    "comment": "Aldama (knee) is listed as doubtful for Friday's game against Houston.",
    "updated": "2026-10-29T22:07Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Out",
+   "statusFrom": "report"
   },
   {
    "team": "DAL",
@@ -908,23 +914,27 @@
    "team": "DEN",
    "player": "Cameron Johnson",
    "pos": "F",
-   "status": "Out",
+   "status": "Probable",
    "rawStatus": "Out",
    "detail": "Right Ankle Sprain",
    "comment": "Johnson (ankle) is expected to play in Friday's game against the Suns, per John Gambadoro of Arizona Sports 98.7 FM.",
    "updated": "2026-10-30T18:41Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Out",
+   "statusFrom": "report"
   },
   {
    "team": "DEN",
    "player": "Alpha Diallo",
    "pos": "F",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Right Personal",
    "comment": "Diallo (personal) is listed as questionable for Friday's game against the Suns.",
    "updated": "2026-10-29T23:50Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Out",
+   "statusFrom": "report"
   },
   {
    "team": "DEN",
@@ -974,12 +984,14 @@
    "team": "GSW",
    "player": "Gui Santos",
    "pos": "F",
-   "status": "Questionable",
+   "status": "Doubtful",
    "rawStatus": "Day-To-Day",
    "detail": "Left Knee Tendinitis",
    "comment": "Santos (knee) is listed as doubtful for Friday's game against the Warriors.",
    "updated": "2026-10-30T00:06Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Questionable",
+   "statusFrom": "report"
   },
   {
    "team": "GSW",
@@ -1029,12 +1041,14 @@
    "team": "HOU",
    "player": "Marcus Smart",
    "pos": "G",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Left Forearm Strain",
    "comment": "Smart (forearm) is questionable for Friday's game against the Mavericks.",
    "updated": "2026-10-29T20:35Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Out",
+   "statusFrom": "report"
   },
   {
    "team": "HOU",
@@ -1062,23 +1076,27 @@
    "team": "IND",
    "player": "Andrew Nembhard",
    "pos": "G",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Neck Soreness",
    "comment": "Nembhard (neck) is listed as probable for Friday's game against Miami.",
    "updated": "2026-10-29T21:08Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Questionable",
+   "statusFrom": "report"
   },
   {
    "team": "IND",
    "player": "Aaron Nesmith",
    "pos": "G",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Hamstring",
    "comment": "Nesmith (hamstring) is probable for Friday's game against the Heat.",
    "updated": "2026-10-29T21:07Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Questionable",
+   "statusFrom": "report"
   },
   {
    "team": "IND",
@@ -1139,12 +1157,14 @@
    "team": "LAC",
    "player": "Rui Hachimura",
    "pos": "F",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Left Quadriceps Soreness",
    "comment": "Hachimura (quadriceps) is probable for Friday's game against Minnesota, per Ohm Youngmisuk of ESPN.com.",
    "updated": "2026-10-30T18:00Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-10-30",
+   "espnStatus": "Questionable",
+   "statusFrom": "report"
   },
   {
    "team": "LAC",
@@ -295351,19 +295371,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T19:10:31Z",
+   "fetchedAt": "2026-10-30T19:15:31Z",
    "ok": true,
    "count": 95
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T19:10:30Z",
+   "fetchedAt": "2026-10-30T19:15:30Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T19:10:30Z",
+   "fetchedAt": "2026-10-30T19:15:30Z",
    "ok": true,
    "nba": "ok: 20 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -295408,7 +295428,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295435,7 +295455,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909278": {
@@ -295464,7 +295484,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295491,7 +295511,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909279": {
@@ -295520,7 +295540,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295547,7 +295567,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909280": {
@@ -295576,7 +295596,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295603,7 +295623,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909281": {
@@ -295632,7 +295652,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295659,7 +295679,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909282": {
@@ -295688,7 +295708,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295715,7 +295735,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909283": {
@@ -295744,7 +295764,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295771,7 +295791,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909284": {
@@ -295800,7 +295820,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295827,7 +295847,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909285": {
@@ -295856,7 +295876,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295883,7 +295903,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   },
   "401909286": {
@@ -295912,7 +295932,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    },
    "home": {
     "starters": [
@@ -295939,7 +295959,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T19:10:30Z"
+    "fetchedAt": "2026-10-30T19:15:30Z"
    }
   }
  },
