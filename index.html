@@ -2070,6 +2070,13 @@ html.dark .lu-st.confirmed,html.dark .lu-st.started,html.dark .lu-chip.confirmed
 @media (max-width:1180px){.gcount .lu-mob{display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px}}
 html.calm .tag.lu-go,html.calm .lu-st,html.calm .lu-chip{animation:none}
 @media (prefers-reduced-motion:reduce){.tag.lu-go,.lu-st,.lu-chip{animation:none}}
+/* live: a flashing red dot with a small ripple (sidebar + LIVE score tags); final: one gold pop, then still */
+.ldot,.tag.score.live i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);vertical-align:1px;margin-right:5px;animation:liveDot 1.3s ease-in-out infinite!important}
+@keyframes liveDot{0%{opacity:1;box-shadow:0 0 0 0 rgba(229,57,70,.55)}50%{opacity:.35;box-shadow:0 0 0 5px rgba(229,57,70,0)}100%{opacity:1;box-shadow:0 0 0 0 rgba(229,57,70,0)}}
+.lsw.final-pop .tag.score,.lsw.final-pop .mscore,.lsw.final-pop .t{display:inline-block;animation:finalPop 2.4s cubic-bezier(.2,.8,.2,1) 1;border-radius:6px}
+@keyframes finalPop{0%{transform:scale(1);color:inherit;box-shadow:0 0 0 0 rgba(242,181,82,.6)}14%{transform:scale(1.14);color:var(--tick);box-shadow:0 0 0 5px rgba(242,181,82,.35)}40%{transform:scale(1);color:var(--tick)}100%{transform:scale(1);box-shadow:0 0 0 14px rgba(242,181,82,0)}}
+html.calm .ldot,html.calm .tag.score.live i{animation:none!important}
+@media (prefers-reduced-motion:reduce){.ldot,.tag.score.live i{animation:none!important}.lsw.final-pop *{animation:none!important}}
 </style>
 </head>
 <body>
@@ -2633,7 +2640,7 @@ const SLOT = {
   tagT: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   lu:  g => g.state && g.state !== "pre" ? "" : `<span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
   luM: g => g.state && g.state !== "pre" ? "" : `<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
-  side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
+  side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state === "in" ? `<i class="ldot" aria-hidden="true"></i>` : ""}${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
 };
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
 /* live scores straight from ESPN in the browser: every 30 s from 10 min before a tip-off until the game is final */
@@ -2661,6 +2668,14 @@ function animateScore(g, from){
   };
   TICKING.set(g.id, setInterval(step, 160)); step();
 }
+/* a game that just finished: one gold pop on its score, then it stays still */
+function flashFinal(g){
+  if (document.documentElement.classList.contains("calm")) return;
+  setTimeout(() => {
+    document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => { el.classList.remove("final-pop"); void el.offsetWidth; el.classList.add("final-pop"); });
+    setTimeout(() => document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => el.classList.remove("final-pop")), 2600);
+  }, TICKING.has(g.id) ? 1800 : 0);
+}
 async function pollScores(){
   if (!IS_LIVE || document.hidden || !scoresWindow()) return;
   try {
@@ -2675,11 +2690,12 @@ async function pollScores(){
       const clock = st.shortDetail || st.detail || "";
       const scored = String(sc.away) !== String(g.awayScore) || String(sc.home) !== String(g.homeScore);
       if (!scored && st.state === g.state && clock === g.clock) return;
-      const from = {a: g.awayScore, h: g.homeScore}, wasPre = g.state === "pre";
+      const from = {a: g.awayScore, h: g.homeScore}, wasPre = g.state === "pre", wasLive = g.state === "in";
       g.state = st.state; g.awayScore = sc.away; g.homeScore = sc.home; g.clock = clock;
       g.status = st.state === "pre" ? "Scheduled" : st.state === "in" ? `Live · ${clock}` : (clock || "Final");
       g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
       if (scored && !wasPre && st.state !== "pre") animateScore(g, from); else paintGame(g);
+      if (wasLive && st.state === "post") flashFinal(g);
     });
     LS.ok = true; LS.at = new Date().toISOString();
   } catch(e){ LS.ok = false; }
