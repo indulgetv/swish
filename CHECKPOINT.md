@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 10:45 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -157,14 +157,29 @@ _Last updated: 2026-10-29 19:35 by Claude._ Paste the line in **"How to resume"*
   Running total (2 nights): 233–226, −£230.30; strong 8–12; Top overs Medium tier 21–14 (+£19.27) — tiny sample.
   TOPUP_DATES={"2026-10-29"} is date-gated, so it no longer runs; remove it when A4 (conditional re-price) ships.
 
+- **30 Oct (morning) — model v1.3 (A1 done + starter rule), both files, parity 0 on 28 & 29 Oct snapshots:**
+  - New absence (player OUT who played in his team's last game, `FRESH_GAMES = 1`) frees his share of a 240-min game:
+    freed = his min × 240 / (available + absent min). Long-term absences still use only the gap below 240.
+    Tested 2–3 game windows: worse. Same sharing as before (room below 36, ×2 same position, +6 max, cap 40).
+  - Starting tonight: NBA.com expected/confirmed starter who is NOT in his team's top-5 expected minutes gets
+    ≥ 90% (`STARTER_SHARE`) of the other starters' average minutes. Names compared with accents stripped
+    (NBA.com "Matković" vs ESPN "Matkovic"). Picks store `starterTonight`. Chip "▲ +N min · new starter".
+  - Backtest (458 graded props, 28+29 Oct pre-tip snapshots d5512b5 / 579b0fd): minutes miss 4.01→3.96, model-only Brier
+    0.2640→0.2629, SWISH 0.2513→0.2511 (market 0.2496). Re-run picks: all 230–228 → 232–226 (−£278→−£237);
+    strong 8–12 → 6–11 (−£45→−£54). Herbert Jones PTS flips under→over (he started for Murray, played 32, scored 16).
+    Night 1 had no saved lineups, so the starter rule is tested on ONE night (3 games) only. Small gain, not proof.
+  - Rolechips in squad names now ellipsis-truncate (no longer run under the Last 6 button on desktop).
+- **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
+
 ## Next steps (in order)
 
-**TOMORROW (user agreed 29 Oct 22:47), in this order:**
+**Order agreed 29 Oct 22:47; A1 DONE 30 Oct (v1.3). Continue with A2:**
 A. **Minutes fix — injured players (esp. big ones).** Found 29 Oct: Dejounte Murray (NOP, ~31 min) ruled out 22:22 but
    teammates gained only ~1 min each, because available NOP players' expected minutes already summed to ~278 (>240),
    so the shortfall logic saw no room. Plan (all model changes: BOTH files, bump MODEL_VERSION, parity 0, backtest):
-   1. Scale available players' expected minutes to 240 first, then share the absent player's minutes (quick; do first;
-      check against tonight's graded NOP game).
+   1. ~~Share the absent player's minutes~~ DONE v1.3 (+ starter rule). It did NOT pick WHO gains (gave Murray's minutes
+      to Mathurin/Queen, not Jones); the confirmed-starter rule fixed that case. Step 2 should decide who gains.
+      Watch: v1.3 results by night on the Results page ("by version"); starter rule needs more nights.
    2. "With vs without" history: teammate minutes/stats in games the absent player played vs missed (this + last
       season, ≥2–3 games), fall back to step 1.
    3. Usage boost: higher per-minute PTS/AST rate when a high-usage player sits (from with/without, else small capped).
