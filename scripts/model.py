@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.3 (2026-10-30)"
+MODEL_VERSION = "v1.4 (2026-10-30)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -36,6 +36,7 @@ MAX_GAIN = 6               # no single player picks up more than 6 extra minutes
 SHIFT_ROOM = 36            # spare minutes are shared by how far each player is below this
 SHIFT_MIN_RECV = 8         # only rotation players (8+ expected minutes) pick them up
 FRESH_GAMES = 1            # an absence is "new" if the player played in his team's last game (2-3 tested worse)
+KEY_MIN = 25               # a newly-out player with 25+ expected minutes makes his team's minutes "unclear" until lineups are confirmed
 STARTER_SHARE = 0.9        # a bench player listed to start tonight: at least 90% of the other starters' average minutes
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
@@ -188,6 +189,35 @@ def minute_shifts(live: dict, status_of) -> dict:
     return out
 
 
+def key_absences(live: dict, status_of) -> dict:
+    """team → names of players with KEY_MIN+ expected minutes who are newly OUT (played in the team's last game),
+    while that team's starting lineup is not yet confirmed. Their teammates' minutes are an estimate, so their props
+    get a "min_unclear" flag (no strong tag, not in Top overs) until NBA.com confirms the lineup."""
+    confirmed = set()
+    for gid, lu in (live.get("lineups") or {}).items():
+        g = next((x for x in live.get("games", []) if x["id"] == gid), None)
+        for side in ("away", "home"):
+            if g and ((lu or {}).get(side) or {}).get("status") == "confirmed":
+                confirmed.add(g[side])
+    teams = {t for g in live.get("games", []) for t in (g["away"], g["home"])} - confirmed
+    rows = {}
+    for p in live.get("players", []):
+        if p.get("team") not in teams:
+            continue
+        played = lambda arr: [x for x in (arr or []) if (x.get("min") or 0) > 0]
+        cur, last = played(p.get("season")), played(p.get("lastSeason"))
+        if not cur and not last:
+            continue
+        rows.setdefault(p["team"], []).append((p["name"], minutes_model(cur, last)[0], {x.get("d") for x in cur}, status_of(p["name"])))
+    out = {}
+    for team, rs in rows.items():
+        last_dates = set(sorted({d for r in rs for d in r[2] if d}, reverse=True)[:FRESH_GAMES])
+        names = [n for n, e, ds, st in sorted(rs, key=lambda r: -r[1]) if st == "Out" and e >= KEY_MIN and ds & last_dates]
+        if names:
+            out[team] = names
+    return out
+
+
 def nb_cdf(k: int, mean: float, sd: float) -> float:
     if k < 0:
         return 0.0
@@ -247,6 +277,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
         props_by.setdefault((x.get("key"), x.get("market"), x.get("game")), []).append(x)
 
     shifts = minute_shifts(live, lambda n: (injury_of(n) or {}).get("status") or "Active")
+    unclear = key_absences(live, lambda n: (injury_of(n) or {}).get("status") or "Active")
     picks = []
     for p in live.get("players", []):
         if p.get("team") not in game_of_team:
@@ -341,6 +372,8 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                     flags.append(("injury_after_line", "Injury news after the line: " + ", ".join(f"{i['player']} {i['status'].lower()}" for i in late[:3])))
             if role_change and len(cur) < ROLE_NEW_GAMES:
                 flags.append(("new_role", f"Minutes changed a lot vs last season ({js_round(last_min)}→{js_round(cur_min)}) with only {len(cur)} games this season"))
+            if p["team"] in unclear:
+                flags.append(("min_unclear", f"Minutes unclear — {', '.join(unclear[p['team']][:2])} out; waiting for the confirmed lineup"))
             if len(recent) < 5:
                 flags.append(("few_games", f"Only {len(recent)} games of data"))
             gap = abs(projection - line)

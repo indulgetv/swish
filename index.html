@@ -2248,7 +2248,7 @@ const MIN_MINUTES_FOR_PROPS = 14;
 const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.3 (2026-10-30)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.4 (2026-10-30)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
 const MAX_MIN = 40;           // nobody is projected above this many minutes
@@ -2256,6 +2256,7 @@ const SHIFT_MIN_OUT = 10;     // a teammate out must be a 10+ minute player to t
 const TEAM_MIN = 240;         // minutes in a regulation game
 const MAX_GAIN = 6;           // no single player picks up more than 6 extra minutes
 const FRESH_GAMES = 1;       // an absence is "new" if the player played in his team's last game
+const KEY_MIN = 25;           // newly-out 25+ min player → his team's minutes "unclear" until lineups are confirmed
 const STARTER_SHARE = 0.9;    // listed starter outside the usual top 5: at least 90% of the other starters' minutes
 const SHIFT_ROOM = 36;        // spare minutes are shared by how far each player is below this
 const SHIFT_MIN_RECV = 8;     // …and only rotation players (8+ expected minutes) pick them up     // …and with fewer games than this it's flagged (projection less certain)
@@ -2511,6 +2512,7 @@ function analyse(p){
     if (late.length) flags.push(`Injury news since this line was fetched: ${late.slice(0,2).map(i => `${i.player} ${i.status.toLowerCase()} (${agoTxt(i.updated)})`).join(", ")}${late.length > 2 ? ` +${late.length - 2} more` : ""} — the line may have moved`);
   }
   if (p.live && p.roleChange && p.curGames < ROLE_NEW_GAMES) flags.push(`Minutes changed a lot vs last season (${Math.round(p.lastMin)}→${Math.round(p.curMin)}) with only ${p.curGames} game${p.curGames === 1 ? "" : "s"} this season — new role, projection less certain`);
+  if (p.live && KEY_OUT[p.team]) flags.push(`Minutes unclear — ${KEY_OUT[p.team].slice(0, 2).join(", ")} out; waiting for the confirmed lineup (about 30 min before tip-off)`);
   if (p.live && p.games < 5) flags.push(`Only ${p.games} game${p.games === 1 ? "" : "s"} of data — too few to trust the projection`);
   if (p.live && (Math.abs(p.projection - p.line) > BIG_GAP_SD * p.sd || Math.abs(p.projection - p.line) > BIG_GAP_REL * Math.max(p.line, 2))) flags.push(`Line is far from SWISH's projection (${p.line} vs ${p.projection.toFixed(1)}) — the market may know about a role or minutes change; check the news`);
 
@@ -2590,6 +2592,21 @@ function applyMinuteShifts(players){
   });
   return players;
 }
+/* team → newly-out players with 25+ expected minutes, while that team's lineup isn't confirmed (same as scripts/model.py) */
+let KEY_OUT = {};
+function keyAbsences(players){
+  const confirmed = new Set();
+  Object.entries((LIVE && LIVE.lineups) || {}).forEach(([gid, lu]) => { const g = (LIVE.games || []).find(x => x.id === gid);
+    ["away", "home"].forEach(side => { if (g && ((lu || {})[side] || {}).status === "confirmed") confirmed.add(g[side]); }); });
+  const byTeam = {}; players.forEach(pl => { if (!confirmed.has(pl.team)) (byTeam[pl.team] = byTeam[pl.team] || []).push(pl); });
+  const out = {};
+  Object.entries(byTeam).forEach(([team, rows]) => {
+    const last = new Set([...new Set(rows.flatMap(r => r.cur.map(g => g.d)).filter(Boolean))].sort().reverse().slice(0, FRESH_GAMES));
+    const names = [...rows].sort((a, b) => b.expMin0 - a.expMin0).filter(r => r.status === "Out" && r.expMin0 >= KEY_MIN && r.cur.some(g => last.has(g.d))).map(r => r.name);
+    if (names.length) out[team] = names;
+  });
+  return out;
+}
 function buildLivePlayers(){
   const out = [];
   (LIVE.players || []).forEach(p => {
@@ -2609,6 +2626,7 @@ function buildLivePlayers(){
               status: statusOf(p.name), log: r10.map(g => ({...g, min: Math.round(g.min)})), recent, cur, last, curGames: cur.length,
               expMin: mm.expMin, curMin: mm.curMin, lastMin: mm.lastMin, roleDelta: roleChange ? mm.delta : 0, roleChange, ...gm});
   });
+  KEY_OUT = keyAbsences(out);
   return applyMinuteShifts(out);
 }
 if (IS_LIVE) PLAYERS.push(...buildLivePlayers());
