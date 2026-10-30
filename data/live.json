@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:05:35Z"
+  "writtenAt": "2026-10-30T00:10:35Z"
  },
  "games": [
   {
@@ -1070,19 +1070,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Foot",
-   "comment": "Williams (foot) is out for Wednesday's game against the Clippers.",
-   "updated": "2026-10-29T05:05Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "LAL",
-   "player": "Luka Doncic",
-   "pos": "G",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Back",
-   "comment": "Doncic (back) is out for Wednesday's game against the Clippers.",
-   "updated": "2026-10-29T05:05Z",
+   "comment": "Williams (foot) is questionable for Friday's game against Golden State.",
+   "updated": "2026-10-30T00:02Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -84170,19 +84159,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:05:34Z",
+   "fetchedAt": "2026-10-30T00:10:35Z",
    "ok": true,
-   "count": 95
+   "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:05:34Z",
+   "fetchedAt": "2026-10-30T00:10:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:05:34Z",
+   "fetchedAt": "2026-10-30T00:10:34Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84264,7 +84253,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:05:34Z"
+    "fetchedAt": "2026-10-30T00:10:34Z"
    },
    "home": {
     "starters": [
@@ -84291,7 +84280,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:05:34Z"
+    "fetchedAt": "2026-10-30T00:10:34Z"
    }
   },
   "401909894": {
@@ -84320,7 +84309,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:05:34Z"
+    "fetchedAt": "2026-10-30T00:10:34Z"
    },
    "home": {
     "starters": [
@@ -84347,7 +84336,7 @@
     ],
     "status": "confirmed",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:05:34Z"
+    "fetchedAt": "2026-10-30T00:10:34Z"
    }
   },
   "401909895": {
@@ -84376,7 +84365,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:05:34Z"
+    "fetchedAt": "2026-10-30T00:10:34Z"
    },
    "home": {
     "starters": [
@@ -84403,7 +84392,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:05:34Z"
+    "fetchedAt": "2026-10-30T00:10:34Z"
    }
   }
  },
