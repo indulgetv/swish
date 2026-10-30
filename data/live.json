@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-10-30",
-  "mode": "odds",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-10-30T12:32:14Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T15:55:30Z"
+  "writtenAt": "2026-10-30T16:00:31Z"
  },
  "games": [
   {
@@ -19,8 +19,8 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "WSH -1.5",
-    "overUnder": 219.5,
+    "details": "CHA -1.5",
+    "overUnder": 218.5,
     "provider": "DraftKings"
    }
   },
@@ -131,7 +131,7 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "MIN -7.5",
+    "details": "MIN -6.5",
     "overUnder": 223.5,
     "provider": "DraftKings"
    }
@@ -719,6 +719,17 @@
   },
   {
    "team": "BKN",
+   "player": "Noah Clowney",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Illness",
+   "comment": "Clowney (illness) was downgraded to questionable for Friday's game versus Detroit, Erik Slater of ClutchPoints.com reports.",
+   "updated": "2026-10-30T14:16Z",
+   "returnDate": "2026-10-30"
+  },
+  {
+   "team": "BKN",
    "player": "Egor Demin",
    "pos": "G",
    "status": "Out",
@@ -746,8 +757,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Foot",
-   "comment": "Schroder (foot) is questionable for Friday's game against the Wizards.",
-   "updated": "2026-10-29T21:37Z",
+   "comment": "Schroder (foot) is probable for Friday against the Wizards.",
+   "updated": "2026-10-30T15:34Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -757,8 +768,8 @@
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Left Hamstring",
-   "comment": "Knueppel (hamstring) will practice with the G League's Greensboro Swarm on Thursday, the Hornets announced.",
-   "updated": "2026-10-29T18:26Z",
+   "comment": "Knueppel (hamstring) was recalled from the G League's Greensboro Swarm on Friday. He remains out for Friday's contest against the Wizards.",
+   "updated": "2026-10-30T15:12Z",
    "returnDate": "2026-11-02"
   },
   {
@@ -793,17 +804,6 @@
    "comment": "Boswell (knee) is out for Wednesday's season opener against the Nets.",
    "updated": "2026-10-20T20:55Z",
    "returnDate": "2026-11-02"
-  },
-  {
-   "team": "CHI",
-   "player": "Patrick Williams",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Right Groin Soreness",
-   "comment": "Williams (adductor) is questionable for Friday's game in Boston.",
-   "updated": "2026-10-29T18:55Z",
-   "returnDate": "2026-10-30"
   },
   {
    "team": "CHI",
@@ -295362,19 +295362,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T14:25:29Z",
+   "fetchedAt": "2026-10-30T16:00:31Z",
    "ok": true,
    "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T15:55:30Z",
+   "fetchedAt": "2026-10-30T16:00:30Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T14:25:29Z",
+   "fetchedAt": "2026-10-30T16:00:30Z",
    "ok": true,
    "nba": "ok: 20 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -295419,7 +295419,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295446,7 +295446,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909278": {
@@ -295475,7 +295475,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295502,7 +295502,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909279": {
@@ -295531,7 +295531,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295558,7 +295558,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909280": {
@@ -295587,7 +295587,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295614,7 +295614,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909281": {
@@ -295643,7 +295643,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295670,7 +295670,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909282": {
@@ -295699,7 +295699,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295726,7 +295726,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909283": {
@@ -295755,7 +295755,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295782,7 +295782,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909284": {
@@ -295811,7 +295811,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295838,7 +295838,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909285": {
@@ -295867,7 +295867,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295894,7 +295894,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   },
   "401909286": {
@@ -295923,7 +295923,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    },
    "home": {
     "starters": [
@@ -295950,7 +295950,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T14:25:29Z"
+    "fetchedAt": "2026-10-30T16:00:30Z"
    }
   }
  },
