@@ -2066,6 +2066,8 @@ html.dark .lu-st.confirmed,html.dark .lu-st.started,html.dark .lu-chip.confirmed
   background-image:linear-gradient(110deg,transparent 35%,rgba(160,255,200,.22) 50%,transparent 65%)}
 @keyframes luSheen{0%,70%{background-position:150% 0}100%{background-position:-50% 0}}
 .lu-mob{display:none}
+.lu-st.lu-mob{font-size:10px}
+.ana-info{margin-top:16px}.ana-info-t{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .gtags .gbreak{flex-basis:100%;height:0}
 @media (max-width:1180px){.gcount .lu-mob{display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px}}
 html.calm .tag.lu-go,html.calm .lu-st,html.calm .lu-chip{animation:none}
@@ -2649,6 +2651,10 @@ function scoreTag(g, cls = "tag"){
   const live = g.state === "in";
   return `<span class="${cls} score ${live ? "live" : "final"}" title="${LS.ok ? `Live from ESPN · checked ${agoTxt(LS.at)} · updates every 30 seconds` : `Score updated ${agoTxt(scoresAt())} — checks every 5 minutes`}">${live ? `<i></i><span class="lv">LIVE</span> ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? `<span class="lclk"> · ${esc(g.clock)}</span>` : ""}</span>`;
 }
+function anaBadges(g){
+  const inj = gameInjuries(g).filter(significant);
+  return `<span class="tag num tip" title="Tip-off, your time">${CLK}${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>${g.state && g.state !== "pre" ? "" : slot(g, "lu")}${inj.length ? `<button class="tag red" data-nav="injuries">${inj.length} injury concern${inj.length>1?"s":""}</button>` : ""}`;
+}
 const CLK = `<svg class="clk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
 /* score slots: every place a score shows is wrapped so live updates can repaint just that bit (no page reload) */
 const SLOT = {
@@ -2657,7 +2663,12 @@ const SLOT = {
   tagS: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   tagT: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   lu:  g => g.state && g.state !== "pre" ? "" : `<span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
-  luM: g => g.state && g.state !== "pre" ? "" : `<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
+  luM: g => g.state && g.state !== "pre"
+    ? `<span class="lu-mob lu-st started">${g.state === "in" ? "Game started" : "Game over"}</span>`
+    : `<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
+  // Games & Analysis: info badges sit in the header before tip-off, then move into the head-to-head card
+  anaInfo: g => g.state && g.state !== "pre" ? "" : anaBadges(g),
+  anaInfoB: g => g.state && g.state !== "pre" ? `<div class="ana-info"><div class="dt">Tonight's game</div><div class="ana-info-t">${anaBadges(g)}</div></div>` : "",
   side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state === "in" ? `<i class="ldot" aria-hidden="true"></i>` : ""}${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
 };
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
@@ -3587,8 +3598,7 @@ function gameAnalysis(g){
         <div class="tm">${tid(g.home,"lg")}<div><b>${H.name}</b><small>${H.city} · home</small></div></div>
       </div>
       <div class="right">
-        ${slot(g, "tag")}<span class="tag num tip" title="Tip-off, your time">${CLK}${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>${slot(g, "lu")}
-        ${inj.length ? `<button class="tag red" data-nav="injuries">${inj.length} injury concern${inj.length>1?"s":""}</button>` : ""}
+        ${slot(g, "tag")}${slot(g, "anaInfo")}
         <button class="btn red" data-goto="${g.id}">View squads &amp; props →</button>
       </div>
     </div>
@@ -3601,6 +3611,7 @@ function gameAnalysis(g){
           <span class="sc"><span class="${hw?"l":"w"}">${m.away}</span><b class="num ${hw?"l":"w"}">${m.ap}</b><span class="l">@</span><span class="${hw?"w":"l"}">${m.home}</span><b class="num ${hw?"w":"l"}">${m.hp}</b></span>
           <span class="tot num">Total ${m.hp+m.ap}</span></div>`; }).join("")}
         ${nH ? `<div class="insight">Meetings averaged <b class="num">${avgTotal.toFixed(1)}</b> points${numTotal ? ` vs tonight's total of <b class="num">${g.total}</b>${g.lineSource ? ` (${esc(g.lineSource)})` : ""}. ${overs} of ${nH} went over it.` : "."}</div>` : ""}
+        ${slot(g, "anaInfoB")}
       </div>
       <div>
         <div class="dt">Team context · ${IS_LIVE ? "this season" : "season sample"}</div>
