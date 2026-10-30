@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<script>try{if(sessionStorage.getItem("swish.silent"))document.documentElement.classList.add("noanim")}catch(e){}try{var d=localStorage.getItem("swish.pref.dark");if(d==="1"||(d===null&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script>
+<script>setTimeout(function(){document.documentElement.classList.add("ready")},3000);try{if(sessionStorage.getItem("swish.silent"))document.documentElement.classList.add("noanim")}catch(e){}try{var d=localStorage.getItem("swish.pref.dark");if(d==="1"||(d===null&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script>
 <title>swish · NBA Prop Analytics</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -61,6 +61,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .top{display:flex;align-items:center;gap:14px;padding:15px 40px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:20}
 .crumb{font-weight:600}
 .crumb span{color:var(--faint);font-weight:500;margin:0 6px}
+[hidden]{display:none!important}
+/* the page stays invisible until it has been built from the data — no placeholders, empty pills or sample text ever
+   flash up while it loads (a safety timer shows it anyway after 3 s if something goes wrong) */
+html:not(.ready) .app{visibility:hidden}
 .sample-pill{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber-line);padding:5px 10px;border-radius:99px}
 .sample-pill i{width:6px;height:6px;border-radius:50%;background:#e08a0b}
 .sample-pill.live-pill{color:#1f8a4c;background:rgba(31,138,76,.09);border-color:rgba(31,138,76,.28)}
@@ -4434,6 +4438,7 @@ if (SILENT && Date.now() - SILENT.at < 60000){
 setInterval(tickClock, 1000);
 setInterval(() => { if (!document.hidden && !document.documentElement.classList.contains("calm")) rotateTip(); }, 6000);
 render();
+document.documentElement.classList.add("ready");   // built — show it
 if (SILENT && Date.now() - SILENT.at < 60000){
   window.scrollTo(0, SILENT.y || 0);
   if (SILENT.drawer && SILENT.drawer !== "help" && PROP_BY_ID.has(SILENT.drawer)){ openDrawer(SILENT.drawer); const dr = $("drawer"); if (dr) dr.scrollTop = SILENT.dy || 0; }
