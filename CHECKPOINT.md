@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 11:45 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 12:30 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -179,6 +179,22 @@ _Last updated: 2026-10-30 11:45 by Claude._ Paste the line in **"How to resume"*
   Parity tip: the page falls back to the sample slate when live data is >36h old, so test old snapshots with the
   browser clock set to the slate time (playwright `page.clock.install`).
   Agreed order after this: C0 → B → projection lab (with-vs-without = its first test) → A4 late re-price (ask first).
+- **30 Oct (midday) — PROJECTION LAB part 2 + model v1.5:** `lab/replay.py` replays a season night by night with
+  scripts/model.py (or `--model <file>`), using only earlier games; rosters from that night's box score; "Out" = ESPN
+  DNP with an injury-type reason; `--lineups` gives that night's starters as confirmed; pretend line = floor(last-20 avg)+.5
+  at even odds (for calibration only). ~10 s per season. Results JSON in `lab/results/`. `lab/model_v1_2.py` = frozen v1.2.
+  Findings (2025-26, 61,361 common projections; 2024-25 check 51,277):
+  - v1.3's "freed share" for new absences made minutes WORSE on both seasons (over-projects ~2 min where it fires) → removed.
+  - New-starter rule at full strength overshot (bias +2.7 → −2.6 min) → v1.5 moves a third of the way (`STARTER_PULL`).
+    Minutes miss 5.278 (v1.2) / 5.290 (v1.4) / 5.236 (v1.5); 2024-25: 5.227 / 5.262 / 5.181. Brier (pretend lines) best for v1.5.
+  - Every version over-projects minutes by ~1.2–1.4 on average (expected minutes ignore DNPs) → next lab test.
+  - SWISH's own chance is overconfident: says 75% → happens 61%; 59% → 51% (pretend lines). Matches live 60–65% bucket.
+  - "Minutes unclear" flag (v1.4) kept; it doesn't change projections.
+  Saved-picks backtest v1.5 vs v1.2: minutes 4.01→4.00, all picks unchanged 230–228, strong 8–12 → 6–9.
+  Herbert Jones 29 Oct: v1.5 moves him only ~22.5 → ~24.6 min, so he stays an under — the lab says, on average, that's right.
+  NOT visible on the website yet; user asked where to see lab results → offer a "Model lab" section on Results.
+  Next lab tests (in order): minutes over-projection (DNP-aware expected minutes), with-vs-without, usage boost,
+  confidence shrink (needs care: only the 30% model part), bench AST, back-to-backs, blowouts (ESPN lines 2025-26 only).
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
