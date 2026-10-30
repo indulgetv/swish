@@ -252,6 +252,8 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   started 20:09). Fixes pushed:** page checks stamp.json every 20 s (was 60) + on focus/pageshow; swap waits for a 1.5 s
   pause in scrolling but never more than 20 s. Save step: `git pull --rebase -X theirs` (this run's data wins a real file
   clash; plain retries can't). Backup GitHub timers stand down if data < 6 min old (was 3.5).
+  Desktop (>960px) update moment: badge text/size fixed, dot cross-fades to the spinning arrow (.ms absolute), glow +
+  sweep + time slide only; `setHTML()` rebuilds the badge only when its HTML changes (no mid-animation restarts).
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
