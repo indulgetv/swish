@@ -48,6 +48,16 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Release waiting changes
+        id: pending
+        run: |
+          git config user.name  "swish-bot"
+          git config user.email "swish-bot@users.noreply.github.com"
+          git fetch --unshallow -q origin 2>/dev/null || git fetch -q origin
+          if git fetch -q origin pending 2>/dev/null && ! git merge-base --is-ancestor origin/pending HEAD; then
+            if git merge -q --no-edit -m "Release waiting changes with this update" origin/pending; then echo "released=1" >> "$GITHUB_OUTPUT"; echo "Released waiting changes"; else git merge --abort || true; fi
+          fi
+
       - name: Choose mode
         id: mode
         run: |
@@ -78,6 +88,14 @@ jobs:
           # only the run log changed (e.g. a backup timer stood down) → nothing to save
           if git diff --cached --quiet -- . ':(exclude)data/last-run.log'; then
             echo "No data changes."
+            if [ "${{ steps.pending.outputs.released }}" = "1" ]; then
+              git reset -q -- data/last-run.log
+              for i in 1 2 3 4 5; do
+                if git pull --rebase -X theirs --autostash origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
+                git rebase --abort 2>/dev/null || true; sleep $((i * 7))
+              done
+              exit 1
+            fi
           else
             git commit -m "data: ${{ steps.mode.outputs.mode }} update $(date -u +'%Y-%m-%d %H:%M UTC')"
             # another update may have saved at the same moment: retry a few times instead of failing

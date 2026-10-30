@@ -44,9 +44,15 @@ jobs:
           while [ "$(date +%s)" -lt "$END" ]; do
             START=$(date +%s)
             git fetch -q origin "${GITHUB_REF_NAME}" && git reset -q --hard "origin/${GITHUB_REF_NAME}"   # start each round from the latest data
+            # site/model changes wait on the "pending" branch and go live inside this update (one save, one publish)
+            PENDING=0
+            if git fetch -q origin pending 2>/dev/null && ! git merge-base --is-ancestor origin/pending HEAD; then
+              if git merge -q --no-edit -m "Release waiting changes with this update" origin/pending; then PENDING=1; echo "released waiting changes"; else git merge --abort || true; fi
+            fi
             mkdir -p data
             python scripts/update.py --mode auto 2>&1 | tee data/last-run.log || true
             git add data/
+            if [ "$PENDING" = 1 ] && git diff --cached --quiet; then git push -q || echo "push failed — next round will redo it"; fi
             if ! git diff --cached --quiet; then
               git commit -q -m "data: live update $(date -u +'%Y-%m-%d %H:%M UTC')"
               if git pull -q --rebase origin "${GITHUB_REF_NAME}"; then git push -q || echo "push failed — next round will redo it"
