@@ -234,6 +234,14 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   slides up; on phones the red Injuries pill folds to an icon (`.nsc`) then reopens. Gap updates: update-data.yml cron
   `20-50/5 19 * * *` (afternoon loop ends ~19:20, evening starts 19:50; GitHub schedules can be late). 19:12 push run
   failed only at "Save" (push collisions) — data fine on later runs.
+- **30 Oct 20:05 — injury NEWS filter + confirmation (user: feed showed contract/G League notes as injuries):**
+  update.py `note_kind()` → `news`: "status" (STRONG_RE availability wording about tonight; a note naming another
+  weekday's game = not news), "injury" (INJURY_RE: surgery, torn, re-evaluated, weeks…) or null (NOT_NEWS_RE: team option,
+  contract, G League, practice, drills, progressing… or nothing relevant). Site `isNewNews` requires news ≠ null (feed,
+  NEW counters, "New tonight", red pill's last change). `confirm_injuries()`: `checks` = consecutive updates with the same
+  status (entries from before the rule count as settled), `confirmed` = note agrees (tonight's status, or long-term wording
+  for Out) OR checks ≥ 3. Unconfirmed → outline pill (`.st.unconf`, tap explains). Late re-price needs confirmed.
+  Model untouched (still uses status) → parity unaffected. 30 Oct: 28 of 95 entries hidden as not-news.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
