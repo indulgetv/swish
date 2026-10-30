@@ -219,7 +219,7 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   update.py `status_from_note()` / `apply_notes()` run after every injuries fetch: if the ESPN comment names tonight's
   weekday or "tonight", its status (first match: Out › Doubtful › Questionable › Probable/expected to play) replaces the
   status field; ESPN's kept in `espnStatus`, `statusFrom: "report"`. Both model files read the corrected status, so parity
-  is unaffected. Page shows "ESPN status still X · using the newer note" (`noteChip`). 10 corrected that night.
+  is unaffected. Page shows a small blue blip on the status pill (`injPill`, `.st.upd`; tap/hover explains). 10 corrected that night.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
