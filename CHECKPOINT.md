@@ -57,20 +57,6 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   Reminder set in the 30 Oct chat for 31 Oct 15:00 UK to run it.
 - User's instructions now: UK-based, bet365 UK; use UK odds wherever possible, US prices = backup.
 
-- **30 Oct 22:05 — warnings made quiet + clear (published to main at user's request):** flagged prop cells no longer
-  show ⚠ + amber box; a small amber dot top-left (`.cell .hold`), projection in neutral grey. Verdict "Check status" →
-  "On hold · <reason>" (`holdReason()`: injury doubt / teammate doubt / old price / new injury news / lineup due / new role /
-  few games / big gap), styled as plain amber text with a dot (not button-like). "Hide flagged" → "Hide on-hold".
-  Rules unchanged (on-hold props still never picks). Tonight: 43/344 on hold (few_games 17, min_unclear 17, status 9, big_gap 8).
-  Idea for the lab: is `big_gap` worth keeping? (does the market beat SWISH on those props?)
-
-- **30 Oct 22:20 — UK prices question:** The Odds API UK region has ~20 books incl. Sky Bet, Paddy Power, William Hill,
-  Coral, Ladbrokes, Betfair — NOT bet365 (only bet365_au, paid, AFL/NRL). Unknown whether UK books return NBA player props.
-  User approved a 1-credit test: `.github/workflows/uk-props-test.yml` (workflow_dispatch only) runs `tools/uk_props_test.py`
-  (next game not started, regions=uk, markets=player_points) → `data/uk-props-test.json`. Scheduled in-chat reminder for
-  31 Oct 15:00 UK to run it. User updated project instructions: UK-based, bet365 UK; use UK odds wherever possible, US = backup.
-  Model lab privacy: parked to 31 Oct (option: remove from site + private claude.ai page; optional private `swish-lab` repo).
-
 ## Next steps (in order)
 1. **Declutter 3PM + PRA** (user asked; remind them): remove those columns + filter chips from Props; count only PTS/REB/AST
    in "props" totals; keep computing them in the background; optional info line in the prop panel (ask). No model change.
@@ -79,7 +65,7 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 3. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
 4. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
-5. (Done 30 Oct 22:35: guide updated for Overs/Unders split + "On hold"; heading now v1.6.)
+5. Guide: add the Overs/Unders split + "On hold" wording.
 6. Why GitHub timers went silent after 20:09 on 30 Oct.
 7. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
 8. Later: STL/BLK/TOV columns; closing-line check only on a paid plan; after ~2 weeks review calibration vs market.
