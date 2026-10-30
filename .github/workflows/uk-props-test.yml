@@ -1,0 +1,28 @@
+name: UK props test (1 credit, run by hand)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ask The Odds API for UK player points (one game)
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python tools/uk_props_test.py
+      - name: Save the result
+        run: |
+          git config user.name "swish-bot"
+          git config user.email "swish-bot@users.noreply.github.com"
+          git add data/uk-props-test.json
+          git commit -m "test: UK player props check" || exit 0
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep 7; done
+          exit 1
