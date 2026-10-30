@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T02:20:35Z"
+  "writtenAt": "2026-10-30T02:25:39Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "50.6 - 4th",
+   "status": "20.6 - 4th",
    "completed": false,
-   "awayScore": "106",
-   "homeScore": "110",
+   "awayScore": "111",
+   "homeScore": "112",
    "espnLine": null
   },
   {
@@ -25,11 +25,11 @@
    "away": "SAC",
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
-   "state": "in",
-   "status": "1:27 - 4th",
-   "completed": false,
-   "awayScore": "117",
-   "homeScore": "129",
+   "state": "post",
+   "status": "Final",
+   "completed": true,
+   "awayScore": "120",
+   "homeScore": "132",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
    "state": "in",
-   "status": "7:38 - 1st",
+   "status": "4:48 - 1st",
    "completed": false,
-   "awayScore": "10",
-   "homeScore": "13",
+   "awayScore": "15",
+   "homeScore": "20",
    "espnLine": null
   }
  ],
@@ -182,7 +182,7 @@
    "name": "Pelicans",
    "displayName": "New Orleans Pelicans",
    "color": "#0a2240",
-   "record": "0-4",
+   "record": "1-4",
    "alt": "#b4975a"
   },
   "DEN": {
@@ -259,7 +259,7 @@
    "name": "Kings",
    "displayName": "Sacramento Kings",
    "color": "#5a2d81",
-   "record": "0-4",
+   "record": "0-5",
    "alt": "#6a7a82"
   },
   "PHX": {
@@ -84147,19 +84147,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T02:20:35Z",
+   "fetchedAt": "2026-10-30T02:25:35Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T02:20:34Z",
+   "fetchedAt": "2026-10-30T02:25:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T02:20:34Z",
+   "fetchedAt": "2026-10-30T02:25:34Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },

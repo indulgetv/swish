@@ -2831,7 +2831,13 @@
    "openOver": -111,
    "openUnder": -115,
    "firstSaved": "2026-10-29T21:00:26Z",
-   "locked": true
+   "locked": true,
+   "actual": 22,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-10-30T02:25:35Z",
+   "profit": -10.0
   },
   "401909894|Jeremiah Fears|REB": {
    "game": "401909894",
@@ -2884,7 +2890,13 @@
    "openOver": -158,
    "openUnder": 119,
    "firstSaved": "2026-10-29T21:00:26Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-10-30T02:25:35Z",
+   "profit": 8.4
   },
   "401909894|Jeremiah Fears|AST": {
    "game": "401909894",
@@ -2937,7 +2949,13 @@
    "openOver": -139,
    "openUnder": 107,
    "firstSaved": "2026-10-29T21:00:26Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-10-30T02:25:35Z",
+   "profit": -10.0
   },
   "401909894|DeAndre Jordan|REB": {
    "game": "401909894",
@@ -5628,5 +5646,5 @@
    "locked": true
   }
  },
- "updated": "2026-10-30T02:20:35Z"
+ "updated": "2026-10-30T02:25:35Z"
 }
