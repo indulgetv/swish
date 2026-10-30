@@ -2246,9 +2246,12 @@ const H2H_MAX_WEIGHT = 0.25;  // head-to-head blend, at most 25%…
 const H2H_K = 4;              // …shrunk for small samples: 25% × n/(n+4)
 const MIN_MINUTES_FOR_PROPS = 14;
 const PROJ_ERR = 0.12;        // live projections carry about ±12% error of their own
+const SD_SCALE = 1.15;         // v1.6: widen every spread 15% (lab, 2 seasons: SWISH's own chances were overconfident)
+const HIGH_MIN_TRIM = 0.1;     // v1.6: expected minutes above 28 trimmed by 10% of the excess
+const HIGH_MIN_FROM = 28;
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.5 (2026-10-30)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.6 (2026-10-30)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
 const MAX_MIN = 40;           // nobody is projected above this many minutes
@@ -2533,15 +2536,17 @@ function stdev(a){ if (a.length < 2) return 0; const m = avg(a); return Math.sqr
 /* per-minute rate over a set of games (null if no minutes) */
 function rateOf(games, m){ const mins = games.reduce((s,g) => s + (g.min || 0), 0); return mins > 0 ? games.reduce((s,g) => s + g[m], 0) / mins : null; }
 /* expected minutes tonight: this season's minutes (last 3 weighted with last 10) take over from last season after ~5 games */
+/* v1.6: big-minute players play a little less than their recent average (rest, blowouts, foul trouble) */
+const trimMinutes = m => m - HIGH_MIN_TRIM * Math.max(0, m - HIGH_MIN_FROM);
 function minutesModel(cur, last){
   const mn = a => avg(a.map(g => g.min || 0));
   const baseMin = mn([...cur, ...last].slice(0, 10));
   const lastMin = last.length ? mn(last.slice(0, 20)) : null;
-  if (!cur.length) return {expMin: baseMin, curMin: null, lastMin, delta: 0};
+  if (!cur.length) return {expMin: trimMinutes(baseMin), curMin: null, lastMin, delta: 0};
   const curMin = 0.5 * mn(cur.slice(0, 3)) + 0.5 * mn(cur.slice(0, 10));
   const w = Math.min(1, cur.length / 5);
   const prior = last.length ? mn(last.slice(0, 10)) : curMin;
-  return {expMin: w * curMin + (1 - w) * prior, curMin, lastMin, delta: lastMin !== null ? curMin - lastMin : 0};
+  return {expMin: trimMinutes(w * curMin + (1 - w) * prior), curMin, lastMin, delta: lastMin !== null ? curMin - lastMin : 0};
 }
 const posGroup = pos => { const u = String(pos || "").toUpperCase(); return u.startsWith("C") ? "C" : u.includes("G") ? "G" : u.includes("F") ? "F" : u; };
 /* v1.5 minutes shifts (same rules as scripts/model.py; tested in the projection lab on two seasons):
@@ -2665,7 +2670,7 @@ function buildLiveProp(pl, market, myLines){
   const role = pl.minBoost ? {...pl.boost, applied: true, value: projection - projection0} : null;
   const sdGame = Math.max(SD_FLOOR[market], 0.5 * stdev(recent.slice(0, 20)) + 0.5 * CV[market] * projection);
   // total spread = game-to-game swings + the projection's own error (it's an estimate, not a known average)
-  const sd = Math.sqrt(sdGame ** 2 + (PROJ_ERR * projection) ** 2);
+  const sd = SD_SCALE * Math.sqrt(sdGame ** 2 + (PROJ_ERR * projection) ** 2);   // v1.6: ×1.15 (lab: chances were overconfident)
   const p = {id: hashStr(pl.name + market) % 1e9, player: pl.name, team: pl.team, opp: pl.opp, game: pl.g.id, pos: pl.pos, market,
              base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection0 - base, role, projection, sd, last10,
              minutes: pl.projMin, seasonMin: pl.min, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length,

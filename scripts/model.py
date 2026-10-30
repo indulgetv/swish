@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.5 (2026-10-30)"
+MODEL_VERSION = "v1.6 (2026-10-30)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -23,6 +23,9 @@ H2H_MAX_WEIGHT = 0.25
 H2H_K = 4
 MIN_MINUTES_FOR_PROPS = 14
 PROJ_ERR = 0.12
+SD_SCALE = 1.15            # v1.6: widen every spread 15% — lab (2 seasons) showed SWISH's own chances were overconfident
+HIGH_MIN_TRIM = 0.1        # v1.6: expected minutes above 28 are trimmed by 10% of the excess (lab: big-minute players
+HIGH_MIN_FROM = 28         #        averaged 1.1–1.5 fewer minutes than projected)
 BIG_GAP_SD = 0.9
 BIG_GAP_REL = 0.4
 MODEL_WEIGHT = 0.3
@@ -99,17 +102,22 @@ def rate(games, m):
     return sum(g[m] for g in games) / mins if mins > 0 else None
 
 
+def trim_minutes(m):
+    """v1.6: big-minute players play a little less than their recent average (rest, blowouts, foul trouble)."""
+    return m - HIGH_MIN_TRIM * max(0.0, m - HIGH_MIN_FROM)
+
+
 def minutes_model(cur, last):
     """expected minutes tonight + this season's minutes vs last season's (role change)"""
     r10 = (cur + last)[:10]
     base_min = avg([g.get("min") or 0 for g in r10])
     last_min = avg([g.get("min") or 0 for g in last[:20]]) if last else None
     if not cur:
-        return base_min, None, last_min, 0.0
+        return trim_minutes(base_min), None, last_min, 0.0
     cur_min = 0.5 * avg([g.get("min") or 0 for g in cur[:3]]) + 0.5 * avg([g.get("min") or 0 for g in cur[:10]])
     w = min(1, len(cur) / 5)
     prior = avg([g.get("min") or 0 for g in last[:10]]) if last else cur_min
-    exp_min = w * cur_min + (1 - w) * prior
+    exp_min = trim_minutes(w * cur_min + (1 - w) * prior)
     delta = cur_min - last_min if last_min is not None else 0.0
     return exp_min, cur_min, last_min, delta
 
@@ -337,7 +345,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
             projection0 = base * (1 - w) + h2h_avg * w
             projection = projection0 * exp_min / exp0 if exp0 > 0 else projection0   # teammate out → more minutes
             sd_game = max(SD_FLOOR[market], 0.5 * stdev(recent_v[:20]) + 0.5 * CV[market] * projection)
-            sd = math.sqrt(sd_game ** 2 + (PROJ_ERR * projection) ** 2)
+            sd = SD_SCALE * math.sqrt(sd_game ** 2 + (PROJ_ERR * projection) ** 2)   # v1.6: ×1.15 (lab: chances were overconfident)
 
             # ---- pricing
             raw_o, raw_u = american_to_prob(over_am), american_to_prob(under_am)
