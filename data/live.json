@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:40:35Z"
+  "writtenAt": "2026-10-30T00:45:17Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "10:18 - 2nd",
+   "status": "9:10 - 2nd",
    "completed": false,
    "awayScore": "31",
-   "homeScore": "16",
+   "homeScore": "19",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "End of 1st",
+   "status": "10:14 - 2nd",
    "completed": false,
-   "awayScore": "30",
-   "homeScore": "24",
+   "awayScore": "32",
+   "homeScore": "32",
    "espnLine": null
   },
   {
@@ -1367,12 +1367,12 @@
    "team": "POR",
    "player": "Robert Williams III",
    "pos": "C",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
+   "status": "Out",
+   "rawStatus": "Out",
    "detail": "Left Knee",
-   "comment": "Williams (knee) is doubtful for Thursday's game against Memphis due to left knee injury management, according to the Trail Blazers.",
-   "updated": "2026-10-29T18:57Z",
-   "returnDate": "2026-10-29"
+   "comment": "Williams (knee) has been ruled out for Thursday's game against Memphis, Casey Holdahl of the Trail Blazers' official site reports.",
+   "updated": "2026-10-30T00:32Z",
+   "returnDate": "2026-10-31"
   },
   {
    "team": "POR",
@@ -84151,19 +84151,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:40:35Z",
+   "fetchedAt": "2026-10-30T00:45:17Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:40:34Z",
+   "fetchedAt": "2026-10-30T00:45:16Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:40:35Z",
+   "fetchedAt": "2026-10-30T00:45:16Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84337,7 +84337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:40:35Z"
+    "fetchedAt": "2026-10-30T00:45:16Z"
    },
    "home": {
     "starters": [
@@ -84364,7 +84364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:40:35Z"
+    "fetchedAt": "2026-10-30T00:45:16Z"
    }
   }
  },

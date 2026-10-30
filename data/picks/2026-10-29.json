@@ -1856,14 +1856,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Only 4 games of data"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 15.5,
    "openOver": -118,
@@ -1908,14 +1910,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Only 4 games of data"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": 103,
@@ -1960,14 +1964,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Only 4 games of data"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -155,
@@ -2010,12 +2016,16 @@
    "edge": 0.05624,
    "ev": 0.05163,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -103,
@@ -2058,12 +2068,16 @@
    "edge": 0.0228,
    "ev": -0.02733,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -143,
@@ -2106,12 +2120,16 @@
    "edge": 0.00791,
    "ev": -0.05061,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": -101,
@@ -2154,12 +2172,16 @@
    "edge": 0.05718,
    "ev": 0.05271,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -102,
@@ -2202,12 +2224,16 @@
    "edge": 0.04763,
    "ev": 0.0284,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -117,
@@ -2250,12 +2276,16 @@
    "edge": 0.04649,
    "ev": 0.03326,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -101,
@@ -2298,12 +2328,16 @@
    "edge": 0.01225,
    "ev": -0.03434,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": 120,
@@ -2346,12 +2380,16 @@
    "edge": 0.03707,
    "ev": 0.00719,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 24.5,
    "openOver": -103,
@@ -2394,12 +2432,16 @@
    "edge": 0.00454,
    "ev": -0.05549,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": 114,
@@ -2442,12 +2484,16 @@
    "edge": 0.0351,
    "ev": -0.00247,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -130,
@@ -2489,13 +2535,17 @@
    "price": 103,
    "edge": 0.06428,
    "ev": 0.07248,
-   "value": true,
-   "verdict": "strong",
-   "flags": [],
-   "flagText": [],
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": 103,
@@ -2538,12 +2588,16 @@
    "edge": 0.01054,
    "ev": -0.04107,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -120,
@@ -2586,12 +2640,16 @@
    "edge": 0.04273,
    "ev": 0.01547,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -109,
@@ -2633,13 +2691,17 @@
    "price": -127,
    "edge": 0.07252,
    "ev": 0.07127,
-   "value": true,
-   "verdict": "strong",
-   "flags": [],
-   "flagText": [],
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -107,
@@ -2684,14 +2746,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "big_gap"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Line far from projection — possible role/minutes news"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": -160,
@@ -3480,12 +3544,16 @@
    "edge": 0.01513,
    "ev": -0.03116,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -121,
@@ -3528,12 +3596,16 @@
    "edge": 0.01781,
    "ev": -0.02413,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -145,
@@ -3576,12 +3648,16 @@
    "edge": 0.03989,
    "ev": 0.01856,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -101,
@@ -3624,12 +3700,16 @@
    "edge": 0.01909,
    "ev": -0.02584,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": 101,
@@ -3672,12 +3752,16 @@
    "edge": 0.00943,
    "ev": -0.03944,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 121,
@@ -3720,12 +3804,16 @@
    "edge": 0.03371,
    "ev": 0.00526,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -124,
@@ -3768,12 +3856,16 @@
    "edge": 0.03697,
    "ev": 0.01244,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -138,
@@ -3816,12 +3908,16 @@
    "edge": 0.05279,
    "ev": 0.03156,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -130,
@@ -3863,13 +3959,17 @@
    "price": -111,
    "edge": 0.07786,
    "ev": 0.09248,
-   "value": true,
-   "verdict": "strong",
-   "flags": [],
-   "flagText": [],
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -117,
@@ -3912,12 +4012,16 @@
    "edge": 0.02913,
    "ev": -0.0073,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -118,
@@ -3962,14 +4066,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "big_gap"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Line far from projection — possible role/minutes news"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -139,
@@ -4014,14 +4120,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Only 3 games of data"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 20.5,
    "openOver": -117,
@@ -4066,14 +4174,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Only 3 games of data"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -139,
@@ -4118,14 +4228,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "flagText": [
+    "Injury news after the line: Robert Williams III out",
     "Only 3 games of data"
    ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 119,
@@ -4168,12 +4280,16 @@
    "edge": 0.00331,
    "ev": -0.05202,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 18.5,
    "openOver": -107,
@@ -4216,12 +4332,16 @@
    "edge": 0.04146,
    "ev": 0.00701,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": 112,
@@ -4264,12 +4384,16 @@
    "edge": 0.04217,
    "ev": 0.00789,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Robert Williams III out"
+   ],
    "modelVersion": "v1.2 (2026-10-29)",
    "modelWeight": 0.3,
-   "savedAt": "2026-10-30T00:40:35Z",
+   "savedAt": "2026-10-30T00:45:17Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -145,
@@ -5469,5 +5593,5 @@
    "locked": true
   }
  },
- "updated": "2026-10-30T00:40:35Z"
+ "updated": "2026-10-30T00:45:17Z"
 }
