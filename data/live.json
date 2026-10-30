@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T02:10:35Z"
+  "writtenAt": "2026-10-30T02:15:35Z"
  },
  "games": [
   {
@@ -14,9 +14,9 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "4:34 - 4th",
+   "status": "2:51 - 4th",
    "completed": false,
-   "awayScore": "96",
+   "awayScore": "99",
    "homeScore": "106",
    "espnLine": null
   },
@@ -26,10 +26,10 @@
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "4:44 - 4th",
+   "status": "3:44 - 4th",
    "completed": false,
-   "awayScore": "106",
-   "homeScore": "123",
+   "awayScore": "110",
+   "homeScore": "125",
    "espnLine": null
   },
   {
@@ -37,16 +37,12 @@
    "away": "MEM",
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
-   "state": "pre",
-   "status": "10/29 - 10:00 PM EDT",
+   "state": "in",
+   "status": "9:14 - 1st",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "POR -7.5",
-    "overUnder": 232.5,
-    "provider": "Draft Kings"
-   }
+   "awayScore": "4",
+   "homeScore": "7",
+   "espnLine": null
   }
  ],
  "teams": {
@@ -84151,22 +84147,21 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T02:10:35Z",
+   "fetchedAt": "2026-10-30T02:15:35Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T02:10:34Z",
+   "fetchedAt": "2026-10-30T02:15:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T02:10:34Z",
+   "fetchedAt": "2026-10-30T02:15:35Z",
    "ok": true,
-   "nba": "ok: 2 team lineups posted",
-   "espn": "0 team starting fives from box scores"
+   "espn": "2 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
@@ -84315,56 +84310,46 @@
    "away": {
     "starters": [
      {
-      "name": "Cedric Coward",
-      "pos": "SG"
+      "name": "Cedric Coward"
      },
      {
-      "name": "Jaylen Wells",
-      "pos": "SF"
+      "name": "Cameron Boozer"
      },
      {
-      "name": "Ty Jerome",
-      "pos": "PG"
+      "name": "Jaylen Wells"
      },
      {
-      "name": "Cameron Boozer",
-      "pos": "PF"
+      "name": "Zach Edey"
      },
      {
-      "name": "Zach Edey",
-      "pos": "C"
+      "name": "Ty Jerome"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-30T02:10:34Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-30T02:15:35Z"
    },
    "home": {
     "starters": [
      {
-      "name": "Damian Lillard",
-      "pos": "SG"
+      "name": "Toumani Camara"
      },
      {
-      "name": "Deni Avdija",
-      "pos": "SF"
+      "name": "Deni Avdija"
      },
      {
-      "name": "Ja Morant",
-      "pos": "PG"
+      "name": "Donovan Clingan"
      },
      {
-      "name": "Toumani Camara",
-      "pos": "PF"
+      "name": "Damian Lillard"
      },
      {
-      "name": "Donovan Clingan",
-      "pos": "C"
+      "name": "Ja Morant"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-30T02:10:34Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-30T02:15:35Z"
    }
   }
  },
