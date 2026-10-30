@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T05:37:28Z"
+  "writtenAt": "2026-10-30T05:40:44Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "WSH -1.5",
     "overUnder": 220.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -37,7 +37,7 @@
    "espnLine": {
     "details": "BOS -15.5",
     "overUnder": 235.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -53,7 +53,7 @@
    "espnLine": {
     "details": "DET -7.5",
     "overUnder": 221.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -69,7 +69,7 @@
    "espnLine": {
     "details": "NY -1.5",
     "overUnder": 228.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -85,7 +85,7 @@
    "espnLine": {
     "details": "TOR -5.5",
     "overUnder": 225.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -101,7 +101,7 @@
    "espnLine": {
     "details": "MIA -7.5",
     "overUnder": 236.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -117,7 +117,7 @@
    "espnLine": {
     "details": "HOU -5.5",
     "overUnder": 226.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -133,7 +133,7 @@
    "espnLine": {
     "details": "MIN -7.5",
     "overUnder": 222.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -149,7 +149,7 @@
    "espnLine": {
     "details": "LAL -1.5",
     "overUnder": 234.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -165,7 +165,7 @@
    "espnLine": {
     "details": "DEN -4.5",
     "overUnder": 231.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   }
  ],
@@ -80333,19 +80333,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T05:37:27Z",
+   "fetchedAt": "2026-10-30T05:40:44Z",
    "ok": true,
    "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T05:37:27Z",
+   "fetchedAt": "2026-10-30T05:40:43Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T05:37:27Z",
+   "fetchedAt": "2026-10-30T05:40:43Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
