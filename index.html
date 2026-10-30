@@ -2099,6 +2099,15 @@ html:not(.dark) .tag.red{background:#fde2e4;border:1px solid #f4bcc1;color:#b312
 html:not(.dark) button.tag.red:hover{background:#fbd3d7}
 /* once a game has started, its squad's starter chips go still (the header now holds a LIVE/FINAL score tag) */
 .gsec:has(.gsec-h .tag.score) .lu-chip,.lu-chip.started{animation:none!important;background-image:none!important}
+/* sidebar at halftime: the flashing dot becomes amber pause bars that breathe slowly; score dims and gets an HT tag */
+.sg .t.ht{color:var(--ink2)!important;display:inline-flex;align-items:center;gap:5px}
+.sg .t.ht .htp{display:inline-flex;gap:2px;align-items:center}
+.sg .t.ht .htp b{display:block;width:2.5px;height:9px;border-radius:2px;background:var(--amber);animation:htBreathe 3.2s ease-in-out infinite}
+.sg .t.ht .htp b + b{animation-delay:.25s}
+.sg .t.ht .htl{font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.06em;color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:4px;padding:0 4px;line-height:13px}
+@keyframes htBreathe{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.35;transform:scaleY(.6)}}
+html.calm .sg .t.ht .htp b{animation:none}
+@media (prefers-reduced-motion:reduce){.sg .t.ht .htp b{animation:none}}
 </style>
 </head>
 <body>
@@ -2671,7 +2680,8 @@ const SLOT = {
   // Games & Analysis: info badges sit in the header before tip-off, then move into the head-to-head card
   anaInfo: g => g.state && g.state !== "pre" ? "" : anaBadges(g),
   anaInfoB: g => g.state && g.state !== "pre" ? `<div class="ana-info"><div class="dt">Tonight's game</div><div class="ana-info-t">${anaBadges(g)}</div></div>` : "",
-  side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state === "in" ? `<i class="ldot" aria-hidden="true"></i>` : ""}${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
+  side: g => { const ht = g.state === "in" && /half/i.test(g.clock || "");
+    return `<span class="t num ${g.state === "in" ? "live" : ""} ${ht ? "ht" : ""}" ${ht ? 'title="Halftime"' : ""}>${ht ? `<i class="htp" aria-hidden="true"><b></b><b></b></i><em class="htl">HT</em>` : g.state === "in" ? `<i class="ldot" aria-hidden="true"></i>` : ""}${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`; },
 };
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
 /* live scores straight from ESPN in the browser: every 30 s from 10 min before a tip-off until the game is final */
