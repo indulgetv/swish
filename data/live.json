@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:10:35Z"
+  "writtenAt": "2026-10-30T00:15:35Z"
  },
  "games": [
   {
@@ -13,32 +13,24 @@
    "away": "CLE",
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
-   "state": "pre",
-   "status": "10/29 - 8:00 PM EDT",
+   "state": "in",
+   "status": "9:28 - 1st",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "ATL -1.5",
-    "overUnder": 237.5,
-    "provider": "Draft Kings"
-   }
+   "awayScore": "6",
+   "homeScore": "5",
+   "espnLine": null
   },
   {
    "id": "401909894",
    "away": "SAC",
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
-   "state": "pre",
-   "status": "10/29 - 8:00 PM EDT",
+   "state": "in",
+   "status": "9:06 - 1st",
    "completed": false,
-   "awayScore": "0",
-   "homeScore": "0",
-   "espnLine": {
-    "details": "NO -6.5",
-    "overUnder": 234.5,
-    "provider": "Draft Kings"
-   }
+   "awayScore": "5",
+   "homeScore": "5",
+   "espnLine": null
   },
   {
    "id": "401909895",
@@ -84159,22 +84151,22 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:10:35Z",
+   "fetchedAt": "2026-10-30T00:15:35Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:10:34Z",
+   "fetchedAt": "2026-10-30T00:15:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:10:34Z",
+   "fetchedAt": "2026-10-30T00:15:35Z",
    "ok": true,
    "nba": "ok: 6 team lineups posted",
-   "espn": "0 team starting fives from box scores"
+   "espn": "4 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
@@ -84231,112 +84223,92 @@
    "away": {
     "starters": [
      {
-      "name": "Donovan Mitchell",
-      "pos": "SG"
+      "name": "Jarrett Allen"
      },
      {
-      "name": "Peyton Watson",
-      "pos": "SF"
+      "name": "Evan Mobley"
      },
      {
-      "name": "James Harden",
-      "pos": "PG"
+      "name": "James Harden"
      },
      {
-      "name": "Evan Mobley",
-      "pos": "PF"
+      "name": "Donovan Mitchell"
      },
      {
-      "name": "Jarrett Allen",
-      "pos": "C"
+      "name": "Peyton Watson"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:10:34Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-30T00:15:35Z"
    },
    "home": {
     "starters": [
      {
-      "name": "Nickeil Alexander-Walker",
-      "pos": "SG"
+      "name": "Onyeka Okongwu"
      },
      {
-      "name": "Dyson Daniels",
-      "pos": "SF"
+      "name": "Jalen Johnson"
      },
      {
-      "name": "CJ McCollum",
-      "pos": "PG"
+      "name": "CJ McCollum"
      },
      {
-      "name": "Jalen Johnson",
-      "pos": "PF"
+      "name": "Nickeil Alexander-Walker"
      },
      {
-      "name": "Onyeka Okongwu",
-      "pos": "C"
+      "name": "Dyson Daniels"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:10:34Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-30T00:15:35Z"
    }
   },
   "401909894": {
    "away": {
     "starters": [
      {
-      "name": "Zach LaVine",
-      "pos": "SG"
+      "name": "Domantas Sabonis"
      },
      {
-      "name": "De'Andre Hunter",
-      "pos": "SF"
+      "name": "De'Andre Hunter"
      },
      {
-      "name": "Darius Acuff Jr.",
-      "pos": "PG"
+      "name": "Precious Achiuwa"
      },
      {
-      "name": "Precious Achiuwa",
-      "pos": "PF"
+      "name": "Zach LaVine"
      },
      {
-      "name": "Domantas Sabonis",
-      "pos": "C"
+      "name": "Darius Acuff Jr."
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:10:34Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-30T00:15:35Z"
    },
    "home": {
     "starters": [
      {
-      "name": "Herbert Jones",
-      "pos": "SG"
+      "name": "Herbert Jones"
      },
      {
-      "name": "Trey Murphy III",
-      "pos": "SF"
+      "name": "Zion Williamson"
      },
      {
-      "name": "Jeremiah Fears",
-      "pos": "PG"
+      "name": "Trey Murphy III"
      },
      {
-      "name": "Zion Williamson",
-      "pos": "PF"
+      "name": "Karlo Matkovic"
      },
      {
-      "name": "Karlo Matković",
-      "pos": "C"
+      "name": "Jeremiah Fears"
      }
     ],
-    "status": "confirmed",
-    "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:10:34Z"
+    "status": "started",
+    "source": "ESPN box score",
+    "fetchedAt": "2026-10-30T00:15:35Z"
    }
   },
   "401909895": {
@@ -84365,7 +84337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:10:34Z"
+    "fetchedAt": "2026-10-30T00:15:34Z"
    },
    "home": {
     "starters": [
@@ -84392,7 +84364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:10:34Z"
+    "fetchedAt": "2026-10-30T00:15:34Z"
    }
   }
  },
