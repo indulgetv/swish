@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T04:25:44Z"
+  "writtenAt": "2026-10-30T04:30:45Z"
  },
  "games": [
   {
@@ -1522,24 +1522,24 @@
   },
   {
    "team": "POR",
+   "player": "Robert Williams III",
+   "pos": "C",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Knee",
+   "comment": "Williams (knee) has been ruled out for Thursday's game against Memphis, Casey Holdahl of the Trail Blazers' official site reports.",
+   "updated": "2026-10-30T04:23Z",
+   "returnDate": "2026-10-31"
+  },
+  {
+   "team": "POR",
    "player": "Ja Morant",
    "pos": "G",
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Left Hamstring Not Specified",
-   "comment": "Morant accumulated 23 points (9-13 FG, 1-1 3Pt, 4-4 FT) and four assists over 31 minutes during Tuesday's 136-129 win over the Lakers.",
-   "updated": "2026-10-30T04:14Z",
-   "returnDate": "2026-10-31"
-  },
-  {
-   "team": "POR",
-   "player": "Robert Williams III",
-   "pos": "C",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Knee",
-   "comment": "Williams (knee) has been ruled out for Thursday's game against Memphis, Casey Holdahl of the Trail Blazers' official site reports.",
-   "updated": "2026-10-30T00:32Z",
+   "comment": "Morant won't return to Thursday's game against the Grizzlies due to a left hamstring injury. He'll end with 14 points (6-14 FG, 2-5 3Pt), two rebounds and three assists in 23 minutes.",
+   "updated": "2026-10-30T04:17Z",
    "returnDate": "2026-10-31"
   },
   {
@@ -80333,19 +80333,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T04:25:44Z",
+   "fetchedAt": "2026-10-30T04:30:44Z",
    "ok": true,
    "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T04:25:42Z",
+   "fetchedAt": "2026-10-30T04:30:43Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T04:25:43Z",
+   "fetchedAt": "2026-10-30T04:30:44Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
