@@ -2296,7 +2296,7 @@ const store = {
   get(k, d){ try { const v = localStorage.getItem("swish." + k); return v === null ? d : v; } catch(e){ return d; } },
   set(k, v){ try { localStorage.setItem("swish." + k, v); } catch(e){} }
 };
-const LIVE = window.SWISH_LIVE || null;
+let LIVE = window.SWISH_LIVE || null;          // replaced in place when newer data arrives (refreshInPlace)
 const ET_TODAY = new Date().toLocaleDateString("en-CA", {timeZone: "America/New_York"});
 const LIVE_AGE_H = LIVE && LIVE.meta && LIVE.meta.writtenAt ? (Date.now() - new Date(LIVE.meta.writtenAt)) / 3.6e6 : Infinity;
 const IS_LIVE = !!(LIVE && Array.isArray(LIVE.games) && LIVE.games.length && LIVE_AGE_H < 36);
@@ -2332,7 +2332,8 @@ const parsePrice = (txt, fmt) => {           // accepts decimal (1.91), American
   return v > 1.01 && v < 100 ? toAmerican(v) : null;
 };
 
-if (IS_LIVE){
+/* live file → DATA (teams, standings, games, injuries). Re-run by refreshInPlace() when newer data arrives. */
+function applyLive(){
   /* teams: every team ESPN gave us (all 30 via standings) */
   const T = {};
   Object.entries(LIVE.teams || {}).forEach(([ab, t]) => { T[ab] = {city: t.city || "", name: t.name || ab, color: t.color && t.color.length > 3 ? t.color : "#777", alt: t.alt && t.alt.length > 3 ? t.alt : null, record: t.record, displayName: t.displayName}; });
@@ -2382,13 +2383,16 @@ if (IS_LIVE){
   });
   DATA.liveTeamRow = stRow;
 }
+if (IS_LIVE) applyLive();
 
 /* =================================================================
    4. BUILD PLAYERS + PROPS
    ================================================================= */
 const injuryOf = name => DATA.injuries.find(i => i.player === name);
 const statusOf = name => (injuryOf(name) || {}).status || "Active";
-const GAME_OF_TEAM = {}; DATA.games.forEach(g => { GAME_OF_TEAM[g.away] = {g, opp:g.home}; GAME_OF_TEAM[g.home] = {g, opp:g.away}; });
+const GAME_OF_TEAM = {};
+function indexGames(){ Object.keys(GAME_OF_TEAM).forEach(k => delete GAME_OF_TEAM[k]); DATA.games.forEach(g => { GAME_OF_TEAM[g.away] = {g, opp:g.home}; GAME_OF_TEAM[g.home] = {g, opp:g.away}; }); }
+indexGames();
 
 const PLAYERS = [];
 const LOG_DATES = ["2026-10-27","2026-10-25","2026-10-23","2026-10-21","2026-04-12","2026-04-10","2026-04-08","2026-04-06","2026-04-04","2026-04-02"];
@@ -2926,7 +2930,7 @@ const COURT = `<svg class="court" viewBox="0 0 420 220" aria-hidden="true"><g fi
   <path d="M40 0v70a170 170 0 0 0 340 0V0"/><circle cx="210" cy="28" r="10"/><path d="M185 14h50"/><path d="M0 218h420"/><circle cx="210" cy="218" r="48"/></g></svg>`;
 /* ---- Plain-English helpers ---- */
 const inTen = p => Math.round(p * 10);
-const pts = x => (x >= 0.0005 ? "+" : x <= -0.0005 ? "−" : "±") + Math.abs(x*100).toFixed(1) + " pts";
+const pts = x => (x >= 0.0005 ? "+" : x <= -0.0005 ? "−" : "±") + Math.abs(x*100).toFixed(1) + "%";
 const money = x => (x >= 0 ? "+" : "−") + "£" + Math.abs(x).toFixed(2);
 function verdict(p){
   if (p.flags.length) return {k:"check", label:"Check status", meaning:"Ignore until the injury or data issue is resolved"};
@@ -2943,7 +2947,7 @@ function plainEnglish(p){
   let t = `SWISH projects ${esc(first)} for <b>${p.projection.toFixed(1)} ${mk}</b> against a line of ${p.line}, so it leans <b>${p.side}</b>. `
         + `It thinks ${p.side} ${p.line} happens about <b>${inTen(p.modelP)} times in 10</b> (${pct(p.modelP,0)}). `
         + `The bookmaker's price suggests ${pct(p.mktP,0)} — about ${inTen(p.mktP)} in 10. `
-        + `The difference, <b>${pts(p.edge)}</b>, is the edge: ${v.k === "strong" ? "big enough to count as value." : v.k === "some" ? "positive, but not big enough to count as strong value." : "small, so don't read much into it."} `
+        + `The difference between the two chances, <b>${pts(p.edge)}</b>, is the edge: ${v.k === "strong" ? "big enough to count as value." : v.k === "some" ? "positive, but not big enough to count as strong value." : "small, so don't read much into it."} `
         + `Remember: even at ${pct(p.modelP,0)} this loses roughly ${10 - inTen(p.modelP)} times in 10.`;
   if (p.source === "ref") t += ` <b>Note:</b> this is the US market price (average of ${esc(bookName(p.book))}). UK bookmakers usually post a similar line, but check yours matches before betting — if the line or price is worse, the edge shrinks.`;
   if (p.flags.length) t += ` <b>Treat with caution</b> — ${esc(lc1(p.flags[0]))}.`;
@@ -4173,18 +4177,48 @@ $("homeBtn").addEventListener("click", () => {
   btn.addEventListener("click", () => { window.scrollTo({top:0, behavior: document.documentElement.classList.contains("calm") ? "auto" : "smooth"}); });
   upd();
 })();
-/* fresh data: poll a tiny stamp file. When the automation writes newer data, swap it in quietly:
-   wait until you're not typing or scrolling, remember exactly where you are (page, scroll, open panel, filters,
-   latest live scores), reload without any entrance animations and put everything back. No button to press. */
+/* fresh data: poll a tiny stamp file. When the automation writes newer data, load it in the background and redraw
+   the page in place (no reload): same page, scroll, open prop panel, filters, and the latest live scores.
+   Waits until you're not typing or scrolling. Falls back to the old quiet reload only if the slate date changes
+   (a new day) or something goes wrong. */
+function loadScript(src){ return new Promise((ok, bad) => { const s = document.createElement("script"); s.src = src; s.onload = () => { s.remove(); ok(); }; s.onerror = () => { s.remove(); bad(new Error("load " + src)); }; document.head.appendChild(s); }); }
+async function refreshInPlace(){
+  const t = Date.now();
+  const before = LIVE;
+  window.SWISH_LIVE = null;
+  await loadScript("data/live.js?t=" + t);
+  const nl = window.SWISH_LIVE;
+  if (!nl || !nl.meta || !Array.isArray(nl.games) || !nl.games.length) { window.SWISH_LIVE = before; throw new Error("no data"); }
+  if (!before || !before.meta || nl.meta.slateDate !== before.meta.slateDate) throw new Error("new slate");   // a new day → full reload
+  try { await loadScript("data/results.js?t=" + t); } catch(e){}                                           // results are optional
+  // keep live scores the browser already has if they're ahead of the file
+  const rank = s => s === "post" ? 2 : s === "in" ? 1 : 0;
+  const keep = LS.ok ? DATA.games.map(g => ({id: g.id, state: g.state, a: g.awayScore, h: g.homeScore, clock: g.clock, status: g.status})) : [];
+  const y = window.scrollY, dr = $("drawer"), dy = dr ? dr.scrollTop : 0, openId = state.drawer;
+  LIVE = nl;
+  applyLive();
+  keep.forEach(x => { const g = DATA.games.find(z => z.id === x.id); if (!g) return;
+    if (rank(x.state) > rank(g.state) || (x.state === g.state && (+x.a + +x.h) > (+g.awayScore + +g.homeScore))){
+      g.state = x.state; g.awayScore = x.a; g.homeScore = x.h; g.clock = x.clock; g.status = x.status; } });
+  indexGames();
+  GAMES.length = 0; GAMES.push(...[...DATA.games].sort((a,b) => new Date(a.tipoff) - new Date(b.tipoff)));
+  PLAYERS.length = 0; PLAYERS.push(...buildLivePlayers());
+  PLAYER_BY_NAME.clear(); PLAYERS.forEach(pl => PLAYER_BY_NAME.set(pl.name, pl));
+  buildAllProps();
+  STARTERS.clear(); starterSet().forEach((v, k) => STARTERS.set(k, v));
+  document.documentElement.classList.add("noanim");
+  render();
+  window.scrollTo(0, y);
+  if (openId && openId !== "help" && PROP_BY_ID.has(openId)){ openDrawer(openId); const d2 = $("drawer"); if (d2) d2.scrollTop = dy; }
+  setTimeout(() => document.documentElement.classList.remove("noanim"), 900);
+  return nl.meta.writtenAt;
+}
 (function(){
   if (!LIVE || !LIVE.meta) return;
-  const loaded = new Date(LIVE.meta.writtenAt);
+  let loaded = new Date(LIVE.meta.writtenAt);
   let pending = false, lastTouch = 0, retry = null;
   ["scroll","touchstart","pointerdown","keydown","wheel"].forEach(ev => addEventListener(ev, () => { lastTouch = Date.now(); }, {passive:true}));
-  function swap(){
-    clearTimeout(retry);
-    const typing = /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
-    if (document.hidden || typing || Date.now() - lastTouch < 2500){ retry = setTimeout(swap, 3000); return; }
+  function reloadQuietly(){
     const dr = $("drawer");
     const snap = {y: window.scrollY, drawer: state.drawer, dy: dr ? dr.scrollTop : 0, market: state.market, q: state.q, sort: state.sort,
       onlyValue: state.onlyValue, hideFlagged: state.hideFlagged, bestTab: state.bestTab, showForm: state.showForm,
@@ -4192,6 +4226,14 @@ $("homeBtn").addEventListener("click", () => {
       scores: LS.ok ? DATA.games.map(g => ({id: g.id, state: g.state, a: g.awayScore, h: g.homeScore, clock: g.clock, status: g.status})) : null, at: Date.now()};
     try { sessionStorage.setItem("swish.silent", JSON.stringify(snap)); } catch(e){}
     location.reload();
+  }
+  async function swap(){
+    clearTimeout(retry);
+    const typing = /^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "");
+    if (document.hidden || typing || Date.now() - lastTouch < 2500){ retry = setTimeout(swap, 3000); return; }
+    if (!IS_LIVE) return reloadQuietly();
+    try { const at = await refreshInPlace(); loaded = new Date(at); pending = false; }
+    catch(e){ reloadQuietly(); }
   }
   async function check(){
     if (pending) return;
