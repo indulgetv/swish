@@ -1747,12 +1747,38 @@ html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .sample-pill .updw{display:inline-block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;font-weight:700;vertical-align:bottom;transition:max-width .55s var(--ease),opacity .35s var(--ease),margin .55s var(--ease)}
 .sample-pill.justupd .updw{max-width:90px;opacity:1;margin-right:4px}
 .sample-pill.justupd .nl{display:none}
-@media (max-width:960px){.sample-pill.justupd .num{display:none}.sample-pill.justupd .updw{margin-right:0}}   /* phones: "↻ Updated" replaces "↻ 19:22" for a moment */
-.sample-pill.justupd{box-shadow:0 0 0 3px rgba(31,138,76,.16);transition:box-shadow .4s var(--ease)}
+/* the green pill lights up brighter as "Updated" appears, a soft light sweeps across it, the new time slides up into
+   place, then everything eases back to the normal green */
+:root{--spring:cubic-bezier(.34,1.45,.55,1)}
+.sample-pill.live-pill{position:relative;overflow:hidden;isolation:isolate}
+.sample-pill.justupd{animation:updGlow 3.6s var(--ease) both}
+.sample-pill.justupd::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:45%;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:translateX(-120%) skewX(-18deg);
+  animation:updSweep 1.1s cubic-bezier(.45,0,.2,1) .25s 1 both}
+@keyframes updSweep{to{transform:translateX(260%) skewX(-18deg)}}
+.sample-pill.justupd .num{display:inline-block;animation:updTime .7s var(--spring) .15s both}
+@keyframes updTime{from{transform:translateY(9px);opacity:0;filter:blur(2px)}to{transform:none;opacity:1;filter:none}}
+.sample-pill .updw{transition:max-width .6s var(--spring),opacity .35s var(--ease),margin .6s var(--spring)!important}
+@keyframes updGlow{
+  0%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+  12%,62%{color:#fff;background:#1fa85a;border-color:#3fd07c;box-shadow:0 0 0 3px rgba(34,197,94,.22),0 0 18px rgba(34,197,94,.45)}
+  100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+/* phones: the red Injuries pill folds down to an icon while "↻ Updated 19:44" shows, then opens again */
+.newspill .nsc{display:none}
+@media (max-width:960px){
+  .newspill .nsi,.newspill .ns{max-width:160px;transition:max-width .6s var(--spring),opacity .25s var(--ease)}
+  .newspill .nsc{display:inline-flex;align-items:center;max-width:0;opacity:0;overflow:hidden;transform:scale(.5) rotate(-12deg);transition:max-width .6s var(--spring),opacity .3s var(--ease),transform .6s var(--spring)}
+  .newspill .nsc svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .newspill > i{transition:width .4s var(--ease),opacity .3s var(--ease)}
+  html.updflash .newspill .nsi,html.updflash .newspill .ns{max-width:0!important;opacity:0;overflow:hidden}
+  html.updflash .newspill .nsc{max-width:18px;opacity:1;transform:none}
+  html.updflash .newspill > i{width:0;opacity:0}
+}
 .sample-pill.justupd .ms{display:inline-block!important;width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-right:1px;animation:updSpin .9s var(--ease) 2}
 @keyframes updSpin{to{transform:rotate(360deg)}}
 html.calm .sample-pill.justupd .ms{animation:none}
-@media (prefers-reduced-motion:reduce){.sample-pill.justupd .ms{animation:none}.sample-pill .updw{transition:none}}
+html.calm .sample-pill.justupd,html.calm .sample-pill.justupd::after,html.calm .sample-pill.justupd .num{animation:none}
+@media (prefers-reduced-motion:reduce){.sample-pill.justupd .ms{animation:none}.sample-pill .updw{transition:none}.sample-pill.justupd,.sample-pill.justupd::after,.sample-pill.justupd .num{animation:none}}
 .homebtn .ib{display:none}.homebtn.back .ib{display:block}.homebtn.back .ih{display:none}
 @media (max-width:960px){
   .homebtn{display:grid;place-items:center;margin-left:auto;flex:none;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(179,18,31,.35),inset 0 1px 0 rgba(255,255,255,.25)}
@@ -3983,7 +4009,7 @@ function render(){
   const chk = injCheckedAt(), newest = [...DATA.injuries].sort(byNewest)[0];
   const fresh = newest && newsAgeH(newest) <= 1;
   np.className = "newspill" + (fresh ? " hot" : "");
-  np.innerHTML = `<i></i><span class="nl">Injury list checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · last change <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span><span class="nsi" aria-label="Injury list checked">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
+  np.innerHTML = `<i></i><span class="nsc" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2M12 10v6M9 13h6"/></svg></span><span class="nl">Injury list checked <b class="num">${chk ? timeFmt(chk) : "—"}</b>${newest && newest.updated ? ` · last change <b class="num">${timeFmt(newest.updated)}</b>` : ""}</span><span class="ns">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span><span class="nsi" aria-label="Injury list checked">Injuries <b class="num">${chk ? timeFmt(chk) : "—"}</b></span>`;
   np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Last change to a player's status: ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} changes in the last ${NEW_NEWS_H} hours.`;
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span>${slot(g, "side")}</button>`).join("");
@@ -4286,7 +4312,8 @@ let UPD_FLASH = 0;
 function flashUpdated(){
   const p = $("srcPill"); if (!p) return;
   p.classList.remove("justupd"); void p.offsetWidth; p.classList.add("justupd");
-  clearTimeout(flashUpdated.t); flashUpdated.t = setTimeout(() => { p.classList.remove("justupd"); UPD_FLASH = 0; }, 3600);
+  document.documentElement.classList.add("updflash");
+  clearTimeout(flashUpdated.t); flashUpdated.t = setTimeout(() => { p.classList.remove("justupd"); document.documentElement.classList.remove("updflash"); UPD_FLASH = 0; }, 3600);
 }
 function loadScript(src){ return new Promise((ok, bad) => { const s = document.createElement("script"); s.src = src; s.onload = () => { s.remove(); ok(); }; s.onerror = () => { s.remove(); bad(new Error("load " + src)); }; document.head.appendChild(s); }); }
 async function refreshInPlace(){
