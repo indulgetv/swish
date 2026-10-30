@@ -2097,6 +2097,8 @@ html.calm .tag.score.live::before{animation:none}
 /* light mode: injury tags keep a clear red tab (they faded into the pink game headers) */
 html:not(.dark) .tag.red{background:#fde2e4;border:1px solid #f4bcc1;color:#b3121f}
 html:not(.dark) button.tag.red:hover{background:#fbd3d7}
+/* once a game has started, its squad's starter chips go still (the header now holds a LIVE/FINAL score tag) */
+.gsec:has(.gsec-h .tag.score) .lu-chip,.lu-chip.started{animation:none!important;background-image:none!important}
 </style>
 </head>
 <body>
