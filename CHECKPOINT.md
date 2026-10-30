@@ -215,6 +215,11 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   lab page. User wants "who replaces him" from real info, not guesses: best free signals = NBA.com confirmed lineups (used)
   + ESPN injury comments (they quote beat reporters). X/Twitter API and RotoWire-type feeds are paid → not used (free rule).
   Possible next: show the ESPN injury/news text inside the prop panel; ESPN news API (free) feed on the Injuries page.
+- **30 Oct 19:15 — injury note beats status (user spotted Cameron Johnson "OUT" while the note said "expected to play"):**
+  update.py `status_from_note()` / `apply_notes()` run after every injuries fetch: if the ESPN comment names tonight's
+  weekday or "tonight", its status (first match: Out › Doubtful › Questionable › Probable/expected to play) replaces the
+  status field; ESPN's kept in `espnStatus`, `statusFrom: "report"`. Both model files read the corrected status, so parity
+  is unaffected. Page shows "ESPN status still X · using the newer note" (`noteChip`). 10 corrected that night.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
