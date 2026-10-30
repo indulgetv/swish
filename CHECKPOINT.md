@@ -242,6 +242,12 @@ _Last updated: 2026-10-30 12:55 by Claude._ Paste the line in **"How to resume"*
   status (entries from before the rule count as settled), `confirmed` = note agrees (tonight's status, or long-term wording
   for Out) OR checks ≥ 3. Unconfirmed → outline pill (`.st.unconf`, tap explains). Late re-price needs confirmed.
   Model untouched (still uses status) → parity unaffected. 30 Oct: 28 of 95 entries hidden as not-news.
+- **30 Oct 20:10 — no clashing updates:** gap cron now `25-45/5 19` (evening loop starts 19:50). update.py: a `schedule`
+  (GitHub timer) run in light mode exits without writing if data was saved < 3.5 min ago (`GITHUB_EVENT_NAME`), so the
+  backup timers (21:27, 21:47, 22:07… which overlap the cron-job.org loops) no longer duplicate loop updates.
+  update-data.yml Save: ignores log-only changes; retries pull --rebase + push 5× instead of failing (19:12 and 19:43 runs
+  failed at Save on collisions). Note: every push touching scripts/ or workflows triggers a full update (~4–6 min) —
+  that's what caused the extra 19:59 update; expected after code changes only.
 - **Night 2 final:** DeAndre Jordan REB still pending at 10:00 30 Oct (next full run grades or voids it).
 
 ## Next steps (in order)
