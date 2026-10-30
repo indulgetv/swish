@@ -121,6 +121,10 @@ h2.h{font:700 22px/1.1 var(--display);letter-spacing:.01em}
 .pos{color:var(--over)} .neg{color:var(--faint)} .negr{color:var(--red)}
 .st{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
 .st.out{color:#fff;background:var(--red)}
+/* status taken from a newer reporter note than ESPN's status field: a small blip on the pill (tap/hover explains) */
+.st.upd{position:relative;cursor:help;outline:none}
+.st.upd::after{content:"";position:absolute;top:-3px;right:-3px;width:7px;height:7px;border-radius:50%;background:var(--under);box-shadow:0 0 0 2px var(--surface)}
+.st.upd:focus-visible{box-shadow:0 0 0 2px var(--red)}
 .st.doubtful{color:var(--orange);background:var(--orange-soft)}
 .st.questionable{color:var(--amber);background:var(--amber-soft)}
 .st.probable{color:var(--over);background:var(--over-soft)}
@@ -2835,7 +2839,8 @@ const minsAgo = i => { const m = Math.max(1, Math.round(newsAgeH(i) * 60)); retu
 const byNewest = (a, b) => (new Date(b.updated || 0)) - (new Date(a.updated || 0));
 const injNews = () => DATA.injuries.filter(isNewNews).sort(byNewest);
 /* ESPN's status field lags its reporter notes; when the note about tonight disagrees, SWISH goes by the note (update.py) */
-const noteChip = i => i.espnStatus ? `<span class="ntime" title="ESPN's status field still says ${esc(i.espnStatus)}; the newer reporter note says ${esc(i.status.toLowerCase())} for tonight, so SWISH uses the note">ESPN status still ${esc(i.espnStatus)} · using the newer note</span> ` : "";
+const injPill = i => !i.espnStatus ? stPill(i.status)
+  : `<span class="st ${stCls(i.status)} upd" tabindex="0" data-tip="Updated from the latest report. ESPN's status field still says ${esc(i.espnStatus)}; the newer reporter note says ${esc(i.status.toLowerCase())} for tonight, so SWISH goes by the note.">${esc(i.status)}</span>`;
 function newsChip(i){
   if (!i.updated) return `<span class="ntime">time not given</span>`;
   const fresh = isNewNews(i);
@@ -3108,7 +3113,7 @@ function viewDashboard(){
     </div>
     <div class="panel">
       <div class="panel-h"><h2 class="h">Injury watch</h2><span class="sub">latest first · checked ${injCheckedAt() ? timeFmt(injCheckedAt()) : "—"}</span></div>
-      <div class="clamp-all" data-clamp="home-inj">${sig.map(i => `<button class="irow" data-nav="injuries">${tid(i.team,"sm")}<div><div class="nm">${esc(i.player)}</div><div class="ds">${esc(i.detail)}${i.fillIns.length ? ` · ${esc(i.fillIns[0].player)} could gain minutes` : ""}</div></div>${stPill(i.status)}</button>`).join("")}
+      <div class="clamp-all" data-clamp="home-inj">${sig.map(i => `<button class="irow" data-nav="injuries">${tid(i.team,"sm")}<div><div class="nm">${esc(i.player)}</div><div class="ds">${esc(i.detail)}${i.fillIns.length ? ` · ${esc(i.fillIns[0].player)} could gain minutes` : ""}</div></div>${injPill(i)}</button>`).join("")}
     </div>
   </div>`;
 }
@@ -3749,7 +3754,7 @@ function injStatusBar(){
     <div class="ib"><span class="ib-k">Out tonight</span><b class="num">${nOut}</b><small>${nDoubt ? `+ ${nDoubt} doubtful or questionable` : "no one doubtful"}</small></div>
   </div>
   ${news.length ? `<div class="panel newsfeed"><div class="panel-h"><h2 class="h">Latest injury changes</h2><span class="sub">latest first · last ${NEW_NEWS_H} hours</span></div>
-    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow tcol ${isJustIn(i) ? "justin" : ""}" style="--tc:${team(i.team).color}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${stPill(i.status)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${noteChip(i)}${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
+    <div class="clamp" data-clamp="news">${news.map(i => `<div class="nrow tcol ${isJustIn(i) ? "justin" : ""}" style="--tc:${team(i.team).color}">${tid(i.team,"sm")}<div class="nr-m"><div class="nm">${esc(i.player)} ${injPill(i)}</div><div class="ds">${esc(i.comment || i.detail)}</div></div>${newsChip(i)}</div>`).join("")}</div></div>` : ""}`;
 }
 
 function injuryCard(g){
@@ -3760,8 +3765,8 @@ function injuryCard(g){
         const affected = ALL.filter(p => p.player === i.player || (p.role && p.role.dependsOn === i.player));
         return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""} ${isJustIn(i) ? "justin" : ""}">
           ${isJustIn(i) ? `<div class="justin-tag"><i></i>Just in · ${minsAgo(i)}</div>` : ""}
-          <div class="inj-top">${jerseyAv(i.player, i.team)}<div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${stPill(i.status)}</div>
-          <div class="inj-meta">${noteChip(i)}${/day.?to.?day/i.test(i.raw || "") && !i.espnStatus ? `<span class="ntime">ESPN: day-to-day</span> ` : ""}${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
+          <div class="inj-top">${jerseyAv(i.player, i.team)}<div><div class="nm">${esc(i.player)}</div><small>${esc((PLAYERS.find(x=>x.name===i.player) || i).pos || "")} · ${esc(i.detail)}</small></div>${injPill(i)}</div>
+          <div class="inj-meta">${/day.?to.?day/i.test(i.raw || "") && !i.espnStatus ? `<span class="ntime">ESPN: day-to-day</span> ` : ""}${newsChip(i)}${IS_LIVE ? "" : " <span>· sample</span>"}${i.comment ? `<p>${esc(i.comment)}</p>` : ""}</div>
           ${i.fillIns.length ? `<div class="fill"><div class="dt">${i.status==="Out" ? "Who fills in" : "Who could fill in if he sits"}</div>
             ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
             ${affected.length ? `<div class="affects">${affected.map(p => `<button data-prop="${p.id}">${esc(p.player)} · ${MARKET_NAMES[p.market]} ${p.line}</button>`).join("")}</div>` : ""}
