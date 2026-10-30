@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:20:35Z"
+  "writtenAt": "2026-10-30T00:25:36Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "6:55 - 1st",
+   "status": "4:20 - 1st",
    "completed": false,
-   "awayScore": "10",
-   "homeScore": "7",
+   "awayScore": "21",
+   "homeScore": "11",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "6:43 - 1st",
+   "status": "5:07 - 1st",
    "completed": false,
-   "awayScore": "11",
-   "homeScore": "14",
+   "awayScore": "20",
+   "homeScore": "16",
    "espnLine": null
   },
   {
@@ -1057,24 +1057,13 @@
   },
   {
    "team": "LAL",
-   "player": "Ziaire Williams",
-   "pos": "F",
-   "status": "Questionable",
-   "rawStatus": "Day-To-Day",
-   "detail": "Foot",
-   "comment": "Williams (foot) is questionable for Friday's game against Golden State.",
-   "updated": "2026-10-30T00:02Z",
-   "returnDate": "2026-10-30"
-  },
-  {
-   "team": "LAL",
    "player": "Cameron Carr",
    "pos": "G",
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Right Oblique Strain",
-   "comment": "Carr (oblique) is out for Wednesday's game against the Clippers.",
-   "updated": "2026-10-28T20:12Z",
+   "comment": "Carr (oblique) has been ruled out for Friday's game against Golden State.",
+   "updated": "2026-10-30T00:07Z",
    "returnDate": "2026-11-01"
   },
   {
@@ -1084,9 +1073,20 @@
    "status": "Out",
    "rawStatus": "Out",
    "detail": "Left Knee Inflammation",
-   "comment": "Thiero (knee) is out for Wednesday's game against the Clippers.",
-   "updated": "2026-10-28T20:10Z",
+   "comment": "Thiero (knee) has been ruled out for Friday's game against the Warriors.",
+   "updated": "2026-10-30T00:05Z",
    "returnDate": "2026-11-01"
+  },
+  {
+   "team": "LAL",
+   "player": "Ziaire Williams",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Foot",
+   "comment": "Williams (foot) is questionable for Friday's game against Golden State.",
+   "updated": "2026-10-30T00:02Z",
+   "returnDate": "2026-10-30"
   },
   {
    "team": "MIA",
@@ -84151,19 +84151,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:20:35Z",
+   "fetchedAt": "2026-10-30T00:25:36Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:20:34Z",
+   "fetchedAt": "2026-10-30T00:25:33Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:20:34Z",
+   "fetchedAt": "2026-10-30T00:25:34Z",
    "ok": true,
    "nba": "ok: 2 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -84337,7 +84337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:20:34Z"
+    "fetchedAt": "2026-10-30T00:25:34Z"
    },
    "home": {
     "starters": [
@@ -84364,7 +84364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:20:34Z"
+    "fetchedAt": "2026-10-30T00:25:34Z"
    }
   }
  },
