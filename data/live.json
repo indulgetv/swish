@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T02:25:39Z"
+  "writtenAt": "2026-10-30T02:30:44Z"
  },
  "games": [
   {
@@ -13,11 +13,11 @@
    "away": "CLE",
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
-   "state": "in",
-   "status": "20.6 - 4th",
-   "completed": false,
+   "state": "post",
+   "status": "Final",
+   "completed": true,
    "awayScore": "111",
-   "homeScore": "112",
+   "homeScore": "114",
    "espnLine": null
   },
   {
@@ -38,10 +38,10 @@
    "home": "POR",
    "tipoff": "2026-10-30T02:00Z",
    "state": "in",
-   "status": "4:48 - 1st",
+   "status": "4:00 - 1st",
    "completed": false,
-   "awayScore": "15",
-   "homeScore": "20",
+   "awayScore": "20",
+   "homeScore": "22",
    "espnLine": null
   }
  ],
@@ -52,7 +52,7 @@
    "name": "Hawks",
    "displayName": "Atlanta Hawks",
    "color": "#c8102e",
-   "record": "2-3",
+   "record": "3-3",
    "alt": "#fdb927"
   },
   "MIA": {
@@ -69,7 +69,7 @@
    "name": "Cavaliers",
    "displayName": "Cleveland Cavaliers",
    "color": "#860038",
-   "record": "3-1",
+   "record": "3-2",
    "alt": "#bc945c"
   },
   "WAS": {
@@ -84147,19 +84147,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T02:25:35Z",
+   "fetchedAt": "2026-10-30T02:30:34Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T02:25:34Z",
+   "fetchedAt": "2026-10-30T02:30:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T02:25:34Z",
+   "fetchedAt": "2026-10-30T02:30:34Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },
