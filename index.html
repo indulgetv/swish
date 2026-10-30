@@ -2630,6 +2630,8 @@ const SLOT = {
   tag:  g => scoreTag(g),
   tagS: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   tagT: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
+  lu:  g => g.state && g.state !== "pre" ? "" : `<span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
+  luM: g => g.state && g.state !== "pre" ? "" : `<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
   side: g => `<span class="t num ${g.state === "in" ? "live" : ""}">${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`,
 };
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
@@ -3215,10 +3217,10 @@ function gameSection(g){
       <div class="gtags">
         ${slot(g, "tagS")}
         <span class="tag num">Total ${g.total} · ${g.spread}</span>
-        <span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(g.lineups.toLowerCase())}</span>
+        ${slot(g, "lu")}
         ${inj.length ? `<span class="tag red">${injNames(inj).map((n, k) => `${esc(n)} ${esc(inj[k].status.toLowerCase())}`).join(" · ")}</span>` : ""}
       </div>
-      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(g.lineups.toLowerCase())}</span></div>
+      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}${slot(g, "luM")}</div>
       <span class="gswipe" aria-hidden="true"></span>
       <span class="chev">${ICON_CHEV}</span>
     </button>
@@ -3550,7 +3552,7 @@ function gameAnalysis(g){
         <div class="tm">${tid(g.home,"lg")}<div><b>${H.name}</b><small>${H.city} · home</small></div></div>
       </div>
       <div class="right">
-        ${slot(g, "tag")}<span class="tag num tip" title="Tip-off, your time">${CLK}${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>
+        ${slot(g, "tag")}<span class="tag num tip" title="Tip-off, your time">${CLK}${dateFmt(g.tipoff)} · ${timeFmt(g.tipoff)}</span><span class="tag num">Total ${g.total}</span><span class="tag num">${g.spread}</span>${slot(g, "lu")}
         ${inj.length ? `<button class="tag red" data-nav="injuries">${inj.length} injury concern${inj.length>1?"s":""}</button>` : ""}
         <button class="btn red" data-goto="${g.id}">View squads &amp; props →</button>
       </div>
