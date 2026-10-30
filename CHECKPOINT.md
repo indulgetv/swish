@@ -1,6 +1,6 @@
 # SWISH — progress checkpoint
 
-_Last updated: 2026-10-30 11:20 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
+_Last updated: 2026-10-30 11:50 by Claude._ Paste the line in **"How to resume"** into a new Claude session.
 
 ## Done
 - `index.html` — the full SWISH dashboard, now **wired to live data** (`data/live.js`).
@@ -196,8 +196,12 @@ A. **Minutes fix — injured players (esp. big ones).** Found 29 Oct: Dejounte M
    4. Conditional re-price: after 21:00, if a 25+ min player is ruled out, re-fetch odds for that game only (~3
       credits). Replaces nightly top-ups. Tonight's one-off top-up uses TOPUP_DATES={"2026-10-29"} — remove after.
    5. Steps 2–3 tested inside the projection lab (step 0) before shipping.
-B. **Update the page in place, no reload** (user asked 29 Oct 20:36): fetch new data in the background and redraw only
-   what changed (times, injuries, prices, picks), like live scores. Safari currently reloads on each data update.
+B. ~~Update the page in place~~ DONE 30 Oct: `refreshInPlace()` — on a newer data/stamp.json it injects data/live.js +
+   results.js, re-runs `applyLive()` (was the top-level `if (IS_LIVE){…}` block), `indexGames()`, GAMES, PLAYERS,
+   PLAYER_BY_NAME, `buildAllProps()`, STARTERS, then `render()`; keeps scroll, view, open prop panel (ids are stable
+   hashes), filters, and browser live scores if ahead of the file. `LIVE` is now `let`. Falls back to the old quiet reload
+   only on a new slate date or an error. Tested over http (fetch doesn't work on file://) on all 5 pages, phone dark +
+   desktop light, no page errors. Also: edge now shown as "+5.5%" (was "+5.5 pts").
 C0. ~~Missing top-up picks~~ DONE 30 Oct: not a bug. Players expected under 22 min get only PTS/REB/PRA modelled
    (`mins >= 22` rule in model.py + index.html), so Flemings/Landale/Tyson AST lines were skipped by design (Tyson AST
    is modelled under v1.3+ because the new-absence rule takes him to 22). Only 3–8 lines a night are skipped (mostly AST).
