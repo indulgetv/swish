@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T00:15:35Z"
+  "writtenAt": "2026-10-30T00:20:35Z"
  },
  "games": [
   {
@@ -14,10 +14,10 @@
    "home": "ATL",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "9:28 - 1st",
+   "status": "6:55 - 1st",
    "completed": false,
-   "awayScore": "6",
-   "homeScore": "5",
+   "awayScore": "10",
+   "homeScore": "7",
    "espnLine": null
   },
   {
@@ -26,10 +26,10 @@
    "home": "NOP",
    "tipoff": "2026-10-30T00:00Z",
    "state": "in",
-   "status": "9:06 - 1st",
+   "status": "6:43 - 1st",
    "completed": false,
-   "awayScore": "5",
-   "homeScore": "5",
+   "awayScore": "11",
+   "homeScore": "14",
    "espnLine": null
   },
   {
@@ -831,8 +831,8 @@
    "status": "Questionable",
    "rawStatus": "Day-To-Day",
    "detail": "Left Knee Tendinitis",
-   "comment": "Santos has been ruled out for Wednesday's game against the Timberwolves due to left knee tendinitis.",
-   "updated": "2026-10-29T04:38Z",
+   "comment": "Santos (knee) is listed as doubtful for Friday's game against the Warriors.",
+   "updated": "2026-10-30T00:06Z",
    "returnDate": "2026-10-30"
   },
   {
@@ -1075,7 +1075,7 @@
    "detail": "Right Oblique Strain",
    "comment": "Carr (oblique) is out for Wednesday's game against the Clippers.",
    "updated": "2026-10-28T20:12Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-11-01"
   },
   {
    "team": "LAL",
@@ -1086,7 +1086,7 @@
    "detail": "Left Knee Inflammation",
    "comment": "Thiero (knee) is out for Wednesday's game against the Clippers.",
    "updated": "2026-10-28T20:10Z",
-   "returnDate": "2026-10-30"
+   "returnDate": "2026-11-01"
   },
   {
    "team": "MIA",
@@ -84151,22 +84151,22 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T00:15:35Z",
+   "fetchedAt": "2026-10-30T00:20:35Z",
    "ok": true,
    "count": 94
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T00:15:34Z",
+   "fetchedAt": "2026-10-30T00:20:34Z",
    "ok": true,
    "count": 3
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T00:15:35Z",
+   "fetchedAt": "2026-10-30T00:20:34Z",
    "ok": true,
-   "nba": "ok: 6 team lineups posted",
-   "espn": "4 team starting fives from box scores"
+   "nba": "ok: 2 team lineups posted",
+   "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
@@ -84337,7 +84337,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:15:34Z"
+    "fetchedAt": "2026-10-30T00:20:34Z"
    },
    "home": {
     "starters": [
@@ -84364,7 +84364,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-10-30T00:15:34Z"
+    "fetchedAt": "2026-10-30T00:20:34Z"
    }
   }
  },
