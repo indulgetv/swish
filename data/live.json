@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-10-29T23:38:37Z",
   "season": 2027,
-  "writtenAt": "2026-10-30T04:10:45Z"
+  "writtenAt": "2026-10-30T04:15:44Z"
  },
  "games": [
   {
@@ -1519,6 +1519,17 @@
    "comment": "Williams underwent surgery Thursday to repair a torn labrum in his left shoulder and will miss an extended period of time, Shams Charania of ESPN reports.",
    "updated": "2026-09-11T16:03Z",
    "returnDate": "2027-02-03"
+  },
+  {
+   "team": "POR",
+   "player": "Ja Morant",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Hamstring Not Specified",
+   "comment": "Morant accumulated 23 points (9-13 FG, 1-1 3Pt, 4-4 FT) and four assists over 31 minutes during Tuesday's 136-129 win over the Lakers.",
+   "updated": "2026-10-30T04:14Z",
+   "returnDate": "2026-10-31"
   },
   {
    "team": "POR",
@@ -80322,19 +80333,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-10-30T04:10:44Z",
+   "fetchedAt": "2026-10-30T04:15:44Z",
    "ok": true,
-   "count": 95
+   "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-10-30T04:10:43Z",
+   "fetchedAt": "2026-10-30T04:15:42Z",
    "ok": true,
    "count": 10
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-10-30T04:10:44Z",
+   "fetchedAt": "2026-10-30T04:15:44Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
