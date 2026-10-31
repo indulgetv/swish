@@ -2912,7 +2912,7 @@ function analyse(p){
   }
   if (p.live && p.roleChange && p.curGames < ROLE_NEW_GAMES) flags.push(`Minutes changed a lot vs last season (${Math.round(p.lastMin)}→${Math.round(p.curMin)}) with only ${p.curGames} game${p.curGames === 1 ? "" : "s"} this season — new role, projection less certain`);
   if (p.live && p.back && inj && side === "over") flags.push(`Back from injury — missed his team's last game and is on today's injury report (${p.status.toLowerCase()}); minutes may be limited`);
-  if (p.live && KEY_OUT[p.team]) flags.push(`Minutes unclear — ${KEY_OUT[p.team].slice(0, 2).join(", ")} out; waiting for the confirmed lineup (about 30 min before tip-off)`);
+  if (p.live && KEY_OUT[p.team]) flags.push(`Minutes unclear — ${KEY_OUT[p.team].slice(0, 2).join(", ")} out; waiting for the confirmed lineup (NBA.com usually confirms 15–25 min before tip-off)`);
   if (p.live && p.games < 5) flags.push(`Only ${p.games} game${p.games === 1 ? "" : "s"} of data — too few to trust the projection`);
   if (p.live && (Math.abs(p.projection - p.line) > BIG_GAP_SD * p.sd || Math.abs(p.projection - p.line) > BIG_GAP_REL * Math.max(p.line, 2))) flags.push(`Line is far from SWISH's projection (${p.line} vs ${p.projection.toFixed(1)}) — the market may know about a role or minutes change; check the news`);
 
@@ -2994,7 +2994,7 @@ let KEY_OUT = {};
 function keyAbsences(players){
   const confirmed = new Set();
   Object.entries((LIVE && LIVE.lineups) || {}).forEach(([gid, lu]) => { const g = (LIVE.games || []).find(x => x.id === gid);
-    ["away", "home"].forEach(side => { if (g && ((lu || {})[side] || {}).status === "confirmed") confirmed.add(g[side]); }); });
+    ["away", "home"].forEach(side => { if (g && ["confirmed", "started"].includes(((lu || {})[side] || {}).status)) confirmed.add(g[side]); }); });   // "started" = ESPN's starters once the game is on
   const byTeam = {}; players.forEach(pl => { if (!confirmed.has(pl.team)) (byTeam[pl.team] = byTeam[pl.team] || []).push(pl); });
   const out = {};
   Object.entries(byTeam).forEach(([team, rows]) => {
@@ -3340,7 +3340,7 @@ setInterval(pollScores, 15000);   // every 15 s while a game is on, so quarter-e
 document.addEventListener("visibilitychange", () => { if (!document.hidden) pollScores(); });
 const starterSet = () => { const s = new Map(); DATA.games.forEach(g => ["away","home"].forEach(side => { const t = (g.lineupData || {})[side]; (t && t.starters || []).forEach(p => s.set(normName(p.name), t.status)); })); return s; };
 const STARTERS = IS_LIVE ? starterSet() : new Map();
-/* lineup phase per game: "expected" (NBA.com projection) → "due" (last 90 min: NBA.com usually confirms ~30 min before tip)
+/* lineup phase per game: "expected" (NBA.com projection) → "due" (last 90 min: NBA.com usually confirms 15–25 min before tip)
    → "confirmed" (green). The chips repaint every minute so the wording moves on by itself. */
 const LU_DUE_MIN = 90, LU_CONFIRM_BEFORE = 20;   // NBA.com usually confirms 15–25 min before tip (checked 28–31 Oct)
 const GAME_OF = t => GAMES.find(g => g.away === t || g.home === t);
