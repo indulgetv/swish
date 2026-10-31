@@ -425,3 +425,4 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   20:09 run failed in "Save if changed" after 5 push retries (log expired; a push run at 20:03 also failed — likely clash with
   the 19:50 live loop / pending merges). Decision: no change; cron-job.org + live-loop are the real schedule.
   Guide check: already says 3PM = projection only and PRA removed — no edit needed.
+- **31 Oct 10:05 — count fix (published):** Home's top line and the game tiles still counted 3PM projections (467 vs sidebar 390). New `lineable()` = not PROJ_ONLY; all props counts use it. Checked 4 sizes × 2 themes.
