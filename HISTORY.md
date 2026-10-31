@@ -437,3 +437,11 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
 - 18:05: moments reworked (team-themed, big moments only, sidebar/Games header) + hidden #moments gallery; desktop filter bar floats below header. Published.
 - 18:10–18:32: moments v2/v3 (glass card, dark badges, smooth hand-back), 15-s score polling + sync guards (simulated full game: each moment once), player lineup chips no shimmer, hourglass every 8 s. Published.
 - 18:35–18:45: full-time winner gold blink + crowd/flashes/confetti on winner half, loser half drains; phones no double-tap/focus zoom (viewport max-scale=1, touch-action, 16px inputs); revealOpened() scrolls Last 6 / game / drawer into view; phone rows desktop-style, badges wrap left max 2/line. Published.
+
+
+## 31 Oct 18:41–18:55 — lineup timing + plain-English labels (published)
+- User: 'lineup any min' showed from 18:30 for 19:00 POR@UTA. live.json history: NBA.com said expected at 18:25/18:30/18:35, confirmed at 18:41.
+  Past nights (28–30 Oct, 20 games): first confirmed 12–25 min before tip (mostly ~20). One night (28 Oct) confirmed only after tip (00:12 for 00:00).
+- Fix: LU_CONFIRM_BEFORE 30→20; 'soon' = from tip−20. Labels renamed (see CHECKPOINT). Home timeline row now tip−20 with 15–25 min wording.
+- Tested phone/tablet/desktop/ultra-wide light+dark: no overflow; chip widths ~95–175 px on phone.
+- Push needed add_repo (push) — the session proxy blocks pushes until the repo is attached.

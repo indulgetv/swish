@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 18:45 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 18:55 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -53,7 +53,10 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 
 ## Latest (31 Oct 17:45) — UI release published (user: "publish now")
 - Phone props: squad grid columns follow `--nm` (was fixed 5 → empty gap); Last 6 pill sits right after the name. Market chips 4-up ("All" on phones).
-- Lineup chips by phase (`luPhase`): exp. starter → last 90 min "⏳ lineup HH:MM" (tip−30; "any min" at the end) → green "starter" pops in (`LU_JUST`). 60-s repaint.
+- Lineup labels (18:50, published): player chip Likely starter → Confirm ~HH:MM (last 90 min) → Confirming… (from tip−20) → green Starting ✓;
+  game tag Likely lineups / Lineups confirm ~HH:MM / Lineups confirming… / Lineups confirmed. `LU_CONFIRM_BEFORE` 20 (NBA.com confirms
+  15–25 min before tip on 28–31 Oct; 31 Oct POR@UTA confirmed 18:35–18:41 for 19:00 tip, we showed it 18:41 — no delay on our side).
+- (old) Lineup chips by phase (`luPhase`): exp. starter → last 90 min "⏳ lineup HH:MM" (tip−30; "any min" at the end) → green "starter" pops in (`LU_JUST`). 60-s repaint.
 - Injuries: nav badge = changes in last 6 h only. Per team: Q/D + Out ≤48 h for regulars (≥12 min, `usualMin`); rest in "Older & long-term" drop-down.
 - Game moments (18:05 rework): big moments only (tip, Q1, half, Q3, Q4-level, full-time; no per-basket). Play inside the sidebar "Tonight" row
   (desktop) or the Games-page header `.ana-h[data-gh]` (phones/tablets). Team colour halves + alt stripes + badge watermark; frosted liquid-glass score card; ESPN 500-dark badges on glass discs; header eases back in. Polls ESPN every 15 s; tip only at real start; End Q4 only if level.
