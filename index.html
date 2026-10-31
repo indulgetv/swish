@@ -2822,6 +2822,7 @@ function buildAllProps(){
 }
 const PLAYER_BY_NAME = new Map(PLAYERS.map(pl => [pl.name, pl]));
 const propOf = (name, m) => ALL.find(p => p.player === name && p.market === m);
+const lineable = p => !PROJ_ONLY.includes(p.market);   // PTS/REB/AST — what every props count uses (3PM is projection only)
 const noLineOf = (name, m) => NOLINE.find(p => p.player === name && p.market === m);
 const lineSrc = p => p.source === "manual" ? `Your price · ${p.book}` : p.source === "ref" ? `US market · ${bookName(p.book)}` : "Bookmaker (sample)";
 const GAMES = [...DATA.games].sort((a,b) => new Date(a.tipoff) - new Date(b.tipoff));
@@ -3198,7 +3199,7 @@ function viewDashboard(){
     <div class="hero-main">
       <div class="eyebrow"><span class="live-dot"></span>${today.toLocaleDateString([], {weekday:"long"})} · ${DATA.meta.slateLabel}</div>
       <h1 class="datehead" aria-label="${today.toLocaleDateString([], {day:"numeric", month:"long", year:"numeric"})}"><span class="dh-day num">${today.getDate()}</span><span class="dh-rest"><span class="dh-month">${today.toLocaleDateString([], {month:"long"})}</span><span class="dh-year num">${today.getFullYear()}</span></span></h1>
-      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.length} props${IS_LIVE && !ALL.length ? ` <span class="lede-wait">(${pricesDueTxt()})</span>` : ""} · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
+      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.filter(lineable).length} props${IS_LIVE && !ALL.length ? ` <span class="lede-wait">(${pricesDueTxt()})</span>` : ""} · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
       <div class="looks" aria-label="Tonight's top looks">
         ${ALL.some(x => !x.flags.length) ? `<span class="lk-lbl">Top look per game</span>` : ""}
         <div class="lk-row clamp-m" data-clamp="looks">${GAMES.map((g, k) => { const p = ALL.filter(x => x.game === g.id && !x.flags.length).sort((a,b) => b.ev - a.ev)[0]; if (!p) return "";
@@ -3230,7 +3231,7 @@ function viewDashboard(){
     <div class="panel">
       <div class="panel-h"><h2 class="h">Tonight's games</h2><span class="sub">Times in your time zone</span></div>
       <div class="clamp-m" data-clamp="home-games" style="--n:${GAMES.length}">${GAMES.map((g, k) => {
-        const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id).length;
+        const ps = ALL.filter(p => p.game === g.id), v = ps.filter(p => p.value).length, inj = gameInjuries(g).filter(significant).length, nl = NOLINE.filter(p => p.game === g.id && lineable(p)).length;
         return `<button class="mrow ghead" data-goto="${g.id}" style="--ca:${team(g.away).color};--cb:${team(g.home).color};--k:${k}"><span class="gswipe" aria-hidden="true"></span>
           ${slot(g, "home")}
           <div class="teams2"><div class="ti">${tid(g.away,"sm")}<span class="tn"><small>${esc(team(g.away).city)}</small><b>${esc(team(g.away).name)}</b></span></div><div class="ti">${tid(g.home,"sm")}<span class="tn"><small>${esc(team(g.home).city)}</small><b>${esc(team(g.home).name)}</b></span><em class="homebadge">Home</em></div></div>
@@ -3487,7 +3488,7 @@ function gameSection(g){
         ${slot(g, "lu")}
         ${inj.length ? `<span class="gbreak" aria-hidden="true"></span><span class="tag red">${injNames(inj).map((n, k) => `${esc(n)} ${esc(inj[k].status.toLowerCase())}`).join(" · ")}</span>` : ""}
       </div>
-      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}${slot(g, "luM")}</div>
+      <div class="gcount"><b class="num">${ps.length + NOLINE.filter(p => p.game === g.id && lineable(p)).length}</b> props${IS_LIVE ? `<span class="num" style="display:block;font-size:11.5px;color:var(--muted)">${ps.length} priced</span>` : ""}${v ? `<span class="v num">${v} strong value</span>` : ""}${slot(g, "luM")}</div>
       <span class="gswipe" aria-hidden="true"></span>
       <span class="chev">${ICON_CHEV}</span>
     </button>
@@ -4070,7 +4071,7 @@ function render(){
   document.querySelectorAll("#nav [data-nav]").forEach(b => b.dataset.nav === state.view ? b.setAttribute("aria-current","page") : b.removeAttribute("aria-current"));
   syncPrefs();
   $("navGames").textContent = GAMES.length;
-  $("navProps").textContent = ALL.length + NOLINE.filter(p => !PROJ_ONLY.includes(p.market)).length;   // PTS/REB/AST only
+  $("navProps").textContent = ALL.length + NOLINE.filter(lineable).length;   // PTS/REB/AST only
   const sig = DATA.injuries.filter(significant).length;
   $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;
