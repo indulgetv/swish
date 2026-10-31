@@ -2140,6 +2140,8 @@ html.dark .mo-mid > em,html.dark .mo-mid > b{text-shadow:0 1px 8px rgba(0,0,0,.3
 @keyframes moBack{from{opacity:0;transform:translateY(6px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 @keyframes moBackL{from{opacity:0;transform:translateX(-14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 @keyframes moBackR{from{opacity:0;transform:translateX(14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+/* player "lineup 18:30" chips: no shimmer (too busy on every name); only the hourglass flips. The game header tag keeps its shimmer */
+.lu-chip.due,.lu-chip.confirmed{animation:none!important;background-image:none!important}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -2158,10 +2160,10 @@ html.dark .mo-mid > em,html.dark .mo-mid > b{text-shadow:0 1px 8px rgba(0,0,0,.3
 .tag.score.brk .brkl{font-size:.82em;font-weight:800;letter-spacing:.05em;padding:1px 6px;border-radius:5px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line)}
 .tag.score.brk::before{animation-duration:9s;filter:hue-rotate(35deg)}
 /* lineup due: hourglass flips, a soft amber shimmer runs through; confirmed chips pop in green */
-.luhg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;vertical-align:-1px;margin-right:3px;animation:luFlip 2.6s cubic-bezier(.6,0,.3,1) infinite}
+.luhg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;vertical-align:-1px;margin-right:3px;animation:luFlip 8s cubic-bezier(.6,0,.3,1) infinite}
 .lu-due .luhg{width:12px;height:12px}
-@keyframes luFlip{0%,70%{transform:rotate(0)}85%,100%{transform:rotate(180deg)}}
-.lu-chip.due,.tag.lu-due{background-image:linear-gradient(100deg,transparent 30%,rgba(242,181,82,.35) 50%,transparent 70%)!important;background-size:250% 100%!important;animation:luSheen 2.8s ease-in-out infinite}
+@keyframes luFlip{0%,88%{transform:rotate(0)}95%,100%{transform:rotate(180deg)}}   /* one slow flip every 8 s */
+.tag.lu-due{background-image:linear-gradient(100deg,transparent 30%,rgba(242,181,82,.35) 50%,transparent 70%)!important;background-size:250% 100%!important;animation:luSheen 2.8s ease-in-out infinite}
 .lu-swap{animation:luSwap .45s cubic-bezier(.3,1.4,.5,1)}
 @keyframes luSwap{from{opacity:0;transform:translateY(5px) scale(.9)}to{opacity:1;transform:none}}
 .lu-chip.lu-in{animation:luIn 1.4s cubic-bezier(.2,1.3,.4,1)!important}
