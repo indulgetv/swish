@@ -2058,6 +2058,49 @@ html.dark .jav{filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 .ana-h .mo-ball{width:28px;height:28px}
 .ana-h .mo-ball i{width:70px;height:16px}
 @media (prefers-reduced-motion:reduce){.mo{display:none!important}}
+/* v2: frosted liquid-glass score card, bigger free-standing badges, smooth hand-back to the live score */
+.mo-host > :not(.mo){transition:opacity .5s ease,filter .5s ease}
+.mo-host.mo-on > :not(.mo){opacity:0;filter:blur(3px);transition:opacity .25s ease .2s,filter .25s ease .2s}
+.mo-mid{background:rgba(255,255,255,.34)!important;color:#121417!important;border:1px solid rgba(255,255,255,.55);
+  -webkit-backdrop-filter:blur(16px) saturate(1.6);backdrop-filter:blur(16px) saturate(1.6);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(255,255,255,.15),0 8px 24px -8px rgba(0,0,0,.45)!important}
+.mo-mid::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(255,255,255,0) 45%)}
+.mo-mid > *{position:relative}
+.mo-mid em{color:#121417!important;opacity:.75}
+html.dark .mo-mid{background:rgba(16,18,22,.42)!important;color:#fff!important;border-color:rgba(255,255,255,.2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 8px 26px -8px rgba(0,0,0,.7)!important}
+html.dark .mo-mid::before{background:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,0) 45%)}
+html.dark .mo-mid em{color:#fff!important;opacity:.8}
+.mo-tip .mo-mid em{color:#c2410c!important;opacity:1}html.dark .mo-tip .mo-mid em{color:#ffb27a!important}
+.mo-final .mo-mid{border-color:rgba(242,181,82,.85)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 1px rgba(242,181,82,.5),0 8px 26px -6px rgba(242,181,82,.55)!important}
+.mo-final .mo-mid em{color:#8a5a00!important;opacity:1}html.dark .mo-final .mo-mid em{color:#f2b552!important}
+html.dark .mo-final .mo-mid{background:rgba(16,18,22,.5)!important}
+/* badges: no disc — the badge itself, bigger, with a soft light outline so dark badges read on their own colour */
+.mo-crest{background:none!important;box-shadow:none!important;border-radius:0!important}
+.mo-crest img{width:100%!important;height:100%!important;object-fit:contain;
+  filter:drop-shadow(0 0 1px rgba(255,255,255,.95)) drop-shadow(0 0 1px rgba(255,255,255,.95)) drop-shadow(0 0 6px rgba(255,255,255,.45)) drop-shadow(0 3px 6px rgba(0,0,0,.4))}
+.mo-crest b{font-size:11px!important;color:#fff!important;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);border-radius:50%;width:100%;height:100%;display:grid!important;place-items:center;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.mo-crest img + b{display:none!important}
+.sg .mo-crest{width:32px!important;height:32px!important}
+.sg .mo-ca{left:6px}.sg .mo-cb{right:6px}
+.sg .mo-mid{max-width:calc(100% - 92px)}
+.ana-h .mo-crest{width:clamp(56px,48cqh,92px)!important;height:clamp(56px,48cqh,92px)!important}
+.ana-h .mo-ca{left:clamp(10px,3.5cqw,30px)}.ana-h .mo-cb{right:clamp(10px,3.5cqw,30px)}
+.ana-h .mo-mid{max-width:calc(100% - 2 * clamp(56px,48cqh,92px) - 48px)}
+.mo-mid b{min-width:0}
+/* smooth entrance and exit */
+.mo-pa{animation:moIn-a .7s cubic-bezier(.22,1,.36,1) both}
+.mo-pb{animation:moIn-b .7s .06s cubic-bezier(.22,1,.36,1) both}
+.mo-mid{animation:moGlassIn .7s .45s cubic-bezier(.22,1,.36,1) both!important}
+@keyframes moGlassIn{from{transform:translate(-50%,-50%) scale(.8);opacity:0;filter:blur(6px)}to{transform:translate(-50%,-50%) scale(1);opacity:1;filter:none}}
+.mo.out .mo-mid{animation:moGlassOut .45s cubic-bezier(.55,0,.75,.4) both!important;opacity:1;transition:none}
+@keyframes moGlassOut{to{transform:translate(-50%,-50%) scale(.85);opacity:0;filter:blur(6px)}}
+.mo.out .mo-ca,.mo.out .mo-cb{animation:moCrestOut .4s .05s ease-in both;opacity:1;transition:none}
+@keyframes moCrestOut{to{transform:translateY(-50%) scale(.6);opacity:0}}
+.mo.out .mo-pa{animation:moOut-a .65s .25s cubic-bezier(.65,0,.35,1) both}
+.mo.out .mo-pb{animation:moOut-b .65s .25s cubic-bezier(.65,0,.35,1) both}
+.mo.out{animation:moFadeAll .35s .65s ease both}
+@keyframes moFadeAll{to{opacity:0}}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -3057,7 +3100,7 @@ function runMoment(gid){
 /* one team's half: colour, stripes in its second colour, its badge as a watermark */
 const moSide = (t, side) => { const T = team(t), alt = T.alt && T.alt.toLowerCase() !== T.color.toLowerCase() ? T.alt : "#ffffff";
   return `<span class="mo-p mo-p${side}" style="--tc:${T.color};--ta:${alt}"><span class="mo-str"></span><img class="mo-wm" src="${logoUrl(t)}" alt="" onerror="this.remove()"></span>`; };
-const moCrest = t => `<span class="mo-crest" style="--tc:${team(t).color}"><img src="${logoUrl(t)}" alt="" onerror="this.remove()"><b>${t}</b></span>`;
+const moCrest = t => `<span class="mo-crest" style="--tc:${team(t).color}"><img src="${logoUrl(t)}" alt="" onerror="this.remove()"><b>${t}</b></span>`;   // badge stands free with a soft glow (no white disc)
 function playMoment(host, g, kind, done){
   const k = MO_KINDS.find(x => x[0] === kind) || MO_KINDS[0], short = kind === "tip" ? "Tip-off" : kind === "final" ? "Full-time" : BREAK_TXT[kind].big;
   host.querySelectorAll(":scope > .mo").forEach(x => x.remove());
@@ -3068,7 +3111,9 @@ function playMoment(host, g, kind, done){
     <span class="mo-mid"><em>${short}</em>${kind === "tip" ? `<b class="mo-ball">${BALL_SVG}<i></i></b>` : `<b class="num">${g.awayScore ?? 0}<s>–</s>${g.homeScore ?? 0}</b>`}</span>
     <span class="mo-sheen"></span>`;
   host.classList.add("mo-host"); host.appendChild(el);
-  setTimeout(() => { el.classList.add("out"); setTimeout(() => { el.remove(); if (!host.querySelector(".mo")) host.classList.remove("mo-host"); done && done(); }, 480); }, 3400);
+  host.classList.add("mo-on");
+  setTimeout(() => { el.classList.add("out"); host.classList.remove("mo-on");
+    setTimeout(() => { el.remove(); if (!host.querySelector(".mo")) host.classList.remove("mo-host"); done && done(); }, 1000); }, 3600);
 }
 /* ---- Moments gallery (site address + #moments): every moment, one under the other, in both sizes ---- */
 const MO_DEMO = {away: null, home: null};
