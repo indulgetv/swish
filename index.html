@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
 <script>setTimeout(function(){document.documentElement.classList.add("ready")},3000);try{if(sessionStorage.getItem("swish.silent"))document.documentElement.classList.add("noanim")}catch(e){}try{var d=localStorage.getItem("swish.pref.dark");if(d==="1"||(d===null&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}</script>
 <title>swish · NBA Prop Analytics</title>
@@ -2171,6 +2171,9 @@ small.psub .chw .chbr{flex-basis:100%;height:0}   /* a 3rd badge always starts a
 .mo.out .mo-crowd{animation:moCrowdOut .5s ease-in both}
 @keyframes moCrowdOut{from{transform:translateY(5%)}to{transform:translateY(105%)}}
 .mo.out .mo-conf,.mo.out .mo-flash{transition:opacity .3s;opacity:0}
+/* no accidental zoom on phones/tablets: no double-tap zoom, and inputs are 16 px so iOS never zooms in on focus */
+html,body{touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width:1180px){input,select,textarea{font-size:16px!important}}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -4175,6 +4178,7 @@ function openDrawer(id){
   state.drawer = id;
   setTimeout(syncHelpBtn, 0);
   showDrawer(drawerHTML(p), `${p.player} ${MARKET_NAMES[p.market]} details`);
+  const dr = $("drawer"); if (dr) dr.scrollTop = 0;   // always open the details at the top
 }
 function closeDrawer(){
   const wasOpen = state.drawerOpen;
@@ -4578,13 +4582,28 @@ function goBack(){
 }
 addEventListener("popstate", () => { if (state.drawerOpen){ closeDrawer(); return; } goBack(); });
 
+function revealOpened(top, bottom){
+  if (!top) return; bottom = bottom || top;
+  const calm = document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hdr = [...document.querySelectorAll(".topbar,.top,header.mtop,.mhead")].filter(x => getComputedStyle(x).position === "sticky" || getComputedStyle(x).position === "fixed")
+    .reduce((m, x) => Math.max(m, x.getBoundingClientRect().bottom), 0);
+  const tb = document.querySelector(".toolbar"), tbH = tb && getComputedStyle(tb).position === "sticky" ? tb.getBoundingClientRect().height + 12 : 0;
+  const nav = document.querySelector("#nav"), navTop = nav && getComputedStyle(nav).position === "fixed" && nav.getBoundingClientRect().top > innerHeight / 2 ? nav.getBoundingClientRect().top : innerHeight;
+  const safeTop = Math.max(hdr, 0) + tbH + 10, safeBot = navTop - 12;
+  const t = top.getBoundingClientRect().top, b = bottom.getBoundingClientRect().bottom;
+  let dy = 0;
+  if (t < safeTop) dy = t - safeTop;                                    // opened item is above the visible area
+  else if (b > safeBot) dy = Math.min(b - safeBot, t - safeTop);        // panel runs off the bottom: scroll up, but never push its top under the header
+  if (Math.abs(dy) > 4) window.scrollBy({top: dy, behavior: calm ? "auto" : "smooth"});
+}
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-clampkey],[data-saveprice],[data-clearprice],[data-conf],[data-goto-best],[data-form],[data-pref],[data-help],[data-nav],[data-odds],[data-market],[data-toggle],[data-prop],[data-expand],[data-goto],[data-clear],[data-tab],[data-close]");
   if (!t) return;
   const d = t.dataset;
   if (d.conf) { state.conf = d.conf; store.set("conf", d.conf); renderStandings(); }
   else if (d.gotoBest) { state.bestTab = "best"; go("props"); setTimeout(() => { const el = $("bestTabs"); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); }, 80); }
-  else if (d.form) { const n = d.form; state.formOpen.has(n) ? state.formOpen.delete(n) : state.formOpen.add(n); renderSections(); const b = document.querySelector(`[data-form="${CSS.escape(n)}"]`); if (b) b.focus({preventScroll:true}); }
+  else if (d.form) { const n = d.form; state.formOpen.has(n) ? state.formOpen.delete(n) : state.formOpen.add(n); renderSections(); const b = document.querySelector(`[data-form="${CSS.escape(n)}"]`); if (b) b.focus({preventScroll:true});
+    if (b && state.formOpen.has(n)){ const row = b.closest("tr"), panel = row && row.nextElementSibling; setTimeout(() => revealOpened(row, panel && panel.classList.contains("formrow") ? panel : row), 60); } }
   else if (d.pref) {
     const apply = () => { PREFS[d.pref] = !PREFS[d.pref]; store.set("pref." + d.pref, PREFS[d.pref] ? "1" : "0"); syncPrefs(); };
     const calm = document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -4604,7 +4623,8 @@ document.addEventListener("click", e => {
   else if (d.odds) { state.odds = d.odds; store.set("odds", d.odds); render(); }
   else if (d.tab) { state.bestTab = d.tab; document.querySelectorAll("#bestTabs button").forEach(b => { const on = b.dataset.tab === d.tab; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); }); renderBest(); }
   else if (d.market) { state.market = d.market; document.querySelectorAll("#marketChips .chip").forEach(c => { const on = c.dataset.market === d.market; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); }); renderSections(); }
-  else if (d.toggle) { const c = !state.collapsed.has(d.toggle); c ? state.collapsed.add(d.toggle) : state.collapsed.delete(d.toggle); setCollapsed(d.toggle, c); }
+  else if (d.toggle) { const c = !state.collapsed.has(d.toggle); c ? state.collapsed.add(d.toggle) : state.collapsed.delete(d.toggle); setCollapsed(d.toggle, c);
+    if (!c){ const sec = $("game-" + d.toggle); if (sec) setTimeout(() => { const h = sec.querySelector(".gsec-h"), first = sec.querySelector(".squad .sqt tbody tr, .squad"); revealOpened(h, first || h); }, 380); } }
   else if (d.expand) { const c = d.expand !== "all"; state.collapsed = c ? new Set(GAMES.map(g => g.id)) : new Set(); GAMES.forEach(g => setCollapsed(g.id, c)); }
   else if (d.clear) { state.q = ""; state.market = "ALL"; state.onlyValue = false; state.hideFlagged = false; render(); }
   else if (d.goto) {
