@@ -2148,6 +2148,29 @@ small.psub .pp{flex:none;line-height:18px}
 small.psub .chw{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:3px 5px;min-width:0}
 small.psub .chw > *{margin:0!important;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 small.psub .chw .chbr{flex-basis:100%;height:0}   /* a 3rd badge always starts a new line, under the 1st */
+/* full-time party */
+.mo-win{display:inline-block;animation:moWin .5s 1.1s ease-in-out 4 both}
+@keyframes moWin{0%,100%{color:inherit;text-shadow:none}50%{color:#f2b552;text-shadow:0 0 10px rgba(242,181,82,.9),0 0 22px rgba(242,181,82,.5)}}
+.mo-final .mo-win{animation:moWin .5s 1.1s ease-in-out 4,moWinStay .1s 3.1s both}
+@keyframes moWinStay{to{color:#f2b552;text-shadow:0 0 10px rgba(242,181,82,.6)}}
+.mo-crowd{position:absolute;left:0;right:0;bottom:0;height:42%;z-index:2;pointer-events:none;transform:translateY(105%);animation:moCrowd 3.6s 1.6s cubic-bezier(.3,.8,.3,1) both}
+.mo-crowd svg{width:100%;height:100%;display:block;fill:rgba(8,10,14,.55)}
+@keyframes moCrowd{0%{transform:translateY(105%)}22%{transform:translateY(6%)}34%{transform:translateY(16%)}46%{transform:translateY(4%)}58%{transform:translateY(14%)}70%,100%{transform:translateY(5%)}}
+.mo-flash{position:absolute;inset:0;z-index:2;pointer-events:none}
+.mo-flash i{position:absolute;width:10px;height:10px;opacity:0;transform:scale(.2);
+  background:radial-gradient(circle,#fff 0 18%,rgba(255,255,255,.7) 30%,transparent 62%);animation:moFlash .45s ease-out 2 both}
+.mo-flash i::before,.mo-flash i::after{content:"";position:absolute;left:50%;top:50%;width:200%;height:1.5px;background:linear-gradient(90deg,transparent,#fff,transparent);transform:translate(-50%,-50%)}
+.mo-flash i::after{transform:translate(-50%,-50%) rotate(90deg)}
+@keyframes moFlash{0%{opacity:0;transform:scale(.2)}20%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:scale(.6)}}
+.mo-conf{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.mo-conf i{position:absolute;top:-8%;width:4px;height:7px;border-radius:1px;opacity:0;animation-name:moConf;animation-timing-function:cubic-bezier(.3,.4,.6,1);animation-fill-mode:both}
+.mo-conf i:nth-child(3n){width:5px;height:5px;border-radius:50%}
+@keyframes moConf{0%{opacity:0;transform:translate(0,0) rotate(0)}8%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),140cqh) rotate(var(--rx))}}
+.ana-h .mo-conf i{width:6px;height:10px}.ana-h .mo-flash i{width:16px;height:16px}
+.sg .mo-conf i{width:3px;height:5px}.sg .mo-flash i{width:7px;height:7px}
+.mo.out .mo-crowd{animation:moCrowdOut .5s ease-in both}
+@keyframes moCrowdOut{from{transform:translateY(5%)}to{transform:translateY(105%)}}
+.mo.out .mo-conf,.mo.out .mo-flash{transition:opacity .3s;opacity:0}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -3155,8 +3178,8 @@ function playMoment(host, g, kind, done){
   el.className = `mo mo-${kind}`;
   el.innerHTML = `${moSide(g.away, "a")}${moSide(g.home, "b")}<span class="mo-seam"></span>
     <span class="mo-ca">${moCrest(g.away)}</span><span class="mo-cb">${moCrest(g.home)}</span>
-    <span class="mo-mid"><em>${short}</em>${kind === "tip" ? `<b class="mo-ball">${BALL_SVG}<i></i></b>` : `<b class="num">${g.awayScore ?? 0}<s>–</s>${g.homeScore ?? 0}</b>`}</span>
-    <span class="mo-sheen"></span>`;
+    <span class="mo-mid"><em>${short}</em>${kind === "tip" ? `<b class="mo-ball">${BALL_SVG}<i></i></b>` : moScore(g, kind)}</span>
+    <span class="mo-sheen"></span>${kind === "final" ? moParty(g) : ""}`;
   host.classList.add("mo-host"); host.appendChild(el);
   host.classList.add("mo-on");
   host._mo = el; host.classList.remove("mo-back");
@@ -3164,7 +3187,24 @@ function playMoment(host, g, kind, done){
   setTimeout(() => { el.classList.add("out");
     setTimeout(() => { if (mine()){ host.classList.remove("mo-on"); host.classList.add("mo-back"); } }, 450);
     setTimeout(() => { el.remove(); if (mine() && !host.querySelector(".mo")) host.classList.remove("mo-host"); done && done(); }, 1150);
-    setTimeout(() => { if (mine()) host.classList.remove("mo-back"); }, 1700); }, 3600);
+    setTimeout(() => { if (mine()) host.classList.remove("mo-back"); }, 1700); }, kind === "final" ? 5600 : 3600);
+}
+/* full-time: the winner's score blinks gold, then a crowd rises with camera flashes and confetti in the winner's colours */
+function moScore(g, kind){
+  const a = +g.awayScore || 0, h = +g.homeScore || 0, win = kind === "final" && a !== h ? (a > h ? "a" : "h") : "";
+  return `<b class="num"><span class="${win === "a" ? "mo-win" : ""}">${g.awayScore ?? 0}</span><s>–</s><span class="${win === "h" ? "mo-win" : ""}">${g.homeScore ?? 0}</span></b>`;
+}
+function moParty(g){
+  const a = +g.awayScore || 0, h = +g.homeScore || 0, W = team(a >= h ? g.away : g.home);
+  const cols = [W.color, W.alt && W.alt.toLowerCase() !== W.color.toLowerCase() ? W.alt : "#ffffff", "#f2b552", "#ffffff"];
+  let crowd = "", x = 0, k = 0;   // a row of heads and raised arms, drawn once
+  while (x < 400){ const r = 7 + (k * 37 % 5), y = 44 - (k * 53 % 9); crowd += `<circle cx="${x + r}" cy="${y}" r="${r}"/><rect x="${x + 1}" y="${y + r - 2}" width="${2 * r - 2}" height="${60 - y}" rx="${r}"/>`;
+    if (k % 3 === 1) crowd += `<rect x="${x + r * 2 - 3}" y="${y - 22}" width="3.6" height="24" rx="1.8" transform="rotate(${k % 2 ? 14 : -10} ${x + r * 2} ${y})"/>`;
+    x += 2 * r - 2; k++; }
+  const rnd = i => ((i * 9301 + 49297) % 233280) / 233280;
+  const flashes = Array.from({length: 9}, (_, i) => `<i style="left:${(6 + rnd(i + 3) * 88).toFixed(1)}%;bottom:${(8 + rnd(i + 11) * 30).toFixed(1)}%;animation-delay:${(1.9 + rnd(i + 7) * 2.6).toFixed(2)}s"></i>`).join("");
+  const conf = Array.from({length: 26}, (_, i) => `<i style="left:${(rnd(i + 21) * 100).toFixed(1)}%;background:${cols[i % cols.length]};animation-delay:${(1.7 + rnd(i + 5) * 1.4).toFixed(2)}s;animation-duration:${(1.9 + rnd(i + 9) * 1.3).toFixed(2)}s;--rx:${Math.round(rnd(i + 2) * 720 - 360)}deg;--dx:${Math.round(rnd(i + 17) * 40 - 20)}px"></i>`).join("");
+  return `<span class="mo-crowd"><svg viewBox="0 0 400 60" preserveAspectRatio="xMidYMax slice">${crowd}</svg></span><span class="mo-flash">${flashes}</span><span class="mo-conf">${conf}</span>`;
 }
 /* ---- Moments gallery (site address + #moments): every moment, one under the other, in both sizes ---- */
 const MO_DEMO = {away: null, home: null};
