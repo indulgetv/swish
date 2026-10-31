@@ -65,7 +65,7 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   Saved picks 28–30 Oct: strong 7–8 −£14.49 → 7–7 −£4.49 (Tre Johnson no longer strong); all picks ≈ same.
   Guide: needs "On hold · back from injury" + the −7.5% minutes note.
 ## Earlier (31 Oct morning)
-- Review of 30 Oct + declutter (see Next steps 1 and 3). Guide may need a line: "3PM = SWISH projection only, PRA removed".
+- Review of 30 Oct + declutter (see Next steps 1 and 3). Guide already says 3PM = projection only, PRA removed (checked 10:00).
 
 ## Earlier (30 Oct evening)
 - Best picks (Home + Props tab) split into top 5 Overs + top 5 Unders. Published.
@@ -86,6 +86,6 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
 6. (Done 30 Oct 22:35: guide updated for Overs/Unders split + "On hold"; heading now v1.6.)
-7. Why GitHub timers went silent after 20:09 on 30 Oct.
+7. (Checked 31 Oct 10:00: GitHub timers fire only ~1 in 5 of 33 daily slots, often 1–2 h late — GitHub drops/delays scheduled runs; not our bug. 20:09 run failed at "Save if changed" (push clash with the live loop, logs expired). cron-job.org + loops are the real system; timers = best-effort backup. No change made.)
 8. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
 9. Later: STL/BLK/TOV columns; closing-line check only on a paid plan; after ~2 weeks review calibration vs market.

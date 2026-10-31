@@ -418,3 +418,10 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   1–2 −£6.50 (removed: McCollum AST u W, D. Robinson PTS o W, K. George PTS o L, LaMelo REB u W, Gobert PTS u W,
   F. Wagner AST u L); all 398–399 −£567.25 → 402–395 −£395.17; model Brier 0.2584→0.2535; 42 side flips. (Differs from
   yesterday's 7–7 baseline because of method.) Rui Hachimura AST flipped to over → picked up the back_injury hold.
+
+- **31 Oct 10:00 — GitHub timers check:** update-data.yml has 33 schedule slots/day; GitHub created only 6 runs on 30 Oct
+  (05:37, 10:28, 14:14, 19:22, 19:37, 20:09) and ~8 on 29 Oct, most 30–100 min after their slot; none 20:09→00:06. No
+  cancelled/skipped runs were created for the missing slots → GitHub dropped them (known behaviour for scheduled workflows).
+  20:09 run failed in "Save if changed" after 5 push retries (log expired; a push run at 20:03 also failed — likely clash with
+  the 19:50 live loop / pending merges). Decision: no change; cron-job.org + live-loop are the real schedule.
+  Guide check: already says 3PM = projection only and PRA removed — no edit needed.
