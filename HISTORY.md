@@ -390,3 +390,4 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   PRA → EXTRA (computed, not shown/counted). Filter chips without Threes/PRA (chips filter priced props). Props nav count
   excludes 3PM. Tested 4 sizes × light/dark on today's slate and 30 Oct 22:40 priced snapshot: no errors, no overflow.
   No model change (picks/ledger unaffected). Pushed to `pending`.
+- 09:20: 3PM cells show the SWISH projection as the main number in blue + small "proj" label (no dash). Published to main.

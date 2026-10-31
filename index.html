@@ -79,6 +79,8 @@ html:not(.ready) .app{visibility:hidden}
 .pform-msg{font-size:12.5px;color:var(--red);min-height:1em}
 .cell.noline b{color:var(--faint)}
 .cell.noline small{color:var(--muted)}
+.cell.noline.proj b{color:var(--exp)}   /* 3PM: SWISH projection is the main number (no bookmaker line) */
+.cell.noline.proj small{color:var(--faint);text-transform:lowercase;letter-spacing:.02em}
 .cell{position:relative}
 .lm{position:absolute;top:2px;right:4px;font:800 8px/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;font-style:normal;pointer-events:none}
 .lm-up,.lm-down{color:var(--amber)}
@@ -3351,6 +3353,8 @@ function cell(pl, m){
   const p = propOf(pl.name, m);
   if (!p) { const nl = noLineOf(pl.name, m);
     const why = nl ? noLineWhy(pl, m) : null;
+    if (nl && PROJ_ONLY.includes(m) && (!why || why.k === "skip") && state.onlyValue !== true)   // threes: projection in full, no dash
+      return `<td><button class="cell noline proj" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: SWISH projection ${nl.projection.toFixed(1)}, no bookmaker line" title="SWISH projects ${nl.projection.toFixed(1)} · no bookmaker line (SWISH doesn't buy threes prices)"><b class="num">${nl.projection.toFixed(1)}</b><small>proj</small></button></td>`;
     return nl && state.onlyValue !== true ? `<td><button class="cell noline" data-prop="${nl.id}" aria-label="${esc(pl.name)}, ${MARKET_NAMES[m]}: no bookmaker line${why ? ` (${why.tip})` : ""}, SWISH projection ${nl.projection.toFixed(1)}" title="No bookmaker line${why ? ` · ${why.tip}` : ""} · SWISH projects ${nl.projection.toFixed(1)}"><b class="num">–</b>${why && why.k !== "skip" ? `<small class="nlw nlw-${why.k}">${why.t}</small>` : `<small class="num">${nl.projection.toFixed(1)}</small>`}</button></td>` : `<td><span class="dash">—</span></td>`; }
   if (state.hideFlagged && p.flags.length) return `<td><span class="dash">—</span></td>`;
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
