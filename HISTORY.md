@@ -445,3 +445,11 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
 - Fix: LU_CONFIRM_BEFORE 30→20; 'soon' = from tip−20. Labels renamed (see CHECKPOINT). Home timeline row now tip−20 with 15–25 min wording.
 - Tested phone/tablet/desktop/ultra-wide light+dark: no overflow; chip widths ~95–175 px on phone.
 - Push needed add_repo (push) — the session proxy blocks pushes until the repo is attached.
+
+## 31 Oct 19:00–19:10 — guide + checkpoint tidy
+- Guide "SWISH — how it works" (Claude Doc): as-of 31 Oct; daily timeline (Likely starter at 13:50, ~20 min before each tip
+  → Confirm/Confirming/Starting ✓, 15–25 min, 15-s scores); Reading table: new rows Filter bar, Lineup chip, Game moments;
+  Lineup tag row rewritten; Live games row (15 s, Game started/over); Injuries: Older & long-term paragraph, starters row;
+  on-hold "lineup due" now 15–25 min.
+- CHECKPOINT.md trimmed from 11,094 chars (dated "Earlier" blocks moved out; they were already logged above) and copied
+  to project doc.
