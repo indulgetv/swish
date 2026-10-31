@@ -1165,6 +1165,10 @@ html.calm .gswipe{animation:none}
 
 /* Skip layout/paint for game sections that are off-screen */
 .gsec,.ana,.ij{content-visibility:auto;contain-intrinsic-size:auto 700px}
+#sections.cv-all .gsec{content-visibility:visible}
+/* arriving at a game from the sidebar: its card glows once so you can see where you landed */
+.gsec.goto-hi{animation:gotoHi 1.6s var(--ease) both}
+@keyframes gotoHi{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--red) 0%,transparent)}25%{box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 55%,transparent),0 12px 34px -12px color-mix(in srgb,var(--red) 45%,transparent)}100%{box-shadow:0 0 0 0 transparent}}
 .cell,.bc,.fcard,.formbtn{will-change:auto}
 
 /* ================= Game headers: clean seam + top-edge glow ================= */
@@ -4651,6 +4655,39 @@ function goBack(){
 }
 addEventListener("popstate", () => { if (state.drawerOpen){ closeDrawer(); return; } goBack(); });
 
+/* jump to a game's squads on the Props page (sidebar "Tonight", Home rows, Games, standings).
+   Was buggy: off-screen game sections are only measured when they scroll into view (content-visibility), so the target
+   moved while scrolling and the page stopped short; and the sticky header + filter bar covered the section's top. */
+function stickyTop(){
+  const hdr = [...document.querySelectorAll(".topbar,.top,header.mtop,.mhead")].filter(x => getComputedStyle(x).position === "sticky" || getComputedStyle(x).position === "fixed")
+    .reduce((m, x) => Math.max(m, x.getBoundingClientRect().bottom), 0);
+  const tb = document.querySelector(".toolbar"), tbH = tb && getComputedStyle(tb).position === "sticky" ? tb.getBoundingClientRect().height + 12 : 0;
+  return Math.max(hdr, 0) + tbH + 10;
+}
+let GOTO_T = 0;
+function gotoGame(gid){
+  const reset = state.q || state.market !== "ALL" || state.onlyValue || state.hideFlagged || state.collapsed.has(gid);
+  state.collapsed.delete(gid); state.q = ""; state.market = "ALL"; state.onlyValue = false; state.hideFlagged = false;
+  if (state.view !== "props") go("props"); else if (reset) render();
+  const secs = $("sections"); if (secs) secs.classList.add("cv-all");          // measure every game for real, so the target stays put
+  const calm = document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const where = () => { const el = $("game-" + gid); return el ? Math.max(0, Math.round(el.getBoundingClientRect().top + scrollY - stickyTop())) : null; };
+  clearTimeout(GOTO_T);
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const el = $("game-" + gid), y = where(); if (!el || y === null) return;
+    if (calm) window.scrollTo(0, y);
+    else {
+      const far = y - scrollY;                                                   // long trips: jump most of the way, then glide the last bit
+      if (Math.abs(far) > 1100) window.scrollTo(0, y - Math.sign(far) * 520);
+      window.scrollTo({top: y, behavior: "smooth"});
+      el.classList.remove("goto-hi"); void el.offsetWidth; el.classList.add("goto-hi");
+    }
+    GOTO_T = setTimeout(() => {                                                  // settle: correct any last shift, then go back to lazy layout
+      const y2 = where(); if (y2 !== null && Math.abs(y2 - scrollY) > 6) window.scrollTo({top: y2, behavior: calm ? "auto" : "smooth"});
+      setTimeout(() => { if (secs) secs.classList.remove("cv-all"); el.classList.remove("goto-hi"); }, 700);
+    }, calm ? 50 : 750);
+  }));
+}
 function revealOpened(top, bottom){
   if (!top) return; bottom = bottom || top;
   const calm = document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -4696,11 +4733,7 @@ document.addEventListener("click", e => {
     if (!c){ const sec = $("game-" + d.toggle); if (sec) setTimeout(() => { const h = sec.querySelector(".gsec-h"), first = sec.querySelector(".squad .sqt tbody tr, .squad"); revealOpened(h, first || h); }, 380); } }
   else if (d.expand) { const c = d.expand !== "all"; state.collapsed = c ? new Set(GAMES.map(g => g.id)) : new Set(); GAMES.forEach(g => setCollapsed(g.id, c)); }
   else if (d.clear) { state.q = ""; state.market = "ALL"; state.onlyValue = false; state.hideFlagged = false; render(); }
-  else if (d.goto) {
-    state.collapsed.delete(d.goto); state.q = ""; state.market = "ALL"; state.onlyValue = false; state.hideFlagged = false;
-    go("props");
-    const el = $("game-" + d.goto); if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
-  }
+  else if (d.goto) gotoGame(d.goto);
 });
 document.addEventListener("submit", e => { const f = e.target.closest("[data-priceform]"); if (f) { e.preventDefault(); savePrice(+f.dataset.priceform); } });
 document.addEventListener("keydown", e => {
