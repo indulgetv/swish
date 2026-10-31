@@ -1488,7 +1488,7 @@ html.calm .newspill.hot i{animation:none}
   /* squad tables become rows: full-width name line, then Min + the five markets underneath */
   .sqt{display:block;table-layout:auto}
   .sqt > thead,.sqt > tbody{display:block}
-  .sqt > thead > tr,.sqt > tbody > tr{display:grid;grid-template-columns:40px repeat(5,minmax(0,1fr));align-items:center;column-gap:4px;padding:0 10px;border-bottom:1px solid var(--line)}
+  .sqt > thead > tr,.sqt > tbody > tr{display:grid;grid-template-columns:40px repeat(var(--nm,4),minmax(0,1fr));align-items:center;column-gap:5px;padding:0 12px;border-bottom:1px solid var(--line)}
   .sqt tbody tr.has-form{border-bottom-color:transparent}
   .sqt > * > tr > th,.sqt > * > tr > td{border-bottom:0!important;width:auto!important}
   .sqt thead th:first-child{display:none}
@@ -1503,6 +1503,13 @@ html.calm .newspill.hot i{animation:none}
   .sqt tr.formrow > td{display:block;padding:0 0 12px!important}
   .cell{min-height:42px}.cell b{font-size:14.5px}.cell small{font-size:10.5px}
   .formbtn b{display:inline!important}
+  .sqt td.pl .pl-in{display:grid!important;grid-template-columns:auto auto auto minmax(0,1fr);grid-template-areas:"jav nm btn ." "jav sub sub sub";column-gap:10px;row-gap:1px;align-items:center;justify-items:start}
+  .sqt td.pl .pl-in > div{display:contents}
+  .sqt td.pl .pl-in > .jav{grid-area:jav;align-self:center}
+  .sqt td.pl .pl-in > div > b{grid-area:nm;min-width:0}
+  .sqt td.pl .pl-in > div > small{grid-area:sub;min-width:0;max-width:100%}
+  .sqt td.pl .pl-in > .formbtn{grid-area:btn;margin:0!important;padding:1px 8px!important;min-height:20px!important;height:21px;font-size:11px;line-height:1;border-radius:99px;gap:4px;align-self:center}
+  .sqt td.pl .pl-in > .formbtn svg{width:11px;height:11px}
 }
 
 /* ================= Phone overflow fixes ================= */
@@ -1884,8 +1891,9 @@ html.calm .brand.wave .wordmark i{animation:none!important}
 }
 @media (max-width:760px){
   .toolbar{display:grid!important;grid-template-columns:1fr;gap:14px}
-  .chips{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-  .chips .chip{width:100%;justify-content:center;text-align:center;padding:10px 6px;margin:0}
+  .chips{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .chips .chip{width:100%;justify-content:center;text-align:center;padding:10px 2px;margin:0;font-size:13px;white-space:nowrap;min-width:0}
+  .chips .chip .cl-x{display:none}
   .tools{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:8px;width:100%}
   .tools .field{min-width:0;width:100%}
   .tools .field input,.tools .field select{min-width:0;width:100%;text-overflow:ellipsis}
@@ -1976,6 +1984,83 @@ html.calm .brand.wave .wordmark i{animation:none!important}
   .sqt > tbody > tr.has-form > td.pl{padding-left:4px!important}
 }
 html.dark .jav{filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+/* ---- game moments banner ---- */
+.moment{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 92px);z-index:9000;transform:translate(-50%,-30px) scale(.94);opacity:0;pointer-events:none;
+  transition:transform .55s cubic-bezier(.2,1.3,.4,1),opacity .35s ease;max-width:calc(100vw - 24px)}
+.moment.on{transform:translate(-50%,0) scale(1);opacity:1}
+.moment.off{transform:translate(-50%,-16px) scale(.97);opacity:0;transition:transform .4s ease,opacity .35s ease}
+.mo-in{position:relative;overflow:hidden;display:grid;grid-template-columns:auto auto;align-items:center;gap:4px 16px;padding:12px 20px 12px 16px;border-radius:18px;
+  background:rgba(18,20,24,.92);color:#fff;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 18px 40px -14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.2)}
+html:not(.dark) .mo-in{background:rgba(255,255,255,.95);color:#121417;border-color:rgba(18,20,23,.1);box-shadow:0 18px 40px -16px rgba(18,20,23,.35)}
+.mo-k{display:inline-flex;align-items:center;gap:8px;font:800 13px/1 var(--display,inherit);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.mo-k em{font-style:normal}
+.mo-m{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:15px;white-space:nowrap}
+.mo-m b{font-size:20px;font-weight:800}
+.mo-m .mo-vs{color:var(--muted)}
+.mo-s{grid-column:1/-1;font-size:11.5px;color:var(--muted);font-weight:600}
+.mo-dot{width:9px;height:9px;border-radius:50%;background:#e53946;animation:liveDot 1.1s ease-in-out infinite}
+.mo-tip .mo-k{color:#ff7a3d}
+.mo-q{font-size:10px;padding:3px 6px;border-radius:6px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line);letter-spacing:.05em}
+.mo-q1 .mo-k,.mo-q3 .mo-k,.mo-ht .mo-k,.mo-q4 .mo-k{color:var(--amber)}
+.mo-ht .mo-in{border-color:rgba(242,181,82,.45)}
+.mo-final .mo-k{color:#f2b552}
+.mo-final .mo-in{border-color:rgba(242,181,82,.55);box-shadow:0 18px 44px -12px rgba(242,181,82,.45)}
+.mo-final .mo-k{animation:moStar 1.2s cubic-bezier(.2,1.4,.4,1)}
+@keyframes moStar{0%{transform:scale(.4) rotate(-20deg);opacity:0}60%{transform:scale(1.15) rotate(4deg);opacity:1}100%{transform:none}}
+/* break / final: a light band sweeps across once */
+.mo-sweep{position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 35%,rgba(242,181,82,.28) 50%,transparent 65%);background-size:260% 100%;animation:moSweep 1.6s .25s ease-out 2 both}
+@keyframes moSweep{from{background-position:130% 0}to{background-position:-30% 0}}
+/* tip-off: ball rolls across the banner with a fire trail, the text appears behind it */
+.mo-tip .mo-k,.mo-tip .mo-m,.mo-tip .mo-s{animation:moReveal 1.3s .1s cubic-bezier(.5,0,.3,1) both}
+@keyframes moReveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.mo-fire{position:absolute;top:50%;left:0;width:30px;height:30px;margin-top:-15px;z-index:2;animation:moRoll 1.4s .05s cubic-bezier(.5,0,.3,1) both}
+.mo-fire svg{position:relative;width:30px;height:30px;animation:moSpin 1.4s linear both;filter:drop-shadow(0 0 6px rgba(255,120,40,.8))}
+.mo-fire i,.fsweep i{position:absolute;right:50%;top:50%;height:22px;width:130px;transform:translateY(-50%);border-radius:50% 0 0 50%;
+  background:linear-gradient(90deg,transparent,rgba(255,60,20,.25) 30%,rgba(255,120,30,.75) 70%,#ffd36a);filter:blur(5px);animation:moFlick .12s linear infinite alternate}
+@keyframes moRoll{0%{left:-40px;opacity:1}88%{opacity:1}100%{left:calc(100% + 10px);opacity:0}}
+@keyframes moSpin{to{transform:rotate(720deg)}}
+@keyframes moFlick{from{height:18px;opacity:.85}to{height:24px;opacity:1}}
+/* the same fire ball runs across every score for that game at tip-off */
+.lsw.fs-host{position:relative;display:inline-block}
+.fsweep{position:absolute;top:50%;left:-24px;width:18px;height:18px;margin-top:-9px;z-index:3;pointer-events:none;animation:moRoll 1.5s cubic-bezier(.45,0,.3,1) both}
+.fsweep svg{position:relative;width:18px;height:18px;animation:moSpin 1.5s linear both;filter:drop-shadow(0 0 5px rgba(255,120,40,.9))}
+.fsweep i{width:70px;height:12px}
+/* score tags during a break: amber END Q1 / HALF label instead of the red LIVE */
+.tag.score.brk .brkl{font-size:.82em;font-weight:800;letter-spacing:.05em;padding:1px 6px;border-radius:5px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line)}
+.tag.score.brk::before{animation-duration:9s;filter:hue-rotate(35deg)}
+@media (max-width:760px){.moment{top:calc(env(safe-area-inset-top,0px) + 128px)}.mo-in{padding:10px 14px;gap:3px 12px}.mo-m{font-size:13.5px}.mo-m b{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.moment,.mo-fire,.fsweep{display:none!important}}
+/* lineup due: hourglass flips, a soft amber shimmer runs through; confirmed chips pop in green */
+.luhg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;vertical-align:-1px;margin-right:3px;animation:luFlip 2.6s cubic-bezier(.6,0,.3,1) infinite}
+.lu-due .luhg{width:12px;height:12px}
+@keyframes luFlip{0%,70%{transform:rotate(0)}85%,100%{transform:rotate(180deg)}}
+.lu-chip.due,.tag.lu-due{background-image:linear-gradient(100deg,transparent 30%,rgba(242,181,82,.35) 50%,transparent 70%)!important;background-size:250% 100%!important;animation:luSheen 2.8s ease-in-out infinite}
+.lu-swap{animation:luSwap .45s cubic-bezier(.3,1.4,.5,1)}
+@keyframes luSwap{from{opacity:0;transform:translateY(5px) scale(.9)}to{opacity:1;transform:none}}
+.lu-chip.lu-in{animation:luIn 1.4s cubic-bezier(.2,1.3,.4,1)!important}
+@keyframes luIn{0%{opacity:0;transform:scale(.4)}35%{opacity:1;transform:scale(1.18);box-shadow:0 0 0 5px rgba(31,138,76,.3)}100%{transform:scale(1);box-shadow:0 0 0 12px rgba(31,138,76,0)}}
+html.calm .luhg,html.calm .lu-chip.due,html.calm .tag.lu-due{animation:none!important}
+@media (prefers-reduced-motion:reduce){.luhg,.lu-chip.due,.tag.lu-due,.lu-swap,.lu-chip.lu-in{animation:none!important}}
+/* injuries: older / long-term news tucked into a closed drop-down, clearly dated and dimmed */
+.ij-team .ij-cnt{margin-left:auto;font-size:11px;font-weight:600;color:var(--muted)}
+.ij-old{margin-top:10px;border:1px dashed var(--line);border-radius:12px;background:transparent;overflow:hidden}
+.ij-old summary{list-style:none;cursor:pointer;display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;padding:10px 12px;font-size:12.5px;font-weight:700;color:var(--ink2)}
+.ij-old summary::-webkit-details-marker{display:none}
+.ij-old summary b{font-size:11px;padding:0 7px;border-radius:99px;background:var(--line);color:var(--ink2)}
+.ij-old summary small{flex-basis:100%;order:3;font-weight:500;font-size:11px;color:var(--muted)}
+.ij-old summary .car{margin-left:auto;display:inline-flex;transition:transform .3s var(--ease)}
+.ij-old summary .car svg{width:14px;height:14px}
+.ij-old[open] summary .car{transform:rotate(180deg)}
+.ij-old[open] .ijo{animation:panelIn .32s var(--ease)}
+.ijo{padding:0 12px 10px;display:grid;gap:2px;opacity:.82}
+.ijo-r{display:grid;grid-template-columns:1fr auto;gap:1px 8px;align-items:center;padding:7px 0;border-top:1px solid var(--line);font-size:12px}
+.ijo-r .nm{font-weight:600;color:var(--ink2)}
+.ijo-r .ijo-d{grid-column:1;color:var(--muted);font-size:11px}
+.ijo-r .ijo-t{grid-column:2;grid-row:2;justify-self:end;font-size:10.5px;color:var(--muted);white-space:nowrap}
+.ijo-r .pill,.ijo-r .st{transform:scale(.88);transform-origin:right center;filter:saturate(.6)}
+.ijo-b{padding:8px 0 2px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.5}
+.ijo-b span{font-weight:700}
 /* injuries posted in the last 2 hours stand out */
 .injc.justin{border-color:var(--red)!important;box-shadow:0 0 0 1px var(--red),0 8px 24px -8px rgba(214,40,57,.45)!important;animation:justInGlow 2.4s ease-in-out infinite}
 @keyframes justInGlow{0%,100%{box-shadow:0 0 0 1px var(--red),0 8px 24px -10px rgba(214,40,57,.35)}50%{box-shadow:0 0 0 2px var(--red),0 10px 30px -6px rgba(214,40,57,.6)}}
@@ -2342,7 +2427,7 @@ const MARKETS = ["PTS","REB","AST","3PM","PRA"];
 const MARKET_NAMES = {PTS:"Points",REB:"Rebounds",AST:"Assists","3PM":"Threes",PRA:"Pts+Reb+Ast"};
 const SHOW_MARKETS = ["PTS","REB","AST","3PM"];   // shown on the site; PRA is still worked out in the background (EXTRA)
 const PROJ_ONLY = ["3PM"];                         // shown as a SWISH projection only, never with a bookmaker line (not bought)
-const MARKET_FILTERS = [["ALL","All markets"],["PTS","Points"],["REB","Rebounds"],["AST","Assists"]];
+const MARKET_FILTERS = [["ALL","All<span class=\"cl-x\"> markets</span>"],["PTS","Points"],["REB","Rebounds"],["AST","Assists"]];
 const CV = {PTS:.27, REB:.33, AST:.38, "3PM":.62, PRA:.22};      // typical game-to-game variation
 const SD_FLOOR = {PTS:3, REB:1.6, AST:1.2, "3PM":0.9, PRA:4};
 
@@ -2836,6 +2921,8 @@ const scoresAt = () => IS_LIVE ? ((LIVE.sections || {}).games || {}).fetchedAt :
 function scoreTag(g, cls = "tag"){
   if (!g.state || g.state === "pre") return "";
   const live = g.state === "in";
+  const brk = live ? breakOf(g.clock) : null;
+  if (brk) return `<span class="${cls} score live brk" title="${esc(g.clock)}"><span class="brkl">${BREAK_TXT[brk].short}</span> <b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b></span>`;
   return `<span class="${cls} score ${live ? "live" : "final"}" title="${LS.ok ? `Live from ESPN · checked ${agoTxt(LS.at)} · updates every 30 seconds` : `Score updated ${agoTxt(scoresAt())} — checks every 5 minutes`}">${live ? `<i></i><span class="lv">LIVE</span> ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? `<span class="lclk"> · ${esc(g.clock)}</span>` : ""}</span>`;
 }
 function anaBadges(g){
@@ -2849,16 +2936,21 @@ const SLOT = {
   tag:  g => scoreTag(g),
   tagS: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   tagT: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
-  lu:  g => g.state && g.state !== "pre" ? "" : `<span class="tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
+  lu:  g => g.state && g.state !== "pre" ? "" : luTag(g, "tag"),
   luM: g => g.state && g.state !== "pre"
     ? `<span class="lu-mob lu-st started">${g.state === "in" ? "Game started" : "Game over"}</span>`
-    : `<span class="lu-mob tag ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`,
+    : luTag(g, "lu-mob tag"),
   // Games & Analysis: info badges sit in the header before tip-off, then move into the head-to-head card
   anaInfo: g => g.state && g.state !== "pre" ? "" : anaBadges(g),
   anaInfoB: g => g.state && g.state !== "pre" ? `<div class="ana-info"><div class="dt">Tonight's game</div><div class="ana-info-t">${anaBadges(g)}</div></div>` : "",
   side: g => { const ht = g.state === "in" && /half/i.test(g.clock || "");
     return `<span class="t num ${g.state === "in" ? "live" : ""} ${ht ? "ht" : ""}" ${ht ? 'title="Halftime"' : ""}>${ht ? `<em class="htl"><span>H</span><span>T</span></em>` : g.state === "in" ? `<i class="ldot" aria-hidden="true"></i>` : ""}${g.state && g.state !== "pre" ? `${g.awayScore}–${g.homeScore}` : timeFmt(g.tipoff)}</span>`; },
 };
+function luTag(g, cls){
+  const ph = IS_LIVE ? luPhase(g) : null;
+  if (ph && ph.k === "due" && g.lineups === "Expected") return `<span class="${cls} amber lu-due">${LU_HOURGLASS}${ph.soon ? "Lineups any minute" : `Lineups due ~${ph.at}`}</span>`;
+  return `<span class="${cls} ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`;
+}
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
 /* live scores straight from ESPN in the browser: every 30 s from 10 min before a tip-off until the game is final */
 const LS = {ok: false, at: null};
@@ -2886,6 +2978,59 @@ function animateScore(g, from){
   TICKING.set(g.id, setInterval(step, 160)); step();
 }
 /* a game that just finished: one gold pop on its score, then it stays still */
+/* ---- game moments: tip-off, end of each quarter, halftime, final ----
+   a banner drops in under the header (one at a time, queued), and at tip-off a ball with a fire trail
+   runs across every place that game's score shows. Preview them all: add #moments to the address. */
+const BREAK_TXT = {q1: {short: "END Q1", big: "End of Q1"}, ht: {short: "HALF", big: "Halftime"}, q3: {short: "END Q3", big: "End of Q3"}, q4: {short: "END Q4", big: "End of regulation"}};
+function breakOf(clock){ const c = String(clock || "");
+  if (/half/i.test(c)) return "ht";
+  const m = c.match(/end of (?:the )?(1st|2nd|3rd|4th)/i); if (!m) return null;
+  return {"1st": "q1", "2nd": "ht", "3rd": "q3", "4th": "q4"}[m[1].toLowerCase()];
+}
+const BALL_SVG = `<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#f07a24"/><circle cx="20" cy="20" r="18" fill="url(#mbg)"/><path d="M2 20h36M20 2v36M7 7c7 6 7 20 0 26M33 7c-7 6-7 20 0 26" stroke="#5a2408" stroke-width="2" fill="none"/><defs><radialGradient id="mbg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffd2a6" stop-opacity=".55"/><stop offset="1" stop-color="#7a2c05" stop-opacity=".35"/></radialGradient></defs></svg>`;
+const MOMENTS = []; let MOMENT_ON = false;
+function gameMoment(g, kind){
+  if (document.documentElement.classList.contains("calm") || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  MOMENTS.push({g: {...g}, kind}); if (!MOMENT_ON) nextMoment();
+  if (kind === "tip") setTimeout(() => fireSweep(g), 250);
+}
+function nextMoment(){
+  const m = MOMENTS.shift(); if (!m){ MOMENT_ON = false; return; } MOMENT_ON = true;
+  const {g, kind} = m, sc = `<b class="num">${g.awayScore ?? 0}</b><span>–</span><b class="num">${g.homeScore ?? 0}</b>`;
+  const head = kind === "tip" ? "Tip-off" : kind === "final" ? "Final" : BREAK_TXT[kind].big;
+  const sub = kind === "tip" ? `${team_(g.away)} at ${team_(g.home)} · live scores on` : kind === "final"
+    ? (+g.awayScore === +g.homeScore ? "" : `${team_(+g.awayScore > +g.homeScore ? g.away : g.home)} win`) : (kind === "ht" ? "Half done" : "Quarter done");
+  const el = document.createElement("div");
+  el.className = `moment mo-${kind}`; el.setAttribute("role", "status");
+  el.innerHTML = `<div class="mo-in">${kind === "tip" ? `<span class="mo-fire" aria-hidden="true"><i></i>${BALL_SVG}</span>` : `<span class="mo-sweep" aria-hidden="true"></span>`}
+    <span class="mo-k">${kind === "tip" ? `<span class="mo-dot"></span>` : kind === "final" ? "★" : `<span class="mo-q">${BREAK_TXT[kind].short}</span>`}<em>${head}</em></span>
+    <span class="mo-m">${tid(g.away, "xs")}<span class="mo-t">${g.away}</span>${kind === "tip" ? `<span class="mo-vs">@</span>` : sc}<span class="mo-t">${g.home}</span>${tid(g.home, "xs")}</span>
+    ${sub ? `<small class="mo-s">${esc(sub)}</small>` : ""}</div>`.replace(/ loading="lazy"/g, "");
+  document.body.appendChild(el);
+  requestAnimationFrame(() => el.classList.add("on"));
+  const stay = kind === "tip" || kind === "final" ? 4200 : 3400;
+  setTimeout(() => { el.classList.remove("on"); el.classList.add("off"); setTimeout(() => { el.remove(); nextMoment(); }, 450); }, stay);
+}
+function fireSweep(g){
+  document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => {
+    if (!el.offsetParent) return;
+    const f = document.createElement("span"); f.className = "fsweep"; f.innerHTML = `<i></i>${BALL_SVG}`;
+    el.classList.add("fs-host"); el.appendChild(f);
+    setTimeout(() => { f.remove(); el.classList.remove("fs-host"); }, 1700);
+  });
+}
+/* preview: open the site with #moments to play every moment once on the first game */
+function previewMoments(){
+  const g = GAMES[0]; if (!g) return;
+  const base = {...g, state: "in", awayScore: 0, homeScore: 0};
+  gameMoment(base, "tip");
+  gameMoment({...base, awayScore: 31, homeScore: 27}, "q1");
+  gameMoment({...base, awayScore: 58, homeScore: 61}, "ht");
+  gameMoment({...base, awayScore: 88, homeScore: 90}, "q3");
+  gameMoment({...base, awayScore: 117, homeScore: 112}, "final");
+}
+addEventListener("load", () => { if (/moments/.test(location.hash)) setTimeout(previewMoments, 1200); });
+addEventListener("hashchange", () => { if (/moments/.test(location.hash)) previewMoments(); });
 function flashFinal(g){
   if (document.documentElement.classList.contains("calm")) return;
   setTimeout(() => {
@@ -2907,12 +3052,15 @@ async function pollScores(){
       const clock = st.shortDetail || st.detail || "";
       const scored = String(sc.away) !== String(g.awayScore) || String(sc.home) !== String(g.homeScore);
       if (!scored && st.state === g.state && clock === g.clock) return;
-      const from = {a: g.awayScore, h: g.homeScore}, wasPre = g.state === "pre", wasLive = g.state === "in";
+      const from = {a: g.awayScore, h: g.homeScore}, wasPre = g.state === "pre", wasLive = g.state === "in", oldClock = g.clock || "";
       g.state = st.state; g.awayScore = sc.away; g.homeScore = sc.home; g.clock = clock;
       g.status = st.state === "pre" ? "Scheduled" : st.state === "in" ? `Live · ${clock}` : (clock || "Final");
       g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
       if (scored && !wasPre && st.state !== "pre") animateScore(g, from); else paintGame(g);
       if (wasLive && st.state === "post") flashFinal(g);
+      if (wasPre && st.state === "in") gameMoment(g, "tip");
+      else if (st.state === "in" && breakOf(clock) && breakOf(clock) !== breakOf(oldClock)) gameMoment(g, breakOf(clock));
+      if (wasLive && st.state === "post") gameMoment(g, "final");
     });
     LS.ok = true; LS.at = new Date().toISOString();
   } catch(e){ LS.ok = false; }
@@ -2921,6 +3069,31 @@ setInterval(pollScores, 30000);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) pollScores(); });
 const starterSet = () => { const s = new Map(); DATA.games.forEach(g => ["away","home"].forEach(side => { const t = (g.lineupData || {})[side]; (t && t.starters || []).forEach(p => s.set(normName(p.name), t.status)); })); return s; };
 const STARTERS = IS_LIVE ? starterSet() : new Map();
+/* lineup phase per game: "expected" (NBA.com projection) → "due" (last 90 min: NBA.com usually confirms ~30 min before tip)
+   → "confirmed" (green). The chips repaint every minute so the wording moves on by itself. */
+const LU_DUE_MIN = 90, LU_CONFIRM_BEFORE = 30;
+const GAME_OF = t => GAMES.find(g => g.away === t || g.home === t);
+function luPhase(g){
+  if (!g || (g.state && g.state !== "pre")) return null;
+  if (g.lineups === "Confirmed") return {k: "confirmed"};
+  const mins = (new Date(g.tipoff) - Date.now()) / 60e3;
+  if (mins > LU_DUE_MIN) return {k: "expected"};
+  const at = new Date(new Date(g.tipoff) - LU_CONFIRM_BEFORE * 60e3);
+  return {k: "due", soon: mins <= LU_CONFIRM_BEFORE + 2, at: timeFmt(at.toISOString())};
+}
+const LU_HOURGLASS = `<svg class="luhg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10M7 21h10M8 3c0 5 8 6 8 9s-8 4-8 9M16 3c0 5-8 6-8 9s8 4 8 9"/></svg>`;
+function luChip(name, team){
+  const stx = STARTERS.get(normName(name)); if (!stx) return "";
+  const g = GAME_OF(team), ph = stx === "expected" ? luPhase(g) : null;
+  if (ph && ph.k === "due") return ` <span class="lu-chip due" data-lug="${g.id}" data-lun="${esc(name)}" title="NBA.com's projected starter. Teams confirm lineups about 30 minutes before tip-off.">${LU_HOURGLASS}${ph.soon ? "lineup any min" : `lineup ${ph.at}`}</span>`;
+  return ` <span class="lu-chip ${stx}" data-lug="${g ? g.id : ""}" data-lun="${esc(name)}">${stx === "expected" ? "exp. starter" : "starter"}</span>`;
+}
+let LU_JUST = new Set();   // players whose lineup just went from expected to confirmed (they get a pop-in)
+setInterval(() => { if (!IS_LIVE || document.hidden) return;
+  document.querySelectorAll(".lu-chip[data-lun]").forEach(el => { const t = PLAYER_BY_NAME.get(el.dataset.lun); if (!t) return;
+    const html = luChip(el.dataset.lun, t.team).trim(); if (html && el.outerHTML !== html){ const w = document.createElement("span"); w.innerHTML = html; const n = w.firstElementChild; n.classList.add("lu-swap"); el.replaceWith(n); } });
+  GAMES.forEach(g => paintGame(g));
+}, 60000);
 function lineupBlock(g){
   const LU = g.lineupData || {};
   const team = side => { const t = LU[side];
@@ -2942,6 +3115,19 @@ const isJustIn = i => newsAgeH(i) <= JUST_IN_H;
 const minsAgo = i => { const m = Math.max(1, Math.round(newsAgeH(i) * 60)); return m < 60 ? `${m} min ago` : `${Math.floor(m / 60)}h ${m % 60 ? `${m % 60}m ` : ""}ago`; };
 const byNewest = (a, b) => (new Date(b.updated || 0)) - (new Date(a.updated || 0));
 const injNews = () => DATA.injuries.filter(isNewNews).sort(byNewest);
+/* relevance: what matters for tonight. Questionable/Doubtful always; "Out" only while the news is fresh (48 h)
+   and the player is a regular (12+ min a game). Everything else goes in a closed "older / long-term" drop-down. */
+const OLD_INJ_H = 48, REGULAR_MIN = 12;
+function usualMin(name){
+  if (!IS_LIVE || !LIVE || !LIVE.players) { const p = PLAYERS.find(x => x.name === name); return p ? p.min : null; }
+  const p = LIVE.players.find(x => x.name === name); if (!p) return null;
+  const cur = (p.season || []).filter(g => g.min > 0), last = (p.lastSeason || []).filter(g => g.min > 0);
+  const g = cur.length >= 3 ? cur.slice(0, 10) : last.slice(0, 20); if (!g.length) return cur.length ? avg(cur.map(x => x.min)) : null;
+  return avg(g.map(x => x.min));
+}
+const isRegular = i => { const m = usualMin(i.player); return m === null ? null : m >= REGULAR_MIN; };
+const injAgeH = i => (Date.now() - new Date(i.updated || i.since || 0)) / 3600e3;
+const injRelevant = i => i.status === "Questionable" || i.status === "Doubtful" || (i.status === "Out" && (injAgeH(i) <= OLD_INJ_H || isNewNews(i)) && isRegular(i) !== false);
 /* ESPN's status field lags its reporter notes; when the note about tonight disagrees, SWISH goes by the note (update.py) */
 /* status pill: outline = not confirmed yet (one source, under 3 updates); blue blip = taken from the newer reporter note */
 const injPill = i => {
@@ -3191,7 +3377,7 @@ function viewDashboard(){
   const today = new Date();
   const valueN = ALL.filter(p => p.value).length;
   const avgVig = ALL.length ? ALL.reduce((a,p) => a + p.vig, 0) / ALL.length : null;
-  const sig = DATA.injuries.filter(significant).sort(byNewest);
+  const sig = DATA.injuries.filter(i => significant(i) && (!IS_LIVE || injRelevant(i))).sort(byNewest);
   const top = PICK_TABS.best.list();
   return `
   <header class="hero hero-home">${COURT}<svg class="court ballsketch" viewBox="0 0 420 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">  <ellipse class="bs-shadow" cx="190" cy="124" rx="16" ry="3"/>  <g class="bs-trail"><path d="M204 36c-3 12-6 22-9 32" stroke-dasharray="3 6"/><path d="M216 42c-2 10-4 18-6 26" stroke-dasharray="3 6"/></g>  <g class="bs-ball"><circle cx="190" cy="104" r="18"/><path d="M172 104h36M190 86v36"/><path d="M177 91c7 7 7 19 0 26M203 91c-7 7-7 19 0 26"/></g></g></svg>
@@ -3333,7 +3519,7 @@ const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div cla
       </div>
       <p class="dnote">This season's minutes (recent games weighted up) take over from last season's after about 5 games. SWISH multiplies the per-minute rate by these minutes, so a bigger or smaller role shows up straight away.${p.roleChange ? ` <b>Role change:</b> ${p.roleDelta > 0 ? "up" : "down"} ${Math.abs(Math.round(p.roleDelta))} minutes on last season.` : ""}</p></div>`;
 function playerSub(pl){
-  const stx = STARTERS.get(normName(pl.name)); const st = stx ? ` <span class="lu-chip ${stx}">${stx === "expected" ? "exp. starter" : "starter"}</span>` : "";
+  const st = luChip(pl.name, pl.team);
   if (pl.status === "Out") return `<small class="warn">${stPill("Out")}</small>`;
   if (pl.status === "Questionable" || pl.status === "Doubtful") return `<small class="warn">⚠ ${esc(pl.status)} · ${esc(injuryOf(pl.name).detail)}</small>`;
   if (pl.minBoost) return `<small>${pl.pos}${st}${boostChip(pl)}${roleChip(pl)}</small>`;
@@ -3424,7 +3610,7 @@ function squadMatrix(teamCode){
   const v = ALL.filter(p => p.team === teamCode && p.value).length;
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
-    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${SHOW_MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
+    ${ps.length ? `<table class="sqt" style="--nm:${SHOW_MARKETS.length}"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${SHOW_MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
         return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
@@ -3894,8 +4080,13 @@ function injStatusBar(){
 
 function injuryCard(g){
   const col = t => {
-    const list = injuriesFor(t).sort(byNewest);
-    return `<div><div class="ij-team">${tid(t,"sm")}<b>${tname(t)}</b></div>
+    const all = injuriesFor(t).sort(byNewest);
+    const list = IS_LIVE ? all.filter(injRelevant) : all, rest = IS_LIVE ? all.filter(i => !injRelevant(i)) : [];
+    const oldReg = rest.filter(i => isRegular(i) !== false), bench = rest.filter(i => isRegular(i) === false);
+    const oldRow = i => { const m = usualMin(i.player); return `<div class="ijo-r"><span class="nm">${esc(i.player)}</span><span class="ijo-d">${esc(i.detail || "")}${m ? ` · usually ${Math.round(m)} min` : ""}</span>${injPill(i)}<span class="ijo-t num">${dateFmt(i.updated || i.since)} · ${agoTxt(i.updated || i.since)}</span></div>`; };
+    const older = rest.length ? `<details class="ij-old"><summary><span>Older &amp; long-term</span><b class="num">${rest.length}</b><small>news over ${OLD_INJ_H} h old, or players outside the rotation</small><i class="car">${ICON_CHEV}</i></summary>
+      <div class="ijo">${oldReg.map(oldRow).join("")}${bench.length ? `<div class="ijo-b"><span>Rarely play (under ${REGULAR_MIN} min):</span> ${bench.map(i => `${esc(i.player)} <small>${esc(i.status.toLowerCase())}</small>`).join(" · ")}</div>` : ""}</div></details>` : "";
+    return `<div><div class="ij-team">${tid(t,"sm")}<b>${tname(t)}</b>${rest.length ? `<span class="ij-cnt">${list.length} for tonight</span>` : ""}</div>
       <div class="clamp-m" data-clamp="inj-${t}">${list.length ? list.map(i => {
         const affected = ALL.filter(p => p.player === i.player || (p.role && p.role.dependsOn === i.player));
         return `<div class="injc ${stCls(i.status)} ${isNewNews(i) ? "isnew" : ""} ${isJustIn(i) ? "justin" : ""}">
@@ -3906,7 +4097,7 @@ function injuryCard(g){
             ${i.fillIns.map(f => { const pl = PLAYERS.find(x => x.name === f.player) || {min:"?"}; return `<div class="fi"><span class="nm">${esc(f.player)}</span><span class="mins num">${pl.min} → <i>${f.minIf}</i> min</span><span class="note">${esc(f.note)}</span></div>`; }).join("")}
             ${affected.length ? `<div class="affects">${affected.map(p => `<button data-prop="${p.id}">${esc(p.player)} · ${MARKET_NAMES[p.market]} ${p.line}</button>`).join("")}</div>` : ""}
           </div>` : ""}
-        </div>`; }).join("") : `<div class="noinj">No injuries reported${IS_LIVE ? "" : " (sample)"}.</div>`}</div>
+        </div>`; }).join("") : `<div class="noinj">${rest.length ? "Nothing new for tonight" : `No injuries reported${IS_LIVE ? "" : " (sample)"}`}.</div>`}</div>${older}
     </div>`;
   };
   return `
@@ -4072,8 +4263,9 @@ function render(){
   syncPrefs();
   $("navGames").textContent = GAMES.length;
   $("navProps").textContent = ALL.length + NOLINE.filter(lineable).length;   // PTS/REB/AST only
-  const sig = DATA.injuries.filter(significant).length;
-  $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
+  const nNew = IS_LIVE ? injNews().length : DATA.injuries.filter(significant).length;   // badge = fresh changes only, not every long-term absence
+  $("navInj").textContent = nNew || ""; $("navInj").style.display = nNew ? "" : "none";
+  $("navInj").title = nNew ? `${nNew} injury change${nNew > 1 ? "s" : ""} in the last ${NEW_NEWS_H} hours` : "";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;
   if (IS_LIVE){
     $("srcPill").className = "sample-pill live-pill" + (UPD_FLASH && Date.now() - UPD_FLASH < 3600 ? " justupd" : ""); setHTML($("srcPill"), `<i></i><span class="nl">Data updated </span><svg class="ms" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span class="updw">Updated</span><b class="num">${timeFmt(DATA.meta.generatedAt)}</b>`); $("srcPill").setAttribute("aria-label", `Data updated ${timeFmt(DATA.meta.generatedAt)}`); $("srcPill").title = `Stats, scores and injuries last updated ${timeFmt(DATA.meta.generatedAt)} (${agoTxt(DATA.meta.generatedAt)}). Updates every 5 minutes from 13:50 to the end of the games.`;
@@ -4423,7 +4615,9 @@ async function refreshInPlace(){
   PLAYERS.length = 0; PLAYERS.push(...buildLivePlayers());
   PLAYER_BY_NAME.clear(); PLAYERS.forEach(pl => PLAYER_BY_NAME.set(pl.name, pl));
   buildAllProps();
+  const luPrev = new Map(STARTERS);
   STARTERS.clear(); starterSet().forEach((v, k) => STARTERS.set(k, v));
+  LU_JUST = new Set([...STARTERS].filter(([k, v]) => v === "confirmed" && luPrev.get(k) === "expected").map(([k]) => k));
   document.documentElement.classList.add("noanim");
   render();
   UPD_FLASH = Date.now();
@@ -4431,6 +4625,7 @@ async function refreshInPlace(){
   if (openId && openId !== "help" && PROP_BY_ID.has(openId)){ openDrawer(openId); const d2 = $("drawer"); if (d2) d2.scrollTop = dy; }
   settleAnimations();
   flashUpdated();
+  if (LU_JUST.size) setTimeout(() => document.querySelectorAll(".lu-chip[data-lun]").forEach(el => { if (LU_JUST.has(normName(el.dataset.lun))) el.classList.add("lu-in"); }), 400);
   return nl.meta.writtenAt;
 }
 (function(){
