@@ -2221,6 +2221,10 @@ html,body{touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adju
 /* score tags during a break: amber END Q1 / HALF label instead of the red LIVE */
 .tag.score.brk .brkl{font-size:.82em;font-weight:800;letter-spacing:.05em;padding:1px 6px;border-radius:5px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line)}
 .tag.score.brk::before{animation-duration:9s;filter:hue-rotate(35deg)}
+/* Home "Tonight's games" rows: a clear pill for breaks (End of Q1 / Half-time / End of Q3 / End of Q4) and Full-time */
+.t .mpill{display:inline-block;width:max-content;margin-top:5px;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.t .mpill.brk{color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber-line)}
+.t .mpill.ft{color:var(--ink);background:var(--sunk2);border:1px solid var(--line)}
 /* lineup due: hourglass flips, a soft amber shimmer runs through; confirmed chips pop in green */
 .luhg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;vertical-align:-1px;margin-right:3px;animation:luFlip 8s cubic-bezier(.6,0,.3,1) infinite}
 .lu-due .luhg{width:12px;height:12px}
@@ -3122,7 +3126,11 @@ function anaBadges(g){
 const CLK = `<svg class="clk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
 /* score slots: every place a score shows is wrapped so live updates can repaint just that bit (no page reload) */
 const SLOT = {
-  home: g => `<div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : `<span class="tipt">${CLK}${timeFmt(g.tipoff)}</span>`}<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small></div>`,
+  home: g => { const brk = g.state === "in" ? breakOf(g.clock) : null, ot = /OT/.test(g.clock || g.status || "");
+    return `<div class="t num">${g.state && g.state !== "pre" ? `<span class="mscore ${g.state === "in" && !brk ? "live" : ""}">${g.awayScore}–${g.homeScore}</span>` : `<span class="tipt">${CLK}${timeFmt(g.tipoff)}</span>`}${
+      brk ? `<small class="mpill brk">${BREAK_TXT[brk].big}</small>`
+      : g.state === "post" ? `<small class="mpill ft">Full-time${ot ? " · OT" : ""}</small>`
+      : `<small>${esc(g.state === "in" ? `LIVE · ${g.clock || ""}` : g.status)}</small>`}</div>`; },
   tag:  g => scoreTag(g),
   tagS: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
   tagT: g => scoreTag(g) || `<span class="tag num tip" title="Tip-off, your time">${CLK}Tip-off ${timeFmt(g.tipoff)}</span>`,
