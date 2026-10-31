@@ -2101,6 +2101,45 @@ html.dark .mo-final .mo-mid{background:rgba(16,18,22,.5)!important}
 .mo.out .mo-pb{animation:moOut-b .65s .25s cubic-bezier(.65,0,.35,1) both}
 .mo.out{animation:moFadeAll .35s .65s ease both}
 @keyframes moFadeAll{to{opacity:0}}
+/* v3: softer sweep, liquid glass that refracts and settles, glass badge discs, smooth return of the header */
+.mo-sheen{background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.12) 50%,transparent 58%)!important;background-size:300% 100%!important;animation:moSheen 1.8s 1.1s cubic-bezier(.4,0,.2,1) both!important}
+.mo-final .mo-sheen{background:linear-gradient(105deg,transparent 42%,rgba(242,181,82,.18) 50%,transparent 58%)!important;background-size:300% 100%!important}
+.mo-mid{background:rgba(255,255,255,.2)!important;-webkit-backdrop-filter:blur(18px) saturate(1.8) brightness(1.08);backdrop-filter:blur(18px) saturate(1.8) brightness(1.08);
+  animation:moLiquidIn .9s .45s cubic-bezier(.22,1,.36,1) both!important;overflow:hidden}
+html.dark .mo-mid{background:rgba(14,16,20,.32)!important}
+/* liquid entrance: the glass swells, overshoots a touch and settles, like a drop */
+@keyframes moLiquidIn{0%{transform:translate(-50%,-50%) scale(.7,.55);opacity:0;filter:blur(8px)}
+  45%{transform:translate(-50%,-50%) scale(1.06,.96);opacity:1;filter:blur(0)}70%{transform:translate(-50%,-50%) scale(.98,1.03)}100%{transform:translate(-50%,-50%) scale(1)}}
+/* refraction: a soft caustic that drifts slowly inside the glass */
+.mo-mid::after{content:"";position:absolute;inset:-40%;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(40% 30% at 30% 30%,rgba(255,255,255,.22),transparent 70%),radial-gradient(35% 28% at 75% 70%,rgba(255,255,255,.12),transparent 70%);
+  animation:moCaustic 4s ease-in-out both;mix-blend-mode:soft-light}
+@keyframes moCaustic{from{transform:translate(-8%,-6%) rotate(-6deg)}to{transform:translate(8%,6%) rotate(6deg)}}
+.mo-mid > em,.mo-mid > b{text-shadow:0 1px 0 rgba(255,255,255,.35)}
+html.dark .mo-mid > em,html.dark .mo-mid > b{text-shadow:0 1px 8px rgba(0,0,0,.35)}
+/* badges sit on a small frosted-glass disc so every badge reads on its own colour (the Jazz note too) */
+.mo-crest{border-radius:50%!important;background:rgba(255,255,255,.16)!important;border:1px solid rgba(255,255,255,.4);
+  -webkit-backdrop-filter:blur(10px) saturate(1.5);backdrop-filter:blur(10px) saturate(1.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 6px 16px -6px rgba(0,0,0,.45)!important}
+.mo-crest img{width:76%!important;height:76%!important;filter:drop-shadow(0 0 1px rgba(255,255,255,.8)) drop-shadow(0 2px 4px rgba(0,0,0,.35))!important}
+.mo-crest b{border:0!important;background:none!important}
+.sg .mo-crest{width:30px!important;height:30px!important}
+.ana-h .mo-crest{width:clamp(58px,52cqh,96px)!important;height:clamp(58px,52cqh,96px)!important}
+.ana-h .mo-mid{max-width:calc(100% - 2 * clamp(58px,52cqh,96px) - 48px)}
+.mo-wm{opacity:.16!important}
+/* exit is slower and eased; the header's own content then rises back in, away side from the left, home from the right */
+.mo.out .mo-mid{animation:moGlassOut .55s cubic-bezier(.4,0,.6,1) both!important}
+.mo.out .mo-pa,.mo.out .mo-pb{animation-duration:.75s!important;animation-timing-function:cubic-bezier(.65,0,.35,1)!important}
+.mo.out{animation:moFadeAll .4s .7s ease both}
+.mo-host.mo-on > :not(.mo){opacity:0;filter:blur(4px);transition:opacity .3s ease .25s,filter .3s ease .25s}
+.mo-host.mo-back > :not(.mo):not(.gswipe){animation:moBack .7s cubic-bezier(.22,1,.36,1) both}
+.mo-host.mo-back .matchup .tm:first-child{animation:moBackL .75s .05s cubic-bezier(.22,1,.36,1) both}
+.mo-host.mo-back .matchup .tm:last-child{animation:moBackR .75s .12s cubic-bezier(.22,1,.36,1) both}
+.mo-host.mo-back .matchup .at{animation:moBack .6s .2s cubic-bezier(.22,1,.36,1) both}
+.mo-host.mo-back > .tid,.mo-host.mo-back > .lsw{animation:moBack .6s .1s cubic-bezier(.22,1,.36,1) both}
+@keyframes moBack{from{opacity:0;transform:translateY(6px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes moBackL{from{opacity:0;transform:translateX(-14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes moBackR{from{opacity:0;transform:translateX(14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -3099,8 +3138,8 @@ function runMoment(gid){
 }
 /* one team's half: colour, stripes in its second colour, its badge as a watermark */
 const moSide = (t, side) => { const T = team(t), alt = T.alt && T.alt.toLowerCase() !== T.color.toLowerCase() ? T.alt : "#ffffff";
-  return `<span class="mo-p mo-p${side}" style="--tc:${T.color};--ta:${alt}"><span class="mo-str"></span><img class="mo-wm" src="${logoUrl(t)}" alt="" onerror="this.remove()"></span>`; };
-const moCrest = t => `<span class="mo-crest" style="--tc:${team(t).color}"><img src="${logoUrl(t)}" alt="" onerror="this.remove()"><b>${t}</b></span>`;   // badge stands free with a soft glow (no white disc)
+  return `<span class="mo-p mo-p${side}" style="--tc:${T.color};--ta:${alt}"><span class="mo-str"></span>${moImg(t, "mo-wm")}</span>`; };
+const moCrest = t => `<span class="mo-crest" style="--tc:${team(t).color}">${moImg(t)}<b>${t}</b></span>`;   // badge stands free with a soft glow (no white disc)
 function playMoment(host, g, kind, done){
   const k = MO_KINDS.find(x => x[0] === kind) || MO_KINDS[0], short = kind === "tip" ? "Tip-off" : kind === "final" ? "Full-time" : BREAK_TXT[kind].big;
   host.querySelectorAll(":scope > .mo").forEach(x => x.remove());
@@ -3112,8 +3151,12 @@ function playMoment(host, g, kind, done){
     <span class="mo-sheen"></span>`;
   host.classList.add("mo-host"); host.appendChild(el);
   host.classList.add("mo-on");
-  setTimeout(() => { el.classList.add("out"); host.classList.remove("mo-on");
-    setTimeout(() => { el.remove(); if (!host.querySelector(".mo")) host.classList.remove("mo-host"); done && done(); }, 1000); }, 3600);
+  host._mo = el; host.classList.remove("mo-back");
+  const mine = () => host._mo === el;   // a replay started meanwhile: let the new one own the host
+  setTimeout(() => { el.classList.add("out");
+    setTimeout(() => { if (mine()){ host.classList.remove("mo-on"); host.classList.add("mo-back"); } }, 450);
+    setTimeout(() => { el.remove(); if (mine() && !host.querySelector(".mo")) host.classList.remove("mo-host"); done && done(); }, 1150);
+    setTimeout(() => { if (mine()) host.classList.remove("mo-back"); }, 1700); }, 3600);
 }
 /* ---- Moments gallery (site address + #moments): every moment, one under the other, in both sizes ---- */
 const MO_DEMO = {away: null, home: null};
@@ -3334,6 +3377,9 @@ const team = t => DATA.teams[t] || {city:t,name:"",color:"#777"};
 const tname = t => `${team(t).city} ${team(t).name}`;
 /* Team logos from ESPN's image server; if one can't load, the coloured initials badge shows instead */
 const ESPN_LOGO = {GSW:"gs", NYK:"ny", SAS:"sa", NOP:"no", UTA:"utah", WAS:"wsh"};
+// ESPN's "dark" badge versions are drawn for dark/coloured backgrounds (e.g. the Jazz note turns light) — used on the moments; falls back to the normal badge
+const logoDarkUrl = t => `https://a.espncdn.com/i/teamlogos/nba/500-dark/${ESPN_LOGO[t] || String(t).toLowerCase()}.png`;
+const moImg = (t, cls) => `<img${cls ? ` class="${cls}"` : ""} src="${logoDarkUrl(t)}" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${logoUrl(t)}'}else{this.remove()}">`;
 const logoUrl = t => `https://a.espncdn.com/i/teamlogos/nba/500/${ESPN_LOGO[t] || String(t).toLowerCase()}.png`;
 const tid = (t, cls="") => `<span class="tid haslogo ${cls}" style="background:${team(t).color}" title="${esc(tname(t))}"><img src="${logoUrl(t)}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('haslogo');this.remove()"><b>${t}</b></span>`;
 const timeFmt = iso => new Date(iso).toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit", hourCycle:"h23"});   // UK 24-hour, in your own time zone
