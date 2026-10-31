@@ -2197,6 +2197,13 @@ html,body{touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adju
 @keyframes moSeamOut{from{opacity:.55;transform:translateX(-50%) skewX(-12deg) scaleY(1)}to{opacity:0;transform:translateX(-50%) skewX(-12deg) scaleY(0)}}
 /* nothing from the moment is left on top once the row's own content is fading back in */
 .mo.out .mo-sheen,.mo.out .mo-crowd svg{opacity:0;transition:opacity .2s}
+/* squad groups: starting five → bench → out */
+.sqt tr.sq-grp td{text-align:left!important;padding:10px 16px 6px!important;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--surface),transparent)}
+.sqt tr.sq-grp span{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
+.sqt tr.sq-grp span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.sqt tr.sq-grp.g0 span{color:var(--over)}.sqt tr.sq-grp.g0 span::before{background:var(--over);box-shadow:0 0 0 3px rgba(31,138,76,.18)}
+.sqt tr.sq-grp.g2 span{color:var(--red)}.sqt tr.sq-grp.g2 span::before{background:var(--red)}
+@media (max-width:760px){.sqt > tbody > tr.sq-grp{display:block;padding:0}.sqt > tbody > tr.sq-grp > td{display:block;padding:12px 12px 6px!important}}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -3727,6 +3734,14 @@ function renderLegend(){
     : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
+const sqGroup = pl => pl.status === "Out" ? 2 : STARTERS.has(normName(pl.name)) ? 0 : 1;
+function sqGroupLabel(k, teamCode){
+  if (k === 2) return "Out";
+  const any = PLAYERS.some(p => p.team === teamCode && STARTERS.has(normName(p.name)));
+  if (k === 1) return any ? "Bench" : "Squad · starting five not posted yet";
+  const g = GAME_OF(teamCode), side = g ? (g.away === teamCode ? "away" : "home") : null, st = side && g.lineupData && g.lineupData[side] ? g.lineupData[side].status : "expected";
+  return st === "confirmed" || st === "started" ? "Starting five · confirmed" : "Starting five · expected";
+}
 function visiblePlayers(teamCode){
   const q = state.q.trim().toLowerCase();
   const tm = team(teamCode);
@@ -3737,8 +3752,8 @@ function visiblePlayers(teamCode){
   if (state.onlyValue) ps = ps.filter(pl => propsFor(pl).some(p => p.value));
   if (state.market !== "ALL") ps = ps.filter(pl => propsFor(pl).length);
   const bestEdge = pl => Math.max(-1, ...propsFor(pl).map(p => p.edge));
-  const out = pl => pl.status === "Out" ? 1 : 0;
-  ps.sort((a,b) => out(a) - out(b) || (state.sort === "name" ? a.name.localeCompare(b.name) : state.sort === "edge" ? bestEdge(b) - bestEdge(a) : b.projMin - a.projMin));
+  // groups: starting five (once NBA.com posts it) → bench → out; the chosen sort applies inside each group
+  ps.sort((a,b) => sqGroup(a) - sqGroup(b) || (state.sort === "name" ? a.name.localeCompare(b.name) : state.sort === "edge" ? bestEdge(b) - bestEdge(a) : b.projMin - a.projMin));
   return ps;
 }
 
@@ -3855,8 +3870,9 @@ function squadMatrix(teamCode){
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
     ${ps.length ? `<table class="sqt" style="--nm:${SHOW_MARKETS.length}"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${SHOW_MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
-      ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
-        return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
+      ${ps.map((pl, i) => { const open = state.showForm || state.formOpen.has(pl.name);
+        const gk = sqGroup(pl), grp = i === 0 || sqGroup(ps[i - 1]) !== gk ? `<tr class="sq-grp g${gk}"><td colspan="${SHOW_MARKETS.length + 2}"><span>${sqGroupLabel(gk, teamCode)}</span></td></tr>` : "";
+        return `${grp}<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
         <td class="min num ${pl.boost?"up":""}">${pl.status==="Out" ? "—" : minPair(pl)}</td>
         ${pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS ? SHOW_MARKETS.map(() => `<td><span class="dash">—</span></td>`).join("") : SHOW_MARKETS.map(m => cell(pl, m)).join("")}</tr>
@@ -4585,11 +4601,12 @@ function applyClamps(root = document){
     const key = el.dataset.clamp, mobileOnly = el.classList.contains("clamp-m");
     const anchor = el.tagName === "TBODY" ? el.closest("table") : el;
     const old = anchor.nextElementSibling; if (old && old.classList.contains("clampbtn")) old.remove();
-    const items = [...el.children].filter(c => !c.classList.contains("formrow"));
+    const items = [...el.children].filter(c => !c.classList.contains("formrow") && !c.classList.contains("sq-grp"));
     el.querySelectorAll(":scope > .cl-x").forEach(c => c.classList.remove("cl-x"));
     if (items.length <= CLAMP_N) return;
     const open = state.expanded.has(key);
     if (!open) items.slice(CLAMP_N).forEach(c => { c.classList.add("cl-x"); const n = c.nextElementSibling; if (n && n.classList.contains("formrow")) n.classList.add("cl-x"); });
+    el.querySelectorAll(":scope > .sq-grp").forEach(d => { const n = d.nextElementSibling; d.classList.toggle("cl-x", !!n && n.classList.contains("cl-x")); });
     anchor.insertAdjacentHTML("afterend", `<button class="clampbtn ${mobileOnly ? "m-only" : ""}" data-clampkey="${esc(key)}" aria-expanded="${open}">${open ? `Show fewer ${ICON_CHEV}` : `Show all ${items.length} ${ICON_CHEV}`}</button>`);
   });
 }
