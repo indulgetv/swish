@@ -234,9 +234,48 @@
      "points": 4.85
     }
    },
-   "verdict": "proposed",
+   "verdict": "shipped",
    "version": "v1.7",
    "note": "These players were projected 1.7–2.1 minutes too high and their overs hit only 37–45%. 5% and 10% also helped; 15% overshot. Plus an 'On hold · back from injury' label on OVERS when he is also on today's injury report (can't be tested in the lab — the report isn't in old box scores). Saved picks 28–30 Oct: strong 7–8 → 7–7 (Tre Johnson no longer strong)."
+  },
+  {
+   "date": "2026-10-31",
+   "version": "v1.8",
+   "verdict": "proposed",
+   "idea": "Confidence stretch: SWISH's own chance pulled toward 50% (sigmoid(0.70 × logit p)) before the 30/70 market blend",
+   "why": "Lab 30 Oct: SWISH's own chances were overconfident on every market (e.g. PTS says 59% → happens 52%).",
+   "scope": "Every player/market, both seasons (≈61k + 54k projections), lineups on; 2025-26 also without lineups",
+   "before": {
+    "brier": {
+     "PTS": 0.2421,
+     "REB": 0.2389,
+     "AST": 0.2417
+    }
+   },
+   "after": {
+    "brier": {
+     "PTS": 0.2412,
+     "REB": 0.2386,
+     "AST": 0.2411
+    }
+   },
+   "check": {
+    "before": {
+     "brier": {
+      "PTS": 0.2456,
+      "REB": 0.2405,
+      "AST": 0.2462
+     }
+    },
+    "after": {
+     "brier": {
+      "PTS": 0.2444,
+      "REB": 0.2402,
+      "AST": 0.2446
+     }
+    }
+   },
+   "note": "Projections unchanged; only chances move. Better in all 9 market/season/lineup runs. Very confident chances (70%+): 2025-26 said 76% won 69% → now said 75% won 75%; ~70% fewer of them. 0.70 was fitted on one season and tested on the other (30 Oct)."
   }
  ],
  "next": [

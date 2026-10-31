@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.7 (2026-10-31)"
+MODEL_VERSION = "v1.8 (2026-10-31)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -50,6 +50,8 @@ STARTER_PULL = 1 / 3       # v1.5: move a third of the way to that target (lab: 
 STARTER_SHARE = 0.9        # a bench player listed to start tonight: at least 90% of the other starters' average minutes
 BACK_TRIM = 0.075          # v1.7: a player who missed his team's last game plays ~7.5% fewer minutes on return (lab, 2 seasons:
                            #       those players were projected 1.7–2.1 min too high; 5% and 10% also helped, 15% overshot)
+MODEL_STRETCH = 0.70       # v1.8: SWISH's own chance → sigmoid(0.70·logit p), i.e. pulled toward 50% (lab, 2 seasons: own chances
+                           #       were overconfident; fitted out-of-sample on the other season in all 6 market/season tests)
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
 
@@ -292,7 +294,13 @@ def pure_chance(market: str, line: float, projection: float, sd: float) -> tuple
         under = norm_cdf(((line - 0.5 if is_int else line) - projection) / sd)
         dist = "normal"
     t = (over + under) or 1
-    return over / t, dist
+    return stretch(over / t), dist
+
+
+def stretch(p: float) -> float:
+    """v1.8: pull SWISH's own chance toward 50% on the logit scale (same as the JS stretch())."""
+    p = min(max(p, 1e-6), 1 - 1e-6)
+    return 1 / (1 + math.exp(-MODEL_STRETCH * math.log(p / (1 - p))))
 
 
 # ----------------------------------------------------------------------------- build picks from a live.json dict

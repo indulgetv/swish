@@ -2357,7 +2357,7 @@ const HIGH_MIN_TRIM = 0.1;     // v1.6: expected minutes above 28 trimmed by 10%
 const HIGH_MIN_FROM = 28;
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.7 (2026-10-31)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.8 (2026-10-31)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
 const BACK_TRIM = 0.075;      // v1.7: missed his team's last game → ~7.5% fewer minutes on return (lab, 2 seasons)
@@ -2371,6 +2371,7 @@ const STARTER_PULL = 1 / 3;   // v1.5: move a third of the way to that target (l
 const STARTER_SHARE = 0.9;    // listed starter outside the usual top 5: at least 90% of the other starters' minutes
 const SHIFT_ROOM = 36;        // spare minutes are shared by how far each player is below this
 const SHIFT_MIN_RECV = 8;     // …and only rotation players (8+ expected minutes) pick them up     // …and with fewer games than this it's flagged (projection less certain)
+const MODEL_STRETCH = 0.70;   // v1.8: SWISH's own chance → sigmoid(0.70·logit p), pulled toward 50% (lab, 2 seasons: overconfident)
 const MODEL_WEIGHT = 0.3;     // SWISH chance = 30% model + 70% market (no-vig) until results tracking proves the model
 
 /* =================================================================
@@ -2593,7 +2594,11 @@ function pureChance(p){
     under = normCdf(((isInt ? p.line - 0.5 : p.line) - p.projection) / p.sd); dist = "normal";
   }
   const t = over + under || 1;
-  return {over: over / t, dist};
+  return {over: stretch(over / t), dist};
+}
+function stretch(p){   // v1.8: same as scripts/model.py stretch()
+  p = Math.min(Math.max(p, 1e-6), 1 - 1e-6);
+  return 1 / (1 + Math.exp(-MODEL_STRETCH * Math.log(p / (1 - p))));
 }
 function analyse(p){
   const rawO = americanToProb(p.over), rawU = americanToProb(p.under);
