@@ -2174,6 +2174,24 @@ small.psub .chw .chbr{flex-basis:100%;height:0}   /* a 3rd badge always starts a
 /* no accidental zoom on phones/tablets: no double-tap zoom, and inputs are 16 px so iOS never zooms in on focus */
 html,body{touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width:1180px){input,select,textarea{font-size:16px!important}}
+/* full-time: the party stays on the winner's half; the loser's half drains of colour */
+.mo-party{position:absolute;top:0;bottom:0;width:50%;z-index:2;pointer-events:none;overflow:hidden}
+.mo-win-a{left:0}.mo-win-b{right:0}
+.mo-party .mo-conf{z-index:5}
+.mo-lose{position:absolute;top:0;bottom:0;width:50%;z-index:2;pointer-events:none;overflow:hidden}
+.mo-lose-a{left:0}.mo-lose-b{right:0}
+.mo-final:has(.mo-lose-a) .mo-pa,.mo-final:has(.mo-lose-b) .mo-pb{animation:var(--in),moDrain 1.2s 1.8s ease both}
+.mo-final:has(.mo-lose-a) .mo-pa{--in:moIn-a .7s cubic-bezier(.22,1,.36,1) both}
+.mo-final:has(.mo-lose-b) .mo-pb{--in:moIn-b .7s .06s cubic-bezier(.22,1,.36,1) both}
+@keyframes moDrain{to{filter:saturate(.25) brightness(.62)}}
+.mo-final:has(.mo-lose-a) .mo-ca,.mo-final:has(.mo-lose-b) .mo-cb{animation:moCrest .65s .32s cubic-bezier(.2,1.6,.4,1) both,moSlump .9s 1.9s cubic-bezier(.5,0,.3,1) both}
+@keyframes moSlump{to{transform:translateY(-38%) rotate(-9deg) scale(.9);opacity:.6;filter:grayscale(.7)}}
+.mo-rain i{position:absolute;top:-30%;width:1.2px;height:34%;border-radius:1px;background:linear-gradient(transparent,rgba(210,225,255,.55));opacity:0;animation:moRain 1.1s linear 2 both}
+@keyframes moRain{0%{opacity:0;transform:translate(0,0) rotate(12deg)}15%{opacity:.8}100%{opacity:0;transform:translate(-14px,420%) rotate(12deg)}}
+.mo.out .mo-lose{transition:opacity .3s;opacity:0}
+.mo-final.out:has(.mo-lose-a) .mo-pa{animation:moOut-a .65s .25s cubic-bezier(.65,0,.35,1) both;filter:saturate(.25) brightness(.62)}
+.mo-final.out:has(.mo-lose-b) .mo-pb{animation:moOut-b .65s .25s cubic-bezier(.65,0,.35,1) both;filter:saturate(.25) brightness(.62)}
+.mo-final.out:has(.mo-lose-a) .mo-ca,.mo-final.out:has(.mo-lose-b) .mo-cb{animation:moCrestOut .4s .05s ease-in both}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -3198,16 +3216,19 @@ function moScore(g, kind){
   return `<b class="num"><span class="${win === "a" ? "mo-win" : ""}">${g.awayScore ?? 0}</span><s>–</s><span class="${win === "h" ? "mo-win" : ""}">${g.homeScore ?? 0}</span></b>`;
 }
 function moParty(g){
-  const a = +g.awayScore || 0, h = +g.homeScore || 0, W = team(a >= h ? g.away : g.home);
+  const a = +g.awayScore || 0, h = +g.homeScore || 0, W = team(a >= h ? g.away : g.home), side = a >= h ? "a" : "b";
   const cols = [W.color, W.alt && W.alt.toLowerCase() !== W.color.toLowerCase() ? W.alt : "#ffffff", "#f2b552", "#ffffff"];
   let crowd = "", x = 0, k = 0;   // a row of heads and raised arms, drawn once
-  while (x < 400){ const r = 7 + (k * 37 % 5), y = 44 - (k * 53 % 9); crowd += `<circle cx="${x + r}" cy="${y}" r="${r}"/><rect x="${x + 1}" y="${y + r - 2}" width="${2 * r - 2}" height="${60 - y}" rx="${r}"/>`;
+  while (x < 220){ const r = 7 + (k * 37 % 5), y = 44 - (k * 53 % 9); crowd += `<circle cx="${x + r}" cy="${y}" r="${r}"/><rect x="${x + 1}" y="${y + r - 2}" width="${2 * r - 2}" height="${60 - y}" rx="${r}"/>`;
     if (k % 3 === 1) crowd += `<rect x="${x + r * 2 - 3}" y="${y - 22}" width="3.6" height="24" rx="1.8" transform="rotate(${k % 2 ? 14 : -10} ${x + r * 2} ${y})"/>`;
     x += 2 * r - 2; k++; }
   const rnd = i => ((i * 9301 + 49297) % 233280) / 233280;
   const flashes = Array.from({length: 9}, (_, i) => `<i style="left:${(6 + rnd(i + 3) * 88).toFixed(1)}%;bottom:${(8 + rnd(i + 11) * 30).toFixed(1)}%;animation-delay:${(1.9 + rnd(i + 7) * 2.6).toFixed(2)}s"></i>`).join("");
   const conf = Array.from({length: 26}, (_, i) => `<i style="left:${(rnd(i + 21) * 100).toFixed(1)}%;background:${cols[i % cols.length]};animation-delay:${(1.7 + rnd(i + 5) * 1.4).toFixed(2)}s;animation-duration:${(1.9 + rnd(i + 9) * 1.3).toFixed(2)}s;--rx:${Math.round(rnd(i + 2) * 720 - 360)}deg;--dx:${Math.round(rnd(i + 17) * 40 - 20)}px"></i>`).join("");
-  return `<span class="mo-crowd"><svg viewBox="0 0 400 60" preserveAspectRatio="xMidYMax slice">${crowd}</svg></span><span class="mo-flash">${flashes}</span><span class="mo-conf">${conf}</span>`;
+  const rain = Array.from({length: 10}, (_, i) => `<i style="left:${(rnd(i + 31) * 100).toFixed(1)}%;animation-delay:${(1.9 + rnd(i + 13) * 1.6).toFixed(2)}s"></i>`).join("");
+  // winner's half: crowd, flashes, confetti. Loser's half: colour drains, badge slumps, a light drizzle.
+  return `<span class="mo-win-${side} mo-party"><span class="mo-crowd"><svg viewBox="0 0 220 60" preserveAspectRatio="xMidYMax slice">${crowd}</svg></span><span class="mo-flash">${flashes}</span><span class="mo-conf">${conf}</span></span>
+    <span class="mo-lose mo-lose-${side === "a" ? "b" : "a"}"><span class="mo-rain">${rain}</span></span>`;
 }
 /* ---- Moments gallery (site address + #moments): every moment, one under the other, in both sizes ---- */
 const MO_DEMO = {away: null, home: null};
