@@ -2967,7 +2967,7 @@ function scoreTag(g, cls = "tag"){
   const live = g.state === "in";
   const brk = live ? breakOf(g.clock) : null;
   if (brk) return `<span class="${cls} score live brk" title="${esc(g.clock)}"><span class="brkl">${BREAK_TXT[brk].short}</span> <b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b></span>`;
-  return `<span class="${cls} score ${live ? "live" : "final"}" title="${LS.ok ? `Live from ESPN · checked ${agoTxt(LS.at)} · updates every 30 seconds` : `Score updated ${agoTxt(scoresAt())} — checks every 5 minutes`}">${live ? `<i></i><span class="lv">LIVE</span> ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? `<span class="lclk"> · ${esc(g.clock)}</span>` : ""}</span>`;
+  return `<span class="${cls} score ${live ? "live" : "final"}" title="${LS.ok ? `Live from ESPN · checked ${agoTxt(LS.at)} · updates every 15 seconds` : `Score updated ${agoTxt(scoresAt())} — checks every 5 minutes`}">${live ? `<i></i><span class="lv">LIVE</span> ` : "FINAL "}<b class="num">${g.away} ${g.awayScore}–${g.homeScore} ${g.home}</b>${live && g.clock ? `<span class="lclk"> · ${esc(g.clock)}</span>` : ""}</span>`;
 }
 function anaBadges(g){
   const inj = gameInjuries(g).filter(significant);
@@ -3130,14 +3130,15 @@ async function pollScores(){
       g.status = st.state === "pre" ? "Scheduled" : st.state === "in" ? `Live · ${clock}` : (clock || "Final");
       g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
       if (scored && !wasPre && st.state !== "pre") animateScore(g, from); else paintGame(g);
-      if (wasPre && st.state === "in") gameMoment(g, "tip");
-      if (st.state === "in" && breakOf(clock) && breakOf(clock) !== breakOf(oldClock)) gameMoment(g, breakOf(clock));
+      if (wasPre && st.state === "in" && /1st|^Q1|start/i.test(clock) && (+sc.away || 0) + (+sc.home || 0) <= 12) gameMoment(g, "tip");
+      const brk = st.state === "in" ? breakOf(clock) : null;   // End of Q4 only plays when it's level (overtime next); otherwise Full-time follows
+      if (brk && brk !== breakOf(oldClock) && (brk !== "q4" || +sc.away === +sc.home)) gameMoment(g, brk);
       if (wasLive && st.state === "post") gameMoment(g, "final");
     });
     LS.ok = true; LS.at = new Date().toISOString();
   } catch(e){ LS.ok = false; }
 }
-setInterval(pollScores, 30000);
+setInterval(pollScores, 15000);   // every 15 s while a game is on, so quarter-end moments land within seconds of ESPN
 document.addEventListener("visibilitychange", () => { if (!document.hidden) pollScores(); });
 const starterSet = () => { const s = new Map(); DATA.games.forEach(g => ["away","home"].forEach(side => { const t = (g.lineupData || {})[side]; (t && t.starters || []).forEach(p => s.set(normName(p.name), t.status)); })); return s; };
 const STARTERS = IS_LIVE ? starterSet() : new Map();
