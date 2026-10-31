@@ -3283,8 +3283,20 @@ function flashFinal(g){
     setTimeout(() => document.querySelectorAll(`[data-ls="${g.id}"]`).forEach(el => el.classList.remove("final-pop")), 2600);
   }, TICKING.has(g.id) ? 1800 : 0);
 }
+/* moments after a refresh: a break you land in (end of a quarter, half-time) or a game that has just finished plays again;
+   once play has restarted, older moments don't come back. Tip-off replays during the first 5 minutes of Q1. */
+let MO_BOOT = null;                       // true until the first ESPN check after a real page load (not our own quiet reloads)
+const MO_FINAL_KEEP = 20 * 60000;         // full-time replays on refresh for 20 min after the end
+function moFinalFresh(g, ev){
+  let t = +store.get("moEnd." + g.id, 0);
+  if (!t){ const tip = Date.parse(ev.date || g.tipoff); if (!(Date.now() - tip < 3.5 * 3600000)) return false; t = Date.now(); store.set("moEnd." + g.id, t); }
+  return Date.now() - t < MO_FINAL_KEEP;
+}
+function moTipNow(clock){ const m = String(clock).match(/^(\d+):(\d+)\s*-\s*1st/); return m ? +m[1] * 60 + +m[2] >= 420 : /start/i.test(clock); }   // first 5 min of Q1 (7:00 or more left)
 async function pollScores(){
   if (!IS_LIVE || document.hidden || !scoresWindow()) return;
+  if (MO_BOOT === null) MO_BOOT = !(SILENT && Date.now() - SILENT.at < 60000);
+  const boot = MO_BOOT;
   try {
     const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${LIVE.meta.slateDate.replace(/-/g, "")}`, {cache: "no-store"});
     if (!r.ok) throw new Error(r.status);
@@ -3296,18 +3308,24 @@ async function pollScores(){
       const sc = {}; (c.competitors || []).forEach(t => { sc[t.homeAway] = t.score; });
       const clock = st.shortDetail || st.detail || "";
       const scored = String(sc.away) !== String(g.awayScore) || String(sc.home) !== String(g.homeScore);
-      if (!scored && st.state === g.state && clock === g.clock) return;
+      if (!boot && !scored && st.state === g.state && clock === g.clock) return;
       const from = {a: g.awayScore, h: g.homeScore}, wasPre = g.state === "pre", wasLive = g.state === "in", oldClock = g.clock || "";
       g.state = st.state; g.awayScore = sc.away; g.homeScore = sc.home; g.clock = clock;
       g.status = st.state === "pre" ? "Scheduled" : st.state === "in" ? `Live · ${clock}` : (clock || "Final");
       g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
       if (scored && !wasPre && st.state !== "pre") animateScore(g, from); else paintGame(g);
-      if (wasPre && st.state === "in" && /1st|^Q1|start/i.test(clock) && (+sc.away || 0) + (+sc.home || 0) <= 12) gameMoment(g, "tip");
       const brk = st.state === "in" ? breakOf(clock) : null;   // End of Q4 only plays when it's level (overtime next); otherwise Full-time follows
-      if (brk && brk !== breakOf(oldClock) && (brk !== "q4" || +sc.away === +sc.home)) gameMoment(g, brk);
-      if (wasLive && st.state === "post") gameMoment(g, "final");
+      const brkOk = brk && (brk !== "q4" || +sc.away === +sc.home);
+      if (boot){   // just loaded: replay only the pause we're in now (or a fresh full-time), never one play has moved past
+        const k = st.state === "in" && moTipNow(clock) ? "tip" : brkOk ? brk : st.state === "post" && moFinalFresh(g, ev) ? "final" : null;
+        if (k) setTimeout(() => gameMoment(g, k), 1200);
+        return;
+      }
+      if (wasPre && st.state === "in" && /1st|^Q1|start/i.test(clock) && (+sc.away || 0) + (+sc.home || 0) <= 12) gameMoment(g, "tip");
+      if (brkOk && brk !== breakOf(oldClock)) gameMoment(g, brk);
+      if (wasLive && st.state === "post"){ store.set("moEnd." + g.id, Date.now()); gameMoment(g, "final"); }
     });
-    LS.ok = true; LS.at = new Date().toISOString();
+    LS.ok = true; LS.at = new Date().toISOString(); MO_BOOT = false;
   } catch(e){ LS.ok = false; }
 }
 setInterval(pollScores, 15000);   // every 15 s while a game is on, so quarter-end moments land within seconds of ESPN
