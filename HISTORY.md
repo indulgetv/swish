@@ -426,3 +426,11 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   the 19:50 live loop / pending merges). Decision: no change; cron-job.org + live-loop are the real schedule.
   Guide check: already says 3PM = projection only and PRA removed — no edit needed.
 - **31 Oct 10:05 — count fix (published):** Home's top line and the game tiles still counted 3PM projections (467 vs sidebar 390). New `lineable()` = not PROJ_ONLY; all props counts use it. Checked 4 sizes × 2 themes.
+
+
+## 31 Oct 17:30–17:50 — UI release
+- Phone props: squad grid columns follow `--nm` (was fixed 5 → empty gap); Last 6 pill sits right after the name. Market chips 4-up ("All" on phones).
+- Lineup chips by phase (`luPhase`): exp. starter → last 90 min "⏳ lineup HH:MM" (tip−30; "any min" at the end) → green "starter" pops in (`LU_JUST`). 60-s repaint.
+- Injuries: nav badge = changes in last 6 h only. Per team: Q/D + Out ≤48 h for regulars (≥12 min, `usualMin`); rest in "Older & long-term" drop-down.
+- Game moments (`gameMoment`): tip-off banner + fire ball across scores; End Q1/HALF/End Q3 banners + amber label on score tag; FINAL banner (plus old gold pop). Preview: site URL + `#moments`.
+- Lesson: after `git fetch origin pending`, check origin/pending really moved before merging (a stale ref nearly published nothing).

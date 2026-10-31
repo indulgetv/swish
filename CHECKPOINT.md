@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 09:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 17:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -51,7 +51,13 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - After each session: update CHECKPOINT.md (short!) + append details to HISTORY.md, copy CHECKPOINT.md to the project doc
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE) current.
 
-## Latest (31 Oct 09:50) — v1.8 published (user: "ship it now")
+## Latest (31 Oct 17:45) — UI release published (user: "publish now")
+- Phone props: squad grid columns follow `--nm` (was fixed 5 → empty gap); Last 6 pill sits right after the name. Market chips 4-up ("All" on phones).
+- Lineup chips by phase (`luPhase`): exp. starter → last 90 min "⏳ lineup HH:MM" (tip−30; "any min" at the end) → green "starter" pops in (`LU_JUST`). 60-s repaint.
+- Injuries: nav badge = changes in last 6 h only. Per team: Q/D + Out ≤48 h for regulars (≥12 min, `usualMin`); rest in "Older & long-term" drop-down.
+- Game moments (`gameMoment`): tip-off banner + fire ball across scores; End Q1/HALF/End Q3 banners + amber label on score tag; FINAL banner (plus old gold pop). Preview: site URL + `#moments`.
+- Lesson: after `git fetch origin pending`, check origin/pending really moved before merging (a stale ref nearly published nothing).
+## Earlier (31 Oct 09:50) — v1.8 published (user: "ship it now")
 - Confidence stretch 0.70. Lab: Brier better in all 9 runs (PTS/REB/AST × 2025-26, 2024-25, 2025-26 no lineups); projections
   unchanged. 70%+ calls: said 76% won 69% → said 75% won 75%, ~70% fewer. Parity 0 (344, snapshot b8d724b, clock 22:30Z).
   Saved-picks backtest (each game re-run on last live.json before tip, both versions same way): strong 9 (5–4 +£6.00) →
