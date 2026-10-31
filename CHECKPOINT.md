@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 18:08 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 18:32 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -56,7 +56,7 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - Lineup chips by phase (`luPhase`): exp. starter → last 90 min "⏳ lineup HH:MM" (tip−30; "any min" at the end) → green "starter" pops in (`LU_JUST`). 60-s repaint.
 - Injuries: nav badge = changes in last 6 h only. Per team: Q/D + Out ≤48 h for regulars (≥12 min, `usualMin`); rest in "Older & long-term" drop-down.
 - Game moments (18:05 rework): big moments only (tip, Q1, half, Q3, Q4-level, full-time; no per-basket). Play inside the sidebar "Tonight" row
-  (desktop) or the Games-page header `.ana-h[data-gh]` (phones/tablets). Team colour halves + alt-colour stripes + badge watermark, flip-over score card.
+  (desktop) or the Games-page header `.ana-h[data-gh]` (phones/tablets). Team colour halves + alt stripes + badge watermark; frosted liquid-glass score card; ESPN 500-dark badges on glass discs; header eases back in. Polls ESPN every 15 s; tip only at real start; End Q4 only if level.
   Hidden test page: site + `#moments` (`viewMoments`, gallery with team picker). User will remove it after previewing (ask; keep code in git history).
 - Lesson: after `git fetch origin pending`, check origin/pending really moved before merging (a stale ref nearly published nothing).
 ## Earlier (31 Oct 09:50) — v1.8 published (user: "ship it now")

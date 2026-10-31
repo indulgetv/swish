@@ -435,3 +435,4 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
 - Game moments (`gameMoment`): tip-off banner + fire ball across scores; End Q1/HALF/End Q3 banners + amber label on score tag; FINAL banner (plus old gold pop). Preview: site URL + `#moments`.
 - Lesson: after `git fetch origin pending`, check origin/pending really moved before merging (a stale ref nearly published nothing).
 - 18:05: moments reworked (team-themed, big moments only, sidebar/Games header) + hidden #moments gallery; desktop filter bar floats below header. Published.
+- 18:10–18:32: moments v2/v3 (glass card, dark badges, smooth hand-back), 15-s score polling + sync guards (simulated full game: each moment once), player lineup chips no shimmer, hourglass every 8 s. Published.
