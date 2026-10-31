@@ -74,8 +74,9 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 
 ## Next steps (in order)
 0. User previewing game moments → apply tweaks, then remove the hidden #moments page (archived in git; ask first).
-4. **UK props test (ran 31 Oct 15:00):** POR @ UTA, regions=uk, player_points → NO UK bookmaker returned player props;
-   0 credits used (403 left). May have been early — user to decide on one more check near 21:30. US stays meanwhile.
+4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
+   PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).
+   US prices stay the reference; site keeps telling the user to check the bet365 line. `uk-props-test.yml` kept, hand-run only.)
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
 8. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
