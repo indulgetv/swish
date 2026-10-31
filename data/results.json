@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T00:50:29Z",
+ "generatedAt": "2026-10-31T00:55:29Z",
  "stake": 10.0,
  "modelVersion": "v1.6 (2026-10-30)",
  "modelWeight": 0.3,
@@ -383,8 +383,10 @@
    "mktP": 0.51622,
    "edge": 0.01373,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -411,6 +413,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games"
    ],
    "actual": null,
@@ -439,6 +442,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "few_games",
     "big_gap"
    ],
@@ -466,8 +470,10 @@
    "mktP": 0.47146,
    "edge": 0.02995,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -492,8 +498,10 @@
    "mktP": 0.49385,
    "edge": 0.02318,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -518,8 +526,10 @@
    "mktP": 0.50917,
    "edge": 0.01342,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -544,8 +554,10 @@
    "mktP": 0.52732,
    "edge": 0.01225,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -570,8 +582,10 @@
    "mktP": 0.51026,
    "edge": 0.0115,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -596,8 +610,10 @@
    "mktP": 0.44893,
    "edge": 0.01319,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -622,8 +638,10 @@
    "mktP": 0.53511,
    "edge": 0.01823,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -829,6 +847,32 @@
    "modelP": 0.59531,
    "mktP": 0.57686,
    "edge": 0.01846,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": null,
+   "modelVersion": "v1.6 (2026-10-30)"
+  },
+  {
+   "slate": "2026-10-30",
+   "game": "401909285",
+   "away": "LAL",
+   "home": "GSW",
+   "tipoff": "2026-10-31T02:00Z",
+   "player": "Georges Niang",
+   "team": "GSW",
+   "market": "PTS",
+   "line": 7.5,
+   "side": "under",
+   "price": -119,
+   "projection": 6.54,
+   "modelP": 0.53979,
+   "mktP": 0.51136,
+   "edge": 0.02843,
    "value": false,
    "verdict": "slight",
    "flags": [],
@@ -1142,8 +1186,10 @@
    "mktP": 0.48879,
    "edge": 0.04354,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1168,8 +1214,10 @@
    "mktP": 0.50713,
    "edge": 0.01598,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1194,8 +1242,10 @@
    "mktP": 0.51736,
    "edge": 0.01657,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1220,8 +1270,10 @@
    "mktP": 0.57286,
    "edge": 0.01067,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1245,9 +1297,11 @@
    "modelP": 0.55849,
    "mktP": 0.49584,
    "edge": 0.06265,
-   "value": true,
-   "verdict": "strong",
-   "flags": [],
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1272,8 +1326,10 @@
    "mktP": 0.49491,
    "edge": 0.04887,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1298,8 +1354,10 @@
    "mktP": 0.5694,
    "edge": 0.02226,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1324,8 +1382,10 @@
    "mktP": 0.51736,
    "edge": 0.02462,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1349,9 +1409,11 @@
    "modelP": 0.51789,
    "mktP": 0.45615,
    "edge": 0.06174,
-   "value": true,
-   "verdict": "strong",
-   "flags": [],
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -2441,34 +2503,6 @@
    "modelP": 0.55969,
    "mktP": 0.51232,
    "edge": 0.04737,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "few_games"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": true,
-   "modelVersion": "v1.6 (2026-10-30)"
-  },
-  {
-   "slate": "2026-10-30",
-   "game": "401909284",
-   "away": "LAC",
-   "home": "MIN",
-   "tipoff": "2026-10-31T00:00Z",
-   "player": "Keaton Wagler",
-   "team": "LAC",
-   "market": "AST",
-   "line": 2.5,
-   "side": "over",
-   "price": -151,
-   "projection": 3.451,
-   "modelP": 0.59297,
-   "mktP": 0.56282,
-   "edge": 0.03014,
    "value": false,
    "verdict": "check",
    "flags": [
