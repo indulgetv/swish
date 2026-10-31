@@ -406,3 +406,15 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   - Parity: new scratch runner on snapshot b8d724b (clock 2026-10-30T22:30Z): 344 props, 16 "back", 1 hold (Cameron
     Johnson PTS, won). Saved-picks backtest 794 props: minutes 3.81→3.82, strong 7–8 −£14.49 → 7–7 −£4.49, all −£479.58 → −£483.63.
 - 09:40: v1.7 published to main (user: "publish now"); pending reset to main.
+
+- **31 Oct 09:50 — model v1.8 = confidence stretch (published, user: "ship it now"):** `MODEL_STRETCH = 0.70`, `stretch(p)` =
+  sigmoid(0.70·logit p) clamped 1e-6, applied inside pure_chance()/pureChance() so pureO is stretched everywhere.
+  Lab replays (lab/results/v1.8-*.json) vs v1.7 run the same way: Brier PTS 0.2421→0.2412 / 0.2456→0.2444 (2024-25),
+  REB 0.2389→0.2386 / 0.2405→0.2402, AST 0.2417→0.2411 / 0.2462→0.2446; no-lineups 2025-26 also better on all 3.
+  70%+ lab calls 2025-26: over n 2675 said .762 hit .691 → n 942 said .746 hit .754; under 4317 .747/.712 → 1009 .734/.766.
+  Parity 0 (scratch runner: copy of repo + b8d724b live.json/js, http.server, clock 2026-10-30T22:30Z). UI 4 sizes × 2 themes OK.
+  Backtest method (new, scratch bt.py): for each graded saved pick, re-run build_picks on the last live.json commit before
+  that game's tip with v1.7 and v1.8; grade actual vs re-run line, £10 at re-run price. 797 props: strong 5–4 +£6.00 →
+  1–2 −£6.50 (removed: McCollum AST u W, D. Robinson PTS o W, K. George PTS o L, LaMelo REB u W, Gobert PTS u W,
+  F. Wagner AST u L); all 398–399 −£567.25 → 402–395 −£395.17; model Brier 0.2584→0.2535; 42 side flips. (Differs from
+  yesterday's 7–7 baseline because of method.) Rui Hachimura AST flipped to over → picked up the back_injury hold.

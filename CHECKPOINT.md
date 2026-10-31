@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 09:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 09:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -11,12 +11,13 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   The Odds API: **US** player props PTS/REB/AST + UK game lines) → `data/live.json/.js`. `--mode auto` picks the job by time.
 - Picks ledger: `scripts/ledger.py` saves picks for games not started into `data/picks/<date>.json` (locked at tip),
   grades from ESPN box scores (void if absent 10 h after tip) → `data/results.json/.js` (Results page).
-- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.7**.
+- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.8**.
   Projection = per-minute rate × expected minutes (this season 0.5·last3 + 0.5·last10, last season early on;
   absences share the gap below 240 min; NBA.com new starter pulled ⅓ of the way to starter minutes; >28 min trimmed 10%);
   sd × 1.15; normal curve for PTS, negative binomial for REB/AST. SWISH chance = 0.3·model + 0.7·no-vig market
   (`MODEL_WEIGHT` 0.3 — don't change until ~1,000 graded props). Strong value = edge ≥ 6 pts, EV > 0, no flags.
   v1.7: missed his team's last game → expected minutes × 0.925 (`BACK_TRIM`).
+  v1.8: model's own chance → sigmoid(0.70·logit p) (`MODEL_STRETCH`, function `stretch()` in both files) before the blend.
   Flags ("On hold · reason"): back from injury (overs; missed last game + on today's report), injury doubt, lineup due (25+ min teammate newly out, until NBA.com confirms), few games (<5),
   big gap (line far from projection), new role, old price, injury news newer than the line. Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
@@ -50,7 +51,13 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - After each session: update CHECKPOINT.md (short!) + append details to HISTORY.md, copy CHECKPOINT.md to the project doc
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE) current.
 
-## Latest (31 Oct 09:40) — v1.7 published (user: "publish now")
+## Latest (31 Oct 09:50) — v1.8 published (user: "ship it now")
+- Confidence stretch 0.70. Lab: Brier better in all 9 runs (PTS/REB/AST × 2025-26, 2024-25, 2025-26 no lineups); projections
+  unchanged. 70%+ calls: said 76% won 69% → said 75% won 75%, ~70% fewer. Parity 0 (344, snapshot b8d724b, clock 22:30Z).
+  Saved-picks backtest (each game re-run on last live.json before tip, both versions same way): strong 9 (5–4 +£6.00) →
+  3 (1–2 −£6.50); all 398–399 −£567 → 402–395 −£395. 30 Oct slate: strong 9→3, some 62→31, ~1 in 8 leans flip.
+  Expect ~1–3 strong picks a night. Keep the 6-pt bar for now (don't retune on 3 nights).
+## Earlier (31 Oct 09:40) — v1.7 published
 - Minutes lab (old step 3), both seasons. a) 240-gap fixes (6 versions): all worse → rejected. b) "new" absence for 2–3 games:
   unclear → rejected. c) Missed team's last game → expected minutes × 0.925 (`BACK_TRIM`; lab bias −2 → ~0, Brier better on
   all 4 runs) + flag `back_injury` "On hold · back from injury" on OVERS when also on today's injury report.
@@ -74,8 +81,7 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 1. (Done 31 Oct, on `pending`: PRA removed from the site (still computed in background `EXTRA`); 3PM kept as a column with
    SWISH projection only, never a line (`PROJ_ONLY`); chips = All/Points/Rebounds/Assists; Props count = PTS/REB/AST only.)
 2. (Done 31 Oct 09:40: v1.7 published; guide updated.)
-3. **Model v1.8 = confidence stretch** `MODEL_STRETCH = 0.70` (pure model chance → sigmoid(0.70·logit p) before the blend).
-   Full model process; log in lab/experiments.json; expect fewer strong picks on both sides. Ask before shipping.
+3. (Done 31 Oct 09:50: v1.8 confidence stretch published.)
 4. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
