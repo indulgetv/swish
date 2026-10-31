@@ -1995,69 +1995,83 @@ html.dark .jav{filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 /* ---- game moments (sidebar rows on desktop, Games-page headers on phones/tablets) ---- */
 .mo-host{position:relative;overflow:hidden;isolation:isolate}
 .ghead > .mo,.sg > .mo{position:absolute!important;z-index:20!important}
-.mo{position:absolute;inset:0;z-index:20;pointer-events:none;border-radius:inherit;overflow:hidden;display:block;color:#fff;font-weight:800}
-.mo .mo-cr{display:inline-flex!important;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,.35)}
-/* big moments: two team panels close in from each side with a slanted seam */
-.mo-pa,.mo-pb{position:absolute;top:0;bottom:0;width:58%}
-.mo-pa{left:0;background:linear-gradient(90deg,color-mix(in srgb,var(--ca) 70%,#000),var(--ca));clip-path:polygon(0 0,100% 0,86% 100%,0 100%);animation:moPa .45s cubic-bezier(.2,.9,.25,1) both}
-.mo-pb{right:0;background:linear-gradient(270deg,color-mix(in srgb,var(--cb) 70%,#000),var(--cb));clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);animation:moPb .45s .05s cubic-bezier(.2,.9,.25,1) both}
-@keyframes moPa{from{transform:translateX(-102%)}to{transform:none}}
-@keyframes moPb{from{transform:translateX(102%)}to{transform:none}}
-.mo-ca,.mo-cb{position:absolute;top:50%;transform:translateY(-50%);z-index:2;animation:moCrest .6s .3s cubic-bezier(.2,1.6,.4,1) both}
-.mo-ca{left:10px}.mo-cb{right:10px}
-@keyframes moCrest{from{transform:translateY(-50%) scale(0) rotate(-25deg)}to{transform:translateY(-50%) scale(1) rotate(0)}}
-.mo-mid{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
-  padding:3px 10px;border-radius:7px;background:#fff;color:#121417;box-shadow:0 6px 18px -4px rgba(0,0,0,.5);animation:moFlip .5s .42s cubic-bezier(.2,1.3,.4,1) both;transform-origin:50% 50%}
-.mo-mid em{font-style:normal;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#b3121f}
-.mo-mid b{font-size:14px;letter-spacing:.02em}
+.mo{position:absolute;inset:0;z-index:20;pointer-events:none;border-radius:inherit;overflow:hidden;display:block;color:#fff;font-weight:800;container-type:size}
+/* the two team halves close in from each side and meet on a slanted seam */
+.mo-p{position:absolute;top:0;bottom:0;width:56%;overflow:hidden;background:linear-gradient(90deg,color-mix(in srgb,var(--tc) 72%,#000),var(--tc) 70%)}
+.mo-pa{left:0;clip-path:polygon(0 0,100% 0,88% 100%,0 100%);animation:moIn-a .5s cubic-bezier(.2,.9,.25,1) both}
+.mo-pb{right:0;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);background:linear-gradient(270deg,color-mix(in srgb,var(--tc) 72%,#000),var(--tc) 70%);animation:moIn-b .5s .06s cubic-bezier(.2,.9,.25,1) both}
+@keyframes moIn-a{from{transform:translateX(-104%)}to{transform:none}}
+@keyframes moIn-b{from{transform:translateX(104%)}to{transform:none}}
+/* stripes in the team's second colour, drifting */
+.mo-str{position:absolute;inset:-20% -40%;background:repeating-linear-gradient(115deg,transparent 0 14px,color-mix(in srgb,var(--ta) 35%,transparent) 14px 18px);opacity:.55;animation:moStr 3.4s linear both}
+.mo-pb .mo-str{background:repeating-linear-gradient(65deg,transparent 0 14px,color-mix(in srgb,var(--ta) 35%,transparent) 14px 18px);animation-direction:reverse}
+@keyframes moStr{from{transform:translateX(-12%)}to{transform:translateX(12%)}}
+/* the badge as a big watermark, sweeping through */
+.mo-wm{position:absolute;top:50%;height:260%;width:auto;opacity:.22;filter:saturate(1.2);transform:translateY(-50%) rotate(-12deg) scale(.8);animation:moWmA 3.4s cubic-bezier(.25,.8,.3,1) both}
+.mo-pa .mo-wm{left:6%}.mo-pb .mo-wm{right:6%;animation-name:moWmB}
+@keyframes moWmA{from{transform:translateY(-50%) translateX(-40%) rotate(-25deg) scale(.6);opacity:0}25%{opacity:.24}to{transform:translateY(-50%) translateX(10%) rotate(-8deg) scale(.9);opacity:.2}}
+@keyframes moWmB{from{transform:translateY(-50%) translateX(40%) rotate(25deg) scale(.6);opacity:0}25%{opacity:.24}to{transform:translateY(-50%) translateX(-10%) rotate(8deg) scale(.9);opacity:.2}}
+.mo-seam{position:absolute;left:50%;top:-10%;bottom:-10%;width:3px;z-index:2;background:linear-gradient(#fff0,#fff,#fff0);transform:translateX(-50%) skewX(-12deg);opacity:0;animation:moSeam .7s .45s ease-out both}
+@keyframes moSeam{0%{opacity:0;transform:translateX(-50%) skewX(-12deg) scaleY(0)}40%{opacity:1}100%{opacity:.55;transform:translateX(-50%) skewX(-12deg) scaleY(1)}}
+/* badges pop in on each side */
+.mo-ca,.mo-cb{position:absolute;top:50%;z-index:3;transform:translateY(-50%);animation:moCrest .65s .32s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes moCrest{from{transform:translateY(-50%) scale(0) rotate(-30deg)}to{transform:translateY(-50%) scale(1) rotate(0)}}
+.mo-crest{position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--tc),0 4px 14px rgba(0,0,0,.45)}
+.mo-crest img{width:78%;height:78%;object-fit:contain}
+.mo-crest b{position:absolute;font-size:8px;color:var(--tc)}
+.mo-crest img + b{display:none}
+/* the centre score card flips over */
+.mo-mid{position:absolute;left:50%;top:50%;z-index:4;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:7px;white-space:nowrap;max-width:calc(100% - 80px);
+  padding:3px 9px;border-radius:7px;background:#fff;color:#121417;box-shadow:0 6px 18px -4px rgba(0,0,0,.55);animation:moFlip .55s .48s cubic-bezier(.2,1.3,.4,1) both}
+.mo-mid em{font-style:normal;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#b3121f}
+.mo-mid b{font-size:14px;letter-spacing:.01em}
 .mo-mid b s{text-decoration:none;opacity:.45;margin:0 2px}
-.mo-ht .mo-mid em,.mo-q1 .mo-mid em,.mo-q3 .mo-mid em,.mo-q4 .mo-mid em{color:#b06d00}
+.mo-q1 .mo-mid em,.mo-ht .mo-mid em,.mo-q3 .mo-mid em,.mo-q4 .mo-mid em{color:#a86400}
 .mo-final .mo-mid{background:#121417;color:#fff;box-shadow:0 0 0 1.5px #f2b552,0 6px 22px -4px rgba(242,181,82,.6)}
 .mo-final .mo-mid em{color:#f2b552}
 @keyframes moFlip{from{transform:translate(-50%,-50%) perspective(300px) rotateX(-95deg);opacity:0}to{transform:translate(-50%,-50%) perspective(300px) rotateX(0);opacity:1}}
-.mo-sheen{position:absolute;inset:0;z-index:4;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);background-size:250% 100%;animation:moSheen .9s 1.1s ease-out both}
+.mo-sheen{position:absolute;inset:0;z-index:5;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.38) 50%,transparent 60%);background-size:250% 100%;animation:moSheen .9s 1.15s ease-out both}
 @keyframes moSheen{from{background-position:140% 0}to{background-position:-40% 0}}
-/* tip-off: a ball with a fire trail in the centre chip */
+/* tip-off: a spinning ball with a fire trail */
 .mo-ball{position:relative;display:inline-block;width:16px;height:16px}
-.mo-ball svg{position:relative;z-index:1;width:16px;height:16px;animation:moSpin 1s linear infinite;filter:drop-shadow(0 0 4px rgba(255,120,40,.9))}
-.mo-ball i{position:absolute;right:50%;top:50%;width:46px;height:10px;transform:translateY(-50%);border-radius:50% 0 0 50%;
+.mo-ball svg{position:relative;z-index:1;width:100%;height:100%;animation:moSpin 1s linear infinite;filter:drop-shadow(0 0 4px rgba(255,120,40,.9))}
+.mo-ball i{position:absolute;right:50%;top:50%;width:40px;height:10px;transform:translateY(-50%);border-radius:50% 0 0 50%;
   background:linear-gradient(90deg,transparent,rgba(255,70,20,.35) 35%,rgba(255,130,30,.85) 75%,#ffd36a);filter:blur(3px);animation:moFlick .12s linear infinite alternate}
-.mo-tip .mo-mid{animation:moFlip .5s .42s cubic-bezier(.2,1.3,.4,1) both,moZoom 1.2s 1s ease-in-out both}
-@keyframes moZoom{0%,100%{}50%{box-shadow:0 0 0 3px rgba(255,120,40,.45),0 6px 18px -4px rgba(0,0,0,.5)}}
 @keyframes moSpin{to{transform:rotate(360deg)}}
-@keyframes moFlick{from{opacity:.75;height:8px}to{opacity:1;height:11px}}
-/* leaving: panels slide back out to their own sides */
-.mo-big.out .mo-pa{animation:moPaOut .4s ease-in both}.mo-big.out .mo-pb{animation:moPbOut .4s ease-in both}
-.mo-big.out .mo-mid,.mo-big.out .mo-ca,.mo-big.out .mo-cb{transition:opacity .2s;opacity:0}
-@keyframes moPaOut{to{transform:translateX(-102%)}}
-@keyframes moPbOut{to{transform:translateX(102%)}}
-/* every score: a wedge in the scoring team's colour wipes in from its side with "+3" */
-.mo-goal .mo-wedge{position:absolute;inset:0;background:linear-gradient(90deg,var(--tc),color-mix(in srgb,var(--tc) 70%,#000));clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}
-.mo-goal.from-away .mo-wedge{animation:moPa .38s cubic-bezier(.2,.9,.25,1) both}
-.mo-goal.from-home .mo-wedge{clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);animation:moPb .38s cubic-bezier(.2,.9,.25,1) both}
-.mo-gl{position:absolute;inset:0;display:flex;align-items:center;gap:10px;padding:0 12px;z-index:2}
-.mo-goal.from-home .mo-gl{flex-direction:row-reverse}
-.mo-gl .mo-cr{animation:moCrest .5s .15s cubic-bezier(.2,1.6,.4,1) both;transform:none}
-.mo-gl b{font-size:18px;animation:moPlus .55s .25s cubic-bezier(.2,1.5,.4,1) both;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-.mo-gl em{font-style:normal;font-size:13px;opacity:.9;margin-left:auto;animation:moFade .4s .4s both}
-.mo-goal.from-home .mo-gl em{margin-left:0;margin-right:auto}
-@keyframes moPlus{from{transform:scale(2.2);opacity:0}to{transform:none;opacity:1}}
-@keyframes moFade{from{opacity:0;transform:translateY(6px)}to{opacity:.9;transform:none}}
-.mo-goal.out .mo-wedge{animation:moFadeOut .4s ease both}.mo-goal.out .mo-gl{animation:moFadeOut .3s ease both}
-@keyframes moFadeOut{to{opacity:0}}
-/* sizes: sidebar rows are small, Games headers are big */
-.sg .mo .mo-cr{width:22px;height:22px;font-size:7px}
+@keyframes moFlick{from{opacity:.75}to{opacity:1}}
+/* full-time: a few gold sparks */
+.mo-final .mo-sheen{background:linear-gradient(105deg,transparent 40%,rgba(242,181,82,.55) 50%,transparent 60%);background-size:250% 100%;animation:moSheen 1s 1s ease-out 2 both}
+/* leaving: halves slide back out to their own sides */
+.mo.out .mo-pa{animation:moOut-a .45s ease-in both}.mo.out .mo-pb{animation:moOut-b .45s ease-in both}
+.mo.out .mo-mid,.mo.out .mo-ca,.mo.out .mo-cb,.mo.out .mo-seam{transition:opacity .2s;opacity:0}
+@keyframes moOut-a{to{transform:translateX(-104%)}}
+@keyframes moOut-b{to{transform:translateX(104%)}}
+/* sizes — sidebar row (small) and Games header (large); everything sits inside, nothing is cut */
+.sg .mo-crest{width:24px;height:24px}
 .sg .mo-ca{left:8px}.sg .mo-cb{right:8px}
-.ana-h .mo .mo-cr{width:44px;height:44px;font-size:12px}
-.ana-h .mo-ca{left:18px}.ana-h .mo-cb{right:18px}
-.ana-h .mo-mid{padding:8px 16px;border-radius:10px;gap:12px;flex-direction:column;gap:2px}
+.ana-h .mo-crest{width:clamp(40px,22cqh,64px);height:clamp(40px,22cqh,64px)}
+.ana-h .mo-crest b{font-size:12px}
+.ana-h .mo-ca{left:clamp(12px,4cqw,32px)}.ana-h .mo-cb{right:clamp(12px,4cqw,32px)}
+.ana-h .mo-mid{flex-direction:column;gap:2px;padding:8px 18px;border-radius:12px;max-width:calc(100% - 150px)}
 .ana-h .mo-mid em{font-size:12px}
-.ana-h .mo-mid b{font-size:30px}
-.ana-h .mo-ball,.ana-h .mo-ball svg{width:28px;height:28px}
-.ana-h .mo-ball i{width:80px;height:16px}
-.ana-h .mo-gl{padding:0 20px;gap:14px}
-.ana-h .mo-gl b{font-size:34px}.ana-h .mo-gl em{font-size:20px}
+.ana-h .mo-mid b{font-size:clamp(24px,9cqw,34px)}
+.ana-h .mo-ball{width:28px;height:28px}
+.ana-h .mo-ball i{width:70px;height:16px}
 @media (prefers-reduced-motion:reduce){.mo{display:none!important}}
+/* moments gallery page */
+.mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
+.mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.mog-pick select{min-width:170px}
+.mog-pick .at{padding-bottom:10px;color:var(--muted)}
+.mog{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:16px}
+.mog-c{border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--surface);display:grid;gap:8px;min-width:0}
+.mog-h{display:flex;align-items:center;gap:10px}
+.mog-h b{font-size:16px}.mog-h small{color:var(--muted);font-size:12px}
+.mog-h .btn{margin-left:auto;padding:6px 12px}
+.mog-lbl{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.mog-side{max-width:260px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
+.mog-side .sg{cursor:default}
+.mog-c .ana-h{border-radius:14px;min-height:120px;cursor:default}
 /* score tags during a break: amber END Q1 / HALF label instead of the red LIVE */
 .tag.score.brk .brkl{font-size:.82em;font-weight:800;letter-spacing:.05em;padding:1px 6px;border-radius:5px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line)}
 .tag.score.brk::before{animation-duration:9s;filter:hue-rotate(35deg)}
@@ -3008,12 +3022,14 @@ function animateScore(g, from){
   TICKING.set(g.id, setInterval(step, 160)); step();
 }
 /* a game that just finished: one gold pop on its score, then it stays still */
-/* ---- game moments, Premier-League-scoreline style ----
-   Desktop: they play inside the game's row in the sidebar "Tonight" list. Phones/tablets (no sidebar): inside the
-   game's header on the Games page. Big moments (tip-off, end of Q1, half-time, end of Q3, full-time): the two team
-   colours slide in from each side, crests pop, a label flips in with the score, then it all slides away.
-   Every score change: a wedge in the scoring team's colour wipes across with "+2"/"+3". Preview: add #moments. */
-const BREAK_TXT = {q1: {short: "END Q1", big: "End of Q1"}, ht: {short: "HALF", big: "Half-time"}, q3: {short: "END Q3", big: "End of Q3"}, q4: {short: "END Q4", big: "End of regulation"}};
+/* ---- game moments, Premier-League style ----
+   Only the big moments: tip-off, end of Q1, half-time, end of Q3, end of Q4 (before overtime), full-time.
+   (The live score itself stays on screen and ticks up; there's no animation per basket.)
+   Desktop: plays inside the game's row in the sidebar "Tonight" list. Phones/tablets: inside the game's header
+   on the Games page. Each side is themed on that team: its colour, its second colour as stripes, and its badge
+   as a big watermark sweeping through. Gallery of every moment: open the site with #moments. */
+const BREAK_TXT = {q1: {short: "END Q1", big: "End of Q1"}, ht: {short: "HALF", big: "Half-time"}, q3: {short: "END Q3", big: "End of Q3"}, q4: {short: "END Q4", big: "End of Q4"}};
+const MO_KINDS = [["tip","Tip-off","Game starts"],["q1","End of Q1","1st quarter ends"],["ht","Half-time","2nd quarter ends"],["q3","End of Q3","3rd quarter ends"],["q4","End of Q4","only when it's level → overtime"],["final","Full-time","game over"]];
 function breakOf(clock){ const c = String(clock || "");
   if (/half/i.test(c)) return "ht";
   const m = c.match(/end of (?:the )?(1st|2nd|3rd|4th)/i); if (!m) return null;
@@ -3027,55 +3043,67 @@ function moTarget(gid){
   const h = document.querySelector(`.ana-h[data-gh="${gid}"]`);   // only while the Games page is open
   return h && h.offsetParent ? h : null;
 }
-function gameMoment(g, kind, extra){
-  if (moCalm()) return;
-  const q = MO_Q.get(g.id) || []; q.push({g: {...g}, kind, extra}); MO_Q.set(g.id, q);
+function gameMoment(g, kind){
+  if (moCalm() || !MO_KINDS.some(k => k[0] === kind)) return;
+  const q = MO_Q.get(g.id) || []; q.push({g: {...g}, kind}); MO_Q.set(g.id, q);
   if (q.length === 1) runMoment(g.id);
 }
 function runMoment(gid){
   const q = MO_Q.get(gid) || [], m = q[0]; if (!m) return;
-  const done = () => { q.shift(); if (q.length) setTimeout(() => runMoment(gid), 150); };
-  const host = moTarget(gid); if (!host){ done(); return; }
-  const {g, kind, extra} = m, A = team(g.away), H = team(g.home);
-  const crest = t => tid(t, "mo-cr").replace(/ loading="lazy"/g, "");
-  const el = document.createElement("span");
-  el.setAttribute("aria-hidden", "true");
-  if (kind === "score"){
-    const side = extra.side, t = side === "away" ? g.away : g.home;
-    el.className = `mo mo-goal from-${side}`; el.style.setProperty("--tc", team(t).color);
-    el.innerHTML = `<span class="mo-wedge"></span><span class="mo-gl">${crest(t)}<b class="num">+${extra.pts}</b><em class="num">${g.awayScore}–${g.homeScore}</em></span>`;
-  } else {
-    const label = kind === "tip" ? "Tip-off" : kind === "final" ? "Full-time" : BREAK_TXT[kind].big;
-    el.className = `mo mo-big mo-${kind}`; el.style.setProperty("--ca", A.color); el.style.setProperty("--cb", H.color);
-    el.innerHTML = `<span class="mo-pa"></span><span class="mo-pb"></span>
-      <span class="mo-ca">${crest(g.away)}</span><span class="mo-cb">${crest(g.home)}</span>
-      <span class="mo-mid"><em>${label}</em>${kind === "tip" ? `<b class="mo-ball">${BALL_SVG}<i></i></b>` : `<b class="num">${g.awayScore}<s>–</s>${g.homeScore}</b>`}</span>
-      <span class="mo-sheen"></span>`;
-  }
+  const next = () => { q.shift(); if (q.length) setTimeout(() => runMoment(gid), 200); };
+  const host = moTarget(gid); if (!host){ next(); return; }
+  playMoment(host, m.g, m.kind, next);
+}
+/* one team's half: colour, stripes in its second colour, its badge as a watermark */
+const moSide = (t, side) => { const T = team(t), alt = T.alt && T.alt.toLowerCase() !== T.color.toLowerCase() ? T.alt : "#ffffff";
+  return `<span class="mo-p mo-p${side}" style="--tc:${T.color};--ta:${alt}"><span class="mo-str"></span><img class="mo-wm" src="${logoUrl(t)}" alt="" onerror="this.remove()"></span>`; };
+const moCrest = t => `<span class="mo-crest" style="--tc:${team(t).color}"><img src="${logoUrl(t)}" alt="" onerror="this.remove()"><b>${t}</b></span>`;
+function playMoment(host, g, kind, done){
+  const k = MO_KINDS.find(x => x[0] === kind) || MO_KINDS[0], short = kind === "tip" ? "Tip-off" : kind === "final" ? "Full-time" : BREAK_TXT[kind].big;
+  host.querySelectorAll(":scope > .mo").forEach(x => x.remove());
+  const el = document.createElement("span"); el.setAttribute("aria-hidden", "true");
+  el.className = `mo mo-${kind}`;
+  el.innerHTML = `${moSide(g.away, "a")}${moSide(g.home, "b")}<span class="mo-seam"></span>
+    <span class="mo-ca">${moCrest(g.away)}</span><span class="mo-cb">${moCrest(g.home)}</span>
+    <span class="mo-mid"><em>${short}</em>${kind === "tip" ? `<b class="mo-ball">${BALL_SVG}<i></i></b>` : `<b class="num">${g.awayScore ?? 0}<s>–</s>${g.homeScore ?? 0}</b>`}</span>
+    <span class="mo-sheen"></span>`;
   host.classList.add("mo-host"); host.appendChild(el);
-  const dur = kind === "score" ? 1500 : 3300;
-  setTimeout(() => { el.classList.add("out"); setTimeout(() => { el.remove(); if (!host.querySelector(".mo")) host.classList.remove("mo-host"); done(); }, 420); }, dur);
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => { el.remove(); if (!host.querySelector(".mo")) host.classList.remove("mo-host"); done && done(); }, 480); }, 3400);
 }
-/* preview: open the site with #moments (phones: it opens the Games page, where the headers play them) */
-function previewMoments(){
-  const g = GAMES[0]; if (!g) return;
-  if (!matchMedia("(min-width:961px)").matches && state.view !== "games"){ const b = document.querySelector('[data-nav="games"]'); if (b) b.click(); }
-  setTimeout(() => {
-    const t = moTarget(g.id); if (t) t.scrollIntoView({block: "center", behavior: "smooth"});
-    const b = {...g, state: "in"};
-    setTimeout(() => {
-      gameMoment({...b, awayScore: 0, homeScore: 0}, "tip");
-      gameMoment({...b, awayScore: 3, homeScore: 0}, "score", {side: "away", pts: 3});
-      gameMoment({...b, awayScore: 3, homeScore: 2}, "score", {side: "home", pts: 2});
-      gameMoment({...b, awayScore: 31, homeScore: 27}, "q1");
-      gameMoment({...b, awayScore: 58, homeScore: 61}, "ht");
-      gameMoment({...b, awayScore: 88, homeScore: 90}, "q3");
-      gameMoment({...b, awayScore: 117, homeScore: 112}, "final");
-    }, 600);
-  }, 500);
+/* ---- Moments gallery (site address + #moments): every moment, one under the other, in both sizes ---- */
+const MO_DEMO = {away: null, home: null};
+function viewMoments(){
+  const g0 = GAMES[0] || {away: "POR", home: "UTA"};
+  const A = MO_DEMO.away || g0.away, H = MO_DEMO.home || g0.home;
+  const teams = Object.keys(DATA.teams).sort();
+  const opt = sel => teams.map(t => `<option value="${t}" ${t === sel ? "selected" : ""}>${esc(tname(t))}</option>`).join("");
+  const score = {tip: [0,0], q1: [31,27], ht: [58,61], q3: [88,90], q4: [109,109], final: [117,112]};
+  return `<header class="hero"><div class="kicker">Live scores</div><h1>Game moments</h1>
+    <p class="lede">What plays when a game tips off, a quarter ends, at half-time and at full-time. On a computer it plays in that game's row in the sidebar; on a phone or tablet, in the game's header on the Games page. The score itself stays live the whole time. Pick any two teams to see their colours and badges.</p></header>
+    <div class="mog-pick"><label class="field"><span>Away</span><select id="moA">${opt(A)}</select></label><span class="at">@</span><label class="field"><span>Home</span><select id="moH">${opt(H)}</select></label><button class="btn red" id="moAll">Play all</button></div>
+    <div class="mog">${MO_KINDS.map(([k, name, when]) => { const [a, h] = score[k];
+      return `<section class="mog-c" data-mk="${k}" data-a="${a}" data-h="${h}"><div class="mog-h"><b>${name}</b><small>${when}</small><button class="btn mog-play" data-mk="${k}">Replay</button></div>
+        <div class="mog-lbl">Sidebar row · desktop</div>
+        <div class="mog-side"><span class="sg mog-host-s">${tid(A,"sm")}<span class="vs">@</span>${tid(H,"sm")}<span class="nm">${A}–${H}</span><span class="t num">${k === "tip" ? "19:00" : `${a}–${h}`}</span></span></div>
+        <div class="mog-lbl">Games header · phone and tablet</div>
+        <div class="ana-h ghead mog-host-l" style="--ca:${team(A).color};--cb:${team(H).color}"><span class="gswipe" aria-hidden="true"></span><div class="matchup"><div class="tm">${tid(A,"lg")}<div><b>${team(A).name}</b><small>${team(A).city} · away</small></div></div><span class="at">@</span><div class="tm">${tid(H,"lg")}<div><b>${team(H).name}</b><small>${team(H).city} · home</small></div></div></div></div>
+      </section>`; }).join("")}</div>`;
 }
-addEventListener("load", () => { if (/moments/.test(location.hash)) setTimeout(previewMoments, 1200); });
-addEventListener("hashchange", () => { if (/moments/.test(location.hash)) previewMoments(); });
+function playDemo(card){
+  const k = card.dataset.mk, A = $("moA").value, H = $("moH").value, g = {id: "demo", away: A, home: H, awayScore: card.dataset.a, homeScore: card.dataset.h};
+  [card.querySelector(".mog-host-s"), card.querySelector(".mog-host-l")].forEach(h => playMoment(h, g, k));
+}
+function bindMoments(){
+  const cards = [...document.querySelectorAll(".mog-c")];
+  const all = () => cards.forEach((c, i) => setTimeout(() => playDemo(c), i * 350));
+  document.querySelectorAll(".mog-play").forEach(b => b.onclick = () => playDemo(b.closest(".mog-c")));
+  $("moAll").onclick = all;
+  ["moA","moH"].forEach(id => $(id).onchange = () => { MO_DEMO.away = $("moA").value; MO_DEMO.home = $("moH").value; render(); });
+  setTimeout(all, 500);
+}
+function openMoments(){ state.view = "moments"; render(); window.scrollTo(0, 0); }
+addEventListener("load", () => { if (/moments/.test(location.hash)) setTimeout(openMoments, 300); });
+addEventListener("hashchange", () => { if (/moments/.test(location.hash)) openMoments(); });
 function flashFinal(g){
   if (document.documentElement.classList.contains("calm")) return;
   setTimeout(() => {
@@ -3103,9 +3131,7 @@ async function pollScores(){
       g.score = st.state !== "pre" ? `${sc.away ?? "–"}–${sc.home ?? "–"}` : null;
       if (scored && !wasPre && st.state !== "pre") animateScore(g, from); else paintGame(g);
       if (wasPre && st.state === "in") gameMoment(g, "tip");
-      if (!wasPre && st.state !== "pre" && scored){ const da = +sc.away - +from.a, dh = +sc.home - +from.h;
-        if (da > 0 && da < 20) gameMoment(g, "score", {side: "away", pts: da}); if (dh > 0 && dh < 20) gameMoment(g, "score", {side: "home", pts: dh}); }
-      else if (st.state === "in" && breakOf(clock) && breakOf(clock) !== breakOf(oldClock)) gameMoment(g, breakOf(clock));
+      if (st.state === "in" && breakOf(clock) && breakOf(clock) !== breakOf(oldClock)) gameMoment(g, breakOf(clock));
       if (wasLive && st.state === "post") gameMoment(g, "final");
     });
     LS.ok = true; LS.at = new Date().toISOString();
@@ -4300,7 +4326,7 @@ function viewResults(){
 /* =================================================================
    9. RENDER + EVENTS
    ================================================================= */
-const CRUMBS = {dashboard:"Home", props:"Player Props", games:"Games & Analysis", injuries:"Injuries & Lineups", results:"Results"};
+const CRUMBS = {moments:"Game moments", dashboard:"Home", props:"Player Props", games:"Games & Analysis", injuries:"Injuries & Lineups", results:"Results"};
 
 function render(){
   document.querySelectorAll("#nav [data-nav]").forEach(b => b.classList.toggle("on", b.dataset.nav === state.view));
@@ -4332,9 +4358,10 @@ function render(){
   np.title = `Injury list last checked ${chk ? timeFmt(chk) + " (" + agoTxt(chk) + ")" : "—"}. Last change to a player's status: ${newest && newest.updated ? timeFmt(newest.updated) + " (" + agoTxt(newest.updated) + ")" : "—"}. ${nn} changes in the last ${NEW_NEWS_H} hours.`;
   renderStandings();
   $("sideGames").innerHTML = GAMES.map(g => `<button class="sg" data-goto="${g.id}">${tid(g.away,"sm")}<span class="vs">@</span>${tid(g.home,"sm")}<span class="nm">${g.away}–${g.home}</span>${slot(g, "side")}</button>`).join("");
-  const views = {dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
+  const views = {moments:viewMoments, dashboard:viewDashboard, props:viewProps, games:viewGames, injuries:viewInjuries, results:viewResults};
   $("page").innerHTML = (views[state.view] || viewDashboard)() +
     `<footer>${IS_LIVE ? "SWISH · live data from ESPN and The Odds API. Prop prices are US market prices — check your bookmaker's line matches" : "SWISH Stage 1 · static prototype. Bookmaker lines and odds are sample values"}; projections are model estimates and are labelled separately. Probabilities are estimates, never guarantees. Please gamble responsibly — in the UK, free support is available from GamCare (0808 8020 133) and BeGambleAware.</footer>`;
+  if (state.view === "moments") bindMoments();
   if (state.view === "props") { renderBest(); renderSections(); bindPropsInputs(); updOpt(); }
   if (state.view === "dashboard") { tickClock(); countUp(); }
   applyClamps();
