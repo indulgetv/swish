@@ -82,7 +82,8 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
    SWISH projection only, never a line (`PROJ_ONLY`); chips = All/Points/Rebounds/Assists; Props count = PTS/REB/AST only.)
 2. (Done 31 Oct 09:40: v1.7 published; guide updated.)
 3. (Done 31 Oct 09:50: v1.8 confidence stretch published.)
-4. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
+4. **UK props test (ran 31 Oct 15:00):** POR @ UTA (tip 19:10 UTC), regions=uk, player_points → NO UK bookmaker returned
+   player props; 0 credits used (403 left). May have been early — user to decide on one more check near 21:30. US stays meanwhile.
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
 6. (Done 30 Oct 22:35: guide updated for Overs/Unders split + "On hold"; heading now v1.6.)
