@@ -2338,7 +2338,9 @@ const DATA = {
 
 const MARKETS = ["PTS","REB","AST","3PM","PRA"];
 const MARKET_NAMES = {PTS:"Points",REB:"Rebounds",AST:"Assists","3PM":"Threes",PRA:"Pts+Reb+Ast"};
-const MARKET_FILTERS = [["ALL","All markets"],["PTS","Points"],["REB","Rebounds"],["AST","Assists"],["3PM","Threes"],["PRA","PRA"]];
+const SHOW_MARKETS = ["PTS","REB","AST","3PM"];   // shown on the site; PRA is still worked out in the background (EXTRA)
+const PROJ_ONLY = ["3PM"];                         // shown as a SWISH projection only, never with a bookmaker line (not bought)
+const MARKET_FILTERS = [["ALL","All markets"],["PTS","Points"],["REB","Rebounds"],["AST","Assists"]];
 const CV = {PTS:.27, REB:.33, AST:.38, "3PM":.62, PRA:.22};      // typical game-to-game variation
 const SD_FLOOR = {PTS:3, REB:1.6, AST:1.2, "3PM":0.9, PRA:4};
 
@@ -2783,17 +2785,19 @@ function buildLiveProp(pl, market, myLines){
 
 /* ALL = props with a line (analysed) · NOLINE = live props still waiting for a price.
    Rebuilt in place when you save or clear your own bookmaker price. */
-const ALL = [], NOLINE = [], clean = [];
+const ALL = [], NOLINE = [], clean = [], EXTRA = [];   // EXTRA = PRA, computed but not shown or counted
 const PROP_BY_ID = new Map();
 function buildAllProps(){
-  ALL.length = 0; NOLINE.length = 0; clean.length = 0; PROP_BY_ID.clear();
+  ALL.length = 0; NOLINE.length = 0; clean.length = 0; EXTRA.length = 0; PROP_BY_ID.clear();
   const myLines = loadMyLines();
   PLAYERS.forEach(pl => {
     if (pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS) return;
     const markets = pl.projMin >= 22 ? MARKETS.filter(m => m !== "3PM" || pl.avgs["3PM"] >= 0.8) : ["PTS","REB","PRA"];
     markets.forEach(m => {
-      const p = IS_LIVE ? buildLiveProp(pl, m, myLines) : {...buildProp(pl, m), source: "sample"};
-      if (p.noLine) NOLINE.push(p); else ALL.push(analyse(p));
+      let p = IS_LIVE ? buildLiveProp(pl, m, myLines) : {...buildProp(pl, m), source: "sample"};
+      if (PROJ_ONLY.includes(m) && !p.noLine) p = {...p, noLine: true};   // threes: projection only, no line
+      if (!SHOW_MARKETS.includes(m)) EXTRA.push(p.noLine ? p : analyse(p));
+      else if (p.noLine) NOLINE.push(p); else ALL.push(analyse(p));
     });
   });
   [...ALL, ...NOLINE].forEach(p => PROP_BY_ID.set(p.id, p));
@@ -3274,7 +3278,7 @@ function renderLegend(){
   $("legend").innerHTML = state.market === "ALL"
     ? `<span class="cellx"><b>26.5</b><small>27.4▲</small></span><span>Line (bookmaker) on top · SWISH projection and lean below</span>
        <span><i class="sw" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>Strong value</span>
-       <span><i class="sw" style="width:7px;height:7px;border-radius:50%;background:var(--amber)"></i>On hold (injury, lineup or data question; not a pick until it clears, tap for why)</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">Corner marks: <b class="nlw lm-up">▲▼</b> line moved since 21:00 · <b class="nlw lm-new">New</b> line added after 21:00</span><span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM &amp; PRA: SWISH projection only (not bought)</span>` : ""}`
+       <span><i class="sw" style="width:7px;height:7px;border-radius:50%;background:var(--amber)"></i>On hold (injury, lineup or data question; not a pick until it clears, tap for why)</span><span>Click any cell for the full breakdown · <span class="lg-l6">${ICON_FORM}<b>Last 6</b></span> next to a name shows their last 6 games</span>${IS_LIVE && pricedAll() && NOLINE.length ? `<span class="lg-nl">Corner marks: <b class="nlw lm-up">▲▼</b> line moved since 21:00 · <b class="nlw lm-new">New</b> line added after 21:00</span><span class="lg-nl">No line: <b class="nlw nlw-q">Q</b> injury doubt · <b class="nlw nlw-mkt">No mkt</b> stat not offered · <b class="nlw nlw-none">None</b> no lines for him · 3PM: SWISH projection only (not bought)</span>` : ""}`
     : `<span><b style="color:var(--ink)">Line / Over / Under</b> = ${IS_LIVE ? "bookmaker (US market price)" : "bookmaker (sample)"} · <b style="color:var(--red)">Proj.</b> = SWISH model · highlighted price = model lean · click a row for details</span>`;
 }
 
@@ -3368,7 +3372,7 @@ function sparkBars(p, max, withLine){
 function formTable(pl, focus){
   const games = pl.log.slice(0, 6);
   const lineOf = m => { const p = propOf(pl.name, m); return p ? p.line : null; };
-  const cards = MARKETS.map((m, k) => {
+  const cards = SHOW_MARKETS.map((m, k) => {
     const L = lineOf(m), a = avg(games.map(g => g[m])), diff = a - pl.avgs[m];
     const hits = L === null ? null : games.filter(g => g[m] > L).length;
     const max = Math.max(...games.map(g => g[m]), L || 0, 1);
@@ -3381,11 +3385,11 @@ function formTable(pl, focus){
       <div class="fl num">${L === null ? "No line tonight" : `<span>Line <b>${L}</b></span><span><b class="hc">${hits}/6</b> over</span>`}</div>
     </div>`;
   }).join("");
-  const keep = m => ["PTS","REB","AST","3PM"].includes(m) || m === focus;   // phones hide PRA unless it's the market you opened
-  const head = `<tr><th class="l dt">Date</th><th class="l">Opponent</th><th>Min</th>${MARKETS.map(m => `<th class="mk ${keep(m)?"keep":""} ${m===focus?"f":""}">${m}</th>`).join("")}</tr>`;
+  const keep = () => true;   // PRA removed, so phones keep every column
+  const head = `<tr><th class="l dt">Date</th><th class="l">Opponent</th><th>Min</th>${SHOW_MARKETS.map(m => `<th class="mk ${keep(m)?"keep":""} ${m===focus?"f":""}">${m}</th>`).join("")}</tr>`;
   const rows = games.map((g, r) => { const dd = new Date(g.d).toLocaleDateString([], {day:"numeric", month:"short"}); return `<tr style="--r:${r}"><td class="l num dt">${dd}</td>
     <td class="l"><span class="fopp">${g.home ? "vs" : "@"} ${tid(g.opp,"xs")} ${g.opp}</span><span class="dt2 num">${dd}</span></td><td class="num mn">${g.min}</td>
-    ${MARKETS.map(m => { const L = lineOf(m); const o = L !== null && g[m] > L; return `<td class="num mk ${keep(m)?"keep":""} ${m===focus?"f":""}"><span class="${o ? "pill o" : "pill"}">${g[m]}</span></td>`; }).join("")}</tr>`; }).join("");
+    ${SHOW_MARKETS.map(m => { const L = lineOf(m); const o = L !== null && g[m] > L; return `<td class="num mk ${keep(m)?"keep":""} ${m===focus?"f":""}"><span class="${o ? "pill o" : "pill"}">${g[m]}</span></td>`; }).join("")}</tr>`; }).join("");
   return `<div class="formbox">
     <div class="fsec"><span>Last-6 averages vs tonight's lines</span><em>bars oldest → newest · red line = tonight's line</em></div>
     <div class="fcards">${cards}</div>
@@ -3400,13 +3404,13 @@ function squadMatrix(teamCode){
   const v = ALL.filter(p => p.team === teamCode && p.value).length;
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
-    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
+    ${ps.length ? `<table class="sqt"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${SHOW_MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map(pl => { const open = state.showForm || state.formOpen.has(pl.name);
         return `<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>
           <button class="formbtn" data-form="${esc(pl.name)}" aria-expanded="${open}" aria-label="${open?"Hide":"Show"} last 6 games for ${esc(pl.name)}">${ICON_FORM}<b>Last 6</b><span class="car">${ICON_CHEV}</span></button></div></td>
         <td class="min num ${pl.boost?"up":""}">${pl.status==="Out" ? "—" : minPair(pl)}</td>
-        ${pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS ? MARKETS.map(() => `<td><span class="dash">—</span></td>`).join("") : MARKETS.map(m => cell(pl, m)).join("")}</tr>
-        ${open ? `<tr class="formrow"><td colspan="${MARKETS.length + 2}" style="--team-c:${team(pl.team).color}"><div class="formwrap"><div class="formttl">${jerseyAv(pl.name, pl.team)}<div><b>${esc(pl.name)}</b><small>${tname(pl.team)} · ${pl.pos} · last 6 games</small></div><button class="fclose" data-form="${esc(pl.name)}" aria-label="Hide last 6 games for ${esc(pl.name)}">Hide ${ICON_CHEV}</button></div>${formTable(pl)}</div></td></tr>` : ""}`; }).join("")}
+        ${pl.status === "Out" || pl.projMin < MIN_MINUTES_FOR_PROPS ? SHOW_MARKETS.map(() => `<td><span class="dash">—</span></td>`).join("") : SHOW_MARKETS.map(m => cell(pl, m)).join("")}</tr>
+        ${open ? `<tr class="formrow"><td colspan="${SHOW_MARKETS.length + 2}" style="--team-c:${team(pl.team).color}"><div class="formwrap"><div class="formttl">${jerseyAv(pl.name, pl.team)}<div><b>${esc(pl.name)}</b><small>${tname(pl.team)} · ${pl.pos} · last 6 games</small></div><button class="fclose" data-form="${esc(pl.name)}" aria-label="Hide last 6 games for ${esc(pl.name)}">Hide ${ICON_CHEV}</button></div>${formTable(pl)}</div></td></tr>` : ""}`; }).join("")}
     </tbody></table>` : `<div class="gempty">No players match the current filters.</div>`}
   </div>`;
 }
@@ -4047,7 +4051,7 @@ function render(){
   document.querySelectorAll("#nav [data-nav]").forEach(b => b.dataset.nav === state.view ? b.setAttribute("aria-current","page") : b.removeAttribute("aria-current"));
   syncPrefs();
   $("navGames").textContent = GAMES.length;
-  $("navProps").textContent = ALL.length + NOLINE.length;
+  $("navProps").textContent = ALL.length + NOLINE.filter(p => !PROJ_ONLY.includes(p.market)).length;   // PTS/REB/AST only
   const sig = DATA.injuries.filter(significant).length;
   $("navInj").textContent = sig || ""; $("navInj").style.display = sig ? "" : "none";
   $("crumb").innerHTML = `<button data-nav="dashboard" class="crumb-home">swish</button><span>/</span><b class="crumb-page">${CRUMBS[state.view]}</b>`;

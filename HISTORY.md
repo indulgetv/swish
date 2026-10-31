@@ -376,3 +376,17 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
 
 ## How to resume
 > "Continue SWISH from CHECKPOINT.md in indulgetv/swish — start at the first unfinished next step."
+
+
+## 31 Oct 2026 (morning) — review of 30 Oct + declutter
+- 30 Oct results (£10/pick): all 173–166, won £1,474.06, lost £1,660 → −£185.94; strong 3–5 → −£18.82;
+  overs 64–74 −£176.77, unders 109–92 −£9.17. Running strong total (3 nights) 11–17, −£60.53. 3 Naji Marshall props pending.
+- Minutes review: avg minutes error 3.8. Absence shares worked for ORL (Banchero/Suggs → Jase Richardson 20→33) and TOR.
+  Failed for HOU (Sengun Out; available total 243) and PHI (Jaylen Brown Out 22:05; total 254): the 240-gap rule did not fire
+  because players with 1–2 games this season carry last-season minutes. Capela 17→30, Simons 24→31, Amen 33→39.
+  Sengun had already missed 29 Oct so not "new" (FRESH_GAMES=1). Tre Johnson (back from Achilles, Q until 22:20) strong over,
+  played 13 of 23 expected. Fix ideas logged as Next step 3 (lab first).
+- Declutter (user: "keep 3PM but no bookmaker line"): SHOW_MARKETS = PTS/REB/AST/3PM, PROJ_ONLY = 3PM (forced noLine),
+  PRA → EXTRA (computed, not shown/counted). Filter chips without Threes/PRA (chips filter priced props). Props nav count
+  excludes 3PM. Tested 4 sizes × light/dark on today's slate and 30 Oct 22:40 priced snapshot: no errors, no overflow.
+  No model change (picks/ledger unaffected). Pushed to `pending`.

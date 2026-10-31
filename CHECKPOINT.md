@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-30 22:30 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 09:30 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -20,7 +20,9 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   big gap (line far from projection), new role, old price, injury news newer than the line. Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
-- Results so far (2 nights, 28–29 Oct): all picks ~233–226, about −£230 at £10; strong ~8–12. Tiny sample.
+- Results so far (3 nights, 28–30 Oct): 798 graded; strong 11–17, −£60.53 at £10. Tiny sample.
+  30 Oct: all 173–166, won £1,474 / lost £1,660 = −£186; strong 3–5 = −£18.82; overs 64–74 −£177, unders 109–92 −£9.
+  3 Naji Marshall props pending (not in box score; void ~10:00 if still missing).
 
 ## How updates run
 - cron-job.org (user's account, Europe/London) POSTs to GitHub with a fine-grained token (indulgetv/swish only; may expire
@@ -47,7 +49,10 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - After each session: update CHECKPOINT.md (short!) + append details to HISTORY.md, copy CHECKPOINT.md to the project doc
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE) current.
 
-## Latest (30 Oct evening)
+## Latest (31 Oct morning)
+- Review of 30 Oct + declutter (see Next steps 1 and 3). Guide may need a line: "3PM = SWISH projection only, PRA removed".
+
+## Earlier (30 Oct evening)
 - Best picks (Home + Props tab) split into top 5 Overs + top 5 Unders. Published.
 - Warnings now a small amber dot + "On hold · reason" label (was ⚠ + "Check status"). "Hide on-hold" tick-box. Published.
 - Lab on the under-lean (both seasons): REB lean mostly real; AST slightly under-biased; PTS overs over-rated; main issue
@@ -58,14 +63,22 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - User's instructions now: UK-based, bet365 UK; use UK odds wherever possible, US prices = backup.
 
 ## Next steps (in order)
-1. **Declutter 3PM + PRA** (user asked; remind them): remove those columns + filter chips from Props; count only PTS/REB/AST
-   in "props" totals; keep computing them in the background; optional info line in the prop panel (ask). No model change.
+1. (Done 31 Oct, on `pending`: PRA removed from the site (still computed in background `EXTRA`); 3PM kept as a column with
+   SWISH projection only, never a line (`PROJ_ONLY`); chips = All/Points/Rebounds/Assists; Props count = PTS/REB/AST only.)
 2. **Model v1.7 = confidence stretch** `MODEL_STRETCH = 0.70` (pure model chance → sigmoid(0.70·logit p) before the blend).
    Full model process; log in lab/experiments.json; expect fewer strong picks on both sides. Ask before shipping.
-3. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
-4. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
+3. **Minutes review 30 Oct (found 31 Oct)** — model change, lab first, ask before shipping:
+   a) 240-gap rule blocked when stars are out: HOU (Sengun Out) available total 243, PHI (J. Brown Out 22:05) 254, because
+      players with 1–2 games this season carry last-season minutes (Tshiebwe 19, Love 11, Edwards 11). Nobody got their
+      minutes: Capela exp 17 → 30, Simons 24 → 31, Amen 33 → 39. Test: count only players with 3+ games this season in the
+      240 total, or the WW_MODE with/without rule.
+   b) Sengun had already missed 29 Oct, so not "new" (FRESH_GAMES=1) yet last3/last10 still mostly had him playing.
+   c) Tre Johnson: back from Achilles (missed 28 Oct, Questionable until 22:20) → strong over at 23 min, played 13. Test a
+      "back from injury" flag (missed team's last game + was on report today) → no strong tag.
+4. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
+5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
-5. (Done 30 Oct 22:35: guide updated for Overs/Unders split + "On hold"; heading now v1.6.)
-6. Why GitHub timers went silent after 20:09 on 30 Oct.
-7. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
-8. Later: STL/BLK/TOV columns; closing-line check only on a paid plan; after ~2 weeks review calibration vs market.
+6. (Done 30 Oct 22:35: guide updated for Overs/Unders split + "On hold"; heading now v1.6.)
+7. Why GitHub timers went silent after 20:09 on 30 Oct.
+8. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
+9. Later: STL/BLK/TOV columns; closing-line check only on a paid plan; after ~2 weeks review calibration vs market.
