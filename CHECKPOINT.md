@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 17:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 18:08 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -55,7 +55,9 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - Phone props: squad grid columns follow `--nm` (was fixed 5 → empty gap); Last 6 pill sits right after the name. Market chips 4-up ("All" on phones).
 - Lineup chips by phase (`luPhase`): exp. starter → last 90 min "⏳ lineup HH:MM" (tip−30; "any min" at the end) → green "starter" pops in (`LU_JUST`). 60-s repaint.
 - Injuries: nav badge = changes in last 6 h only. Per team: Q/D + Out ≤48 h for regulars (≥12 min, `usualMin`); rest in "Older & long-term" drop-down.
-- Game moments (`gameMoment`): tip-off banner + fire ball across scores; End Q1/HALF/End Q3 banners + amber label on score tag; FINAL banner (plus old gold pop). Preview: site URL + `#moments`.
+- Game moments (18:05 rework): big moments only (tip, Q1, half, Q3, Q4-level, full-time; no per-basket). Play inside the sidebar "Tonight" row
+  (desktop) or the Games-page header `.ana-h[data-gh]` (phones/tablets). Team colour halves + alt-colour stripes + badge watermark, flip-over score card.
+  Hidden test page: site + `#moments` (`viewMoments`, gallery with team picker). User will remove it after previewing (ask; keep code in git history).
 - Lesson: after `git fetch origin pending`, check origin/pending really moved before merging (a stale ref nearly published nothing).
 ## Earlier (31 Oct 09:50) — v1.8 published (user: "ship it now")
 - Confidence stretch 0.70. Lab: Brier better in all 9 runs (PTS/REB/AST × 2025-26, 2024-25, 2025-26 no lineups); projections
@@ -84,6 +86,7 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - User's instructions now: UK-based, bet365 UK; use UK odds wherever possible, US prices = backup.
 
 ## Next steps (in order)
+0. User previewing game moments → apply tweaks, then remove the hidden #moments page (archived in git). Update the guide (lineup badges, injuries drop-down, game moments, filter bar).
 1. (Done 31 Oct, on `pending`: PRA removed from the site (still computed in background `EXTRA`); 3PM kept as a column with
    SWISH projection only, never a line (`PROJ_ONLY`); chips = All/Points/Rebounds/Assists; Props count = PTS/REB/AST only.)
 2. (Done 31 Oct 09:40: v1.7 published; guide updated.)
