@@ -248,7 +248,7 @@ def key_absences(live: dict, status_of) -> dict:
     for gid, lu in (live.get("lineups") or {}).items():
         g = next((x for x in live.get("games", []) if x["id"] == gid), None)
         for side in ("away", "home"):
-            if g and ((lu or {}).get(side) or {}).get("status") == "confirmed":
+            if g and ((lu or {}).get(side) or {}).get("status") in ("confirmed", "started"):   # "started" = ESPN starters once the game is on
                 confirmed.add(g[side])
     teams = {t for g in live.get("games", []) for t in (g["away"], g["home"])} - confirmed
     rows = {}
