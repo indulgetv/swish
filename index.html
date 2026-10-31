@@ -2192,6 +2192,11 @@ html,body{touch-action:manipulation;-webkit-text-size-adjust:100%;text-size-adju
 .mo-final.out:has(.mo-lose-a) .mo-pa{animation:moOut-a .65s .25s cubic-bezier(.65,0,.35,1) both;filter:saturate(.25) brightness(.62)}
 .mo-final.out:has(.mo-lose-b) .mo-pb{animation:moOut-b .65s .25s cubic-bezier(.65,0,.35,1) both;filter:saturate(.25) brightness(.62)}
 .mo-final.out:has(.mo-lose-a) .mo-ca,.mo-final.out:has(.mo-lose-b) .mo-cb{animation:moCrestOut .4s .05s ease-in both}
+/* exit: the seam line closes up (shrinks from both ends and fades) before the halves slide away — it no longer lingers over the row */
+.mo.out .mo-seam{animation:moSeamOut .38s cubic-bezier(.5,0,.75,0) both!important}
+@keyframes moSeamOut{from{opacity:.55;transform:translateX(-50%) skewX(-12deg) scaleY(1)}to{opacity:0;transform:translateX(-50%) skewX(-12deg) scaleY(0)}}
+/* nothing from the moment is left on top once the row's own content is fading back in */
+.mo.out .mo-sheen,.mo.out .mo-crowd svg{opacity:0;transition:opacity .2s}
 /* moments gallery page */
 .mog-pick{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;margin:18px 0}
 .mog-pick .field{display:grid;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
