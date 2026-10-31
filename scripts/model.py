@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.6 (2026-10-30)"
+MODEL_VERSION = "v1.7 (2026-10-31)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -48,6 +48,8 @@ WW_MIN_OUT = 15            # absent player must normally play 15+ minutes
 WW_CAP = (-4.0, 10.0)      # per teammate, minutes
 STARTER_PULL = 1 / 3       # v1.5: move a third of the way to that target (lab: full move overshot by ~2.6 min)
 STARTER_SHARE = 0.9        # a bench player listed to start tonight: at least 90% of the other starters' average minutes
+BACK_TRIM = 0.075          # v1.7: a player who missed his team's last game plays ~7.5% fewer minutes on return (lab, 2 seasons:
+                           #       those players were projected 1.7–2.1 min too high; 5% and 10% also helped, 15% overshot)
 ROLE_NEW_GAMES = 3         # a role change with fewer games than this this season → flagged (not "strong")
 
 
@@ -325,6 +327,11 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
 
     shifts = minute_shifts(live, lambda n: (injury_of(n) or {}).get("status") or "Active")
     unclear = key_absences(live, lambda n: (injury_of(n) or {}).get("status") or "Active")
+    team_last = {}                                         # v1.7: each team's most recent game date (from its players' logs)
+    for p in live.get("players", []):
+        for x in p.get("season") or []:
+            if (x.get("min") or 0) > 0 and x.get("d") and x["d"] > team_last.get(p.get("team"), ""):
+                team_last[p.get("team")] = x["d"]
     picks = []
     for p in live.get("players", []):
         if p.get("team") not in game_of_team:
@@ -341,6 +348,9 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
         exp0, cur_min, last_min, role_delta = minutes_model(cur, last)
         shift = shifts.get(p["name"])
         exp_min = exp0 + shift["gain"] if shift else exp0
+        back = bool(cur) and team_last.get(p["team"]) not in {x.get("d") for x in cur}   # v1.7: missed his team's last game
+        if back:
+            exp_min *= 1 - BACK_TRIM
         mins = js_round(exp_min)
         role_change = len(cur) >= 2 and last_min is not None and abs(role_delta) >= ROLE_CHANGE_MIN
         w_cur = min(1, len(cur) / 10)
@@ -419,6 +429,8 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                     flags.append(("injury_after_line", "Injury news after the line: " + ", ".join(f"{i['player']} {i['status'].lower()}" for i in late[:3])))
             if role_change and len(cur) < ROLE_NEW_GAMES:
                 flags.append(("new_role", f"Minutes changed a lot vs last season ({js_round(last_min)}→{js_round(cur_min)}) with only {len(cur)} games this season"))
+            if back and inj and side == "over":
+                flags.append(("back_injury", f"Back from injury — missed his team's last game and is on today's injury report ({status.lower()})"))
             if p["team"] in unclear:
                 flags.append(("min_unclear", f"Minutes unclear — {', '.join(unclear[p['team']][:2])} out; waiting for the confirmed lineup"))
             if len(recent) < 5:
@@ -437,7 +449,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                 "fetched": fetched, "oddsUpdated": updated,
                 "projection": round(projection, 3), "sd": round(sd, 3), "minutes": mins, "games": len(recent),
                 "curGames": len(cur), "roleDelta": round(role_delta, 1) if role_change else 0,
-                "minBoost": round(shift["gain"], 1) if shift else 0, "boostFrom": shift["from"] if shift else [], "starterTonight": bool(shift and shift.get("starter")),
+                "minBoost": round(shift["gain"], 1) if shift else 0, "boostFrom": shift["from"] if shift else [], "starterTonight": bool(shift and shift.get("starter")), "back": back,
                 "pureO": round(pure_o, 5), "mktO": round(mkt_o, 5), "modelO": round(model_o, 5), "dist": dist,
                 "side": side, "lean": lean, "modelP": round(model_p, 5), "mktP": round(mkt_p, 5), "price": price,
                 "edge": round(edge, 5), "ev": round(ev, 5), "value": value, "verdict": verdict,

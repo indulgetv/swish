@@ -152,6 +152,91 @@
    "verdict": "rejected",
    "version": "—",
    "note": "Tried 9 versions (stronger caution, more games needed, replacing or adding to the current rule): every one was worse on both seasons. Past 'without' games are too few and too mixed up with other absences and blowouts to trust. Confirmed starting lineups remain the best signal."
+  },
+  {
+   "date": "2026-10-31",
+   "idea": "Let the 240-minute gap work when stars are out: ignore fringe players' minutes (fewer than 3 games this season, or weighted by how often they've played lately)",
+   "why": "30 Oct: Sengun and J. Brown out, but players with 1–2 games carried last season's minutes, so nobody got more minutes (Capela played 30, expected 17).",
+   "scope": "Players on teams with a 10+ minute player out, both seasons (≈400–4,300 player-nights per version)",
+   "before": {
+    "minutes": 4.85,
+    "accuracy": 0.24105
+   },
+   "after": {
+    "minutes": 5.18,
+    "accuracy": 0.24214
+   },
+   "check": {
+    "before": {
+     "minutes": 5.52,
+     "accuracy": 0.2556
+    },
+    "after": {
+     "minutes": 5.58,
+     "accuracy": 0.25553
+    }
+   },
+   "verdict": "rejected",
+   "version": "—",
+   "note": "Tried 6 versions (only 3+ game players count, weight by recent appearances, same-position players only, half the gap): every one gave minutes to players who then played LESS than expected (by 1.8–2.5 min). Freed minutes mostly go to deep-bench and garbage-time players who don't have props. 30 Oct was a real miss, but the current rule is right on average."
+  },
+  {
+   "date": "2026-10-31",
+   "idea": "Treat an absence as 'new' for 2 or 3 games (keeps 'lineup due' on hold longer)",
+   "why": "Sengun had already missed 29 Oct, so on 30 Oct his teammates weren't put on hold.",
+   "scope": "Extra props that would be held (420–800 per season, no lineups known)",
+   "before": {
+    "minutes": 4.81,
+    "accuracy": 0.2428
+   },
+   "after": {
+    "minutes": 4.87,
+    "accuracy": 0.2385
+   },
+   "check": {
+    "before": {
+     "minutes": 4.71,
+     "accuracy": 0.2464
+    },
+    "after": {
+     "minutes": 5.35,
+     "accuracy": 0.2491
+    }
+   },
+   "verdict": "rejected",
+   "version": "—",
+   "note": "'Before' = props not held, 'after' = the extra props that would be held. 2025-26: they were no harder to predict than normal. 2024-25: a bit harder. Not clear enough to hold more picks — kept at 1 game."
+  },
+  {
+   "date": "2026-10-31",
+   "idea": "Back from an absence: a player who missed his team's last game gets 7.5% fewer expected minutes",
+   "why": "30 Oct: Tre Johnson (back from Achilles) was a strong over at 23 minutes and played 13.",
+   "scope": "Players who missed their team's last game, both seasons (≈1,760–1,920 player-nights per run)",
+   "before": {
+    "minutes": 5.564,
+    "accuracy": 0.24003,
+    "points": 5.053
+   },
+   "after": {
+    "minutes": 5.449,
+    "accuracy": 0.23706,
+    "points": 4.955
+   },
+   "check": {
+    "before": {
+     "minutes": 5.435,
+     "accuracy": 0.24314,
+     "points": 4.915
+    },
+    "after": {
+     "minutes": 5.375,
+     "accuracy": 0.24036,
+     "points": 4.85
+    }
+   },
+   "verdict": "proposed",
+   "version": "v1.7",
+   "note": "These players were projected 1.7–2.1 minutes too high and their overs hit only 37–45%. 5% and 10% also helped; 15% overshot. Plus an 'On hold · back from injury' label on OVERS when he is also on today's injury report (can't be tested in the lab — the report isn't in old box scores). Saved picks 28–30 Oct: strong 7–8 → 7–7 (Tre Johnson no longer strong)."
   }
  ],
  "next": [

@@ -392,3 +392,17 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   No model change (picks/ledger unaffected). Pushed to `pending`.
 - 09:20: 3PM cells show the SWISH projection as the main number in blue + small "proj" label (no dash). Published to main.
 - 09:25: 3PM projection number now same colour as a normal line (user asked).
+- **31 Oct (09:15–10:00) — minutes lab + model v1.7 (built, awaiting OK):** scratch `model_x.py` with env switches, dumps
+  for 2025-26 + 2024-25, with/without lineups.
+  - a) 240-gap blocked by fringe players: SUM_MODE 1 (only 3+ game players count), 2 (× share of team's last 5 games),
+    3 (both), 2+receivers by share, 1+same-position only, 1+half gap. All worse on both seasons: shifted players then played
+    1.8–2.5 min LESS than projected (freed minutes go to deep bench / garbage time). Rejected; 30 Oct HOU/PHI were outliers.
+  - b) FRESH_GAMES 2/3 for "lineup due": extra held props were no harder in 2025-26 (min 4.87 vs 4.81, Brier better),
+    harder in 2024-25 (5.35 vs 4.71). Not clear → kept 1.
+  - c) Players who missed team's last game: overprojected 1–3.7 min, overs hit 37–45% (inj-1-game group fine). BACK_TRIM
+    5/7.5/10/15%: 7.5% best (changed rows minutes 5.56→5.45, Brier 0.2400→0.2371 [2025-26 nl]; 2024-25 5.44→5.38,
+    0.2431→0.2404; overall Brier better in all 4 runs). Confident overs for returners after trim: 60% vs 67% (2025-26),
+    66% vs 66% (2024-25) → hold only overs, only when on today's report (not lab-testable).
+  - Parity: new scratch runner on snapshot b8d724b (clock 2026-10-30T22:30Z): 344 props, 16 "back", 1 hold (Cameron
+    Johnson PTS, won). Saved-picks backtest 794 props: minutes 3.81→3.82, strong 7–8 −£14.49 → 7–7 −£4.49, all −£479.58 → −£483.63.
+- 09:40: v1.7 published to main (user: "publish now"); pending reset to main.

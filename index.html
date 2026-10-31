@@ -2357,9 +2357,10 @@ const HIGH_MIN_TRIM = 0.1;     // v1.6: expected minutes above 28 trimmed by 10%
 const HIGH_MIN_FROM = 28;
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.6 (2026-10-30)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.7 (2026-10-31)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
+const BACK_TRIM = 0.075;      // v1.7: missed his team's last game → ~7.5% fewer minutes on return (lab, 2 seasons)
 const MAX_MIN = 40;           // nobody is projected above this many minutes
 const SHIFT_MIN_OUT = 10;     // a teammate out must be a 10+ minute player to trigger a minutes shift
 const TEAM_MIN = 240;         // minutes in a regulation game
@@ -2626,6 +2627,7 @@ function analyse(p){
     if (late.length) flags.push(`Injury news since this line was fetched: ${late.slice(0,2).map(i => `${i.player} ${i.status.toLowerCase()} (${agoTxt(i.updated)})`).join(", ")}${late.length > 2 ? ` +${late.length - 2} more` : ""} — the line may have moved`);
   }
   if (p.live && p.roleChange && p.curGames < ROLE_NEW_GAMES) flags.push(`Minutes changed a lot vs last season (${Math.round(p.lastMin)}→${Math.round(p.curMin)}) with only ${p.curGames} game${p.curGames === 1 ? "" : "s"} this season — new role, projection less certain`);
+  if (p.live && p.back && inj && side === "over") flags.push(`Back from injury — missed his team's last game and is on today's injury report (${p.status.toLowerCase()}); minutes may be limited`);
   if (p.live && KEY_OUT[p.team]) flags.push(`Minutes unclear — ${KEY_OUT[p.team].slice(0, 2).join(", ")} out; waiting for the confirmed lineup (about 30 min before tip-off)`);
   if (p.live && p.games < 5) flags.push(`Only ${p.games} game${p.games === 1 ? "" : "s"} of data — too few to trust the projection`);
   if (p.live && (Math.abs(p.projection - p.line) > BIG_GAP_SD * p.sd || Math.abs(p.projection - p.line) > BIG_GAP_REL * Math.max(p.line, 2))) flags.push(`Line is far from SWISH's projection (${p.line} vs ${p.projection.toFixed(1)}) — the market may know about a role or minutes change; check the news`);
@@ -2738,7 +2740,15 @@ function buildLivePlayers(){
               expMin: mm.expMin, curMin: mm.curMin, lastMin: mm.lastMin, roleDelta: roleChange ? mm.delta : 0, roleChange, ...gm});
   });
   KEY_OUT = keyAbsences(out);
-  return applyMinuteShifts(out);
+  applyMinuteShifts(out);
+  // v1.7: a player who missed his team's last game plays a little less on return (lab: ~2 minutes too high before)
+  const teamLast = {};
+  (LIVE.players || []).forEach(p => (p.season || []).forEach(g => { if ((g.min || 0) > 0 && g.d && g.d > (teamLast[p.team] || "")) teamLast[p.team] = g.d; }));
+  out.forEach(r => {
+    r.back = r.cur.length > 0 && !r.cur.some(g => g.d === teamLast[r.team]);
+    if (r.back){ r.expMin = r.expMin * (1 - BACK_TRIM); r.projMin = Math.round(r.expMin); }
+  });
+  return out;
 }
 if (IS_LIVE) PLAYERS.push(...buildLivePlayers());
 
@@ -2780,7 +2790,7 @@ function buildLiveProp(pl, market, myLines){
   const p = {id: hashStr(pl.name + market) % 1e9, player: pl.name, team: pl.team, opp: pl.opp, game: pl.g.id, pos: pl.pos, market,
              base, h2h, h2hDates: h2hGames.map(g => g.d), n, h2hAvg, w, h2hAdj: projection0 - base, role, projection, sd, last10,
              minutes: pl.projMin, seasonMin: pl.min, status: pl.status, seasonAvg, live: true, l10, games: pl.recent.length,
-             expMin: pl.expMin, expMin0: pl.expMin0, minBoost: pl.minBoost, curMin: pl.curMin, lastMin: pl.lastMin, roleDelta: pl.roleDelta, roleChange: pl.roleChange, curGames: pl.curGames};
+             expMin: pl.expMin, expMin0: pl.expMin0, minBoost: pl.minBoost, curMin: pl.curMin, lastMin: pl.lastMin, roleDelta: pl.roleDelta, roleChange: pl.roleChange, curGames: pl.curGames, back: !!pl.back};
   if (!src) return {...p, noLine: true};
   return {...p, line: src.line, over: src.over, under: src.under, book: src.book, source: src.source, oddsUpdated: src.updated || DATA.meta.generatedAt, fetched: src.source === "ref" ? src.fetched : null};
 }
@@ -3056,7 +3066,7 @@ const money = x => (x >= 0 ? "+" : "−") + "£" + Math.abs(x).toFixed(2);
 function holdReason(p){
   const f = p.flags[0] || "";
   return /^Listed /.test(f) ? "injury doubt" : /^Depends on/.test(f) ? "teammate doubt" : /stale price/.test(f) ? "old price"
-    : /^Injury news since/.test(f) ? "new injury news" : /^Minutes unclear/.test(f) ? "lineup due" : /new role/.test(f) ? "new role"
+    : /^Injury news since/.test(f) ? "new injury news" : /^Minutes unclear/.test(f) ? "lineup due" : /^Back from injury/.test(f) ? "back from injury" : /new role/.test(f) ? "new role"
     : /^Only \d+ game/.test(f) ? "few games" : /^Line is far/.test(f) ? "big gap" : "check news";
 }
 function verdict(p){
@@ -3311,7 +3321,7 @@ const boostTip = pl => { const names = [...new Set(pl.minBoost.from)]; return `M
 const boostChip = pl => pl && pl.minBoost ? `<span class="rolechip up" tabindex="0" data-tip="${esc(boostTip(pl))}">▲ +${Math.max(1, Math.round(pl.minBoost.gain))} min · ${pl.minBoost.starter ? "new starter" : "teammate out"}</span>` : "";
 const minutesBox = p => !(p.live && p.expMin) ? "" : `<div class="dsec"><div class="dt">Expected minutes ${p.minBoost ? boostChip(PLAYER_BY_NAME.get(p.player)) : ""}${roleChip(p)}</div>
       <div class="minbox">
-        <div><span>Tonight</span><b class="num" style="color:var(--exp)">${p.expMin.toFixed(1)}</b><small>${p.minBoost ? `incl. +${p.minBoost.gain.toFixed(1)} · ${esc(boostWhy(p.minBoost))}` : "SWISH estimate"}</small></div>
+        <div><span>Tonight</span><b class="num" style="color:var(--exp)">${p.expMin.toFixed(1)}</b><small>${p.minBoost ? `incl. +${p.minBoost.gain.toFixed(1)} · ${esc(boostWhy(p.minBoost))}` : "SWISH estimate"}${p.back ? " · −7.5%: missed his team's last game" : ""}</small></div>
         <div><span>This season</span><b class="num">${p.curMin !== null ? p.curMin.toFixed(1) : "—"}</b><small>${p.curGames} game${p.curGames === 1 ? "" : "s"}</small></div>
         <div><span>Last season</span><b class="num">${p.lastMin !== null ? p.lastMin.toFixed(1) : "—"}</b><small>last 20 games</small></div>
       </div>

@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 09:30 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-10-31 09:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -11,12 +11,13 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
   The Odds API: **US** player props PTS/REB/AST + UK game lines) → `data/live.json/.js`. `--mode auto` picks the job by time.
 - Picks ledger: `scripts/ledger.py` saves picks for games not started into `data/picks/<date>.json` (locked at tip),
   grades from ESPN box scores (void if absent 10 h after tip) → `data/results.json/.js` (Results page).
-- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.6**.
+- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.7**.
   Projection = per-minute rate × expected minutes (this season 0.5·last3 + 0.5·last10, last season early on;
   absences share the gap below 240 min; NBA.com new starter pulled ⅓ of the way to starter minutes; >28 min trimmed 10%);
   sd × 1.15; normal curve for PTS, negative binomial for REB/AST. SWISH chance = 0.3·model + 0.7·no-vig market
   (`MODEL_WEIGHT` 0.3 — don't change until ~1,000 graded props). Strong value = edge ≥ 6 pts, EV > 0, no flags.
-  Flags ("On hold · reason"): injury doubt, lineup due (25+ min teammate newly out, until NBA.com confirms), few games (<5),
+  v1.7: missed his team's last game → expected minutes × 0.925 (`BACK_TRIM`).
+  Flags ("On hold · reason"): back from injury (overs; missed last game + on today's report), injury doubt, lineup due (25+ min teammate newly out, until NBA.com confirms), few games (<5),
   big gap (line far from projection), new role, old price, injury news newer than the line. Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
@@ -49,7 +50,14 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 - After each session: update CHECKPOINT.md (short!) + append details to HISTORY.md, copy CHECKPOINT.md to the project doc
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE) current.
 
-## Latest (31 Oct morning)
+## Latest (31 Oct 09:40) — v1.7 published (user: "publish now")
+- Minutes lab (old step 3), both seasons. a) 240-gap fixes (6 versions): all worse → rejected. b) "new" absence for 2–3 games:
+  unclear → rejected. c) Missed team's last game → expected minutes × 0.925 (`BACK_TRIM`; lab bias −2 → ~0, Brier better on
+  all 4 runs) + flag `back_injury` "On hold · back from injury" on OVERS when also on today's injury report.
+  Parity 0 (344 props, snapshot b8d724b, clock 2026-10-30T22:30Z — live.json has no props in the morning). UI 4 sizes × 2 themes OK.
+  Saved picks 28–30 Oct: strong 7–8 −£14.49 → 7–7 −£4.49 (Tre Johnson no longer strong); all picks ≈ same.
+  Guide: needs "On hold · back from injury" + the −7.5% minutes note.
+## Earlier (31 Oct morning)
 - Review of 30 Oct + declutter (see Next steps 1 and 3). Guide may need a line: "3PM = SWISH projection only, PRA removed".
 
 ## Earlier (30 Oct evening)
@@ -65,16 +73,9 @@ Keep this file SHORT (aim < 9,000 characters): put session details in HISTORY.md
 ## Next steps (in order)
 1. (Done 31 Oct, on `pending`: PRA removed from the site (still computed in background `EXTRA`); 3PM kept as a column with
    SWISH projection only, never a line (`PROJ_ONLY`); chips = All/Points/Rebounds/Assists; Props count = PTS/REB/AST only.)
-2. **Model v1.7 = confidence stretch** `MODEL_STRETCH = 0.70` (pure model chance → sigmoid(0.70·logit p) before the blend).
+2. (Done 31 Oct 09:40: v1.7 published; guide updated.)
+3. **Model v1.8 = confidence stretch** `MODEL_STRETCH = 0.70` (pure model chance → sigmoid(0.70·logit p) before the blend).
    Full model process; log in lab/experiments.json; expect fewer strong picks on both sides. Ask before shipping.
-3. **Minutes review 30 Oct (found 31 Oct)** — model change, lab first, ask before shipping:
-   a) 240-gap rule blocked when stars are out: HOU (Sengun Out) available total 243, PHI (J. Brown Out 22:05) 254, because
-      players with 1–2 games this season carry last-season minutes (Tshiebwe 19, Love 11, Edwards 11). Nobody got their
-      minutes: Capela exp 17 → 30, Simons 24 → 31, Amen 33 → 39. Test: count only players with 3+ games this season in the
-      240 total, or the WW_MODE with/without rule.
-   b) Sengun had already missed 29 Oct, so not "new" (FRESH_GAMES=1) yet last3/last10 still mostly had him playing.
-   c) Tre Johnson: back from Achilles (missed 28 Oct, Questionable until 22:20) → strong over at 23 min, played 13. Test a
-      "back from injury" flag (missed team's last game + was on report today) → no strong tag.
 4. **UK props test result (15:00)** → if UK books have good PTS/REB/AST coverage, propose UK as main prices, US as backup.
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai page;
    optional private repo `swish-lab` for `lab/`. Ask which.
