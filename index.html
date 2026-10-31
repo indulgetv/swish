@@ -3131,8 +3131,8 @@ const SLOT = {
 };
 function luTag(g, cls){
   const ph = IS_LIVE ? luPhase(g) : null;
-  if (ph && ph.k === "due" && g.lineups === "Expected") return `<span class="${cls} amber lu-due">${LU_HOURGLASS}${ph.soon ? "Lineups any minute" : `Lineups due ~${ph.at}`}</span>`;
-  return `<span class="${cls} ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">Lineups ${esc(String(g.lineups || "").toLowerCase())}</span>`;
+  if (ph && ph.k === "due" && g.lineups === "Expected") return `<span class="${cls} amber lu-due">${LU_HOURGLASS}${ph.soon ? "Lineups confirming…" : `Lineups confirm ~${ph.at}`}</span>`;
+  return `<span class="${cls} ${g.lineups === "Confirmed" ? "lu-go" : "amber"}">${g.lineups === "Confirmed" ? "Lineups confirmed" : g.lineups === "Expected" ? "Likely lineups" : `Lineups ${esc(String(g.lineups || "").toLowerCase())}`}</span>`;
 }
 const slot = (g, k) => `<span class="lsw" data-ls="${g.id}" data-lk="${k}">${SLOT[k](g)}</span>`;
 /* live scores straight from ESPN in the browser: every 30 s from 10 min before a tip-off until the game is final */
@@ -3309,7 +3309,7 @@ const starterSet = () => { const s = new Map(); DATA.games.forEach(g => ["away",
 const STARTERS = IS_LIVE ? starterSet() : new Map();
 /* lineup phase per game: "expected" (NBA.com projection) → "due" (last 90 min: NBA.com usually confirms ~30 min before tip)
    → "confirmed" (green). The chips repaint every minute so the wording moves on by itself. */
-const LU_DUE_MIN = 90, LU_CONFIRM_BEFORE = 30;
+const LU_DUE_MIN = 90, LU_CONFIRM_BEFORE = 20;   // NBA.com usually confirms 15–25 min before tip (checked 28–31 Oct)
 const GAME_OF = t => GAMES.find(g => g.away === t || g.home === t);
 function luPhase(g){
   if (!g || (g.state && g.state !== "pre")) return null;
@@ -3317,14 +3317,14 @@ function luPhase(g){
   const mins = (new Date(g.tipoff) - Date.now()) / 60e3;
   if (mins > LU_DUE_MIN) return {k: "expected"};
   const at = new Date(new Date(g.tipoff) - LU_CONFIRM_BEFORE * 60e3);
-  return {k: "due", soon: mins <= LU_CONFIRM_BEFORE + 2, at: timeFmt(at.toISOString())};
+  return {k: "due", soon: mins <= LU_CONFIRM_BEFORE, at: timeFmt(at.toISOString())};
 }
 const LU_HOURGLASS = `<svg class="luhg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10M7 21h10M8 3c0 5 8 6 8 9s-8 4-8 9M16 3c0 5-8 6-8 9s8 4 8 9"/></svg>`;
 function luChip(name, team){
   const stx = STARTERS.get(normName(name)); if (!stx) return "";
   const g = GAME_OF(team), ph = stx === "expected" ? luPhase(g) : null;
-  if (ph && ph.k === "due") return ` <span class="lu-chip due" data-lug="${g.id}" data-lun="${esc(name)}" title="NBA.com's projected starter. Teams confirm lineups about 30 minutes before tip-off.">${LU_HOURGLASS}${ph.soon ? "lineup any min" : `lineup ${ph.at}`}</span>`;
-  return ` <span class="lu-chip ${stx}" data-lug="${g ? g.id : ""}" data-lun="${esc(name)}">${stx === "expected" ? "exp. starter" : "starter"}</span>`;
+  if (ph && ph.k === "due") return ` <span class="lu-chip due" data-lug="${g.id}" data-lun="${esc(name)}" title="NBA.com's projected starter. NBA.com usually confirms lineups about 15–25 minutes before tip-off.">${LU_HOURGLASS}${ph.soon ? "Confirming…" : `Confirm ~${ph.at}`}</span>`;
+  return ` <span class="lu-chip ${stx}" data-lug="${g ? g.id : ""}" data-lun="${esc(name)}">${stx === "expected" ? "Likely starter" : "Starting ✓"}</span>`;
 }
 let LU_JUST = new Set();   // players whose lineup just went from expected to confirmed (they get a pop-in)
 setInterval(() => { if (!IS_LIVE || document.hidden) return;
@@ -3952,7 +3952,7 @@ function scheduleHTML(){
   const items = [
     {m: 7*60+5,  t: "07:05", what: "Morning update", sub: "last night's picks graded on Results · stats & rosters refreshed"},
     {m: 13*60+50, t: "13:50", what: "Afternoon updates start", sub: "injuries & news checked every 5 minutes", until: 19*60+45},
-    {m: 13*60+51, t: "13:50", what: "Expected lineups", sub: "NBA.com posts projected starters mid-morning; they show here from the 13:50 update · marked “exp. starter”", lu: "expected"},
+    {m: 13*60+51, t: "13:50", what: "Expected lineups", sub: "NBA.com posts projected starters mid-morning; they show here from the 13:50 update · marked “Likely starter”", lu: "expected"},
 
     ...(early ? [{m: 14*60+30, t: "14:30", what: "Early bookmaker lines", sub: "only for games before 21:30", key: true, done: run("early")}] : []),
     {m: 19*60+50, t: "19:50", what: "Evening updates start", sub: "every 5 minutes until the games finish", until: 25*60+40},
@@ -3961,7 +3961,7 @@ function scheduleHTML(){
       const ukM = iso => { const d = new Date(new Date(iso).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = d.getHours() * 60 + d.getMinutes(); return x < 12*60 ? x + 24*60 : x; };
       return rp.length ? rp.map(r => { const g = gameById(r.game) || {}; return {m: ukM(r.at), t: timeFmt(r.at), what: "Late price update", sub: `${g.away ? `${g.away} @ ${g.home} · ` : ""}${(r.for || []).join(", ")} ruled out after 21:00 → that game re-priced`, key: true, done: r}; })
         : [{m: 21*60+1, t: "21:00+", what: "Late injury re-price", sub: "only if a 25+ minute player is ruled out after the lines · that game gets fresh prices (max 4 a night)", until: 25*60}]; })(),
-    ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes() - 30; return x < 12*60 ? x + 24*60 : x; })(), t: (() => { const d = new Date(new Date(GAMES[0].tipoff).getTime() - 30 * 60000); return timeFmt(d.toISOString()); })(), what: "Confirmed lineups", sub: "teams name their starters about 30 minutes before tip-off; shown as “starter”", lu: "confirmed"}] : []),
+    ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes() - 20; return x < 12*60 ? x + 24*60 : x; })(), t: (() => { const d = new Date(new Date(GAMES[0].tipoff).getTime() - 20 * 60000); return timeFmt(d.toISOString()); })(), what: "Confirmed lineups", sub: "NBA.com usually confirms starters about 15–25 minutes before tip-off; shown as “Starting ✓”", lu: "confirmed"}] : []),
     ...(firstTip ? [{m: (() => { const t = new Date(new Date(GAMES[0].tipoff).toLocaleString("en-US", {timeZone: "Europe/London"})); const x = t.getHours() * 60 + t.getMinutes(); return x < 12*60 ? x + 24*60 : x; })(), t: firstTip, what: "First tip-off", sub: "live scores update every 30 seconds, no refresh"}] : []),
     {m: 25*60+30, t: "01:30", what: "Late updates", sub: "until the last game is final"}
   ];
