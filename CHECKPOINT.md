@@ -23,7 +23,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   than the line. Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
-- Results so far (4 nights, 28–31 Oct, 31 games): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
+- Results (28–31 Oct): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
   `lab/check_picks.py`: SWISH ≈ market, raw model worse; best-fit model share ~5%. Overs hit 46.6% vs market 49.7%.
 
 ## Site features (current UI)
