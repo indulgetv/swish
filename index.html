@@ -1427,21 +1427,29 @@ html.dark .injbar .ib{background:rgba(38,42,49,.9)}
 html.dark .injbar .ib.hot{background:rgba(239,59,72,.1)}
 .newsfeed{margin-top:var(--sec)}
 .outtn{margin-top:var(--sec)}
-.ot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:10px;padding:2px 14px 14px}
-.ot-g{border:1px solid var(--line);border-radius:12px;padding:10px 12px 4px;background:var(--surface2);min-width:0}
-.ot-h{display:flex;justify-content:space-between;align-items:center;width:100%;font:700 13.5px var(--sans);color:var(--ink);background:none;border:0;padding:0 0 8px;cursor:pointer}
-.ot-h .num{color:var(--muted);font-weight:600;font-size:12.5px}
-.ot-h:hover .num{color:var(--red)}
-.ot-t{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--line)}
-.ot-t > span:first-child{margin-top:2px}
-.ot-ps{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
-.ot-p{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--red-soft);border:1px solid var(--red-line);color:var(--ink)}
-.ot-p small{color:var(--muted);font-weight:600;font-size:11px}
-.ot-p em{font-style:normal;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--red)}
-.ot-p em.lt{color:var(--faint)} .ot-p em.uc{color:var(--amber)}
-.ot-p.new{box-shadow:0 0 0 2px var(--red-line)}
-.ot-p.lt{background:var(--sunk);border-color:var(--line);color:var(--muted);font-weight:500}
-.ot-none,.ot-b{font-size:12px;color:var(--muted);align-self:center}
+.outtn .clamp{grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.outtn .ot-none{grid-column:1/-1}
+.ot-pls{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))!important}
+.ot-row{align-items:flex-start!important}
+.ot-row > .tid{margin-top:2px}
+.ot-hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ot-hd b{font-size:15px}
+.ot-hd span{font-size:12.5px;color:var(--muted)}
+.ot-hd .ot-n{margin-left:auto;font-weight:700;color:var(--red);font-size:12.5px}
+.ot-pls{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:8px;margin-top:10px}
+.ot-pl{display:flex;align-items:center;gap:10px;min-width:0;padding:7px 10px;border-radius:10px;background:var(--white);border:1px solid var(--line)}
+html.dark .ot-pl{background:rgba(0,0,0,.22)}
+.ot-pl > div{min-width:0;flex:1}
+.ot-pl b{display:block;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-pl small{display:block;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-tag{flex:none;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:99px}
+.ot-tag.new{color:#fff;background:var(--red)}
+.ot-tag.uc{color:var(--amber);box-shadow:inset 0 0 0 1.5px currentColor}
+.ot-quiet{margin-top:6px;font-size:12.5px;color:var(--muted)}
+.ot-lt{margin-top:9px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.ot-lt span{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-right:8px}
+.ot-lt i{font-style:normal;color:var(--faint);font-size:11.5px}
+.ot-none{margin:2px 4px 0;font-size:12.5px;color:var(--muted)}
 .nrow{display:flex;align-items:center;gap:12px;padding:11px 20px;border-top:1px solid var(--line)}
 .nrow .nr-m{flex:1;min-width:0}
 .nrow .nm{font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -4501,23 +4509,29 @@ function viewInjuries(){
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
 }
-/* "Ruled out tonight": every regular (12+ min) listed Out for tonight's games that haven't finished, by tip-off time.
-   new = posted in the last 6 hours; long-term = the news is over 48 hours old; unconfirmed = only one source so far. */
+/* "Ruled out tonight": regulars (12+ min) listed Out for tonight's unfinished games, one team-coloured row per team in
+   tip-off order (same look as "Latest injury changes"). Tonight's absences (news in the last 48 h) get a jersey and their
+   usual minutes; long-term absences sit on one quiet line underneath. Teams with nobody out share one line at the end. */
 function outTonightHTML(){
   if (!IS_LIVE) return "";
   const games = GAMES.filter(g => g.state !== "post").sort((a, b) => new Date(a.tipoff) - new Date(b.tipoff));
   if (!games.length) return "";
-  const side = t => {
-    const outs = injuriesFor(t).filter(i => i.status === "Out");
-    const lt = i => injAgeH(i) > OLD_INJ_H;   // long-term: greyed and listed after tonight's fresher absences
-    const reg = outs.filter(i => isRegular(i) !== false).map(i => ({i, m: usualMin(i.player)})).sort((a, b) => lt(a.i) - lt(b.i) || (b.m || 0) - (a.m || 0));
-    const bench = outs.length - reg.length;
-    const chip = ({i, m}) => `<span class="ot-p${isNewNews(i) ? " new" : lt(i) ? " lt" : ""}" title="${esc(i.detail || "")}${i.updated ? ` · posted ${dateFmt(i.updated)} ${timeFmt(i.updated)}` : ""}">${esc(i.player)}${m ? `<small class="num">${Math.round(m)} min</small>` : ""}`
-      + `${isNewNews(i) ? `<em>new</em>` : injAgeH(i) > OLD_INJ_H ? `<em class="lt">long-term</em>` : ""}${i.confirmed === false ? `<em class="uc">unconfirmed</em>` : ""}</span>`;
-    return `<div class="ot-t">${tid(t, "xs")}<div class="ot-ps">${reg.length ? reg.map(chip).join("") : `<span class="ot-none">nobody</span>`}${bench ? `<span class="ot-b">+${bench} rarely play${bench > 1 ? "" : "s"}</span>` : ""}</div></div>`;
-  };
-  return `<div class="panel outtn"><div class="panel-h"><h2 class="h">Ruled out tonight</h2><span class="sub">regulars (${REGULAR_MIN}+ min a game) · <b>new</b> = last ${NEW_NEWS_H} hours</span></div>
-    <div class="ot-grid">${games.map(g => `<div class="ot-g"><button class="ot-h" data-goto="${g.id}"><span>${g.away} @ ${g.home}</span><span class="num">${g.state === "in" ? "live" : timeFmt(g.tipoff)} ›</span></button>${side(g.away)}${side(g.home)}</div>`).join("")}</div></div>`;
+  const lt = i => injAgeH(i) > OLD_INJ_H, none = [];
+  const rows = games.flatMap(g => [[g.away, g.home], [g.home, g.away]].map(([t, opp]) => {
+    const outs = injuriesFor(t).filter(i => i.status === "Out" && isRegular(i) !== false)
+      .map(i => ({i, m: usualMin(i.player)})).sort((a, b) => (b.m || 0) - (a.m || 0));
+    const fresh = outs.filter(x => !lt(x.i)), old = outs.filter(x => lt(x.i));
+    if (!outs.length) { none.push(t); return ""; }
+    const pl = ({i, m}) => `<div class="ot-pl">${jerseyAv(i.player, t, "sm")}<div><b>${esc(i.player)}</b><small>${m ? `${Math.round(m)} min usual` : "minutes unknown"}${i.detail ? ` · ${esc(i.detail.toLowerCase())}` : ""}</small></div>`
+      + `${isNewNews(i) ? `<span class="ot-tag new">New</span>` : ""}${i.confirmed === false ? `<span class="ot-tag uc" title="Only one source so far">Unconfirmed</span>` : ""}</div>`;
+    return `<div class="nrow tcol ot-row" style="--tc:${team(t).color}">${tid(t, "sm")}<div class="nr-m">
+        <div class="ot-hd"><b>${tname(t)}</b><span>${t === g.home ? "vs" : "@"} ${opp} · ${g.state === "in" ? "live" : timeFmt(g.tipoff)}</span><span class="ot-n num">${outs.length} out</span></div>
+        ${fresh.length ? `<div class="ot-pls">${fresh.map(pl).join("")}</div>` : `<div class="ot-quiet">No new absences tonight.</div>`}
+        ${old.length ? `<div class="ot-lt"><span>Long-term</span>${old.map(({i, m}) => `${esc(i.player)}${m ? ` <i class="num">${Math.round(m)}</i>` : ""}`).join(" · ")}</div>` : ""}
+      </div></div>`;
+  })).join("");
+  return `<div class="panel newsfeed outtn"><div class="panel-h"><h2 class="h">Ruled out tonight</h2><span class="sub">regulars only (${REGULAR_MIN}+ min a game) · in tip-off order</span></div>
+    <div class="clamp">${rows}${none.length ? `<p class="ot-none">Nobody out: ${none.map(tname).join(", ")}.</p>` : ""}</div></div>`;
 }
 function injStatusBar(){
   const checked = injCheckedAt(), next = nextInjuryCheck(), news = injNews();
