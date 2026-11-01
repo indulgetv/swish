@@ -276,6 +276,68 @@
     }
    },
    "note": "Projections unchanged; only chances move. Better in all 9 market/season/lineup runs. Very confident chances (70%+): 2025-26 said 76% won 69% → now said 75% won 75%; ~70% fewer of them. 0.70 was fitted on one season and tested on the other (30 Oct)."
+  },
+  {
+   "date": "2026-11-01",
+   "version": "test (lab/model_gameline_test.py)",
+   "verdict": "works, small — awaiting decision",
+   "idea": "Blowout minutes: when ESPN's spread is over 9, players expected 24+ min lose 0.25 min per point over 9 per 10 min above 24 (BLOWOUT_FROM 9, BLOWOUT_A 0.25)",
+   "why": "2025-26: players expected 30+ min in games with spread 11+ played 1.5–1.9 min less than projected.",
+   "scope": "2025-26 (only season with ESPN lines: 980/1,235 games); tuned Oct–Jan, checked Feb–Apr",
+   "before": {
+    "minutes": 4.6288
+   },
+   "after": {
+    "minutes": 4.6268
+   },
+   "check": {
+    "before": {
+     "minutes": 5.0009
+    },
+    "after": {
+     "minutes": 4.9768
+    }
+   },
+   "note": "Big-minute players in 11+ spread games: minutes miss 4.45→4.42 (tune), 4.98→4.75 (check), bias −2.0→−0.9. Stronger settings overshoot. Bench gain version made things worse. 'Shrink minutes toward the middle' (from the 4 live nights) was NOT supported over a full season."
+  },
+  {
+   "date": "2026-11-01",
+   "version": "test (lab/model_gameline_test.py)",
+   "verdict": "works, small — awaiting decision",
+   "idea": "Team implied points (from ESPN total and spread) scale REB and AST: × (implied/115)^0.5. Points left alone.",
+   "why": "2025-26: per-minute REB/AST ran 3–7% higher than projected in high-scoring games, lower in low ones.",
+   "scope": "2025-26, tuned Oct–Jan (strength 0.25–2.0 tried), checked Feb–Apr; lineups on and off",
+   "before": {
+    "brier": {
+     "PTS": 0.24295,
+     "REB": 0.24139,
+     "AST": 0.24225
+    }
+   },
+   "after": {
+    "brier": {
+     "PTS": 0.24288,
+     "REB": 0.24131,
+     "AST": 0.24218
+    }
+   },
+   "check": {
+    "before": {
+     "brier": {
+      "PTS": 0.23891,
+      "REB": 0.23893,
+      "AST": 0.24033
+     }
+    },
+    "after": {
+     "brier": {
+      "PTS": 0.23882,
+      "REB": 0.23837,
+      "AST": 0.24021
+     }
+    }
+   },
+   "note": "Numbers are both changes together. PTS got worse with any total strength ≥0.5 (scoring rates already carry team pace). Saved real picks (1,043, real prices, lab/backtest_saved.py): Brier vs market unchanged (+0.0035 → +0.0036), strong 2–2 → 3–2, all −£153.58 → −£168.23 — no measurable gain against the bookies, as expected since they price totals and spreads already."
   }
  ],
  "next": [

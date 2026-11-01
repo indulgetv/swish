@@ -92,7 +92,9 @@ def main():
                     "lineups": {}, "sections": {"odds": {"fetchedAt": f"{night}T21:00:00Z"}}}
             actual = {}
             for g in games:
-                live["games"].append({"id": g["id"], "away": g["away"], "home": g["home"], "tipoff": f"{night}T23:30:00Z", "state": "pre"})
+                gl = g.get("line") or {}
+                live["games"].append({"id": g["id"], "away": g["away"], "home": g["home"], "tipoff": f"{night}T23:30:00Z", "state": "pre",
+                                      "espnLine": {"details": gl.get("details"), "overUnder": gl.get("total")} if gl else None})
                 if a.lineups:
                     live["lineups"][g["id"]] = {s: {"status": "confirmed", "starters": [{"name": p["name"]} for p in g["players"] if p["team"] == g[s] and p["starter"]]}
                                                 for s in ("away", "home")}
@@ -115,7 +117,7 @@ def main():
                 p, g = actual[pk["player"]]
                 a_min = float(p.get("min") or 0)
                 a_val = (p.get(pk["market"]) or 0) if a_min > 0 else 0
-                rows.append({"d": night, "p": pk["player"], "m": pk["market"], "proj": pk["projection"], "pmin": pk["minutes"], "amin": a_min,
+                rows.append({"d": night, "g": g["id"], "t": p["team"], "hm": p["team"] == g["home"], "p": pk["player"], "m": pk["market"], "proj": pk["projection"], "pmin": pk["minutes"], "amin": a_min,
                              "act": a_val, "line": pk["line"], "pO": pk["pureO"], "boost": pk["minBoost"], "starter": pk.get("starterTonight", False),
                              "unclear": "min_unclear" in pk["flags"], "played": a_min > 0, "curG": pk["curGames"], "sd": pk["sd"], "dist": pk["dist"]})
         # after scoring the night, add its games to history

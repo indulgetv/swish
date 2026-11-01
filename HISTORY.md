@@ -480,3 +480,13 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   Minutes bias exp−played: <20 −4.35, 20–28 −0.42, 28–34 +0.43, 34+ +1.78. PTS bias model +0.41, line +0.27.
   Line moves after first save: 42, toward model 13. v1.8 night: model beat market (−.0063) — one night only.
 - Told user plainly: free public-stats model isn't beating the market; strong picks sit where the model is most wrong.
+
+## 2026-11-01 05:40–06:10 — game-line lab test (not shipped)
+- replay.py now passes ESPN's line into live games as `espnLine` (same shape as live.json) and dumps game/team/home.
+- Explore (2025-26 baseline, lineups): minutes bias by expected minutes small (<16: −0.48 … 36+: −1.18) → live "bench
+  under-guessed −4.4" not real; no shrink. Blowouts: exp 30+ & |spread| 11–14 −1.51, 14+ −1.94 min.
+- Grid (tune Oct–Jan, check Feb–Apr): BLOWOUT_FROM 7/9/11 × A .25/.5/.75 × bench 0/.15 → best 9/.25/no bench.
+  Team total strength .25–2.0 → PTS no gain (worse ≥.5), REB/AST best ~.5. Final both: min 4.6288→4.6268 / 5.0009→4.9768;
+  REB Brier .24139→.24131 / .23893→.23837; AST .24225→.24218 / .24033→.24021; no-lineups runs also better. 2024-25 has no lines.
+- Saved picks (1,043, last live.json before tip, real prices): v1.8 model−market +.00352 → +.00359; strong 2–2 → 3–2
+  (+Risacher REB o4.5 W); all −£153.58 → −£168.23. Logged in lab/experiments.json (data/lab.js NOT rebuilt — lab privacy pending).
