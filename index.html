@@ -24,7 +24,7 @@
   --red:#b3121f; --red-dark:#8f0e18; --red-soft:#fdeff0; --red-line:#f1c6ca;
   --over:#0b7d52; --over-soft:#e8f6ef;
   --under:#2453cf; --under-soft:#ebf0fc;
-  --amber:#a35a06; --amber-soft:#fdf4e4; --amber-line:#f1d7a8;
+  --amber:#a35a06; --amber-soft:#fdf4e4; --amber-line:#f1d7a8; --amber-pop:#f59e0b; --amber-ink:#c76a00;
   --orange:#c2410c; --orange-soft:#fdefe7;
   --r:14px; --r-sm:9px;
   --shadow:0 1px 2px rgba(18,20,23,.04),0 4px 14px rgba(18,20,23,.04);
@@ -924,7 +924,7 @@ html.dark{color-scheme:dark;
   --red:#ef3b48; --red-dark:#d42a37; --red-soft:rgba(239,59,72,.14); --red-line:rgba(239,59,72,.38);
   --over:#3cc98f; --over-soft:rgba(60,201,143,.14);
   --under:#7d9dff; --under-soft:rgba(125,157,255,.15);
-  --amber:#f2b552; --amber-soft:rgba(242,181,82,.12); --amber-line:rgba(242,181,82,.32);
+  --amber:#f2b552; --amber-soft:rgba(242,181,82,.12); --amber-line:rgba(242,181,82,.32); --amber-pop:#f2a93b; --amber-ink:#f2b552;
   --orange:#ff8a4c; --orange-soft:rgba(255,138,76,.13);
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.22);
   --shadow-h:0 2px 6px rgba(0,0,0,.35),0 14px 34px rgba(0,0,0,.35);
@@ -1642,7 +1642,7 @@ html.dark .side-sec.stand .stt tr.on td{color:#fff}
 
 /* ================= Floating bottom menu (phones & tablets) ================= */
 @media (max-width:960px){
-  .nav{left:10px!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;padding:6px!important;gap:4px!important;
+  .nav{left:10px!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;padding:11px 6px 6px!important;gap:4px!important;
        border-radius:22px;border:1px solid rgba(18,20,23,.08)!important;
        background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(246,247,249,.98))!important;
        box-shadow:0 14px 34px rgba(18,20,23,.22),0 3px 8px rgba(18,20,23,.10),
@@ -1809,17 +1809,27 @@ html.dark{--exp:#79a8ff}
 .rolechip[data-tip]:focus-visible{box-shadow:0 0 0 2px var(--red)}
 .tipbox{position:fixed;z-index:200;max-width:260px;padding:10px 12px;border-radius:12px;background:#15171b;color:#f2f3f5;font-size:12.5px;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.28);pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease}
 .tipbox.on{opacity:1;transform:none}
-.tipbox.rich{padding:12px 14px}
-.tipbox .tt-h{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;margin-bottom:8px}
-.tipbox .tt-h .st{font-size:10px;padding:1px 7px}
-.tipbox .tt-r{display:grid;grid-template-columns:92px 1fr;gap:8px;padding:5px 0;border-top:1px solid rgba(255,255,255,.12);font-size:12px}
-html.dark .tipbox .tt-r{border-top-color:rgba(0,0,0,.1)}
-.tipbox .tt-r > span{opacity:.62}
-.tipbox .tt-r b{font-weight:600}
-.tipbox .tt-ok{color:#4ade80}.tipbox .tt-wait{color:#fbbf24}
-html.dark .tipbox .tt-ok{color:#0b7d52}html.dark .tipbox .tt-wait{color:#a35a06}
-.tipbox .tt-q{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.12);font-size:11.5px;font-style:italic;opacity:.8}
-html.dark .tipbox .tt-q{border-top-color:rgba(0,0,0,.1)}
+.tipbox.rich{padding:14px 16px 12px;border-radius:16px;color:var(--ink);
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(255,255,255,.84));
+  -webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 34px rgba(18,20,23,.16),0 2px 6px rgba(18,20,23,.07),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(18,20,23,.05);
+  transform-origin:50% 100%;transform:translateY(8px) scale(.97);
+  transition:opacity .2s ease,transform .26s cubic-bezier(.2,.8,.3,1)}
+.tipbox.rich[data-side="down"]{transform-origin:50% 0;transform:translateY(-8px) scale(.97)}
+.tipbox.rich.on{transform:none}
+.tipbox.rich::after{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--team-c,var(--red));opacity:.85}
+html.dark .tipbox.rich{color:var(--ink);background:linear-gradient(145deg,rgba(40,44,52,.94),rgba(28,31,37,.94));border-color:rgba(255,255,255,.12);
+  box-shadow:0 14px 36px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.3)}
+.tipbox .tt-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.tipbox .tt-h b{display:block;font-size:14px;color:var(--ink)}
+.tipbox .tt-h small{display:block;font-size:11.5px;color:var(--muted)}
+.tipbox .tt-h .st{margin-left:auto;font-size:10px;padding:2px 8px}
+.tipbox .tt-r{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:12px;color:var(--ink2)}
+.tipbox .tt-r > span:first-child{color:var(--muted)}
+.tipbox .tt-ok{color:var(--over)}.tipbox .tt-wait{color:var(--amber-ink)}
+.tipbox .tt-q{margin-top:6px;padding:8px 10px;border-radius:10px;background:var(--sunk);font-size:11.5px;font-style:italic;color:var(--ink2);line-height:1.45}
+html.calm .tipbox.rich{transition:none}
 html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .rolechip{display:inline-block;margin-left:4px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 5px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
 .rolechip.up{color:var(--over);background:var(--over-soft);border-color:transparent}
@@ -2584,9 +2594,9 @@ html.dark .alarm.ping::after{background:linear-gradient(100deg,transparent 30%,r
 @keyframes alSettle{40%{transform:scale(.82)}100%{transform:scale(1)}}
 .al-cd{position:absolute;left:0;right:0;top:0;height:3px;pointer-events:none;opacity:0;transition:opacity .3s}
 .alarm.auto .al-cd{opacity:1}
-.al-cd i{display:block;height:100%;background:var(--amber);transform-origin:left;transform:scaleX(1)}
+.al-cd i{display:block;height:100%;background:var(--amber-pop);transform-origin:left;transform:scaleX(1)}
 .al-top em{transition:background .2s,color .2s}
-.al-top:hover em{background:var(--amber);color:#fff;border-color:var(--amber)}
+.al-top:hover em{background:var(--amber-pop);color:#fff;border-color:var(--amber-pop)}
 html.calm .alarm,html.calm .alarm *,html.calm .alarm::after{animation:none!important;transition:none!important}
 @media (prefers-reduced-motion:reduce){.alarm,.alarm *,.alarm::after{animation:none!important;transition:none!important}}
 @media (max-width:960px){#navAlarm:not([style*="none"]) + #navInj{display:none!important}}
@@ -2602,12 +2612,12 @@ html.calm .alarm,html.calm .alarm *,html.calm .alarm::after{animation:none!impor
   .nav #navAlarm .b-bell{display:none}
   .nav #navAlarm .b-med{display:block;width:0;opacity:0;stroke-width:2.6;height:12px;transform:scale(.4) rotate(-90deg);
                         transition:width .25s var(--ease),opacity .2s var(--ease),transform .3s cubic-bezier(.2,1.5,.4,1),margin .25s var(--ease)}
-  .nav button.on #navAlarm{background:#fff;color:var(--amber)!important;padding:0 6px 0 5px}
+  .nav button.on #navAlarm{background:var(--amber-pop);color:#fff!important;padding:0 6px 0 5px}
   .nav button.on #navAlarm .b-med{width:12px;opacity:1;transform:none;margin-right:3px}
   html.calm .nav #navAlarm,html.calm .nav #navAlarm .b-med{transition:none}
 }
-.al-top{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;text-align:left;color:var(--amber);background:none;border:0;font:inherit;cursor:pointer}
-.al-bell{flex:none;width:30px;height:30px;border-radius:99px;display:grid;place-items:center;background:var(--amber);color:#fff}
+.al-top{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;text-align:left;color:var(--amber-ink);background:none;border:0;font:inherit;cursor:pointer}
+.al-bell{flex:none;width:30px;height:30px;border-radius:99px;display:grid;place-items:center;background:var(--amber-pop);color:#fff}
 .al-bell svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.9;transform-origin:50% 15%;animation:alRing 2.6s ease-in-out infinite}
 @keyframes alRing{0%,72%,100%{transform:rotate(0)}76%{transform:rotate(14deg)}82%{transform:rotate(-12deg)}88%{transform:rotate(7deg)}94%{transform:rotate(-4deg)}}
 html.calm .al-bell svg,.alarm:not(.open) .al-bell svg{animation:none}
@@ -2640,7 +2650,7 @@ html.calm .al-bell svg,.alarm:not(.open) .al-bell svg{animation:none}
 .al-t.pre{color:var(--red)}.al-t.post{color:var(--muted)}.al-t.unk{color:var(--faint)}
 .al-more{margin:6px 0 0;font-size:12px;color:var(--muted)}
 .al-foot{grid-column:1/-1;margin:2px 2px 0;font-size:11.5px;color:var(--ink2)}
-.nav .count.amb{background:var(--amber);margin-left:6px}
+.nav .count.amb{background:var(--amber-pop);color:#fff;margin-left:6px}
 .nav button.on .count.amb{color:#fff}
 @media (max-width:760px){.al-top{padding:9px 12px}.al-body{padding:0 8px 10px}}
 </style>
@@ -4560,11 +4570,11 @@ function injTipHTML(i, m){
     ["Still " + esc(i.status.toLowerCase()), i.checks ? `at all ${Number(i.checks)} checks${i.since ? ` since ${timeFmt(i.since)}` : ""}${chk ? ` · last check ${timeFmt(chk)}` : ""}` : chk ? `last check ${timeFmt(chk)}` : "—"],
     ["Status", conf], ["Usually plays", m ? `${Math.round(m)} min a game` : "not known"]];
   if (i.returnDate) rows.push(["Expected back", esc(dateFmt(i.returnDate))]);
-  return `<div class="tt-h">${esc(i.player)} <span class="st ${stCls(i.status)}">${esc(i.status)}</span></div>`
+  return `<div class="tt-h">${jerseyAv(i.player, i.team, "sm")}<div><b>${esc(i.player)}</b><small>${esc(tname(i.team))}${i.detail ? ` · ${esc(i.detail)}` : ""}</small></div><span class="st ${stCls(i.status)}">${esc(i.status)}</span></div>`
     + rows.map(([k, v]) => `<div class="tt-r"><span>${k}</span><span>${v}</span></div>`).join("")
     + (i.comment ? `<div class="tt-q">${esc(i.comment)}</div>` : "");
 }
-const injTipAttr = (i, m) => `tabindex="0" data-tip="1" data-tiphtml="${esc(injTipHTML(i, m))}"`;
+const injTipAttr = (i, m) => `tabindex="0" data-tip="1" data-tipteam="${esc(team(i.team).color || "")}" data-tiphtml="${esc(injTipHTML(i, m))}"`;
 function outTonightHTML(){
   if (!IS_LIVE) return "";
   const games = GAMES.filter(g => g.state !== "post").sort((a, b) => new Date(a.tipoff) - new Date(b.tipoff));
@@ -5230,12 +5240,15 @@ function countUp(){
   let cur = null, shownAt = 0;
   const show = el => {
     cur = el; shownAt = Date.now(); const rich = !!el.dataset.tiphtml; box.classList.toggle("rich", rich);
+    if (rich) { box.classList.remove("on"); box.style.setProperty("--team-c", el.dataset.tipteam || "var(--red)"); void box.offsetWidth; }
     if (rich) box.innerHTML = el.dataset.tiphtml; else box.textContent = el.dataset.tip; box.classList.add("on");
-    const r = el.getBoundingClientRect(), w = Math.min(rich ? 300 : 260, innerWidth - 24);
+    const r = el.getBoundingClientRect(), w = Math.min(rich ? 320 : 260, innerWidth - 24);
     box.style.maxWidth = w + "px";
     const bw = box.offsetWidth, bh = box.offsetHeight;
     box.style.left = Math.max(12, Math.min(innerWidth - bw - 12, r.left + r.width / 2 - bw / 2)) + "px";
-    box.style.top = (r.top - bh - 8 > 8 ? r.top - bh - 8 : r.bottom + 8) + "px";
+    const up = r.top - bh - 10 > 8; box.dataset.side = up ? "up" : "down";
+    box.style.top = (up ? r.top - bh - 10 : r.bottom + 10) + "px";
+    if (rich) requestAnimationFrame(() => box.classList.add("on"));
   };
   const hide = () => { cur = null; box.classList.remove("on"); };
   document.addEventListener("mouseover", e => { const el = e.target.closest("[data-tip]"); if (el && el !== cur) show(el); else if (!el && cur && matchMedia("(hover:hover)").matches) hide(); });
