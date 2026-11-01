@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T03:55:50Z",
+ "generatedAt": "2026-11-01T04:05:51Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
@@ -354,6 +354,36 @@
     "profit": 117.33,
     "roi": 0.0738,
     "avgPrice": 1.918
+   },
+   "strongCumProfit": -51.6
+  },
+  {
+   "slate": "2026-11-01",
+   "saved": 0,
+   "games": 0,
+   "graded": 0,
+   "void": 0,
+   "pending": 0,
+   "backfilled": false,
+   "strong": {
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "hitRate": null,
+    "profit": 0,
+    "roi": null,
+    "avgPrice": null
+   },
+   "leans": {
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "hitRate": null,
+    "profit": 0,
+    "roi": null,
+    "avgPrice": null
    },
    "strongCumProfit": -51.6
   }
