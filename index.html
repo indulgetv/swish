@@ -2631,24 +2631,13 @@ html.calm .al-bell svg,.alarm:not(.open) .al-bell svg{animation:none}
 .al-h > b{font-size:14px}
 .al-h small{flex-basis:100%;color:var(--muted);font-size:11.5px;order:5}
 .al-go{margin-left:auto;font:inherit;font-size:12px;font-weight:600;color:var(--red);background:none;border:1px solid var(--line2);border-radius:99px;padding:2px 10px;cursor:pointer}
-.al-why{margin:8px 0 6px;font-size:12.5px;color:var(--ink2)}
-.al-short .al-why{margin:6px 0 0;color:var(--muted)}
 .alarm.auto .al-c:not(.hot),.alarm.shortonly .al-foot{display:none}
-.al-short{padding:8px 12px}
-.al-r{padding:7px 0;border-top:1px dashed var(--line)}
-.al-n{display:flex;align-items:baseline;gap:8px;font-size:13px;margin-bottom:5px}
-.al-n small{color:var(--over);font-weight:700;font-size:11.5px}
-.al-n small.hold{color:var(--muted);font-weight:600}
-.al-ps{display:grid;gap:5px}
-.al-p{display:grid;grid-template-columns:40px 1fr auto;grid-template-areas:"m pj w" "m l t";align-items:center;gap:1px 10px;width:100%;text-align:left;font:inherit;font-size:12.5px;color:var(--ink);background:var(--sunk);border:1px solid transparent;border-radius:9px;padding:6px 10px;cursor:pointer;transition:border-color .15s var(--ease),background .15s var(--ease)}
-.al-p:hover,.al-p:focus-visible{border-color:var(--amber-line);background:var(--amber-soft)}
-.al-m{grid-area:m;font-size:11px;letter-spacing:.06em;color:var(--muted)}
-.al-pj{grid-area:pj}.al-pj i{font-style:normal;color:var(--faint);margin:0 4px}
-.al-l{grid-area:l;color:var(--muted);font-size:11.5px}
-.al-w{grid-area:w;font-weight:700;text-align:right}
-.al-t{grid-area:t;font-style:normal;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;text-align:right}
-.al-t.pre{color:var(--red)}.al-t.post{color:var(--muted)}.al-t.unk{color:var(--faint)}
-.al-more{margin:6px 0 0;font-size:12px;color:var(--muted)}
+.al-inj{margin:8px 0 2px;font-size:14px;line-height:1.35;color:var(--ink)}
+.al-inj b{display:block;font-size:15px}
+.al-inj span{color:var(--ink2)}
+.al-when{margin:4px 0 0;font-size:12px;color:var(--muted)}
+.al-so{margin:6px 0 0;padding-top:6px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--ink2)}
+.al-so b{color:var(--over)}
 .al-foot{grid-column:1/-1;margin:2px 2px 0;font-size:11.5px;color:var(--ink2)}
 .nav .count.amb{background:var(--amber-pop);color:#fff;margin-left:6px}
 .nav button.on .count.amb{color:#fff}
@@ -4784,8 +4773,8 @@ function viewResults(){
 
 /* ---- News alert (display only — the model, chances and picks are unchanged).
    A 25+ min regular (played in his team's last game) is Out or Doubtful for a game that hasn't started:
-   show who gains minutes, SWISH's projection before → after the news, whether the line was priced before the news,
-   and the lowest odds worth taking for the Over. Tap a line to open that prop. Clears when the game tips off. */
+   show what the injury is in plain English, when he plays/returns, and (if Out) which teammates SWISH gives more minutes.
+   Tap "Game ›" to jump to that game. Clears when the game tips off. */
 function newsAlarms(){
   if (!IS_LIVE) return [];
   const now = Date.now(), out = [];
@@ -4820,45 +4809,75 @@ function newsAlarms(){
   const rank = {Out: 0, Doubtful: 1, Questionable: 2};
   return out.sort((a, b) => rank[a.status] - rank[b.status] || new Date(a.g.tipoff) - new Date(b.g.tipoff) || b.min - a.min);
 }
-function alarmPropHTML(p, news){
-  const before = p.role && p.role.applied ? p.projection - p.role.value : null;
-  const pre = news && p.fetched ? new Date(p.fetched) < new Date(news) : null;
-  const when = pre === null ? `<em class="al-t unk" title="No time on this price">price time unknown</em>`
-    : pre ? `<em class="al-t pre" title="Line fetched ${timeFmt(p.fetched)}, news ${timeFmt(news)}">priced before news</em>`
-          : `<em class="al-t post" title="Line fetched ${timeFmt(p.fetched)}, news ${timeFmt(news)}">priced after news</em>`;
-  return `<button class="al-p" data-prop="${p.id}" aria-label="Open ${esc(p.player)} ${MARKET_NAMES[p.market]}">`
-    + `<b class="al-m">${p.market}</b><span class="num al-pj">${before !== null ? `${before.toFixed(1)}<i>→</i>` : ""}<b>${p.projection.toFixed(1)}</b></span>`
-    + `<span class="num al-l">line ${p.line}</span><span class="num al-w">Over ${fmtDec(worthAt(p, "over"))}+</span>${when}</button>`;
+/* Injury in plain English. ESPN's label (e.g. "Left Calf Strain") → {label, meaning}. If ESPN says "Rest" but the
+   report names a body part ("Green (back) is out…"), the body part wins. Only translates words — never adds facts. */
+const INJ_PART = {hamstring:"his hamstring (back of the thigh)", achilles:"his Achilles (back of the heel)", calf:"his calf (lower leg)",
+  quad:"his thigh (front)", quadriceps:"his thigh (front)", groin:"his groin (inner thigh)", adductor:"his groin (inner thigh)",
+  thigh:"his thigh", knee:"his knee", ankle:"his ankle", foot:"his foot", toe:"his toe", heel:"his heel", hip:"his hip",
+  back:"his back", "lower back":"his lower back", shoulder:"his shoulder", elbow:"his elbow", wrist:"his wrist", hand:"his hand",
+  finger:"his finger", thumb:"his thumb", neck:"his neck", leg:"his leg", rib:"his ribs", ribs:"his ribs", abdomen:"his stomach muscles",
+  oblique:"his side (stomach muscles)", eye:"his eye", nose:"his nose", face:"his face", head:"his head", chest:"his chest", pelvis:"his pelvis"};
+const INJ_KIND = [
+  [/plantar fasciitis/, () => "Painful, inflamed band under the foot — often lingers"],
+  [/pinched nerve/, p => `Trapped nerve in ${p}`],
+  [/surgery/, p => `Recovering from an operation on ${p} — usually a long absence`],
+  [/fracture|broken/, p => `Broken bone in ${p}`],
+  [/dislocat/, p => `Joint in ${p} knocked out of place`],
+  [/sprain/, p => `Twisted or overstretched ${p.replace(/^his /, "")} — ligament damage`],
+  [/strain/, p => `Pulled muscle in ${p}`],
+  [/tendinitis|tendinopathy/, p => `Sore, irritated tendon in ${p}`],
+  [/bruise|contusion/, p => `Bruised ${p.replace(/^his /, "")} — a hard knock`],
+  [/inflammation|swelling/, p => `Swollen and sore ${p.replace(/^his /, "")}`],
+  [/spasm/, p => `Muscle spasms in ${p} — the muscles lock up`],
+  [/soreness|sore|tightness/, p => `Sore or tight ${p.replace(/^his /, "")}`],
+];
+function injPlain(detail, comment){
+  let raw = String(detail || "").replace(/not specified/gi, " ").replace(/\s+/g, " ").trim();
+  const said = ((comment || "").match(/^[^(]{0,40}\(([^)]+)\)/) || [])[1];   // "Green (back) is out…" → "back"
+  if ((!raw || /^rest$/i.test(raw)) && said && !/rest/i.test(said)) raw = said;
+  if (!raw) raw = said || "";
+  const t = raw.toLowerCase();
+  const label = raw ? raw.replace(/\b\w/, c => c.toUpperCase()) : "No reason given";
+  if (!raw) return {label, meaning: "The team hasn't said why"};
+  if (/\brest\b|load management/.test(t)) return {label: "Rest", meaning: "Not injured — the team is resting him"};
+  if (/personal/.test(t)) return {label: "Personal reasons", meaning: "Not an injury — away for personal reasons"};
+  if (/illness|sick|flu|virus/.test(t)) return {label: "Illness", meaning: "He's ill — usually a short absence"};
+  if (/concussion/.test(t)) return {label, meaning: "Head injury — he must pass the NBA's checks before he can return"};
+  if (/suspen/.test(t)) return {label, meaning: "Suspended — not an injury"};
+  const side = (t.match(/\b(left|right)\b/) || [])[1];
+  const key = Object.keys(INJ_PART).sort((a, b) => b.length - a.length).find(k => new RegExp(`\\b${k}\\b`).test(t));
+  let part = key ? INJ_PART[key] : null;
+  if (part && side) part = part.replace(/^his /, `his ${side} `);
+  const kind = INJ_KIND.find(([re]) => re.test(t));
+  if (kind && part) return {label, meaning: kind[1](part)};
+  if (part) return {label, meaning: `A problem with ${part} — the exact injury hasn't been given`};
+  return {label, meaning: ""};
 }
 function alarmHTML(list){
   if (!list.length) return "";
   const seenNow = alarmSeen(), hot = a => a.fresh && !seenNow.has(a.key) ? " hot" : "";
   const head = [...list].sort((a, b) => !!hot(b) - !!hot(a)).map(a => `${a.name} ${a.status.toLowerCase()}`).slice(0, 3).join(" · ") + (list.length > 3 ? ` +${list.length - 3} more` : "");
+  const PLAYS = {Out: "Won't play tonight", Doubtful: "Unlikely to play tonight", Questionable: "50/50 to play tonight"};
   const card = (a, i) => {
-    const tip = timeFmt(a.g.tipoff);
-    if (a.short) return `<div class="al-c al-short${hot(a)}" style="--i:${i}">
-      <div class="al-h">${tid(a.team, "xs")}<b>${esc(a.name)}</b><span class="st ${a.status.toLowerCase()}">${a.status}</span>
-        <small class="num">${Math.round(a.min)} min usual · ${a.g.away} @ ${a.g.home} ${tip}${a.news ? ` · news ${timeFmt(a.news)}` : ""}${a.fresh ? "" : " · older news"}</small>
-        <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
-      <p class="al-why">SWISH still assumes he plays — his lines are on hold until his status is clear.</p></div>`;
-    const body = a.lines.length ? a.lines.map(x => `<div class="al-r"><div class="al-n"><b>${esc(x.pl.name)}</b>${x.gain ? `<small class="num">+${x.gain.toFixed(1)} min</small>` : a.mode === "doubt" ? `<small class="hold">on hold</small>` : `<small class="hold">${Math.round(x.pl.expMin)} min</small>`}</div><div class="al-ps">${x.props.map(p => alarmPropHTML(p, a.news)).join("")}</div></div>`).join("")
-      + (a.more ? `<p class="al-more">+${a.more} more teammate${a.more > 1 ? "s" : ""} gain a little — see the game on Props.</p>` : "")
-      : `<p class="al-more">No priced lines for his teammates yet — prices usually arrive 14:30–16:00 or 21:00–22:30.</p>`;
+    const inj = injuryOf(a.name) || {}, ip = injPlain(inj.detail, inj.comment);
+    const back = inj.returnDate && inj.returnDate > (a.g.tipoff || "").slice(0, 10) ? ` · back ${dateFmt(inj.returnDate + "T12:00:00")} (ESPN guess)` : "";
+    const gain = a.mode === "gain" ? a.lines.filter(x => x.gain >= 0.5).slice(0, 3) : [];
+    const so = a.status === "Out"
+      ? (gain.length ? `More minutes for ${gain.map(x => `${esc(x.pl.name.split(" ").slice(-1)[0])} <b class="num">+${Math.round(x.gain)}</b>`).join(", ")} — already in SWISH's numbers.` : "")
+      : "His props are on hold until his status is clear.";
     return `<div class="al-c${hot(a)}" style="--i:${i}">
       <div class="al-h">${tid(a.team, "xs")}<b>${esc(a.name)}</b><span class="st ${a.status.toLowerCase()}">${a.status}</span>
-        <small class="num">${Math.round(a.min)} min usual · ${a.g.away} @ ${a.g.home} ${tip}${a.news ? ` · news ${timeFmt(a.news)}` : ""}</small>
         <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
-      <p class="al-why">${a.mode === "gain" ? `SWISH has moved his minutes to teammates. Projection <b>before → after</b> the news:`
-        : a.mode === "nogain" ? `SWISH hasn't raised anyone — the rest of the roster already fills the 240 minutes. Biggest-minute teammates with lines:`
-        : `Doubtful — SWISH still assumes he plays, so teammates aren't raised yet. His lines are on hold:`}</p>
-      ${body}</div>`;
+      <p class="al-inj"><b>${esc(ip.label)}</b>${ip.meaning ? `<span>${esc(ip.meaning)}.</span>` : ""}</p>
+      <p class="al-when num">${PLAYS[a.status]} · ${a.g.away} @ ${a.g.home} ${timeFmt(a.g.tipoff)}${back}</p>
+      ${so ? `<p class="al-so">${so}</p>` : ""}</div>`;
   };
   return `<section class="alarm${ALARM.open ? " open" : ""}${ALARM.auto ? " auto" : ""}${ALARM.auto && ALARM.total === ALARM_SHORT_MS ? " shortonly" : ""}" role="region" aria-label="News alert">
     <span class="al-cd" aria-hidden="true"><i></i></span>
     <button class="al-top" data-alarm="toggle" aria-expanded="${ALARM.open}"><span class="al-bell" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span>
       <span class="al-tt"><b>News alert</b><span>${esc(head)}</span></span><em>${ALARM.open ? "Hide" : "Show"}</em></button>
     <div class="al-wrap"><div><div class="al-body">${list.map(card).join("")}
-      <p class="al-foot">These props stay <b>on hold</b> until the lineup is confirmed. "Over … +" = the lowest odds worth taking at that line. A line priced before the news may already have moved at bet365 — check it. Clears at tip-off.</p></div></div></div>
+      <p class="al-foot">Lines priced before the news may be out of date — check your bookie. Clears at tip-off.</p></div></div></div>
   </section>`;
 }
 /* How it opens and closes (same on every page):
