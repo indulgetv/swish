@@ -501,3 +501,20 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   Best picks/Top overs rows: "US <price> · worth it X+"; table cell tooltip shows both. Top overs help text mentions it.
 - Model unchanged: parity 0 (b8d724b, clock 2026-10-30T22:30Z, 344 props). Playwright 4 sizes × light/dark: no overflow,
   no JS errors (only blocked external fonts/logos). Guide: new section "Checking your bookie".
+
+## 2026-11-01 06:10–11:00 — news alarm (pushed to `pending`, display only)
+- index.html: `newsAlarms()` — for each game not started (state pre, tip in the future), players with expMin0 ≥ KEY_MIN (25)
+  who played the team's last game and are Out or Doubtful (same "new" test as KEY_OUT, plus Doubtful). Modes: gain
+  (teammates whose `minBoost.from` names him; before = projection − role.value), nogain (nobody raised because the rest
+  already fill 240 — shows top 3 teammates by expMin, labelled), doubt (his own lines, on hold). Max 4 teammates.
+- `alarmHTML()` cards: team crest, status, usual minutes, game + tip, news time, Game › (data-goto); per line: market,
+  projection, line, "Over X+" (worthAt), "priced before/after news" (p.fetched vs injury updated/since; "unknown" if none).
+  Tap → data-prop opens the drawer. Footnote: props stay on hold until lineup confirmed; check bet365; clears at tip.
+- `#alarm` div above `#page`; `updAlarm()` from render() + every 30 s (signature check, so only redraws on change).
+  Nav badge `navAlarm` (amber `.count.alert.amb`) on Props. Home: open until Hide (`swish.alarmSeen` keys; new key reopens);
+  other pages: collapsed one-liner, `ALARM_OPEN` per page visit. Bell rings unless Reduce motion / hidden.
+- Finding on 30 Oct slate (b8d724b, 22:30Z): KEY_OUT = PHI Jaylen Brown, HOU Reed Sheppard — and SWISH raised nobody's
+  minutes for either (rosters already ≥240), hence the "nogain" mode. Brown news 21:50, PHI lines fetched 21:00 → all
+  "priced before news". Worth checking later in the lab whether the 240 cap hides real minute gains for stars' teammates.
+- Tests: playwright phone/tablet/desktop/ultra-wide × light/dark: banner on all 5 pages, no horizontal overflow, no JS
+  errors, tap opens drawer, Hide survives reload, clears after tip. Parity 0 (344 props; test script needs the clock).

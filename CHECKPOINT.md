@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 06:30 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 11:00 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -24,9 +24,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
 - Results so far (4 nights, 28–31 Oct, 31 games): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
-  `lab/check_picks.py`: SWISH ≈ market, raw model worse; model wrong on >10-pt gaps (where strong picks come from);
-  best-fit model share ~5%. Overs hit 46.6% vs market 49.7%. PTS worst market, REB ≈ market.
-  Lines moved toward model 13/42. (Live minutes pattern did NOT hold over a full season — no shrink.)
+  `lab/check_picks.py`: SWISH ≈ market, raw model worse; best-fit model share ~5%. Overs hit 46.6% vs market 49.7%.
 
 ## Site features (current UI)
 - Props: filter bar (market chips All/Points/Rebounds/Assists, search, sort; tick-boxes Show last 6 / Value only /
@@ -46,7 +44,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - Home "Tonight's games" rows: amber pill END OF Q1 / HALF-TIME / END OF Q3 / END OF Q4 during breaks, grey FULL-TIME (· OT).
 - Game jumps (`gotoGame`, all [data-goto]): un-lazies `#sections` (`.cv-all`) so content-visibility can't shift the
   target, lands under header + filter bar (`stickyTop()`), long trips jump then glide, card glows once (`.goto-hi`).
-- Phones: no accidental zoom; opened items scroll into view (`revealOpened`).
+- Phones: no accidental zoom; opened items scroll into view.
 
 ## How updates run
 - cron-job.org (user's account, Europe/London) POSTs to GitHub with a fine-grained token (indulgetv/swish only; may expire
@@ -76,24 +74,24 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE,
   a Claude Doc — edit with the Docs tools) current.
 
-## Latest (31 Oct evening, all published)
-- Moments on refresh, Home break pills, 10-s live scores, lineup-due hold no longer returns after tip (both model copies,
-  parity 0, no version bump — pre-tip unchanged), sidebar/game jump fix. Guide updated 1 Nov. Details in HISTORY.md.
+## Latest (1 Nov)
+- News alarm built (display only, model unchanged, parity 0) → pushed to branch `pending`, publishes at the next loop
+  start (13:50) unless user says "publish now". Details in HISTORY.md.
 
 ## Next steps (in order)
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
-2. Done 1 Nov: "Check your bookie" box (drawer) + "worth it at" in pick lists (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%).
-   **Next to build — news alarm (user agreed 1 Nov):** banner on every page + nav badge when a 25+ min player goes
-   Out/Doubtful (from KEY_OUT/minute shifts): teammates who gain, projection before→after, "line priced before news?",
-   worth-it price, tap → prop; clears at tip. Affected props stay "on hold" but are shown. No credits, no push alerts.
-   Then closing-price check on Results.
+2. Done 1 Nov: "Check your bookie" box + "worth it at" (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%) and the
+   **news alarm** (`newsAlarms`, `alarmHTML`, `updAlarm`; `#alarm` above every page, amber Props nav badge `navAlarm`):
+   25+ min regular who played the team's last game, Out/Doubtful, game not started. Out → teammates SWISH raised
+   (before→after); if nobody raised (roster already fills 240) → top-3-minute teammates, labelled. Doubtful → his own
+   lines. Each line: line, "Over X+" worth-it, priced before/after news (fetched vs injury `updated`); tap → prop drawer.
+   Clears at tip. Next: watch it on a live night, then closing-price check on Results.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
-4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
-   PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).
-   US prices stay the reference; site keeps telling the user to check the bet365 line. `uk-props-test.yml` kept, hand-run only.)
+4. Done 31 Oct: UK player props are NOT on The Odds API (two checks, 0 credits). US prices stay the reference;
+   `uk-props-test.yml` kept, hand-run only.
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
-8. Later lab tests: is "big gap" worth holding? usage boost, usual starter benched, bench AST, back-to-backs, blowouts.
-9. Later: STL/BLK/TOV columns; closing-line check only on a paid plan; after ~2 weeks review calibration vs market.
+8. Later lab tests: usage boost, 240-min cap hiding gains when a star sits, bench AST, back-to-backs.
+9. Later: STL/BLK/TOV columns; ~15 Nov review calibration vs market.
