@@ -338,6 +338,33 @@
     }
    },
    "note": "Numbers are both changes together. PTS got worse with any total strength ≥0.5 (scoring rates already carry team pace). Saved real picks (1,043, real prices, lab/backtest_saved.py): Brier vs market unchanged (+0.0035 → +0.0036), strong 2–2 → 3–2, all −£153.58 → −£168.23 — no measurable gain against the bookies, as expected since they price totals and spreads already."
+  },
+  {
+   "date": "2026-11-01",
+   "idea": "Give teammates a share of a newly-out star's minutes even when the roster fills 240",
+   "why": "Fix the +1 minute shortfall above",
+   "scope": "2025-26 (11 versions, with and without lineups); best-balanced version shown (40% share)",
+   "before": {
+    "minutes": 5.226,
+    "accuracy": 0.2406
+   },
+   "after": {
+    "minutes": 5.236,
+    "accuracy": 0.24073
+   },
+   "verdict": "rejected",
+   "version": "—",
+   "note": "Measured first: teammates of a newly-out 25+ min player really do play ~1 min more than projected (bench, same position most). The fixes removed that average shortfall but minutes error got worse in every version on both seasons: the extra minutes go to the wrong players. Same lesson as with-vs-without (30 Oct).",
+   "check": {
+    "before": {
+     "minutes": 5.119,
+     "accuracy": 0.24357
+    },
+    "after": {
+     "minutes": 5.131,
+     "accuracy": 0.2436
+    }
+   }
   }
  ],
  "next": [

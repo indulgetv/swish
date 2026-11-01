@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 11:00 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 11:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -78,12 +78,10 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   Details in HISTORY.md.
 
 ## Next steps (in order)
-A. **NEXT (user agreed 1 Nov, new chat): lab test — minutes when a star sits.** On 30 Oct SWISH gave nobody Jaylen
-   Brown's / Reed Sheppard's minutes (rest of roster already ≥240, so `applyMinuteShifts` adds nothing). Test in
-   `lab/replay.py` on both seasons: when a 25+ min regular is out, do teammates really play more (by role/position,
-   starters vs bench)? Try e.g. sharing his minutes even when the roster sum ≥240 (scale others down). Lab only;
-   bundle with the game-line test if it helps. Then B: closing-price check on Results (no credits, saved prices).
-   Game-line test: user agreed 1 Nov to WAIT (didn't help vs market on saved picks) — re-check ~15 Nov.
+A. **NEXT: closing-price check on Results** (no credits, saved prices): did SWISH's picks beat the later price?
+   Game-line test: user agreed 1 Nov to WAIT — re-check ~15 Nov.
+   Done 1 Nov 11:40: "minutes when a star sits" lab test → REJECTED (`lab/star_out_minutes.py`; HISTORY.md). Teammates do
+   gain ~+1 min on average, but 11 ways of handing it out all made minutes error worse on both seasons. v1.8 stays.
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
@@ -94,5 +92,5 @@ A. **NEXT (user agreed 1 Nov, new chat): lab test — minutes when a star sits.*
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
-8. Later lab tests: usage boost, 240-min cap hiding gains when a star sits, bench AST, back-to-backs.
+8. Later lab tests: usage boost (per-minute rate when a star sits), bench AST, back-to-backs.
 9. Later: STL/BLK/TOV columns; ~15 Nov review calibration vs market.

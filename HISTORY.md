@@ -518,3 +518,13 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   "priced before news". Worth checking later in the lab whether the 240 cap hides real minute gains for stars' teammates.
 - Tests: playwright phone/tablet/desktop/ultra-wide × light/dark: banner on all 5 pages, no horizontal overflow, no JS
   errors, tap opens drawer, Hide survives reload, clears after tip. Parity 0 (344 props; test script needs the clock).
+
+- **1 Nov 11:40 — lab: minutes when a star sits — REJECTED, v1.8 stays.** `lab/star_out_minutes.py <season> <dump>`
+  measures teammates' actual − projected minutes in team-games where a 25+ min regular (avg last 10, 5+ games) played the
+  team's last game and is now out injured (198 games 2025-26, 236 in 2024-25). Teammates: +0.72 / +1.00 min vs −0.28 / −0.02
+  on normal nights → real shortfall ~1 min; biggest for bench same-position (+1.4 / +2.3). Players with NO model boost
+  (roster already ≥240, the Jaylen Brown case) were close to normal (−0.10 / +0.18). Variants (model copies, replay
+  --model, both seasons, ± lineups): share 25/40/50% of the newly-out player's minutes even when roster ≥240, gap ×1.5/×2,
+  40% + gap ×1.5, only 25+ min outs, MAX_GAIN 8, same-position weight 4/9. All removed the average shortfall but every one
+  made minutes MAE worse (2025-26 5.226 → 5.231–5.248; 2024-25 5.119 → 5.121–5.137); Brier flat-to-worse. Extra minutes
+  go to the wrong players — same lesson as with-vs-without. Logged in experiments.json (Model lab page).
