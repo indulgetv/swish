@@ -548,3 +548,5 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   tip-off; red = fresh, grey = long-term (>48 h), "new" (<6 h), "unconfirmed"; "+N rarely play". Tap game → jump.
 - Tests: old news stays folded; clock 31 Oct 20:30 → full 10 s then folds; fake fresh Questionable → 5 s, only that card;
   Show → all cards. 4 sizes × 2 themes × (Injuries, Props): no overflow, no JS errors. Guide updated.
+
+- 12:10 "Ruled out tonight" redesigned (user disliked pill chips): newsfeed-style `.nrow.tcol` row per team, tonight-s absences (≤48 h) as jersey cards with usual min + detail, NEW/Unconfirmed tags, "Long-term" one muted line, "Nobody out: …" line; 2-up grid ≥ ~900px. 4 sizes × 2 themes OK.

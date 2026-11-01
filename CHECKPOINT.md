@@ -89,7 +89,7 @@ A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** 
 2. Done 1 Nov: "Check your bookie" box + "worth it at" (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%) and the
    **news alert** (code names still `alarm`: `newsAlarms`, `alarmHTML`, `updAlarm`, `setAlarmOpen`; amber bell `navAlarm`
    on Injuries). Out = full 10 s, Doubtful/Questionable = short 5 s; only news <6 h pops (shows just the new player), older
-   waits folded until tip. Injuries page: "Ruled out tonight" (`outTonightHTML`). Details in HISTORY.md.
+   waits folded until tip. Injuries page: "Ruled out tonight" (`outTonightHTML`, team rows). Details in HISTORY.md.
    Clears at tip. Next: watch it on a live night, then closing-price check on Results.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
