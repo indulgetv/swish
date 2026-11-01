@@ -76,11 +76,11 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - News alarm built (display only, model unchanged, parity 0) and published to main 10:55.
 - 12:37 published: news alert cards simplified — status, injury in plain English (`injPlain`), plays/back line,
   Out → "More minutes for X +n". No prop lines in the alert.
-- 12:50 (pending): Results → Model lab = one line per idea (tap for numbers), chips Added/Rejected/Waiting/All
+- 12:58 published (with closing-price check): Results → Model lab = one line per idea (tap for numbers), chips Added/Rejected/Waiting/All
   (`labF` in localStorage, default Added); "chances honest?" + "Next to test" moved to their own panels below.
 
 ## Next steps (in order)
-A. Done 1 Nov 13:20 (pending): **closing-price check** on Results (`clv_summary`/`clv_of` in ledger.py; `clvLine`,
+A. Done 1 Nov, published 12:58: **closing-price check** on Results (`clv_summary`/`clv_of` in ledger.py; `clvLine`,
    `clvPanel` in index.html; details HISTORY.md). First read (158 leans): our way 24%, against 38%, avg −1.7 pts (unders −3.1, overs −0.1); strong 0 measured.
    Game-line test: user agreed 1 Nov to WAIT (~15 Nov).
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
