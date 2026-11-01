@@ -24,7 +24,7 @@
   --red:#b3121f; --red-dark:#8f0e18; --red-soft:#fdeff0; --red-line:#f1c6ca;
   --over:#0b7d52; --over-soft:#e8f6ef;
   --under:#2453cf; --under-soft:#ebf0fc;
-  --amber:#a35a06; --amber-soft:#fdf4e4; --amber-line:#f1d7a8;
+  --amber:#a35a06; --amber-soft:#fdf4e4; --amber-line:#f1d7a8; --amber-pop:#f59e0b; --amber-ink:#c76a00;
   --orange:#c2410c; --orange-soft:#fdefe7;
   --r:14px; --r-sm:9px;
   --shadow:0 1px 2px rgba(18,20,23,.04),0 4px 14px rgba(18,20,23,.04);
@@ -924,7 +924,7 @@ html.dark{color-scheme:dark;
   --red:#ef3b48; --red-dark:#d42a37; --red-soft:rgba(239,59,72,.14); --red-line:rgba(239,59,72,.38);
   --over:#3cc98f; --over-soft:rgba(60,201,143,.14);
   --under:#7d9dff; --under-soft:rgba(125,157,255,.15);
-  --amber:#f2b552; --amber-soft:rgba(242,181,82,.12); --amber-line:rgba(242,181,82,.32);
+  --amber:#f2b552; --amber-soft:rgba(242,181,82,.12); --amber-line:rgba(242,181,82,.32); --amber-pop:#f2a93b; --amber-ink:#f2b552;
   --orange:#ff8a4c; --orange-soft:rgba(255,138,76,.13);
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.22);
   --shadow-h:0 2px 6px rgba(0,0,0,.35),0 14px 34px rgba(0,0,0,.35);
@@ -1426,6 +1426,44 @@ html.dark .gouter.gx:hover > .ana,html.dark .gouter.gx:hover > .ij{box-shadow:0 
 html.dark .injbar .ib{background:rgba(38,42,49,.9)}
 html.dark .injbar .ib.hot{background:rgba(239,59,72,.1)}
 .newsfeed{margin-top:var(--sec)}
+.outtn{margin-top:var(--sec)}
+.outtn .clamp{grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.outtn .ot-none{grid-column:1/-1}
+.ot-pls{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))!important}
+.nrow.tcol.ot-row{align-items:flex-start!important;isolation:isolate;
+  background:var(--surface2)!important;box-shadow:inset 3px 0 0 color-mix(in srgb,var(--tc) 45%,var(--line2)),inset 0 0 0 1px var(--line)!important;
+  transition:box-shadow .3s var(--ease)}
+html.dark .nrow.tcol.ot-row{background:rgba(255,255,255,.03)!important}
+.ot-row::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s var(--ease);pointer-events:none;
+  background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 22%,transparent) 0%,color-mix(in srgb,var(--tc) 8%,transparent) 45%,transparent 85%)}
+html.dark .ot-row::before{background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 34%,transparent) 0%,color-mix(in srgb,var(--tc) 12%,transparent) 45%,transparent 85%)}
+.ot-row:hover::before,.ot-row:focus-within::before{opacity:1}
+.nrow.tcol.ot-row:hover,.nrow.tcol.ot-row:focus-within{box-shadow:inset 4px 0 0 var(--tc),inset 0 0 0 1px color-mix(in srgb,var(--tc) 25%,transparent)!important}
+.ot-row .ot-n{color:var(--muted)!important;transition:color .3s var(--ease)}
+.ot-row:hover .ot-n{color:var(--red)!important}
+html.calm .ot-row,html.calm .ot-row::before{transition:none}
+.ot-row > .tid{margin-top:2px}
+.ot-hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ot-hd b{font-size:15px}
+.ot-hd span{font-size:12.5px;color:var(--muted)}
+.ot-hd .ot-n{margin-left:auto;font-weight:700;color:var(--red);font-size:12.5px}
+.ot-pls{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:8px;margin-top:10px}
+.ot-pl{display:flex;align-items:center;gap:10px;min-width:0;padding:7px 10px;border-radius:10px;background:var(--white);border:1px solid var(--line);cursor:help;outline:none;transition:border-color .15s var(--ease),transform .15s var(--ease),box-shadow .15s var(--ease)}
+.ot-pl:hover,.ot-pl:focus-visible{border-color:var(--tc);transform:translateY(-1px);box-shadow:0 4px 12px -6px var(--tc)}
+.ot-ltn{cursor:help;outline:none;border-bottom:1px dotted var(--line2)}
+.ot-ltn:hover,.ot-ltn:focus-visible{color:var(--ink);border-bottom-color:var(--ink2)}
+html.dark .ot-pl{background:rgba(0,0,0,.22)}
+.ot-pl > div{min-width:0;flex:1}
+.ot-pl b{display:block;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-pl small{display:block;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-tag{flex:none;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:99px}
+.ot-tag.new{color:#fff;background:var(--red)}
+.ot-tag.uc{color:var(--amber);box-shadow:inset 0 0 0 1.5px currentColor}
+.ot-quiet{margin-top:6px;font-size:12.5px;color:var(--muted)}
+.ot-lt{margin-top:9px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.ot-lt .ot-lbl{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-right:8px}
+.ot-lt i{font-style:normal;color:var(--faint);font-size:11.5px}
+.ot-none{margin:2px 4px 0;font-size:12.5px;color:var(--muted)}
 .nrow{display:flex;align-items:center;gap:12px;padding:11px 20px;border-top:1px solid var(--line)}
 .nrow .nr-m{flex:1;min-width:0}
 .nrow .nm{font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -1604,7 +1642,7 @@ html.dark .side-sec.stand .stt tr.on td{color:#fff}
 
 /* ================= Floating bottom menu (phones & tablets) ================= */
 @media (max-width:960px){
-  .nav{left:10px!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;padding:6px!important;gap:4px!important;
+  .nav{left:10px!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;padding:11px 6px 6px!important;gap:4px!important;
        border-radius:22px;border:1px solid rgba(18,20,23,.08)!important;
        background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(246,247,249,.98))!important;
        box-shadow:0 14px 34px rgba(18,20,23,.22),0 3px 8px rgba(18,20,23,.10),
@@ -1771,6 +1809,27 @@ html.dark{--exp:#79a8ff}
 .rolechip[data-tip]:focus-visible{box-shadow:0 0 0 2px var(--red)}
 .tipbox{position:fixed;z-index:200;max-width:260px;padding:10px 12px;border-radius:12px;background:#15171b;color:#f2f3f5;font-size:12.5px;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.28);pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease}
 .tipbox.on{opacity:1;transform:none}
+.tipbox.rich{padding:14px 16px 12px;border-radius:16px;color:var(--ink);
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(255,255,255,.84));
+  -webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 34px rgba(18,20,23,.16),0 2px 6px rgba(18,20,23,.07),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(18,20,23,.05);
+  transform-origin:50% 100%;transform:translateY(8px) scale(.97);
+  transition:opacity .2s ease,transform .26s cubic-bezier(.2,.8,.3,1)}
+.tipbox.rich[data-side="down"]{transform-origin:50% 0;transform:translateY(-8px) scale(.97)}
+.tipbox.rich.on{transform:none}
+.tipbox.rich::after{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--team-c,var(--red));opacity:.85}
+html.dark .tipbox.rich{color:var(--ink);background:linear-gradient(145deg,rgba(40,44,52,.94),rgba(28,31,37,.94));border-color:rgba(255,255,255,.12);
+  box-shadow:0 14px 36px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.3)}
+.tipbox .tt-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.tipbox .tt-h b{display:block;font-size:14px;color:var(--ink)}
+.tipbox .tt-h small{display:block;font-size:11.5px;color:var(--muted)}
+.tipbox .tt-h .st{margin-left:auto;font-size:10px;padding:2px 8px}
+.tipbox .tt-r{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:12px;color:var(--ink2)}
+.tipbox .tt-r > span:first-child{color:var(--muted)}
+.tipbox .tt-ok{color:var(--over)}.tipbox .tt-wait{color:var(--amber-ink)}
+.tipbox .tt-q{margin-top:6px;padding:8px 10px;border-radius:10px;background:var(--sunk);font-size:11.5px;font-style:italic;color:var(--ink2);line-height:1.45}
+html.calm .tipbox.rich{transition:none}
 html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .rolechip{display:inline-block;margin-left:4px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 5px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
 .rolechip.up{color:var(--over);background:var(--over-soft);border-color:transparent}
@@ -2511,26 +2570,71 @@ html:not(.dark) button.tag.red:hover{background:#fbd3d7}
 html.calm .sg .t.ht .htl::before,html.calm .sg .t.ht .htl span{animation:none}
 @media (prefers-reduced-motion:reduce){.sg .t.ht .htl::before,.sg .t.ht .htl span{animation:none}}
 
-/* ---- News alarm banner (every page) ---- */
+/* ---- News alert banner (every page) ---- */
 #alarm:empty{display:none}
-.alarm{margin:0 0 14px;border:1px solid var(--amber-line);background:var(--amber-soft);border-radius:14px;overflow:hidden;animation:alIn .35s var(--ease) both}
-@keyframes alIn{from{opacity:0;transform:translateY(-6px)}}
-.al-top{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;text-align:left;color:var(--amber);background:none;border:0;font:inherit;cursor:pointer}
-.al-bell{flex:none;width:30px;height:30px;border-radius:99px;display:grid;place-items:center;background:var(--amber);color:#fff}
+.alarm{position:relative;margin:0 0 14px;border:1px solid var(--amber-line);background:var(--amber-soft);border-radius:14px;overflow:hidden;transition:box-shadow .5s var(--ease)}
+.alarm.enter{animation:alDrop .7s cubic-bezier(.2,1.35,.4,1) both}
+@keyframes alDrop{0%{opacity:0;transform:translateY(-26px) scale(.94)}60%{opacity:1}100%{opacity:1;transform:none}}
+.alarm.open{box-shadow:0 0 0 4px var(--amber-soft),0 10px 30px -12px var(--amber)}
+.alarm.ping::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-100%);animation:alShine 1.1s .15s var(--ease) both}
+html.dark .alarm.ping::after{background:linear-gradient(100deg,transparent 30%,rgba(242,181,82,.28) 50%,transparent 70%)}
+@keyframes alShine{to{transform:translateX(100%)}}
+.alarm.ping .al-bell{animation:alPop .7s cubic-bezier(.2,1.6,.4,1) both}
+.alarm.ping .al-bell svg{animation:alRingBig 1.2s ease-in-out both}
+@keyframes alPop{0%{transform:scale(.4)}100%{transform:scale(1)}}
+@keyframes alRingBig{0%,100%{transform:rotate(0)}12%{transform:rotate(26deg)}26%{transform:rotate(-22deg)}40%{transform:rotate(16deg)}54%{transform:rotate(-10deg)}68%{transform:rotate(5deg)}}
+.al-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.3,.8,.3,1)}
+.alarm.open .al-wrap{grid-template-rows:1fr}
+.al-wrap > div{min-height:0;overflow:hidden}
+.al-body .al-c,.al-foot{transition:opacity .3s var(--ease),transform .35s var(--ease)}
+.alarm:not(.open) .al-body .al-c,.alarm:not(.open) .al-foot{opacity:0;transform:translateY(-10px) scale(.98)}
+.alarm.opening .al-c{animation:alCard .5s cubic-bezier(.2,1.2,.4,1) both;animation-delay:calc(.12s + var(--i) * .08s)}
+@keyframes alCard{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.alarm.closing .al-bell{animation:alSettle .5s var(--ease) both}
+@keyframes alSettle{40%{transform:scale(.82)}100%{transform:scale(1)}}
+.al-cd{position:absolute;left:0;right:0;top:0;height:3px;pointer-events:none;opacity:0;transition:opacity .3s}
+.alarm.auto .al-cd{opacity:1}
+.al-cd i{display:block;height:100%;background:var(--amber-pop);transform-origin:left;transform:scaleX(1)}
+.al-top em{transition:background .2s,color .2s}
+.al-top:hover em{background:var(--amber-pop);color:#fff;border-color:var(--amber-pop)}
+html.calm .alarm,html.calm .alarm *,html.calm .alarm::after{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){.alarm,.alarm *,.alarm::after{animation:none!important;transition:none!important}}
+@media (max-width:960px){#navAlarm:not([style*="none"]) + #navInj{display:none!important}}
+@media (min-width:961px){.nav #navAlarm{margin-left:auto}.nav #navAlarm:not([style*="none"]) + #navInj{margin-left:6px}}
+.nav #navAlarm{display:inline-flex;align-items:center;gap:3px}
+.nav button > svg{flex:none}
+.nav [data-nav=injuries] .nl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav #navAlarm svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.4;flex:none}
+.nav #navAlarm .b-med{display:none}
+@media (max-width:960px){
+  .nav #navAlarm{top:-5px;left:auto;right:calc(50% - 25px);gap:0;padding:0 5px;min-width:18px;height:18px;line-height:18px;justify-content:center;font-size:10.5px;
+                 transition:padding .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+  .nav #navAlarm .b-bell{display:none}
+  .nav #navAlarm .b-med{display:block;width:0;opacity:0;stroke-width:2.6;height:12px;transform:scale(.4) rotate(-90deg);
+                        transition:width .25s var(--ease),opacity .2s var(--ease),transform .3s cubic-bezier(.2,1.5,.4,1),margin .25s var(--ease)}
+  .nav button.on #navAlarm{background:var(--amber-pop);color:#fff!important;padding:0 6px 0 5px}
+  .nav button.on #navAlarm .b-med{width:12px;opacity:1;transform:none;margin-right:3px}
+  html.calm .nav #navAlarm,html.calm .nav #navAlarm .b-med{transition:none}
+}
+.al-top{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;text-align:left;color:var(--amber-ink);background:none;border:0;font:inherit;cursor:pointer}
+.al-bell{flex:none;width:30px;height:30px;border-radius:99px;display:grid;place-items:center;background:var(--amber-pop);color:#fff}
 .al-bell svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.9;transform-origin:50% 15%;animation:alRing 2.6s ease-in-out infinite}
 @keyframes alRing{0%,72%,100%{transform:rotate(0)}76%{transform:rotate(14deg)}82%{transform:rotate(-12deg)}88%{transform:rotate(7deg)}94%{transform:rotate(-4deg)}}
-html.calm .al-bell svg,.alarm.shut .al-bell svg{animation:none}
+html.calm .al-bell svg,.alarm:not(.open) .al-bell svg{animation:none}
 .al-tt{display:flex;flex-direction:column;min-width:0;flex:1}
 .al-tt b{font-size:13px;letter-spacing:.02em}
 .al-tt span{font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .al-top em{font-style:normal;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid var(--amber-line);background:var(--white)}
-.al-body{padding:0 12px 12px;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,430px),1fr))}
+.al-body{padding:2px 12px 12px;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,430px),1fr))}
 .al-c{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
 .al-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
 .al-h > b{font-size:14px}
 .al-h small{flex-basis:100%;color:var(--muted);font-size:11.5px;order:5}
 .al-go{margin-left:auto;font:inherit;font-size:12px;font-weight:600;color:var(--red);background:none;border:1px solid var(--line2);border-radius:99px;padding:2px 10px;cursor:pointer}
 .al-why{margin:8px 0 6px;font-size:12.5px;color:var(--ink2)}
+.al-short .al-why{margin:6px 0 0;color:var(--muted)}
+.alarm.auto .al-c:not(.hot),.alarm.shortonly .al-foot{display:none}
+.al-short{padding:8px 12px}
 .al-r{padding:7px 0;border-top:1px dashed var(--line)}
 .al-n{display:flex;align-items:baseline;gap:8px;font-size:13px;margin-bottom:5px}
 .al-n small{color:var(--over);font-weight:700;font-size:11.5px}
@@ -2546,7 +2650,7 @@ html.calm .al-bell svg,.alarm.shut .al-bell svg{animation:none}
 .al-t.pre{color:var(--red)}.al-t.post{color:var(--muted)}.al-t.unk{color:var(--faint)}
 .al-more{margin:6px 0 0;font-size:12px;color:var(--muted)}
 .al-foot{grid-column:1/-1;margin:2px 2px 0;font-size:11.5px;color:var(--ink2)}
-.nav .count.amb{background:var(--amber);margin-left:6px}
+.nav .count.amb{background:var(--amber-pop);color:#fff;margin-left:6px}
 .nav button.on .count.amb{color:#fff}
 @media (max-width:760px){.al-top{padding:9px 12px}.al-body{padding:0 8px 10px}}
 </style>
@@ -2560,9 +2664,9 @@ html.calm .al-bell svg,.alarm.shut .al-bell svg{animation:none}
     <button class="homebtn" id="homeBtn" aria-label="Home" title="Home"><svg class="ib" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg><svg class="ih" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></svg></button>
     <nav class="nav" id="nav">
       <button data-nav="dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.5"/><rect x="13.5" y="11" width="7.5" height="10" rx="1.5"/><rect x="3" y="15" width="7.5" height="6" rx="1.5"/></svg><span class="nl">Home</span><span class="ns">Home</span></button>
-      <button data-nav="props"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="nl">Player Props</span><span class="ns">Props</span><span class="count" id="navProps"></span><span class="count alert amb" id="navAlarm" style="display:none"></span></button>
+      <button data-nav="props"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="nl">Player Props</span><span class="ns">Props</span><span class="count" id="navProps"></span></button>
       <button data-nav="games"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><span class="nl">Games &amp; Analysis</span><span class="ns">Games</span><span class="count" id="navGames"></span></button>
-      <button data-nav="injuries"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2M12 10v6M9 13h6"/></svg><span class="nl">Injuries &amp; Lineups</span><span class="ns">Injuries</span><span class="count alert" id="navInj"></span></button>
+      <button data-nav="injuries"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2M12 10v6M9 13h6"/></svg><span class="nl">Injuries &amp; Lineups</span><span class="ns">Injuries</span><span class="count alert amb" id="navAlarm" style="display:none"></span><span class="count alert" id="navInj"></span></button>
       <button data-nav="results"><svg viewBox="0 0 24 24"><path d="M4 19V10M10 19V5M16 19v-6M22 19H2"/></svg><span class="nl">Results</span><span class="ns">Results</span></button>
     </nav>
     <div class="side-sec"><div class="side-lbl">Tonight</div><div id="sideGames"></div></div>
@@ -2822,7 +2926,7 @@ function applyLive(){
 
   const onSlate = new Set(games.flatMap(g => [g.away, g.home]));
   const inj = (LIVE.injuries || []).filter(i => onSlate.has(i.team)).map(i => ({team: i.team, player: i.player, pos: i.pos || "", status: i.status || "Unknown",
-    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, news: i.news === undefined ? "status" : i.news, confirmed: i.confirmed !== false, checks: i.checks || 0, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
+    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, news: i.news === undefined ? "status" : i.news, confirmed: i.confirmed !== false, checks: i.checks || 0, since: i.since || null, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
 
   Object.assign(DATA, {
     meta: {source: "LIVE", isLive: true, slateLabel: LIVE.meta.slateDate === ET_TODAY ? "Tonight's slate" : `Slate of ${new Date(LIVE.meta.slateDate + "T12:00:00").toLocaleDateString([], {day:"numeric", month:"short"})}`,
@@ -4448,7 +4552,49 @@ function viewInjuries(){
         : `<b>No new injury updates</b> for tonight's games in the last ${NEW_NEWS_H} hours · checked ${injCheckedAt() ? timeFmt(injCheckedAt()) : "—"}`; })()}</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
-  ${GAMES.map(injuryCard).join("")}`;
+  ${GAMES.map(injuryCard).join("")}
+  ${outTonightHTML()}`;
+}
+/* "Ruled out tonight": regulars (12+ min) listed Out for tonight's unfinished games, one team-coloured row per team in
+   tip-off order (same look as "Latest injury changes"). Tonight's absences (news in the last 48 h) get a jersey and their
+   usual minutes; long-term absences sit on one quiet line underneath. Teams with nobody out share one line at the end. */
+/* hover / tap card for an injured player: when the news was posted, when SWISH first saw it, how many checks it has held,
+   whether it's confirmed, expected return, and the reporter's note. Every value is escaped before it goes in. */
+function injTipHTML(i, m){
+  const at = x => x ? `${dateFmt(x)} ${timeFmt(x)} · ${agoTxt(x)}` : "not given";
+  const chk = injCheckedAt();
+  const conf = i.confirmed === false
+    ? `<b class="tt-wait">Not confirmed yet</b> — one source so far`
+    : `<b class="tt-ok">Confirmed</b>${i.espnStatus ? " — from the newer reporter note" : i.comment ? " — status and reporter note agree" : ""}`;
+  const rows = [["ESPN update", at(i.updated)], ["SWISH saw it", at(i.since)],
+    ["Still " + esc(i.status.toLowerCase()), i.checks ? `at all ${Number(i.checks)} checks${i.since ? ` since ${timeFmt(i.since)}` : ""}${chk ? ` · last check ${timeFmt(chk)}` : ""}` : chk ? `last check ${timeFmt(chk)}` : "—"],
+    ["Status", conf], ["Usually plays", m ? `${Math.round(m)} min a game` : "not known"]];
+  if (i.returnDate) rows.push(["Expected back", esc(dateFmt(i.returnDate))]);
+  return `<div class="tt-h">${jerseyAv(i.player, i.team, "sm")}<div><b>${esc(i.player)}</b><small>${esc(tname(i.team))}${i.detail ? ` · ${esc(i.detail)}` : ""}</small></div><span class="st ${stCls(i.status)}">${esc(i.status)}</span></div>`
+    + rows.map(([k, v]) => `<div class="tt-r"><span>${k}</span><span>${v}</span></div>`).join("")
+    + (i.comment ? `<div class="tt-q">${esc(i.comment)}</div>` : "");
+}
+const injTipAttr = (i, m) => `tabindex="0" data-tip="1" data-tipteam="${esc(team(i.team).color || "")}" data-tiphtml="${esc(injTipHTML(i, m))}"`;
+function outTonightHTML(){
+  if (!IS_LIVE) return "";
+  const games = GAMES.filter(g => g.state !== "post").sort((a, b) => new Date(a.tipoff) - new Date(b.tipoff));
+  if (!games.length) return "";
+  const lt = i => injAgeH(i) > OLD_INJ_H, none = [];
+  const rows = games.flatMap(g => [[g.away, g.home], [g.home, g.away]].map(([t, opp]) => {
+    const outs = injuriesFor(t).filter(i => i.status === "Out" && isRegular(i) !== false)
+      .map(i => ({i, m: usualMin(i.player)})).sort((a, b) => (b.m || 0) - (a.m || 0));
+    const fresh = outs.filter(x => !lt(x.i)), old = outs.filter(x => lt(x.i));
+    if (!outs.length) { none.push(t); return ""; }
+    const pl = ({i, m}) => `<div class="ot-pl" ${injTipAttr(i, m)}>${jerseyAv(i.player, t, "sm")}<div><b>${esc(i.player)}</b><small>${m ? `${Math.round(m)} min usual` : "minutes unknown"}${i.detail ? ` · ${esc(i.detail.toLowerCase())}` : ""}</small></div>`
+      + `${isNewNews(i) ? `<span class="ot-tag new">New</span>` : ""}${i.confirmed === false ? `<span class="ot-tag uc" title="Only one source so far">Unconfirmed</span>` : ""}</div>`;
+    return `<div class="nrow tcol ot-row" style="--tc:${team(t).color}">${tid(t, "sm")}<div class="nr-m">
+        <div class="ot-hd"><b>${tname(t)}</b><span>${t === g.home ? "vs" : "@"} ${opp} · ${g.state === "in" ? "live" : timeFmt(g.tipoff)}</span><span class="ot-n num">${outs.length} out</span></div>
+        ${fresh.length ? `<div class="ot-pls">${fresh.map(pl).join("")}</div>` : `<div class="ot-quiet">No new absences tonight.</div>`}
+        ${old.length ? `<div class="ot-lt"><span class="ot-lbl">Long-term</span>${old.map(({i, m}) => `<span class="ot-ltn" ${injTipAttr(i, m)}>${esc(i.player)}${m ? ` <i class="num">${Math.round(m)}</i>` : ""}</span>`).join(" · ")}</div>` : ""}
+      </div></div>`;
+  })).join("");
+  return `<div class="panel newsfeed outtn"><div class="panel-h"><h2 class="h">Ruled out tonight</h2><span class="sub">regulars only (${REGULAR_MIN}+ min a game) · in tip-off order</span></div>
+    <div class="clamp">${rows}${none.length ? `<p class="ot-none">Nobody out: ${none.map(tname).join(", ")}.</p>` : ""}</div></div>`;
 }
 function injStatusBar(){
   const checked = injCheckedAt(), next = nextInjuryCheck(), news = injNews();
@@ -4636,7 +4782,7 @@ function viewResults(){
   <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
 }
 
-/* ---- News alarm (display only — the model, chances and picks are unchanged).
+/* ---- News alert (display only — the model, chances and picks are unchanged).
    A 25+ min regular (played in his team's last game) is Out or Doubtful for a game that hasn't started:
    show who gains minutes, SWISH's projection before → after the news, whether the line was priced before the news,
    and the lowest odds worth taking for the Over. Tap a line to open that prop. Clears when the game tips off. */
@@ -4646,7 +4792,7 @@ function newsAlarms(){
   GAMES.filter(g => (!g.state || g.state === "pre") && new Date(g.tipoff) > now).forEach(g => [g.away, g.home].forEach(t => {
     const rows = PLAYERS.filter(pl => pl.team === t && pl.cur);
     const lastD = rows.flatMap(r => r.cur.map(x => x.d)).filter(Boolean).sort().pop();
-    rows.filter(r => (r.status === "Out" || r.status === "Doubtful") && r.expMin0 >= KEY_MIN && lastD && r.cur.some(x => x.d === lastD))
+    rows.filter(r => ["Out", "Doubtful", "Questionable"].includes(r.status) && r.expMin0 >= KEY_MIN && lastD && r.cur.some(x => x.d === lastD))
       .sort((a, b) => b.expMin0 - a.expMin0).forEach(r => {
         const inj = injuryOf(r.name) || {}, news = inj.updated || inj.since || null;
         const props = ALL.filter(p => p.game === g.id && p.team === t);
@@ -4664,11 +4810,15 @@ function newsAlarms(){
         const lines = who.slice(0, 4).map(pl => ({pl, gain: mode === "gain" ? pl.minBoost.gain : 0,
           props: props.filter(p => p.player === pl.name).sort((a, b) => MARKETS.indexOf(a.market) - MARKETS.indexOf(b.market))}))
           .filter(x => x.props.length);
+        // Out = full alert with teammates; Doubtful/Questionable = a short one-line alert (his own lines are on hold).
+        // fresh = the news is under NEW_NEWS_H hours old; only fresh news ever pops open by itself.
+        const fresh = !!news && (now - new Date(news)) / 3.6e6 <= NEW_NEWS_H;
         out.push({key: `${g.id}|${r.name}|${r.status}`, g, team: t, name: r.name, status: r.status, min: r.expMin0, news, detail: inj.detail || "",
-                  lines, mode, more: mode === "gain" ? Math.max(0, who.length - 4) : 0});
+                  lines, mode, more: mode === "gain" ? Math.max(0, who.length - 4) : 0, short: r.status !== "Out", fresh});
       });
   }));
-  return out;
+  const rank = {Out: 0, Doubtful: 1, Questionable: 2};
+  return out.sort((a, b) => rank[a.status] - rank[b.status] || new Date(a.g.tipoff) - new Date(b.g.tipoff) || b.min - a.min);
 }
 function alarmPropHTML(p, news){
   const before = p.role && p.role.applied ? p.projection - p.role.value : null;
@@ -4682,16 +4832,19 @@ function alarmPropHTML(p, news){
 }
 function alarmHTML(list){
   if (!list.length) return "";
-  const seen = new Set((store.get("alarmSeen", "") || "").split("~").filter(Boolean));
-  // Home: open until you hide it (comes back when something new happens). Other pages: one line, tap to open there.
-  const shut = state.view === "dashboard" ? list.every(a => seen.has(a.key)) : !ALARM_OPEN;
-  const head = list.map(a => `${a.name} ${a.status.toLowerCase()}`).slice(0, 3).join(" · ") + (list.length > 3 ? ` +${list.length - 3} more` : "");
-  const card = a => {
+  const seenNow = alarmSeen(), hot = a => a.fresh && !seenNow.has(a.key) ? " hot" : "";
+  const head = [...list].sort((a, b) => !!hot(b) - !!hot(a)).map(a => `${a.name} ${a.status.toLowerCase()}`).slice(0, 3).join(" · ") + (list.length > 3 ? ` +${list.length - 3} more` : "");
+  const card = (a, i) => {
     const tip = timeFmt(a.g.tipoff);
+    if (a.short) return `<div class="al-c al-short${hot(a)}" style="--i:${i}">
+      <div class="al-h">${tid(a.team, "xs")}<b>${esc(a.name)}</b><span class="st ${a.status.toLowerCase()}">${a.status}</span>
+        <small class="num">${Math.round(a.min)} min usual · ${a.g.away} @ ${a.g.home} ${tip}${a.news ? ` · news ${timeFmt(a.news)}` : ""}${a.fresh ? "" : " · older news"}</small>
+        <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
+      <p class="al-why">SWISH still assumes he plays — his lines are on hold until his status is clear.</p></div>`;
     const body = a.lines.length ? a.lines.map(x => `<div class="al-r"><div class="al-n"><b>${esc(x.pl.name)}</b>${x.gain ? `<small class="num">+${x.gain.toFixed(1)} min</small>` : a.mode === "doubt" ? `<small class="hold">on hold</small>` : `<small class="hold">${Math.round(x.pl.expMin)} min</small>`}</div><div class="al-ps">${x.props.map(p => alarmPropHTML(p, a.news)).join("")}</div></div>`).join("")
       + (a.more ? `<p class="al-more">+${a.more} more teammate${a.more > 1 ? "s" : ""} gain a little — see the game on Props.</p>` : "")
       : `<p class="al-more">No priced lines for his teammates yet — prices usually arrive 14:30–16:00 or 21:00–22:30.</p>`;
-    return `<div class="al-c">
+    return `<div class="al-c${hot(a)}" style="--i:${i}">
       <div class="al-h">${tid(a.team, "xs")}<b>${esc(a.name)}</b><span class="st ${a.status.toLowerCase()}">${a.status}</span>
         <small class="num">${Math.round(a.min)} min usual · ${a.g.away} @ ${a.g.home} ${tip}${a.news ? ` · news ${timeFmt(a.news)}` : ""}</small>
         <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
@@ -4700,30 +4853,74 @@ function alarmHTML(list){
         : `Doubtful — SWISH still assumes he plays, so teammates aren't raised yet. His lines are on hold:`}</p>
       ${body}</div>`;
   };
-  return `<section class="alarm${shut ? " shut" : ""}" role="region" aria-label="News alarm">
-    <button class="al-top" data-alarm="toggle" aria-expanded="${!shut}"><span class="al-bell" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span>
-      <span class="al-tt"><b>News alarm</b><span>${esc(head)}</span></span><em>${shut ? "Show" : "Hide"}</em></button>
-    ${shut ? "" : `<div class="al-body">${list.map(card).join("")}
-      <p class="al-foot">These props stay <b>on hold</b> until the lineup is confirmed. "Over … +" = the lowest odds worth taking at that line. A line priced before the news may already have moved at bet365 — check it. Clears at tip-off.</p></div>`}
+  return `<section class="alarm${ALARM.open ? " open" : ""}${ALARM.auto ? " auto" : ""}${ALARM.auto && ALARM.total === ALARM_SHORT_MS ? " shortonly" : ""}" role="region" aria-label="News alert">
+    <span class="al-cd" aria-hidden="true"><i></i></span>
+    <button class="al-top" data-alarm="toggle" aria-expanded="${ALARM.open}"><span class="al-bell" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span>
+      <span class="al-tt"><b>News alert</b><span>${esc(head)}</span></span><em>${ALARM.open ? "Hide" : "Show"}</em></button>
+    <div class="al-wrap"><div><div class="al-body">${list.map(card).join("")}
+      <p class="al-foot">These props stay <b>on hold</b> until the lineup is confirmed. "Over … +" = the lowest odds worth taking at that line. A line priced before the news may already have moved at bet365 — check it. Clears at tip-off.</p></div></div></div>
   </section>`;
 }
-let ALARM_SIG = null, ALARM_OPEN = false;
+/* How it opens and closes (same on every page):
+   - only news under 6 hours old (NEW_NEWS_H) opens by itself; older news waits in the one-line bar until tip-off.
+     Out → full alert for 10 s; Doubtful/Questionable → short one-line alert for 5 s.
+   - something you haven't seen yet (a new player, or the page loads with one you haven't seen) → it drops in open,
+     a bar counts down 10 s, then it folds itself away to the one-line bar. Mouse over it pauses the countdown;
+     tapping or clicking inside keeps it open until you press Hide.
+   - already seen → stays as the one-line bar (on refresh too). Tap "Show" to open; it stays open until "Hide".
+   "Seen" is saved in this browser (alarmSeen), per player and status, so a player going Doubtful → Out alerts again. */
+const ALARM_AUTO_MS = 10000, ALARM_SHORT_MS = 5000;
+const ALARM = {open: false, auto: false, left: 0, total: 10000, last: 0, paused: false, sig: null, raf: 0};
+const alarmSeen = () => new Set((store.get("alarmSeen", "") || "").split("~").filter(Boolean));
+function markAlarmSeen(list){ const seen = alarmSeen(); list.forEach(a => seen.add(a.key)); store.set("alarmSeen", [...seen].slice(-60).join("~")); }
+const calmMotion = () => PREFS.calm || matchMedia("(prefers-reduced-motion: reduce)").matches;
+function alarmEl(){ return document.querySelector("#alarm .alarm"); }
+function setAlarmOpen(open, auto){
+  const el = alarmEl(); ALARM.open = open; ALARM.auto = !!(open && auto);
+  if (ALARM.auto){ ALARM.total = ALARM.left = typeof auto === "number" ? auto : ALARM_AUTO_MS; ALARM.last = performance.now(); ALARM.paused = false; tickAlarm(); }
+  if (!el) return;
+  el.classList.toggle("open", open); el.classList.toggle("auto", ALARM.auto); el.classList.toggle("shortonly", ALARM.auto && ALARM.total === ALARM_SHORT_MS);
+  const b = el.querySelector(".al-top"); b.setAttribute("aria-expanded", open); b.querySelector("em").textContent = open ? "Hide" : "Show";
+  const pulse = cls => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); setTimeout(() => el.classList.remove(cls), 1300); };
+  if (open) { pulse("opening"); if (auto) pulse("ping"); } else pulse("closing");
+  if (!open) markAlarmSeen(newsAlarms());
+}
+function tickAlarm(){
+  cancelAnimationFrame(ALARM.raf);
+  const step = t => {
+    if (!ALARM.auto) return;
+    if (!ALARM.paused && !document.hidden) ALARM.left -= t - ALARM.last;
+    ALARM.last = t;
+    const bar = document.querySelector("#alarm .al-cd i");
+    if (bar) bar.style.transform = `scaleX(${Math.max(0, ALARM.left / ALARM.total)})`;
+    if (ALARM.left <= 0) { setAlarmOpen(false); return; }
+    ALARM.raf = requestAnimationFrame(step);
+  };
+  ALARM.raf = requestAnimationFrame(step);
+}
 function updAlarm(force){
   const list = newsAlarms(), el = $("alarm"), nb = $("navAlarm");
-  const seen = (store.get("alarmSeen", "") || "").split("~");
-  const sig = list.map(a => a.key + a.lines.map(x => x.props.map(p => p.id + ":" + p.line + ":" + p.fetched).join()).join()).join("|") + "#" + list.every(a => seen.includes(a.key)) + state.view + ALARM_OPEN;
-  if (nb){ nb.textContent = list.length || ""; nb.style.display = list.length ? "" : "none";
-    nb.title = list.length ? `News alarm: ${list.length} key player${list.length > 1 ? "s" : ""} newly out or doubtful` : ""; }
-  if (!el || (!force && sig === ALARM_SIG)) return;
-  ALARM_SIG = sig; el.innerHTML = alarmHTML(list);
+  if (nb){ nb.innerHTML = list.length ? `<svg class="b-bell" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><svg class="b-med" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V4.5h6V7M12 10.5v6M9 13.5h6"/></svg><span>${list.length}</span>` : ""; nb.style.display = list.length ? "" : "none";
+    nb.title = list.length ? `News alert: ${list.length} key player${list.length > 1 ? "s" : ""} newly out, doubtful or questionable` : ""; }
+  if (!el) return;
+  if (!list.length){ ALARM.sig = null; ALARM.open = ALARM.auto = false; el.innerHTML = ""; return; }
+  const sig = list.map(a => a.key + a.lines.map(x => x.props.map(p => p.id + ":" + p.line + ":" + p.fetched).join()).join()).join("|") + state.odds;
+  const fresh = !alarmEl();
+  if (force || fresh || sig !== ALARM.sig){
+    ALARM.sig = sig; el.innerHTML = alarmHTML(list);
+    if (fresh && !calmMotion()){ const a = alarmEl(); a.classList.add("enter"); setTimeout(() => a.classList.remove("enter"), 800); }
+  }
+  const seen = alarmSeen(), news = list.filter(a => a.fresh && !seen.has(a.key));   // old news (6 h+) never pops open
+  if (news.length && !ALARM.open) {
+    const ms = news.some(a => !a.short) ? ALARM_AUTO_MS : ALARM_SHORT_MS;              // Out = 10 s, doubtful/questionable = 5 s
+    if (fresh) setTimeout(() => { if (!ALARM.open) setAlarmOpen(true, ms); }, calmMotion() ? 0 : 450);   // let it drop in first
+    else setAlarmOpen(true, ms);
+  }
 }
-function toggleAlarm(){
-  if (state.view !== "dashboard"){ ALARM_OPEN = !ALARM_OPEN; updAlarm(true); return; }
-  const list = newsAlarms(), seen = new Set((store.get("alarmSeen", "") || "").split("~").filter(Boolean));
-  const shut = list.length && list.every(a => seen.has(a.key));
-  store.set("alarmSeen", shut ? "" : list.map(a => a.key).join("~"));
-  updAlarm(true);
-}
+function toggleAlarm(){ setAlarmOpen(!ALARM.open, false); }
+// mouse over pauses the countdown; a tap or click inside keeps it open until Hide
+document.addEventListener("pointerover", e => { if (ALARM.auto && e.pointerType === "mouse") ALARM.paused = !!e.target.closest("#alarm"); });
+document.addEventListener("pointerdown", e => { if (ALARM.auto && e.target.closest("#alarm") && !e.target.closest("[data-alarm]")) { ALARM.auto = false; const el = alarmEl(); if (el) el.classList.remove("auto"); } }, true);
 setInterval(() => { if (!document.hidden) updAlarm(); }, 30000);   // tip-off clears it without waiting for new data
 
 /* =================================================================
@@ -4831,7 +5028,7 @@ const NAV = [];
 function updHomeBtn(){ const b = $("homeBtn"); if (!b) return; const back = NAV.length > 0 && state.view !== "dashboard"; b.classList.toggle("back", back); b.setAttribute("aria-label", back ? "Back" : "Home"); b.title = back ? "Back" : "Home"; }
 function go(view, back){
   if (!back && view !== state.view){ NAV.push({view: state.view, y: window.scrollY}); try { history.pushState({swish: view}, ""); } catch(e){} }
-  state.view = view; ALARM_OPEN = false; store.set("view", view); closeDrawer(); render(); window.scrollTo({top:0}); updHomeBtn();
+  state.view = view; store.set("view", view); closeDrawer(); render(); window.scrollTo({top:0}); updHomeBtn();
 }
 function goBack(){
   const p = NAV.pop();
@@ -5042,12 +5239,16 @@ function countUp(){
   const box = document.createElement("div"); box.className = "tipbox"; box.setAttribute("role", "tooltip"); document.body.appendChild(box);
   let cur = null, shownAt = 0;
   const show = el => {
-    cur = el; shownAt = Date.now(); box.textContent = el.dataset.tip; box.classList.add("on");
-    const r = el.getBoundingClientRect(), w = Math.min(260, innerWidth - 24);
+    cur = el; shownAt = Date.now(); const rich = !!el.dataset.tiphtml; box.classList.toggle("rich", rich);
+    if (rich) { box.classList.remove("on"); box.style.setProperty("--team-c", el.dataset.tipteam || "var(--red)"); void box.offsetWidth; }
+    if (rich) box.innerHTML = el.dataset.tiphtml; else box.textContent = el.dataset.tip; box.classList.add("on");
+    const r = el.getBoundingClientRect(), w = Math.min(rich ? 320 : 260, innerWidth - 24);
     box.style.maxWidth = w + "px";
     const bw = box.offsetWidth, bh = box.offsetHeight;
     box.style.left = Math.max(12, Math.min(innerWidth - bw - 12, r.left + r.width / 2 - bw / 2)) + "px";
-    box.style.top = (r.top - bh - 8 > 8 ? r.top - bh - 8 : r.bottom + 8) + "px";
+    const up = r.top - bh - 10 > 8; box.dataset.side = up ? "up" : "down";
+    box.style.top = (up ? r.top - bh - 10 : r.bottom + 10) + "px";
+    if (rich) requestAnimationFrame(() => box.classList.add("on"));
   };
   const hide = () => { cur = null; box.classList.remove("on"); };
   document.addEventListener("mouseover", e => { const el = e.target.closest("[data-tip]"); if (el && el !== cur) show(el); else if (!el && cur && matchMedia("(hover:hover)").matches) hide(); });

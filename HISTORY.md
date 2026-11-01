@@ -528,3 +528,29 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   40% + gap ×1.5, only 25+ min outs, MAX_GAIN 8, same-position weight 4/9. All removed the average shortfall but every one
   made minutes MAE worse (2025-26 5.226 → 5.231–5.248; 2024-25 5.119 → 5.121–5.137); Brier flat-to-worse. Extra minutes
   go to the wrong players — same lesson as with-vs-without. Logged in experiments.json (Model lab page).
+
+## 2026-11-01 11:45 — news alarm motion + badge (published to main)
+- User: badge belongs on Injuries; alarm should animate in and fold itself after 10 s.
+- Badge moved to Injuries (amber bell + count before the red count; phones ≤960px hide the red one while an alarm shows).
+  `.nav button > svg{flex:none}` (icon was squashed with two badges).
+- Alarm same on every page (Home special case removed): unseen key → `alDrop` entrance + shine + big bell ring, cards stagger,
+  `.al-wrap` grid-rows 0fr↔1fr fold, countdown bar `.al-cd` (rAF, ALARM_AUTO_MS 10000), mouse hover pauses, pointerdown inside
+  cancels auto; closing marks keys seen (`alarmSeen`, last 60). Seen → folded bar, Show/Hide manual. Reduce motion/calm = no animation.
+- Tested today's data (Curry + Green Out, LAC@GSW): 4 sizes × 2 themes, no JS errors/overflow; open→folded at 10 s, refresh stays
+  folded, manual open stays, hover pauses then folds. Guide "News alarm" section updated.
+
+## 2026-11-01 12:00 — News alert rules + "Ruled out tonight" (published to main)
+- User: Curry news was 31 Oct 19:48 (picked up 19:50), game 01:30 2 Nov → 16 h old, outside the 6 h "new" window.
+- Renamed visible "News alarm" → "News alert". Questionable regulars (25+ min, played last game) now alert too.
+  Out = full card 10 s; Doubtful/Questionable = short one-line card 5 s (`ALARM_SHORT_MS`, `.shortonly` hides footer).
+  Auto-open only for unseen keys with news ≤ NEW_NEWS_H (6 h, `fresh`); pop-ups show only those (`.hot`), header leads with them.
+- Injuries page: "Ruled out tonight" panel after the status bar — Out regulars (≥12 min or unknown) per unfinished game by
+  tip-off; red = fresh, grey = long-term (>48 h), "new" (<6 h), "unconfirmed"; "+N rarely play". Tap game → jump.
+- Tests: old news stays folded; clock 31 Oct 20:30 → full 10 s then folds; fake fresh Questionable → 5 s, only that card;
+  Show → all cards. 4 sizes × 2 themes × (Injuries, Props): no overflow, no JS errors. Guide updated.
+
+- 12:10 "Ruled out tonight" redesigned (user disliked pill chips): newsfeed-style `.nrow.tcol` row per team, tonight-s absences (≤48 h) as jersey cards with usual min + detail, NEW/Unconfirmed tags, "Long-term" one muted line, "Nobody out: …" line; 2-up grid ≥ ~900px. 4 sizes × 2 themes OK.
+
+- 12:25 Ruled out tonight → bottom of Injuries page; rows neutral (thin team edge), team gradient fades in on hover/focus (`.nrow.tcol.ot-row` + ::before). Rich hover/tap card per player (`injTipHTML`, tooltip supports `data-tiphtml`): ESPN update, SWISH saw it (`since` now passed into DATA.injuries), checks held, confirmed, usual min, expected back, reporter note. Phone/tablet badge: number only, right-anchored inside the button; on Injuries a medic-bag icon slides in. 4 sizes × 2 themes × 3 pages OK.
+
+- 12:35 --amber-pop (#f59e0b light / #f2a93b dark) + --amber-ink for badge, alert bell, countdown, alert title; phone/tablet badge stays amber when Injuries active; mobile nav padding-top 11px. Rich tip card = Last 6 glass (theme-matched, --team-c strip via data-tipteam, jersey header), opens up/down with translate+scale. Checked 4 sizes × 2 themes × 3 pages.
