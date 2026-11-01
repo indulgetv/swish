@@ -528,3 +528,13 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   40% + gap ×1.5, only 25+ min outs, MAX_GAIN 8, same-position weight 4/9. All removed the average shortfall but every one
   made minutes MAE worse (2025-26 5.226 → 5.231–5.248; 2024-25 5.119 → 5.121–5.137); Brier flat-to-worse. Extra minutes
   go to the wrong players — same lesson as with-vs-without. Logged in experiments.json (Model lab page).
+
+## 2026-11-01 11:45 — news alarm motion + badge (published to main)
+- User: badge belongs on Injuries; alarm should animate in and fold itself after 10 s.
+- Badge moved to Injuries (amber bell + count before the red count; phones ≤960px hide the red one while an alarm shows).
+  `.nav button > svg{flex:none}` (icon was squashed with two badges).
+- Alarm same on every page (Home special case removed): unseen key → `alDrop` entrance + shine + big bell ring, cards stagger,
+  `.al-wrap` grid-rows 0fr↔1fr fold, countdown bar `.al-cd` (rAF, ALARM_AUTO_MS 10000), mouse hover pauses, pointerdown inside
+  cancels auto; closing marks keys seen (`alarmSeen`, last 60). Seen → folded bar, Show/Hide manual. Reduce motion/calm = no animation.
+- Tested today's data (Curry + Green Out, LAC@GSW): 4 sizes × 2 themes, no JS errors/overflow; open→folded at 10 s, refresh stays
+  folded, manual open stays, hover pauses then folds. Guide "News alarm" section updated.
