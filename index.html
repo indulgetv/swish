@@ -1430,14 +1430,28 @@ html.dark .injbar .ib.hot{background:rgba(239,59,72,.1)}
 .outtn .clamp{grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
 .outtn .ot-none{grid-column:1/-1}
 .ot-pls{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))!important}
-.ot-row{align-items:flex-start!important}
+.nrow.tcol.ot-row{align-items:flex-start!important;isolation:isolate;
+  background:var(--surface2)!important;box-shadow:inset 3px 0 0 color-mix(in srgb,var(--tc) 45%,var(--line2)),inset 0 0 0 1px var(--line)!important;
+  transition:box-shadow .3s var(--ease)}
+html.dark .nrow.tcol.ot-row{background:rgba(255,255,255,.03)!important}
+.ot-row::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s var(--ease);pointer-events:none;
+  background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 22%,transparent) 0%,color-mix(in srgb,var(--tc) 8%,transparent) 45%,transparent 85%)}
+html.dark .ot-row::before{background:linear-gradient(100deg,color-mix(in srgb,var(--tc) 34%,transparent) 0%,color-mix(in srgb,var(--tc) 12%,transparent) 45%,transparent 85%)}
+.ot-row:hover::before,.ot-row:focus-within::before{opacity:1}
+.nrow.tcol.ot-row:hover,.nrow.tcol.ot-row:focus-within{box-shadow:inset 4px 0 0 var(--tc),inset 0 0 0 1px color-mix(in srgb,var(--tc) 25%,transparent)!important}
+.ot-row .ot-n{color:var(--muted)!important;transition:color .3s var(--ease)}
+.ot-row:hover .ot-n{color:var(--red)!important}
+html.calm .ot-row,html.calm .ot-row::before{transition:none}
 .ot-row > .tid{margin-top:2px}
 .ot-hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .ot-hd b{font-size:15px}
 .ot-hd span{font-size:12.5px;color:var(--muted)}
 .ot-hd .ot-n{margin-left:auto;font-weight:700;color:var(--red);font-size:12.5px}
 .ot-pls{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:8px;margin-top:10px}
-.ot-pl{display:flex;align-items:center;gap:10px;min-width:0;padding:7px 10px;border-radius:10px;background:var(--white);border:1px solid var(--line)}
+.ot-pl{display:flex;align-items:center;gap:10px;min-width:0;padding:7px 10px;border-radius:10px;background:var(--white);border:1px solid var(--line);cursor:help;outline:none;transition:border-color .15s var(--ease),transform .15s var(--ease),box-shadow .15s var(--ease)}
+.ot-pl:hover,.ot-pl:focus-visible{border-color:var(--tc);transform:translateY(-1px);box-shadow:0 4px 12px -6px var(--tc)}
+.ot-ltn{cursor:help;outline:none;border-bottom:1px dotted var(--line2)}
+.ot-ltn:hover,.ot-ltn:focus-visible{color:var(--ink);border-bottom-color:var(--ink2)}
 html.dark .ot-pl{background:rgba(0,0,0,.22)}
 .ot-pl > div{min-width:0;flex:1}
 .ot-pl b{display:block;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -1447,7 +1461,7 @@ html.dark .ot-pl{background:rgba(0,0,0,.22)}
 .ot-tag.uc{color:var(--amber);box-shadow:inset 0 0 0 1.5px currentColor}
 .ot-quiet{margin-top:6px;font-size:12.5px;color:var(--muted)}
 .ot-lt{margin-top:9px;font-size:12.5px;color:var(--muted);line-height:1.5}
-.ot-lt span{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-right:8px}
+.ot-lt .ot-lbl{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-right:8px}
 .ot-lt i{font-style:normal;color:var(--faint);font-size:11.5px}
 .ot-none{margin:2px 4px 0;font-size:12.5px;color:var(--muted)}
 .nrow{display:flex;align-items:center;gap:12px;padding:11px 20px;border-top:1px solid var(--line)}
@@ -1795,6 +1809,17 @@ html.dark{--exp:#79a8ff}
 .rolechip[data-tip]:focus-visible{box-shadow:0 0 0 2px var(--red)}
 .tipbox{position:fixed;z-index:200;max-width:260px;padding:10px 12px;border-radius:12px;background:#15171b;color:#f2f3f5;font-size:12.5px;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.28);pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease}
 .tipbox.on{opacity:1;transform:none}
+.tipbox.rich{padding:12px 14px}
+.tipbox .tt-h{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;margin-bottom:8px}
+.tipbox .tt-h .st{font-size:10px;padding:1px 7px}
+.tipbox .tt-r{display:grid;grid-template-columns:92px 1fr;gap:8px;padding:5px 0;border-top:1px solid rgba(255,255,255,.12);font-size:12px}
+html.dark .tipbox .tt-r{border-top-color:rgba(0,0,0,.1)}
+.tipbox .tt-r > span{opacity:.62}
+.tipbox .tt-r b{font-weight:600}
+.tipbox .tt-ok{color:#4ade80}.tipbox .tt-wait{color:#fbbf24}
+html.dark .tipbox .tt-ok{color:#0b7d52}html.dark .tipbox .tt-wait{color:#a35a06}
+.tipbox .tt-q{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.12);font-size:11.5px;font-style:italic;opacity:.8}
+html.dark .tipbox .tt-q{border-top-color:rgba(0,0,0,.1)}
 html.dark .tipbox{background:#f2f3f5;color:#15171b}
 .rolechip{display:inline-block;margin-left:4px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 5px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
 .rolechip.up{color:var(--over);background:var(--over-soft);border-color:transparent}
@@ -2569,7 +2594,18 @@ html.calm .alarm,html.calm .alarm *,html.calm .alarm::after{animation:none!impor
 .nav #navAlarm{display:inline-flex;align-items:center;gap:3px}
 .nav button > svg{flex:none}
 .nav [data-nav=injuries] .nl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.nav #navAlarm svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.4}
+.nav #navAlarm svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.4;flex:none}
+.nav #navAlarm .b-med{display:none}
+@media (max-width:960px){
+  .nav #navAlarm{top:-5px;left:auto;right:calc(50% - 25px);gap:0;padding:0 5px;min-width:18px;height:18px;line-height:18px;justify-content:center;font-size:10.5px;
+                 transition:padding .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+  .nav #navAlarm .b-bell{display:none}
+  .nav #navAlarm .b-med{display:block;width:0;opacity:0;stroke-width:2.6;height:12px;transform:scale(.4) rotate(-90deg);
+                        transition:width .25s var(--ease),opacity .2s var(--ease),transform .3s cubic-bezier(.2,1.5,.4,1),margin .25s var(--ease)}
+  .nav button.on #navAlarm{background:#fff;color:var(--amber)!important;padding:0 6px 0 5px}
+  .nav button.on #navAlarm .b-med{width:12px;opacity:1;transform:none;margin-right:3px}
+  html.calm .nav #navAlarm,html.calm .nav #navAlarm .b-med{transition:none}
+}
 .al-top{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;text-align:left;color:var(--amber);background:none;border:0;font:inherit;cursor:pointer}
 .al-bell{flex:none;width:30px;height:30px;border-radius:99px;display:grid;place-items:center;background:var(--amber);color:#fff}
 .al-bell svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.9;transform-origin:50% 15%;animation:alRing 2.6s ease-in-out infinite}
@@ -2880,7 +2916,7 @@ function applyLive(){
 
   const onSlate = new Set(games.flatMap(g => [g.away, g.home]));
   const inj = (LIVE.injuries || []).filter(i => onSlate.has(i.team)).map(i => ({team: i.team, player: i.player, pos: i.pos || "", status: i.status || "Unknown",
-    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, news: i.news === undefined ? "status" : i.news, confirmed: i.confirmed !== false, checks: i.checks || 0, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
+    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, news: i.news === undefined ? "status" : i.news, confirmed: i.confirmed !== false, checks: i.checks || 0, since: i.since || null, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
 
   Object.assign(DATA, {
     meta: {source: "LIVE", isLive: true, slateLabel: LIVE.meta.slateDate === ET_TODAY ? "Tonight's slate" : `Slate of ${new Date(LIVE.meta.slateDate + "T12:00:00").toLocaleDateString([], {day:"numeric", month:"short"})}`,
@@ -4505,13 +4541,30 @@ function viewInjuries(){
         ? `<b>New tonight:</b> ${nw.slice(0, 4).map(i => `${esc(i.player)} (${i.team}) ${esc(i.status.toLowerCase())} · ${timeFmt(i.updated)}`).join(" · ")}${nw.length > 4 ? ` · +${nw.length - 4} more below` : ""}`
         : `<b>No new injury updates</b> for tonight's games in the last ${NEW_NEWS_H} hours · checked ${injCheckedAt() ? timeFmt(injCheckedAt()) : "—"}`; })()}</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
-  ${outTonightHTML()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
-  ${GAMES.map(injuryCard).join("")}`;
+  ${GAMES.map(injuryCard).join("")}
+  ${outTonightHTML()}`;
 }
 /* "Ruled out tonight": regulars (12+ min) listed Out for tonight's unfinished games, one team-coloured row per team in
    tip-off order (same look as "Latest injury changes"). Tonight's absences (news in the last 48 h) get a jersey and their
    usual minutes; long-term absences sit on one quiet line underneath. Teams with nobody out share one line at the end. */
+/* hover / tap card for an injured player: when the news was posted, when SWISH first saw it, how many checks it has held,
+   whether it's confirmed, expected return, and the reporter's note. Every value is escaped before it goes in. */
+function injTipHTML(i, m){
+  const at = x => x ? `${dateFmt(x)} ${timeFmt(x)} · ${agoTxt(x)}` : "not given";
+  const chk = injCheckedAt();
+  const conf = i.confirmed === false
+    ? `<b class="tt-wait">Not confirmed yet</b> — one source so far`
+    : `<b class="tt-ok">Confirmed</b>${i.espnStatus ? " — from the newer reporter note" : i.comment ? " — status and reporter note agree" : ""}`;
+  const rows = [["ESPN update", at(i.updated)], ["SWISH saw it", at(i.since)],
+    ["Still " + esc(i.status.toLowerCase()), i.checks ? `at all ${Number(i.checks)} checks${i.since ? ` since ${timeFmt(i.since)}` : ""}${chk ? ` · last check ${timeFmt(chk)}` : ""}` : chk ? `last check ${timeFmt(chk)}` : "—"],
+    ["Status", conf], ["Usually plays", m ? `${Math.round(m)} min a game` : "not known"]];
+  if (i.returnDate) rows.push(["Expected back", esc(dateFmt(i.returnDate))]);
+  return `<div class="tt-h">${esc(i.player)} <span class="st ${stCls(i.status)}">${esc(i.status)}</span></div>`
+    + rows.map(([k, v]) => `<div class="tt-r"><span>${k}</span><span>${v}</span></div>`).join("")
+    + (i.comment ? `<div class="tt-q">${esc(i.comment)}</div>` : "");
+}
+const injTipAttr = (i, m) => `tabindex="0" data-tip="1" data-tiphtml="${esc(injTipHTML(i, m))}"`;
 function outTonightHTML(){
   if (!IS_LIVE) return "";
   const games = GAMES.filter(g => g.state !== "post").sort((a, b) => new Date(a.tipoff) - new Date(b.tipoff));
@@ -4522,12 +4575,12 @@ function outTonightHTML(){
       .map(i => ({i, m: usualMin(i.player)})).sort((a, b) => (b.m || 0) - (a.m || 0));
     const fresh = outs.filter(x => !lt(x.i)), old = outs.filter(x => lt(x.i));
     if (!outs.length) { none.push(t); return ""; }
-    const pl = ({i, m}) => `<div class="ot-pl">${jerseyAv(i.player, t, "sm")}<div><b>${esc(i.player)}</b><small>${m ? `${Math.round(m)} min usual` : "minutes unknown"}${i.detail ? ` · ${esc(i.detail.toLowerCase())}` : ""}</small></div>`
+    const pl = ({i, m}) => `<div class="ot-pl" ${injTipAttr(i, m)}>${jerseyAv(i.player, t, "sm")}<div><b>${esc(i.player)}</b><small>${m ? `${Math.round(m)} min usual` : "minutes unknown"}${i.detail ? ` · ${esc(i.detail.toLowerCase())}` : ""}</small></div>`
       + `${isNewNews(i) ? `<span class="ot-tag new">New</span>` : ""}${i.confirmed === false ? `<span class="ot-tag uc" title="Only one source so far">Unconfirmed</span>` : ""}</div>`;
     return `<div class="nrow tcol ot-row" style="--tc:${team(t).color}">${tid(t, "sm")}<div class="nr-m">
         <div class="ot-hd"><b>${tname(t)}</b><span>${t === g.home ? "vs" : "@"} ${opp} · ${g.state === "in" ? "live" : timeFmt(g.tipoff)}</span><span class="ot-n num">${outs.length} out</span></div>
         ${fresh.length ? `<div class="ot-pls">${fresh.map(pl).join("")}</div>` : `<div class="ot-quiet">No new absences tonight.</div>`}
-        ${old.length ? `<div class="ot-lt"><span>Long-term</span>${old.map(({i, m}) => `${esc(i.player)}${m ? ` <i class="num">${Math.round(m)}</i>` : ""}`).join(" · ")}</div>` : ""}
+        ${old.length ? `<div class="ot-lt"><span class="ot-lbl">Long-term</span>${old.map(({i, m}) => `<span class="ot-ltn" ${injTipAttr(i, m)}>${esc(i.player)}${m ? ` <i class="num">${Math.round(m)}</i>` : ""}</span>`).join(" · ")}</div>` : ""}
       </div></div>`;
   })).join("");
   return `<div class="panel newsfeed outtn"><div class="panel-h"><h2 class="h">Ruled out tonight</h2><span class="sub">regulars only (${REGULAR_MIN}+ min a game) · in tip-off order</span></div>
@@ -4837,7 +4890,7 @@ function tickAlarm(){
 }
 function updAlarm(force){
   const list = newsAlarms(), el = $("alarm"), nb = $("navAlarm");
-  if (nb){ nb.innerHTML = list.length ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>${list.length}` : ""; nb.style.display = list.length ? "" : "none";
+  if (nb){ nb.innerHTML = list.length ? `<svg class="b-bell" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><svg class="b-med" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V4.5h6V7M12 10.5v6M9 13.5h6"/></svg><span>${list.length}</span>` : ""; nb.style.display = list.length ? "" : "none";
     nb.title = list.length ? `News alert: ${list.length} key player${list.length > 1 ? "s" : ""} newly out, doubtful or questionable` : ""; }
   if (!el) return;
   if (!list.length){ ALARM.sig = null; ALARM.open = ALARM.auto = false; el.innerHTML = ""; return; }
@@ -5176,8 +5229,9 @@ function countUp(){
   const box = document.createElement("div"); box.className = "tipbox"; box.setAttribute("role", "tooltip"); document.body.appendChild(box);
   let cur = null, shownAt = 0;
   const show = el => {
-    cur = el; shownAt = Date.now(); box.textContent = el.dataset.tip; box.classList.add("on");
-    const r = el.getBoundingClientRect(), w = Math.min(260, innerWidth - 24);
+    cur = el; shownAt = Date.now(); const rich = !!el.dataset.tiphtml; box.classList.toggle("rich", rich);
+    if (rich) box.innerHTML = el.dataset.tiphtml; else box.textContent = el.dataset.tip; box.classList.add("on");
+    const r = el.getBoundingClientRect(), w = Math.min(rich ? 300 : 260, innerWidth - 24);
     box.style.maxWidth = w + "px";
     const bw = box.offsetWidth, bh = box.offsetHeight;
     box.style.left = Math.max(12, Math.min(innerWidth - bw - 12, r.left + r.width / 2 - bw / 2)) + "px";
