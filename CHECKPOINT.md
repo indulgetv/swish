@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 05:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 05:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -23,7 +23,11 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   than the line. Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
-- Results so far (3 nights, 28–30 Oct): 798 graded; strong 11–17, −£60.53 at £10. Tiny sample.
+- Results so far (4 nights, 28–31 Oct, 31 games): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
+  Pick check (`python3 lab/check_picks.py`, 1 Nov): SWISH ≈ market (Brier .2470 vs .2467), raw model worse (.2556).
+  Model slightly right when it disagrees by <5 pts, badly wrong when >10 pts — and strong picks come from big gaps.
+  Best-fit model share ~5% (range −15..+25%). Overs hit 46.6% vs market's 49.7%. PTS worst market, REB ≈ market.
+  Minutes: 34+ exp min over-estimated +1.8, <20 under-estimated −4.4 (needs shrink to mean). Lines moved toward model 13/42.
 
 ## Site features (current UI)
 - Props: filter bar (market chips All/Points/Rebounds/Assists, search, sort; tick-boxes Show last 6 / Value only /
@@ -78,6 +82,9 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   parity 0, no version bump — pre-tip unchanged), sidebar/game jump fix. Guide updated 1 Nov. Details in HISTORY.md.
 
 ## Next steps (in order)
+1. **Model honesty (user's call, ask before shipping):** (a) big model-vs-market gap = warning, not strong pick;
+   (b) shrink expected minutes toward the mean — test in lab replay on both seasons (independent of 4 nights);
+   (c) show "overs hit 46.6% vs market 49.7%" on Results. Real edges = speed on news + bet365 lagging, not the model.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
    PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).

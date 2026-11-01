@@ -468,3 +468,15 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   (estimated 700 px) so heights changed during smooth scroll, and sticky header + toolbar covered the top. New `gotoGame`.
   Tested every game from Home and Props, phone/tablet/desktop/ultra-wide, light + dark: lands exactly at stickyTop().
 - Publishing: user said "publish now" → merged pending into main; later fixes pushed straight to main (user present, asked).
+
+## 2026-11-01 05:20–05:40 — results review + pick check (no model change)
+- 31 Oct (7 games): strong 1–0 (Edgecombe U16.5 PTS, 10) +£8.93; leans 91–68 +£117.33; first night SWISH beat the market
+  (Brier .2428 vs .2457) and projections beat the line (3.21 vs 3.26). Mostly unders (66–39); overs 25–29; only 41% went over.
+- New `lab/check_picks.py`: compares raw model, stretched model, SWISH and no-vig market on all graded picks.
+  Findings (1,044 props, 31 games): disagreement buckets — model gap −10..+5 pts mildly closer than market; gap >+10 →
+  model said 66.7%, actual 47.4%, market 50.5%; gap <−10 → model 33.2%, actual 48.1%. Best-fit log-odds mix: market 0.95,
+  model 0.05, plus over-bias shift −0.125 (game-resampled range for model share −0.15..+0.25).
+  Brier gap model−market: PTS +.0128, REB +.0049, AST +.0085; big_gap flag +.0442; few_games overs hit 59.6% (n=47).
+  Minutes bias exp−played: <20 −4.35, 20–28 −0.42, 28–34 +0.43, 34+ +1.78. PTS bias model +0.41, line +0.27.
+  Line moves after first save: 42, toward model 13. v1.8 night: model beat market (−.0063) — one night only.
+- Told user plainly: free public-stats model isn't beating the market; strong picks sit where the model is most wrong.
