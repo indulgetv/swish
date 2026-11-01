@@ -44,7 +44,6 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - Home "Tonight's games" rows: amber pill END OF Q1 / HALF-TIME / END OF Q3 / END OF Q4 during breaks, grey FULL-TIME (· OT).
 - Game jumps (`gotoGame`, all [data-goto]): un-lazies `#sections` (`.cv-all`) so content-visibility can't shift the
   target, lands under header + filter bar (`stickyTop()`), long trips jump then glide, card glows once (`.goto-hi`).
-- Phones: no accidental zoom; opened items scroll into view.
 
 ## How updates run
 - cron-job.org (user's account, Europe/London) POSTs to GitHub with a fine-grained token (indulgetv/swish only; may expire
@@ -65,8 +64,8 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - Test phone + tablet + desktop + ultra-wide, light + dark (playwright over `python3 -m http.server`; fetch fails on file://).
   To test an old slate, set the browser clock to that slate (`page.clock.install`).
 - Releases: afternoon/evening → push to branch **`pending`** (built on origin/pending); the next loop start or GitHub timer
-  merges and publishes it. User may say "publish now" → merge origin/pending into main (fetch `--depth=300` first, shallow
-  clones can't merge; check origin/pending really moved) and reset pending to main. Pushes to main touching `scripts/**`
+  merges and publishes it. User may say "publish now" → merge origin/pending into main (fetch `--depth=300` first;
+  check origin/pending moved) and reset pending to main. Pushes to main touching `scripts/**`
   or workflows start a full update. Pushing needs the repo attached with push access (add_repo).
 - Never print or store keys. Ask before spending credits, changing cron-job.org jobs or using the GitHub key.
 - After each session: update CHECKPOINT.md (short!) + append details to HISTORY.md, copy CHECKPOINT.md to the project doc
@@ -79,13 +78,11 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 
 ## Next steps (in order)
 A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** — display only, no credits, no model change.
-   Picks keep openLine/openOver/openUnder (first save) + line/over/under at lock (ledger.py). Per pick: change in no-vig
-   chance for OUR side from first save → lock (counts line AND odds-only moves). Split strong/leans, over/under, market,
-   on-hold. Results box "Prices moved our way on X% (avg +Y%)", plain English, small-sample warning; replaces the
-   line-only count (ledger.py ~l.235). Limits to state: "closing" = last saved price (~21:00–22:30), US books.
+   Per pick: no-vig chance for OUR side, open* fields (first save) → lock (line AND odds moves). Split strong/leans,
+   over/under, market, on-hold. Results box "Prices moved our way on X% (avg +Y%)" + small-sample warning; replaces
+   the line-only count (ledger.py ~l.235). State: "closing" = last saved price (~21:00–22:30), US books.
    Game-line test: user agreed 1 Nov to WAIT — re-check ~15 Nov.
-   Done 1 Nov 11:40: "minutes when a star sits" lab test → REJECTED (`lab/star_out_minutes.py`; HISTORY.md). Teammates do
-   gain ~+1 min on average, but 11 ways of handing it out all made minutes error worse on both seasons. v1.8 stays.
+   Done 1 Nov: "minutes when a star sits" lab test REJECTED (+1 min real, but can't tell who; HISTORY.md). v1.8 stays.
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
