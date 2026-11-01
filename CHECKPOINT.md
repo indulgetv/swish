@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 12:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 12:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -74,9 +74,10 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 
 ## Latest (1 Nov)
 - News alarm built (display only, model unchanged, parity 0) and published to main 10:55.
-- 12:40: news alert cards simplified (user: "straight to the point") — per player: status, injury in plain English
-  (`injPlain`: ESPN label → meaning; report's "(back)" beats ESPN "Rest"), "Won't play / Unlikely / 50/50 · game · back
-  <date> (ESPN guess)", Out → "More minutes for X +n". Prop lines/prices removed from the alert. On branch `pending`.
+- 12:37 published: news alert cards simplified — status, injury in plain English (`injPlain`), plays/back line,
+  Out → "More minutes for X +n". No prop lines in the alert.
+- 12:50 (pending): Results → Model lab = one line per idea (tap for numbers), chips Added/Rejected/Waiting/All
+  (`labF` in localStorage, default Added); "chances honest?" + "Next to test" moved to their own panels below.
 
 ## Next steps (in order)
 A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** — display only, no credits, no model change.
@@ -84,7 +85,6 @@ A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** 
    over/under, market, on-hold. Results box "Prices moved our way on X% (avg +Y%)" + small-sample warning; replaces
    the line-only count (ledger.py ~l.235). State: "closing" = last saved price (~21:00–22:30), US books.
    Game-line test: user agreed 1 Nov to WAIT — re-check ~15 Nov.
-   Done 1 Nov: "minutes when a star sits" lab test REJECTED (+1 min real, but can't tell who; HISTORY.md). v1.8 stays.
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
@@ -92,7 +92,6 @@ A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** 
    **news alert** (code names still `alarm`: `newsAlarms`, `alarmHTML`, `updAlarm`, `setAlarmOpen`; amber bell `navAlarm`
    on Injuries). Out = full 10 s, Doubtful/Questionable = short 5 s; only news <6 h pops (shows just the new player), older
    waits folded until tip. Injuries page bottom: "Ruled out tonight" (`outTonightHTML`, hover cards `injTipHTML`). Details in HISTORY.md.
-   Clears at tip. Next: watch it on a live night, then closing-price check on Results.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.

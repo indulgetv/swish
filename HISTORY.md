@@ -564,3 +564,9 @@ but the report says "(back)", shows Back); one line "Won't play tonight / Unlike
 (ESPN guess)"; Out with SWISH minute boosts → "More minutes for <surname> +n"; Doubtful/Questionable → "props on hold".
 Removed `alarmPropHTML` and the prop-line CSS. Footer: "Lines priced before the news may be out of date — check your bookie.
 Clears at tip-off." Tested phone/tablet/desktop/ultra-wide, light+dark, no errors, no sideways scroll. Pushed to `pending`.
+
+## 1 Nov 12:50 — Model lab tidied
+User: lab list getting too long. `labPanel()` now renders each experiment as a one-line <details> (chip + idea + version),
+tap to open the before/after numbers, why and note. Filter chips Added (shipped) / Rejected / Waiting (anything else) / All,
+saved as `swish.labF`, default Added. Calibration table and "Next to test" split into their own panels (`.cols`).
+Tested 4 sizes, light/dark, no errors, no sideways scroll. Pushed to `pending`.
