@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-01T21:10:29Z",
+ "generatedAt": "2026-11-01T21:15:29Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
  "since": "2026-10-28",
  "totals": {
-  "saved": 1186,
+  "saved": 1184,
   "graded": 1044,
   "void": 10,
-  "pending": 132
+  "pending": 130
  },
  "strong": {
   "n": 29,
@@ -433,11 +433,11 @@
   },
   {
    "slate": "2026-11-01",
-   "saved": 132,
+   "saved": 130,
    "games": 4,
    "graded": 0,
    "void": 0,
-   "pending": 132,
+   "pending": 130,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -539,8 +539,10 @@
    "mktP": 0.48149,
    "edge": 0.01255,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -565,8 +567,10 @@
    "mktP": 0.54264,
    "edge": 0.0194,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -591,8 +595,10 @@
    "mktP": 0.49491,
    "edge": 0.01246,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -617,8 +623,10 @@
    "mktP": 0.5399,
    "edge": 0.01685,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -643,8 +651,10 @@
    "mktP": 0.46243,
    "edge": 0.03759,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -669,8 +679,10 @@
    "mktP": 0.53791,
    "edge": 0.01742,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -695,8 +707,10 @@
    "mktP": 0.42654,
    "edge": 0.01771,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -721,8 +735,10 @@
    "mktP": 0.44264,
    "edge": 0.0119,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -747,8 +763,10 @@
    "mktP": 0.52354,
    "edge": 0.02043,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -768,67 +786,14 @@
    "line": 7.5,
    "side": "over",
    "price": -110,
-   "projection": 9.234,
-   "modelP": 0.52677,
+   "projection": 8.713,
+   "modelP": 0.5178,
    "mktP": 0.49277,
-   "edge": 0.034,
-   "value": false,
-   "verdict": "some",
-   "flags": [],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-01",
-   "game": "401909906",
-   "away": "TOR",
-   "home": "LAL",
-   "tipoff": "2026-11-02T02:00Z",
-   "player": "Matisse Thybulle",
-   "team": "LAL",
-   "market": "REB",
-   "line": 2.5,
-   "side": "over",
-   "price": 128,
-   "projection": 2.526,
-   "modelP": 0.42483,
-   "mktP": 0.41058,
-   "edge": 0.01425,
-   "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-01",
-   "game": "401909906",
-   "away": "TOR",
-   "home": "LAL",
-   "tipoff": "2026-11-02T02:00Z",
-   "player": "Ziaire Williams",
-   "team": "LAL",
-   "market": "PTS",
-   "line": 8.5,
-   "side": "over",
-   "price": -125,
-   "projection": 11.224,
-   "modelP": 0.56075,
-   "mktP": 0.52266,
-   "edge": 0.03809,
+   "edge": 0.02503,
    "value": false,
    "verdict": "check",
    "flags": [
-    "status",
-    "back_injury"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -854,8 +819,10 @@
    "mktP": 0.51622,
    "edge": 0.01879,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -880,8 +847,10 @@
    "mktP": 0.48674,
    "edge": 0.01537,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -906,8 +875,10 @@
    "mktP": 0.43475,
    "edge": 0.01304,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -932,8 +903,10 @@
    "mktP": 0.51308,
    "edge": 0.03265,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -958,8 +931,10 @@
    "mktP": 0.47559,
    "edge": 0.03567,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -984,8 +959,10 @@
    "mktP": 0.52561,
    "edge": 0.01892,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1010,8 +987,10 @@
    "mktP": 0.44963,
    "edge": 0.01629,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1036,8 +1015,10 @@
    "mktP": 0.52527,
    "edge": 0.01211,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1062,8 +1043,10 @@
    "mktP": 0.45812,
    "edge": 0.0163,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -2651,6 +2634,62 @@
    "modelP": 0.54541,
    "mktP": 0.53511,
    "edge": 0.01031,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-11-01",
+   "game": "401909903",
+   "away": "BOS",
+   "home": "ORL",
+   "tipoff": "2026-11-01T20:30Z",
+   "player": "Jase Richardson",
+   "team": "ORL",
+   "market": "PTS",
+   "line": 8.5,
+   "side": "over",
+   "price": -112,
+   "projection": 9.282,
+   "modelP": 0.51488,
+   "mktP": 0.4959,
+   "edge": 0.01898,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-11-01",
+   "game": "401909903",
+   "away": "BOS",
+   "home": "ORL",
+   "tipoff": "2026-11-01T20:30Z",
+   "player": "Franz Wagner",
+   "team": "ORL",
+   "market": "REB",
+   "line": 6.5,
+   "side": "over",
+   "price": 115,
+   "projection": 6.747,
+   "modelP": 0.45319,
+   "mktP": 0.43538,
+   "edge": 0.01781,
    "value": false,
    "verdict": "check",
    "flags": [
