@@ -24,9 +24,8 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
 - Results so far (4 nights, 28–31 Oct, 31 games): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
-  Pick check (`python3 lab/check_picks.py`, 1 Nov): SWISH ≈ market (Brier .2470 vs .2467), raw model worse (.2556).
-  Model slightly right when it disagrees by <5 pts, badly wrong when >10 pts — and strong picks come from big gaps.
-  Best-fit model share ~5% (range −15..+25%). Overs hit 46.6% vs market's 49.7%. PTS worst market, REB ≈ market.
+  `lab/check_picks.py`: SWISH ≈ market, raw model worse; model wrong on >10-pt gaps (where strong picks come from);
+  best-fit model share ~5%. Overs hit 46.6% vs market 49.7%. PTS worst market, REB ≈ market.
   Lines moved toward model 13/42. (Live minutes pattern did NOT hold over a full season — no shrink.)
 
 ## Site features (current UI)
