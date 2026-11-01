@@ -493,3 +493,11 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
 - 06:20 decision: no v1.9. v1.8 re-run on saved picks, model-side £10 by |pureO−mktO|: <.03 331 bets 53.8% +£56; .03–.06
   301 52.5% −£55; .06–.10 258 51.2% −£100; .10–.15 109 46.8% −£111; .15–.20 31 58.1% +£25; .20+ 13 61.5% +£31.
   The "big gaps wrong" finding came from v1.0–v1.6 (no stretch). Next: fair line + min odds.
+
+## 2026-11-01 06:30 — "Check your bookie" (published to main, display only)
+- index.html: drawer box after the odds row — minimum odds worth taking for Over/Under at US line −1/0/+1, SWISH fair line
+  (half-line nearest 50%). Min odds = ceil(100·1.03/p)/100 with p = SWISH chance; other lines = modelO shifted by the
+  projection curve's change (`curveOver`, unstretched), clamped 3–97%. `fmtDec` respects the odds setting.
+  Best picks/Top overs rows: "US <price> · worth it X+"; table cell tooltip shows both. Top overs help text mentions it.
+- Model unchanged: parity 0 (b8d724b, clock 2026-10-30T22:30Z, 344 props). Playwright 4 sizes × light/dark: no overflow,
+  no JS errors (only blocked external fonts/logos). Guide: new section "Checking your bookie".

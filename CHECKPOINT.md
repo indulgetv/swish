@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 06:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 06:30 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -85,7 +85,8 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected: strong needs model ≥20 pts from market (edge 6 at weight .3); under v1.8 re-run, 20+ gaps
    went 8–5, 15–20 18–13 (tiny n). Re-check everything ~15 Nov (~2,500 props) with `lab/check_picks.py`.
-2. **Next to build:** fair line + minimum odds on every prop (bet365 check by eye), then news alarm, then closing-price check.
+2. Done 1 Nov: "Check your bookie" box (drawer) + "worth it at" in pick lists (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%).
+   **Next to build:** news alarm (25+ min player out → teammates who benefit), then closing-price check on Results.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
    PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).
