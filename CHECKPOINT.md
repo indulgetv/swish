@@ -50,13 +50,12 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - cron-job.org (user's account, Europe/London) POSTs to GitHub with a fine-grained token (indulgetv/swish only; may expire
   27 Jan 2027 — renew + paste into all 4 jobs). Jobs: 07:05 `update-data.yml` {"ref":"main","inputs":{"mode":"full"}};
   13:50, 19:50, 01:30 `live-loop.yml` {"ref":"main"} (5-min rounds for ~5.8 h; loops queue, never clash).
-  Header X-GitHub-Api-Version 2022-11-28 sunsets 10 Mar 2028.
-- GitHub's own timers in update-data.yml fire only ~1 in 5 slots, often late — best-effort backup, not our bug.
+- GitHub's own timers in update-data.yml are unreliable — backup only.
 - Odds: free plan 500 credits/month, no rollover. Early prices 14:30–16:00 (games before 21:30), main 21:00–22:30,
   late re-price of ONE game when a 25+ min player is newly Out/Doubtful (max 4/night). Only PTS/REB/AST bought.
   Times in update.py are UTC — shift them when UK clocks go forward in March.
-- Injuries: ESPN note beats ESPN status when it names tonight (`apply_notes`); "confirmed" after note agrees or 3 checks;
-  non-injury notes (contracts, G League…) hidden from news.
+- Injuries: ESPN note beats status when it names tonight (`apply_notes`); non-injury notes hidden.
+- UK player props are NOT on The Odds API (checked 31 Oct); US prices stay the reference.
 
 ## Working rules (from the user)
 - Free only. Never invent odds/injuries/lineups/stats/results; label missing or stale data. No "guaranteed".
@@ -75,7 +74,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   a Claude Doc — edit with the Docs tools) current.
 
 ## Latest (1 Nov)
-- News alarm built (display only, model unchanged, parity 0) and published to main 10:55 (user said "publish now").
+- News alarm built (display only, model unchanged, parity 0) and published to main 10:55.
   Details in HISTORY.md.
 
 ## Next steps (in order)
@@ -90,13 +89,9 @@ A. **NEXT (user agreed 1 Nov, new chat): lab test — minutes when a star sits.*
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
 2. Done 1 Nov: "Check your bookie" box + "worth it at" (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%) and the
    **news alarm** (`newsAlarms`, `alarmHTML`, `updAlarm`; `#alarm` above every page, amber Props nav badge `navAlarm`):
-   25+ min regular who played the team's last game, Out/Doubtful, game not started. Out → teammates SWISH raised
-   (before→after); if nobody raised (roster already fills 240) → top-3-minute teammates, labelled. Doubtful → his own
-   lines. Each line: line, "Over X+" worth-it, priced before/after news (fetched vs injury `updated`); tap → prop drawer.
+   details in HISTORY.md.
    Clears at tip. Next: watch it on a live night, then closing-price check on Results.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
-4. Done 31 Oct: UK player props are NOT on The Odds API (two checks, 0 credits). US prices stay the reference;
-   `uk-props-test.yml` kept, hand-run only.
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
 8. Later lab tests: usage boost, 240-min cap hiding gains when a star sits, bench AST, back-to-backs.
