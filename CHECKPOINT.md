@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 11:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 11:15 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -78,7 +78,11 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   Details in HISTORY.md.
 
 ## Next steps (in order)
-A. **NEXT: closing-price check on Results** (no credits, saved prices): did SWISH's picks beat the later price?
+A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** — display only, no credits, no model change.
+   Picks keep openLine/openOver/openUnder (first save) + line/over/under at lock (ledger.py). Per pick: change in no-vig
+   chance for OUR side from first save → lock (counts line AND odds-only moves). Split strong/leans, over/under, market,
+   on-hold. Results box "Prices moved our way on X% (avg +Y%)", plain English, small-sample warning; replaces the
+   line-only count (ledger.py ~l.235). Limits to state: "closing" = last saved price (~21:00–22:30), US books.
    Game-line test: user agreed 1 Nov to WAIT — re-check ~15 Nov.
    Done 1 Nov 11:40: "minutes when a star sits" lab test → REJECTED (`lab/star_out_minutes.py`; HISTORY.md). Teammates do
    gain ~+1 min on average, but 11 ways of handing it out all made minutes error worse on both seasons. v1.8 stays.
