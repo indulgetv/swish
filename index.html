@@ -4740,7 +4740,7 @@ function viewResults(){
       <div class="rpad">
         <p>${skillTxt}${A.skillSwish == null ? "." : ` (Brier score ${A.brierSwish} vs ${A.brierMarket}; lower is better).`} ${modelTxt}</p>
         <p class="dnote">This is the most important number. It compares SWISH's chances with the bookmakers' against what actually happened, on every graded prop — win or lose. Under about 1,000 props, differences under ±2% are noise.</p>
-        <p>${R.clv.moved ? `Line moved after SWISH saved the pick on <b>${R.clv.moved}</b> props — towards SWISH's side on <b>${R.clv.toward}</b> (${pct(R.clv.toward / R.clv.moved, 0)}). Above 50% is a good sign.` : `<b>Line movement:</b> not measurable yet — lines are only fetched once before tip-off. A second fetch near tip-off would show whether the market moves SWISH's way.`}</p>
+        <p>${clvLine(R.clv)}</p>
       </div>
     </div>
     <div class="panel">
@@ -4764,6 +4764,8 @@ function viewResults(){
       </tbody></table>
       <p class="dnote rpad">Every graded prop judged on its <b>over</b>, at the over price, £${R.stake} a pick. "Top overs" = the overs SWISH rates at least as likely as the bookmaker, with no warnings — the same list as the Props page. If "Landed" keeps matching "SWISH said", the confidence is honest. Needs 50+ picks per row before it means much.</p>
     </div>`; })() : ""}
+
+  ${clvPanel(R.clv)}
 
   ${labPanel()}
 
@@ -4792,6 +4794,32 @@ function viewResults(){
       <td class="dk ${(p.profit || 0) >= 0 ? "pos" : "negr"}">${p.profit == null ? "" : gbp(p.profit)}</td></tr>`).join("")}</tbody></table></div>
   </div>
   <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
+}
+
+/* ---- Closing price check (display only). Per pick: the no-vig chance of SWISH's side, on the line first saved,
+   at the first saved price vs the last price saved before tip-off (US books). Built in scripts/ledger.py (clv_summary). */
+const clvPts = v => v == null ? "—" : `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v * 100).toFixed(1)} pts`;
+function clvLine(C) {
+  if (!C || !C.leans) return "";
+  const L = C.leans;
+  if (!L.n) return `<b>Did prices move our way?</b> Not measurable yet — needs a pick whose price was fetched again before tip-off.`;
+  return `<b>Did prices move our way?</b> Before tip-off the price moved towards SWISH's side on <b>${pct(L.ourWay / L.n, 0)}</b> of ${L.n} picks and against it on <b>${pct(L.against / L.n, 0)}</b> (average ${clvPts(L.avg)}).${L.n < 300 ? ` <span style="color:var(--muted)">Small sample — needs a few hundred picks to mean much.</span>` : ""}`;
+}
+function clvPanel(C) {
+  if (!C || !C.leans || !C.leans.n) return "";
+  const row = (lab, r) => !r || !r.n ? "" : `<tr><td class="l">${lab}</td><td>${r.n}</td><td>${pct(r.ourWay / r.n, 0)}</td><td>${pct(r.against / r.n, 0)}</td><td class="${r.avg > 0.0005 ? "pos" : r.avg < -0.0005 ? "negr" : ""}"><b>${clvPts(r.avg)}</b></td></tr>`;
+  return `<div class="panel" style="margin-bottom:var(--sec)">
+    <div class="panel-h"><h2 class="h">Did prices move our way?</h2><span class="sub">first saved price vs last price before tip-off</span></div>
+    <table class="rt"><thead><tr><th class="l">Picks</th><th>Checked</th><th>Our way</th><th>Against</th><th>Avg move</th></tr></thead><tbody>
+    ${row("<b>All SWISH leans</b>", C.leans)}
+    ${row("Strong value", C.strong)}
+    ${row("Overs", C.over)}${row("Unders", C.under)}
+    ${["PTS", "REB", "AST"].map(m => row(MARKET_NAMES[m], C.byMarket[m])).join("")}
+    ${row("No warnings", C.clear)}${row("On hold", C.onHold)}
+    ${row("No lean <small>comparison</small>", C.noLean)}
+    </tbody></table>
+    <p class="dnote rpad">The sharpest test of a betting model: if the bookies' price keeps moving towards SWISH's side after we save a pick, SWISH is spotting things early. "Avg move" = change in the bookies' fair chance (margin removed) of SWISH's side winning, on the line we first saw — positive is good. Moves under ${(C.tol * 100).toFixed(1)} pts count as no move.${C.lineMoved ? ` On ${C.lineMoved} picks the line itself moved, so that change is estimated.` : ""} Only picks whose price was fetched again later are checked; "last price" is the last one SWISH saved (usually 21:00–22:30), not the true closing price. US books (UK prop prices aren't available).${C.strong && !C.strong.n ? " No strong-value pick has had a second price yet." : ""}</p>
+  </div>`;
 }
 
 /* ---- News alert (display only — the model, chances and picks are unchanged).

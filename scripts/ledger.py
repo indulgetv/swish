@@ -9,7 +9,8 @@ Files
 Rules
   * A pick is (re)saved on every run while its game hasn't started, so it always holds the
     latest pre-game line and injury picture. Once the game starts it is LOCKED and never changes.
-  * "open*" fields keep the first line SWISH saw, so we can measure line movement (closing line value).
+  * "open*" fields keep the first line and prices SWISH saw (openFetched = when those prices were bought), so the
+    Results page can check whether the price moved our way before tip-off (closing price check).
   * Grading uses the player's ESPN game log: win / loss / push against the line, or "void" if he didn't play.
 """
 from __future__ import annotations
@@ -83,10 +84,12 @@ def upsert(live: dict, data_dir: Path, now: datetime | None = None, backfilled: 
         p["savedAt"] = _iso(now)
         p["backfilled"] = backfilled
         if old:
-            for f in ("openLine", "openOver", "openUnder", "firstSaved"):
-                p[f] = old.get(f)
+            for f in ("openLine", "openOver", "openUnder", "firstSaved", "openFetched"):
+                if f in old:
+                    p[f] = old.get(f)
         else:
-            p.update(openLine=p["line"], openOver=p["over"], openUnder=p["under"], firstSaved=_iso(now))
+            p.update(openLine=p["line"], openOver=p["over"], openUnder=p["under"], firstSaved=_iso(now),
+                     openFetched=p.get("fetched"))
         if backfilled:
             p["locked"] = True
         book[k] = p
@@ -193,6 +196,80 @@ def _overs_summary(graded):
             "tiers": {t: block([o for o in listed if o["tier"] == t]) for t in ("high", "med", "low")}}
 
 
+# ----------------------------------------------------------------------------- closing price check
+CLV_TOL = 0.005   # moves smaller than half a percentage point count as "no real move"
+
+
+def _novig_over(over, under):
+    if over is None or under is None:
+        return None
+    a, b = model.american_to_prob(over), model.american_to_prob(under)
+    return a / (a + b) if a + b > 0 else None
+
+
+def _inv_norm(p: float) -> float:
+    lo, hi = -8.0, 8.0
+    for _ in range(80):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if model.norm_cdf(mid) < p else (lo, mid)
+    return (lo + hi) / 2
+
+
+def clv_of(p):
+    """Closing price check for one pick. Compares the no-vig chance of OUR side, on the line we first saw, at the
+    first saved price vs the last price saved before tip-off. Returns None when there was no newer price."""
+    if not p.get("locked") or p.get("backfilled") or p.get("side") not in ("over", "under"):
+        return None
+    o_open = _novig_over(p.get("openOver"), p.get("openUnder"))
+    o_close = _novig_over(p.get("over"), p.get("under"))
+    if o_open is None or o_close is None or p.get("openLine") is None:
+        return None
+    # was there a newer price fetch after the first save? (openFetched exists from 1 Nov; older picks: fetch time)
+    first = p.get("openFetched") or p.get("firstSaved")
+    if not p.get("fetched") or not first or p["fetched"] <= first:
+        return None
+    est = False
+    if p["openLine"] != p["line"]:
+        # line moved: estimate the closing chance on OUR (opening) line with a normal curve around the closing line
+        sd = p.get("sd") or 0
+        if sd <= 0 or not 0.001 < o_close < 0.999:
+            return None
+        mean = p["line"] + sd * _inv_norm(o_close)
+        o_close = 1 - model.norm_cdf((p["openLine"] - mean) / sd)
+        est = True
+    ours = (lambda x: x) if p["side"] == "over" else (lambda x: 1 - x)
+    return {"move": ours(o_close) - ours(o_open), "lineMoved": est}
+
+
+def _clv_block(rows):
+    n = len(rows)
+    mv = [r["move"] for r in rows]
+    return {"n": n, "ourWay": sum(1 for m in mv if m > CLV_TOL), "against": sum(1 for m in mv if m < -CLV_TOL),
+            "avg": round(sum(mv) / n, 4) if n else None}
+
+
+def clv_summary(allp):
+    rows = []
+    for p in allp:
+        c = clv_of(p)
+        if c:
+            rows.append({**c, "value": bool(p.get("value")), "lean": p.get("lean"), "side": p["side"],
+                         "market": p["market"], "hold": bool(p.get("flags"))})
+    leaned = [r for r in rows if r["lean"] != "none"]
+    return {
+        "leans": _clv_block(leaned),
+        "strong": _clv_block([r for r in rows if r["value"]]),
+        "noLean": _clv_block([r for r in rows if r["lean"] == "none"]),
+        "over": _clv_block([r for r in leaned if r["side"] == "over"]),
+        "under": _clv_block([r for r in leaned if r["side"] == "under"]),
+        "onHold": _clv_block([r for r in leaned if r["hold"]]),
+        "clear": _clv_block([r for r in leaned if not r["hold"]]),
+        "byMarket": {m: _clv_block([r for r in leaned if r["market"] == m]) for m in model.MARKETS},
+        "lineMoved": sum(1 for r in leaned if r["lineMoved"]),
+        "tol": CLV_TOL,
+    }
+
+
 def summarise(data_dir: Path, now: datetime | None = None) -> dict:
     now = now or _now()
     pdir = data_dir / PICKS_DIR_NAME
@@ -232,9 +309,6 @@ def summarise(data_dir: Path, now: datetime | None = None) -> dict:
     # projection accuracy: SWISH projection vs the bookmaker line as a guess of the actual stat
     acc = [p for p in graded if p.get("actual") is not None]
     mae = lambda f: round(sum(abs(f(p) - p["actual"]) for p in acc) / len(acc), 3) if acc else None
-    # line movement (closing line value) — only picks whose line changed between first save and lock
-    moved = [p for p in allp if p.get("locked") and p.get("openLine") is not None and p["openLine"] != p["line"]]
-    toward = [p for p in moved if (p["line"] > p["openLine"]) == (p["side"] == "over")]
     by_market = {m: _record([p for p in graded if p["market"] == m and p.get("lean") != "none"]) for m in model.MARKETS}
     versions = sorted({p.get("modelVersion") for p in allp if p.get("modelVersion")})
     by_version = {v: {"strong": _record([p for p in graded if p.get("modelVersion") == v and p.get("value")]),
@@ -255,7 +329,7 @@ def summarise(data_dir: Path, now: datetime | None = None) -> dict:
                      "skillSwish": skill(b_swish), "skillModel": skill(b_model)},
         "calibration": buckets,
         "projection": {"n": len(acc), "maeSwish": mae(lambda p: p["projection"]), "maeLine": mae(lambda p: p["line"])},
-        "clv": {"moved": len(moved), "toward": len(toward)},
+        "clv": clv_summary(allp),
         "byMarket": by_market, "byVersion": by_version, "days": days,
         "overs": _overs_summary(graded),
         "recent": [{k: p.get(k) for k in keep} for p in recent],
