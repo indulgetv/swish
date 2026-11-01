@@ -538,3 +538,13 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   cancels auto; closing marks keys seen (`alarmSeen`, last 60). Seen → folded bar, Show/Hide manual. Reduce motion/calm = no animation.
 - Tested today's data (Curry + Green Out, LAC@GSW): 4 sizes × 2 themes, no JS errors/overflow; open→folded at 10 s, refresh stays
   folded, manual open stays, hover pauses then folds. Guide "News alarm" section updated.
+
+## 2026-11-01 12:00 — News alert rules + "Ruled out tonight" (published to main)
+- User: Curry news was 31 Oct 19:48 (picked up 19:50), game 01:30 2 Nov → 16 h old, outside the 6 h "new" window.
+- Renamed visible "News alarm" → "News alert". Questionable regulars (25+ min, played last game) now alert too.
+  Out = full card 10 s; Doubtful/Questionable = short one-line card 5 s (`ALARM_SHORT_MS`, `.shortonly` hides footer).
+  Auto-open only for unseen keys with news ≤ NEW_NEWS_H (6 h, `fresh`); pop-ups show only those (`.hot`), header leads with them.
+- Injuries page: "Ruled out tonight" panel after the status bar — Out regulars (≥12 min or unknown) per unfinished game by
+  tip-off; red = fresh, grey = long-term (>48 h), "new" (<6 h), "unconfirmed"; "+N rarely play". Tap game → jump.
+- Tests: old news stays folded; clock 31 Oct 20:30 → full 10 s then folds; fake fresh Questionable → 5 s, only that card;
+  Show → all cards. 4 sizes × 2 themes × (Injuries, Props): no overflow, no JS errors. Guide updated.
