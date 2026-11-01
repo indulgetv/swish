@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 06:10 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 06:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -81,11 +81,11 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   parity 0, no version bump — pre-tip unchanged), sidebar/game jump fix. Guide updated 1 Nov. Details in HISTORY.md.
 
 ## Next steps (in order)
-1. **Game-line test (1 Nov) — user to decide ship or not:** `lab/model_gameline_test.py` (env knobs) adds blowout minutes
-   (spread>9, 0.25) + REB/AST × (team implied/115)^0.5. Lab 2025-26: better in all 4 runs but tiny; saved real picks
-   (`lab/backtest_saved.py`): no gain vs market. If shipped → v1.9 in BOTH files (live games have `espnLine`), parity, guide.
-   Re-run of v1.8 rules on all 4 nights: strong 2–2 (the 12–17 came mostly from older versions).
-   Bigger ideas next: fair line + min odds on every prop, news alarm, trust model less on big gaps, beat-closing-price.
+1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
+   (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
+   "Big gap = hold" rejected: strong needs model ≥20 pts from market (edge 6 at weight .3); under v1.8 re-run, 20+ gaps
+   went 8–5, 15–20 18–13 (tiny n). Re-check everything ~15 Nov (~2,500 props) with `lab/check_picks.py`.
+2. **Next to build:** fair line + minimum odds on every prop (bet365 check by eye), then news alarm, then closing-price check.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
    PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).

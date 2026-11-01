@@ -490,3 +490,6 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   REB Brier .24139→.24131 / .23893→.23837; AST .24225→.24218 / .24033→.24021; no-lineups runs also better. 2024-25 has no lines.
 - Saved picks (1,043, last live.json before tip, real prices): v1.8 model−market +.00352 → +.00359; strong 2–2 → 3–2
   (+Risacher REB o4.5 W); all −£153.58 → −£168.23. Logged in lab/experiments.json (data/lab.js NOT rebuilt — lab privacy pending).
+- 06:20 decision: no v1.9. v1.8 re-run on saved picks, model-side £10 by |pureO−mktO|: <.03 331 bets 53.8% +£56; .03–.06
+  301 52.5% −£55; .06–.10 258 51.2% −£100; .10–.15 109 46.8% −£111; .15–.20 31 58.1% +£25; .20+ 13 61.5% +£31.
+  The "big gaps wrong" finding came from v1.0–v1.6 (no stretch). Next: fair line + min odds.
