@@ -75,8 +75,8 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   a Claude Doc — edit with the Docs tools) current.
 
 ## Latest (1 Nov)
-- News alarm built (display only, model unchanged, parity 0) → pushed to branch `pending`, publishes at the next loop
-  start (13:50) unless user says "publish now". Details in HISTORY.md.
+- News alarm built (display only, model unchanged, parity 0) and published to main 10:55 (user said "publish now").
+  Details in HISTORY.md.
 
 ## Next steps (in order)
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
