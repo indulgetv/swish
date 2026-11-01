@@ -1426,6 +1426,22 @@ html.dark .gouter.gx:hover > .ana,html.dark .gouter.gx:hover > .ij{box-shadow:0 
 html.dark .injbar .ib{background:rgba(38,42,49,.9)}
 html.dark .injbar .ib.hot{background:rgba(239,59,72,.1)}
 .newsfeed{margin-top:var(--sec)}
+.outtn{margin-top:var(--sec)}
+.ot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:10px;padding:2px 14px 14px}
+.ot-g{border:1px solid var(--line);border-radius:12px;padding:10px 12px 4px;background:var(--surface2);min-width:0}
+.ot-h{display:flex;justify-content:space-between;align-items:center;width:100%;font:700 13.5px var(--sans);color:var(--ink);background:none;border:0;padding:0 0 8px;cursor:pointer}
+.ot-h .num{color:var(--muted);font-weight:600;font-size:12.5px}
+.ot-h:hover .num{color:var(--red)}
+.ot-t{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px dashed var(--line)}
+.ot-t > span:first-child{margin-top:2px}
+.ot-ps{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.ot-p{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--red-soft);border:1px solid var(--red-line);color:var(--ink)}
+.ot-p small{color:var(--muted);font-weight:600;font-size:11px}
+.ot-p em{font-style:normal;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--red)}
+.ot-p em.lt{color:var(--faint)} .ot-p em.uc{color:var(--amber)}
+.ot-p.new{box-shadow:0 0 0 2px var(--red-line)}
+.ot-p.lt{background:var(--sunk);border-color:var(--line);color:var(--muted);font-weight:500}
+.ot-none,.ot-b{font-size:12px;color:var(--muted);align-self:center}
 .nrow{display:flex;align-items:center;gap:12px;padding:11px 20px;border-top:1px solid var(--line)}
 .nrow .nr-m{flex:1;min-width:0}
 .nrow .nm{font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -2511,7 +2527,7 @@ html:not(.dark) button.tag.red:hover{background:#fbd3d7}
 html.calm .sg .t.ht .htl::before,html.calm .sg .t.ht .htl span{animation:none}
 @media (prefers-reduced-motion:reduce){.sg .t.ht .htl::before,.sg .t.ht .htl span{animation:none}}
 
-/* ---- News alarm banner (every page) ---- */
+/* ---- News alert banner (every page) ---- */
 #alarm:empty{display:none}
 .alarm{position:relative;margin:0 0 14px;border:1px solid var(--amber-line);background:var(--amber-soft);border-radius:14px;overflow:hidden;transition:box-shadow .5s var(--ease)}
 .alarm.enter{animation:alDrop .7s cubic-bezier(.2,1.35,.4,1) both}
@@ -2562,6 +2578,9 @@ html.calm .al-bell svg,.alarm:not(.open) .al-bell svg{animation:none}
 .al-h small{flex-basis:100%;color:var(--muted);font-size:11.5px;order:5}
 .al-go{margin-left:auto;font:inherit;font-size:12px;font-weight:600;color:var(--red);background:none;border:1px solid var(--line2);border-radius:99px;padding:2px 10px;cursor:pointer}
 .al-why{margin:8px 0 6px;font-size:12.5px;color:var(--ink2)}
+.al-short .al-why{margin:6px 0 0;color:var(--muted)}
+.alarm.auto .al-c:not(.hot),.alarm.shortonly .al-foot{display:none}
+.al-short{padding:8px 12px}
 .al-r{padding:7px 0;border-top:1px dashed var(--line)}
 .al-n{display:flex;align-items:baseline;gap:8px;font-size:13px;margin-bottom:5px}
 .al-n small{color:var(--over);font-weight:700;font-size:11.5px}
@@ -4478,8 +4497,27 @@ function viewInjuries(){
         ? `<b>New tonight:</b> ${nw.slice(0, 4).map(i => `${esc(i.player)} (${i.team}) ${esc(i.status.toLowerCase())} · ${timeFmt(i.updated)}`).join(" · ")}${nw.length > 4 ? ` · +${nw.length - 4} more below` : ""}`
         : `<b>No new injury updates</b> for tonight's games in the last ${NEW_NEWS_H} hours · checked ${injCheckedAt() ? timeFmt(injCheckedAt()) : "—"}`; })()}</div>` : `<div class="notice"><b>Sample data.</b> These injuries and fill-in estimates are invented. When live data is connected, each entry will come from the official NBA injury report with its time of update. Starting lineups are only confirmed shortly before tip-off.</div>`}
   ${injStatusBar()}
+  ${outTonightHTML()}
   <div class="legend2">${["Out","Doubtful","Questionable","Probable"].map(stPill).join("")}</div>
   ${GAMES.map(injuryCard).join("")}`;
+}
+/* "Ruled out tonight": every regular (12+ min) listed Out for tonight's games that haven't finished, by tip-off time.
+   new = posted in the last 6 hours; long-term = the news is over 48 hours old; unconfirmed = only one source so far. */
+function outTonightHTML(){
+  if (!IS_LIVE) return "";
+  const games = GAMES.filter(g => g.state !== "post").sort((a, b) => new Date(a.tipoff) - new Date(b.tipoff));
+  if (!games.length) return "";
+  const side = t => {
+    const outs = injuriesFor(t).filter(i => i.status === "Out");
+    const lt = i => injAgeH(i) > OLD_INJ_H;   // long-term: greyed and listed after tonight's fresher absences
+    const reg = outs.filter(i => isRegular(i) !== false).map(i => ({i, m: usualMin(i.player)})).sort((a, b) => lt(a.i) - lt(b.i) || (b.m || 0) - (a.m || 0));
+    const bench = outs.length - reg.length;
+    const chip = ({i, m}) => `<span class="ot-p${isNewNews(i) ? " new" : lt(i) ? " lt" : ""}" title="${esc(i.detail || "")}${i.updated ? ` · posted ${dateFmt(i.updated)} ${timeFmt(i.updated)}` : ""}">${esc(i.player)}${m ? `<small class="num">${Math.round(m)} min</small>` : ""}`
+      + `${isNewNews(i) ? `<em>new</em>` : injAgeH(i) > OLD_INJ_H ? `<em class="lt">long-term</em>` : ""}${i.confirmed === false ? `<em class="uc">unconfirmed</em>` : ""}</span>`;
+    return `<div class="ot-t">${tid(t, "xs")}<div class="ot-ps">${reg.length ? reg.map(chip).join("") : `<span class="ot-none">nobody</span>`}${bench ? `<span class="ot-b">+${bench} rarely play${bench > 1 ? "" : "s"}</span>` : ""}</div></div>`;
+  };
+  return `<div class="panel outtn"><div class="panel-h"><h2 class="h">Ruled out tonight</h2><span class="sub">regulars (${REGULAR_MIN}+ min a game) · <b>new</b> = last ${NEW_NEWS_H} hours</span></div>
+    <div class="ot-grid">${games.map(g => `<div class="ot-g"><button class="ot-h" data-goto="${g.id}"><span>${g.away} @ ${g.home}</span><span class="num">${g.state === "in" ? "live" : timeFmt(g.tipoff)} ›</span></button>${side(g.away)}${side(g.home)}</div>`).join("")}</div></div>`;
 }
 function injStatusBar(){
   const checked = injCheckedAt(), next = nextInjuryCheck(), news = injNews();
@@ -4667,7 +4705,7 @@ function viewResults(){
   <p class="dnote">Model ${esc(R.modelVersion)} · scorecard updated ${dateFmt(R.generatedAt)} ${timeFmt(R.generatedAt)}. Profit assumes £${R.stake} on every pick at the saved US market price — your bookmaker's prices may differ.</p>`;
 }
 
-/* ---- News alarm (display only — the model, chances and picks are unchanged).
+/* ---- News alert (display only — the model, chances and picks are unchanged).
    A 25+ min regular (played in his team's last game) is Out or Doubtful for a game that hasn't started:
    show who gains minutes, SWISH's projection before → after the news, whether the line was priced before the news,
    and the lowest odds worth taking for the Over. Tap a line to open that prop. Clears when the game tips off. */
@@ -4677,7 +4715,7 @@ function newsAlarms(){
   GAMES.filter(g => (!g.state || g.state === "pre") && new Date(g.tipoff) > now).forEach(g => [g.away, g.home].forEach(t => {
     const rows = PLAYERS.filter(pl => pl.team === t && pl.cur);
     const lastD = rows.flatMap(r => r.cur.map(x => x.d)).filter(Boolean).sort().pop();
-    rows.filter(r => (r.status === "Out" || r.status === "Doubtful") && r.expMin0 >= KEY_MIN && lastD && r.cur.some(x => x.d === lastD))
+    rows.filter(r => ["Out", "Doubtful", "Questionable"].includes(r.status) && r.expMin0 >= KEY_MIN && lastD && r.cur.some(x => x.d === lastD))
       .sort((a, b) => b.expMin0 - a.expMin0).forEach(r => {
         const inj = injuryOf(r.name) || {}, news = inj.updated || inj.since || null;
         const props = ALL.filter(p => p.game === g.id && p.team === t);
@@ -4695,11 +4733,15 @@ function newsAlarms(){
         const lines = who.slice(0, 4).map(pl => ({pl, gain: mode === "gain" ? pl.minBoost.gain : 0,
           props: props.filter(p => p.player === pl.name).sort((a, b) => MARKETS.indexOf(a.market) - MARKETS.indexOf(b.market))}))
           .filter(x => x.props.length);
+        // Out = full alert with teammates; Doubtful/Questionable = a short one-line alert (his own lines are on hold).
+        // fresh = the news is under NEW_NEWS_H hours old; only fresh news ever pops open by itself.
+        const fresh = !!news && (now - new Date(news)) / 3.6e6 <= NEW_NEWS_H;
         out.push({key: `${g.id}|${r.name}|${r.status}`, g, team: t, name: r.name, status: r.status, min: r.expMin0, news, detail: inj.detail || "",
-                  lines, mode, more: mode === "gain" ? Math.max(0, who.length - 4) : 0});
+                  lines, mode, more: mode === "gain" ? Math.max(0, who.length - 4) : 0, short: r.status !== "Out", fresh});
       });
   }));
-  return out;
+  const rank = {Out: 0, Doubtful: 1, Questionable: 2};
+  return out.sort((a, b) => rank[a.status] - rank[b.status] || new Date(a.g.tipoff) - new Date(b.g.tipoff) || b.min - a.min);
 }
 function alarmPropHTML(p, news){
   const before = p.role && p.role.applied ? p.projection - p.role.value : null;
@@ -4713,13 +4755,19 @@ function alarmPropHTML(p, news){
 }
 function alarmHTML(list){
   if (!list.length) return "";
-  const head = list.map(a => `${a.name} ${a.status.toLowerCase()}`).slice(0, 3).join(" · ") + (list.length > 3 ? ` +${list.length - 3} more` : "");
+  const seenNow = alarmSeen(), hot = a => a.fresh && !seenNow.has(a.key) ? " hot" : "";
+  const head = [...list].sort((a, b) => !!hot(b) - !!hot(a)).map(a => `${a.name} ${a.status.toLowerCase()}`).slice(0, 3).join(" · ") + (list.length > 3 ? ` +${list.length - 3} more` : "");
   const card = (a, i) => {
     const tip = timeFmt(a.g.tipoff);
+    if (a.short) return `<div class="al-c al-short${hot(a)}" style="--i:${i}">
+      <div class="al-h">${tid(a.team, "xs")}<b>${esc(a.name)}</b><span class="st ${a.status.toLowerCase()}">${a.status}</span>
+        <small class="num">${Math.round(a.min)} min usual · ${a.g.away} @ ${a.g.home} ${tip}${a.news ? ` · news ${timeFmt(a.news)}` : ""}${a.fresh ? "" : " · older news"}</small>
+        <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
+      <p class="al-why">SWISH still assumes he plays — his lines are on hold until his status is clear.</p></div>`;
     const body = a.lines.length ? a.lines.map(x => `<div class="al-r"><div class="al-n"><b>${esc(x.pl.name)}</b>${x.gain ? `<small class="num">+${x.gain.toFixed(1)} min</small>` : a.mode === "doubt" ? `<small class="hold">on hold</small>` : `<small class="hold">${Math.round(x.pl.expMin)} min</small>`}</div><div class="al-ps">${x.props.map(p => alarmPropHTML(p, a.news)).join("")}</div></div>`).join("")
       + (a.more ? `<p class="al-more">+${a.more} more teammate${a.more > 1 ? "s" : ""} gain a little — see the game on Props.</p>` : "")
       : `<p class="al-more">No priced lines for his teammates yet — prices usually arrive 14:30–16:00 or 21:00–22:30.</p>`;
-    return `<div class="al-c" style="--i:${i}">
+    return `<div class="al-c${hot(a)}" style="--i:${i}">
       <div class="al-h">${tid(a.team, "xs")}<b>${esc(a.name)}</b><span class="st ${a.status.toLowerCase()}">${a.status}</span>
         <small class="num">${Math.round(a.min)} min usual · ${a.g.away} @ ${a.g.home} ${tip}${a.news ? ` · news ${timeFmt(a.news)}` : ""}</small>
         <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
@@ -4728,31 +4776,33 @@ function alarmHTML(list){
         : `Doubtful — SWISH still assumes he plays, so teammates aren't raised yet. His lines are on hold:`}</p>
       ${body}</div>`;
   };
-  return `<section class="alarm${ALARM.open ? " open" : ""}${ALARM.auto ? " auto" : ""}" role="region" aria-label="News alarm">
+  return `<section class="alarm${ALARM.open ? " open" : ""}${ALARM.auto ? " auto" : ""}${ALARM.auto && ALARM.total === ALARM_SHORT_MS ? " shortonly" : ""}" role="region" aria-label="News alert">
     <span class="al-cd" aria-hidden="true"><i></i></span>
     <button class="al-top" data-alarm="toggle" aria-expanded="${ALARM.open}"><span class="al-bell" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span>
-      <span class="al-tt"><b>News alarm</b><span>${esc(head)}</span></span><em>${ALARM.open ? "Hide" : "Show"}</em></button>
+      <span class="al-tt"><b>News alert</b><span>${esc(head)}</span></span><em>${ALARM.open ? "Hide" : "Show"}</em></button>
     <div class="al-wrap"><div><div class="al-body">${list.map(card).join("")}
       <p class="al-foot">These props stay <b>on hold</b> until the lineup is confirmed. "Over … +" = the lowest odds worth taking at that line. A line priced before the news may already have moved at bet365 — check it. Clears at tip-off.</p></div></div></div>
   </section>`;
 }
 /* How it opens and closes (same on every page):
+   - only news under 6 hours old (NEW_NEWS_H) opens by itself; older news waits in the one-line bar until tip-off.
+     Out → full alert for 10 s; Doubtful/Questionable → short one-line alert for 5 s.
    - something you haven't seen yet (a new player, or the page loads with one you haven't seen) → it drops in open,
      a bar counts down 10 s, then it folds itself away to the one-line bar. Mouse over it pauses the countdown;
      tapping or clicking inside keeps it open until you press Hide.
    - already seen → stays as the one-line bar (on refresh too). Tap "Show" to open; it stays open until "Hide".
    "Seen" is saved in this browser (alarmSeen), per player and status, so a player going Doubtful → Out alerts again. */
-const ALARM_AUTO_MS = 10000;
-const ALARM = {open: false, auto: false, left: 0, last: 0, paused: false, sig: null, raf: 0};
+const ALARM_AUTO_MS = 10000, ALARM_SHORT_MS = 5000;
+const ALARM = {open: false, auto: false, left: 0, total: 10000, last: 0, paused: false, sig: null, raf: 0};
 const alarmSeen = () => new Set((store.get("alarmSeen", "") || "").split("~").filter(Boolean));
 function markAlarmSeen(list){ const seen = alarmSeen(); list.forEach(a => seen.add(a.key)); store.set("alarmSeen", [...seen].slice(-60).join("~")); }
 const calmMotion = () => PREFS.calm || matchMedia("(prefers-reduced-motion: reduce)").matches;
 function alarmEl(){ return document.querySelector("#alarm .alarm"); }
 function setAlarmOpen(open, auto){
   const el = alarmEl(); ALARM.open = open; ALARM.auto = !!(open && auto);
-  if (ALARM.auto){ ALARM.left = ALARM_AUTO_MS; ALARM.last = performance.now(); ALARM.paused = false; tickAlarm(); }
+  if (ALARM.auto){ ALARM.total = ALARM.left = typeof auto === "number" ? auto : ALARM_AUTO_MS; ALARM.last = performance.now(); ALARM.paused = false; tickAlarm(); }
   if (!el) return;
-  el.classList.toggle("open", open); el.classList.toggle("auto", ALARM.auto);
+  el.classList.toggle("open", open); el.classList.toggle("auto", ALARM.auto); el.classList.toggle("shortonly", ALARM.auto && ALARM.total === ALARM_SHORT_MS);
   const b = el.querySelector(".al-top"); b.setAttribute("aria-expanded", open); b.querySelector("em").textContent = open ? "Hide" : "Show";
   const pulse = cls => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); setTimeout(() => el.classList.remove(cls), 1300); };
   if (open) { pulse("opening"); if (auto) pulse("ping"); } else pulse("closing");
@@ -4765,7 +4815,7 @@ function tickAlarm(){
     if (!ALARM.paused && !document.hidden) ALARM.left -= t - ALARM.last;
     ALARM.last = t;
     const bar = document.querySelector("#alarm .al-cd i");
-    if (bar) bar.style.transform = `scaleX(${Math.max(0, ALARM.left / ALARM_AUTO_MS)})`;
+    if (bar) bar.style.transform = `scaleX(${Math.max(0, ALARM.left / ALARM.total)})`;
     if (ALARM.left <= 0) { setAlarmOpen(false); return; }
     ALARM.raf = requestAnimationFrame(step);
   };
@@ -4774,7 +4824,7 @@ function tickAlarm(){
 function updAlarm(force){
   const list = newsAlarms(), el = $("alarm"), nb = $("navAlarm");
   if (nb){ nb.innerHTML = list.length ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>${list.length}` : ""; nb.style.display = list.length ? "" : "none";
-    nb.title = list.length ? `News alarm: ${list.length} key player${list.length > 1 ? "s" : ""} newly out or doubtful` : ""; }
+    nb.title = list.length ? `News alert: ${list.length} key player${list.length > 1 ? "s" : ""} newly out, doubtful or questionable` : ""; }
   if (!el) return;
   if (!list.length){ ALARM.sig = null; ALARM.open = ALARM.auto = false; el.innerHTML = ""; return; }
   const sig = list.map(a => a.key + a.lines.map(x => x.props.map(p => p.id + ":" + p.line + ":" + p.fetched).join()).join()).join("|") + state.odds;
@@ -4783,10 +4833,11 @@ function updAlarm(force){
     ALARM.sig = sig; el.innerHTML = alarmHTML(list);
     if (fresh && !calmMotion()){ const a = alarmEl(); a.classList.add("enter"); setTimeout(() => a.classList.remove("enter"), 800); }
   }
-  const seen = alarmSeen();
-  if (list.some(a => !seen.has(a.key)) && !ALARM.open) {
-    if (fresh) setTimeout(() => { if (!ALARM.open) setAlarmOpen(true, true); }, calmMotion() ? 0 : 450);   // let it drop in first
-    else setAlarmOpen(true, true);
+  const seen = alarmSeen(), news = list.filter(a => a.fresh && !seen.has(a.key));   // old news (6 h+) never pops open
+  if (news.length && !ALARM.open) {
+    const ms = news.some(a => !a.short) ? ALARM_AUTO_MS : ALARM_SHORT_MS;              // Out = 10 s, doubtful/questionable = 5 s
+    if (fresh) setTimeout(() => { if (!ALARM.open) setAlarmOpen(true, ms); }, calmMotion() ? 0 : 450);   // let it drop in first
+    else setAlarmOpen(true, ms);
   }
 }
 function toggleAlarm(){ setAlarmOpen(!ALARM.open, false); }
