@@ -85,7 +85,10 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
 2. Done 1 Nov: "Check your bookie" box (drawer) + "worth it at" in pick lists (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%).
-   **Next to build:** news alarm (25+ min player out → teammates who benefit), then closing-price check on Results.
+   **Next to build — news alarm (user agreed 1 Nov):** banner on every page + nav badge when a 25+ min player goes
+   Out/Doubtful (from KEY_OUT/minute shifts): teammates who gain, projection before→after, "line priced before news?",
+   worth-it price, tap → prop; clears at tip. Affected props stay "on hold" but are shown. No credits, no push alerts.
+   Then closing-price check on Results.
 0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
    PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).
