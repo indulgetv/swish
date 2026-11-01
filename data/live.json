@@ -3,9 +3,9 @@
   "slateDate": "2026-11-01",
   "mode": "light",
   "errors": [],
-  "lastFullAt": "2026-11-01T07:00:55Z",
+  "lastFullAt": "2026-11-01T07:05:33Z",
   "season": 2027,
-  "writtenAt": "2026-11-01T07:05:57Z"
+  "writtenAt": "2026-11-01T07:08:27Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "BOS -6.5",
     "overUnder": 222.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -37,7 +37,7 @@
    "espnLine": {
     "details": "IND -4.5",
     "overUnder": 230.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -53,7 +53,7 @@
    "espnLine": {
     "details": "GS -2.5",
     "overUnder": 219.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   },
   {
@@ -69,7 +69,7 @@
    "espnLine": {
     "details": "LAL -4.5",
     "overUnder": 227.5,
-    "provider": "DraftKings"
+    "provider": "Draft Kings"
    }
   }
  ],
@@ -117713,38 +117713,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-11-01T07:00:56Z",
+   "fetchedAt": "2026-11-01T07:05:33Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-01T07:05:57Z",
+   "fetchedAt": "2026-11-01T07:05:34Z",
    "ok": true,
    "count": 90
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-01T07:05:56Z",
+   "fetchedAt": "2026-11-01T07:05:33Z",
    "ok": true,
    "count": 4
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-01T07:05:56Z",
+   "fetchedAt": "2026-11-01T07:05:34Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-11-01T07:02:20Z",
+   "fetchedAt": "2026-11-01T07:08:23Z",
    "ok": true,
    "count": 134,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-11-01T07:02:23Z",
+   "fetchedAt": "2026-11-01T07:08:27Z",
    "ok": true
   }
  },
