@@ -81,9 +81,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 
 ## Next steps (in order)
 A. Done 1 Nov 13:20 (pending): **closing-price check** on Results (`clv_summary`/`clv_of` in ledger.py; `clvLine`,
-   `clvPanel` in index.html). Our side's no-vig chance on the opening line, first saved vs last saved price; line moves
-   estimated with a normal curve (sd). Only picks re-priced after first save (`openFetched` saved from 1 Nov; older: fetch
-   time vs firstSaved). First read (158 leans): our way 24%, against 38%, avg −1.7 pts (unders −3.1, overs −0.1); strong 0 measured.
+   `clvPanel` in index.html; details HISTORY.md). First read (158 leans): our way 24%, against 38%, avg −1.7 pts (unders −3.1, overs −0.1); strong 0 measured.
    Game-line test: user agreed 1 Nov to WAIT — re-check ~15 Nov.
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
@@ -92,7 +90,7 @@ A. Done 1 Nov 13:20 (pending): **closing-price check** on Results (`clv_summary`
    **news alert** (code names still `alarm`: `newsAlarms`, `alarmHTML`, `updAlarm`, `setAlarmOpen`; amber bell `navAlarm`
    on Injuries). Out = full 10 s, Doubtful/Questionable = short 5 s; only news <6 h pops (shows just the new player), older
    waits folded until tip. Injuries page bottom: "Ruled out tonight" (`outTonightHTML`, hover cards `injTipHTML`). Details in HISTORY.md.
-0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
+0. Moments "working great" — ask if tweaks, then remove hidden #moments page (ask first).
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
 8. Later lab tests: usage boost (per-minute rate when a star sits), bench AST, back-to-backs.
