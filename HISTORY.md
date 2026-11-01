@@ -453,3 +453,18 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
   on-hold "lineup due" now 15–25 min.
 - CHECKPOINT.md trimmed from 11,094 chars (dated "Earlier" blocks moved out; they were already logged above) and copied
   to project doc.
+
+## 31 Oct 19:15–22:45 — live-night fixes (all published)
+- Moments on refresh: before, moments only fired when the open page saw the change (refresh = usually nothing). Now
+  `MO_BOOT` first poll after a real load replays: tip-off if Q1 clock ≥ 7:00 left; current break (q1/ht/q3, q4 only if level);
+  full-time within 20 min of end (`moEnd.<id>` localStorage; first seen time if loaded after the end, tip < 3.5 h ago).
+  Quiet self-reloads (SILENT) don't replay. Tested with mocked ESPN (8 cases).
+- Home rows (`SLOT.home`): break pill (amber, BREAK_TXT.big) and Full-time pill (· OT); score not red during breaks.
+  4 sizes × 2 themes, no overflow.
+- Bug (user screenshot, Camara "On hold · lineup due" mid-game): after tip ESPN starters are saved with status "started";
+  keyAbsences/key_absences only accepted "confirmed". Both now accept "started". Parity 0 mismatches. Panel text 30 → 15–25 min.
+- Live scores 15 s → 10 s (user asked; unlimited data). Title text updated.
+- Sidebar "Tonight" clicks stopped short / landed hidden (OKC–HOU thousands of px off): `.gsec` uses content-visibility:auto
+  (estimated 700 px) so heights changed during smooth scroll, and sticky header + toolbar covered the top. New `gotoGame`.
+  Tested every game from Home and Props, phone/tablet/desktop/ultra-wide, light + dark: lands exactly at stickyTop().
+- Publishing: user said "publish now" → merged pending into main; later fixes pushed straight to main (user present, asked).

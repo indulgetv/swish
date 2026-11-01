@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-10-31 19:10 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 05:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -19,7 +19,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   SWISH chance = 0.3·model + 0.7·no-vig market (`MODEL_WEIGHT` 0.3 — don't change until ~1,000 graded props).
   Strong value = edge ≥ 6 pts, EV > 0, no flags. Expect ~1–3 strong picks a night.
   Flags ("On hold · reason"): back from injury (overs; missed last game + on today's report), injury doubt, lineup due
-  (25+ min teammate newly out, until NBA.com confirms), few games (<5), big gap, new role, old price, injury news newer
+  (25+ min teammate newly out, until NBA.com confirms or the game starts — "started" counts as confirmed), few games (<5), big gap, new role, old price, injury news newer
   than the line. Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
@@ -37,7 +37,12 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   rest in "Older & long-term" drop-down.
 - Game moments (`gameMoment`): tip, End Q1, half, End Q3, End Q4 only if level, full-time. Desktop: sidebar "Tonight" row;
   phones/tablets: Games-page header `.ana-h[data-gh]`. Team-colour halves, frosted score card, winner blinks gold +
-  confetti, loser half drains. `pollScores` every 15 s. Hidden test page: site + `#moments` (`viewMoments`).
+  confetti, loser half drains. `pollScores` every 10 s. Hidden test page: site + `#moments` (`viewMoments`).
+  On refresh (`MO_BOOT`): replays only the pause you land in (quarter end/half), full-time for 20 min (`moEnd.<id>` in
+  localStorage), tip-off in the first 5 min of Q1; nothing once play restarts.
+- Home "Tonight's games" rows: amber pill END OF Q1 / HALF-TIME / END OF Q3 / END OF Q4 during breaks, grey FULL-TIME (· OT).
+- Game jumps (`gotoGame`, all [data-goto]): un-lazies `#sections` (`.cv-all`) so content-visibility can't shift the
+  target, lands under header + filter bar (`stickyTop()`), long trips jump then glide, card glows once (`.goto-hi`).
 - Phones: no accidental zoom; opened items scroll into view (`revealOpened`).
 
 ## How updates run
@@ -68,12 +73,12 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE,
   a Claude Doc — edit with the Docs tools) current.
 
-## Latest (31 Oct 19:10) — guide updated
-- Guide now covers lineup chips/tags (15–25 min confirm), injuries "Older & long-term" drop-down, game moments, filter bar,
-  15-s scores. As-of date 31 Oct. No site change.
+## Latest (31 Oct evening, all published)
+- Moments on refresh, Home break pills, 10-s live scores, lineup-due hold no longer returns after tip (both model copies,
+  parity 0, no version bump — pre-tip unchanged), sidebar/game jump fix. Guide updated 1 Nov. Details in HISTORY.md.
 
 ## Next steps (in order)
-0. User previewing game moments → apply tweaks, then remove the hidden #moments page (archived in git; ask first).
+0. User saw moments live ("working great"). Ask if any tweaks, then remove the hidden #moments page (archived in git; ask first).
 4. (Done 31 Oct: UK player props CONFIRMED not on The Odds API. Two checks, regions=uk, player_points: POR@UTA at 15:00 and
    PHI@CHA at 21:31 (40 min before tip) → no UK bookmaker returned any; 0 credits each (383 left after the night's buys).
    US prices stay the reference; site keeps telling the user to check the bet365 line. `uk-props-test.yml` kept, hand-run only.)
