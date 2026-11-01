@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 11:15 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 12:40 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -74,7 +74,9 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 
 ## Latest (1 Nov)
 - News alarm built (display only, model unchanged, parity 0) and published to main 10:55.
-  Details in HISTORY.md.
+- 12:40: news alert cards simplified (user: "straight to the point") — per player: status, injury in plain English
+  (`injPlain`: ESPN label → meaning; report's "(back)" beats ESPN "Rest"), "Won't play / Unlikely / 50/50 · game · back
+  <date> (ESPN guess)", Out → "More minutes for X +n". Prop lines/prices removed from the alert. On branch `pending`.
 
 ## Next steps (in order)
 A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** — display only, no credits, no model change.

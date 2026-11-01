@@ -554,3 +554,13 @@ C. Parked, user's call: closing-line check (step 3) — only on a paid plan or t
 - 12:25 Ruled out tonight → bottom of Injuries page; rows neutral (thin team edge), team gradient fades in on hover/focus (`.nrow.tcol.ot-row` + ::before). Rich hover/tap card per player (`injTipHTML`, tooltip supports `data-tiphtml`): ESPN update, SWISH saw it (`since` now passed into DATA.injuries), checks held, confirmed, usual min, expected back, reporter note. Phone/tablet badge: number only, right-anchored inside the button; on Injuries a medic-bag icon slides in. 4 sizes × 2 themes × 3 pages OK.
 
 - 12:35 --amber-pop (#f59e0b light / #f2a93b dark) + --amber-ink for badge, alert bell, countdown, alert title; phone/tablet badge stays amber when Injuries active; mobile nav padding-top 11px. Rich tip card = Last 6 glass (theme-matched, --team-c strip via data-tipteam, jersey header), opens up/down with translate+scale. Checked 4 sizes × 2 themes × 3 pages.
+
+
+## 1 Nov 12:40 — news alert simplified
+User found the alert cards cluttered (minutes, 240-min explanation, "no priced lines" text). Rewrote `alarmHTML`:
+each card = name + status + "Game ›"; injury label + plain-English meaning (`injPlain`, `INJ_PART`, `INJ_KIND` —
+only translates ESPN's words, e.g. "Left Calf Strain" → "Pulled muscle in his left calf (lower leg)"; if ESPN says Rest
+but the report says "(back)", shows Back); one line "Won't play tonight / Unlikely to play / 50/50 · game · back <date>
+(ESPN guess)"; Out with SWISH minute boosts → "More minutes for <surname> +n"; Doubtful/Questionable → "props on hold".
+Removed `alarmPropHTML` and the prop-line CSS. Footer: "Lines priced before the news may be out of date — check your bookie.
+Clears at tip-off." Tested phone/tablet/desktop/ultra-wide, light+dark, no errors, no sideways scroll. Pushed to `pending`.
