@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 12:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-01 13:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -80,10 +80,10 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   (`labF` in localStorage, default Added); "chances honest?" + "Next to test" moved to their own panels below.
 
 ## Next steps (in order)
-A. **NEXT (user agreed 1 Nov 11:14, new chat): closing-price check on Results** — display only, no credits, no model change.
-   Per pick: no-vig chance for OUR side, open* fields (first save) → lock (line AND odds moves). Split strong/leans,
-   over/under, market, on-hold. Results box "Prices moved our way on X% (avg +Y%)" + small-sample warning; replaces
-   the line-only count (ledger.py ~l.235). State: "closing" = last saved price (~21:00–22:30), US books.
+A. Done 1 Nov 13:20 (pending): **closing-price check** on Results (`clv_summary`/`clv_of` in ledger.py; `clvLine`,
+   `clvPanel` in index.html). Our side's no-vig chance on the opening line, first saved vs last saved price; line moves
+   estimated with a normal curve (sd). Only picks re-priced after first save (`openFetched` saved from 1 Nov; older: fetch
+   time vs firstSaved). First read (158 leans): our way 24%, against 38%, avg −1.7 pts (unders −3.1, overs −0.1); strong 0 measured.
    Game-line test: user agreed 1 Nov to WAIT — re-check ~15 Nov.
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.

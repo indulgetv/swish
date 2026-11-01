@@ -570,3 +570,16 @@ User: lab list getting too long. `labPanel()` now renders each experiment as a o
 tap to open the before/after numbers, why and note. Filter chips Added (shipped) / Rejected / Waiting (anything else) / All,
 saved as `swish.labF`, default Added. Calibration table and "Next to test" split into their own panels (`.cols`).
 Tested 4 sizes, light/dark, no errors, no sideways scroll. Pushed to `pending`.
+
+## 1 Nov 13:20 — Closing-price check (display only, no credits, model unchanged)
+- `scripts/ledger.py`: `clv_of(p)` = change in no-vig chance of the locked side, measured on the opening line, between the
+  first saved price (open*) and the last saved price before lock. Line moved → closing chance on the opening line estimated
+  with a normal curve (mean from closing no-vig + pick sd). Skips backfilled picks and picks with no newer price fetch
+  (new field `openFetched` from 1 Nov; older picks use `fetched > firstSaved`). Moves < 0.5 pts = "no move" (`CLV_TOL`).
+  `clv_summary` → results.json `clv` {leans, strong, noLean, over, under, onHold, clear, byMarket, lineMoved, tol};
+  replaced the old line-only `clv.moved/toward` count.
+- `index.html`: `clvLine` (sentence in "Is SWISH beating the bookies?") + `clvPanel` ("Did prices move our way?" table,
+  above Model lab) with small-sample warning and caveats (US books, last saved price ≠ true close).
+- First numbers (28–31 Oct, 233 measured, 158 leans): our way 24%, against 38%, avg −1.7 pts; overs −0.1, unders −3.1;
+  PTS −1.6, REB −0.5, AST −3.2; no lean −0.2. Strong: none had a second price. Early, small sample — don't act yet.
+- Tested phone/tablet/desktop/ultra-wide × light/dark: panel present, no errors, no sideways scroll. Pushed to `pending` (884bf44).
