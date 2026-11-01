@@ -381,6 +381,19 @@ h2.h{font:700 22px/1.1 var(--display);letter-spacing:.01em}
 .spark .ln{position:absolute;left:0;right:0;border-top:2px dashed var(--red)}
 .spark-x{display:flex;justify-content:space-between;font-size:11px;color:var(--faint);margin-top:6px}
 .dnote{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.bcheck{margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface2)}
+.bcheck .dt{margin-bottom:4px}
+.bc-lead{font-size:13px;margin:0 0 10px;line-height:1.45}
+.bc-t{display:grid;gap:2px}
+.bc-r{display:grid;grid-template-columns:1.1fr 1fr 1fr;align-items:center;gap:10px;padding:7px 10px;border-radius:8px}
+.bc-r > :nth-child(n+2){text-align:right}
+.bc-h{padding-top:0;padding-bottom:4px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.bc-r span.num{font:700 15px var(--display)}
+.bc-r span.num small{display:block;font:600 10px var(--sans);color:var(--faint);letter-spacing:.02em}
+.bc-r b{font:700 16px var(--display)}
+.bc-r b.o{color:var(--over)} .bc-r b.u{color:var(--under)}
+.bc-r.us{background:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.prow2 .pick small .wa{font-weight:700;color:var(--ink2)}
 .others{display:flex;flex-wrap:wrap;gap:6px}
 .others button{font-size:12px;font-weight:600;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:var(--white)}
 .others button:hover{border-color:var(--ink2)}
@@ -2883,6 +2896,46 @@ function stretch(p){   // v1.8: same as scripts/model.py stretch()
   p = Math.min(Math.max(p, 1e-6), 1 - 1e-6);
   return 1 / (1 + Math.exp(-MODEL_STRETCH * Math.log(p / (1 - p))));
 }
+/* ---- "Check your bookie": the lowest odds worth taking, for Over and Under, at the US line and nearby lines.
+   Display only — the model, chances and picks are unchanged. Fair odds = 1 / SWISH's chance; we then ask FAIR_CUSHION
+   more, because SWISH's chances aren't exact. Other lines: SWISH's chance moved by how much the projection curve
+   changes between the two lines (an estimate — no bookmaker priced those lines for us). */
+const FAIR_CUSHION = 0.03;
+function curveOver(p, line){                 // the projection curve's over chance at any line (before the 50% pull)
+  let o, u;
+  if (COUNT_MARKETS.includes(p.market) && p.projection > 0.05){
+    o = 1 - nbCdf(Math.floor(line), p.projection, p.sd); u = nbCdf(Math.ceil(line) - 1, p.projection, p.sd);
+  } else {
+    const isInt = Number.isInteger(line);
+    o = 1 - normCdf(((isInt ? line + 0.5 : line) - p.projection) / p.sd); u = normCdf(((isInt ? line - 0.5 : line) - p.projection) / p.sd);
+  }
+  return o / ((o + u) || 1);
+}
+function swishOverAt(p, line){
+  if (line === p.line) return p.modelO;
+  return Math.min(0.97, Math.max(0.03, p.modelO + curveOver(p, line) - curveOver(p, p.line)));
+}
+const minDec = prob => Math.ceil(100 * (1 + FAIR_CUSHION) / prob) / 100;          // decimal odds, rounded up
+const fmtDec = dec => state.odds === "dec" ? dec.toFixed(2)
+  : (dec >= 2 ? "+" + Math.ceil((dec - 1) * 100) : "−" + Math.floor(100 / (dec - 1)));
+const worthAt = (p, side, line = p.line) => { const o = swishOverAt(p, line); return minDec(side === "over" ? o : 1 - o); };
+function fairLine(p){                         // the half-point line nearest to a 50/50 for SWISH
+  let best = p.line, bd = 9;
+  for (let k = -8; k <= 8; k++){ const L = p.line + k * 0.5; if (L < 0.5 || Number.isInteger(L)) continue;
+    const d = Math.abs(swishOverAt(p, L) - 0.5); if (d < bd) { bd = d; best = L; } }
+  return best;
+}
+function bookieCheckHTML(p){
+  const lines = [p.line - 1, p.line, p.line + 1].filter(L => L > 0);
+  const fl = fairLine(p);
+  const row = L => `<div class="bc-r${L === p.line ? " us" : ""}"><span class="num">${L}${L === p.line ? `<small>US line</small>` : ""}</span>`
+    + `<b class="num o">${fmtDec(worthAt(p, "over", L))}+</b><b class="num u">${fmtDec(worthAt(p, "under", L))}+</b></div>`;
+  return `<div class="dsec bcheck"><div class="dt">Check your bookie</div>
+    <p class="bc-lead">Only bet if bet365 (or any bookie) pays <b>at least</b> this for the same line:</p>
+    <div class="bc-t"><div class="bc-r bc-h"><span>Line</span><span>▲ Over</span><span>▼ Under</span></div>${lines.map(row).join("")}</div>
+    <p class="dnote">SWISH's fair line: <b class="num">${fl}</b> (about 50/50). Prices include a ${Math.round(FAIR_CUSHION * 100)}% cushion because SWISH's chances aren't exact. Lines other than the US line are estimates.${p.flags.length ? ` <b style="color:var(--amber)">On hold</b> — read the reason below before betting.` : ""} Most nights bet365 won't beat many of these — that's normal.</p>
+  </div>`;
+}
 function analyse(p){
   const rawO = americanToProb(p.over), rawU = americanToProb(p.under);
   const vig = rawO + rawU - 1;
@@ -3575,7 +3628,7 @@ function overView(p){
 }
 const confOf = q => q.modelP >= 0.6 ? ["high", "High"] : q.modelP >= 0.55 ? ["med", "Medium"] : ["low", "Low"];
 const PICK_TABS = {
-  overs: {label:"Top overs", desc:"Overs only, most likely first. Each one is an over SWISH rates at least as highly as the bookie, with no injury worries. High = 60%+ chance, Medium = 55–60%. A likely over at a short price can still be poor value — check the Value column.",
+  overs: {label:"Top overs", desc:"Overs only, most likely first. Each one is an over SWISH rates at least as highly as the bookie, with no injury worries. High = 60%+ chance, Medium = 55–60%. A likely over at a short price can still be poor value — check the Value column, and only bet if your bookie pays at least the \"worth it\" price.",
           list: () => clean.map(overView).filter(q => q.edge >= 0).sort((a,b) => b.modelP - a.modelP || b.edge - a.edge)},
   best:  {label:"Best picks", desc:`Props where SWISH's chance beats the bookmaker's by at least ${(MIN_EDGE*100).toFixed(0)} points, with no injury or data issues. Shown as the top 5 overs and top 5 unders, each ranked by average return.`,
           list: () => ALL.filter(p => p.value).sort((a,b) => b.ev - a.ev)},
@@ -3598,7 +3651,7 @@ function pickRow(p, i){
   return `<button class="prow2" data-prop="${p.id}">
     <span class="rk num">${i+1}</span>
     <div class="pl">${jerseyAv(p.player, p.team, "sm")}<div style="min-width:0"><b>${esc(p.player)}</b><small>${g.away} @ ${g.home}${p.role && p.role.applied ? " · role ↑" : ""}</small></div></div>
-    <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "on hold" : `odds ${fmtOdds(p.price)}`}${p.overOnly ? `<span class="conf ${confOf(p)[0]}">${confOf(p)[1]}</span>` : ""}</small></div>
+    <div class="pick"><span class="${p.side==="over"?"o":"u"}">${sideWord(p.side)} ${p.line}</span> ${MARKET_NAMES[p.market]}<small>${p.flags.length ? "on hold" : `US ${fmtOdds(p.price)} · <b class="wa">worth it ${fmtDec(worthAt(p, p.side))}+</b>`}${p.overOnly ? `<span class="conf ${confOf(p)[0]}">${confOf(p)[1]}</span>` : ""}</small></div>
     <div class="n num hide-s">${p.line}<small>line</small></div>
     <div class="n num hide-s" style="color:var(--red)">${p.projection.toFixed(1)}<small>proj.</small></div>
     <div class="n num hide-s">${p.n ? p.h2hAvg.toFixed(1) : "—"}<small>H2H ${p.h2hHits}/${p.n}</small></div>
@@ -3850,7 +3903,7 @@ function cell(pl, m){
   if (state.hideFlagged && p.flags.length) return `<td><span class="dash">—</span></td>`;
   const arrow = p.lean === "over" ? "▲" : p.lean === "under" ? "▼" : "";
   const mv = lineMove(p);
-  return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}${mv ? ` (${mv.txt})` : ""}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line}${mv ? ` (${mv.txt})` : ""} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label}">
+  return `<td><button class="cell ${p.value?"value":""} ${p.flags.length?"flagged":""}" data-prop="${p.id}" aria-label="${esc(p.player)}, ${MARKET_NAMES[m]}: line ${p.line}${mv ? ` (${mv.txt})` : ""}, SWISH projection ${p.projection.toFixed(1)}, SWISH chance ${p.side} ${pct(p.modelP,0)}, bookmaker ${pct(p.mktP,0)}, ${verdict(p).label}" title="${esc(p.player)} · ${MARKET_NAMES[m]} ${p.line}${mv ? ` (${mv.txt})` : ""} · O ${fmtOdds(p.over)} / U ${fmtOdds(p.under)} · SWISH ${pct(p.modelP,0)} ${p.side} vs bookie ${pct(p.mktP,0)} → ${verdict(p).label} · worth it at O ${fmtDec(worthAt(p, "over"))}+ / U ${fmtDec(worthAt(p, "under"))}+">
     ${mv ? `<i class="lm lm-${mv.k}" aria-hidden="true">${mv.mark}</i>` : ""}<b class="num">${p.line}</b>${p.flags.length ? `<i class="hold" aria-hidden="true"></i>` : ""}<small class="${p.flags.length?"none":p.lean} num">${p.projection.toFixed(1)}${arrow}</small></button></td>`;
 }
 
@@ -4142,6 +4195,7 @@ function drawerHTML(p){
       <div class="ob ${p.lean==="over"?"lo":""}">${p.lean==="over"?`<span class="flag">Model lean</span>`:""}<span class="lbl">▲ Over</span><span class="pr num">${fmtOdds(p.over)}</span></div>
       <div class="ob ${p.lean==="under"?"lu":""}">${p.lean==="under"?`<span class="flag">Model lean</span>`:""}<span class="lbl">▼ Under</span><span class="pr num">${fmtOdds(p.under)}</span></div>
     </div>
+    ${bookieCheckHTML(p)}
     <div class="plain"><div class="plain-h"><span>In plain English</span><button class="helpbtn" data-help="1">How it works?</button></div><p>${plainEnglish(p)}</p></div>
     <div class="cmpbars">
       <div class="cb"><span>SWISH's chance<small>${p.side} ${p.line} · about ${inTen(p.modelP)} in 10</small></span><div class="bar"><i style="width:${(p.modelP*100).toFixed(1)}%;background:${leanCol(p.lean)}"></i></div><b class="num" style="color:${leanCol(p.lean)}">${pct(p.modelP,0)}</b></div>
