@@ -39,12 +39,16 @@
    "edge": 0.00763,
    "ev": -0.04237,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 17.5,
    "openOver": -118,
@@ -90,12 +94,16 @@
    "edge": 0.00546,
    "ev": -0.05642,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -122,
@@ -141,12 +149,16 @@
    "edge": 0.01189,
    "ev": -0.03853,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": 119,
@@ -192,12 +204,16 @@
    "edge": 0.00286,
    "ev": -0.05551,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -120,
@@ -243,12 +259,16 @@
    "edge": 0.01898,
    "ev": -0.03543,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": 124,
@@ -294,126 +314,20 @@
    "edge": 0.00184,
    "ev": -0.0602,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 127,
    "openUnder": -168,
-   "firstSaved": "2026-11-01T14:30:30Z",
-   "openFetched": "2026-11-01T14:30:29Z"
-  },
-  "401909903|Mitchell Robinson|PTS": {
-   "game": "401909903",
-   "tipoff": "2026-11-01T20:30Z",
-   "away": "BOS",
-   "home": "ORL",
-   "player": "Mitchell Robinson",
-   "espnId": "4351852",
-   "team": "BOS",
-   "opp": "ORL",
-   "market": "PTS",
-   "line": 5.5,
-   "over": -130,
-   "under": -102,
-   "book": "draftkings, betmgm, fanduel",
-   "fetched": "2026-11-01T14:30:29Z",
-   "oddsUpdated": "2026-11-01T14:29:43Z",
-   "projection": 6.819,
-   "sd": 3.576,
-   "minutes": 23,
-   "games": 84,
-   "curGames": 5,
-   "roleDelta": 5.5,
-   "minBoost": 2.5,
-   "boostFrom": [],
-   "starterTonight": true,
-   "back": false,
-   "pureO": 0.60217,
-   "mktO": 0.52816,
-   "modelO": 0.55036,
-   "dist": "normal",
-   "side": "over",
-   "lean": "over",
-   "modelP": 0.55036,
-   "mktP": 0.52816,
-   "price": -130,
-   "edge": 0.0222,
-   "ev": -0.02628,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status"
-   ],
-   "flagText": [
-    "Listed questionable (rest)"
-   ],
-   "modelVersion": "v1.8 (2026-10-31)",
-   "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
-   "backfilled": false,
-   "openLine": 5.5,
-   "openOver": -130,
-   "openUnder": -102,
-   "firstSaved": "2026-11-01T14:30:30Z",
-   "openFetched": "2026-11-01T14:30:29Z"
-  },
-  "401909903|Mitchell Robinson|REB": {
-   "game": "401909903",
-   "tipoff": "2026-11-01T20:30Z",
-   "away": "BOS",
-   "home": "ORL",
-   "player": "Mitchell Robinson",
-   "espnId": "4351852",
-   "team": "BOS",
-   "opp": "ORL",
-   "market": "REB",
-   "line": 6.5,
-   "over": -126,
-   "under": -104,
-   "book": "draftkings, betmgm, fanduel",
-   "fetched": "2026-11-01T14:30:29Z",
-   "oddsUpdated": "2026-11-01T14:29:43Z",
-   "projection": 7.576,
-   "sd": 2.862,
-   "minutes": 23,
-   "games": 84,
-   "curGames": 5,
-   "roleDelta": 5.5,
-   "minBoost": 2.5,
-   "boostFrom": [],
-   "starterTonight": true,
-   "back": false,
-   "pureO": 0.58763,
-   "mktO": 0.52235,
-   "modelO": 0.54194,
-   "dist": "count",
-   "side": "over",
-   "lean": "over",
-   "modelP": 0.54194,
-   "mktP": 0.52235,
-   "price": -126,
-   "edge": 0.01958,
-   "ev": -0.02796,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status"
-   ],
-   "flagText": [
-    "Listed questionable (rest)"
-   ],
-   "modelVersion": "v1.8 (2026-10-31)",
-   "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
-   "backfilled": false,
-   "openLine": 6.5,
-   "openOver": -126,
-   "openUnder": -104,
    "firstSaved": "2026-11-01T14:30:30Z",
    "openFetched": "2026-11-01T14:30:29Z"
   },
@@ -455,12 +369,16 @@
    "edge": 0.02243,
    "ev": -0.02076,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 26.5,
    "openOver": -117,
@@ -506,12 +424,16 @@
    "edge": 0.00694,
    "ev": -0.05283,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -101,
@@ -557,12 +479,16 @@
    "edge": 0.00334,
    "ev": -0.05818,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -121,
@@ -608,12 +534,16 @@
    "edge": 0.01555,
    "ev": -0.03225,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -120,
@@ -659,12 +589,16 @@
    "edge": 0.04417,
    "ev": 0.02106,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -105,
@@ -710,12 +644,16 @@
    "edge": 0.04956,
    "ev": 0.03011,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -108,
@@ -761,12 +699,16 @@
    "edge": 0.02421,
    "ev": -0.01856,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -120,
@@ -812,12 +754,16 @@
    "edge": 0.03021,
    "ev": -0.00571,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -144,
@@ -866,12 +812,16 @@
    "edge": 0.01392,
    "ev": -0.03738,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -112,
@@ -920,12 +870,16 @@
    "edge": 0.00305,
    "ev": -0.06146,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 110,
@@ -974,12 +928,16 @@
    "edge": 0.04162,
    "ev": 0.01686,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -130,
@@ -1028,12 +986,16 @@
    "edge": 0.02914,
    "ev": -0.00647,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -115,
@@ -1082,12 +1044,16 @@
    "edge": 0.03038,
    "ev": -0.00136,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -146,
@@ -1136,12 +1102,16 @@
    "edge": 0.04028,
    "ev": 0.01902,
    "value": false,
-   "verdict": "some",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -143,
@@ -1190,12 +1160,16 @@
    "edge": 0.02172,
    "ev": -0.02181,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -111,
@@ -1244,12 +1218,16 @@
    "edge": 0.01823,
    "ev": -0.03054,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -141,
@@ -1298,12 +1276,16 @@
    "edge": 0.01925,
    "ev": -0.01944,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 1.5,
    "openOver": -179,
@@ -1352,12 +1334,16 @@
    "edge": 0.02654,
    "ev": -0.00724,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -101,
@@ -1406,12 +1392,16 @@
    "edge": 0.01031,
    "ev": -0.04756,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": 101,
@@ -1460,12 +1450,16 @@
    "edge": 0.01898,
    "ev": -0.0254,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -112,
@@ -1514,12 +1508,16 @@
    "edge": 0.00472,
    "ev": -0.05456,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": -129,
@@ -1568,12 +1566,16 @@
    "edge": 0.00095,
    "ev": -0.06027,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 1.5,
    "openOver": -178,
@@ -1619,12 +1621,16 @@
    "edge": 0.00041,
    "ev": -0.06064,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 21.5,
    "openOver": -114,
@@ -1670,12 +1676,16 @@
    "edge": 0.01781,
    "ev": -0.02564,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": 115,
@@ -1721,12 +1731,16 @@
    "edge": 0.02399,
    "ev": -0.02574,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Mitchell Robinson out"
+   ],
    "modelVersion": "v1.8 (2026-10-31)",
    "modelWeight": 0.3,
-   "savedAt": "2026-11-01T15:15:29Z",
+   "savedAt": "2026-11-01T15:20:30Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": 104,
@@ -1735,5 +1749,5 @@
    "openFetched": "2026-11-01T14:30:29Z"
   }
  },
- "updated": "2026-11-01T15:15:29Z"
+ "updated": "2026-11-01T15:20:30Z"
 }

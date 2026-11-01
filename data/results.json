@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-01T15:15:29Z",
+ "generatedAt": "2026-11-01T15:20:30Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
  "since": "2026-10-28",
  "totals": {
-  "saved": 1087,
+  "saved": 1085,
   "graded": 1044,
   "void": 10,
-  "pending": 33
+  "pending": 31
  },
  "strong": {
   "n": 29,
@@ -433,11 +433,11 @@
   },
   {
    "slate": "2026-11-01",
-   "saved": 33,
+   "saved": 31,
    "games": 1,
    "graded": 0,
    "void": 0,
-   "pending": 33,
+   "pending": 31,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -539,8 +539,10 @@
    "mktP": 0.42714,
    "edge": 0.01189,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -565,63 +567,9 @@
    "mktP": 0.58297,
    "edge": 0.01898,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-01",
-   "game": "401909903",
-   "away": "BOS",
-   "home": "ORL",
-   "tipoff": "2026-11-01T20:30Z",
-   "player": "Mitchell Robinson",
-   "team": "BOS",
-   "market": "PTS",
-   "line": 5.5,
-   "side": "over",
-   "price": -130,
-   "projection": 6.819,
-   "modelP": 0.55036,
-   "mktP": 0.52816,
-   "edge": 0.0222,
-   "value": false,
    "verdict": "check",
    "flags": [
-    "status"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-01",
-   "game": "401909903",
-   "away": "BOS",
-   "home": "ORL",
-   "tipoff": "2026-11-01T20:30Z",
-   "player": "Mitchell Robinson",
-   "team": "BOS",
-   "market": "REB",
-   "line": 6.5,
-   "side": "over",
-   "price": -126,
-   "projection": 7.576,
-   "modelP": 0.54194,
-   "mktP": 0.52235,
-   "edge": 0.01958,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -647,8 +595,10 @@
    "mktP": 0.49491,
    "edge": 0.02243,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -673,8 +623,10 @@
    "mktP": 0.51232,
    "edge": 0.01555,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -699,8 +651,10 @@
    "mktP": 0.47881,
    "edge": 0.04417,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -725,8 +679,10 @@
    "mktP": 0.51232,
    "edge": 0.04956,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -751,8 +707,10 @@
    "mktP": 0.48988,
    "edge": 0.02421,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -777,8 +735,10 @@
    "mktP": 0.45012,
    "edge": 0.03021,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -803,8 +763,10 @@
    "mktP": 0.50509,
    "edge": 0.01392,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -829,8 +791,10 @@
    "mktP": 0.47184,
    "edge": 0.04162,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -855,8 +819,10 @@
    "mktP": 0.49795,
    "edge": 0.02914,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -881,8 +847,10 @@
    "mktP": 0.44517,
    "edge": 0.03038,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -907,8 +875,10 @@
    "mktP": 0.44963,
    "edge": 0.04028,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -933,8 +903,10 @@
    "mktP": 0.49287,
    "edge": 0.02172,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -959,8 +931,10 @@
    "mktP": 0.45467,
    "edge": 0.01823,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -985,8 +959,10 @@
    "mktP": 0.39979,
    "edge": 0.01925,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1011,8 +987,10 @@
    "mktP": 0.47231,
    "edge": 0.02654,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1037,8 +1015,10 @@
    "mktP": 0.53511,
    "edge": 0.01031,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1063,8 +1043,10 @@
    "mktP": 0.4959,
    "edge": 0.01898,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1089,8 +1071,10 @@
    "mktP": 0.43538,
    "edge": 0.01781,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1115,8 +1099,10 @@
    "mktP": 0.54264,
    "edge": 0.02399,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -2602,6 +2588,60 @@
    "actual": 9,
    "result": "win",
    "profit": 11.5,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-10-31",
+   "game": "401909901",
+   "away": "MIN",
+   "home": "SAS",
+   "tipoff": "2026-11-01T00:00Z",
+   "player": "Terrence Shannon Jr.",
+   "team": "MIN",
+   "market": "PTS",
+   "line": 12.5,
+   "side": "over",
+   "price": -107,
+   "projection": 13.586,
+   "modelP": 0.5034,
+   "mktP": 0.48752,
+   "edge": 0.01589,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": 2,
+   "result": "loss",
+   "profit": -10.0,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-10-31",
+   "game": "401909901",
+   "away": "MIN",
+   "home": "SAS",
+   "tipoff": "2026-11-01T00:00Z",
+   "player": "Terrence Shannon Jr.",
+   "team": "MIN",
+   "market": "AST",
+   "line": 1.5,
+   "side": "over",
+   "price": -166,
+   "projection": 2.494,
+   "modelP": 0.6037,
+   "mktP": 0.58513,
+   "edge": 0.01857,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "big_gap"
+   ],
+   "actual": 4,
+   "result": "win",
+   "profit": 6.02,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.8 (2026-10-31)"
