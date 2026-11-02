@@ -2631,6 +2631,9 @@ html.calm .alarm,html.calm .alarm *,html.calm .alarm::after{animation:none!impor
 html.calm .al-bell svg,.alarm:not(.open) .al-bell svg{animation:none}
 .al-tt{display:flex;flex-direction:column;min-width:0;flex:1}
 .al-tt b{font-size:13px;letter-spacing:.02em}
+.al-tt .al-what{font-style:normal;font-weight:500;color:var(--ink2);letter-spacing:0}
+.al-tt .al-dot{font-style:normal}
+@media (max-width:560px){.al-tt .al-what{display:block;font-size:12px;font-weight:500}.al-tt .al-dot{display:none}}
 .al-tt span{font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .al-top em{font-style:normal;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid var(--amber-line);background:var(--white)}
 .al-body{padding:2px 12px 12px;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,430px),1fr))}
@@ -2923,7 +2926,7 @@ function applyLive(){
 
   const onSlate = new Set(games.flatMap(g => [g.away, g.home]));
   const inj = (LIVE.injuries || []).filter(i => onSlate.has(i.team)).map(i => ({team: i.team, player: i.player, pos: i.pos || "", status: i.status || "Unknown",
-    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, news: i.news === undefined ? "status" : i.news, confirmed: i.confirmed !== false, checks: i.checks || 0, since: i.since || null, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
+    detail: i.detail || i.comment || i.rawStatus || "", raw: i.rawStatus || "", espnStatus: i.espnStatus || null, news: i.news === undefined ? "status" : i.news, confirmed: i.confirmed !== false, checks: i.checks || 0, since: i.since || null, was: i.was || null, returnDate: i.returnDate || null, updated: i.updated || ((LIVE.sections || {}).injuries || {}).fetchedAt, comment: i.comment, fillIns: []}));
 
   Object.assign(DATA, {
     meta: {source: "LIVE", isLive: true, slateLabel: LIVE.meta.slateDate === ET_TODAY ? "Tonight's slate" : `Slate of ${new Date(LIVE.meta.slateDate + "T12:00:00").toLocaleDateString([], {day:"numeric", month:"short"})}`,
@@ -4826,13 +4829,19 @@ function clvPanel(C) {
    A 25+ min regular (played in his team's last game) is Out or Doubtful for a game that hasn't started:
    show what the injury is in plain English, when he plays/returns, and (if Out) which teammates SWISH gives more minutes.
    Tap "Game ›" to jump to that game. Clears when the game tips off. */
+const INJ_SEV = {Available: 0, Probable: 0, "Day-To-Day": 1, Questionable: 1, Doubtful: 2, Out: 3};
 function newsAlarms(){
   if (!IS_LIVE) return [];
   const now = Date.now(), out = [];
   GAMES.filter(g => (!g.state || g.state === "pre") && new Date(g.tipoff) > now).forEach(g => [g.away, g.home].forEach(t => {
     const rows = PLAYERS.filter(pl => pl.team === t && pl.cur);
     const lastD = rows.flatMap(r => r.cur.map(x => x.d)).filter(Boolean).sort().pop();
-    rows.filter(r => ["Out", "Doubtful", "Questionable"].includes(r.status) && r.expMin0 >= KEY_MIN && lastD && r.cur.some(x => x.d === lastD))
+    // Widened 2 Nov: also a 25+ min player who missed the last game but whose status got WORSE since it
+    // (e.g. Questionable → Out). Needs the "was" field (saved from 2 Nov) and at least one game this season.
+    const after = lastD ? new Date(lastD + "T00:00:00Z").getTime() + 32 * 3.6e6 : 0;   // ~08:00 UK the day after his team's last game
+    const worse = r => { const i = injuryOf(r.name) || {};
+      return !!(i.was && (INJ_SEV[i.status] ?? 0) > (INJ_SEV[i.was] ?? 0) && i.since && new Date(i.since).getTime() > after && r.cur.length); };
+    rows.filter(r => ["Out", "Doubtful", "Questionable"].includes(r.status) && r.expMin0 >= KEY_MIN && lastD && (r.cur.some(x => x.d === lastD) || worse(r)))
       .sort((a, b) => b.expMin0 - a.expMin0).forEach(r => {
         const inj = injuryOf(r.name) || {}, news = inj.updated || inj.since || null;
         const props = ALL.filter(p => p.game === g.id && p.team === t);
@@ -4854,6 +4863,7 @@ function newsAlarms(){
         // fresh = the news is under NEW_NEWS_H hours old; only fresh news ever pops open by itself.
         const fresh = !!news && (now - new Date(news)) / 3.6e6 <= NEW_NEWS_H;
         out.push({key: `${g.id}|${r.name}|${r.status}`, g, team: t, name: r.name, status: r.status, min: r.expMin0, news, detail: inj.detail || "",
+                  was: inj.was && (INJ_SEV[r.status] ?? 0) > (INJ_SEV[inj.was] ?? 0) ? inj.was : null,
                   lines, mode, more: mode === "gain" ? Math.max(0, who.length - 4) : 0, short: r.status !== "Out", fresh});
       });
   }));
@@ -4921,14 +4931,15 @@ function alarmHTML(list){
         <button class="al-go" data-goto="${a.g.id}">Game ›</button></div>
       <p class="al-inj"><b>${esc(ip.label)}</b>${ip.meaning ? `<span>${esc(ip.meaning)}.</span>` : ""}</p>
       <p class="al-when num">${PLAYS[a.status]} · ${a.g.away} @ ${a.g.home} ${timeFmt(a.g.tipoff)}${back}</p>
+      ${a.was ? `<p class="al-when">Was ${esc(a.was.toLowerCase())}${a.news ? ` · changed ${timeFmt(a.news)}` : ""}</p>` : ""}
       ${so ? `<p class="al-so">${so}</p>` : ""}</div>`;
   };
-  return `<section class="alarm${ALARM.open ? " open" : ""}${ALARM.auto ? " auto" : ""}${ALARM.auto && ALARM.total === ALARM_SHORT_MS ? " shortonly" : ""}" role="region" aria-label="News alert">
+  return `<section class="alarm${ALARM.open ? " open" : ""}${ALARM.auto ? " auto" : ""}${ALARM.auto && ALARM.total === ALARM_SHORT_MS ? " shortonly" : ""}" role="region" aria-label="Injury alert: key players out or in doubt tonight">
     <span class="al-cd" aria-hidden="true"><i></i></span>
     <button class="al-top" data-alarm="toggle" aria-expanded="${ALARM.open}"><span class="al-bell" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span>
-      <span class="al-tt"><b>News alert</b><span>${esc(head)}</span></span><em>${ALARM.open ? "Hide" : "Show"}</em></button>
+      <span class="al-tt"><b>Injury alert <i class="al-what"><i class="al-dot">· </i>key players out or in doubt tonight</i></b><span>${esc(head)}</span></span><em>${ALARM.open ? "Hide" : "Show"}</em></button>
     <div class="al-wrap"><div><div class="al-body">${list.map(card).join("")}
-      <p class="al-foot">Lines priced before the news may be out of date — check your bookie. Clears at tip-off.</p></div></div></div>
+      <p class="al-foot"><b>What this is:</b> a player who usually plays 25+ minutes has been ruled out, made doubtful or questionable for a game that hasn't started — or his status just got worse. Bookie lines set before the news may be out of date, so check your bookie before betting on his team. SWISH already allows for players ruled out; if he's doubtful or questionable, his own props go on hold. Clears at tip-off.</p></div></div></div>
   </section>`;
 }
 /* How it opens and closes (same on every page):
@@ -4971,7 +4982,7 @@ function tickAlarm(){
 function updAlarm(force){
   const list = newsAlarms(), el = $("alarm"), nb = $("navAlarm");
   if (nb){ nb.innerHTML = list.length ? `<svg class="b-bell" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><svg class="b-med" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V4.5h6V7M12 10.5v6M9 13.5h6"/></svg><span>${list.length}</span>` : ""; nb.style.display = list.length ? "" : "none";
-    nb.title = list.length ? `News alert: ${list.length} key player${list.length > 1 ? "s" : ""} newly out, doubtful or questionable` : ""; }
+    nb.title = list.length ? `Injury alert: ${list.length} key player${list.length > 1 ? "s" : ""} newly out, doubtful or questionable` : ""; }
   if (!el) return;
   if (!list.length){ ALARM.sig = null; ALARM.open = ALARM.auto = false; el.innerHTML = ""; return; }
   const sig = list.map(a => a.key + a.lines.map(x => x.props.map(p => p.id + ":" + p.line + ":" + p.fetched).join()).join()).join("|") + state.odds;

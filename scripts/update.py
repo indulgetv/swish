@@ -390,7 +390,8 @@ def note_kind(comment: str | None, slate_day: datetime | None = None) -> str | N
 def confirm_injuries(injuries: list[dict], prev: list[dict], slate_day: datetime) -> None:
     """Confirmation: a status is 'confirmed' once two signals agree — the note says the same thing (about tonight, or a
     long-term absence for Out), or the same status has been seen in 3 updates in a row (~10 min apart at 5-min updates).
-    Until then it's shown as unconfirmed (outline pill). Also marks which entries are real news."""
+    Until then it's shown as unconfirmed (outline pill). Also marks which entries are real news, and keeps "was" =
+    the status before the latest change (only when he was already listed; a fresh listing has no "was")."""
     before = {(i.get("team"), i.get("player")): i for i in prev or []}
     for i in injuries:
         i["news"] = note_kind(i.get("comment"), slate_day)
@@ -398,8 +399,12 @@ def confirm_injuries(injuries: list[dict], prev: list[dict], slate_day: datetime
         if old and old.get("status") == i.get("status"):
             i["checks"] = (old.get("checks") or 3) + 1        # entries saved before this rule existed count as settled
             i["since"] = old.get("since") or i.get("updated")
+            if old.get("was"):
+                i["was"] = old["was"]
         else:
             i["checks"], i["since"] = 1, now_iso()
+            if old and old.get("status"):
+                i["was"] = old["status"]                      # previous status (e.g. Questionable → Out), for the injury alert
         c = (i.get("comment") or "").lower()
         agree = status_from_note(i.get("comment"), slate_day) == i.get("status") or \
             (i.get("status") == "Out" and bool(re.search(LONG_OUT_RE, c)))
