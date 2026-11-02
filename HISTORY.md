@@ -583,3 +583,18 @@ Tested 4 sizes, light/dark, no errors, no sideways scroll. Pushed to `pending`.
 - First numbers (28–31 Oct, 233 measured, 158 leans): our way 24%, against 38%, avg −1.7 pts; overs −0.1, unders −3.1;
   PTS −1.6, REB −0.5, AST −3.2; no lean −0.2. Strong: none had a second price. Early, small sample — don't act yet.
 - Tested phone/tablet/desktop/ultra-wide × light/dark: panel present, no errors, no sideways scroll. Pushed to `pending` (884bf44).
+
+## 2 Nov 15:20 — 1 Nov review + Injury alert widened
+- 1 Nov (4 games, 131 props): leans 32–47 −£175.42 (overs 7–14, unders 25–33); no strong; Top overs list 14–12 +£9.20;
+  Brier SWISH 0.2525 vs market 0.2503 (−0.9%), model alone −4.4%; projection MAE 3.15 vs line 2.98; no-lean props
+  19–10, "slight" 9–17. Price check: 18 re-priced, 7 our way, 0 against. No run errors. 2 Poeltl picks void (late scratch).
+  Totals 1,173 graded: SWISH −0.2% vs market, model −3.7%; leans 432–407 −£340. Past ~1,000 → MODEL_WEIGHT review due (not done).
+- User: "news alert didn't update after Curry/Green out". Replayed 20:52: alert was showing Curry + Green (news from 31 Oct,
+  folded). Later outs didn't meet rule: Robinson ~20 min, Toppin ~22 + missed last game, Ziaire Williams 28 min but missed
+  LAL's last game, Ingram no games, Poeltl after tip. Not a bug.
+- Change: renamed to "Injury alert · key players out or in doubt tonight" + "What this is" footer. New rule: also alert a
+  25+ min player with games this season whose status got worse (INJ_SEV) since ~08:00 UK the day after his team's last
+  game. update.py confirm_injuries keeps `was` (status before the latest change; not set for fresh listings, so ESPN
+  dropping/re-adding long-term injuries can't trigger it). Page DATA.injuries now carries was + returnDate (the "back …"
+  line in alert cards was never showing before). Replay of 1 Nov 21:22: adds Ziaire Williams, still skips Ingram.
+  8 size/theme checks: no errors, no sideways scroll.
