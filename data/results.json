@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T23:15:32Z",
+ "generatedAt": "2026-11-02T23:20:31Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
@@ -2075,7 +2075,8 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "actual": null,
    "result": null,
@@ -2103,7 +2104,8 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "actual": null,
    "result": null,
