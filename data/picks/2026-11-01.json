@@ -6548,7 +6548,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-01T21:00:35Z",
    "openFetched": "2026-11-01T21:00:29Z",
-   "locked": true
+   "locked": true,
+   "actual": 19,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 39.0,
+   "settledAt": "2026-11-02T04:35:37Z",
+   "profit": 9.71
   },
   "401909906|Austin Reaves|REB": {
    "game": "401909906",
@@ -6600,7 +6606,13 @@
    "openUnder": 119,
    "firstSaved": "2026-11-01T21:00:35Z",
    "openFetched": "2026-11-01T21:00:29Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 39.0,
+   "settledAt": "2026-11-02T04:35:37Z",
+   "profit": 11.2
   },
   "401909906|Austin Reaves|AST": {
    "game": "401909906",
@@ -6652,7 +6664,13 @@
    "openUnder": -148,
    "firstSaved": "2026-11-01T21:00:35Z",
    "openFetched": "2026-11-01T21:00:29Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 39.0,
+   "settledAt": "2026-11-02T04:35:37Z",
+   "profit": -10.0
   },
   "401909906|Collin Sexton|PTS": {
    "game": "401909906",
@@ -6808,7 +6826,13 @@
    "openUnder": -117,
    "firstSaved": "2026-11-01T21:00:35Z",
    "openFetched": "2026-11-01T21:00:29Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-02T04:35:37Z",
+   "profit": -10.0
   },
   "401909906|Matisse Thybulle|REB": {
    "game": "401909906",
@@ -6860,7 +6884,13 @@
    "openUnder": -170,
    "firstSaved": "2026-11-01T21:00:35Z",
    "openFetched": "2026-11-01T21:00:29Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-02T04:35:37Z",
+   "profit": -10.0
   },
   "401909906|Scottie Barnes|PTS": {
    "game": "401909906",
@@ -7907,5 +7937,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-02T04:25:37Z"
+ "updated": "2026-11-02T04:35:37Z"
 }
