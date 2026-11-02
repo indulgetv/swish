@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-01 13:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-02 15:20 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -72,14 +72,13 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   `claude/swish-checkpoint.md`, keep the guide "SWISH — how it works" (https://claude.ai/artifact/MFN3uQH3Va3qxL8Tpc5kGE,
   a Claude Doc — edit with the Docs tools) current.
 
-## Latest (1 Nov)
-- News alarm built (display only, model unchanged, parity 0) and published to main 10:55.
-- 12:37 published: news alert cards simplified — status, injury in plain English (`injPlain`), plays/back line,
-  Out → "More minutes for X +n". No prop lines in the alert.
-- 12:58 published (with closing-price check): Results → Model lab = one line per idea (tap for numbers), chips Added/Rejected/Waiting/All
-  (`labF` in localStorage, default Added); "chances honest?" + "Next to test" moved to their own panels below.
+## Latest
+- 1 Nov: news alert + closing-price check + compact Model lab published (details HISTORY.md).
 
 ## Next steps (in order)
+A0. 2 Nov (pending): **Injury alert** (renamed from News alert) — title + "what this is" text; also fires when a 25+ min
+   player's status got worse since his team's last game (Questionable → Out) even if he missed it (`was` field in
+   injuries, saved from 2 Nov). 1 Nov review: leans 32–47 −£175, Top overs 14–12 +£9; 1,173 graded → weight review due.
 A. Done 1 Nov, published 12:58: **closing-price check** on Results (`clv_summary`/`clv_of` in ledger.py; `clvLine`,
    `clvPanel` in index.html; details HISTORY.md). First read (158 leans): our way 24%, against 38%, avg −1.7 pts (unders −3.1, overs −0.1); strong 0 measured.
    Game-line test: user agreed 1 Nov to WAIT (~15 Nov).
