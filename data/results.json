@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T00:55:32Z",
+ "generatedAt": "2026-11-02T01:00:31Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
@@ -1009,6 +1009,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1037,6 +1038,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1065,6 +1067,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1093,6 +1096,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1121,6 +1125,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1149,6 +1154,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1177,6 +1183,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1205,6 +1212,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1233,6 +1241,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1261,6 +1270,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1289,6 +1299,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1317,6 +1328,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1343,8 +1355,10 @@
    "mktP": 0.51736,
    "edge": 0.01276,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1369,8 +1383,10 @@
    "mktP": 0.47646,
    "edge": 0.0331,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1395,8 +1411,10 @@
    "mktP": 0.47473,
    "edge": 0.02753,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1421,8 +1439,10 @@
    "mktP": 0.54459,
    "edge": 0.02796,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1447,8 +1467,10 @@
    "mktP": 0.50917,
    "edge": 0.03516,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1473,8 +1495,10 @@
    "mktP": 0.4408,
    "edge": 0.03594,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1499,8 +1523,10 @@
    "mktP": 0.52147,
    "edge": 0.02973,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1525,8 +1551,10 @@
    "mktP": 0.47526,
    "edge": 0.0129,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1551,8 +1579,10 @@
    "mktP": 0.52474,
    "edge": 0.02425,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1577,8 +1607,10 @@
    "mktP": 0.42826,
    "edge": 0.01794,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1603,8 +1635,10 @@
    "mktP": 0.40536,
    "edge": 0.01546,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
