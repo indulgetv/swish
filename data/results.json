@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-03T01:45:44Z",
+ "generatedAt": "2026-11-03T01:50:44Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
  "since": "2026-10-28",
  "totals": {
-  "saved": 1453,
+  "saved": 1452,
   "graded": 1173,
   "void": 12,
-  "pending": 268
+  "pending": 267
  },
  "strong": {
   "n": 29,
@@ -463,11 +463,11 @@
   },
   {
    "slate": "2026-11-02",
-   "saved": 268,
+   "saved": 267,
    "games": 15,
    "graded": 0,
    "void": 0,
-   "pending": 268,
+   "pending": 267,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -564,10 +564,10 @@
    "line": 25.5,
    "side": "under",
    "price": -111,
-   "projection": 23.289,
-   "modelP": 0.51536,
+   "projection": 23.431,
+   "modelP": 0.51405,
    "mktP": 0.49385,
-   "edge": 0.02151,
+   "edge": 0.0202,
    "value": false,
    "verdict": "check",
    "flags": [
@@ -592,10 +592,10 @@
    "line": 18.5,
    "side": "over",
    "price": -116,
-   "projection": 21.64,
-   "modelP": 0.52813,
+   "projection": 21.723,
+   "modelP": 0.52876,
    "mktP": 0.50305,
-   "edge": 0.02507,
+   "edge": 0.02571,
    "value": false,
    "verdict": "check",
    "flags": [
@@ -620,10 +620,10 @@
    "line": 8.5,
    "side": "under",
    "price": -125,
-   "projection": 7.292,
-   "modelP": 0.54139,
+   "projection": 7.389,
+   "modelP": 0.53912,
    "mktP": 0.51915,
-   "edge": 0.02223,
+   "edge": 0.01997,
    "value": false,
    "verdict": "check",
    "flags": [
@@ -648,42 +648,13 @@
    "line": 14.5,
    "side": "over",
    "price": -123,
-   "projection": 17.021,
-   "modelP": 0.54538,
+   "projection": 17.057,
+   "modelP": 0.5458,
    "mktP": 0.51851,
-   "edge": 0.02687,
+   "edge": 0.02729,
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-02",
-   "game": "401909919",
-   "away": "PHX",
-   "home": "GSW",
-   "tipoff": "2026-11-03T03:00Z",
-   "player": "Brandon Williams",
-   "team": "GSW",
-   "market": "PTS",
-   "line": 10.5,
-   "side": "over",
-   "price": -114,
-   "projection": 11.681,
-   "modelP": 0.51925,
-   "mktP": 0.5,
-   "edge": 0.01925,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status",
     "injury_after_line"
    ],
    "actual": null,
@@ -766,8 +737,10 @@
    "mktP": 0.51418,
    "edge": 0.01439,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -792,8 +765,10 @@
    "mktP": 0.53309,
    "edge": 0.01823,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -818,8 +793,10 @@
    "mktP": 0.53634,
    "edge": 0.02053,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -844,8 +821,10 @@
    "mktP": 0.48059,
    "edge": 0.01858,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -870,8 +849,10 @@
    "mktP": 0.47853,
    "edge": 0.03409,
    "value": false,
-   "verdict": "some",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -898,6 +879,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "big_gap"
    ],
    "actual": null,
@@ -2712,6 +2694,34 @@
    "modelP": 0.54645,
    "mktP": 0.52893,
    "edge": 0.01752,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-11-02",
+   "game": "401909913",
+   "away": "SAC",
+   "home": "DAL",
+   "tipoff": "2026-11-03T01:00Z",
+   "player": "Precious Achiuwa",
+   "team": "SAC",
+   "market": "PTS",
+   "line": 11.5,
+   "side": "over",
+   "price": -114,
+   "projection": 12.409,
+   "modelP": 0.51087,
+   "mktP": 0.49798,
+   "edge": 0.01289,
    "value": false,
    "verdict": "check",
    "flags": [
