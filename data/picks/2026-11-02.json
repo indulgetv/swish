@@ -365,7 +365,13 @@
    "openUnder": -107,
    "firstSaved": "2026-11-02T21:00:39Z",
    "openFetched": "2026-11-02T21:00:30Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-03T03:15:45Z",
+   "profit": -10.0
   },
   "401909910|Michael Porter Jr.|PTS": {
    "game": "401909910",
@@ -475,7 +481,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-02T21:00:39Z",
    "openFetched": "2026-11-02T21:00:30Z",
-   "locked": true
+   "locked": true,
+   "actual": 21,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-03T03:15:45Z",
+   "profit": 8.55
   },
   "401909910|Day'Ron Sharpe|PTS": {
    "game": "401909910",
@@ -6323,7 +6335,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-02T21:00:39Z",
    "openFetched": "2026-11-02T21:00:30Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-03T03:15:45Z",
+   "profit": 9.43
   },
   "401909910|Mikal Bridges|PTS": {
    "game": "401909910",
@@ -6549,7 +6567,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-02T21:00:39Z",
    "openFetched": "2026-11-02T21:00:30Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 17.0,
+   "settledAt": "2026-11-03T03:15:45Z",
+   "profit": -10.0
   },
   "401909910|Landry Shamet|PTS": {
    "game": "401909910",
@@ -6659,7 +6683,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-02T21:00:39Z",
    "openFetched": "2026-11-02T21:00:30Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-03T03:15:45Z",
+   "profit": -10.0
   },
   "401909907|Shai Gilgeous-Alexander|PTS": {
    "game": "401909907",
@@ -15599,5 +15629,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-03T03:10:43Z"
+ "updated": "2026-11-03T03:15:45Z"
 }
