@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-03T02:35:49Z",
+ "generatedAt": "2026-11-03T02:40:44Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
  "since": "2026-10-28",
  "totals": {
   "saved": 1451,
-  "graded": 1199,
+  "graded": 1208,
   "void": 12,
-  "pending": 240
+  "pending": 231
  },
  "strong": {
   "n": 29,
@@ -21,47 +21,47 @@
   "avgPrice": 1.907
  },
  "leans": {
-  "n": 854,
-  "wins": 437,
-  "losses": 417,
+  "n": 859,
+  "wins": 439,
+  "losses": 420,
   "pushes": 0,
-  "hitRate": 0.5117,
-  "profit": -398.24,
-  "roi": -0.0466,
+  "hitRate": 0.5111,
+  "profit": -409.01,
+  "roi": -0.0476,
   "avgPrice": 1.884
  },
  "all": {
-  "n": 1199,
-  "wins": 625,
-  "losses": 574,
+  "n": 1208,
+  "wins": 628,
+  "losses": 580,
   "pushes": 0,
-  "hitRate": 0.5213,
-  "profit": -293.24,
-  "roi": -0.0245,
+  "hitRate": 0.5199,
+  "profit": -326.07,
+  "roi": -0.027,
   "avgPrice": 1.889
  },
  "accuracy": {
-  "n": 1199,
-  "brierMarket": 0.24699,
-  "brierSwish": 0.24764,
-  "brierModel": 0.25628,
-  "skillSwish": -0.0026,
+  "n": 1208,
+  "brierMarket": 0.2469,
+  "brierSwish": 0.24756,
+  "brierModel": 0.25618,
+  "skillSwish": -0.0027,
   "skillModel": -0.0376
  },
  "calibration": [
   {
    "from": 0.5,
    "to": 0.53,
-   "n": 314,
+   "n": 316,
    "predicted": 0.5156,
-   "actual": 0.5191
+   "actual": 0.519
   },
   {
    "from": 0.53,
    "to": 0.56,
-   "n": 266,
+   "n": 268,
    "predicted": 0.5445,
-   "actual": 0.5338
+   "actual": 0.5336
   },
   {
    "from": 0.56,
@@ -86,9 +86,9 @@
   }
  ],
  "projection": {
-  "n": 1199,
-  "maeSwish": 3.27,
-  "maeLine": 3.19
+  "n": 1208,
+  "maeSwish": 3.263,
+  "maeLine": 3.182
  },
  "clv": {
   "leans": {
@@ -170,34 +170,34 @@
  },
  "byMarket": {
   "PTS": {
-   "n": 347,
+   "n": 348,
    "wins": 175,
-   "losses": 172,
+   "losses": 173,
    "pushes": 0,
-   "hitRate": 0.5043,
-   "profit": -172.73,
-   "roi": -0.0498,
-   "avgPrice": 1.886
+   "hitRate": 0.5029,
+   "profit": -182.73,
+   "roi": -0.0525,
+   "avgPrice": 1.885
   },
   "REB": {
-   "n": 291,
-   "wins": 150,
-   "losses": 141,
+   "n": 293,
+   "wins": 151,
+   "losses": 142,
    "pushes": 0,
-   "hitRate": 0.5155,
-   "profit": -133.96,
-   "roi": -0.046,
-   "avgPrice": 1.884
+   "hitRate": 0.5154,
+   "profit": -134.25,
+   "roi": -0.0458,
+   "avgPrice": 1.885
   },
   "AST": {
-   "n": 216,
-   "wins": 112,
-   "losses": 104,
+   "n": 218,
+   "wins": 113,
+   "losses": 105,
    "pushes": 0,
-   "hitRate": 0.5185,
-   "profit": -91.55,
-   "roi": -0.0424,
-   "avgPrice": 1.882
+   "hitRate": 0.5183,
+   "profit": -92.03,
+   "roi": -0.0422,
+   "avgPrice": 1.883
   },
   "3PM": {
    "n": 0,
@@ -299,13 +299,13 @@
     "avgPrice": 1.893
    },
    "leans": {
-    "n": 253,
-    "wins": 128,
-    "losses": 125,
+    "n": 258,
+    "wins": 130,
+    "losses": 128,
     "pushes": 0,
-    "hitRate": 0.5059,
-    "profit": -116.03,
-    "roi": -0.0459,
+    "hitRate": 0.5039,
+    "profit": -126.8,
+    "roi": -0.0491,
     "avgPrice": 1.912
    }
   }
@@ -465,9 +465,9 @@
    "slate": "2026-11-02",
    "saved": 266,
    "games": 15,
-   "graded": 26,
+   "graded": 35,
    "void": 0,
-   "pending": 240,
+   "pending": 231,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -480,40 +480,40 @@
     "avgPrice": null
    },
    "leans": {
-    "n": 15,
-    "wins": 5,
-    "losses": 10,
+    "n": 20,
+    "wins": 7,
+    "losses": 13,
     "pushes": 0,
-    "hitRate": 0.3333,
-    "profit": -57.94,
-    "roi": -0.3863,
-    "avgPrice": 1.87
+    "hitRate": 0.35,
+    "profit": -68.71,
+    "roi": -0.3435,
+    "avgPrice": 1.885
    },
    "strongCumProfit": -51.6
   }
  ],
  "overs": {
   "listed": {
-   "n": 334,
+   "n": 336,
    "wins": 162,
-   "losses": 172,
+   "losses": 174,
    "pushes": 0,
-   "hitRate": 0.485,
-   "profit": -249.03,
-   "roi": -0.0746,
-   "avgPrice": 1.919,
-   "predicted": 0.5116
+   "hitRate": 0.4821,
+   "profit": -269.03,
+   "roi": -0.0801,
+   "avgPrice": 1.92,
+   "predicted": 0.5112
   },
   "allOvers": {
-   "n": 1199,
-   "wins": 561,
-   "losses": 638,
+   "n": 1208,
+   "wins": 565,
+   "losses": 643,
    "pushes": 0,
-   "hitRate": 0.4679,
-   "profit": -1417.39,
-   "roi": -0.1182,
+   "hitRate": 0.4677,
+   "profit": -1433.3,
+   "roi": -0.1187,
    "avgPrice": 1.903,
-   "predicted": 0.492
+   "predicted": 0.4919
   },
   "tiers": {
    "high": {
@@ -539,15 +539,15 @@
     "predicted": 0.5679
    },
    "low": {
-    "n": 276,
+    "n": 278,
     "wins": 132,
-    "losses": 144,
+    "losses": 146,
     "pushes": 0,
-    "hitRate": 0.4783,
-    "profit": -192.86,
-    "roi": -0.0699,
-    "avgPrice": 1.954,
-    "predicted": 0.4996
+    "hitRate": 0.4748,
+    "profit": -212.86,
+    "roi": -0.0766,
+    "avgPrice": 1.956,
+    "predicted": 0.4991
    }
   }
  },
@@ -782,16 +782,44 @@
    "away": "MIA",
    "home": "LAL",
    "tipoff": "2026-11-03T03:00Z",
+   "player": "Jake LaRavia",
+   "team": "LAL",
+   "market": "PTS",
+   "line": 6.5,
+   "side": "over",
+   "price": -114,
+   "projection": 7.249,
+   "modelP": 0.51608,
+   "mktP": 0.5,
+   "edge": 0.01608,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": null,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-11-02",
+   "game": "401909921",
+   "away": "MIA",
+   "home": "LAL",
+   "tipoff": "2026-11-03T03:00Z",
    "player": "Matisse Thybulle",
    "team": "LAL",
    "market": "PTS",
    "line": 7.5,
    "side": "over",
    "price": -134,
-   "projection": 9.147,
-   "modelP": 0.55687,
+   "projection": 9.284,
+   "modelP": 0.55925,
    "mktP": 0.53634,
-   "edge": 0.02053,
+   "edge": 0.02291,
    "value": false,
    "verdict": "check",
    "flags": [
@@ -2706,34 +2734,6 @@
    "modelP": 0.49952,
    "mktP": 0.48356,
    "edge": 0.01596,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "injury_after_line"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": true,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-02",
-   "game": "401909913",
-   "away": "SAC",
-   "home": "DAL",
-   "tipoff": "2026-11-03T01:00Z",
-   "player": "De'Andre Hunter",
-   "team": "SAC",
-   "market": "PTS",
-   "line": 13.5,
-   "side": "over",
-   "price": -137,
-   "projection": 15.544,
-   "modelP": 0.55169,
-   "mktP": 0.53744,
-   "edge": 0.01424,
    "value": false,
    "verdict": "check",
    "flags": [
