@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T00:35:31Z",
+ "generatedAt": "2026-11-03T00:40:30Z",
  "stake": 10.0,
  "modelVersion": "v1.8 (2026-10-31)",
  "modelWeight": 0.3,
@@ -2075,8 +2075,35 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
+   ],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": null,
+   "modelVersion": "v1.8 (2026-10-31)"
+  },
+  {
+   "slate": "2026-11-02",
+   "game": "401909913",
+   "away": "SAC",
+   "home": "DAL",
+   "tipoff": "2026-11-03T01:00Z",
+   "player": "Marcus Sasser",
+   "team": "DAL",
+   "market": "PTS",
+   "line": 8.5,
+   "side": "under",
+   "price": -124,
+   "projection": 6.514,
+   "modelP": 0.55366,
+   "mktP": 0.51826,
+   "edge": 0.0354,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -2104,8 +2131,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -2690,34 +2716,6 @@
    "modelP": 0.50906,
    "mktP": 0.47614,
    "edge": 0.03292,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "injury_after_line"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.8 (2026-10-31)"
-  },
-  {
-   "slate": "2026-11-02",
-   "game": "401909914",
-   "away": "NOP",
-   "home": "MEM",
-   "tipoff": "2026-11-03T01:00Z",
-   "player": "Derik Queen",
-   "team": "NOP",
-   "market": "PTS",
-   "line": 9.5,
-   "side": "over",
-   "price": -128,
-   "projection": 11.302,
-   "modelP": 0.54645,
-   "mktP": 0.52893,
-   "edge": 0.01752,
    "value": false,
    "verdict": "check",
    "flags": [
