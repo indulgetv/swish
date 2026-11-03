@@ -73,6 +73,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 - 1 Nov: news alert + closing-price check + compact Model lab published (details HISTORY.md).
 
 ## Next steps (in order)
+A000. Check `pending` route: live-loop's checkout is shallow, and origin/pending isn't an ancestor of main, so its merge may never succeed (no release merge since 30 Oct). 3 Nov no-games fix went straight to main.
 A00. 3 Nov review of 2 Nov: 15 games, strong 0–1 −£10, leans 82–88 −£169.10; season 1,437 graded. Do next, in order:
    (1) **Injury hold too broad**: `injury_after_line` fires on any ESPN note edit (Thiero, out since 30 Oct, held all 12 MIA@LAL props; 128/266 held). Only fire on a status change; both files + parity + backtest, show the user first.
    (2) Weight review + Pacers-type minutes miss (10 out, priced players 14 min short) once REB/AST data is flowing. Top overs 46.3% vs 51.2% predicted.

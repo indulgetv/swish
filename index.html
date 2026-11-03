@@ -2851,7 +2851,7 @@ const store = {
 let LIVE = window.SWISH_LIVE || null;          // replaced in place when newer data arrives (refreshInPlace)
 const ET_TODAY = new Date().toLocaleDateString("en-CA", {timeZone: "America/New_York"});
 const LIVE_AGE_H = LIVE && LIVE.meta && LIVE.meta.writtenAt ? (Date.now() - new Date(LIVE.meta.writtenAt)) / 3.6e6 : Infinity;
-const IS_LIVE = !!(LIVE && Array.isArray(LIVE.games) && LIVE.games.length && LIVE_AGE_H < 36);
+const IS_LIVE = !!(LIVE && Array.isArray(LIVE.games) && LIVE_AGE_H < 36);   // a day with no games is still live data
 // Header note while no prop has a price yet. Same windows as update.py's odds jobs and the Home timeline.
 function pricesDueTxt() {
   const ukOf = d => new Date(new Date(d).toLocaleString("en-US", {timeZone: "Europe/London"}));
@@ -2863,7 +2863,6 @@ function pricesDueTxt() {
   return "no prices yet";
 }
 const LIVE_NOTE = !LIVE ? "No live data file found — showing the sample slate."
-  : !(LIVE.games || []).length ? "No NBA games on the latest live slate — showing the sample slate."
   : LIVE_AGE_H >= 36 ? "Live data is more than 36 hours old — showing the sample slate until it refreshes." : "";
 const agoTxt = iso => { if (!iso) return "unknown"; const m = Math.round((Date.now() - new Date(iso)) / 60000); return m < 60 ? `${m} min ago` : m < 2880 ? `${Math.round(m/60)}h ago` : `${Math.round(m/1440)} days ago`; };
 const normName = n => (n || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b\.?/g, "").replace(/[^a-z]/g, "");
@@ -3860,7 +3859,7 @@ function viewDashboard(){
     <div class="hero-main">
       <div class="eyebrow"><span class="live-dot"></span>${today.toLocaleDateString([], {weekday:"long"})} · ${DATA.meta.slateLabel}</div>
       <h1 class="datehead" aria-label="${today.toLocaleDateString([], {day:"numeric", month:"long", year:"numeric"})}"><span class="dh-day num">${today.getDate()}</span><span class="dh-rest"><span class="dh-month">${today.toLocaleDateString([], {month:"long"})}</span><span class="dh-year num">${today.getFullYear()}</span></span></h1>
-      <p class="lede">${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.filter(lineable).length} props${IS_LIVE && !ALL.length ? ` <span class="lede-wait">(${pricesDueTxt()})</span>` : ""} · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
+      <p class="lede">${!GAMES.length ? "No NBA games today" : `${GAMES.length} games · ${PLAYERS.length} players · ${ALL.length + NOLINE.filter(lineable).length} props`}${IS_LIVE && GAMES.length && !ALL.length ? ` <span class="lede-wait">(${pricesDueTxt()})</span>` : ""} · <button class="inlinehelp" data-help="1">How to read SWISH →</button></p>
       <div class="looks" aria-label="Tonight's top looks">
         ${ALL.some(x => !x.flags.length) ? `<span class="lk-lbl">Top look per game</span>` : ""}
         <div class="lk-row clamp-m" data-clamp="looks">${GAMES.map((g, k) => { const p = ALL.filter(x => x.game === g.id && !x.flags.length).sort((a,b) => b.ev - a.ev)[0]; if (!p) return "";
@@ -3878,7 +3877,7 @@ function viewDashboard(){
   </header>
   ${liveNotice()}
   <div class="overview">
-    <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">first tip ${timeFmt(GAMES[0].tipoff)}</div></div>
+    <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">${GAMES.length ? `first tip ${timeFmt(GAMES[0].tipoff)}` : "no NBA games today"}</div></div>
     <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${(() => { const n = NOLINE.filter(p => boughtFor(p.game).includes(p.market)).length; return n ? ` · ${n} ${pricedAll() ? "with no bookmaker line tonight" : "still waiting for a price"}` : ""; })()}</div></div>
     <div class="ov"><div class="eyebrow">Value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH rates them ${(MIN_EDGE*100).toFixed(0)}+ points above the bookie</div></div>
     <div class="ov"><div class="eyebrow">Injury concerns</div><div class="v num">${sig.length}</div><div class="s">${sig.filter(i=>i.status==="Out").length} out · ${sig.filter(i=>i.status!=="Out").length} uncertain</div></div>
@@ -3886,7 +3885,7 @@ function viewDashboard(){
   </div>
   <div class="panel" style="margin-bottom:var(--sec)">
     <div class="panel-h"><h2 class="h">Best picks tonight</h2><button class="textbtn" data-nav="props" style="margin-left:auto">See all picks &amp; squads →</button></div>
-    ${top.length ? sidesHTML(top, BEST_PER_SIDE) : `<div class="gempty">${IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they arrive at about 21:00 UK time (14:30 for early games)." : "No props meet the value rule."}</div>`}
+    ${top.length ? sidesHTML(top, BEST_PER_SIDE) : `<div class="gempty">${!GAMES.length ? "No NBA games today, so no picks. Results and injuries are still up to date." : IS_LIVE && !ALL.length ? "No bookmaker lines yet today — they arrive at about 21:00 UK time (14:30 for early games)." : "No props meet the value rule."}</div>`}
   </div>
   <div class="cols">
     <div class="panel">
@@ -4235,6 +4234,7 @@ function liveNotice(){
   const sec = LIVE.sections || {}, odds = sec.odds;
   const refN = ALL.filter(p => p.source === "ref").length, mineN = ALL.filter(p => p.source === "manual").length;
   const oddsTxt = odds && odds.ok ? `Prices for ${refN} props across ${odds.eventsPriced || 0} games came in at ${timeFmt(odds.fetchedAt)} (US bookmakers)`
+    : !GAMES.length ? "No NBA games today, so no prop prices"
     : "No prop lines yet today — they arrive at about 21:00 UK time (14:30 for early games)";
   const errs = (LIVE.meta.errors || []).length;
   return `<div class="notice live">Stats, injuries and games come from ESPN, updated ${timeFmt(DATA.meta.generatedAt)}. ${oddsTxt}.

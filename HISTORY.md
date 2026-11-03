@@ -606,3 +606,5 @@ Tested 4 sizes, light/dark, no errors, no sideways scroll. Pushed to `pending`.
 - Fix in `scripts/update.py`: share by games left in the month (`games_after`, `odds_budget`, `market_plan`), 0.4 credit/game reserve; a re-price needs enough left for 1 credit per remaining game. `sections.odds.gameMarkets` added; `index.html` `boughtFor` labels unbought markets per game. No model change (MODEL_VERSION stays v1.8).
 - Tested: simulated months of 233–271 games never overspend (0–2 credits left); mocked fetch for 14 games buys 27 credits; 4 screen sizes on the 2 Nov snapshot, no errors or overflow. ESPN's date-range count could not be tested from the sandbox (falls back to 7/day).
 - Trade-off: at about 2 credits a game AST is mostly only bought on re-priced games; UK game lines are not bought (rule needs 3 credits a game + 2).
+
+- 3 Nov evening: first no-game day of the season made the page fall back to the invented sample slate (`IS_LIVE` required games). Now stays live on no-game days: "No NBA games today" on Home, 0 games handled. Tested all pages at 4 sizes plus the 2 Nov game-night snapshot. Pushed directly to main, index.html only.
