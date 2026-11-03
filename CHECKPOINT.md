@@ -23,8 +23,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   than the line (v1.9: same team, status changed after the line by both ESPN `updated` and SWISH `since`, player usually 20+ min, `INJ_HOLD_MIN`). Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
-- Results (28–31 Oct): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
-  `lab/check_picks.py`: SWISH ≈ market, raw model worse; best-fit model share ~5%. Overs hit 46.6% vs market 49.7%.
+- Results to 2 Nov: 1,437 graded; strong 12–18 −£61.60; leans 514–495 −£509.40. Overs hit 46.8%. SWISH ≈ market, raw model worse.
 
 ## Site features (current UI)
 - Props: filter bar (market chips All/Points/Rebounds/Assists, search, sort; tick-boxes Show last 6 / Value only /
@@ -78,9 +77,7 @@ A00. 3 Nov review of 2 Nov: 15 games, strong 0–1 −£10, leans 82–88 −£1
    (1) Done 3 Nov: injury hold v1.9 published. Backtest: holds 390→103 of 1,451; freed 146–141 −£136.64, still held 58–45 +£47.80, never held 503–464 −£236.84. Watch freed props' market accuracy.
    (2) Weight review + Pacers-type minutes miss (10 out, priced players 14 min short) once REB/AST data is flowing. Top overs 46.3% vs 51.2% predicted.
    (3) Harmless: "lineMoves skipped" log on no-game days. Check the first run with the new credit split (Wed 4 Nov 21:00): ESPN range count not testable from Claude's sandbox; the log shows games to cover.
-A0. 2 Nov (pending): **Injury alert** (renamed from News alert) — title + "what this is" text; also fires when a 25+ min
-   player's status got worse since his team's last game (Questionable → Out) even if he missed it (`was` field in
-   injuries, saved from 2 Nov). 1 Nov review: leans 32–47 −£175, Top overs 14–12 +£9; 1,173 graded → weight review due.
+A0. 2 Nov (pending): **Injury alert** also fires when a 25+ min player's status got worse since his last game (`was` field). 1 Nov review: leans 32–47 −£175, Top overs 14–12 +£9; 1,173 graded → weight review due.
 A. Done 1 Nov: closing-price check on Results (`clv_summary`, `clvPanel`). Game-line test: user agreed to WAIT (~15 Nov).
 1. **Decided 1 Nov: game-line changes not shipped.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
