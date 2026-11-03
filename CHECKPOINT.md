@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-03 10:00 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-03 20:05 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
 
 ## What SWISH is now
@@ -11,7 +11,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   The Odds API: **US** player props PTS/REB/AST + UK game lines) → `data/live.json/.js`. `--mode auto` picks the job by time.
 - Picks ledger: `scripts/ledger.py` saves picks for games not started into `data/picks/<date>.json` (locked at tip),
   grades from ESPN box scores (void if absent 10 h after tip) → `data/results.json/.js` (Results page).
-- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.8**.
+- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.9**.
   Projection = per-minute rate × expected minutes (this season 0.5·last3 + 0.5·last10, last season early on;
   absences share the gap below 240 min; NBA.com new starter pulled ⅓ of the way to starter minutes; >28 min trimmed 10%;
   missed his team's last game → × 0.925 `BACK_TRIM`). sd × 1.15; normal for PTS, negative binomial for REB/AST.
@@ -20,7 +20,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   Strong value = edge ≥ 6 pts, EV > 0, no flags. Expect ~1–3 strong picks a night.
   Flags ("On hold · reason"): back from injury (overs; missed last game + on today's report), injury doubt, lineup due
   (25+ min teammate newly out, until NBA.com confirms or the game starts — "started" counts as confirmed), few games (<5), big gap, new role, old price, injury news newer
-  than the line. Players < 22 exp. min: no AST.
+  than the line (v1.9: same team, status changed after the line by both ESPN `updated` and SWISH `since`, player usually 20+ min, `INJ_HOLD_MIN`). Players < 22 exp. min: no AST.
 - Projection lab: `lab/replay.py` replays a season night by night (`--lineups`, `--dump`, `--model`); data in `lab/data/`;
   tests listed in `lab/experiments.json` → `python3 lab/build_page_data.py` → `data/lab.js` (Results → Model lab).
 - Results (28–31 Oct): 1,044 graded; strong 12–17 −£51.60; leans 400–360 −£164.88.
@@ -75,14 +75,14 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
 ## Next steps (in order)
 A000. Check `pending` route: live-loop's checkout is shallow, and origin/pending isn't an ancestor of main, so its merge may never succeed (no release merge since 30 Oct). 3 Nov no-games fix went straight to main.
 A00. 3 Nov review of 2 Nov: 15 games, strong 0–1 −£10, leans 82–88 −£169.10; season 1,437 graded. Do next, in order:
-   (1) **Injury hold too broad**: `injury_after_line` fires on any ESPN note edit (Thiero, out since 30 Oct, held all 12 MIA@LAL props; 128/266 held). Only fire on a status change; both files + parity + backtest, show the user first.
+   (1) Done 3 Nov: injury hold v1.9 published. Backtest: holds 390→103 of 1,451; freed 146–141 −£136.64, still held 58–45 +£47.80, never held 503–464 −£236.84. Watch freed props' market accuracy.
    (2) Weight review + Pacers-type minutes miss (10 out, priced players 14 min short) once REB/AST data is flowing. Top overs 46.3% vs 51.2% predicted.
    (3) Harmless: "lineMoves skipped" log on no-game days. Check the first run with the new credit split (Wed 4 Nov 21:00): ESPN range count not testable from Claude's sandbox; the log shows games to cover.
 A0. 2 Nov (pending): **Injury alert** (renamed from News alert) — title + "what this is" text; also fires when a 25+ min
    player's status got worse since his team's last game (Questionable → Out) even if he missed it (`was` field in
    injuries, saved from 2 Nov). 1 Nov review: leans 32–47 −£175, Top overs 14–12 +£9; 1,173 graded → weight review due.
 A. Done 1 Nov: closing-price check on Results (`clv_summary`, `clvPanel`). Game-line test: user agreed to WAIT (~15 Nov).
-1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
+1. **Decided 1 Nov: game-line changes not shipped.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
 2. Done 1 Nov: "Check your bookie" box, "worth it at", news alert (`newsAlarms`, `alarmHTML`). Details in HISTORY.md.

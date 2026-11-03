@@ -608,3 +608,5 @@ Tested 4 sizes, light/dark, no errors, no sideways scroll. Pushed to `pending`.
 - Trade-off: at about 2 credits a game AST is mostly only bought on re-priced games; UK game lines are not bought (rule needs 3 credits a game + 2).
 
 - 3 Nov evening: first no-game day of the season made the page fall back to the invented sample slate (`IS_LIVE` required games). Now stays live on no-game days: "No NBA games today" on Home, 0 games handled. Tested all pages at 4 sizes plus the 2 Nov game-night snapshot. Pushed directly to main, index.html only.
+
+- 3 Nov 20:05: published injury hold as v1.9 (user approved). A hold now needs: same team, status change after the line (ESPN `updated` and SWISH `since` both newer than `fetched`), player's usual minutes 20+ (or unknown). Backtest on 6 saved nights: holds 390→103; freed 287 went 146–141 −£136.64 (−4.8%); still held 103 went 58–45 +£47.80; never held 967 went 503–464 −£236.84; would add 7 Strong (4–3 +£9.16) and 136 Top overs (71–65 −£29.22). Status part only testable from ~1 Nov. Parity 0 mismatches on b8d724b and dcc86c7.
