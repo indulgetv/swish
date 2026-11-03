@@ -36,11 +36,7 @@ Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md
   `LU_DUE_MIN` 90, `LU_CONFIRM_BEFORE` 20 (NBA.com confirms 15–25 min before tip; once after tip, 28 Oct).
 - Injuries: nav badge = changes in last 6 h. Per team: Q/D + Out ≤48 h for regulars (≥12 min, `usualMin`);
   rest in "Older & long-term" drop-down.
-- Game moments (`gameMoment`): tip, End Q1, half, End Q3, End Q4 only if level, full-time. Desktop: sidebar "Tonight" row;
-  phones/tablets: Games-page header `.ana-h[data-gh]`. Team-colour halves, frosted score card, winner blinks gold +
-  confetti, loser half drains. `pollScores` every 10 s. Hidden test page: site + `#moments` (`viewMoments`).
-  On refresh (`MO_BOOT`): replays only the pause you land in (quarter end/half), full-time for 20 min (`moEnd.<id>` in
-  localStorage), tip-off in the first 5 min of Q1; nothing once play restarts.
+- Game moments (`gameMoment`): tip, quarter ends, half, full-time; sidebar on desktop, Games header on phones. `pollScores` 10 s. Hidden test page: site + `#moments`. Details in HISTORY.md.
 - Home "Tonight's games" rows: amber pill END OF Q1 / HALF-TIME / END OF Q3 / END OF Q4 during breaks, grey FULL-TIME (· OT).
 - Game jumps (`gotoGame`, all [data-goto]): un-lazies `#sections` (`.cv-all`) so content-visibility can't shift the
   target, lands under header + filter bar (`stickyTop()`), long trips jump then glide, card glows once (`.goto-hi`).
@@ -84,16 +80,11 @@ A00. 3 Nov review of 2 Nov: 15 games, strong 0–1 −£10, leans 82–88 −£1
 A0. 2 Nov (pending): **Injury alert** (renamed from News alert) — title + "what this is" text; also fires when a 25+ min
    player's status got worse since his team's last game (Questionable → Out) even if he missed it (`was` field in
    injuries, saved from 2 Nov). 1 Nov review: leans 32–47 −£175, Top overs 14–12 +£9; 1,173 graded → weight review due.
-A. Done 1 Nov, published 12:58: **closing-price check** on Results (`clv_summary`/`clv_of` in ledger.py; `clvLine`,
-   `clvPanel` in index.html; details HISTORY.md). First read (158 leans): our way 24%, against 38%, avg −1.7 pts (unders −3.1, overs −0.1); strong 0 measured.
-   Game-line test: user agreed 1 Nov to WAIT (~15 Nov).
+A. Done 1 Nov: closing-price check on Results (`clv_summary`, `clvPanel`). Game-line test: user agreed to WAIT (~15 Nov).
 1. **Decided 1 Nov: no v1.9 now, stay v1.8.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
-2. Done 1 Nov: "Check your bookie" box + "worth it at" (`bookieCheckHTML`, `worthAt`, FAIR_CUSHION 3%) and the
-   **news alert** (code names still `alarm`: `newsAlarms`, `alarmHTML`, `updAlarm`, `setAlarmOpen`; amber bell `navAlarm`
-   on Injuries). Out = full 10 s, Doubtful/Questionable = short 5 s; only news <6 h pops (shows just the new player), older
-   waits folded until tip. Injuries page bottom: "Ruled out tonight" (`outTonightHTML`, hover cards `injTipHTML`). Details in HISTORY.md.
+2. Done 1 Nov: "Check your bookie" box, "worth it at", news alert (`newsAlarms`, `alarmHTML`). Details in HISTORY.md.
 0. Moments "working great" — ask if tweaks, then remove hidden #moments page (ask first).
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
