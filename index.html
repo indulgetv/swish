@@ -3879,7 +3879,7 @@ function viewDashboard(){
   ${liveNotice()}
   <div class="overview">
     <div class="ov"><div class="eyebrow">Games</div><div class="v num">${GAMES.length}</div><div class="s">first tip ${timeFmt(GAMES[0].tipoff)}</div></div>
-    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${(() => { const n = NOLINE.filter(p => boughtMkts().includes(p.market)).length; return n ? ` · ${n} ${pricedAll() ? "with no bookmaker line tonight" : "still waiting for a price"}` : ""; })()}</div></div>
+    <div class="ov"><div class="eyebrow">Props with a price</div><div class="v num">${ALL.length}</div><div class="s">${clean.length} with no warnings${(() => { const n = NOLINE.filter(p => boughtFor(p.game).includes(p.market)).length; return n ? ` · ${n} ${pricedAll() ? "with no bookmaker line tonight" : "still waiting for a price"}` : ""; })()}</div></div>
     <div class="ov"><div class="eyebrow">Value picks</div><div class="v num red">${valueN}</div><div class="s">SWISH rates them ${(MIN_EDGE*100).toFixed(0)}+ points above the bookie</div></div>
     <div class="ov"><div class="eyebrow">Injury concerns</div><div class="v num">${sig.length}</div><div class="s">${sig.filter(i=>i.status==="Out").length} out · ${sig.filter(i=>i.status!=="Out").length} uncertain</div></div>
     <div class="ov"><div class="eyebrow">Bookie's cut</div><div class="v num">${avgVig === null ? "—" : pct(avgVig)}</div><div class="s">${avgVig === null ? "no prices yet" : "their margin, built into every price"}</div></div>
@@ -4027,12 +4027,16 @@ function lineMove(p){
 }
 // markets SWISH paid for on this slate (from the odds fetch); others are never priced
 const boughtMkts = () => (((LIVE && LIVE.sections && LIVE.sections.odds) || {}).markets) || ["PTS", "REB", "AST"];
+// markets bought for one game (credits are shared, so busy nights may not buy every market for every game)
+const boughtFor = gameId => (((LIVE && LIVE.sections && LIVE.sections.odds) || {}).gameMarkets || {})[String(gameId)] || boughtMkts();
 // why a live prop has no bookmaker line — only shown once tonight's main price fetch has covered every game
 function noLineWhy(pl, m){
   if (!IS_LIVE || !pricedAll()) return null;
   const st = (injuryOf(pl.name) || {}).status || pl.status;
   if (st === "Out") return {k: "out", t: "Out", tip: "Ruled out tonight"};
   if (st === "Doubtful" || st === "Questionable") return {k: "q", t: st === "Doubtful" ? "Doubt" : "Q", tip: `Listed ${st.toLowerCase()} — bookmakers often wait for the decision before posting lines`};
+  const gm = GAME_OF(pl.team);
+  if (!PROJ_ONLY.includes(m) && gm && !boughtFor(gm.id).includes(m)) return {k: "skip", t: "Not bought", tip: `SWISH didn't buy ${MARKET_NAMES[m].toLowerCase()} prices for this game: free credits are shared across the month`};
   if (!boughtMkts().includes(m)) return {k: "skip", t: "Not bought", tip: `SWISH only buys ${boughtMkts().map(x => MARKET_NAMES[x].toLowerCase()).join(", ")} prices (free plan)`};
   if (ALL.some(p => p.player === pl.name)) return {k: "mkt", t: "No mkt", tip: `Bookmakers priced his other stats, but not ${MARKET_NAMES[m].toLowerCase()}`};
   return {k: "none", t: "None", tip: "No bookmaker posted any props for this player tonight"};
@@ -4096,7 +4100,7 @@ function squadMatrix(teamCode){
   const v = ALL.filter(p => p.team === teamCode && p.value).length;
   return `<div class="squad">
     <div class="sq-h" style="--team:${team(teamCode).color}">${tid(teamCode,"sm")}<b>${tname(teamCode)}</b><span class="sub">${ps.length} players${v ? ` · <span style="color:var(--red);font-weight:700">${v} value</span>` : ""}</span></div>
-    ${ps.length ? `<table class="sqt" style="--nm:${SHOW_MARKETS.length}"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${SHOW_MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && !boughtMkts().includes(m) ? `<small class="mhd" title="SWISH only buys ${boughtMkts().join(", ")} prices (free plan) — SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
+    ${ps.length ? `<table class="sqt" style="--nm:${SHOW_MARKETS.length}"><thead><tr><th>Player</th><th class="min" title="Average minutes (last 10 games) · expected tonight in blue">Min<small class="mhd">avg·<i>exp</i></small></th>${SHOW_MARKETS.map(m => `<th class="mk">${m}${IS_LIVE && GAME_OF(teamCode) && !boughtFor(GAME_OF(teamCode).id).includes(m) ? `<small class="mhd" title="SWISH didn't buy this market for this game (free plan), so this column is SWISH projection only">no price</small>` : ""}</th>`).join("")}</tr></thead><tbody class="clamp-m" data-clamp="sq-${teamCode}">
       ${ps.map((pl, i) => { const open = state.showForm || state.formOpen.has(pl.name);
         const gk = sqGroup(pl), grp = i === 0 || sqGroup(ps[i - 1]) !== gk ? `<tr class="sq-grp g${gk}"><td colspan="${SHOW_MARKETS.length + 2}"><span>${sqGroupLabel(gk, teamCode)}</span></td></tr>` : "";
         return `${grp}<tr class="${pl.status==="Out"?"out":""} ${open?"has-form":""}"><td class="pl"><div class="pl-in">${jerseyAv(pl.name, pl.team, "sm")}<div><b>${esc(pl.name)}</b>${playerSub(pl)}</div>

@@ -598,3 +598,11 @@ Tested 4 sizes, light/dark, no errors, no sideways scroll. Pushed to `pending`.
   dropping/re-adding long-term injuries can't trigger it). Page DATA.injuries now carries was + returnDate (the "back …"
   line in alert cards was never showing before). Replay of 1 Nov 21:22: adds Ziaire Williams, still skips Ingram.
   8 size/theme checks: no errors, no sideways scroll.
+
+
+## 3 Nov 2026 — review of 2 Nov slate; credit split changed
+- 2 Nov: 15 games, 266 props, 264 graded (Oubre ruled out 00:33, 3 min after tip; voids). Strong 0–1 −£10 (Huff under 13.5, 22 pts, 40 min vs 23 proj). Leans 82–88 −£169.10. All 1,437 grades recomputed: 0 mismatches.
+- Bug: 11 of 15 games PTS only. Old budget = credits ÷ days left (481 ÷ 29 = 16), 16 ÷ 15 games = 1 market. Any night of 9+ games was PTS only, 6–8 lost AST.
+- Fix in `scripts/update.py`: share by games left in the month (`games_after`, `odds_budget`, `market_plan`), 0.4 credit/game reserve; a re-price needs enough left for 1 credit per remaining game. `sections.odds.gameMarkets` added; `index.html` `boughtFor` labels unbought markets per game. No model change (MODEL_VERSION stays v1.8).
+- Tested: simulated months of 233–271 games never overspend (0–2 credits left); mocked fetch for 14 games buys 27 credits; 4 screen sizes on the 2 Nov snapshot, no errors or overflow. ESPN's date-range count could not be tested from the sandbox (falls back to 7/day).
+- Trade-off: at about 2 credits a game AST is mostly only bought on re-priced games; UK game lines are not bought (rule needs 3 credits a game + 2).

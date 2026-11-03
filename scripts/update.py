@@ -66,6 +66,8 @@ ODDS_MARKETS_PRIORITY = ["player_points", "player_rebounds", "player_assists"]  
 TEAM_ALIASES = {"laclippers": "losangelesclippers"}
 # bookmaker player name (normalised) -> ESPN's (normalised), for players the two spell differently
 PLAYER_ALIASES = {"herbjones": "herbertjones"}
+ODDS_RESERVE_PER_GAME = 0.4      # credits per game held back for late re-prices (about 1 game in 8 re-priced at 3 credits)
+ODDS_FALLBACK_GAMES_PER_DAY = 7  # used only if ESPN can't give the rest of the month's schedule
 REF_BOOKS = ["fanduel", "draftkings", "betmgm"]          # US reference books
 UK_BOOKS = ["skybet", "paddypower", "williamhill"]        # UK game lines
 
@@ -528,14 +530,43 @@ def fetch_team_results(team_id: str, season: int):
 
 
 # ----------------------------------------------------------------------------- The Odds API
-def odds_budget(remaining: int) -> int:
-    today = datetime.now(timezone.utc)
-    days_in_month = calendar.monthrange(today.year, today.month)[1]
-    days_left = days_in_month - today.day + 1
-    return max(0, remaining // max(1, days_left))
+def games_after(day: datetime) -> int:
+    """Games from the day after this slate to the end of its month (free ESPN call). Falls back to an estimate."""
+    last = calendar.monthrange(day.year, day.month)[1]
+    days = last - day.day
+    if days <= 0:
+        return 0
+    try:
+        data, _ = get_json(f"{ESPN_SITE}/scoreboard", {"dates": f"{(day + timedelta(days=1)).strftime('%Y%m%d')}-{day.replace(day=last).strftime('%Y%m%d')}", "limit": 1000})
+        n = len(data.get("events") or [])
+        if n:
+            return n
+        log("odds: ESPN returned no games for the rest of the month, using an estimate")
+    except Exception as e:
+        log(f"odds: schedule count failed ({e}), using an estimate")
+    return days * ODDS_FALLBACK_GAMES_PER_DAY
 
 
-def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events: int | None, game_lines: bool = True):
+def odds_budget(remaining: int, n_now: int, games_left: int) -> int:
+    """Credits for the n_now games being priced: an equal share per game left this month, minus the re-price reserve."""
+    if remaining <= 0 or n_now <= 0:
+        return 0
+    share = remaining / max(games_left, n_now, 1)
+    per_game = max(share - ODDS_RESERVE_PER_GAME, min(1.0, share))
+    return min(remaining, int(per_game * n_now + 1e-9))
+
+
+def market_plan(budget: int, n_games: int, n_markets: int) -> list[int]:
+    """How many markets each game gets, earliest tip first: every game the same, leftovers add one more to the earliest."""
+    if n_games <= 0:
+        return []
+    base = min(n_markets, budget // n_games)
+    extra = budget - base * n_games if base < n_markets else 0
+    return [base + (1 if i < extra else 0) for i in range(n_games)]
+
+
+def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events: int | None, game_lines: bool = True,
+               games_left: int = 0, reprice: bool = False):
     """Returns (props, gameLines, info). Spends credits carefully."""
     info = {"creditsUsed": 0, "creditsRemaining": None, "eventsPriced": 0, "notes": []}
     fetched_at = now_iso()
@@ -543,15 +574,23 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
     events, hdr = get_json(f"{ODDS_BASE}/events", {"apiKey": key})
     remaining = int(hdr.get("x-requests-remaining") or hdr.get("X-Requests-Remaining") or 0)
     info["creditsRemaining"] = remaining
-    budget = odds_budget(remaining)
-    info["budgetToday"] = budget
-    log(f"odds: {remaining} credits left this month, budget today {budget}")
-
     # Match events to today's ESPN games by team names
     def ev_key(e):
         return (norm_team(e.get("away_team", "")), norm_team(e.get("home_team", "")))
     todays = [e for e in events if ev_key(e) in game_ids_by_teams]
     props, lines = [], []
+    n_now = len(todays)
+    if reprice:
+        # a re-price buys all three markets, but never eats the points credits the rest of the month needs
+        need = len(ODDS_MARKETS_PRIORITY) * n_now
+        budget = need if remaining - need >= games_left else 0
+        if n_now and not budget:
+            info["notes"].append("Late re-price skipped to protect the rest of the month's credits.")
+    else:
+        budget = odds_budget(remaining, n_now, games_left)
+    info["budgetToday"] = budget
+    info["gamesLeftThisMonth"] = games_left
+    log(f"odds: {remaining} credits left this month, {games_left} games to cover, budget now {budget} for {n_now} games")
 
     # 2) UK game lines (totals/spreads) — nice to have only: ESPN already gives a free spread/total, so these are
     #    bought only when the budget also covers points, rebounds and assists for every game (props come first)
@@ -574,22 +613,26 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
             info["notes"].append(f"UK game lines failed: {e}")
 
     # 3) US player-prop reference lines, one event at a time within budget
+    todays.sort(key=lambda e: e.get("commence_time", ""))
     if markets == ["auto"]:
         # cover every game first, then add markets in priority order while the budget allows
-        n = max(1, min(len(ODDS_MARKETS_PRIORITY), budget // max(1, len(todays))))
-        markets = ODDS_MARKETS_PRIORITY[:n]
-        log(f"odds: auto markets for {len(todays)} games -> {', '.join(markets)}")
-    info["markets"] = [PROP_MARKETS.get(m, m) for m in markets]
-    per_event = len(markets)
-    allowed = budget // per_event if per_event else 0
+        wanted = ODDS_MARKETS_PRIORITY
+        plan = market_plan(budget, n_now, len(wanted))
+    else:
+        wanted = markets
+        plan = [len(wanted)] * (budget // len(wanted) if wanted else 0)
+    plan = [c for c in plan if c > 0]
     if max_events is not None:
-        allowed = min(allowed, max_events)
-    todays.sort(key=lambda e: e.get("commence_time", ""))
-    for e in todays[:allowed]:
+        plan = plan[:max_events]
+    allowed = len(plan)
+    log(f"odds: markets per game (earliest first) -> {plan}")
+    info["gameMarkets"] = {}
+    for e, count in zip(todays, plan):
         gid = game_ids_by_teams.get(ev_key(e))
+        game_markets = wanted[:count]
         try:
             data, hdr = get_json(f"{ODDS_BASE}/events/{e['id']}/odds", {
-                "apiKey": key, "regions": "us", "markets": ",".join(markets),
+                "apiKey": key, "regions": "us", "markets": ",".join(game_markets),
                 "bookmakers": ",".join(REF_BOOKS), "oddsFormat": "american"})
         except Exception as ex:
             info["notes"].append(f"props failed for {e.get('away_team')} @ {e.get('home_team')}: {ex}")
@@ -597,6 +640,7 @@ def fetch_odds(key: str, game_ids_by_teams: dict, markets: list[str], max_events
         info["creditsUsed"] += int(hdr.get("x-requests-last") or 0)
         info["creditsRemaining"] = int(hdr.get("x-requests-remaining") or info["creditsRemaining"] or 0)
         info["eventsPriced"] += 1
+        info["gameMarkets"][gid] = [PROP_MARKETS.get(m, m) for m in game_markets]
         for b in data.get("bookmakers", []):
             for m in b.get("markets", []):
                 mk = PROP_MARKETS.get(m.get("key"))
@@ -840,8 +884,10 @@ def main() -> int:
             try:
                 if not chosen:
                     raise RuntimeError("no eligible games in this window")
+                pre_now = sum(1 for g in d["games"] if g.get("state") == "pre" and tip(g) > now)
                 props, lines, info = fetch_odds(key, by_teams, [m for m in args.markets.split(",") if m], args.max_events,
-                                                game_lines=args.window != "reprice")
+                                                game_lines=args.window != "reprice", games_left=pre_now + games_after(day),
+                                                reprice=args.window == "reprice")
                 # merge: replace lines only for the games priced now, keep earlier lines for the rest
                 priced = {p["game"] for p in props}
                 d["props"] = [p for p in d.get("props", []) if p.get("game") not in priced] + props
@@ -858,6 +904,14 @@ def main() -> int:
                     runs.append(run)
                 info["runs"] = runs
                 info["eventsPriced"] = len({p["game"] for p in d["props"]})
+                # which markets were bought for each game tonight (the page uses this to label "not bought")
+                today_ids = {g["id"] for g in d["games"]}
+                old_gm = (d["sections"].get("odds") or {}).get("gameMarkets") or {}
+                gm = {k: v for k, v in old_gm.items() if k in today_ids}
+                for k, v in info["gameMarkets"].items():
+                    gm[k] = sorted(set(gm.get(k, [])) | set(v), key=["PTS", "REB", "AST", "3PM", "PRA"].index)
+                info["gameMarkets"] = gm
+                info["markets"] = [m for m in ["PTS", "REB", "AST", "3PM", "PRA"] if any(m in v for v in gm.values())]
                 d["sections"]["odds"] = section("The Odds API (US books = reference only; UK game lines)", True, **info)
                 log(f"odds: {len(props)} prop lines, {len(lines)} UK game-line outcomes, {info['creditsUsed']} credits used")
             except RuntimeError as e:
