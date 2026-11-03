@@ -2797,7 +2797,7 @@ const HIGH_MIN_TRIM = 0.1;     // v1.6: expected minutes above 28 trimmed by 10%
 const HIGH_MIN_FROM = 28;
 const BIG_GAP_SD = 0.9;       // projection more than 0.9 spreads from the line → flagged "check the news"
 const BIG_GAP_REL = 0.4;      // …or more than 40% away from the line
-const MODEL_VERSION = "v1.8 (2026-10-31)";   // keep in step with scripts/model.py
+const MODEL_VERSION = "v1.9 (2026-11-03)";   // keep in step with scripts/model.py
 const ROLE_CHANGE_MIN = 5;    // this season's minutes vs last season's: a change this big counts as a new role
 const ROLE_NEW_GAMES = 3;
 const BACK_TRIM = 0.075;      // v1.7: missed his team's last game → ~7.5% fewer minutes on return (lab, 2 seasons)
@@ -3107,8 +3107,11 @@ function analyse(p){
   // a line far from the projection usually means news the game logs can't see (new role, minutes limit, lineup change)
   if (p.live && p.fetched){
     const g = gameById(p.game);
-    const late = DATA.injuries.filter(i => (i.team === g.away || i.team === g.home) && significant(i) && i.updated && new Date(i.updated) > new Date(p.fetched)).sort(byNewest);
-    if (late.length) flags.push(`Injury news since this line was fetched: ${late.slice(0,2).map(i => `${i.player} ${i.status.toLowerCase()} (${agoTxt(i.updated)})`).join(", ")}${late.length > 2 ? ` +${late.length - 2} more` : ""} — the line may have moved`);
+    // v1.9: same team, a real status change after the line (not a note edit), a player who usually plays INJ_HOLD_MIN+ minutes
+    const injSeen = i => i.since || i.updated;
+    const injMatters = i => { const m = usualMin(i.player); return m === null || m >= INJ_HOLD_MIN; };
+    const late = DATA.injuries.filter(i => i.team === p.team && significant(i) && i.updated && new Date(i.updated) > new Date(p.fetched) && new Date(injSeen(i)) > new Date(p.fetched) && injMatters(i)).sort(byNewest);
+    if (late.length) flags.push(`Injury news since this line was fetched: ${late.slice(0,2).map(i => `${i.player} ${i.status.toLowerCase()} (${agoTxt(injSeen(i))})`).join(", ")}${late.length > 2 ? ` +${late.length - 2} more` : ""} — the line may have moved`);
   }
   if (p.live && p.roleChange && p.curGames < ROLE_NEW_GAMES) flags.push(`Minutes changed a lot vs last season (${Math.round(p.lastMin)}→${Math.round(p.curMin)}) with only ${p.curGames} game${p.curGames === 1 ? "" : "s"} this season — new role, projection less certain`);
   if (p.live && p.back && inj && side === "over") flags.push(`Back from injury — missed his team's last game and is on today's injury report (${p.status.toLowerCase()}); minutes may be limited`);
@@ -3588,7 +3591,7 @@ const byNewest = (a, b) => (new Date(b.updated || 0)) - (new Date(a.updated || 0
 const injNews = () => DATA.injuries.filter(isNewNews).sort(byNewest);
 /* relevance: what matters for tonight. Questionable/Doubtful always; "Out" only while the news is fresh (48 h)
    and the player is a regular (12+ min a game). Everything else goes in a closed "older / long-term" drop-down. */
-const OLD_INJ_H = 48, REGULAR_MIN = 12;
+const OLD_INJ_H = 48, REGULAR_MIN = 12, INJ_HOLD_MIN = 20;   // INJ_HOLD_MIN: keep in step with scripts/model.py
 function usualMin(name){
   if (!IS_LIVE || !LIVE || !LIVE.players) { const p = PLAYERS.find(x => x.name === name); return p ? p.min : null; }
   const p = LIVE.players.find(x => x.name === name); if (!p) return null;

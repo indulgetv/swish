@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.8 (2026-10-31)"
+MODEL_VERSION = "v1.9 (2026-11-03)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -30,6 +30,7 @@ BIG_GAP_SD = 0.9
 BIG_GAP_REL = 0.4
 MODEL_WEIGHT = 0.3
 STALE_AFTER_MIN = 14 * 60
+INJ_HOLD_MIN = 20   # v1.9: "injury news after the line" only counts a teammate who usually plays this many minutes
 COUNT_MARKETS = {"REB", "AST", "3PM", "STL", "BLK", "TOV"}
 ROLE_CHANGE_MIN = 5        # minutes: this season's role vs last season counts as a role change
 MAX_MIN = 40               # nobody is projected above this many minutes
@@ -115,6 +116,16 @@ def rate(games, m):
 def trim_minutes(m):
     """v1.6: big-minute players play a little less than their recent average (rest, blowouts, foul trouble)."""
     return m - HIGH_MIN_TRIM * max(0.0, m - HIGH_MIN_FROM)
+
+
+def usual_minutes(player):
+    """Usual minutes: last 10 this season (3+ games), else last 20 of last season. None if unknown. Same as usualMin() on the site."""
+    played = lambda arr: [x for x in (arr or []) if (x.get("min") or 0) > 0]
+    cur, last = played(player.get("season")), played(player.get("lastSeason"))
+    g = cur[:10] if len(cur) >= 3 else last[:20]
+    if not g:
+        return avg([x["min"] for x in cur]) if cur else None
+    return avg([x["min"] for x in g])
 
 
 def minutes_model(cur, last):
@@ -323,6 +334,7 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
         game_of_team[g["away"]] = (g, g["home"])
         game_of_team[g["home"]] = (g, g["away"])
     injuries = slate_injuries(live)
+    usual_by_name = {x.get("name"): usual_minutes(x) for x in live.get("players", [])}
 
     def injury_of(name):
         return next((i for i in injuries if i.get("player") == name), None)
@@ -431,8 +443,14 @@ def build_picks(live: dict, games_filter: set | None = None) -> list[dict]:
                 flags.append(("stale", "Stale price"))
             ts_f = parse_ts(fetched)
             if ts_f:
-                late = [i for i in injuries if i.get("team") in (g["away"], g["home"]) and i.get("status") != "Probable"
-                        and parse_ts(i.get("updated")) and parse_ts(i.get("updated")) > ts_f]
+                # v1.9: same team, a real status change after the line (ESPN and SWISH both dated after it: not a note edit, not news seen late), a player who usually plays 20+ min
+                def _matters(i):
+                    m = usual_by_name.get(i.get("player"))
+                    return m is None or m >= INJ_HOLD_MIN
+                late = [i for i in injuries if i.get("team") == p["team"] and i.get("status") != "Probable"
+                        and parse_ts(i.get("updated")) and parse_ts(i.get("updated")) > ts_f
+                        and parse_ts(i.get("since") or i.get("updated")) > ts_f
+                        and _matters(i)]
                 if late:
                     flags.append(("injury_after_line", "Injury news after the line: " + ", ".join(f"{i['player']} {i['status'].lower()}" for i in late[:3])))
             if role_change and len(cur) < ROLE_NEW_GAMES:
