@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
-MODEL_VERSION = "v1.9 (2026-11-03)"
+MODEL_VERSION = "v1.10 (2026-11-05)"
 
 MARKETS = ["PTS", "REB", "AST", "3PM", "PRA"]
 CV = {"PTS": .27, "REB": .33, "AST": .38, "3PM": .62, "PRA": .22}
@@ -28,7 +28,7 @@ HIGH_MIN_TRIM = 0.1        # v1.6: expected minutes above 28 are trimmed by 10% 
 HIGH_MIN_FROM = 28         #        averaged 1.1–1.5 fewer minutes than projected)
 BIG_GAP_SD = 0.9
 BIG_GAP_REL = 0.4
-MODEL_WEIGHT = 0.3
+MODEL_WEIGHT = 0.1         # v1.10: saved picks put 0.3 above the likely range (best-fit -0.08, range -0.39 to +0.23)
 STALE_AFTER_MIN = 14 * 60
 INJ_HOLD_MIN = 20   # v1.9: "injury news after the line" only counts a teammate who usually plays this many minutes
 COUNT_MARKETS = {"REB", "AST", "3PM", "STL", "BLK", "TOV"}
