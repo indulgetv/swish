@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T00:55:32Z",
+ "generatedAt": "2026-11-05T01:00:33Z",
  "stake": 10.0,
  "modelVersion": "v1.9 (2026-11-03)",
  "modelWeight": 0.3,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 219,
-   "ourWay": 53,
-   "against": 91,
-   "avg": -0.0173
+   "n": 238,
+   "ourWay": 59,
+   "against": 99,
+   "avg": -0.0163
   },
   "strong": {
    "n": 0,
@@ -104,22 +104,22 @@
    "avg": null
   },
   "noLean": {
-   "n": 111,
-   "ourWay": 33,
-   "against": 41,
-   "avg": -0.0038
+   "n": 117,
+   "ourWay": 34,
+   "against": 44,
+   "avg": -0.0036
   },
   "over": {
-   "n": 102,
-   "ourWay": 26,
-   "against": 33,
-   "avg": -0.0034
+   "n": 111,
+   "ourWay": 29,
+   "against": 35,
+   "avg": -0.0024
   },
   "under": {
-   "n": 117,
-   "ourWay": 27,
-   "against": 58,
-   "avg": -0.0294
+   "n": 127,
+   "ourWay": 30,
+   "against": 64,
+   "avg": -0.0285
   },
   "onHold": {
    "n": 59,
@@ -128,23 +128,23 @@
    "avg": -0.0144
   },
   "clear": {
-   "n": 160,
-   "ourWay": 41,
-   "against": 65,
-   "avg": -0.0184
+   "n": 179,
+   "ourWay": 47,
+   "against": 73,
+   "avg": -0.0169
   },
   "byMarket": {
    "PTS": {
-    "n": 102,
-    "ourWay": 24,
-    "against": 50,
-    "avg": -0.0195
+    "n": 113,
+    "ourWay": 29,
+    "against": 53,
+    "avg": -0.0167
    },
    "REB": {
-    "n": 72,
-    "ourWay": 20,
-    "against": 22,
-    "avg": -0.0064
+    "n": 80,
+    "ourWay": 21,
+    "against": 27,
+    "avg": -0.0081
    },
    "AST": {
     "n": 45,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 42,
+  "lineMoved": 45,
   "tol": 0.005
  },
  "byMarket": {
@@ -2684,7 +2684,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.9 (2026-11-03)"
   },
   {
@@ -2710,7 +2710,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.9 (2026-11-03)"
   }
  ]
