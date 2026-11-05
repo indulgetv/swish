@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-05 10:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-05 16:35 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep under 9,000 characters; session details go in HISTORY.md.
 
 ## What SWISH is now
@@ -11,13 +11,13 @@ Keep under 9,000 characters; session details go in HISTORY.md.
   The Odds API: **US** player props PTS/REB/AST + UK game lines) → `data/live.json/.js`. `--mode auto` picks the job by time.
 - Picks ledger: `scripts/ledger.py` saves picks for games not started into `data/picks/<date>.json` (locked at tip),
   grades from ESPN box scores (void if absent 10 h after tip) → `data/results.json/.js` (Results page).
-- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.9**.
+- Model: `scripts/model.py` = Python copy of the browser model in index.html. **MODEL_VERSION v1.10**.
   Projection = per-minute rate × expected minutes (this season 0.5·last3 + 0.5·last10, last season early on;
   absences share the gap below 240 min; NBA.com new starter pulled ⅓ of the way to starter minutes; >28 min trimmed 10%;
   missed his team's last game → × 0.925 `BACK_TRIM`). sd × 1.15; normal for PTS, negative binomial for REB/AST.
   Model's own chance → sigmoid(0.70·logit p) (`MODEL_STRETCH`, `stretch()` in both files), then
-  SWISH chance = 0.3·model + 0.7·no-vig market (`MODEL_WEIGHT` 0.3 — don't change until ~1,000 graded props).
-  Strong value = edge ≥ 6 pts, EV > 0, no flags. Expect ~1–3 strong picks a night.
+  SWISH chance = 0.1·model + 0.9·no-vig market (`MODEL_WEIGHT` 0.1, cut from 0.3 on 5 Nov; raise only if results earn it).
+  Strong value = edge ≥ 6 pts, EV > 0, no flags. Expect about 42 leans a night and strong rare or absent (0 of 1,796 saved props). Do not lower the 6-pt rule just to refill it.
   Flags ("On hold · reason"): back from injury (overs; missed last game + on today's report), injury doubt, lineup due
   (25+ min teammate newly out, until NBA.com confirms or the game starts — "started" counts as confirmed), few games (<5), big gap, new role, old price, injury news newer
   than the line (v1.9: same team, status changed after the line by both ESPN `updated` and SWISH `since`, player usually 20+ min, `INJ_HOLD_MIN`). Players < 22 exp. min: no AST.
@@ -69,10 +69,10 @@ Keep under 9,000 characters; session details go in HISTORY.md.
   a Claude Doc — edit with the Docs tools) current.
 
 ## Latest
-- 5 Nov: ESPN games-left count now one request per day (range request gave HTTP 400). Weight test and minutes study done (`lab/weight_test.py`, `lab/minutes_study.py`); no model change. Details HISTORY.md.
+- 5 Nov: **v1.10 published, model weight 10%.** ESPN games-left count now one request per day (range request gave HTTP 400). Weight test and minutes study done (`lab/weight_test.py`, `lab/minutes_study.py`); Details HISTORY.md.
 
 ## Next steps (in order)
-A0000. **User decision: model weight.** v1.9 re-run on 1,796 saved props: best weight implied −0.08 (95% range −0.39 to +0.23), so 0.3 is above the range. Lowering it to 0.1 gives about 42 leans a night but 0 strong (6-pt rule); don't lower the strong rule just to refill it. Only 7 nights; lab has no real lines, so it can't test the weight.
+A0000. Done 5 Nov: weight cut to 0.1 (v1.10) with user approval. Best fit was −0.08 (range −0.39 to +0.23); 7 nights only. Re-check as v1.10 picks build up.
 A000a. Check Thu 5 Nov 21:00 odds log: should say "games left after this slate", no "schedule count failed".
 A000b. Minutes: simple average shifts do almost nothing (teammate returned −0.7, newly out +0.6, new starter +1.8; both ways across seasons PTS miss about −0.1–0.2%). Live PTS miss 5.305 vs line 5.067; when minutes within 2, tie 4.48 (195 props, hindsight). Next test: player-specific minutes when a teammate returns, not flat shifts.
 A000. Check `pending` route: live-loop's checkout is shallow, and origin/pending isn't an ancestor of main, so its merge may never succeed (no release merge since 30 Oct). 3 Nov no-games fix went straight to main.
