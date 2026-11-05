@@ -3,9 +3,9 @@
   "slateDate": "2026-11-05",
   "mode": "light",
   "errors": [],
-  "lastFullAt": "2026-11-05T07:00:49Z",
+  "lastFullAt": "2026-11-05T07:05:38Z",
   "season": 2027,
-  "writtenAt": "2026-11-05T07:05:51Z"
+  "writtenAt": "2026-11-05T07:06:53Z"
  },
  "games": [
   {
@@ -21,7 +21,7 @@
    "espnLine": {
     "details": "PHX -1.5",
     "overUnder": 223.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   },
   {
@@ -37,7 +37,7 @@
    "espnLine": {
     "details": "GS -6.5",
     "overUnder": 235.5,
-    "provider": "Draft Kings"
+    "provider": "DraftKings"
    }
   }
  ],
@@ -64711,38 +64711,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-11-05T07:00:50Z",
+   "fetchedAt": "2026-11-05T07:05:39Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-05T07:05:50Z",
+   "fetchedAt": "2026-11-05T07:05:41Z",
    "ok": true,
    "count": 91
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-05T07:05:49Z",
+   "fetchedAt": "2026-11-05T07:05:39Z",
    "ok": true,
    "count": 2
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-05T07:05:50Z",
+   "fetchedAt": "2026-11-05T07:05:40Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-11-05T07:02:02Z",
+   "fetchedAt": "2026-11-05T07:06:50Z",
    "ok": true,
    "count": 67,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-11-05T07:02:04Z",
+   "fetchedAt": "2026-11-05T07:06:52Z",
    "ok": true
   }
  },
