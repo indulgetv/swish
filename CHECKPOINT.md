@@ -1,6 +1,6 @@
 # SWISH — checkpoint (short)
 
-_Last updated: 2026-11-05 16:35 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
+_Last updated: 2026-11-05 17:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
 Keep under 9,000 characters; session details go in HISTORY.md.
 
 ## What SWISH is now
@@ -74,7 +74,7 @@ Keep under 9,000 characters; session details go in HISTORY.md.
 ## Next steps (in order)
 A0000. Done 5 Nov: weight cut to 0.1 (v1.10) with user approval. Best fit was −0.08 (range −0.39 to +0.23); 7 nights only. Re-check as v1.10 picks build up.
 A000a. Check Thu 5 Nov 21:00 odds log: should say "games left after this slate", no "schedule count failed".
-A000b. Minutes: simple average shifts do almost nothing (teammate returned −0.7, newly out +0.6, new starter +1.8; both ways across seasons PTS miss about −0.1–0.2%). Live PTS miss 5.305 vs line 5.067; when minutes within 2, tie 4.48 (195 props, hindsight). Next test: player-specific minutes when a teammate returns, not flat shifts.
+A000b. Minutes for a returning teammate rejected 5 Nov (`lab/returning_minutes.py`): PTS miss 4.921→4.914 and 4.999→4.988, no better than a flat shift, gap to line 0.238 on live picks. Don't tune minutes further without a new source of information. Ask the user: look for a free UK prop price source, or treat SWISH as a tracking and alert tool.
 A000. Check `pending` route: live-loop's checkout is shallow, and origin/pending isn't an ancestor of main, so its merge may never succeed (no release merge since 30 Oct). 3 Nov no-games fix went straight to main.
 A00. Still open from 3 Nov review:
    (2) Pacers-type minutes miss (10 out, priced players 14 min short).
