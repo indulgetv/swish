@@ -531,20 +531,21 @@ def fetch_team_results(team_id: str, season: int):
 
 # ----------------------------------------------------------------------------- The Odds API
 def games_after(day: datetime) -> int:
-    """Games from the day after this slate to the end of its month (free ESPN call). Falls back to an estimate."""
+    """Games from the day after this slate to the end of its month (free ESPN calls, one per day: ESPN refused the
+    date-range request with HTTP 400 in production). A day ESPN can't answer counts as the usual estimate."""
     last = calendar.monthrange(day.year, day.month)[1]
-    days = last - day.day
-    if days <= 0:
-        return 0
-    try:
-        data, _ = get_json(f"{ESPN_SITE}/scoreboard", {"dates": f"{(day + timedelta(days=1)).strftime('%Y%m%d')}-{day.replace(day=last).strftime('%Y%m%d')}", "limit": 1000})
-        n = len(data.get("events") or [])
-        if n:
-            return n
-        log("odds: ESPN returned no games for the rest of the month, using an estimate")
-    except Exception as e:
-        log(f"odds: schedule count failed ({e}), using an estimate")
-    return days * ODDS_FALLBACK_GAMES_PER_DAY
+    total = failed = 0
+    for offset in range(1, last - day.day + 1):
+        date = (day + timedelta(days=offset)).strftime("%Y%m%d")
+        try:
+            data, _ = get_json(f"{ESPN_SITE}/scoreboard", {"dates": date}, tries=2)
+            total += len(data.get("events") or [])
+        except Exception as e:
+            failed += 1
+            total += ODDS_FALLBACK_GAMES_PER_DAY
+            log(f"odds: schedule count failed for {date} ({e}), using an estimate for that day")
+    log(f"odds: {total} games left after this slate ({last - day.day} days checked, {failed} estimated)")
+    return total
 
 
 def odds_budget(remaining: int, n_now: int, games_left: int) -> int:
