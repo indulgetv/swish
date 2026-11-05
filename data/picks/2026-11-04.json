@@ -7336,7 +7336,13 @@
    "openUnder": -128,
    "firstSaved": "2026-11-04T21:00:40Z",
    "openFetched": "2026-11-04T21:00:32Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-05T04:20:41Z",
+   "profit": -10.0
   },
   "401909930|Marcus Smart|REB": {
    "game": "401909930",
@@ -7388,7 +7394,13 @@
    "openUnder": -151,
    "firstSaved": "2026-11-04T21:00:40Z",
    "openFetched": "2026-11-04T21:00:32Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-05T04:20:41Z",
+   "profit": -10.0
   },
   "401909930|Jabari Smith Jr.|PTS": {
    "game": "401909930",
@@ -7672,7 +7684,13 @@
    "openUnder": -131,
    "firstSaved": "2026-11-04T21:00:40Z",
    "openFetched": "2026-11-04T21:00:32Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-05T04:20:41Z",
+   "profit": 10.1
   },
   "401909930|Fred VanVleet|REB": {
    "game": "401909930",
@@ -7724,7 +7742,13 @@
    "openUnder": -166,
    "firstSaved": "2026-11-04T21:00:40Z",
    "openFetched": "2026-11-04T21:00:32Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-05T04:20:41Z",
+   "profit": -10.0
   },
   "401909927|Andrew Nembhard|PTS": {
    "game": "401909927",
@@ -20809,5 +20833,5 @@
    "profit": 10.8
   }
  },
- "updated": "2026-11-05T04:10:41Z"
+ "updated": "2026-11-05T04:20:41Z"
 }
