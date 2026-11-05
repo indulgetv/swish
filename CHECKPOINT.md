@@ -1,7 +1,7 @@
 # SWISH — checkpoint (short)
 
 _Last updated: 2026-11-05 10:50 UK by Claude._ Full detail of every past session: `HISTORY.md` (read only when needed).
-Keep this file SHORT (under 9,000 characters): put session details in HISTORY.md, keep here only what the next chat needs.
+Keep under 9,000 characters; session details go in HISTORY.md.
 
 ## What SWISH is now
 - Site: https://indulgetv.github.io/swish/ — one page, `index.html` (Home, Props, Games & Analysis, Injuries, Results).
@@ -76,16 +76,12 @@ A0000. **User decision: model weight.** v1.9 re-run on 1,796 saved props: best w
 A000a. Check Thu 5 Nov 21:00 odds log: should say "games left after this slate", no "schedule count failed".
 A000b. Minutes: simple average shifts do almost nothing (teammate returned −0.7, newly out +0.6, new starter +1.8; both ways across seasons PTS miss about −0.1–0.2%). Live PTS miss 5.305 vs line 5.067; when minutes within 2, tie 4.48 (195 props, hindsight). Next test: player-specific minutes when a teammate returns, not flat shifts.
 A000. Check `pending` route: live-loop's checkout is shallow, and origin/pending isn't an ancestor of main, so its merge may never succeed (no release merge since 30 Oct). 3 Nov no-games fix went straight to main.
-A00. 3 Nov review of 2 Nov: 15 games, strong 0–1 −£10, leans 82–88 −£169.10; season 1,437 graded. Do next, in order:
-   (1) Done 3 Nov: injury hold v1.9 published. Backtest: holds 390→103 of 1,451; freed 146–141 −£136.64, still held 58–45 +£47.80, never held 503–464 −£236.84. Watch freed props' market accuracy.
+A00. Still open from 3 Nov review:
    (2) Pacers-type minutes miss (10 out, priced players 14 min short).
    (3) Harmless: "lineMoves skipped" log on no-game days.
-A0. 2 Nov (pending): **Injury alert** also fires when a 25+ min player's status got worse since his last game (`was` field). 1 Nov review: leans 32–47 −£175, Top overs 14–12 +£9; 1,173 graded → weight review due.
-A. Done 1 Nov: closing-price check on Results (`clv_summary`, `clvPanel`). Game-line test: user agreed to WAIT (~15 Nov).
-1. **Decided 1 Nov: game-line changes not shipped.** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
+1. **Decided 1 Nov: game-line changes not shipped; re-test about 15 Nov (user agreed to wait).** Lab-only: `lab/model_gameline_test.py` (blowout spread>9 ×0.25, REB/AST ×
    (implied/115)^0.5) — tiny lab gain, none vs market (`lab/backtest_saved.py`); bundle into the next real model change.
    "Big gap = hold" rejected (strong needs a ≥20-pt gap; v1.8 re-run: those went 8–5). Re-check ~15 Nov with `lab/check_picks.py`.
-2. Done 1 Nov: "Check your bookie" box, "worth it at", news alert (`newsAlarms`, `alarmHTML`). Details in HISTORY.md.
 0. Moments "working great" — ask if tweaks, then remove hidden #moments page (ask first).
 5. **Model lab privacy** (user wants it private): option = remove from site + `data/lab.js`, show as a private claude.ai
    page; optional private repo `swish-lab` for `lab/`. Ask which.
