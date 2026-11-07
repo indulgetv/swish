@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-11-07",
-  "mode": "odds",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-11-07T14:00:28Z",
   "season": 2027,
-  "writtenAt": "2026-11-07T15:55:28Z"
+  "writtenAt": "2026-11-07T16:00:28Z"
  },
  "games": [
   {
@@ -642,6 +642,38 @@
  "injuries": [
   {
    "team": "ATL",
+   "player": "Keshon Gilbert",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Knee Inflammation",
+   "comment": "Gilbert is out for Friday's game against the Wizards due to left knee inflammation.",
+   "updated": "2026-11-07T15:08Z",
+   "returnDate": "2026-11-07",
+   "news": null,
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
+  },
+  {
+   "team": "ATL",
+   "player": "Asa Newell",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Left Toe",
+   "comment": "Newell (toe) is out for Friday's game against Washington.",
+   "updated": "2026-11-07T15:07Z",
+   "returnDate": "2026-11-07",
+   "news": null,
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
+  },
+  {
+   "team": "ATL",
    "player": "Jalen Johnson",
    "pos": "F",
    "status": "Out",
@@ -651,39 +683,8 @@
    "updated": "2026-11-06T22:06Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 141,
+   "checks": 142,
    "since": "2026-11-06T22:15:32Z",
-   "was": "Questionable",
-   "confirmed": true
-  },
-  {
-   "team": "ATL",
-   "player": "Keshon Gilbert",
-   "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Knee Inflammation",
-   "comment": "Gilbert is out for Friday's game against the Wizards due to left knee inflammation.",
-   "updated": "2026-11-05T22:41Z",
-   "returnDate": "2026-11-07",
-   "news": null,
-   "checks": 344,
-   "since": "2026-11-05T22:55:29Z",
-   "confirmed": true
-  },
-  {
-   "team": "ATL",
-   "player": "Asa Newell",
-   "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Left Toe",
-   "comment": "Newell (toe) is out for Friday's game against Washington.",
-   "updated": "2026-11-05T22:33Z",
-   "returnDate": "2026-11-07",
-   "news": null,
-   "checks": 350,
-   "since": "2026-11-05T22:25:29Z",
    "was": "Questionable",
    "confirmed": true
   },
@@ -698,7 +699,7 @@
    "updated": "2026-11-05T22:12Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 350,
+   "checks": 351,
    "since": "2026-11-05T22:25:29Z",
    "was": "Questionable",
    "confirmed": true
@@ -714,7 +715,7 @@
    "updated": "2026-10-19T19:38Z",
    "returnDate": "2026-11-20",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-19T19:38Z",
    "confirmed": true
   },
@@ -729,7 +730,7 @@
    "updated": "2026-09-21T19:50Z",
    "returnDate": "2027-07-01",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-09-21T19:50Z",
    "confirmed": true
   },
@@ -744,8 +745,23 @@
    "updated": "2026-11-04T23:58Z",
    "returnDate": "2026-11-06",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-18T14:49Z",
+   "confirmed": true
+  },
+  {
+   "team": "BKN",
+   "player": "Noah Clowney",
+   "pos": "F",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Illness",
+   "comment": "Clowney is listed as questionable for Saturday's game against the Hawks due to an illness.",
+   "updated": "2026-11-07T15:19Z",
+   "returnDate": "2026-11-07",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
    "confirmed": true
   },
   {
@@ -759,7 +775,7 @@
    "updated": "2026-11-05T02:29Z",
    "returnDate": "2026-11-04",
    "news": null,
-   "checks": 519,
+   "checks": 520,
    "since": "2026-11-05T02:40:41Z",
    "confirmed": true
   },
@@ -774,7 +790,7 @@
    "updated": "2026-10-29T17:09Z",
    "returnDate": "2026-11-11",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-29T17:09Z",
    "confirmed": true
   },
@@ -787,9 +803,9 @@
    "detail": "Right Shoulder Sprain",
    "comment": "Bilodeau (shoulder) has been ruled out for Sunday's game against Indiana.",
    "updated": "2026-10-25T17:19Z",
-   "returnDate": "2026-11-06",
+   "returnDate": "2026-11-07",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-25T17:19Z",
    "confirmed": true
   },
@@ -804,7 +820,7 @@
    "updated": "2026-11-07T04:27Z",
    "returnDate": "2026-11-09",
    "news": "injury",
-   "checks": 110,
+   "checks": 111,
    "since": "2026-11-07T01:05:32Z",
    "confirmed": true
   },
@@ -819,7 +835,7 @@
    "updated": "2026-11-06T18:09Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 180,
+   "checks": 181,
    "since": "2026-11-06T18:26:02Z",
    "was": "Questionable",
    "confirmed": true
@@ -835,7 +851,7 @@
    "updated": "2026-11-06T18:08Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 183,
+   "checks": 184,
    "since": "2026-11-06T18:11:02Z",
    "was": "Questionable",
    "confirmed": true
@@ -851,7 +867,7 @@
    "updated": "2026-11-05T22:05Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 352,
+   "checks": 353,
    "since": "2026-11-05T22:15:29Z",
    "was": "Questionable",
    "confirmed": true
@@ -867,7 +883,7 @@
    "updated": "2026-11-04T23:50Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-26T22:34Z",
    "confirmed": true
   },
@@ -882,7 +898,7 @@
    "updated": "2026-11-06T19:19Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 517,
+   "checks": 518,
    "since": "2026-11-05T03:00:42Z",
    "confirmed": true
   },
@@ -897,7 +913,7 @@
    "updated": "2026-11-06T18:21Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 556,
+   "checks": 557,
    "since": "2026-11-04T22:50:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -913,7 +929,7 @@
    "updated": "2026-11-05T01:35Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 526,
+   "checks": 527,
    "since": "2026-11-05T01:34:30Z",
    "confirmed": true
   },
@@ -921,32 +937,33 @@
    "team": "CLE",
    "player": "Sam Merrill",
    "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Right Elbow",
    "comment": "Merrill (elbow) won't return to Friday's game against the 76ers, Dave McMenamin of ESPN.com reports.",
-   "updated": "2026-11-07T02:10Z",
+   "updated": "2026-11-07T15:08Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 101,
-   "since": "2026-11-07T02:20:39Z",
-   "confirmed": true
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
   },
   {
    "team": "CLE",
    "player": "Jarrett Allen",
    "pos": "C",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Right Knee",
    "comment": "Allen (knee) is out for Friday's game against the 76ers.",
-   "updated": "2026-11-06T23:55Z",
+   "updated": "2026-11-07T15:07Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 122,
-   "since": "2026-11-07T00:05:32Z",
-   "was": "Questionable",
-   "confirmed": true
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
   },
   {
    "team": "CLE",
@@ -959,7 +976,7 @@
    "updated": "2026-11-05T22:23Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 770,
+   "checks": 771,
    "since": "2026-11-03T22:30:42Z",
    "was": "Questionable",
    "confirmed": true
@@ -975,7 +992,7 @@
    "updated": "2026-11-05T22:24Z",
    "returnDate": "2026-11-12",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-29T22:06Z",
    "confirmed": true
   },
@@ -990,7 +1007,7 @@
    "updated": "2026-11-01T23:19Z",
    "returnDate": "2026-11-12",
    "news": null,
-   "checks": 1612,
+   "checks": 1613,
    "since": "2026-10-30T22:20:29Z",
    "confirmed": true
   },
@@ -1005,7 +1022,7 @@
    "updated": "2026-11-01T22:57Z",
    "returnDate": "2026-11-12",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-22T20:10Z",
    "confirmed": true
   },
@@ -1022,7 +1039,7 @@
    "espnStatus": "Questionable",
    "statusFrom": "report",
    "news": "status",
-   "checks": 85,
+   "checks": 86,
    "since": "2026-11-07T05:00:39Z",
    "was": "Questionable",
    "confirmed": true
@@ -1038,7 +1055,7 @@
    "updated": "2026-10-17T00:52Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-17T00:52Z",
    "confirmed": true
   },
@@ -1053,7 +1070,7 @@
    "updated": "2026-11-03T21:18Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 1629,
+   "checks": 1630,
    "since": "2026-10-30T20:50:30Z",
    "confirmed": true
   },
@@ -1068,7 +1085,7 @@
    "updated": "2026-10-25T14:56Z",
    "returnDate": "2026-11-09",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-25T14:56Z",
    "confirmed": true
   },
@@ -1083,7 +1100,7 @@
    "updated": "2026-11-06T22:21Z",
    "returnDate": "2026-11-07",
    "news": "status",
-   "checks": 140,
+   "checks": 141,
    "since": "2026-11-06T22:25:32Z",
    "confirmed": true
   },
@@ -1098,7 +1115,7 @@
    "updated": "2026-11-06T22:21Z",
    "returnDate": "2026-11-07",
    "news": "status",
-   "checks": 140,
+   "checks": 141,
    "since": "2026-11-06T22:25:32Z",
    "confirmed": true
   },
@@ -1113,7 +1130,7 @@
    "updated": "2026-11-06T21:26Z",
    "returnDate": "2027-01-02",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-28T14:25Z",
    "confirmed": true
   },
@@ -1128,7 +1145,7 @@
    "updated": "2026-11-06T20:49Z",
    "returnDate": "2026-11-07",
    "news": "status",
-   "checks": 288,
+   "checks": 289,
    "since": "2026-11-06T06:00:38Z",
    "was": "Out",
    "confirmed": true
@@ -1144,7 +1161,7 @@
    "updated": "2026-10-16T16:14Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-16T16:14Z",
    "confirmed": true
   },
@@ -1159,7 +1176,7 @@
    "updated": "2026-10-16T16:11Z",
    "returnDate": "2027-01-02",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-16T16:11Z",
    "confirmed": true
   },
@@ -1174,7 +1191,7 @@
    "updated": "2026-11-06T20:32Z",
    "returnDate": "2026-11-09",
    "news": "status",
-   "checks": 158,
+   "checks": 159,
    "since": "2026-11-06T20:45:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1190,7 +1207,7 @@
    "updated": "2026-11-05T00:21Z",
    "returnDate": "2026-11-09",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-26T22:52Z",
    "confirmed": true
   },
@@ -1207,7 +1224,7 @@
    "espnStatus": "Out",
    "statusFrom": "report",
    "news": "status",
-   "checks": 85,
+   "checks": 86,
    "since": "2026-11-07T05:00:39Z",
    "was": "Out",
    "confirmed": true
@@ -1223,7 +1240,7 @@
    "updated": "2026-11-06T23:04Z",
    "returnDate": "2026-11-07",
    "news": "status",
-   "checks": 419,
+   "checks": 420,
    "since": "2026-11-05T16:00:28Z",
    "was": "Out",
    "confirmed": true
@@ -1239,7 +1256,7 @@
    "updated": "2026-10-30T19:06Z",
    "returnDate": "2027-01-02",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-30T19:06Z",
    "confirmed": true
   },
@@ -1254,7 +1271,7 @@
    "updated": "2026-10-28T21:41Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-28T21:41Z",
    "confirmed": true
   },
@@ -1269,7 +1286,7 @@
    "updated": "2026-10-28T21:30Z",
    "returnDate": "2026-11-13",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-28T21:30Z",
    "confirmed": true
   },
@@ -1284,7 +1301,7 @@
    "updated": "2026-11-06T20:20Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 1186,
+   "checks": 1187,
    "since": "2026-11-01T20:30:29Z",
    "confirmed": true
   },
@@ -1299,7 +1316,7 @@
    "updated": "2026-11-02T16:12Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 1186,
+   "checks": 1187,
    "since": "2026-11-01T20:30:29Z",
    "confirmed": true
   },
@@ -1314,7 +1331,7 @@
    "updated": "2026-10-15T01:03Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-15T01:03Z",
    "confirmed": true
   },
@@ -1329,7 +1346,7 @@
    "updated": "2026-08-26T20:04Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-08-26T20:04Z",
    "confirmed": true
   },
@@ -1344,7 +1361,7 @@
    "updated": "2026-11-05T23:04Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 341,
+   "checks": 342,
    "since": "2026-11-05T23:10:28Z",
    "was": "Questionable",
    "confirmed": true
@@ -1360,7 +1377,7 @@
    "updated": "2026-11-05T23:03Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 759,
+   "checks": 760,
    "since": "2026-11-03T23:25:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -1376,7 +1393,7 @@
    "updated": "2026-11-06T15:08Z",
    "returnDate": "2026-11-06",
    "news": null,
-   "checks": 85,
+   "checks": 86,
    "since": "2026-11-07T05:00:39Z",
    "was": "Out",
    "confirmed": true
@@ -1385,16 +1402,17 @@
    "team": "MIN",
    "player": "Joan Beringer",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Fracture",
    "comment": "Beringer was ruled out for the second half of Friday's game against the Pelicans due to a nasal fracture, Dane Moore of 'The Dane Moore NBA Podcast' reports.",
-   "updated": "2026-11-07T02:41Z",
+   "updated": "2026-11-07T15:05Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 98,
-   "since": "2026-11-07T02:50:39Z",
-   "confirmed": true
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
   },
   {
    "team": "MIN",
@@ -1407,7 +1425,7 @@
    "updated": "2026-11-06T18:06Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 182,
+   "checks": 183,
    "since": "2026-11-06T18:16:02Z",
    "was": "Questionable",
    "confirmed": true
@@ -1423,7 +1441,7 @@
    "updated": "2026-10-29T18:33Z",
    "returnDate": "2026-12-21",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-29T18:33Z",
    "confirmed": true
   },
@@ -1438,7 +1456,7 @@
    "updated": "2026-10-05T20:53Z",
    "returnDate": "2027-04-02",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-05T20:53Z",
    "confirmed": true
   },
@@ -1453,7 +1471,7 @@
    "updated": "2026-11-05T20:47Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-24T22:17Z",
    "confirmed": true
   },
@@ -1468,7 +1486,7 @@
    "updated": "2026-11-06T21:48Z",
    "returnDate": "2026-11-10",
    "news": "status",
-   "checks": 144,
+   "checks": 145,
    "since": "2026-11-06T22:00:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1477,32 +1495,17 @@
    "team": "OKC",
    "player": "Jaylin Williams",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Back Spasms",
    "comment": "Williams (back) has been ruled out for Friday's game against the Grizzlies.",
-   "updated": "2026-11-05T23:20Z",
+   "updated": "2026-11-07T15:04Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 338,
-   "since": "2026-11-05T23:30:29Z",
-   "was": "Questionable",
-   "confirmed": true
-  },
-  {
-   "team": "OKC",
-   "player": "Nikola Topic",
-   "pos": "G",
-   "status": "Out",
-   "rawStatus": "Out",
-   "detail": "Back",
-   "comment": "Topic (back) is listed as out for Wednesday's game against Cleveland.",
-   "updated": "2026-11-03T22:49Z",
-   "returnDate": "2026-11-13",
-   "news": null,
-   "checks": 1643,
-   "since": "2026-10-27T21:38Z",
-   "confirmed": true
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
   },
   {
    "team": "OKC",
@@ -1515,7 +1518,7 @@
    "updated": "2026-11-03T22:45Z",
    "returnDate": "2026-11-13",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-27T21:43Z",
    "confirmed": true
   },
@@ -1530,7 +1533,7 @@
    "updated": "2026-10-31T01:16Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-26T22:05Z",
    "confirmed": true
   },
@@ -1545,7 +1548,7 @@
    "updated": "2026-10-31T01:02Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 1609,
+   "checks": 1610,
    "since": "2026-10-30T22:35:30Z",
    "confirmed": true
   },
@@ -1560,7 +1563,7 @@
    "updated": "2026-10-28T23:41Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-28T23:41Z",
    "confirmed": true
   },
@@ -1575,7 +1578,7 @@
    "updated": "2026-11-05T15:12Z",
    "returnDate": "2026-11-10",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-29T18:29Z",
    "confirmed": true
   },
@@ -1590,7 +1593,7 @@
    "updated": "2026-10-26T18:44Z",
    "returnDate": "2026-11-10",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-26T18:44Z",
    "confirmed": true
   },
@@ -1605,7 +1608,7 @@
    "updated": "2026-10-24T16:47Z",
    "returnDate": "2026-11-22",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-24T16:47Z",
    "confirmed": true
   },
@@ -1620,7 +1623,7 @@
    "updated": "2026-10-17T22:19Z",
    "returnDate": "2026-11-18",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-17T22:19Z",
    "confirmed": true
   },
@@ -1635,7 +1638,7 @@
    "updated": "2026-09-28T21:33Z",
    "returnDate": "2026-11-18",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-09-28T21:33Z",
    "confirmed": true
   },
@@ -1650,7 +1653,7 @@
    "updated": "2026-11-06T23:10Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 128,
+   "checks": 129,
    "since": "2026-11-06T23:30:32Z",
    "was": "Doubtful",
    "confirmed": true
@@ -1666,7 +1669,7 @@
    "updated": "2026-11-04T22:41Z",
    "returnDate": "2026-11-18",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-19T21:07Z",
    "confirmed": true
   },
@@ -1681,7 +1684,7 @@
    "updated": "2026-10-06T19:17Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-06T19:17Z",
    "confirmed": true
   },
@@ -1696,7 +1699,7 @@
    "updated": "2026-11-07T00:20Z",
    "returnDate": "2026-11-07",
    "news": "status",
-   "checks": 293,
+   "checks": 294,
    "since": "2026-11-06T05:10:39Z",
    "was": "Out",
    "confirmed": true
@@ -1714,7 +1717,7 @@
    "espnStatus": "Questionable",
    "statusFrom": "report",
    "news": "status",
-   "checks": 85,
+   "checks": 86,
    "since": "2026-11-07T05:00:39Z",
    "was": "Questionable",
    "confirmed": true
@@ -1730,7 +1733,7 @@
    "updated": "2026-09-11T16:03Z",
    "returnDate": "2027-02-03",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-09-11T16:03Z",
    "confirmed": true
   },
@@ -1745,7 +1748,7 @@
    "updated": "2026-11-05T05:17Z",
    "returnDate": "2027-01-02",
    "news": "injury",
-   "checks": 509,
+   "checks": 510,
    "since": "2026-11-05T04:20:41Z",
    "confirmed": true
   },
@@ -1760,7 +1763,7 @@
    "updated": "2026-10-30T18:45Z",
    "returnDate": "2026-12-01",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-30T18:45Z",
    "confirmed": true
   },
@@ -1775,7 +1778,7 @@
    "updated": "2026-08-24T20:23Z",
    "returnDate": "2027-03-02",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-08-24T20:23Z",
    "confirmed": true
   },
@@ -1783,17 +1786,17 @@
    "team": "SAC",
    "player": "De'Andre Hunter",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Illness",
    "comment": "Hunter (illness) is listed as out for Friday's game against San Antonio.",
-   "updated": "2026-11-07T00:36Z",
+   "updated": "2026-11-07T15:05Z",
    "returnDate": "2026-11-08",
    "news": null,
-   "checks": 113,
-   "since": "2026-11-07T00:50:32Z",
-   "was": "Questionable",
-   "confirmed": true
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
   },
   {
    "team": "SAC",
@@ -1806,7 +1809,7 @@
    "updated": "2026-10-26T22:07Z",
    "returnDate": "2026-11-10",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-26T22:07Z",
    "confirmed": true
   },
@@ -1821,7 +1824,7 @@
    "updated": "2026-10-26T22:01Z",
    "returnDate": "2026-11-10",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-26T22:01Z",
    "confirmed": true
   },
@@ -1836,7 +1839,7 @@
    "updated": "2026-10-21T04:22Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-21T04:22Z",
    "confirmed": true
   },
@@ -1851,7 +1854,7 @@
    "updated": "2026-10-30T21:44Z",
    "returnDate": "2026-11-09",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-28T18:24Z",
    "confirmed": true
   },
@@ -1866,7 +1869,7 @@
    "updated": "2026-10-05T21:43Z",
    "returnDate": "2026-12-03",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-05T21:43Z",
    "confirmed": true
   },
@@ -1881,7 +1884,7 @@
    "updated": "2026-11-06T23:44Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 124,
+   "checks": 125,
    "since": "2026-11-06T23:55:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1897,7 +1900,7 @@
    "updated": "2026-11-06T23:41Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 124,
+   "checks": 125,
    "since": "2026-11-06T23:55:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1913,7 +1916,7 @@
    "updated": "2026-11-04T00:14Z",
    "returnDate": "2026-11-23",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-29T15:39Z",
    "confirmed": true
   },
@@ -1928,7 +1931,7 @@
    "updated": "2026-11-02T20:20Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-27T19:31Z",
    "confirmed": true
   },
@@ -1943,7 +1946,7 @@
    "updated": "2026-11-06T18:20Z",
    "returnDate": "2026-11-20",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-07T23:07Z",
    "confirmed": true
   },
@@ -1958,7 +1961,7 @@
    "updated": "2026-10-27T19:25Z",
    "returnDate": "2026-12-14",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-27T19:25Z",
    "confirmed": true
   },
@@ -1973,7 +1976,7 @@
    "updated": "2026-10-24T23:18Z",
    "returnDate": "2026-11-06",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-24T23:18Z",
    "confirmed": true
   },
@@ -1981,17 +1984,17 @@
    "team": "WAS",
    "player": "Anthony Davis",
    "pos": "F",
-   "status": "Out",
-   "rawStatus": "Out",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
    "detail": "Right Ankle Sprain",
    "comment": "Davis (ankle) is listed as out for Friday's game against the Hawks.",
-   "updated": "2026-11-06T22:37Z",
+   "updated": "2026-11-07T15:05Z",
    "returnDate": "2026-11-07",
    "news": null,
-   "checks": 135,
-   "since": "2026-11-06T22:50:33Z",
-   "was": "Questionable",
-   "confirmed": true
+   "checks": 1,
+   "since": "2026-11-07T16:00:28Z",
+   "was": "Out",
+   "confirmed": false
   },
   {
    "team": "WAS",
@@ -2004,7 +2007,7 @@
    "updated": "2026-11-02T18:22Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 1005,
+   "checks": 1006,
    "since": "2026-11-02T18:25:49Z",
    "confirmed": true
   },
@@ -2019,7 +2022,7 @@
    "updated": "2026-11-01T21:51Z",
    "returnDate": "2026-11-09",
    "news": null,
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-01T19:11Z",
    "confirmed": true
   },
@@ -2034,7 +2037,7 @@
    "updated": "2026-10-28T18:38Z",
    "returnDate": "2027-02-25",
    "news": "status",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-10-28T18:38Z",
    "confirmed": true
   },
@@ -2049,7 +2052,7 @@
    "updated": "2026-07-30T20:11Z",
    "returnDate": "2027-04-02",
    "news": "injury",
-   "checks": 1643,
+   "checks": 1644,
    "since": "2026-07-30T20:11Z",
    "confirmed": true
   }
@@ -218294,19 +218297,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-07T14:25:28Z",
+   "fetchedAt": "2026-11-07T16:00:28Z",
    "ok": true,
    "count": 92
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-07T15:55:28Z",
+   "fetchedAt": "2026-11-07T16:00:28Z",
    "ok": true,
    "count": 7
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-07T14:25:28Z",
+   "fetchedAt": "2026-11-07T16:00:28Z",
    "ok": true,
    "nba": "ok: 14 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -218351,7 +218354,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218378,7 +218381,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   },
   "401909939": {
@@ -218407,7 +218410,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218424,7 +218427,7 @@
       "pos": "PG"
      },
      {
-      "name": "Jalen Johnson",
+      "name": "Luguentz Dort",
       "pos": "PF"
      },
      {
@@ -218434,7 +218437,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   },
   "401909940": {
@@ -218463,7 +218466,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218490,7 +218493,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   },
   "401909941": {
@@ -218501,7 +218504,7 @@
       "pos": "SG"
      },
      {
-      "name": "AJ Dybantsa",
+      "name": "Bilal Coulibaly",
       "pos": "SF"
      },
      {
@@ -218509,7 +218512,7 @@
       "pos": "PG"
      },
      {
-      "name": "Anthony Davis",
+      "name": "AJ Dybantsa",
       "pos": "PF"
      },
      {
@@ -218519,7 +218522,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218536,7 +218539,7 @@
       "pos": "PG"
      },
      {
-      "name": "Jaylin Williams",
+      "name": "Aday Mara",
       "pos": "PF"
      },
      {
@@ -218546,7 +218549,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   },
   "401909942": {
@@ -218575,7 +218578,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218602,7 +218605,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   },
   "401909943": {
@@ -218631,7 +218634,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218658,7 +218661,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   },
   "401909944": {
@@ -218687,7 +218690,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    },
    "home": {
     "starters": [
@@ -218714,7 +218717,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-07T14:25:28Z"
+    "fetchedAt": "2026-11-07T16:00:28Z"
    }
   }
  },
