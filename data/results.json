@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-07T23:45:31Z",
+ "generatedAt": "2026-11-07T23:50:31Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
-  "saved": 2236,
+  "saved": 2234,
   "graded": 2060,
   "void": 16,
-  "pending": 160
+  "pending": 158
  },
  "strong": {
   "n": 31,
@@ -627,11 +627,11 @@
   },
   {
    "slate": "2026-11-07",
-   "saved": 160,
+   "saved": 158,
    "games": 7,
    "graded": 0,
    "void": 0,
-   "pending": 160,
+   "pending": 158,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1023,8 +1023,10 @@
    "mktP": 0.40034,
    "edge": 0.01236,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1049,8 +1051,10 @@
    "mktP": 0.48674,
    "edge": 0.01543,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
