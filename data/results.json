@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T22:35:31Z",
+ "generatedAt": "2026-11-08T22:40:30Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -1161,7 +1161,6 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "min_unclear",
     "big_gap"
    ],
    "actual": null,
@@ -1188,10 +1187,8 @@
    "mktP": 0.41814,
    "edge": 0.01184,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1216,10 +1213,8 @@
    "mktP": 0.49277,
    "edge": 0.01418,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1244,10 +1239,8 @@
    "mktP": 0.56753,
    "edge": 0.0151,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1272,10 +1265,8 @@
    "mktP": 0.49377,
    "edge": 0.01693,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1300,10 +1291,8 @@
    "mktP": 0.48674,
    "edge": 0.02055,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1319,19 +1308,17 @@
    "tipoff": "2026-11-08T23:00Z",
    "player": "Ziaire Williams",
    "team": "LAL",
-   "market": "PTS",
-   "line": 8.5,
-   "side": "over",
-   "price": -113,
-   "projection": 10.331,
-   "modelP": 0.51212,
-   "mktP": 0.50105,
-   "edge": 0.01107,
+   "market": "REB",
+   "line": 2.5,
+   "side": "under",
+   "price": 114,
+   "projection": 2.49,
+   "modelP": 0.45065,
+   "mktP": 0.43983,
+   "edge": 0.01082,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
