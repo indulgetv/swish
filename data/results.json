@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T22:55:35Z",
+ "generatedAt": "2026-11-08T23:00:30Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -977,8 +977,10 @@
    "mktP": 0.52647,
    "edge": 0.01041,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1139,7 +1141,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1167,7 +1169,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1193,7 +1195,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1219,7 +1221,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1245,7 +1247,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1271,7 +1273,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1297,7 +1299,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1323,7 +1325,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
