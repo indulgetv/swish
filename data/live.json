@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-11-08",
-  "mode": "light",
+  "mode": "odds",
   "errors": [],
   "lastFullAt": "2026-11-08T14:00:29Z",
   "season": 2027,
-  "writtenAt": "2026-11-08T14:25:30Z"
+  "writtenAt": "2026-11-08T14:30:39Z"
  },
  "games": [
   {
@@ -83,7 +83,7 @@
    "awayScore": "0",
    "homeScore": "0",
    "espnLine": {
-    "details": "BOS -12.5",
+    "details": "BOS -13.5",
     "overUnder": 219.5,
     "provider": "Draft Kings"
    }
@@ -212887,7 +212887,476 @@
    }
   ]
  },
- "props": [],
+ "props": [
+  {
+   "game": "401909945",
+   "player": "Tre Jones",
+   "key": "trejones",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Tyrese Maxey",
+   "key": "tyresemaxey",
+   "market": "PTS",
+   "line": 25.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Anfernee Simons",
+   "key": "anferneesimons",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -120,
+   "under": -110,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Dean Wade",
+   "key": "deanwade",
+   "market": "PTS",
+   "line": 4.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "VJ Edgecombe",
+   "key": "vjedgecombe",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "LeBron James",
+   "key": "lebronjames",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -120,
+   "under": -110,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Joel Embiid",
+   "key": "joelembiid",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Caleb Wilson",
+   "key": "calebwilson",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Jaylen Brown",
+   "key": "jaylenbrown",
+   "market": "PTS",
+   "line": 21.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "PTS",
+   "line": 19.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-08T14:29:24Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Tyrese Maxey",
+   "key": "tyresemaxey",
+   "market": "PTS",
+   "line": 25.5,
+   "over": -104,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Joel Embiid",
+   "key": "joelembiid",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -102,
+   "under": -125,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Jaylen Brown",
+   "key": "jaylenbrown",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -109,
+   "under": -117,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Caleb Wilson",
+   "key": "calebwilson",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -117,
+   "under": -109,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -112,
+   "under": -114,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "LeBron James",
+   "key": "lebronjames",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -101,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -127,
+   "under": -101,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "VJ Edgecombe",
+   "key": "vjedgecombe",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -103,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Tre Jones",
+   "key": "trejones",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -131,
+   "under": 103,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Anfernee Simons",
+   "key": "anferneesimons",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -107,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Dean Wade",
+   "key": "deanwade",
+   "market": "PTS",
+   "line": 4.5,
+   "over": -105,
+   "under": -122,
+   "book": "draftkings",
+   "updated": "2026-11-08T14:29:41Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Joel Embiid",
+   "key": "joelembiid",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Dean Wade",
+   "key": "deanwade",
+   "market": "PTS",
+   "line": 3.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Tyrese Maxey",
+   "key": "tyresemaxey",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "LeBron James",
+   "key": "lebronjames",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Tre Jones",
+   "key": "trejones",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Caleb Wilson",
+   "key": "calebwilson",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Anfernee Simons",
+   "key": "anferneesimons",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "VJ Edgecombe",
+   "key": "vjedgecombe",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Jaylen Brown",
+   "key": "jaylenbrown",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  },
+  {
+   "game": "401909945",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -111,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-08T14:28:00Z",
+   "fetched": "2026-11-08T14:30:38Z"
+  }
+ ],
  "gameLines": [],
  "sections": {
   "standings": {
@@ -212903,7 +213372,7 @@
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-08T14:25:29Z",
+   "fetchedAt": "2026-11-08T14:30:29Z",
    "ok": true,
    "count": 7
   },
@@ -212925,6 +213394,35 @@
    "source": "ESPN team schedules",
    "fetchedAt": "2026-11-08T14:03:40Z",
    "ok": true
+  },
+  "odds": {
+   "source": "The Odds API (US books = reference only; UK game lines)",
+   "fetchedAt": "2026-11-08T14:30:39Z",
+   "ok": true,
+   "creditsUsed": 1,
+   "creditsRemaining": 379,
+   "eventsPriced": 1,
+   "notes": [],
+   "budgetToday": 1,
+   "gamesLeftThisMonth": 164,
+   "gameMarkets": {
+    "401909945": [
+     "PTS"
+    ]
+   },
+   "runs": [
+    {
+     "at": "2026-11-08T14:30:39Z",
+     "window": "early",
+     "games": [
+      "401909945"
+     ],
+     "credits": 1
+    }
+   ],
+   "markets": [
+    "PTS"
+   ]
   }
  },
  "lineups": {
@@ -213321,5 +213819,58 @@
    }
   }
  },
- "lineMoves": {}
+ "lineMoves": {
+  "Matas Buzelis|PTS": {
+   "open": 12.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Josh Giddey|PTS": {
+   "open": 11.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Tre Jones|PTS": {
+   "open": 9.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Norman Powell|PTS": {
+   "open": 19.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Jalen Smith|PTS": {
+   "open": 10.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Caleb Wilson|PTS": {
+   "open": 19.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Jaylen Brown|PTS": {
+   "open": 21.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "VJ Edgecombe|PTS": {
+   "open": 12.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Joel Embiid|PTS": {
+   "open": 22.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "LeBron James|PTS": {
+   "open": 17.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Tyrese Maxey|PTS": {
+   "open": 25.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Anfernee Simons|PTS": {
+   "open": 9.5,
+   "at": "2026-11-08T14:30:39Z"
+  },
+  "Dean Wade|PTS": {
+   "open": 4.5,
+   "at": "2026-11-08T14:30:39Z"
+  }
+ }
 }
