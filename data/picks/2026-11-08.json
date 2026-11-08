@@ -41,14 +41,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "flagText": [
-    "Injury news after the line: Norman Powell questionable"
+    "Injury news after the line: Norman Powell out",
+    "Minutes unclear — Norman Powell out; waiting for the confirmed lineup"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -123,
@@ -96,14 +98,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "flagText": [
-    "Injury news after the line: Norman Powell questionable"
+    "Injury news after the line: Norman Powell out",
+    "Minutes unclear — Norman Powell out; waiting for the confirmed lineup"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -114,
@@ -151,75 +155,20 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "flagText": [
-    "Injury news after the line: Norman Powell questionable"
+    "Injury news after the line: Norman Powell out",
+    "Minutes unclear — Norman Powell out; waiting for the confirmed lineup"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -125,
    "openUnder": -103,
-   "firstSaved": "2026-11-08T14:30:39Z",
-   "openFetched": "2026-11-08T14:30:38Z"
-  },
-  "401909945|Norman Powell|PTS": {
-   "game": "401909945",
-   "tipoff": "2026-11-08T20:30Z",
-   "away": "PHI",
-   "home": "CHI",
-   "player": "Norman Powell",
-   "espnId": "2595516",
-   "team": "CHI",
-   "opp": "PHI",
-   "market": "PTS",
-   "line": 19.5,
-   "over": -106,
-   "under": -123,
-   "book": "fanduel, draftkings",
-   "fetched": "2026-11-08T14:30:38Z",
-   "oddsUpdated": "2026-11-08T14:29:41Z",
-   "projection": 19.571,
-   "sd": 7.277,
-   "minutes": 28,
-   "games": 69,
-   "curGames": 8,
-   "roleDelta": 0,
-   "minBoost": 0,
-   "boostFrom": [],
-   "starterTonight": false,
-   "back": false,
-   "pureO": 0.50272,
-   "mktO": 0.48264,
-   "modelO": 0.48465,
-   "dist": "normal",
-   "side": "over",
-   "lean": "none",
-   "modelP": 0.48465,
-   "mktP": 0.48264,
-   "price": -106,
-   "edge": 0.00201,
-   "ev": -0.05813,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status",
-    "injury_after_line"
-   ],
-   "flagText": [
-    "Listed questionable (right shoulder inflammation)",
-    "Injury news after the line: Norman Powell questionable"
-   ],
-   "modelVersion": "v1.10 (2026-11-05)",
-   "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
-   "backfilled": false,
-   "openLine": 19.5,
-   "openOver": -106,
-   "openUnder": -123,
    "firstSaved": "2026-11-08T14:30:39Z",
    "openFetched": "2026-11-08T14:30:38Z"
   },
@@ -239,38 +188,40 @@
    "book": "fanduel, draftkings, betmgm",
    "fetched": "2026-11-08T14:30:38Z",
    "oddsUpdated": "2026-11-08T14:29:41Z",
-   "projection": 11.188,
-   "sd": 4.764,
-   "minutes": 23,
+   "projection": 10.671,
+   "sd": 4.665,
+   "minutes": 22,
    "games": 61,
    "curGames": 8,
    "roleDelta": 0,
-   "minBoost": 1.0,
+   "minBoost": 0,
    "boostFrom": [],
-   "starterTonight": true,
+   "starterTonight": false,
    "back": false,
-   "pureO": 0.5403,
+   "pureO": 0.51026,
    "mktO": 0.50102,
-   "modelO": 0.50495,
+   "modelO": 0.50194,
    "dist": "normal",
    "side": "over",
    "lean": "none",
-   "modelP": 0.50495,
+   "modelP": 0.50194,
    "mktP": 0.50102,
    "price": -115,
-   "edge": 0.00393,
-   "ev": -0.05597,
+   "edge": 0.00092,
+   "ev": -0.06159,
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "flagText": [
-    "Injury news after the line: Norman Powell questionable"
+    "Injury news after the line: Norman Powell out",
+    "Minutes unclear — Norman Powell out; waiting for the confirmed lineup"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -115,
@@ -318,14 +269,16 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line"
+    "injury_after_line",
+    "min_unclear"
    ],
    "flagText": [
-    "Injury news after the line: Norman Powell questionable"
+    "Injury news after the line: Norman Powell out",
+    "Minutes unclear — Norman Powell out; waiting for the confirmed lineup"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -116,
@@ -376,7 +329,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 21.5,
    "openOver": -107,
@@ -427,7 +380,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -120,
@@ -478,7 +431,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -102,
@@ -529,7 +482,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 17.5,
    "openOver": -103,
@@ -580,7 +533,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 25.5,
    "openOver": -102,
@@ -631,7 +584,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -110,
@@ -682,7 +635,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T19:10:30Z",
+   "savedAt": "2026-11-08T19:15:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -111,
@@ -691,5 +644,5 @@
    "openFetched": "2026-11-08T14:30:38Z"
   }
  },
- "updated": "2026-11-08T19:10:30Z"
+ "updated": "2026-11-08T19:15:30Z"
 }
