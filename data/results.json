@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T20:25:30Z",
+ "generatedAt": "2026-11-08T20:30:30Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 246,
+   "n": 247,
    "ourWay": 59,
-   "against": 107,
-   "avg": -0.018
+   "against": 108,
+   "avg": -0.0183
   },
   "strong": {
    "n": 0,
@@ -104,10 +104,10 @@
    "avg": null
   },
   "noLean": {
-   "n": 167,
-   "ourWay": 53,
-   "against": 69,
-   "avg": -0.0043
+   "n": 178,
+   "ourWay": 59,
+   "against": 73,
+   "avg": -0.0052
   },
   "over": {
    "n": 111,
@@ -116,10 +116,10 @@
    "avg": -0.0024
   },
   "under": {
-   "n": 135,
+   "n": 136,
    "ourWay": 30,
-   "against": 72,
-   "avg": -0.0309
+   "against": 73,
+   "avg": -0.0312
   },
   "onHold": {
    "n": 61,
@@ -128,17 +128,17 @@
    "avg": -0.0152
   },
   "clear": {
-   "n": 185,
+   "n": 186,
    "ourWay": 47,
-   "against": 79,
-   "avg": -0.019
+   "against": 80,
+   "avg": -0.0193
   },
   "byMarket": {
    "PTS": {
-    "n": 118,
+    "n": 119,
     "ourWay": 29,
-    "against": 58,
-    "avg": -0.019
+    "against": 59,
+    "avg": -0.0195
    },
    "REB": {
     "n": 82,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 49,
+  "lineMoved": 50,
   "tol": 0.005
  },
  "byMarket": {
@@ -769,7 +769,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -795,7 +795,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -821,7 +821,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
