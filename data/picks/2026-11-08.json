@@ -39,12 +39,16 @@
    "edge": 0.0037,
    "ev": -0.05484,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Norman Powell questionable"
+   ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -123,
@@ -90,12 +94,16 @@
    "edge": 0.00497,
    "ev": -0.05402,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Norman Powell questionable"
+   ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -114,
@@ -141,12 +149,16 @@
    "edge": 0.00382,
    "ev": -0.05234,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Norman Powell questionable"
+   ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -125,
@@ -192,12 +204,18 @@
    "edge": 0.00201,
    "ev": -0.05813,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "status",
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Listed questionable (right shoulder inflammation)",
+    "Injury news after the line: Norman Powell questionable"
+   ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -106,
@@ -243,12 +261,16 @@
    "edge": 0.00092,
    "ev": -0.06159,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Norman Powell questionable"
+   ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -115,
@@ -294,12 +316,16 @@
    "edge": 0.00432,
    "ev": -0.05315,
    "value": false,
-   "verdict": "none",
-   "flags": [],
-   "flagText": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "flagText": [
+    "Injury news after the line: Norman Powell questionable"
+   ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -116,
@@ -350,7 +376,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 21.5,
    "openOver": -107,
@@ -401,7 +427,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -120,
@@ -452,7 +478,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -102,
@@ -503,7 +529,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 17.5,
    "openOver": -103,
@@ -554,7 +580,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 25.5,
    "openOver": -102,
@@ -605,7 +631,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -110,
@@ -656,7 +682,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-08T15:10:30Z",
+   "savedAt": "2026-11-08T15:15:30Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -111,
@@ -665,5 +691,5 @@
    "openFetched": "2026-11-08T14:30:38Z"
   }
  },
- "updated": "2026-11-08T15:10:30Z"
+ "updated": "2026-11-08T15:15:30Z"
 }
