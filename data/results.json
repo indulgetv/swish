@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-09T22:50:31Z",
+ "generatedAt": "2026-11-09T22:55:32Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
-  "saved": 2594,
+  "saved": 2592,
   "graded": 2397,
   "void": 16,
-  "pending": 181
+  "pending": 179
  },
  "strong": {
   "n": 31,
@@ -687,11 +687,11 @@
   },
   {
    "slate": "2026-11-09",
-   "saved": 181,
+   "saved": 179,
    "games": 8,
    "graded": 0,
    "void": 0,
-   "pending": 181,
+   "pending": 179,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1427,20 +1427,20 @@
    "away": "LAL",
    "home": "ATL",
    "tipoff": "2026-11-10T00:00Z",
-   "player": "Austin Reaves",
+   "player": "Matisse Thybulle",
    "team": "LAL",
    "market": "PTS",
-   "line": 21.5,
+   "line": 6.5,
    "side": "over",
-   "price": -109,
-   "projection": 25.166,
-   "modelP": 0.50301,
-   "mktP": 0.49071,
-   "edge": 0.01231,
+   "price": -105,
+   "projection": 8.014,
+   "modelP": 0.4946,
+   "mktP": 0.48241,
+   "edge": 0.01219,
    "value": false,
    "verdict": "check",
    "flags": [
-    "status",
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
@@ -1462,13 +1462,14 @@
    "line": 8.5,
    "side": "over",
    "price": -117,
-   "projection": 10.744,
-   "modelP": 0.52076,
+   "projection": 10.649,
+   "modelP": 0.52026,
    "mktP": 0.50831,
-   "edge": 0.01245,
+   "edge": 0.01195,
    "value": false,
    "verdict": "check",
    "flags": [
+    "injury_after_line",
     "min_unclear"
    ],
    "actual": null,
