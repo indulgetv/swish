@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T01:25:40Z",
+ "generatedAt": "2026-11-09T01:35:40Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -972,15 +972,15 @@
    "line": 7.5,
    "side": "over",
    "price": -128,
-   "projection": 10.198,
-   "modelP": 0.53688,
+   "projection": 11.054,
+   "modelP": 0.54041,
    "mktP": 0.52647,
-   "edge": 0.01041,
+   "edge": 0.01394,
    "value": false,
    "verdict": "check",
    "flags": [
     "injury_after_line",
-    "min_unclear"
+    "big_gap"
    ],
    "actual": null,
    "result": null,
