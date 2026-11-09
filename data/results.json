@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T23:35:32Z",
+ "generatedAt": "2026-11-09T23:40:31Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -1407,8 +1407,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -1436,8 +1435,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -1465,8 +1463,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -1494,8 +1491,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -1523,8 +1519,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -1602,10 +1597,8 @@
    "mktP": 0.47439,
    "edge": 0.01058,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1630,10 +1623,8 @@
    "mktP": 0.52266,
    "edge": 0.01437,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1679,10 +1670,10 @@
    "line": 4.5,
    "side": "over",
    "price": 120,
-   "projection": 5.055,
-   "modelP": 0.43746,
+   "projection": 4.992,
+   "modelP": 0.43672,
    "mktP": 0.42602,
-   "edge": 0.01143,
+   "edge": 0.0107,
    "value": false,
    "verdict": "slight",
    "flags": [],
@@ -1710,10 +1701,8 @@
    "mktP": 0.47734,
    "edge": 0.01259,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1738,10 +1727,8 @@
    "mktP": 0.52086,
    "edge": 0.01366,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
