@@ -8283,7 +8283,13 @@
    "openUnder": -145,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-10T04:20:42Z",
+   "profit": 10.8
   },
   "401909958|Oso Ighodaro|REB": {
    "game": "401909958",
@@ -8335,7 +8341,13 @@
    "openUnder": 112,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-10T04:20:42Z",
+   "profit": -10.0
   },
   "401909958|Khaman Maluach|PTS": {
    "game": "401909958",
@@ -8604,7 +8616,13 @@
    "openUnder": 101,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-10T04:20:42Z",
+   "profit": -10.0
   },
   "401909958|Julian Champagnie|REB": {
    "game": "401909958",
@@ -8659,7 +8677,13 @@
    "openUnder": -142,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-10T04:20:42Z",
+   "profit": 7.04
   },
   "401909958|De'Aaron Fox|PTS": {
    "game": "401909958",
@@ -11374,5 +11398,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-10T04:15:42Z"
+ "updated": "2026-11-10T04:20:42Z"
 }
