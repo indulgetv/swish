@@ -4405,7 +4405,13 @@
    "openUnder": -112,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 25,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 21.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": -10.0
   },
   "401909959|Draymond Green|PTS": {
    "game": "401909959",
@@ -4457,7 +4463,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 21.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": 9.17
   },
   "401909959|Yaxel Lendeborg|PTS": {
    "game": "401909959",
@@ -4509,7 +4521,13 @@
    "openUnder": -108,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 23,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": 8.33
   },
   "401909959|De'Anthony Melton|PTS": {
    "game": "401909959",
@@ -4561,7 +4579,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 16,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": 9.17
   },
   "401909959|Georges Niang|PTS": {
    "game": "401909959",
@@ -4613,7 +4637,13 @@
    "openUnder": -129,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 19.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": 9.9
   },
   "401909959|Brandin Podziemski|PTS": {
    "game": "401909959",
@@ -4665,7 +4695,13 @@
    "openUnder": -117,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 25,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": 8.93
   },
   "401909959|Gui Santos|PTS": {
    "game": "401909959",
@@ -4717,7 +4753,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 21.0,
+   "settledAt": "2026-11-10T06:30:43Z",
+   "profit": 7.94
   },
   "401909957|Kevin Durant|PTS": {
    "game": "401909957",
@@ -11530,5 +11572,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-10T04:55:43Z"
+ "updated": "2026-11-10T06:30:43Z"
 }
