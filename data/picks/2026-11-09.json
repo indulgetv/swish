@@ -1835,7 +1835,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-10T02:20:43Z",
+   "profit": -10.0
   },
   "401909953|Donovan Mitchell|REB": {
    "game": "401909953",
@@ -1887,7 +1893,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-10T02:20:43Z",
+   "profit": 9.52
   },
   "401909953|Evan Mobley|PTS": {
    "game": "401909953",
@@ -3960,7 +3972,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 28.5,
    "openOver": -117,
@@ -4011,7 +4023,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -119,
@@ -4062,7 +4074,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -120,
@@ -4113,7 +4125,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -109,
@@ -4164,7 +4176,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -101,
@@ -4215,7 +4227,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 15.5,
    "openOver": -112,
@@ -4266,7 +4278,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:15:43Z",
+   "savedAt": "2026-11-10T02:20:43Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -104,
@@ -10401,5 +10413,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-10T02:15:43Z"
+ "updated": "2026-11-10T02:20:43Z"
 }

@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-10T02:15:43Z",
+ "generatedAt": "2026-11-10T02:20:48Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
   "saved": 2607,
-  "graded": 2397,
+  "graded": 2399,
   "void": 16,
-  "pending": 194
+  "pending": 192
  },
  "strong": {
   "n": 31,
@@ -31,22 +31,22 @@
   "avgPrice": 1.891
  },
  "all": {
-  "n": 2397,
-  "wins": 1199,
-  "losses": 1198,
+  "n": 2399,
+  "wins": 1200,
+  "losses": 1199,
   "pushes": 0,
   "hitRate": 0.5002,
-  "profit": -1470.49,
+  "profit": -1470.97,
   "roi": -0.0613,
   "avgPrice": 1.891
  },
  "accuracy": {
-  "n": 2397,
-  "brierMarket": 0.24751,
+  "n": 2399,
+  "brierMarket": 0.24752,
   "brierSwish": 0.24836,
   "brierModel": 0.25673,
   "skillSwish": -0.0034,
-  "skillModel": -0.0373
+  "skillModel": -0.0372
  },
  "calibration": [
   {
@@ -86,9 +86,9 @@
   }
  ],
  "projection": {
-  "n": 2397,
-  "maeSwish": 3.511,
-  "maeLine": 3.386
+  "n": 2399,
+  "maeSwish": 3.515,
+  "maeLine": 3.39
  },
  "clv": {
   "leans": {
@@ -689,9 +689,9 @@
    "slate": "2026-11-09",
    "saved": 194,
    "games": 8,
-   "graded": 0,
+   "graded": 2,
    "void": 0,
-   "pending": 194,
+   "pending": 192,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -718,24 +718,24 @@
  ],
  "overs": {
   "listed": {
-   "n": 803,
+   "n": 804,
    "wins": 364,
-   "losses": 439,
+   "losses": 440,
    "pushes": 0,
-   "hitRate": 0.4533,
-   "profit": -1083.0,
-   "roi": -0.1349,
+   "hitRate": 0.4527,
+   "profit": -1093.0,
+   "roi": -0.1359,
    "avgPrice": 1.916,
    "predicted": 0.5064
   },
   "allOvers": {
-   "n": 2397,
+   "n": 2399,
    "wins": 1140,
-   "losses": 1257,
+   "losses": 1259,
    "pushes": 0,
-   "hitRate": 0.4756,
-   "profit": -2489.2,
-   "roi": -0.1038,
+   "hitRate": 0.4752,
+   "profit": -2509.2,
+   "roi": -0.1046,
    "avgPrice": 1.899,
    "predicted": 0.4946
   },
@@ -763,15 +763,15 @@
     "predicted": 0.5671
    },
    "low": {
-    "n": 714,
+    "n": 715,
     "wins": 317,
-    "losses": 397,
+    "losses": 398,
     "pushes": 0,
-    "hitRate": 0.444,
-    "profit": -1003.45,
-    "roi": -0.1405,
+    "hitRate": 0.4434,
+    "profit": -1013.45,
+    "roi": -0.1417,
     "avgPrice": 1.938,
-    "predicted": 0.4988
+    "predicted": 0.4987
    }
   }
  },
