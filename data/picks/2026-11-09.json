@@ -3519,7 +3519,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 24,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": -10.0
   },
   "401909954|John Collins|REB": {
    "game": "401909954",
@@ -3571,7 +3577,13 @@
    "openUnder": 106,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": -10.0
   },
   "401909954|Cade Cunningham|PTS": {
    "game": "401909954",
@@ -3987,7 +3999,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 22,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": 9.26
   },
   "401909954|Duncan Robinson|REB": {
    "game": "401909954",
@@ -4039,7 +4057,13 @@
    "openUnder": -179,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": -10.0
   },
   "401909954|Ausar Thompson|PTS": {
    "game": "401909954",
@@ -4091,7 +4115,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": 8.33
   },
   "401909954|Ausar Thompson|REB": {
    "game": "401909954",
@@ -4143,7 +4173,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": -10.0
   },
   "401909959|Stephen Curry|PTS": {
    "game": "401909959",
@@ -4188,7 +4224,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 28.5,
    "openOver": -117,
@@ -4239,7 +4275,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -119,
@@ -4290,7 +4326,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -120,
@@ -4341,7 +4377,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -109,
@@ -4392,7 +4428,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -101,
@@ -4443,7 +4479,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 15.5,
    "openOver": -112,
@@ -4494,7 +4530,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-10T02:40:42Z",
+   "savedAt": "2026-11-10T02:45:43Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -104,
@@ -9382,7 +9418,13 @@
    "openUnder": -121,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": 8.26
   },
   "401909954|Alex Sarr|REB": {
    "game": "401909954",
@@ -9438,7 +9480,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-10T02:45:43Z",
+   "profit": 8.77
   },
   "401909954|Trae Young|PTS": {
    "game": "401909954",
@@ -10761,5 +10809,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-10T02:40:42Z"
+ "updated": "2026-11-10T02:45:43Z"
 }
