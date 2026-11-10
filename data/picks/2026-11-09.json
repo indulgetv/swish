@@ -2491,7 +2491,13 @@
    "openUnder": 100,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-10T03:50:43Z",
+   "profit": -10.0
   },
   "401909956|Daniel Gafford|REB": {
    "game": "401909956",
@@ -2543,7 +2549,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-10T03:50:43Z",
+   "profit": 8.4
   },
   "401909956|Kyrie Irving|PTS": {
    "game": "401909956",
@@ -2595,7 +2607,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 35,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-10T03:50:43Z",
+   "profit": 9.62
   },
   "401909956|Kyrie Irving|REB": {
    "game": "401909956",
@@ -2647,7 +2665,13 @@
    "openUnder": 101,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 0,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-10T03:50:43Z",
+   "profit": 10.1
   },
   "401909956|P.J. Washington|PTS": {
    "game": "401909956",
@@ -5453,7 +5477,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-10T03:50:43Z",
+   "profit": 8.13
   },
   "401909956|Aaron Nesmith|REB": {
    "game": "401909956",
@@ -5505,7 +5535,13 @@
    "openUnder": -128,
    "firstSaved": "2026-11-09T21:00:46Z",
    "openFetched": "2026-11-09T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-10T03:50:43Z",
+   "profit": 7.81
   },
   "401909956|Kelly Oubre Jr.|PTS": {
    "game": "401909956",
@@ -11176,5 +11212,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-10T03:45:43Z"
+ "updated": "2026-11-10T03:50:43Z"
 }
