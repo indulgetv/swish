@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-11T00:40:32Z",
+ "generatedAt": "2026-11-11T00:45:31Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -1137,8 +1137,10 @@
    "mktP": 0.49491,
    "edge": 0.0109,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1163,8 +1165,10 @@
    "mktP": 0.48879,
    "edge": 0.01479,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1189,8 +1193,10 @@
    "mktP": 0.52732,
    "edge": 0.01371,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1215,8 +1221,10 @@
    "mktP": 0.50615,
    "edge": 0.01446,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
