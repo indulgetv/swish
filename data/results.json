@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-11T01:30:39Z",
+ "generatedAt": "2026-11-11T01:40:39Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -1319,10 +1319,8 @@
    "mktP": 0.52235,
    "edge": 0.01821,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1342,15 +1340,13 @@
    "line": 11.5,
    "side": "under",
    "price": -116,
-   "projection": 8.752,
-   "modelP": 0.5186,
+   "projection": 7.716,
+   "modelP": 0.52424,
    "mktP": 0.50516,
-   "edge": 0.01344,
+   "edge": 0.01908,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1370,14 +1366,13 @@
    "line": 2.5,
    "side": "over",
    "price": -162,
-   "projection": 4.598,
-   "modelP": 0.59691,
+   "projection": 4.054,
+   "modelP": 0.59102,
    "mktP": 0.57963,
-   "edge": 0.01728,
+   "edge": 0.01139,
    "value": false,
    "verdict": "check",
    "flags": [
-    "min_unclear",
     "big_gap"
    ],
    "actual": null,
@@ -1404,10 +1399,8 @@
    "mktP": 0.52235,
    "edge": 0.01668,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1432,10 +1425,8 @@
    "mktP": 0.48085,
    "edge": 0.01899,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
