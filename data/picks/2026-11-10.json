@@ -1041,7 +1041,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-10T21:00:40Z",
    "openFetched": "2026-11-10T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-11T04:40:39Z",
+   "profit": 9.52
   },
   "401909962|Darius Garland|REB": {
    "game": "401909962",
@@ -1093,7 +1099,13 @@
    "openUnder": -130,
    "firstSaved": "2026-11-10T21:00:40Z",
    "openFetched": "2026-11-10T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-11T04:40:39Z",
+   "profit": -10.0
   },
   "401909962|Rui Hachimura|PTS": {
    "game": "401909962",
@@ -1493,7 +1505,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-10T21:00:40Z",
    "openFetched": "2026-11-10T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-11T04:40:39Z",
+   "profit": 9.09
   },
   "401909962|Keaton Wagler|PTS": {
    "game": "401909962",
@@ -5321,7 +5339,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-10T21:00:40Z",
    "openFetched": "2026-11-10T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-11T04:40:39Z",
+   "profit": 8.47
   },
   "401909962|Miles Bridges|REB": {
    "game": "401909962",
@@ -5373,7 +5397,13 @@
    "openUnder": 105,
    "firstSaved": "2026-11-10T21:00:40Z",
    "openFetched": "2026-11-10T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-11T04:40:39Z",
+   "profit": 10.5
   },
   "401909962|Dillon Brooks|PTS": {
    "game": "401909962",
@@ -8524,5 +8554,5 @@
    "profit": 7.35
   }
  },
- "updated": "2026-11-11T04:30:39Z"
+ "updated": "2026-11-11T04:40:39Z"
 }
