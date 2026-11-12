@@ -1447,7 +1447,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 17,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 16.0,
+   "settledAt": "2026-11-12T03:25:41Z",
+   "profit": 9.62
   },
   "401909969|Nic Claxton|REB": {
    "game": "401909969",
@@ -1499,7 +1505,13 @@
    "openUnder": -138,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 16.0,
+   "settledAt": "2026-11-12T03:25:41Z",
+   "profit": 11.8
   },
   "401909969|Josh Giddey|PTS": {
    "game": "401909969",
@@ -13924,7 +13936,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-11T23:35:37Z",
    "openFetched": "2026-11-11T23:35:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 0,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-12T03:25:41Z",
+   "profit": 9.52
   },
   "401909969|Jalen Smith|AST": {
    "game": "401909969",
@@ -14400,7 +14418,13 @@
    "openUnder": -113,
    "firstSaved": "2026-11-11T23:35:37Z",
    "openFetched": "2026-11-11T23:35:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 14.0,
+   "settledAt": "2026-11-12T03:25:41Z",
+   "profit": -10.0
   },
   "401909969|Luke Kornet|REB": {
    "game": "401909969",
@@ -14455,7 +14479,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-11T23:35:37Z",
    "openFetched": "2026-11-11T23:35:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 14.0,
+   "settledAt": "2026-11-12T03:25:41Z",
+   "profit": 9.26
   },
   "401909969|Victor Wembanyama|AST": {
    "game": "401909969",
@@ -14519,5 +14549,5 @@
    "profit": 12.2
   }
  },
- "updated": "2026-11-12T03:20:41Z"
+ "updated": "2026-11-12T03:25:41Z"
 }
