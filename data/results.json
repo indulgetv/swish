@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-12T05:25:42Z",
+ "generatedAt": "2026-11-12T05:30:42Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
   "saved": 3017,
-  "graded": 2942,
+  "graded": 2944,
   "void": 16,
-  "pending": 59
+  "pending": 57
  },
  "strong": {
   "n": 31,
@@ -21,40 +21,40 @@
   "avgPrice": 1.91
  },
  "leans": {
-  "n": 1432,
+  "n": 1433,
   "wins": 711,
-  "losses": 721,
+  "losses": 722,
   "pushes": 0,
-  "hitRate": 0.4965,
-  "profit": -967.79,
-  "roi": -0.0676,
+  "hitRate": 0.4962,
+  "profit": -977.79,
+  "roi": -0.0682,
   "avgPrice": 1.892
  },
  "all": {
-  "n": 2942,
-  "wins": 1495,
-  "losses": 1447,
+  "n": 2944,
+  "wins": 1496,
+  "losses": 1448,
   "pushes": 0,
   "hitRate": 0.5082,
-  "profit": -1371.33,
+  "profit": -1373.27,
   "roi": -0.0466,
-  "avgPrice": 1.892
+  "avgPrice": 1.891
  },
  "accuracy": {
-  "n": 2942,
+  "n": 2944,
   "brierMarket": 0.24741,
   "brierSwish": 0.24802,
-  "brierModel": 0.25504,
+  "brierModel": 0.25507,
   "skillSwish": -0.0025,
-  "skillModel": -0.0308
+  "skillModel": -0.031
  },
  "calibration": [
   {
    "from": 0.5,
    "to": 0.53,
-   "n": 935,
+   "n": 937,
    "predicted": 0.5149,
-   "actual": 0.5241
+   "actual": 0.524
   },
   {
    "from": 0.53,
@@ -86,9 +86,9 @@
   }
  ],
  "projection": {
-  "n": 2942,
-  "maeSwish": 3.506,
-  "maeLine": 3.398
+  "n": 2944,
+  "maeSwish": 3.505,
+  "maeLine": 3.397
  },
  "clv": {
   "leans": {
@@ -170,13 +170,13 @@
  },
  "byMarket": {
   "PTS": {
-   "n": 698,
+   "n": 699,
    "wins": 341,
-   "losses": 357,
+   "losses": 358,
    "pushes": 0,
-   "hitRate": 0.4885,
-   "profit": -544.97,
-   "roi": -0.0781,
+   "hitRate": 0.4878,
+   "profit": -554.97,
+   "roi": -0.0794,
    "avgPrice": 1.886
   },
   "REB": {
@@ -255,13 +255,13 @@
     "avgPrice": null
    },
    "leans": {
-    "n": 192,
+    "n": 193,
     "wins": 96,
-    "losses": 96,
+    "losses": 97,
     "pushes": 0,
-    "hitRate": 0.5,
-    "profit": -98.68,
-    "roi": -0.0514,
+    "hitRate": 0.4974,
+    "profit": -108.68,
+    "roi": -0.0563,
     "avgPrice": 1.909
    }
   },
@@ -749,9 +749,9 @@
    "slate": "2026-11-11",
    "saved": 260,
    "games": 10,
-   "graded": 201,
+   "graded": 203,
    "void": 0,
-   "pending": 59,
+   "pending": 57,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -764,14 +764,14 @@
     "avgPrice": null
    },
    "leans": {
-    "n": 33,
+    "n": 34,
     "wins": 22,
-    "losses": 11,
+    "losses": 12,
     "pushes": 0,
-    "hitRate": 0.6667,
-    "profit": 86.55,
-    "roi": 0.2623,
-    "avgPrice": 1.903
+    "hitRate": 0.6471,
+    "profit": 76.55,
+    "roi": 0.2251,
+    "avgPrice": 1.901
    },
    "strongCumProfit": -52.59
   },
@@ -808,24 +808,24 @@
  ],
  "overs": {
   "listed": {
-   "n": 1005,
-   "wins": 465,
+   "n": 1006,
+   "wins": 466,
    "losses": 540,
    "pushes": 0,
-   "hitRate": 0.4627,
-   "profit": -1188.96,
-   "roi": -0.1183,
+   "hitRate": 0.4632,
+   "profit": -1180.9,
+   "roi": -0.1174,
    "avgPrice": 1.916,
    "predicted": 0.5044
   },
   "allOvers": {
-   "n": 2942,
-   "wins": 1394,
+   "n": 2944,
+   "wins": 1396,
    "losses": 1548,
    "pushes": 0,
-   "hitRate": 0.4738,
-   "profit": -3164.1,
-   "roi": -0.1075,
+   "hitRate": 0.4742,
+   "profit": -3147.11,
+   "roi": -0.1069,
    "avgPrice": 1.899,
    "predicted": 0.4948
   },
@@ -853,14 +853,14 @@
     "predicted": 0.5669
    },
    "low": {
-    "n": 907,
-    "wins": 414,
+    "n": 908,
+    "wins": 415,
     "losses": 493,
     "pushes": 0,
-    "hitRate": 0.4564,
-    "profit": -1085.76,
-    "roi": -0.1197,
-    "avgPrice": 1.937,
+    "hitRate": 0.457,
+    "profit": -1077.7,
+    "roi": -0.1187,
+    "avgPrice": 1.936,
     "predicted": 0.4976
    }
   }
@@ -1093,9 +1093,9 @@
    "value": false,
    "verdict": "slight",
    "flags": [],
-   "actual": null,
-   "result": null,
-   "profit": null,
+   "actual": 18,
+   "result": "loss",
+   "profit": -10.0,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"

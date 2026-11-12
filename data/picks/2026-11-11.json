@@ -11970,7 +11970,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-12T05:30:42Z",
+   "profit": -10.0
   },
   "401909973|Ace Bailey|REB": {
    "game": "401909973",
@@ -12022,7 +12028,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-12T05:30:42Z",
+   "profit": 8.06
   },
   "401909973|Josh Green|PTS": {
    "game": "401909973",
@@ -15095,5 +15107,5 @@
    "profit": 12.2
   }
  },
- "updated": "2026-11-12T04:55:41Z"
+ "updated": "2026-11-12T05:30:42Z"
 }
