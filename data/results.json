@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T00:55:30Z",
+ "generatedAt": "2026-11-12T01:00:31Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 258,
+   "n": 262,
    "ourWay": 62,
-   "against": 114,
-   "avg": -0.0187
+   "against": 118,
+   "avg": -0.0192
   },
   "strong": {
    "n": 0,
@@ -104,22 +104,22 @@
    "avg": null
   },
   "noLean": {
-   "n": 232,
-   "ourWay": 80,
-   "against": 95,
-   "avg": -0.0047
+   "n": 248,
+   "ourWay": 82,
+   "against": 104,
+   "avg": -0.0057
   },
   "over": {
-   "n": 115,
+   "n": 116,
    "ourWay": 30,
-   "against": 36,
-   "avg": -0.0025
+   "against": 37,
+   "avg": -0.0028
   },
   "under": {
-   "n": 143,
+   "n": 146,
    "ourWay": 32,
-   "against": 78,
-   "avg": -0.0318
+   "against": 81,
+   "avg": -0.0322
   },
   "onHold": {
    "n": 61,
@@ -128,23 +128,23 @@
    "avg": -0.0152
   },
   "clear": {
-   "n": 197,
+   "n": 201,
    "ourWay": 50,
-   "against": 86,
-   "avg": -0.0198
+   "against": 90,
+   "avg": -0.0204
   },
   "byMarket": {
    "PTS": {
-    "n": 125,
+    "n": 127,
     "ourWay": 31,
-    "against": 62,
-    "avg": -0.0203
+    "against": 64,
+    "avg": -0.0204
    },
    "REB": {
-    "n": 87,
+    "n": 89,
     "ourWay": 22,
-    "against": 32,
-    "avg": -0.0107
+    "against": 34,
+    "avg": -0.012
    },
    "AST": {
     "n": 46,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 53,
+  "lineMoved": 54,
   "tol": 0.005
  },
  "byMarket": {
@@ -1151,7 +1151,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1177,7 +1177,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1203,7 +1203,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1229,7 +1229,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1255,7 +1255,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1281,7 +1281,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1307,7 +1307,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1333,7 +1333,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1359,7 +1359,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1385,7 +1385,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1411,7 +1411,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1439,7 +1439,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1467,7 +1467,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1493,7 +1493,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1519,7 +1519,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
