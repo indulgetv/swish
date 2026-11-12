@@ -9936,7 +9936,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 25,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-12T04:40:41Z",
+   "profit": -10.0
   },
   "401909973|Desmond Bane|REB": {
    "game": "401909973",
@@ -9997,7 +10003,13 @@
    "openUnder": -149,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-12T04:40:41Z",
+   "profit": 6.71
   },
   "401909973|Anthony Black|PTS": {
    "game": "401909973",
@@ -12062,7 +12074,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-12T04:40:41Z",
+   "profit": 9.71
   },
   "401909973|Josh Green|REB": {
    "game": "401909973",
@@ -12114,7 +12132,13 @@
    "openUnder": -147,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-12T04:40:41Z",
+   "profit": 6.8
   },
   "401909973|Jaxson Hayes|PTS": {
    "game": "401909973",
@@ -12286,7 +12310,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 15.0,
+   "settledAt": "2026-11-12T04:40:41Z",
+   "profit": -10.0
   },
   "401909973|Josh Okogie|REB": {
    "game": "401909973",
@@ -12338,7 +12368,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 15.0,
+   "settledAt": "2026-11-12T04:40:41Z",
+   "profit": 8.47
   },
   "401909973|Darryn Peterson|PTS": {
    "game": "401909973",
@@ -15059,5 +15095,5 @@
    "profit": 12.2
   }
  },
- "updated": "2026-11-12T04:35:42Z"
+ "updated": "2026-11-12T04:40:41Z"
 }
