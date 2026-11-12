@@ -6453,7 +6453,13 @@
    "openUnder": -130,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-12T03:30:42Z",
+   "profit": 10.0
   },
   "401909970|Cedric Coward|REB": {
    "game": "401909970",
@@ -6505,7 +6511,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-12T03:30:42Z",
+   "profit": 8.0
   },
   "401909970|Zach Edey|PTS": {
    "game": "401909970",
@@ -6661,7 +6673,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 14,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-12T03:30:42Z",
+   "profit": -10.0
   },
   "401909970|Jerami Grant|REB": {
    "game": "401909970",
@@ -6713,7 +6731,13 @@
    "openUnder": -140,
    "firstSaved": "2026-11-11T21:00:41Z",
    "openFetched": "2026-11-11T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-12T03:30:42Z",
+   "profit": 7.14
   },
   "401909970|Ty Jerome|PTS": {
    "game": "401909970",
@@ -14549,5 +14573,5 @@
    "profit": 12.2
   }
  },
- "updated": "2026-11-12T03:25:41Z"
+ "updated": "2026-11-12T03:30:42Z"
 }
