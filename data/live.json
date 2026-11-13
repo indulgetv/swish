@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-11-13",
-  "mode": "light",
+  "mode": "odds",
   "errors": [],
   "lastFullAt": "2026-11-13T14:00:30Z",
   "season": 2027,
-  "writtenAt": "2026-11-13T20:55:31Z"
+  "writtenAt": "2026-11-13T21:00:42Z"
  },
  "games": [
   {
@@ -100,7 +100,7 @@
    "homeScore": "0",
    "espnLine": {
     "details": "HOU -15.5",
-    "overUnder": 221.5,
+    "overUnder": 220.5,
     "provider": "DraftKings"
    }
   },
@@ -280507,7 +280507,7472 @@
    }
   ]
  },
- "props": [],
+ "props": [
+  {
+   "game": "401909296",
+   "player": "Jalen Brunson",
+   "key": "jalenbrunson",
+   "market": "PTS",
+   "line": 25.5,
+   "over": -107,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Karl-Anthony Towns",
+   "key": "karlanthonytowns",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -108,
+   "under": -118,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Pascal Siakam",
+   "key": "pascalsiakam",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -103,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "OG Anunoby",
+   "key": "oganunoby",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -116,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andrew Nembhard",
+   "key": "andrewnembhard",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -111,
+   "under": -115,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Ivica Zubac",
+   "key": "ivicazubac",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -119,
+   "under": -107,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Aaron Nesmith",
+   "key": "aaronnesmith",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -121,
+   "under": -105,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Kelly Oubre Jr.",
+   "key": "kellyoubre",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -121,
+   "under": -105,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Obi Toppin",
+   "key": "obitoppin",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -128,
+   "under": 101,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Landry Shamet",
+   "key": "landryshamet",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -110,
+   "under": -115,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Josh Hart",
+   "key": "joshhart",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -103,
+   "under": -124,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Mikal Bridges",
+   "key": "mikalbridges",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -107,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Miles McBride",
+   "key": "milesmcbride",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andre Drummond",
+   "key": "andredrummond",
+   "market": "PTS",
+   "line": 3.5,
+   "over": -135,
+   "under": 106,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Karl-Anthony Towns",
+   "key": "karlanthonytowns",
+   "market": "REB",
+   "line": 12.5,
+   "over": -128,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Ivica Zubac",
+   "key": "ivicazubac",
+   "market": "REB",
+   "line": 9.5,
+   "over": -114,
+   "under": -115,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Josh Hart",
+   "key": "joshhart",
+   "market": "REB",
+   "line": 7.5,
+   "over": 102,
+   "under": -134,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andre Drummond",
+   "key": "andredrummond",
+   "market": "REB",
+   "line": 6.5,
+   "over": -114,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Pascal Siakam",
+   "key": "pascalsiakam",
+   "market": "REB",
+   "line": 6.5,
+   "over": 106,
+   "under": -140,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "OG Anunoby",
+   "key": "oganunoby",
+   "market": "REB",
+   "line": 5.5,
+   "over": 107,
+   "under": -141,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Obi Toppin",
+   "key": "obitoppin",
+   "market": "REB",
+   "line": 3.5,
+   "over": -154,
+   "under": 117,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Kelly Oubre Jr.",
+   "key": "kellyoubre",
+   "market": "REB",
+   "line": 3.5,
+   "over": -132,
+   "under": 100,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Aaron Nesmith",
+   "key": "aaronnesmith",
+   "market": "REB",
+   "line": 3.5,
+   "over": 116,
+   "under": -153,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Jalen Brunson",
+   "key": "jalenbrunson",
+   "market": "REB",
+   "line": 3.5,
+   "over": 130,
+   "under": -173,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Mikal Bridges",
+   "key": "mikalbridges",
+   "market": "REB",
+   "line": 2.5,
+   "over": 101,
+   "under": -132,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andrew Nembhard",
+   "key": "andrewnembhard",
+   "market": "REB",
+   "line": 2.5,
+   "over": 111,
+   "under": -146,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "OG Anunoby",
+   "key": "oganunoby",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -118,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Pascal Siakam",
+   "key": "pascalsiakam",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -113,
+   "under": -113,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Ivica Zubac",
+   "key": "ivicazubac",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -128,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Kelly Oubre Jr.",
+   "key": "kellyoubre",
+   "market": "PTS",
+   "line": 11.5,
+   "over": 100,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andrew Nembhard",
+   "key": "andrewnembhard",
+   "market": "PTS",
+   "line": 15.5,
+   "over": 102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Obi Toppin",
+   "key": "obitoppin",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -128,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Miles McBride",
+   "key": "milesmcbride",
+   "market": "PTS",
+   "line": 7.5,
+   "over": 108,
+   "under": -138,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Jalen Brunson",
+   "key": "jalenbrunson",
+   "market": "PTS",
+   "line": 25.5,
+   "over": -102,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Josh Hart",
+   "key": "joshhart",
+   "market": "PTS",
+   "line": 9.5,
+   "over": 102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Mikal Bridges",
+   "key": "mikalbridges",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 100,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Karl-Anthony Towns",
+   "key": "karlanthonytowns",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -115,
+   "under": -111,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Landry Shamet",
+   "key": "landryshamet",
+   "market": "PTS",
+   "line": 9.5,
+   "over": 104,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andre Drummond",
+   "key": "andredrummond",
+   "market": "PTS",
+   "line": 3.5,
+   "over": -132,
+   "under": 104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Ivica Zubac",
+   "key": "ivicazubac",
+   "market": "REB",
+   "line": 9.5,
+   "over": -122,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Josh Hart",
+   "key": "joshhart",
+   "market": "REB",
+   "line": 7.5,
+   "over": 106,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Kelly Oubre Jr.",
+   "key": "kellyoubre",
+   "market": "REB",
+   "line": 3.5,
+   "over": -128,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Pascal Siakam",
+   "key": "pascalsiakam",
+   "market": "REB",
+   "line": 6.5,
+   "over": 122,
+   "under": -156,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andrew Nembhard",
+   "key": "andrewnembhard",
+   "market": "REB",
+   "line": 2.5,
+   "over": 104,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Obi Toppin",
+   "key": "obitoppin",
+   "market": "REB",
+   "line": 4.5,
+   "over": 124,
+   "under": -158,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Mikal Bridges",
+   "key": "mikalbridges",
+   "market": "REB",
+   "line": 2.5,
+   "over": 100,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Karl-Anthony Towns",
+   "key": "karlanthonytowns",
+   "market": "REB",
+   "line": 12.5,
+   "over": -125,
+   "under": -102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Jalen Brunson",
+   "key": "jalenbrunson",
+   "market": "REB",
+   "line": 3.5,
+   "over": 132,
+   "under": -170,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "OG Anunoby",
+   "key": "oganunoby",
+   "market": "REB",
+   "line": 5.5,
+   "over": 118,
+   "under": -150,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andre Drummond",
+   "key": "andredrummond",
+   "market": "REB",
+   "line": 6.5,
+   "over": -104,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:07Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Pascal Siakam",
+   "key": "pascalsiakam",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andrew Nembhard",
+   "key": "andrewnembhard",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -105,
+   "under": -130,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Josh Hart",
+   "key": "joshhart",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Kelly Oubre Jr.",
+   "key": "kellyoubre",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Mikal Bridges",
+   "key": "mikalbridges",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Jalen Brunson",
+   "key": "jalenbrunson",
+   "market": "PTS",
+   "line": 25.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Karl-Anthony Towns",
+   "key": "karlanthonytowns",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -120,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Ivica Zubac",
+   "key": "ivicazubac",
+   "market": "PTS",
+   "line": 13.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "OG Anunoby",
+   "key": "oganunoby",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Miles McBride",
+   "key": "milesmcbride",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Aaron Nesmith",
+   "key": "aaronnesmith",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andre Drummond",
+   "key": "andredrummond",
+   "market": "PTS",
+   "line": 4.5,
+   "over": 120,
+   "under": -160,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Obi Toppin",
+   "key": "obitoppin",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Landry Shamet",
+   "key": "landryshamet",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Pascal Siakam",
+   "key": "pascalsiakam",
+   "market": "REB",
+   "line": 6.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Jalen Brunson",
+   "key": "jalenbrunson",
+   "market": "REB",
+   "line": 3.5,
+   "over": 135,
+   "under": -185,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andrew Nembhard",
+   "key": "andrewnembhard",
+   "market": "REB",
+   "line": 2.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Mikal Bridges",
+   "key": "mikalbridges",
+   "market": "REB",
+   "line": 2.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Kelly Oubre Jr.",
+   "key": "kellyoubre",
+   "market": "REB",
+   "line": 3.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Karl-Anthony Towns",
+   "key": "karlanthonytowns",
+   "market": "REB",
+   "line": 12.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "OG Anunoby",
+   "key": "oganunoby",
+   "market": "REB",
+   "line": 4.5,
+   "over": -185,
+   "under": 135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Ivica Zubac",
+   "key": "ivicazubac",
+   "market": "REB",
+   "line": 9.5,
+   "over": -145,
+   "under": 105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Andre Drummond",
+   "key": "andredrummond",
+   "market": "REB",
+   "line": 6.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Josh Hart",
+   "key": "joshhart",
+   "market": "REB",
+   "line": 7.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Aaron Nesmith",
+   "key": "aaronnesmith",
+   "market": "REB",
+   "line": 3.5,
+   "over": 120,
+   "under": -160,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909296",
+   "player": "Obi Toppin",
+   "key": "obitoppin",
+   "market": "REB",
+   "line": 4.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Desmond Bane",
+   "key": "desmondbane",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -104,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tristan da Silva",
+   "key": "tristandasilva",
+   "market": "PTS",
+   "line": 12.5,
+   "over": 100,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Brayden Burries",
+   "key": "braydenburries",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -115,
+   "under": -111,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Nate Ament",
+   "key": "nateament",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -113,
+   "under": -113,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tyler Herro",
+   "key": "tylerherro",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -104,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jalen Suggs",
+   "key": "jalensuggs",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -125,
+   "under": -102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Wendell Carter Jr",
+   "key": "wendellcarter",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -102,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Myles Turner",
+   "key": "mylesturner",
+   "market": "PTS",
+   "line": 9.5,
+   "over": 104,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Kyle Kuzma",
+   "key": "kylekuzma",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -113,
+   "under": -113,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Anthony Black",
+   "key": "anthonyblack",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -120,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Franz Wagner",
+   "key": "franzwagner",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -111,
+   "under": -115,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Desmond Bane",
+   "key": "desmondbane",
+   "market": "REB",
+   "line": 4.5,
+   "over": 114,
+   "under": -148,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Anthony Black",
+   "key": "anthonyblack",
+   "market": "REB",
+   "line": 4.5,
+   "over": -146,
+   "under": 114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tristan da Silva",
+   "key": "tristandasilva",
+   "market": "REB",
+   "line": 3.5,
+   "over": -160,
+   "under": 124,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tyler Herro",
+   "key": "tylerherro",
+   "market": "REB",
+   "line": 4.5,
+   "over": -104,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Brayden Burries",
+   "key": "braydenburries",
+   "market": "REB",
+   "line": 5.5,
+   "over": 116,
+   "under": -148,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jalen Suggs",
+   "key": "jalensuggs",
+   "market": "REB",
+   "line": 3.5,
+   "over": 124,
+   "under": -158,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Nate Ament",
+   "key": "nateament",
+   "market": "REB",
+   "line": 3.5,
+   "over": 108,
+   "under": -138,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Wendell Carter Jr",
+   "key": "wendellcarter",
+   "market": "REB",
+   "line": 8.5,
+   "over": -136,
+   "under": 106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Myles Turner",
+   "key": "mylesturner",
+   "market": "REB",
+   "line": 5.5,
+   "over": 122,
+   "under": -156,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Kyle Kuzma",
+   "key": "kylekuzma",
+   "market": "REB",
+   "line": 4.5,
+   "over": -122,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Franz Wagner",
+   "key": "franzwagner",
+   "market": "REB",
+   "line": 6.5,
+   "over": 100,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:58:58Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Franz Wagner",
+   "key": "franzwagner",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -115,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tyler Herro",
+   "key": "tylerherro",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Desmond Bane",
+   "key": "desmondbane",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -124,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Anthony Black",
+   "key": "anthonyblack",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -112,
+   "under": -114,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jaime Jaquez Jr",
+   "key": "jaimejaquez",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -114,
+   "under": -112,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Wendell Carter Jr",
+   "key": "wendellcarter",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tristan da Silva",
+   "key": "tristandasilva",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -101,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Brayden Burries",
+   "key": "braydenburries",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -113,
+   "under": -113,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Kyle Kuzma",
+   "key": "kylekuzma",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -119,
+   "under": -107,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jalen Suggs",
+   "key": "jalensuggs",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 102,
+   "under": -130,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Myles Turner",
+   "key": "mylesturner",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -105,
+   "under": -121,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Nate Ament",
+   "key": "nateament",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -116,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Wendell Carter Jr",
+   "key": "wendellcarter",
+   "market": "REB",
+   "line": 9.5,
+   "over": 102,
+   "under": -134,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Franz Wagner",
+   "key": "franzwagner",
+   "market": "REB",
+   "line": 6.5,
+   "over": -110,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Brayden Burries",
+   "key": "braydenburries",
+   "market": "REB",
+   "line": 5.5,
+   "over": 102,
+   "under": -134,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Myles Turner",
+   "key": "mylesturner",
+   "market": "REB",
+   "line": 5.5,
+   "over": 113,
+   "under": -149,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Anthony Black",
+   "key": "anthonyblack",
+   "market": "REB",
+   "line": 4.5,
+   "over": -152,
+   "under": 116,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Kyle Kuzma",
+   "key": "kylekuzma",
+   "market": "REB",
+   "line": 4.5,
+   "over": -121,
+   "under": -109,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tyler Herro",
+   "key": "tylerherro",
+   "market": "REB",
+   "line": 4.5,
+   "over": -109,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Desmond Bane",
+   "key": "desmondbane",
+   "market": "REB",
+   "line": 4.5,
+   "over": 106,
+   "under": -140,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tristan da Silva",
+   "key": "tristandasilva",
+   "market": "REB",
+   "line": 3.5,
+   "over": -149,
+   "under": 113,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Nate Ament",
+   "key": "nateament",
+   "market": "REB",
+   "line": 3.5,
+   "over": 103,
+   "under": -135,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jalen Suggs",
+   "key": "jalensuggs",
+   "market": "REB",
+   "line": 3.5,
+   "over": 118,
+   "under": -155,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:26Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Nate Ament",
+   "key": "nateament",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Brayden Burries",
+   "key": "braydenburries",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tyler Herro",
+   "key": "tylerherro",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jaime Jaquez Jr",
+   "key": "jaimejaquez",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jalen Suggs",
+   "key": "jalensuggs",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Desmond Bane",
+   "key": "desmondbane",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Anthony Black",
+   "key": "anthonyblack",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Franz Wagner",
+   "key": "franzwagner",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tristan da Silva",
+   "key": "tristandasilva",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Myles Turner",
+   "key": "mylesturner",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Kyle Kuzma",
+   "key": "kylekuzma",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Wendell Carter Jr",
+   "key": "wendellcarter",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Kyle Kuzma",
+   "key": "kylekuzma",
+   "market": "REB",
+   "line": 4.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Nate Ament",
+   "key": "nateament",
+   "market": "REB",
+   "line": 3.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Wendell Carter Jr",
+   "key": "wendellcarter",
+   "market": "REB",
+   "line": 8.5,
+   "over": -140,
+   "under": 105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Desmond Bane",
+   "key": "desmondbane",
+   "market": "REB",
+   "line": 4.5,
+   "over": 105,
+   "under": -145,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Brayden Burries",
+   "key": "braydenburries",
+   "market": "REB",
+   "line": 5.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Anthony Black",
+   "key": "anthonyblack",
+   "market": "REB",
+   "line": 5.5,
+   "over": 120,
+   "under": -160,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Jalen Suggs",
+   "key": "jalensuggs",
+   "market": "REB",
+   "line": 3.5,
+   "over": 115,
+   "under": -155,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Franz Wagner",
+   "key": "franzwagner",
+   "market": "REB",
+   "line": 6.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tyler Herro",
+   "key": "tylerherro",
+   "market": "REB",
+   "line": 4.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Tristan da Silva",
+   "key": "tristandasilva",
+   "market": "REB",
+   "line": 3.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909297",
+   "player": "Myles Turner",
+   "key": "mylesturner",
+   "market": "REB",
+   "line": 4.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:59:40Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Nickeil Alexander-Walker",
+   "key": "nickeilalexanderwalker",
+   "market": "PTS",
+   "line": 22.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Kingston Flemings",
+   "key": "kingstonflemings",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -104,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Patrick Williams",
+   "key": "patrickwilliams",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -132,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Dyson Daniels",
+   "key": "dysondaniels",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Isaac Okoro",
+   "key": "isaacokoro",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Johnson",
+   "key": "jalenjohnson",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -118,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Onyeka Okongwu",
+   "key": "onyekaokongwu",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Aaron Wiggins",
+   "key": "aaronwiggins",
+   "market": "PTS",
+   "line": 13.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "C.J. McCollum",
+   "key": "cjmccollum",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "PTS",
+   "line": 21.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Kingston Flemings",
+   "key": "kingstonflemings",
+   "market": "REB",
+   "line": 2.5,
+   "over": -154,
+   "under": 116,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Nickeil Alexander-Walker",
+   "key": "nickeilalexanderwalker",
+   "market": "REB",
+   "line": 3.5,
+   "over": 108,
+   "under": -144,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Dyson Daniels",
+   "key": "dysondaniels",
+   "market": "REB",
+   "line": 6.5,
+   "over": -152,
+   "under": 114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Patrick Williams",
+   "key": "patrickwilliams",
+   "market": "REB",
+   "line": 3.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "REB",
+   "line": 2.5,
+   "over": -136,
+   "under": 102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "REB",
+   "line": 5.5,
+   "over": -140,
+   "under": 106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Johnson",
+   "key": "jalenjohnson",
+   "market": "REB",
+   "line": 9.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "REB",
+   "line": 5.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Onyeka Okongwu",
+   "key": "onyekaokongwu",
+   "market": "REB",
+   "line": 7.5,
+   "over": -154,
+   "under": 116,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "REB",
+   "line": 8.5,
+   "over": 106,
+   "under": -140,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Johnson",
+   "key": "jalenjohnson",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Nickeil Alexander-Walker",
+   "key": "nickeilalexanderwalker",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -104,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -106,
+   "under": -121,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -106,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "C.J. McCollum",
+   "key": "cjmccollum",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -125,
+   "under": -102,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Onyeka Okongwu",
+   "key": "onyekaokongwu",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -113,
+   "under": -113,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -105,
+   "under": -122,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -104,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Aaron Wiggins",
+   "key": "aaronwiggins",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -102,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Dyson Daniels",
+   "key": "dysondaniels",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -114,
+   "under": -112,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Kingston Flemings",
+   "key": "kingstonflemings",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -106,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Isaac Okoro",
+   "key": "isaacokoro",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -101,
+   "under": -127,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Patrick Williams",
+   "key": "patrickwilliams",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -101,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Johnson",
+   "key": "jalenjohnson",
+   "market": "REB",
+   "line": 9.5,
+   "over": -107,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "REB",
+   "line": 8.5,
+   "over": 103,
+   "under": -135,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Onyeka Okongwu",
+   "key": "onyekaokongwu",
+   "market": "REB",
+   "line": 7.5,
+   "over": -138,
+   "under": 105,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Dyson Daniels",
+   "key": "dysondaniels",
+   "market": "REB",
+   "line": 6.5,
+   "over": -147,
+   "under": 112,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "REB",
+   "line": 5.5,
+   "over": -139,
+   "under": 106,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "REB",
+   "line": 5.5,
+   "over": 104,
+   "under": -137,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Patrick Williams",
+   "key": "patrickwilliams",
+   "market": "REB",
+   "line": 3.5,
+   "over": 110,
+   "under": -145,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Nickeil Alexander-Walker",
+   "key": "nickeilalexanderwalker",
+   "market": "REB",
+   "line": 3.5,
+   "over": 116,
+   "under": -152,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Kingston Flemings",
+   "key": "kingstonflemings",
+   "market": "REB",
+   "line": 2.5,
+   "over": -145,
+   "under": 110,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "REB",
+   "line": 2.5,
+   "over": -134,
+   "under": 102,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Isaac Okoro",
+   "key": "isaacokoro",
+   "market": "REB",
+   "line": 2.5,
+   "over": 101,
+   "under": -133,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:42Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Isaac Okoro",
+   "key": "isaacokoro",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Nickeil Alexander-Walker",
+   "key": "nickeilalexanderwalker",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Dyson Daniels",
+   "key": "dysondaniels",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Onyeka Okongwu",
+   "key": "onyekaokongwu",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Johnson",
+   "key": "jalenjohnson",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Kingston Flemings",
+   "key": "kingstonflemings",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Patrick Williams",
+   "key": "patrickwilliams",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Nickeil Alexander-Walker",
+   "key": "nickeilalexanderwalker",
+   "market": "REB",
+   "line": 3.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Smith",
+   "key": "jalensmith",
+   "market": "REB",
+   "line": 8.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Isaac Okoro",
+   "key": "isaacokoro",
+   "market": "REB",
+   "line": 2.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Jalen Johnson",
+   "key": "jalenjohnson",
+   "market": "REB",
+   "line": 9.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Josh Giddey",
+   "key": "joshgiddey",
+   "market": "REB",
+   "line": 5.5,
+   "over": -150,
+   "under": 110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Dyson Daniels",
+   "key": "dysondaniels",
+   "market": "REB",
+   "line": 6.5,
+   "over": -150,
+   "under": 110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Onyeka Okongwu",
+   "key": "onyekaokongwu",
+   "market": "REB",
+   "line": 8.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Norman Powell",
+   "key": "normanpowell",
+   "market": "REB",
+   "line": 2.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Matas Buzelis",
+   "key": "matasbuzelis",
+   "market": "REB",
+   "line": 5.5,
+   "over": -111,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Kingston Flemings",
+   "key": "kingstonflemings",
+   "market": "REB",
+   "line": 2.5,
+   "over": -165,
+   "under": 125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909299",
+   "player": "Patrick Williams",
+   "key": "patrickwilliams",
+   "market": "REB",
+   "line": 3.5,
+   "over": -111,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Bam Adebayo",
+   "key": "bamadebayo",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Klay Thompson",
+   "key": "klaythompson",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Donovan Mitchell",
+   "key": "donovanmitchell",
+   "market": "PTS",
+   "line": 25.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Andrew Wiggins",
+   "key": "andrewwiggins",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "James Harden",
+   "key": "jamesharden",
+   "market": "PTS",
+   "line": 17.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Meleek Thomas",
+   "key": "meleekthomas",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Peyton Watson",
+   "key": "peytonwatson",
+   "market": "PTS",
+   "line": 13.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Tyrese Proctor",
+   "key": "tyreseproctor",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Davion Mitchell",
+   "key": "davionmitchell",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -130,
+   "under": -102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Giannis Antetokounmpo",
+   "key": "giannisantetokounmpo",
+   "market": "PTS",
+   "line": 29.5,
+   "over": -104,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Mario Hezonja",
+   "key": "mariohezonja",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jarrett Allen",
+   "key": "jarrettallen",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -136,
+   "under": 102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jaylon Tyson",
+   "key": "jaylontyson",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Bam Adebayo",
+   "key": "bamadebayo",
+   "market": "REB",
+   "line": 9.5,
+   "over": 118,
+   "under": -158,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Donovan Mitchell",
+   "key": "donovanmitchell",
+   "market": "REB",
+   "line": 4.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "James Harden",
+   "key": "jamesharden",
+   "market": "REB",
+   "line": 4.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Meleek Thomas",
+   "key": "meleekthomas",
+   "market": "REB",
+   "line": 3.5,
+   "over": 110,
+   "under": -146,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Peyton Watson",
+   "key": "peytonwatson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -146,
+   "under": 110,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Giannis Antetokounmpo",
+   "key": "giannisantetokounmpo",
+   "market": "REB",
+   "line": 12.5,
+   "over": 108,
+   "under": -144,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Davion Mitchell",
+   "key": "davionmitchell",
+   "market": "REB",
+   "line": 2.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Mario Hezonja",
+   "key": "mariohezonja",
+   "market": "REB",
+   "line": 4.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jaylon Tyson",
+   "key": "jaylontyson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jarrett Allen",
+   "key": "jarrettallen",
+   "market": "REB",
+   "line": 9.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:46Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Giannis Antetokounmpo",
+   "key": "giannisantetokounmpo",
+   "market": "PTS",
+   "line": 29.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Donovan Mitchell",
+   "key": "donovanmitchell",
+   "market": "PTS",
+   "line": 26.5,
+   "over": -105,
+   "under": -122,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Bam Adebayo",
+   "key": "bamadebayo",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -111,
+   "under": -115,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "James Harden",
+   "key": "jamesharden",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -113,
+   "under": -113,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Davion Mitchell",
+   "key": "davionmitchell",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -122,
+   "under": -105,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jarrett Allen",
+   "key": "jarrettallen",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -124,
+   "under": -102,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Klay Thompson",
+   "key": "klaythompson",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Peyton Watson",
+   "key": "peytonwatson",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -101,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Andrew Wiggins",
+   "key": "andrewwiggins",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -124,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Meleek Thomas",
+   "key": "meleekthomas",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jaylon Tyson",
+   "key": "jaylontyson",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -107,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Mario Hezonja",
+   "key": "mariohezonja",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -133,
+   "under": 104,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Tyrese Proctor",
+   "key": "tyreseproctor",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -126,
+   "under": -101,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Giannis Antetokounmpo",
+   "key": "giannisantetokounmpo",
+   "market": "REB",
+   "line": 11.5,
+   "over": -134,
+   "under": 102,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jarrett Allen",
+   "key": "jarrettallen",
+   "market": "REB",
+   "line": 9.5,
+   "over": -109,
+   "under": -121,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Bam Adebayo",
+   "key": "bamadebayo",
+   "market": "REB",
+   "line": 8.5,
+   "over": -137,
+   "under": 104,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Peyton Watson",
+   "key": "peytonwatson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -128,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jaylon Tyson",
+   "key": "jaylontyson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -120,
+   "under": -109,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Mario Hezonja",
+   "key": "mariohezonja",
+   "market": "REB",
+   "line": 4.5,
+   "over": -118,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "James Harden",
+   "key": "jamesharden",
+   "market": "REB",
+   "line": 4.5,
+   "over": -104,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Donovan Mitchell",
+   "key": "donovanmitchell",
+   "market": "REB",
+   "line": 4.5,
+   "over": 115,
+   "under": -151,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Andrew Wiggins",
+   "key": "andrewwiggins",
+   "market": "REB",
+   "line": 3.5,
+   "over": -156,
+   "under": 118,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Meleek Thomas",
+   "key": "meleekthomas",
+   "market": "REB",
+   "line": 3.5,
+   "over": 112,
+   "under": -148,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Davion Mitchell",
+   "key": "davionmitchell",
+   "market": "REB",
+   "line": 2.5,
+   "over": -116,
+   "under": -113,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Tyrese Proctor",
+   "key": "tyreseproctor",
+   "market": "REB",
+   "line": 2.5,
+   "over": -110,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Klay Thompson",
+   "key": "klaythompson",
+   "market": "REB",
+   "line": 2.5,
+   "over": 143,
+   "under": -190,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Bam Adebayo",
+   "key": "bamadebayo",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Mario Hezonja",
+   "key": "mariohezonja",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -120,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Tyrese Proctor",
+   "key": "tyreseproctor",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Giannis Antetokounmpo",
+   "key": "giannisantetokounmpo",
+   "market": "PTS",
+   "line": 28.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Davion Mitchell",
+   "key": "davionmitchell",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Peyton Watson",
+   "key": "peytonwatson",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "James Harden",
+   "key": "jamesharden",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Meleek Thomas",
+   "key": "meleekthomas",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jaylon Tyson",
+   "key": "jaylontyson",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jarrett Allen",
+   "key": "jarrettallen",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Klay Thompson",
+   "key": "klaythompson",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Donovan Mitchell",
+   "key": "donovanmitchell",
+   "market": "PTS",
+   "line": 26.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Andrew Wiggins",
+   "key": "andrewwiggins",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Bam Adebayo",
+   "key": "bamadebayo",
+   "market": "REB",
+   "line": 9.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jarrett Allen",
+   "key": "jarrettallen",
+   "market": "REB",
+   "line": 9.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Jaylon Tyson",
+   "key": "jaylontyson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Klay Thompson",
+   "key": "klaythompson",
+   "market": "REB",
+   "line": 2.5,
+   "over": 145,
+   "under": -200,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Donovan Mitchell",
+   "key": "donovanmitchell",
+   "market": "REB",
+   "line": 4.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Davion Mitchell",
+   "key": "davionmitchell",
+   "market": "REB",
+   "line": 2.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Mario Hezonja",
+   "key": "mariohezonja",
+   "market": "REB",
+   "line": 4.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Tyrese Proctor",
+   "key": "tyreseproctor",
+   "market": "REB",
+   "line": 2.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Meleek Thomas",
+   "key": "meleekthomas",
+   "market": "REB",
+   "line": 3.5,
+   "over": 115,
+   "under": -155,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Giannis Antetokounmpo",
+   "key": "giannisantetokounmpo",
+   "market": "REB",
+   "line": 12.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Andrew Wiggins",
+   "key": "andrewwiggins",
+   "market": "REB",
+   "line": 3.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "James Harden",
+   "key": "jamesharden",
+   "market": "REB",
+   "line": 4.5,
+   "over": -120,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909298",
+   "player": "Peyton Watson",
+   "key": "peytonwatson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:29Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jeremiah Fears",
+   "key": "jeremiahfears",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cam Spencer",
+   "key": "camspencer",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jerami Grant",
+   "key": "jeramigrant",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Ty Jerome",
+   "key": "tyjerome",
+   "market": "PTS",
+   "line": 23.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Zion Williamson",
+   "key": "zionwilliamson",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Isaiah Stewart",
+   "key": "isaiahstewart",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Saddiq Bey",
+   "key": "saddiqbey",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cameron Boozer",
+   "key": "cameronboozer",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Derik Queen",
+   "key": "derikqueen",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -125,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jaylen Wells",
+   "key": "jaylenwells",
+   "market": "PTS",
+   "line": 11.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Karlo Matkovic",
+   "key": "karlomatkovic",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Herb Jones",
+   "key": "herbertjones",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cedric Coward",
+   "key": "cedriccoward",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jeremiah Fears",
+   "key": "jeremiahfears",
+   "market": "REB",
+   "line": 4.5,
+   "over": -128,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cam Spencer",
+   "key": "camspencer",
+   "market": "REB",
+   "line": 2.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Ty Jerome",
+   "key": "tyjerome",
+   "market": "REB",
+   "line": 3.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Zion Williamson",
+   "key": "zionwilliamson",
+   "market": "REB",
+   "line": 5.5,
+   "over": -160,
+   "under": 120,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jerami Grant",
+   "key": "jeramigrant",
+   "market": "REB",
+   "line": 2.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Isaiah Stewart",
+   "key": "isaiahstewart",
+   "market": "REB",
+   "line": 5.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cameron Boozer",
+   "key": "cameronboozer",
+   "market": "REB",
+   "line": 9.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Herb Jones",
+   "key": "herbertjones",
+   "market": "REB",
+   "line": 3.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jaylen Wells",
+   "key": "jaylenwells",
+   "market": "REB",
+   "line": 2.5,
+   "over": -158,
+   "under": 118,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cedric Coward",
+   "key": "cedriccoward",
+   "market": "REB",
+   "line": 7.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Karlo Matkovic",
+   "key": "karlomatkovic",
+   "market": "REB",
+   "line": 5.5,
+   "over": 112,
+   "under": -148,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:38Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Ty Jerome",
+   "key": "tyjerome",
+   "market": "PTS",
+   "line": 23.5,
+   "over": -123,
+   "under": -104,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Zion Williamson",
+   "key": "zionwilliamson",
+   "market": "PTS",
+   "line": 22.5,
+   "over": -111,
+   "under": -115,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jeremiah Fears",
+   "key": "jeremiahfears",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cameron Boozer",
+   "key": "cameronboozer",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Saddiq Bey",
+   "key": "saddiqbey",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -113,
+   "under": -113,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cedric Coward",
+   "key": "cedriccoward",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -106,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Isaiah Stewart",
+   "key": "isaiahstewart",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jerami Grant",
+   "key": "jeramigrant",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -104,
+   "under": -122,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jaylen Wells",
+   "key": "jaylenwells",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -103,
+   "under": -124,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Derik Queen",
+   "key": "derikqueen",
+   "market": "PTS",
+   "line": 11.5,
+   "over": 101,
+   "under": -129,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Herb Jones",
+   "key": "herbertjones",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -106,
+   "under": -121,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cam Spencer",
+   "key": "camspencer",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -105,
+   "under": -121,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Karlo Matkovic",
+   "key": "karlomatkovic",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 100,
+   "under": -127,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cameron Boozer",
+   "key": "cameronboozer",
+   "market": "REB",
+   "line": 9.5,
+   "over": 104,
+   "under": -137,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cedric Coward",
+   "key": "cedriccoward",
+   "market": "REB",
+   "line": 7.5,
+   "over": 102,
+   "under": -135,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Derik Queen",
+   "key": "derikqueen",
+   "market": "REB",
+   "line": 6.5,
+   "over": -116,
+   "under": -113,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Zion Williamson",
+   "key": "zionwilliamson",
+   "market": "REB",
+   "line": 5.5,
+   "over": -140,
+   "under": 106,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Isaiah Stewart",
+   "key": "isaiahstewart",
+   "market": "REB",
+   "line": 5.5,
+   "over": -103,
+   "under": -128,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Karlo Matkovic",
+   "key": "karlomatkovic",
+   "market": "REB",
+   "line": 5.5,
+   "over": 108,
+   "under": -143,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jeremiah Fears",
+   "key": "jeremiahfears",
+   "market": "REB",
+   "line": 4.5,
+   "over": -144,
+   "under": 109,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Saddiq Bey",
+   "key": "saddiqbey",
+   "market": "REB",
+   "line": 4.5,
+   "over": -114,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Herb Jones",
+   "key": "herbertjones",
+   "market": "REB",
+   "line": 3.5,
+   "over": -112,
+   "under": -118,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Ty Jerome",
+   "key": "tyjerome",
+   "market": "REB",
+   "line": 3.5,
+   "over": -103,
+   "under": -128,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jaylen Wells",
+   "key": "jaylenwells",
+   "market": "REB",
+   "line": 2.5,
+   "over": -163,
+   "under": 124,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cam Spencer",
+   "key": "camspencer",
+   "market": "REB",
+   "line": 2.5,
+   "over": -109,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jerami Grant",
+   "key": "jeramigrant",
+   "market": "REB",
+   "line": 2.5,
+   "over": -104,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Isaiah Stewart",
+   "key": "isaiahstewart",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cameron Boozer",
+   "key": "cameronboozer",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Ty Jerome",
+   "key": "tyjerome",
+   "market": "PTS",
+   "line": 23.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Zion Williamson",
+   "key": "zionwilliamson",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Karlo Matkovic",
+   "key": "karlomatkovic",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cedric Coward",
+   "key": "cedriccoward",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Herb Jones",
+   "key": "herbertjones",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jeremiah Fears",
+   "key": "jeremiahfears",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jaylen Wells",
+   "key": "jaylenwells",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jerami Grant",
+   "key": "jeramigrant",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cam Spencer",
+   "key": "camspencer",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cameron Boozer",
+   "key": "cameronboozer",
+   "market": "REB",
+   "line": 9.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jeremiah Fears",
+   "key": "jeremiahfears",
+   "market": "REB",
+   "line": 4.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Isaiah Stewart",
+   "key": "isaiahstewart",
+   "market": "REB",
+   "line": 5.5,
+   "over": 115,
+   "under": -155,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Ty Jerome",
+   "key": "tyjerome",
+   "market": "REB",
+   "line": 3.5,
+   "over": 115,
+   "under": -155,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Zion Williamson",
+   "key": "zionwilliamson",
+   "market": "REB",
+   "line": 5.5,
+   "over": -155,
+   "under": 115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Karlo Matkovic",
+   "key": "karlomatkovic",
+   "market": "REB",
+   "line": 5.5,
+   "over": -105,
+   "under": -130,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cedric Coward",
+   "key": "cedriccoward",
+   "market": "REB",
+   "line": 6.5,
+   "over": -155,
+   "under": 115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jaylen Wells",
+   "key": "jaylenwells",
+   "market": "REB",
+   "line": 2.5,
+   "over": -155,
+   "under": 115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Jerami Grant",
+   "key": "jeramigrant",
+   "market": "REB",
+   "line": 2.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909300",
+   "player": "Cam Spencer",
+   "key": "camspencer",
+   "market": "REB",
+   "line": 2.5,
+   "over": -105,
+   "under": -130,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:28Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Kevin Durant",
+   "key": "kevindurant",
+   "market": "PTS",
+   "line": 21.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jaxson Hayes",
+   "key": "jaxsonhayes",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -128,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Isaiah Collier",
+   "key": "isaiahcollier",
+   "market": "PTS",
+   "line": 6.5,
+   "over": 104,
+   "under": -138,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Josh Green",
+   "key": "joshgreen",
+   "market": "PTS",
+   "line": 4.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Tari Eason",
+   "key": "tarieason",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Alperen Sengun",
+   "key": "alperensengun",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jabari Smith Jr",
+   "key": "jabarismith",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -104,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Keyonte George",
+   "key": "keyontegeorge",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -104,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Fred VanVleet",
+   "key": "fredvanvleet",
+   "market": "PTS",
+   "line": 13.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Amen Thompson",
+   "key": "amenthompson",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -128,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Darryn Peterson",
+   "key": "darrynpeterson",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Ace Bailey",
+   "key": "acebailey",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -125,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Reed Sheppard",
+   "key": "reedsheppard",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Fred VanVleet",
+   "key": "fredvanvleet",
+   "market": "REB",
+   "line": 3.5,
+   "over": 130,
+   "under": -174,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jaxson Hayes",
+   "key": "jaxsonhayes",
+   "market": "REB",
+   "line": 5.5,
+   "over": -125,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Amen Thompson",
+   "key": "amenthompson",
+   "market": "REB",
+   "line": 7.5,
+   "over": 110,
+   "under": -146,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Kevin Durant",
+   "key": "kevindurant",
+   "market": "REB",
+   "line": 5.5,
+   "over": -120,
+   "under": -110,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Alperen Sengun",
+   "key": "alperensengun",
+   "market": "REB",
+   "line": 9.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Darryn Peterson",
+   "key": "darrynpeterson",
+   "market": "REB",
+   "line": 3.5,
+   "over": -160,
+   "under": 120,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Keyonte George",
+   "key": "keyontegeorge",
+   "market": "REB",
+   "line": 3.5,
+   "over": -104,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Ace Bailey",
+   "key": "acebailey",
+   "market": "REB",
+   "line": 5.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jabari Smith Jr",
+   "key": "jabarismith",
+   "market": "REB",
+   "line": 7.5,
+   "over": 120,
+   "under": -160,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Kevin Durant",
+   "key": "kevindurant",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Keyonte George",
+   "key": "keyontegeorge",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -116,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Alperen Sengun",
+   "key": "alperensengun",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -112,
+   "under": -114,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Darryn Peterson",
+   "key": "darrynpeterson",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Amen Thompson",
+   "key": "amenthompson",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Ace Bailey",
+   "key": "acebailey",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -107,
+   "under": -120,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jabari Smith Jr",
+   "key": "jabarismith",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -101,
+   "under": -127,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Fred VanVleet",
+   "key": "fredvanvleet",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Reed Sheppard",
+   "key": "reedsheppard",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Tari Eason",
+   "key": "tarieason",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -114,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jaxson Hayes",
+   "key": "jaxsonhayes",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 109,
+   "under": -140,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Isaiah Collier",
+   "key": "isaiahcollier",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -103,
+   "under": -124,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Josh Green",
+   "key": "joshgreen",
+   "market": "PTS",
+   "line": 4.5,
+   "over": -132,
+   "under": 103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Alperen Sengun",
+   "key": "alperensengun",
+   "market": "REB",
+   "line": 9.5,
+   "over": 105,
+   "under": -139,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Amen Thompson",
+   "key": "amenthompson",
+   "market": "REB",
+   "line": 7.5,
+   "over": 104,
+   "under": -137,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jabari Smith Jr",
+   "key": "jabarismith",
+   "market": "REB",
+   "line": 6.5,
+   "over": -143,
+   "under": 109,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jaxson Hayes",
+   "key": "jaxsonhayes",
+   "market": "REB",
+   "line": 5.5,
+   "over": -122,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Kevin Durant",
+   "key": "kevindurant",
+   "market": "REB",
+   "line": 5.5,
+   "over": -110,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Ace Bailey",
+   "key": "acebailey",
+   "market": "REB",
+   "line": 5.5,
+   "over": -103,
+   "under": -128,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Tari Eason",
+   "key": "tarieason",
+   "market": "REB",
+   "line": 5.5,
+   "over": 109,
+   "under": -143,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Darryn Peterson",
+   "key": "darrynpeterson",
+   "market": "REB",
+   "line": 4.5,
+   "over": 111,
+   "under": -146,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Keyonte George",
+   "key": "keyontegeorge",
+   "market": "REB",
+   "line": 3.5,
+   "over": -107,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Fred VanVleet",
+   "key": "fredvanvleet",
+   "market": "REB",
+   "line": 3.5,
+   "over": 129,
+   "under": -171,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Josh Green",
+   "key": "joshgreen",
+   "market": "REB",
+   "line": 2.5,
+   "over": 143,
+   "under": -190,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:37Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Amen Thompson",
+   "key": "amenthompson",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -120,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Alperen Sengun",
+   "key": "alperensengun",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jaxson Hayes",
+   "key": "jaxsonhayes",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Darryn Peterson",
+   "key": "darrynpeterson",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Kevin Durant",
+   "key": "kevindurant",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Ace Bailey",
+   "key": "acebailey",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jabari Smith Jr",
+   "key": "jabarismith",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Fred VanVleet",
+   "key": "fredvanvleet",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Keyonte George",
+   "key": "keyontegeorge",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Isaiah Collier",
+   "key": "isaiahcollier",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -105,
+   "under": -130,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Josh Green",
+   "key": "joshgreen",
+   "market": "PTS",
+   "line": 4.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Tari Eason",
+   "key": "tarieason",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Alperen Sengun",
+   "key": "alperensengun",
+   "market": "REB",
+   "line": 9.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Tari Eason",
+   "key": "tarieason",
+   "market": "REB",
+   "line": 5.5,
+   "over": -111,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Keyonte George",
+   "key": "keyontegeorge",
+   "market": "REB",
+   "line": 3.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Fred VanVleet",
+   "key": "fredvanvleet",
+   "market": "REB",
+   "line": 3.5,
+   "over": 120,
+   "under": -160,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jaxson Hayes",
+   "key": "jaxsonhayes",
+   "market": "REB",
+   "line": 5.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Jabari Smith Jr",
+   "key": "jabarismith",
+   "market": "REB",
+   "line": 6.5,
+   "over": -155,
+   "under": 115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Josh Green",
+   "key": "joshgreen",
+   "market": "REB",
+   "line": 2.5,
+   "over": 140,
+   "under": -190,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Ace Bailey",
+   "key": "acebailey",
+   "market": "REB",
+   "line": 5.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Amen Thompson",
+   "key": "amenthompson",
+   "market": "REB",
+   "line": 7.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Kevin Durant",
+   "key": "kevindurant",
+   "market": "REB",
+   "line": 5.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909301",
+   "player": "Darryn Peterson",
+   "key": "darrynpeterson",
+   "market": "REB",
+   "line": 3.5,
+   "over": -160,
+   "under": 120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Victor Wembanyama",
+   "key": "victorwembanyama",
+   "market": "PTS",
+   "line": 28.5,
+   "over": -108,
+   "under": -118,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Yaxel Lendeborg",
+   "key": "yaxellendeborg",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -122,
+   "under": -105,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Brandin Podziemski",
+   "key": "brandinpodziemski",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -107,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Dylan Harper",
+   "key": "dylanharper",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -124,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Stephon Castle",
+   "key": "stephoncastle",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Aaron Fox",
+   "key": "deaaronfox",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -116,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Anthony Melton",
+   "key": "deanthonymelton",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -119,
+   "under": -107,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Devin Vassell",
+   "key": "devinvassell",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -117,
+   "under": -109,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Keldon Johnson",
+   "key": "keldonjohnson",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -122,
+   "under": -105,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Julian Champagnie",
+   "key": "julianchampagnie",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -119,
+   "under": -107,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Al Horford",
+   "key": "alhorford",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -101,
+   "under": -126,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Draymond Green",
+   "key": "draymondgreen",
+   "market": "PTS",
+   "line": 5.5,
+   "over": -121,
+   "under": -106,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Victor Wembanyama",
+   "key": "victorwembanyama",
+   "market": "REB",
+   "line": 11.5,
+   "over": -135,
+   "under": 103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Yaxel Lendeborg",
+   "key": "yaxellendeborg",
+   "market": "REB",
+   "line": 7.5,
+   "over": 108,
+   "under": -143,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Brandin Podziemski",
+   "key": "brandinpodziemski",
+   "market": "REB",
+   "line": 5.5,
+   "over": -110,
+   "under": -119,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Stephon Castle",
+   "key": "stephoncastle",
+   "market": "REB",
+   "line": 5.5,
+   "over": -107,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Dylan Harper",
+   "key": "dylanharper",
+   "market": "REB",
+   "line": 5.5,
+   "over": -102,
+   "under": -130,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Julian Champagnie",
+   "key": "julianchampagnie",
+   "market": "REB",
+   "line": 5.5,
+   "over": 115,
+   "under": -152,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Draymond Green",
+   "key": "draymondgreen",
+   "market": "REB",
+   "line": 5.5,
+   "over": 118,
+   "under": -155,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Keldon Johnson",
+   "key": "keldonjohnson",
+   "market": "REB",
+   "line": 4.5,
+   "over": -152,
+   "under": 115,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Al Horford",
+   "key": "alhorford",
+   "market": "REB",
+   "line": 4.5,
+   "over": 107,
+   "under": -142,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Anthony Melton",
+   "key": "deanthonymelton",
+   "market": "REB",
+   "line": 4.5,
+   "over": 117,
+   "under": -154,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Devin Vassell",
+   "key": "devinvassell",
+   "market": "REB",
+   "line": 3.5,
+   "over": -143,
+   "under": 108,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Aaron Fox",
+   "key": "deaaronfox",
+   "market": "REB",
+   "line": 3.5,
+   "over": -139,
+   "under": 105,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Victor Wembanyama",
+   "key": "victorwembanyama",
+   "market": "PTS",
+   "line": 28.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Devin Vassell",
+   "key": "devinvassell",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -125,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Stephon Castle",
+   "key": "stephoncastle",
+   "market": "PTS",
+   "line": 16.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Dylan Harper",
+   "key": "dylanharper",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -120,
+   "under": -110,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Julian Champagnie",
+   "key": "julianchampagnie",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Aaron Fox",
+   "key": "deaaronfox",
+   "market": "PTS",
+   "line": 13.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Anthony Melton",
+   "key": "deanthonymelton",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Keldon Johnson",
+   "key": "keldonjohnson",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -125,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Al Horford",
+   "key": "alhorford",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -104,
+   "under": -128,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Yaxel Lendeborg",
+   "key": "yaxellendeborg",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Brandin Podziemski",
+   "key": "brandinpodziemski",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -130,
+   "under": -102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Yaxel Lendeborg",
+   "key": "yaxellendeborg",
+   "market": "REB",
+   "line": 7.5,
+   "over": 112,
+   "under": -148,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Devin Vassell",
+   "key": "devinvassell",
+   "market": "REB",
+   "line": 3.5,
+   "over": -130,
+   "under": -102,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Brandin Podziemski",
+   "key": "brandinpodziemski",
+   "market": "REB",
+   "line": 5.5,
+   "over": -106,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Draymond Green",
+   "key": "draymondgreen",
+   "market": "REB",
+   "line": 5.5,
+   "over": 116,
+   "under": -154,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Anthony Melton",
+   "key": "deanthonymelton",
+   "market": "REB",
+   "line": 4.5,
+   "over": 120,
+   "under": -160,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Al Horford",
+   "key": "alhorford",
+   "market": "REB",
+   "line": 4.5,
+   "over": 122,
+   "under": -162,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Keldon Johnson",
+   "key": "keldonjohnson",
+   "market": "REB",
+   "line": 5.5,
+   "over": 116,
+   "under": -154,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Dylan Harper",
+   "key": "dylanharper",
+   "market": "REB",
+   "line": 5.5,
+   "over": 110,
+   "under": -146,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Aaron Fox",
+   "key": "deaaronfox",
+   "market": "REB",
+   "line": 3.5,
+   "over": -132,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Victor Wembanyama",
+   "key": "victorwembanyama",
+   "market": "REB",
+   "line": 11.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Julian Champagnie",
+   "key": "julianchampagnie",
+   "market": "REB",
+   "line": 5.5,
+   "over": 116,
+   "under": -154,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Stephon Castle",
+   "key": "stephoncastle",
+   "market": "REB",
+   "line": 5.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:45Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Keldon Johnson",
+   "key": "keldonjohnson",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Brandin Podziemski",
+   "key": "brandinpodziemski",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Anthony Melton",
+   "key": "deanthonymelton",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Al Horford",
+   "key": "alhorford",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Yaxel Lendeborg",
+   "key": "yaxellendeborg",
+   "market": "PTS",
+   "line": 20.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Dylan Harper",
+   "key": "dylanharper",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Draymond Green",
+   "key": "draymondgreen",
+   "market": "PTS",
+   "line": 5.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Victor Wembanyama",
+   "key": "victorwembanyama",
+   "market": "PTS",
+   "line": 28.5,
+   "over": -111,
+   "under": -118,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Aaron Fox",
+   "key": "deaaronfox",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Devin Vassell",
+   "key": "devinvassell",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -120,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Stephon Castle",
+   "key": "stephoncastle",
+   "market": "PTS",
+   "line": 16.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Julian Champagnie",
+   "key": "julianchampagnie",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Keldon Johnson",
+   "key": "keldonjohnson",
+   "market": "REB",
+   "line": 5.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Victor Wembanyama",
+   "key": "victorwembanyama",
+   "market": "REB",
+   "line": 11.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Aaron Fox",
+   "key": "deaaronfox",
+   "market": "REB",
+   "line": 3.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Devin Vassell",
+   "key": "devinvassell",
+   "market": "REB",
+   "line": 3.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Stephon Castle",
+   "key": "stephoncastle",
+   "market": "REB",
+   "line": 5.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Draymond Green",
+   "key": "draymondgreen",
+   "market": "REB",
+   "line": 4.5,
+   "over": -150,
+   "under": 110,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Al Horford",
+   "key": "alhorford",
+   "market": "REB",
+   "line": 4.5,
+   "over": 120,
+   "under": -160,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Brandin Podziemski",
+   "key": "brandinpodziemski",
+   "market": "REB",
+   "line": 5.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Dylan Harper",
+   "key": "dylanharper",
+   "market": "REB",
+   "line": 5.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "De'Anthony Melton",
+   "key": "deanthonymelton",
+   "market": "REB",
+   "line": 4.5,
+   "over": 115,
+   "under": -155,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Yaxel Lendeborg",
+   "key": "yaxellendeborg",
+   "market": "REB",
+   "line": 6.5,
+   "over": -140,
+   "under": 105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909302",
+   "player": "Julian Champagnie",
+   "key": "julianchampagnie",
+   "market": "REB",
+   "line": 4.5,
+   "over": -145,
+   "under": 105,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "De'Andre Hunter",
+   "key": "deandrehunter",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -132,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Donovan Clingan",
+   "key": "donovanclingan",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Deni Avdija",
+   "key": "deniavdija",
+   "market": "PTS",
+   "line": 23.5,
+   "over": -120,
+   "under": -110,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Scoot Henderson",
+   "key": "scoothenderson",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Jrue Holiday",
+   "key": "jrueholiday",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Sidy Cissoko",
+   "key": "sidycissoko",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Toumani Camara",
+   "key": "toumanicamara",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Domantas Sabonis",
+   "key": "domantassabonis",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Zach LaVine",
+   "key": "zachlavine",
+   "market": "PTS",
+   "line": 19.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Darius Acuff Jr.",
+   "key": "dariusacuff",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Keegan Murray",
+   "key": "keeganmurray",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -122,
+   "under": -108,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Damian Lillard",
+   "key": "damianlillard",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -125,
+   "under": -106,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Robert Williams",
+   "key": "robertwilliams",
+   "market": "PTS",
+   "line": 6.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Precious Achiuwa",
+   "key": "preciousachiuwa",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -130,
+   "under": -102,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "De'Andre Hunter",
+   "key": "deandrehunter",
+   "market": "REB",
+   "line": 4.5,
+   "over": 108,
+   "under": -144,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Damian Lillard",
+   "key": "damianlillard",
+   "market": "REB",
+   "line": 3.5,
+   "over": -102,
+   "under": -130,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Deni Avdija",
+   "key": "deniavdija",
+   "market": "REB",
+   "line": 6.5,
+   "over": -114,
+   "under": -114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Sidy Cissoko",
+   "key": "sidycissoko",
+   "market": "REB",
+   "line": 3.5,
+   "over": -112,
+   "under": -118,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Toumani Camara",
+   "key": "toumanicamara",
+   "market": "REB",
+   "line": 4.5,
+   "over": 122,
+   "under": -162,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Jrue Holiday",
+   "key": "jrueholiday",
+   "market": "REB",
+   "line": 3.5,
+   "over": -132,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Domantas Sabonis",
+   "key": "domantassabonis",
+   "market": "REB",
+   "line": 11.5,
+   "over": -138,
+   "under": 104,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Zach LaVine",
+   "key": "zachlavine",
+   "market": "REB",
+   "line": 2.5,
+   "over": -172,
+   "under": 128,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Darius Acuff Jr.",
+   "key": "dariusacuff",
+   "market": "REB",
+   "line": 3.5,
+   "over": 114,
+   "under": -152,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Robert Williams",
+   "key": "robertwilliams",
+   "market": "REB",
+   "line": 5.5,
+   "over": -152,
+   "under": 114,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Donovan Clingan",
+   "key": "donovanclingan",
+   "market": "REB",
+   "line": 11.5,
+   "over": 106,
+   "under": -140,
+   "book": "fanduel",
+   "updated": "2026-11-13T21:00:31Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Darius Acuff Jr.",
+   "key": "dariusacuff",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -118,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Deni Avdija",
+   "key": "deniavdija",
+   "market": "PTS",
+   "line": 23.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Damian Lillard",
+   "key": "damianlillard",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -111,
+   "under": -114,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Zach LaVine",
+   "key": "zachlavine",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -102,
+   "under": -125,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "De'Andre Hunter",
+   "key": "deandrehunter",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -123,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Domantas Sabonis",
+   "key": "domantassabonis",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -117,
+   "under": -109,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Jrue Holiday",
+   "key": "jrueholiday",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -108,
+   "under": -118,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Donovan Clingan",
+   "key": "donovanclingan",
+   "market": "PTS",
+   "line": 12.5,
+   "over": 100,
+   "under": -127,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Toumani Camara",
+   "key": "toumanicamara",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -126,
+   "under": -101,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Keegan Murray",
+   "key": "keeganmurray",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -127,
+   "under": 100,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Scoot Henderson",
+   "key": "scoothenderson",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -109,
+   "under": -117,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Sidy Cissoko",
+   "key": "sidycissoko",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -114,
+   "under": -112,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Precious Achiuwa",
+   "key": "preciousachiuwa",
+   "market": "PTS",
+   "line": 8.5,
+   "over": 104,
+   "under": -132,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Robert Williams",
+   "key": "robertwilliams",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -103,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Domantas Sabonis",
+   "key": "domantassabonis",
+   "market": "REB",
+   "line": 11.5,
+   "over": -122,
+   "under": -108,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Donovan Clingan",
+   "key": "donovanclingan",
+   "market": "REB",
+   "line": 11.5,
+   "over": 103,
+   "under": -135,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Deni Avdija",
+   "key": "deniavdija",
+   "market": "REB",
+   "line": 6.5,
+   "over": -116,
+   "under": -114,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Robert Williams",
+   "key": "robertwilliams",
+   "market": "REB",
+   "line": 5.5,
+   "over": -144,
+   "under": 109,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Precious Achiuwa",
+   "key": "preciousachiuwa",
+   "market": "REB",
+   "line": 5.5,
+   "over": -111,
+   "under": -118,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "De'Andre Hunter",
+   "key": "deandrehunter",
+   "market": "REB",
+   "line": 4.5,
+   "over": 112,
+   "under": -148,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Toumani Camara",
+   "key": "toumanicamara",
+   "market": "REB",
+   "line": 4.5,
+   "over": 116,
+   "under": -153,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Keegan Murray",
+   "key": "keeganmurray",
+   "market": "REB",
+   "line": 3.5,
+   "over": -136,
+   "under": 103,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Jrue Holiday",
+   "key": "jrueholiday",
+   "market": "REB",
+   "line": 3.5,
+   "over": -118,
+   "under": -112,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Damian Lillard",
+   "key": "damianlillard",
+   "market": "REB",
+   "line": 3.5,
+   "over": 105,
+   "under": -139,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Sidy Cissoko",
+   "key": "sidycissoko",
+   "market": "REB",
+   "line": 3.5,
+   "over": 106,
+   "under": -140,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Darius Acuff Jr.",
+   "key": "dariusacuff",
+   "market": "REB",
+   "line": 3.5,
+   "over": 113,
+   "under": -149,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Zach LaVine",
+   "key": "zachlavine",
+   "market": "REB",
+   "line": 2.5,
+   "over": -156,
+   "under": 118,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Scoot Henderson",
+   "key": "scoothenderson",
+   "market": "REB",
+   "line": 2.5,
+   "over": 139,
+   "under": -184,
+   "book": "draftkings",
+   "updated": "2026-11-13T20:59:44Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Zach LaVine",
+   "key": "zachlavine",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Scoot Henderson",
+   "key": "scoothenderson",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -130,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Darius Acuff Jr.",
+   "key": "dariusacuff",
+   "market": "PTS",
+   "line": 24.5,
+   "over": -111,
+   "under": -118,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Jrue Holiday",
+   "key": "jrueholiday",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Domantas Sabonis",
+   "key": "domantassabonis",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Donovan Clingan",
+   "key": "donovanclingan",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Sidy Cissoko",
+   "key": "sidycissoko",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Deni Avdija",
+   "key": "deniavdija",
+   "market": "PTS",
+   "line": 23.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Keegan Murray",
+   "key": "keeganmurray",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -120,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Robert Williams",
+   "key": "robertwilliams",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -125,
+   "under": -105,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "De'Andre Hunter",
+   "key": "deandrehunter",
+   "market": "PTS",
+   "line": 13.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Toumani Camara",
+   "key": "toumanicamara",
+   "market": "PTS",
+   "line": 12.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Damian Lillard",
+   "key": "damianlillard",
+   "market": "PTS",
+   "line": 21.5,
+   "over": -110,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Deni Avdija",
+   "key": "deniavdija",
+   "market": "REB",
+   "line": 6.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Sidy Cissoko",
+   "key": "sidycissoko",
+   "market": "REB",
+   "line": 3.5,
+   "over": -118,
+   "under": -111,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Damian Lillard",
+   "key": "damianlillard",
+   "market": "REB",
+   "line": 3.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Jrue Holiday",
+   "key": "jrueholiday",
+   "market": "REB",
+   "line": 3.5,
+   "over": -150,
+   "under": 110,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Donovan Clingan",
+   "key": "donovanclingan",
+   "market": "REB",
+   "line": 11.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Domantas Sabonis",
+   "key": "domantassabonis",
+   "market": "REB",
+   "line": 12.5,
+   "over": 120,
+   "under": -160,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Keegan Murray",
+   "key": "keeganmurray",
+   "market": "REB",
+   "line": 3.5,
+   "over": -111,
+   "under": -120,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Scoot Henderson",
+   "key": "scoothenderson",
+   "market": "REB",
+   "line": 2.5,
+   "over": 110,
+   "under": -150,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "De'Andre Hunter",
+   "key": "deandrehunter",
+   "market": "REB",
+   "line": 4.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Darius Acuff Jr.",
+   "key": "dariusacuff",
+   "market": "REB",
+   "line": 3.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Zach LaVine",
+   "key": "zachlavine",
+   "market": "REB",
+   "line": 2.5,
+   "over": -155,
+   "under": 115,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909303",
+   "player": "Toumani Camara",
+   "key": "toumanicamara",
+   "market": "REB",
+   "line": 4.5,
+   "over": 105,
+   "under": -140,
+   "book": "betmgm",
+   "updated": "2026-11-13T21:00:27Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Darius Garland",
+   "key": "dariusgarland",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -128,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kris Dunn",
+   "key": "krisdunn",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Jared McCain",
+   "key": "jaredmccain",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -120,
+   "under": -110,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Aday Mara",
+   "key": "adaymara",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Ajay Mitchell",
+   "key": "ajaymitchell",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -108,
+   "under": -122,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Bennett Stirtz",
+   "key": "bennettstirtz",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Shai Gilgeous-Alexander",
+   "key": "shaigilgeousalexander",
+   "market": "PTS",
+   "line": 31.5,
+   "over": -106,
+   "under": -125,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kenrich Williams",
+   "key": "kenrichwilliams",
+   "market": "PTS",
+   "line": 7.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Brook Lopez",
+   "key": "brooklopez",
+   "market": "PTS",
+   "line": 11.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Alex Caruso",
+   "key": "alexcaruso",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -118,
+   "under": -112,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kobe Sanders",
+   "key": "kobesanders",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -128,
+   "under": -104,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Keaton Wagler",
+   "key": "keatonwagler",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 100,
+   "under": -132,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Rui Hachimura",
+   "key": "ruihachimura",
+   "market": "PTS",
+   "line": 15.5,
+   "over": 102,
+   "under": -136,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Derrick Jones",
+   "key": "derrickjones",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -132,
+   "under": 100,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Isaiah Hartenstein",
+   "key": "isaiahhartenstein",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -110,
+   "under": -120,
+   "book": "fanduel",
+   "updated": "2026-11-13T20:59:47Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Shai Gilgeous-Alexander",
+   "key": "shaigilgeousalexander",
+   "market": "PTS",
+   "line": 31.5,
+   "over": -105,
+   "under": -122,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Darius Garland",
+   "key": "dariusgarland",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -124,
+   "under": -103,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Ajay Mitchell",
+   "key": "ajaymitchell",
+   "market": "PTS",
+   "line": 18.5,
+   "over": -110,
+   "under": -116,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Rui Hachimura",
+   "key": "ruihachimura",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -116,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Jared McCain",
+   "key": "jaredmccain",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -108,
+   "under": -118,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Brook Lopez",
+   "key": "brooklopez",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -129,
+   "under": 101,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Aday Mara",
+   "key": "adaymara",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -116,
+   "under": -110,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Derrick Jones",
+   "key": "derrickjones",
+   "market": "PTS",
+   "line": 10.5,
+   "over": -103,
+   "under": -123,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Keaton Wagler",
+   "key": "keatonwagler",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 100,
+   "under": -128,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Isaiah Hartenstein",
+   "key": "isaiahhartenstein",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -117,
+   "under": -109,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Bennett Stirtz",
+   "key": "bennettstirtz",
+   "market": "PTS",
+   "line": 8.5,
+   "over": -111,
+   "under": -115,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kobe Sanders",
+   "key": "kobesanders",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -115,
+   "under": -111,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kenrich Williams",
+   "key": "kenrichwilliams",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -102,
+   "under": -125,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Alex Caruso",
+   "key": "alexcaruso",
+   "market": "PTS",
+   "line": 7.5,
+   "over": 102,
+   "under": -130,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kris Dunn",
+   "key": "krisdunn",
+   "market": "PTS",
+   "line": 7.5,
+   "over": 105,
+   "under": -133,
+   "book": "draftkings",
+   "updated": "2026-11-13T21:00:32Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Brook Lopez",
+   "key": "brooklopez",
+   "market": "PTS",
+   "line": 11.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Aday Mara",
+   "key": "adaymara",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Alex Caruso",
+   "key": "alexcaruso",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Derrick Jones",
+   "key": "derrickjones",
+   "market": "PTS",
+   "line": 10.5,
+   "over": 100,
+   "under": -135,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Jared McCain",
+   "key": "jaredmccain",
+   "market": "PTS",
+   "line": 14.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Isaiah Hartenstein",
+   "key": "isaiahhartenstein",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Shai Gilgeous-Alexander",
+   "key": "shaigilgeousalexander",
+   "market": "PTS",
+   "line": 31.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Ajay Mitchell",
+   "key": "ajaymitchell",
+   "market": "PTS",
+   "line": 17.5,
+   "over": -120,
+   "under": -110,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kenrich Williams",
+   "key": "kenrichwilliams",
+   "market": "PTS",
+   "line": 6.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Bennett Stirtz",
+   "key": "bennettstirtz",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kris Dunn",
+   "key": "krisdunn",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -111,
+   "under": -118,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Darius Garland",
+   "key": "dariusgarland",
+   "market": "PTS",
+   "line": 19.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Rui Hachimura",
+   "key": "ruihachimura",
+   "market": "PTS",
+   "line": 15.5,
+   "over": -105,
+   "under": -125,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Kobe Sanders",
+   "key": "kobesanders",
+   "market": "PTS",
+   "line": 7.5,
+   "over": -115,
+   "under": -115,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  },
+  {
+   "game": "401909304",
+   "player": "Keaton Wagler",
+   "key": "keatonwagler",
+   "market": "PTS",
+   "line": 9.5,
+   "over": -135,
+   "under": 100,
+   "book": "betmgm",
+   "updated": "2026-11-13T20:58:55Z",
+   "fetched": "2026-11-13T21:00:37Z"
+  }
+ ],
  "gameLines": [],
  "sections": {
   "standings": {
@@ -280523,7 +287988,7 @@
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-13T20:55:31Z",
+   "fetchedAt": "2026-11-13T21:00:30Z",
    "ok": true,
    "count": 9
   },
@@ -280545,6 +288010,76 @@
    "source": "ESPN team schedules",
    "fetchedAt": "2026-11-13T14:03:45Z",
    "ok": true
+  },
+  "odds": {
+   "source": "The Odds API (US books = reference only; UK game lines)",
+   "fetchedAt": "2026-11-13T21:00:42Z",
+   "ok": true,
+   "creditsUsed": 17,
+   "creditsRemaining": 281,
+   "eventsPriced": 9,
+   "notes": [],
+   "budgetToday": 17,
+   "gamesLeftThisMonth": 129,
+   "gameMarkets": {
+    "401909296": [
+     "PTS",
+     "REB"
+    ],
+    "401909297": [
+     "PTS",
+     "REB"
+    ],
+    "401909299": [
+     "PTS",
+     "REB"
+    ],
+    "401909298": [
+     "PTS",
+     "REB"
+    ],
+    "401909300": [
+     "PTS",
+     "REB"
+    ],
+    "401909301": [
+     "PTS",
+     "REB"
+    ],
+    "401909302": [
+     "PTS",
+     "REB"
+    ],
+    "401909303": [
+     "PTS",
+     "REB"
+    ],
+    "401909304": [
+     "PTS"
+    ]
+   },
+   "runs": [
+    {
+     "at": "2026-11-13T21:00:42Z",
+     "window": "late",
+     "games": [
+      "401909296",
+      "401909297",
+      "401909298",
+      "401909299",
+      "401909300",
+      "401909301",
+      "401909302",
+      "401909303",
+      "401909304"
+     ],
+     "credits": 17
+    }
+   ],
+   "markets": [
+    "PTS",
+    "REB"
+   ]
   }
  },
  "lineups": {
@@ -281053,5 +288588,870 @@
    }
   }
  },
- "lineMoves": {}
+ "lineMoves": {
+  "Nickeil Alexander-Walker|PTS": {
+   "open": 22.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Nickeil Alexander-Walker|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Dyson Daniels|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Dyson Daniels|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kingston Flemings|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kingston Flemings|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Johnson|PTS": {
+   "open": 22.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Johnson|REB": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "CJ McCollum|PTS": {
+   "open": 14.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Onyeka Okongwu|PTS": {
+   "open": 14.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Onyeka Okongwu|REB": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Aaron Wiggins|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Matas Buzelis|PTS": {
+   "open": 18.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Matas Buzelis|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Josh Giddey|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Josh Giddey|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Isaac Okoro|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Isaac Okoro|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Norman Powell|PTS": {
+   "open": 21.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Norman Powell|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Smith|PTS": {
+   "open": 14.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Smith|REB": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Patrick Williams|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Patrick Williams|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jarrett Allen|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jarrett Allen|REB": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "James Harden|PTS": {
+   "open": 17.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "James Harden|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Mario Hezonja|PTS": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Mario Hezonja|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Donovan Mitchell|PTS": {
+   "open": 26.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Donovan Mitchell|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tyrese Proctor|PTS": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tyrese Proctor|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Meleek Thomas|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Meleek Thomas|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaylon Tyson|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaylon Tyson|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Peyton Watson|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Peyton Watson|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Draymond Green|PTS": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Draymond Green|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Al Horford|PTS": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Al Horford|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Yaxel Lendeborg|PTS": {
+   "open": 20.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Yaxel Lendeborg|REB": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "De'Anthony Melton|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "De'Anthony Melton|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Brandin Podziemski|PTS": {
+   "open": 17.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Brandin Podziemski|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kevin Durant|PTS": {
+   "open": 21.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kevin Durant|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tari Eason|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tari Eason|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Alperen Sengun|PTS": {
+   "open": 20.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Alperen Sengun|REB": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Reed Sheppard|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jabari Smith Jr.|PTS": {
+   "open": 14.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jabari Smith Jr.|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Amen Thompson|PTS": {
+   "open": 16.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Amen Thompson|REB": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Fred VanVleet|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Fred VanVleet|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Andrew Nembhard|PTS": {
+   "open": 15.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Andrew Nembhard|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Aaron Nesmith|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Aaron Nesmith|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kelly Oubre Jr.|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kelly Oubre Jr.|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Pascal Siakam|PTS": {
+   "open": 21.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Pascal Siakam|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Obi Toppin|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Obi Toppin|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ivica Zubac|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ivica Zubac|REB": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kris Dunn|PTS": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Darius Garland|PTS": {
+   "open": 18.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Rui Hachimura|PTS": {
+   "open": 15.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Derrick Jones Jr.|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Brook Lopez|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kobe Sanders|PTS": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keaton Wagler|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Cameron Boozer|PTS": {
+   "open": 17.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Cameron Boozer|REB": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Cedric Coward|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Cedric Coward|REB": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jerami Grant|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jerami Grant|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ty Jerome|PTS": {
+   "open": 23.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ty Jerome|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Cam Spencer|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Cam Spencer|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Isaiah Stewart|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Isaiah Stewart|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaylen Wells|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaylen Wells|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Bam Adebayo|PTS": {
+   "open": 18.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Bam Adebayo|REB": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Giannis Antetokounmpo|PTS": {
+   "open": 29.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Giannis Antetokounmpo|REB": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Davion Mitchell|PTS": {
+   "open": 14.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Davion Mitchell|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Klay Thompson|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Klay Thompson|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Andrew Wiggins|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Andrew Wiggins|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Nate Ament|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Nate Ament|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Brayden Burries|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Brayden Burries|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tyler Herro|PTS": {
+   "open": 21.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tyler Herro|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaime Jaquez Jr.|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kyle Kuzma|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kyle Kuzma|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Myles Turner|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Myles Turner|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Saddiq Bey|PTS": {
+   "open": 17.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Saddiq Bey|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jeremiah Fears|PTS": {
+   "open": 19.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jeremiah Fears|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Herbert Jones|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Herbert Jones|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Karlo Matkovic|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Karlo Matkovic|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Derik Queen|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Derik Queen|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Zion Williamson|PTS": {
+   "open": 22.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Zion Williamson|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "OG Anunoby|PTS": {
+   "open": 17.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "OG Anunoby|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Mikal Bridges|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Mikal Bridges|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Brunson|PTS": {
+   "open": 25.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Brunson|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Andre Drummond|PTS": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Andre Drummond|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Josh Hart|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Josh Hart|REB": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Miles McBride|PTS": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Landry Shamet|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Karl-Anthony Towns|PTS": {
+   "open": 20.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Karl-Anthony Towns|REB": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Alex Caruso|PTS": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Shai Gilgeous-Alexander|PTS": {
+   "open": 31.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Isaiah Hartenstein|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Aday Mara|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jared McCain|PTS": {
+   "open": 14.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ajay Mitchell|PTS": {
+   "open": 18.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Bennett Stirtz|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Kenrich Williams|PTS": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Desmond Bane|PTS": {
+   "open": 19.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Desmond Bane|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Anthony Black|PTS": {
+   "open": 15.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Anthony Black|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Wendell Carter Jr.|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Wendell Carter Jr.|REB": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tristan da Silva|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Tristan da Silva|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Suggs|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jalen Suggs|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Franz Wagner|PTS": {
+   "open": 24.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Franz Wagner|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Deni Avdija|PTS": {
+   "open": 23.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Deni Avdija|REB": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Toumani Camara|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Toumani Camara|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Sidy Cissoko|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Sidy Cissoko|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Donovan Clingan|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Donovan Clingan|REB": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Scoot Henderson|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Scoot Henderson|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jrue Holiday|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jrue Holiday|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Damian Lillard|PTS": {
+   "open": 21.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Damian Lillard|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Robert Williams III|PTS": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Robert Williams III|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Precious Achiuwa|PTS": {
+   "open": 7.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Precious Achiuwa|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Darius Acuff Jr.|PTS": {
+   "open": 24.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Darius Acuff Jr.|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "De'Andre Hunter|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "De'Andre Hunter|REB": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Zach LaVine|PTS": {
+   "open": 19.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Zach LaVine|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keegan Murray|PTS": {
+   "open": 10.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keegan Murray|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Domantas Sabonis|PTS": {
+   "open": 12.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Domantas Sabonis|REB": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Stephon Castle|PTS": {
+   "open": 16.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Stephon Castle|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Julian Champagnie|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Julian Champagnie|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "De'Aaron Fox|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "De'Aaron Fox|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Dylan Harper|PTS": {
+   "open": 16.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Dylan Harper|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keldon Johnson|PTS": {
+   "open": 9.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keldon Johnson|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Devin Vassell|PTS": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Devin Vassell|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Victor Wembanyama|PTS": {
+   "open": 28.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Victor Wembanyama|REB": {
+   "open": 11.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ace Bailey|PTS": {
+   "open": 13.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Ace Bailey|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Isaiah Collier|PTS": {
+   "open": 6.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keyonte George|PTS": {
+   "open": 20.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Keyonte George|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Josh Green|PTS": {
+   "open": 4.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Josh Green|REB": {
+   "open": 2.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaxson Hayes|PTS": {
+   "open": 8.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Jaxson Hayes|REB": {
+   "open": 5.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Darryn Peterson|PTS": {
+   "open": 17.5,
+   "at": "2026-11-13T21:00:42Z"
+  },
+  "Darryn Peterson|REB": {
+   "open": 3.5,
+   "at": "2026-11-13T21:00:42Z"
+  }
+ }
 }
