@@ -4363,7 +4363,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 30,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 44.0,
+   "settledAt": "2026-11-13T03:15:42Z",
+   "profit": 9.26
   },
   "401909977|Anthony Davis|REB": {
    "game": "401909977",
@@ -4415,7 +4421,13 @@
    "openUnder": 106,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 44.0,
+   "settledAt": "2026-11-13T03:15:42Z",
+   "profit": -10.0
   },
   "401909977|AJ Dybantsa|PTS": {
    "game": "401909977",
@@ -4675,7 +4687,13 @@
    "openUnder": -130,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-13T03:15:42Z",
+   "profit": 10.2
   },
   "401909977|Alex Sarr|PTS": {
    "game": "401909977",
@@ -4831,7 +4849,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 37,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 45.0,
+   "settledAt": "2026-11-13T03:15:42Z",
+   "profit": 9.01
   },
   "401909977|Trae Young|REB": {
    "game": "401909977",
@@ -4883,8 +4907,14 @@
    "openUnder": -146,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 45.0,
+   "settledAt": "2026-11-13T03:15:42Z",
+   "profit": -10.0
   }
  },
- "updated": "2026-11-13T03:10:42Z"
+ "updated": "2026-11-13T03:15:42Z"
 }
