@@ -2683,7 +2683,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 20,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-13T02:35:42Z",
+   "profit": 9.17
   },
   "401909976|Joel Embiid|REB": {
    "game": "401909976",
@@ -2735,7 +2741,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-12T21:00:38Z",
    "openFetched": "2026-11-12T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-13T02:35:42Z",
+   "profit": 9.09
   },
   "401909976|Tyrese Maxey|PTS": {
    "game": "401909976",
@@ -4874,5 +4886,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-13T02:30:42Z"
+ "updated": "2026-11-13T02:35:42Z"
 }
