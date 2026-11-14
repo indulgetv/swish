@@ -4084,7 +4084,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -104,
@@ -4135,7 +4135,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 18.5,
    "openOver": -126,
@@ -4186,7 +4186,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 15.5,
    "openOver": -101,
@@ -4237,7 +4237,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -101,
@@ -4288,7 +4288,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -105,
@@ -4339,7 +4339,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -119,
@@ -4390,7 +4390,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -100,
@@ -5614,7 +5614,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 22.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Nate Ament|REB": {
    "game": "401909297",
@@ -5666,7 +5672,13 @@
    "openUnder": -138,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 22.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": 7.25
   },
   "401909297|Brayden Burries|PTS": {
    "game": "401909297",
@@ -5718,7 +5730,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 19.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": 8.62
   },
   "401909297|Brayden Burries|REB": {
    "game": "401909297",
@@ -5770,7 +5788,13 @@
    "openUnder": -139,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 19.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Tyler Herro|PTS": {
    "game": "401909297",
@@ -5822,7 +5846,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Tyler Herro|REB": {
    "game": "401909297",
@@ -5874,7 +5904,13 @@
    "openUnder": -127,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Jaime Jaquez Jr.|PTS": {
    "game": "401909297",
@@ -5926,7 +5962,13 @@
    "openUnder": -108,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 22,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": 8.4
   },
   "401909297|Kyle Kuzma|PTS": {
    "game": "401909297",
@@ -5978,7 +6020,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 14,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": 8.62
   },
   "401909297|Kyle Kuzma|REB": {
    "game": "401909297",
@@ -6030,7 +6078,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Myles Turner|PTS": {
    "game": "401909297",
@@ -6086,7 +6140,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 14,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Myles Turner|REB": {
    "game": "401909297",
@@ -6138,7 +6198,13 @@
    "openUnder": -152,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909300|Saddiq Bey|PTS": {
    "game": "401909300",
@@ -7580,34 +7646,34 @@
    "book": "fanduel, betmgm",
    "fetched": "2026-11-13T21:00:37Z",
    "oddsUpdated": "2026-11-13T20:59:47Z",
-   "projection": 7.483,
-   "sd": 5.49,
-   "minutes": 20,
+   "projection": 8.095,
+   "sd": 5.6,
+   "minutes": 22,
    "games": 80,
    "curGames": 9,
    "roleDelta": 0,
-   "minBoost": 0,
+   "minBoost": 1.6,
    "boostFrom": [],
-   "starterTonight": false,
+   "starterTonight": true,
    "back": false,
-   "pureO": 0.5499,
+   "pureO": 0.57914,
    "mktO": 0.50305,
-   "modelO": 0.50774,
+   "modelO": 0.51066,
    "dist": "normal",
    "side": "over",
    "lean": "none",
-   "modelP": 0.50774,
+   "modelP": 0.51066,
    "mktP": 0.50305,
    "price": -116,
-   "edge": 0.00468,
-   "ev": -0.05456,
+   "edge": 0.00761,
+   "ev": -0.04911,
    "value": false,
    "verdict": "none",
    "flags": [],
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -116,
@@ -7658,7 +7724,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 31.5,
    "openOver": -109,
@@ -7709,7 +7775,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -114,
@@ -7760,7 +7826,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -108,
@@ -7811,7 +7877,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -114,
@@ -7866,7 +7932,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 18.5,
    "openOver": -109,
@@ -7917,7 +7983,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -108,
@@ -7968,7 +8034,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -101,
@@ -8026,7 +8092,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 21,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Desmond Bane|REB": {
    "game": "401909297",
@@ -8078,7 +8150,13 @@
    "openUnder": -144,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Anthony Black|PTS": {
    "game": "401909297",
@@ -8130,7 +8208,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 37.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Anthony Black|REB": {
    "game": "401909297",
@@ -8182,7 +8266,13 @@
    "openUnder": 115,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 37.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Wendell Carter Jr.|PTS": {
    "game": "401909297",
@@ -8234,7 +8324,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Wendell Carter Jr.|REB": {
    "game": "401909297",
@@ -8286,7 +8382,13 @@
    "openUnder": 105,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Tristan da Silva|PTS": {
    "game": "401909297",
@@ -8338,7 +8440,13 @@
    "openUnder": -127,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Tristan da Silva|REB": {
    "game": "401909297",
@@ -8390,7 +8498,13 @@
    "openUnder": 110,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Jalen Suggs|PTS": {
    "game": "401909297",
@@ -8442,7 +8556,13 @@
    "openUnder": -132,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 21.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Jalen Suggs|REB": {
    "game": "401909297",
@@ -8494,7 +8614,13 @@
    "openUnder": -156,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 21.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Franz Wagner|PTS": {
    "game": "401909297",
@@ -8546,7 +8672,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 35,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909297|Franz Wagner|REB": {
    "game": "401909297",
@@ -8598,7 +8730,13 @@
    "openUnder": -121,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-14T02:40:42Z",
+   "profit": -10.0
   },
   "401909303|Deni Avdija|PTS": {
    "game": "401909303",
@@ -8643,7 +8781,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 23.5,
    "openOver": -117,
@@ -8694,7 +8832,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -117,
@@ -8745,7 +8883,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -114,
@@ -8796,7 +8934,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 114,
@@ -8847,7 +8985,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -116,
@@ -8898,7 +9036,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -108,
@@ -8949,7 +9087,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -112,
@@ -9000,7 +9138,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": 103,
@@ -9051,7 +9189,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -117,
@@ -9102,7 +9240,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": 124,
@@ -9153,7 +9291,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -115,
@@ -9204,7 +9342,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -133,
@@ -9255,7 +9393,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 21.5,
    "openOver": -115,
@@ -9306,7 +9444,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -104,
@@ -9357,7 +9495,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -109,
@@ -9408,7 +9546,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -148,
@@ -9454,16 +9592,12 @@
    "edge": 0.00596,
    "ev": -0.05021,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 24.5,
    "openOver": -114,
@@ -9509,16 +9643,12 @@
    "edge": 0.00518,
    "ev": -0.05282,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": 111,
@@ -9564,16 +9694,12 @@
    "edge": 9e-05,
    "ev": -0.06435,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -127,
@@ -9619,16 +9745,12 @@
    "edge": 0.00276,
    "ev": -0.05893,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 108,
@@ -9674,16 +9796,12 @@
    "edge": 0.0065,
    "ev": -0.04658,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -101,
@@ -9729,16 +9847,12 @@
    "edge": 0.00307,
    "ev": -0.05574,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": -161,
@@ -9784,16 +9898,12 @@
    "edge": 0.00358,
    "ev": -0.05847,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -123,
@@ -9839,16 +9949,12 @@
    "edge": 0.01043,
    "ev": -0.04157,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "slight",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 3.5,
    "openOver": -123,
@@ -9894,16 +10000,12 @@
    "edge": 0.00269,
    "ev": -0.05633,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -109,
@@ -9949,16 +10051,12 @@
    "edge": 0.00091,
    "ev": -0.06204,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -130,
@@ -11309,7 +11407,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -111,
@@ -11360,7 +11458,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 1.5,
    "openOver": -114,
@@ -11411,7 +11509,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": 135,
@@ -11462,7 +11560,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 1.5,
    "openOver": -181,
@@ -11513,7 +11611,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": 132,
@@ -11564,7 +11662,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": 102,
@@ -11615,7 +11713,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -137,
@@ -11661,16 +11759,12 @@
    "edge": 0.00061,
    "ev": -0.0626,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -124,
@@ -11716,16 +11810,12 @@
    "edge": 0.00781,
    "ev": -0.04908,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 1.5,
    "openOver": -104,
@@ -11771,16 +11861,12 @@
    "edge": 0.00556,
    "ev": -0.05345,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 2.5,
    "openOver": -105,
@@ -11826,16 +11912,12 @@
    "edge": 0.00393,
    "ev": -0.05043,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 1.5,
    "openOver": 171,
@@ -11881,16 +11963,12 @@
    "edge": 0.00622,
    "ev": -0.05084,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "flagText": [
-    "Minutes unclear — Precious Achiuwa out; waiting for the confirmed lineup"
-   ],
+   "verdict": "none",
+   "flags": [],
+   "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-14T02:30:40Z",
+   "savedAt": "2026-11-14T02:40:42Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -134,
@@ -12623,5 +12701,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-14T02:30:40Z"
+ "updated": "2026-11-14T02:40:42Z"
 }
