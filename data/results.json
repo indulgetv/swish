@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-14T00:55:31Z",
+ "generatedAt": "2026-11-14T01:00:31Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 264,
-   "ourWay": 62,
-   "against": 120,
-   "avg": -0.0194
+   "n": 272,
+   "ourWay": 66,
+   "against": 121,
+   "avg": -0.0185
   },
   "strong": {
    "n": 0,
@@ -104,22 +104,22 @@
    "avg": null
   },
   "noLean": {
-   "n": 256,
-   "ourWay": 82,
-   "against": 108,
-   "avg": -0.0067
+   "n": 272,
+   "ourWay": 89,
+   "against": 112,
+   "avg": -0.006
   },
   "over": {
-   "n": 116,
+   "n": 118,
    "ourWay": 30,
    "against": 37,
-   "avg": -0.0028
+   "avg": -0.0027
   },
   "under": {
-   "n": 148,
-   "ourWay": 32,
-   "against": 83,
-   "avg": -0.0324
+   "n": 154,
+   "ourWay": 36,
+   "against": 84,
+   "avg": -0.0306
   },
   "onHold": {
    "n": 61,
@@ -128,23 +128,23 @@
    "avg": -0.0152
   },
   "clear": {
-   "n": 203,
-   "ourWay": 50,
-   "against": 92,
-   "avg": -0.0207
+   "n": 211,
+   "ourWay": 54,
+   "against": 93,
+   "avg": -0.0195
   },
   "byMarket": {
    "PTS": {
-    "n": 129,
-    "ourWay": 31,
-    "against": 66,
-    "avg": -0.0209
+    "n": 134,
+    "ourWay": 33,
+    "against": 67,
+    "avg": -0.0197
    },
    "REB": {
-    "n": 89,
-    "ourWay": 22,
+    "n": 92,
+    "ourWay": 24,
     "against": 34,
-    "avg": -0.012
+    "avg": -0.0113
    },
    "AST": {
     "n": 46,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 56,
+  "lineMoved": 59,
   "tol": 0.005
  },
  "byMarket": {
@@ -1313,7 +1313,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1339,7 +1339,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1365,7 +1365,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1391,7 +1391,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1417,7 +1417,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1443,7 +1443,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1469,7 +1469,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1495,7 +1495,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1521,7 +1521,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1547,7 +1547,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1573,7 +1573,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1599,7 +1599,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1625,7 +1625,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1651,7 +1651,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1677,7 +1677,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1703,7 +1703,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1731,7 +1731,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1757,7 +1757,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1783,7 +1783,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1809,7 +1809,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1835,7 +1835,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1861,7 +1861,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1887,7 +1887,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1913,7 +1913,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
