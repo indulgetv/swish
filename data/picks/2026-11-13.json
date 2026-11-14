@@ -573,7 +573,13 @@
    "openUnder": -117,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 17,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": 9.09
   },
   "401909299|Onyeka Okongwu|REB": {
    "game": "401909299",
@@ -625,7 +631,13 @@
    "openUnder": 110,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": 11.0
   },
   "401909299|Aaron Wiggins|PTS": {
    "game": "401909299",
@@ -677,7 +689,13 @@
    "openUnder": -131,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": -10.0
   },
   "401909299|Matas Buzelis|PTS": {
    "game": "401909299",
@@ -845,7 +863,13 @@
    "openUnder": -121,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 39.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": -10.0
   },
   "401909299|Josh Giddey|REB": {
    "game": "401909299",
@@ -897,7 +921,13 @@
    "openUnder": 107,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 39.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": -10.0
   },
   "401909299|Isaac Okoro|PTS": {
    "game": "401909299",
@@ -949,7 +979,13 @@
    "openUnder": -131,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 41.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": -10.0
   },
   "401909299|Isaac Okoro|REB": {
    "game": "401909299",
@@ -1001,7 +1037,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-13T21:00:42Z",
    "openFetched": "2026-11-13T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 41.0,
+   "settledAt": "2026-11-14T04:00:40Z",
+   "profit": -10.0
   },
   "401909299|Norman Powell|PTS": {
    "game": "401909299",
@@ -13404,5 +13446,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-14T03:50:41Z"
+ "updated": "2026-11-14T04:00:40Z"
 }
