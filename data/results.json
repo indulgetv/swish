@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-14T00:35:32Z",
+ "generatedAt": "2026-11-14T00:40:32Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -1567,10 +1567,8 @@
    "mktP": 0.50723,
    "edge": 0.01554,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1595,10 +1593,8 @@
    "mktP": 0.49897,
    "edge": 0.01297,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1623,10 +1619,8 @@
    "mktP": 0.5104,
    "edge": 0.01205,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1651,10 +1645,8 @@
    "mktP": 0.52086,
    "edge": 0.0121,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1679,10 +1671,8 @@
    "mktP": 0.5041,
    "edge": 0.01803,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1707,10 +1697,8 @@
    "mktP": 0.4959,
    "edge": 0.01118,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1763,10 +1751,8 @@
    "mktP": 0.49377,
    "edge": 0.01217,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1791,10 +1777,8 @@
    "mktP": 0.46087,
    "edge": 0.01238,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1819,10 +1803,8 @@
    "mktP": 0.50202,
    "edge": 0.01355,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1847,10 +1829,8 @@
    "mktP": 0.51232,
    "edge": 0.01168,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1875,38 +1855,8 @@
    "mktP": 0.52235,
    "edge": 0.01292,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-13",
-   "game": "401909300",
-   "away": "MEM",
-   "home": "NOP",
-   "tipoff": "2026-11-14T01:00Z",
-   "player": "Karlo Matkovic",
-   "team": "NOP",
-   "market": "PTS",
-   "line": 8.5,
-   "side": "over",
-   "price": -100,
-   "projection": 10.476,
-   "modelP": 0.48384,
-   "mktP": 0.47023,
-   "edge": 0.01362,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1931,10 +1881,8 @@
    "mktP": 0.4797,
    "edge": 0.01313,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1959,10 +1907,8 @@
    "mktP": 0.40432,
    "edge": 0.01426,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -3014,6 +2960,32 @@
    "actual": 2,
    "result": "win",
    "profit": 7.81,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-11",
+   "game": "401909971",
+   "away": "LAL",
+   "home": "MIL",
+   "tipoff": "2026-11-12T01:00Z",
+   "player": "Matisse Thybulle",
+   "team": "LAL",
+   "market": "PTS",
+   "line": 6.5,
+   "side": "over",
+   "price": 100,
+   "projection": 7.4,
+   "modelP": 0.47781,
+   "mktP": 0.46774,
+   "edge": 0.01007,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": 8,
+   "result": "win",
+   "profit": 10.0,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
