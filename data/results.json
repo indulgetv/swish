@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-14T02:50:47Z",
+ "generatedAt": "2026-11-14T03:00:40Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 272,
-   "ourWay": 66,
-   "against": 121,
-   "avg": -0.0185
+   "n": 277,
+   "ourWay": 67,
+   "against": 122,
+   "avg": -0.0183
   },
   "strong": {
    "n": 0,
@@ -104,10 +104,10 @@
    "avg": null
   },
   "noLean": {
-   "n": 272,
-   "ourWay": 89,
-   "against": 112,
-   "avg": -0.006
+   "n": 293,
+   "ourWay": 95,
+   "against": 115,
+   "avg": -0.0055
   },
   "over": {
    "n": 118,
@@ -116,10 +116,10 @@
    "avg": -0.0027
   },
   "under": {
-   "n": 154,
-   "ourWay": 36,
-   "against": 84,
-   "avg": -0.0306
+   "n": 159,
+   "ourWay": 37,
+   "against": 85,
+   "avg": -0.0298
   },
   "onHold": {
    "n": 61,
@@ -128,23 +128,23 @@
    "avg": -0.0152
   },
   "clear": {
-   "n": 211,
-   "ourWay": 54,
-   "against": 93,
-   "avg": -0.0195
+   "n": 216,
+   "ourWay": 55,
+   "against": 94,
+   "avg": -0.0191
   },
   "byMarket": {
    "PTS": {
-    "n": 134,
-    "ourWay": 33,
+    "n": 136,
+    "ourWay": 34,
     "against": 67,
-    "avg": -0.0197
+    "avg": -0.0194
    },
    "REB": {
-    "n": 92,
+    "n": 95,
     "ourWay": 24,
-    "against": 34,
-    "avg": -0.0113
+    "against": 35,
+    "avg": -0.0112
    },
    "AST": {
     "n": 46,
@@ -973,7 +973,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -999,7 +999,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1025,7 +1025,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1051,7 +1051,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1077,7 +1077,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1103,7 +1103,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1129,7 +1129,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
