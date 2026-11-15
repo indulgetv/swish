@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-15T21:25:38Z",
+ "generatedAt": "2026-11-15T21:30:38Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
-  "saved": 3650,
+  "saved": 3648,
   "graded": 3458,
   "void": 16,
-  "pending": 176
+  "pending": 174
  },
  "strong": {
   "n": 31,
@@ -867,11 +867,11 @@
   },
   {
    "slate": "2026-11-15",
-   "saved": 200,
+   "saved": 198,
    "games": 9,
    "graded": 24,
    "void": 0,
-   "pending": 176,
+   "pending": 174,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1202,20 +1202,50 @@
    "away": "DAL",
    "home": "BOS",
    "tipoff": "2026-11-15T23:00Z",
-   "player": "Kyrie Irving",
+   "player": "Daniel Gafford",
    "team": "DAL",
    "market": "PTS",
-   "line": 19.5,
+   "line": 7.5,
    "side": "over",
-   "price": -117,
-   "projection": 23.926,
-   "modelP": 0.51824,
-   "mktP": 0.50615,
-   "edge": 0.01209,
+   "price": -130,
+   "projection": 10.243,
+   "modelP": 0.54067,
+   "mktP": 0.53061,
+   "edge": 0.01006,
    "value": false,
    "verdict": "check",
    "flags": [
-    "status"
+    "injury_after_line",
+    "min_unclear"
+   ],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": null,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-15",
+   "game": "401909989",
+   "away": "DAL",
+   "home": "BOS",
+   "tipoff": "2026-11-15T23:00Z",
+   "player": "Zaccharie Risacher",
+   "team": "DAL",
+   "market": "REB",
+   "line": 3.5,
+   "side": "over",
+   "price": 108,
+   "projection": 4.326,
+   "modelP": 0.4646,
+   "mktP": 0.45181,
+   "edge": 0.01279,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line",
+    "min_unclear"
    ],
    "actual": null,
    "result": null,
@@ -1273,7 +1303,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1299,7 +1329,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1325,7 +1355,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1351,7 +1381,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1377,7 +1407,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -3044,32 +3074,6 @@
    "actual": 12,
    "result": "win",
    "profit": 8.13,
-   "backfilled": false,
-   "locked": true,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-13",
-   "game": "401909298",
-   "away": "CLE",
-   "home": "MIA",
-   "tipoff": "2026-11-14T01:00Z",
-   "player": "Jaylon Tyson",
-   "team": "CLE",
-   "market": "PTS",
-   "line": 10.5,
-   "side": "under",
-   "price": -116,
-   "projection": 7.992,
-   "modelP": 0.52213,
-   "mktP": 0.5041,
-   "edge": 0.01803,
-   "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "actual": 16,
-   "result": "loss",
-   "profit": -10.0,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
