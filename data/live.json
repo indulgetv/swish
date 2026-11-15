@@ -1,72 +1,156 @@
 {
  "meta": {
-  "slateDate": "2026-11-14",
+  "slateDate": "2026-11-15",
   "mode": "light",
   "errors": [],
   "lastFullAt": "2026-11-14T14:00:28Z",
   "season": 2027,
-  "writtenAt": "2026-11-15T04:55:42Z"
+  "writtenAt": "2026-11-15T05:01:03Z"
  },
  "games": [
   {
-   "id": "401909980",
-   "away": "DEN",
-   "home": "NOP",
-   "tipoff": "2026-11-15T00:00Z",
-   "state": "post",
-   "status": "Final",
-   "completed": true,
-   "awayScore": "116",
-   "homeScore": "108",
-   "espnLine": null
+   "id": "401909985",
+   "away": "IND",
+   "home": "PHI",
+   "tipoff": "2026-11-15T18:00Z",
+   "state": "pre",
+   "status": "11/15 - 1:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "PHI -6.5",
+    "overUnder": 224.5,
+    "provider": "DraftKings"
+   }
   },
   {
-   "id": "401909981",
+   "id": "401909986",
+   "away": "LAL",
+   "home": "PHX",
+   "tipoff": "2026-11-15T21:00Z",
+   "state": "pre",
+   "status": "11/15 - 4:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "LAL -2.5",
+    "overUnder": 228.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909987",
+   "away": "CHA",
+   "home": "LAC",
+   "tipoff": "2026-11-15T21:30Z",
+   "state": "pre",
+   "status": "11/15 - 4:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "LAC -1.5",
+    "overUnder": 215.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909988",
+   "away": "SAS",
+   "home": "UTA",
+   "tipoff": "2026-11-15T22:00Z",
+   "state": "pre",
+   "status": "11/15 - 5:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "SA -17.5",
+    "overUnder": 223.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909989",
    "away": "DAL",
-   "home": "CLE",
-   "tipoff": "2026-11-15T00:30Z",
-   "state": "post",
-   "status": "Final",
-   "completed": true,
-   "awayScore": "117",
-   "homeScore": "127",
-   "espnLine": null
+   "home": "BOS",
+   "tipoff": "2026-11-15T23:00Z",
+   "state": "pre",
+   "status": "11/15 - 6:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "BOS -13.5",
+    "overUnder": 217.5,
+    "provider": "DraftKings"
+   }
   },
   {
-   "id": "401909982",
-   "away": "DET",
-   "home": "MIA",
-   "tipoff": "2026-11-15T01:00Z",
-   "state": "post",
-   "status": "Final",
-   "completed": true,
-   "awayScore": "117",
-   "homeScore": "137",
-   "espnLine": null
+   "id": "401909990",
+   "away": "NYK",
+   "home": "TOR",
+   "tipoff": "2026-11-15T23:00Z",
+   "state": "pre",
+   "status": "11/15 - 6:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "NY -4.5",
+    "overUnder": 217.5,
+    "provider": "DraftKings"
+   }
   },
   {
-   "id": "401909983",
-   "away": "BKN",
-   "home": "MEM",
-   "tipoff": "2026-11-15T01:00Z",
-   "state": "post",
-   "status": "Final",
-   "completed": true,
-   "awayScore": "110",
-   "homeScore": "129",
-   "espnLine": null
+   "id": "401909991",
+   "away": "HOU",
+   "home": "WAS",
+   "tipoff": "2026-11-16T00:00Z",
+   "state": "pre",
+   "status": "11/15 - 7:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "HOU -9.5",
+    "overUnder": 222.5,
+    "provider": "DraftKings"
+   }
   },
   {
-   "id": "401909984",
-   "away": "CHI",
-   "home": "MIN",
-   "tipoff": "2026-11-15T01:00Z",
-   "state": "post",
-   "status": "Final",
-   "completed": true,
-   "awayScore": "117",
-   "homeScore": "106",
-   "espnLine": null
+   "id": "401909992",
+   "away": "ATL",
+   "home": "MIL",
+   "tipoff": "2026-11-16T01:00Z",
+   "state": "pre",
+   "status": "11/15 - 8:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "ATL -7.5",
+    "overUnder": 234.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909993",
+   "away": "OKC",
+   "home": "SAC",
+   "tipoff": "2026-11-16T02:00Z",
+   "state": "pre",
+   "status": "11/15 - 9:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "OKC -10.5",
+    "overUnder": 221.5,
+    "provider": "DraftKings"
+   }
   }
  ],
  "teams": {
@@ -247,7 +331,7 @@
    "name": "Spurs",
    "displayName": "San Antonio Spurs",
    "color": "#000000",
-   "record": "10-2",
+   "record": "11-2",
    "alt": "#c4ced4"
   },
   "DAL": {
@@ -265,7 +349,7 @@
    "name": "Thunder",
    "displayName": "Oklahoma City Thunder",
    "color": "#007ac1",
-   "record": "8-4",
+   "record": "8-5",
    "alt": "#ef3b24"
   },
   "LAC": {
@@ -274,7 +358,7 @@
    "name": "Clippers",
    "displayName": "LA Clippers",
    "color": "#12173f",
-   "record": "2-8",
+   "record": "3-8",
    "alt": "#c8102e"
   },
   "LAL": {
@@ -310,7 +394,7 @@
    "name": "Kings",
    "displayName": "Sacramento Kings",
    "color": "#5a2d81",
-   "record": "1-10",
+   "record": "1-11",
    "alt": "#6a7a82"
   },
   "PHX": {
@@ -598,8 +682,8 @@
    "comment": "Flemings (back) has been ruled out for Sunday's game against the Bucks.",
    "updated": "2026-11-14T23:08Z",
    "returnDate": "2026-11-18",
-   "news": null,
-   "checks": 47,
+   "news": "status",
+   "checks": 48,
    "since": "2026-11-14T23:10:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -615,7 +699,7 @@
    "updated": "2026-11-13T00:06Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-19T19:38Z",
    "confirmed": true
   },
@@ -630,7 +714,7 @@
    "updated": "2026-11-12T23:10Z",
    "returnDate": "2026-11-20",
    "news": null,
-   "checks": 1325,
+   "checks": 1326,
    "since": "2026-11-08T22:20:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -646,7 +730,7 @@
    "updated": "2026-11-12T23:08Z",
    "returnDate": "2026-11-20",
    "news": null,
-   "checks": 1325,
+   "checks": 1326,
    "since": "2026-11-08T22:20:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -662,7 +746,7 @@
    "updated": "2026-09-21T19:50Z",
    "returnDate": "2027-07-01",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-09-21T19:50Z",
    "confirmed": true
   },
@@ -676,8 +760,8 @@
    "comment": "Porter (personal) is out for Saturday's game against the Grizzlies, Brian Lewis of the New York Post reports.",
    "updated": "2026-11-15T00:15Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 33,
+   "news": null,
+   "checks": 34,
    "since": "2026-11-15T00:25:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -693,7 +777,7 @@
    "updated": "2026-11-08T22:31Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 1974,
+   "checks": 1975,
    "since": "2026-11-05T22:15:29Z",
    "was": "Questionable",
    "confirmed": true
@@ -709,7 +793,7 @@
    "updated": "2026-11-08T22:26Z",
    "returnDate": "2026-11-25",
    "news": "injury",
-   "checks": 1802,
+   "checks": 1803,
    "since": "2026-11-06T18:26:02Z",
    "was": "Questionable",
    "confirmed": true
@@ -724,8 +808,8 @@
    "comment": "Smith (finger) has been ruled out for Saturday's game against Minnesota, K.C. Johnson of Chicago Sports Network reports.",
    "updated": "2026-11-14T23:40Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 39,
+   "news": null,
+   "checks": 40,
    "since": "2026-11-14T23:55:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -740,8 +824,8 @@
    "comment": "Claxton (hamstring) is out for Saturday's game against the Timberwolves, K.C. Johnson of Chicago Sports Network reports.",
    "updated": "2026-11-14T23:39Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 39,
+   "news": null,
+   "checks": 40,
    "since": "2026-11-14T23:55:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -756,8 +840,8 @@
    "comment": "Awaka has been ruled out for Saturday's game against the Timberwolves.",
    "updated": "2026-11-14T18:10Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 100,
+   "news": null,
+   "checks": 101,
    "since": "2026-11-14T18:15:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -773,7 +857,7 @@
    "updated": "2026-11-12T21:35Z",
    "returnDate": "2026-12-13",
    "news": "status",
-   "checks": 489,
+   "checks": 490,
    "since": "2026-11-12T21:35:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -788,8 +872,8 @@
    "comment": "Watson (hamstring) has been ruled out for Saturday's game against the Mavericks.",
    "updated": "2026-11-14T22:59Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 47,
+   "news": null,
+   "checks": 48,
    "since": "2026-11-14T23:10:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -804,8 +888,8 @@
    "comment": "Harden (calf) has been ruled out for Saturday's game against Dallas.",
    "updated": "2026-11-14T22:57Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 47,
+   "news": null,
+   "checks": 48,
    "since": "2026-11-14T23:10:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -820,8 +904,8 @@
    "comment": "Mitchell (knee) has been ruled out for Saturday's game against the Mavericks.",
    "updated": "2026-11-14T22:56Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 47,
+   "news": null,
+   "checks": 48,
    "since": "2026-11-14T23:10:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -836,8 +920,8 @@
    "comment": "Allen (knee) has been ruled out for Saturday's game against the Mavericks.",
    "updated": "2026-11-14T22:52Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 47,
+   "news": null,
+   "checks": 48,
    "since": "2026-11-14T23:10:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -853,7 +937,7 @@
    "updated": "2026-11-14T18:33Z",
    "returnDate": "2026-11-16",
    "news": "status",
-   "checks": 95,
+   "checks": 96,
    "since": "2026-11-14T18:40:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -869,7 +953,7 @@
    "updated": "2026-11-10T22:12Z",
    "returnDate": "2026-11-16",
    "news": null,
-   "checks": 901,
+   "checks": 902,
    "since": "2026-11-10T22:20:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -885,7 +969,7 @@
    "updated": "2026-10-20T15:11Z",
    "returnDate": "2026-11-16",
    "news": "status",
-   "checks": 255,
+   "checks": 256,
    "since": "2026-11-13T23:40:31Z",
    "confirmed": true
   },
@@ -900,7 +984,7 @@
    "updated": "2026-11-15T02:31Z",
    "returnDate": "2026-11-15",
    "news": null,
-   "checks": 14,
+   "checks": 15,
    "since": "2026-11-15T02:45:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -915,8 +999,8 @@
    "comment": "Christie (ankle) has been ruled out for Saturday's game against Cleveland.",
    "updated": "2026-11-14T23:02Z",
    "returnDate": "2026-11-15",
-   "news": "status",
-   "checks": 47,
+   "news": null,
+   "checks": 48,
    "since": "2026-11-14T23:10:31Z",
    "was": "Doubtful",
    "confirmed": true
@@ -932,7 +1016,7 @@
    "updated": "2026-11-11T22:13Z",
    "returnDate": "2026-11-18",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-22T20:10Z",
    "confirmed": true
   },
@@ -947,7 +1031,7 @@
    "updated": "2026-11-11T22:12Z",
    "returnDate": "2026-11-18",
    "news": null,
-   "checks": 3234,
+   "checks": 3235,
    "since": "2026-10-30T22:20:29Z",
    "confirmed": true
   },
@@ -962,7 +1046,7 @@
    "updated": "2026-11-11T22:10Z",
    "returnDate": "2026-11-18",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-29T22:06Z",
    "confirmed": true
   },
@@ -977,7 +1061,7 @@
    "updated": "2026-10-17T00:52Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-17T00:52Z",
    "confirmed": true
   },
@@ -991,8 +1075,8 @@
    "comment": "Robinson (thigh) is questionable to return to Saturday's game against Miami.",
    "updated": "2026-11-15T02:40Z",
    "returnDate": "2026-11-14",
-   "news": "status",
-   "checks": 13,
+   "news": null,
+   "checks": 14,
    "since": "2026-11-15T02:55:41Z",
    "confirmed": true
   },
@@ -1007,7 +1091,7 @@
    "updated": "2026-11-11T15:16Z",
    "returnDate": "2026-11-14",
    "news": null,
-   "checks": 760,
+   "checks": 761,
    "since": "2026-11-11T16:00:32Z",
    "confirmed": true
   },
@@ -1022,7 +1106,7 @@
    "updated": "2026-11-09T18:54Z",
    "returnDate": "2026-11-17",
    "news": null,
-   "checks": 3251,
+   "checks": 3252,
    "since": "2026-10-30T20:50:30Z",
    "confirmed": true
   },
@@ -1037,7 +1121,7 @@
    "updated": "2026-11-08T16:05Z",
    "returnDate": "2026-11-24",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-25T14:56Z",
    "confirmed": true
   },
@@ -1052,7 +1136,7 @@
    "updated": "2026-11-12T17:03Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 535,
+   "checks": 536,
    "since": "2026-11-12T17:10:34Z",
    "was": "Questionable",
    "confirmed": true
@@ -1068,7 +1152,7 @@
    "updated": "2026-11-10T21:24Z",
    "returnDate": "2026-11-22",
    "news": "status",
-   "checks": 911,
+   "checks": 912,
    "since": "2026-11-10T21:30:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -1084,7 +1168,7 @@
    "updated": "2026-11-06T21:26Z",
    "returnDate": "2027-01-02",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-28T14:25Z",
    "confirmed": true
   },
@@ -1099,7 +1183,7 @@
    "updated": "2026-10-16T16:14Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-16T16:14Z",
    "confirmed": true
   },
@@ -1114,7 +1198,7 @@
    "updated": "2026-10-16T16:11Z",
    "returnDate": "2027-01-02",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-16T16:11Z",
    "confirmed": true
   },
@@ -1128,8 +1212,8 @@
    "comment": "Capela (ankle) has been ruled out for Sunday's game at Washington.",
    "updated": "2026-11-14T21:54Z",
    "returnDate": "2026-11-16",
-   "news": null,
-   "checks": 1780,
+   "news": "status",
+   "checks": 1781,
    "since": "2026-11-06T20:45:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1138,15 +1222,18 @@
    "team": "HOU",
    "player": "Steven Adams",
    "pos": "C",
-   "status": "Out",
+   "status": "Probable",
    "rawStatus": "Out",
    "detail": "Right Calf Strain",
    "comment": "Adams (calf) has been upgraded to probable for Sunday's game against the Wizards.",
    "updated": "2026-11-14T21:52Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 3265,
-   "since": "2026-10-26T22:52Z",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-15T05:01:03Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -1159,8 +1246,8 @@
    "comment": "VanVleet (right knee injury management) has been ruled out for Sunday's game against the Wizards.",
    "updated": "2026-11-14T21:52Z",
    "returnDate": "2026-11-16",
-   "news": null,
-   "checks": 62,
+   "news": "status",
+   "checks": 63,
    "since": "2026-11-14T21:55:31Z",
    "confirmed": true
   },
@@ -1175,7 +1262,7 @@
    "updated": "2026-11-12T22:45Z",
    "returnDate": "2026-11-18",
    "news": null,
-   "checks": 474,
+   "checks": 475,
    "since": "2026-11-12T22:50:32Z",
    "confirmed": true
   },
@@ -1189,8 +1276,8 @@
    "comment": "Nembhard is questionable for Sunday's game against the 76ers due to left hip soreness.",
    "updated": "2026-11-15T01:14Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 22,
+   "news": "status",
+   "checks": 23,
    "since": "2026-11-15T01:25:41Z",
    "confirmed": true
   },
@@ -1198,15 +1285,18 @@
    "team": "IND",
    "player": "T.J. McConnell",
    "pos": "G",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Right Hamstring",
    "comment": "McConnell (hamstring) is listed as probable for Sunday's game against the 76ers.",
    "updated": "2026-11-14T21:23Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 65,
-   "since": "2026-11-14T21:40:32Z",
+   "espnStatus": "Questionable",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-15T05:01:03Z",
+   "was": "Questionable",
    "confirmed": true
   },
   {
@@ -1219,8 +1309,8 @@
    "comment": "Nesmith (hand) is listed as questionable for Sunday's game against Philadelphia.",
    "updated": "2026-11-14T21:21Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 223,
+   "news": "status",
+   "checks": 224,
    "since": "2026-11-14T03:20:41Z",
    "was": "Probable",
    "confirmed": true
@@ -1236,7 +1326,7 @@
    "updated": "2026-11-11T22:29Z",
    "returnDate": "2026-11-22",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-28T21:30Z",
    "confirmed": true
   },
@@ -1251,7 +1341,7 @@
    "updated": "2026-10-30T19:06Z",
    "returnDate": "2027-01-02",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-30T19:06Z",
    "confirmed": true
   },
@@ -1266,7 +1356,7 @@
    "updated": "2026-10-28T21:41Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-28T21:41Z",
    "confirmed": true
   },
@@ -1281,7 +1371,7 @@
    "updated": "2026-11-12T21:05Z",
    "returnDate": "2026-11-19",
    "news": null,
-   "checks": 2808,
+   "checks": 2809,
    "since": "2026-11-01T20:30:29Z",
    "confirmed": true
   },
@@ -1296,7 +1386,7 @@
    "updated": "2026-11-10T00:05Z",
    "returnDate": "2026-11-17",
    "news": null,
-   "checks": 2808,
+   "checks": 2809,
    "since": "2026-11-01T20:30:29Z",
    "confirmed": true
   },
@@ -1311,7 +1401,7 @@
    "updated": "2026-10-15T01:03Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-15T01:03Z",
    "confirmed": true
   },
@@ -1326,7 +1416,7 @@
    "updated": "2026-08-26T20:04Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-08-26T20:04Z",
    "confirmed": true
   },
@@ -1340,8 +1430,8 @@
    "comment": "Thiero (ankle) is questionable for Sunday's game against the Suns.",
    "updated": "2026-11-15T00:40Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 29,
+   "news": "status",
+   "checks": 30,
    "since": "2026-11-15T00:45:32Z",
    "confirmed": true
   },
@@ -1355,8 +1445,8 @@
    "comment": "Sexton (head) is questionable for Sunday's game against the Suns, Daniel Starkand of LakersNation.com reports.",
    "updated": "2026-11-15T00:27Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 635,
+   "news": "status",
+   "checks": 636,
    "since": "2026-11-12T03:20:41Z",
    "confirmed": true
   },
@@ -1370,8 +1460,8 @@
    "comment": "Reaves (heel) has been ruled out for Sunday's game against the Suns, Daniel Starkand of LakersNation.com reports.",
    "updated": "2026-11-15T00:17Z",
    "returnDate": "2026-11-17",
-   "news": null,
-   "checks": 32,
+   "news": "status",
+   "checks": 33,
    "since": "2026-11-15T00:30:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1387,7 +1477,7 @@
    "updated": "2026-11-15T04:09Z",
    "returnDate": "2026-11-16",
    "news": null,
-   "checks": 17,
+   "checks": 18,
    "since": "2026-11-15T02:15:40Z",
    "confirmed": true
   },
@@ -1401,8 +1491,8 @@
    "comment": "Edey (ankle) is listed as out for Saturday's game against the Nets.",
    "updated": "2026-11-15T00:43Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 27,
+   "news": null,
+   "checks": 28,
    "since": "2026-11-15T00:55:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -1417,8 +1507,8 @@
    "comment": "Grant (head) is out for Saturday's game against the Nets.",
    "updated": "2026-11-15T00:35Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 27,
+   "news": null,
+   "checks": 28,
    "since": "2026-11-15T00:55:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -1433,8 +1523,8 @@
    "comment": "Post (concussion) has been ruled out for Saturday's game against the Nets.",
    "updated": "2026-11-14T19:47Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 85,
+   "news": null,
+   "checks": 86,
    "since": "2026-11-14T19:55:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1449,8 +1539,8 @@
    "comment": "Jerome (hip) has been ruled out for Saturday's game against the Nets.",
    "updated": "2026-11-14T19:44Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 85,
+   "news": null,
+   "checks": 86,
    "since": "2026-11-14T19:55:32Z",
    "confirmed": true
   },
@@ -1465,7 +1555,7 @@
    "updated": "2026-11-10T23:09Z",
    "returnDate": "2026-11-21",
    "news": null,
-   "checks": 2381,
+   "checks": 2382,
    "since": "2026-11-03T23:25:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -1481,7 +1571,7 @@
    "updated": "2026-11-07T17:24Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 1594,
+   "checks": 1595,
    "since": "2026-11-07T18:20:28Z",
    "confirmed": true
   },
@@ -1495,8 +1585,8 @@
    "comment": "Larsson (illness) has been ruled out for Saturday's game against the Pistons.",
    "updated": "2026-11-14T23:26Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 42,
+   "news": null,
+   "checks": 43,
    "since": "2026-11-14T23:40:31Z",
    "was": "Doubtful",
    "confirmed": true
@@ -1511,8 +1601,8 @@
    "comment": "Dieng (finger) has been ruled out for Sunday's game against the Hawks.",
    "updated": "2026-11-14T22:40Z",
    "returnDate": "2026-11-18",
-   "news": null,
-   "checks": 50,
+   "news": "status",
+   "checks": 51,
    "since": "2026-11-14T22:55:31Z",
    "confirmed": true
   },
@@ -1526,8 +1616,8 @@
    "comment": "Clark (hamstring) has been ruled out for the remainder of Saturday's game against the Bulls, Sarah Todd of The Deseret News reports.",
    "updated": "2026-11-15T02:08Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 17,
+   "news": null,
+   "checks": 18,
    "since": "2026-11-15T02:15:40Z",
    "confirmed": true
   },
@@ -1542,7 +1632,7 @@
    "updated": "2026-10-29T18:33Z",
    "returnDate": "2026-12-21",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-29T18:33Z",
    "confirmed": true
   },
@@ -1557,7 +1647,7 @@
    "updated": "2026-10-05T20:53Z",
    "returnDate": "2027-04-02",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-05T20:53Z",
    "confirmed": true
   },
@@ -1571,8 +1661,8 @@
    "comment": "Mathurin is out for Saturday's game against the Nuggets due to left plantar fasciitis.",
    "updated": "2026-11-14T23:06Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 45,
+   "news": null,
+   "checks": 46,
    "since": "2026-11-14T23:25:32Z",
    "confirmed": true
   },
@@ -1586,8 +1676,8 @@
    "comment": "Watford (ankle) has been ruled out for Saturday's game against Denver.",
    "updated": "2026-11-14T17:58Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 496,
+   "news": null,
+   "checks": 497,
    "since": "2026-11-12T20:55:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -1602,8 +1692,8 @@
    "comment": "McGowens (elbow) has been ruled out for Saturday's game against the Nuggets.",
    "updated": "2026-11-14T17:55Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 102,
+   "news": null,
+   "checks": 103,
    "since": "2026-11-14T18:05:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -1618,8 +1708,8 @@
    "comment": "Murphy (knees) has been ruled out for Saturday's game against the Nuggets.",
    "updated": "2026-11-14T17:53Z",
    "returnDate": "2026-11-16",
-   "news": "status",
-   "checks": 311,
+   "news": null,
+   "checks": 312,
    "since": "2026-11-13T18:15:31Z",
    "was": "Doubtful",
    "confirmed": true
@@ -1635,7 +1725,7 @@
    "updated": "2026-11-13T20:19Z",
    "returnDate": "2026-11-20",
    "news": null,
-   "checks": 290,
+   "checks": 291,
    "since": "2026-11-13T20:30:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -1650,8 +1740,8 @@
    "comment": "Williams (back) has been ruled out for Sunday's game against the Kings.",
    "updated": "2026-11-15T01:14Z",
    "returnDate": "2026-11-18",
-   "news": null,
-   "checks": 1582,
+   "news": "status",
+   "checks": 1583,
    "since": "2026-11-07T19:38:54Z",
    "was": "Questionable",
    "confirmed": true
@@ -1666,8 +1756,8 @@
    "comment": "Mitchell (ankle) is questionable to suit up for Sunday's game against the Kings.",
    "updated": "2026-11-15T01:10Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 127,
+   "news": "status",
+   "checks": 128,
    "since": "2026-11-14T16:00:31Z",
    "was": "Out",
    "confirmed": true
@@ -1683,7 +1773,7 @@
    "updated": "2026-11-13T01:07Z",
    "returnDate": "2026-11-20",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-27T21:43Z",
    "confirmed": true
   },
@@ -1698,7 +1788,7 @@
    "updated": "2026-10-31T01:16Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-26T22:05Z",
    "confirmed": true
   },
@@ -1713,7 +1803,7 @@
    "updated": "2026-10-31T01:02Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 3231,
+   "checks": 3232,
    "since": "2026-10-30T22:35:30Z",
    "confirmed": true
   },
@@ -1728,7 +1818,7 @@
    "updated": "2026-10-28T23:41Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-28T23:41Z",
    "confirmed": true
   },
@@ -1743,7 +1833,7 @@
    "updated": "2026-11-14T17:33Z",
    "returnDate": "2026-11-22",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-17T22:19Z",
    "confirmed": true
   },
@@ -1758,7 +1848,7 @@
    "updated": "2026-11-09T23:10Z",
    "returnDate": "2026-11-16",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-29T18:29Z",
    "confirmed": true
   },
@@ -1773,7 +1863,7 @@
    "updated": "2026-10-24T16:47Z",
    "returnDate": "2026-11-22",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-24T16:47Z",
    "confirmed": true
   },
@@ -1788,7 +1878,7 @@
    "updated": "2026-09-28T21:33Z",
    "returnDate": "2026-11-18",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-09-28T21:33Z",
    "confirmed": true
   },
@@ -1802,8 +1892,8 @@
    "comment": "Embiid (right foot injury management) has been ruled out for Sunday's game against the Pacers.",
    "updated": "2026-11-14T22:05Z",
    "returnDate": "2026-11-16",
-   "news": null,
-   "checks": 59,
+   "news": "status",
+   "checks": 60,
    "since": "2026-11-14T22:10:32Z",
    "confirmed": true
   },
@@ -1818,7 +1908,7 @@
    "updated": "2026-11-12T16:37Z",
    "returnDate": "2026-11-18",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-19T21:07Z",
    "confirmed": true
   },
@@ -1833,7 +1923,7 @@
    "updated": "2026-11-12T16:36Z",
    "returnDate": "2026-11-18",
    "news": "injury",
-   "checks": 1114,
+   "checks": 1115,
    "since": "2026-11-09T22:10:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -1849,7 +1939,7 @@
    "updated": "2026-10-06T19:17Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-06T19:17Z",
    "confirmed": true
   },
@@ -1864,7 +1954,7 @@
    "updated": "2026-11-13T16:22Z",
    "returnDate": "2026-11-15",
    "news": null,
-   "checks": 332,
+   "checks": 333,
    "since": "2026-11-13T16:30:31Z",
    "confirmed": true
   },
@@ -1879,7 +1969,7 @@
    "updated": "2026-09-11T16:03Z",
    "returnDate": "2027-02-03",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-09-11T16:03Z",
    "confirmed": true
   },
@@ -1894,7 +1984,7 @@
    "updated": "2026-11-14T15:05Z",
    "returnDate": "2026-11-16",
    "news": null,
-   "checks": 127,
+   "checks": 128,
    "since": "2026-11-14T16:00:31Z",
    "was": "Out",
    "confirmed": true
@@ -1910,7 +2000,7 @@
    "updated": "2026-11-11T19:56Z",
    "returnDate": "2027-01-12",
    "news": "injury",
-   "checks": 2131,
+   "checks": 2132,
    "since": "2026-11-05T04:20:41Z",
    "confirmed": true
   },
@@ -1925,7 +2015,7 @@
    "updated": "2026-11-08T02:18Z",
    "returnDate": "2026-12-01",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-30T18:45Z",
    "confirmed": true
   },
@@ -1940,7 +2030,7 @@
    "updated": "2026-08-24T20:23Z",
    "returnDate": "2027-03-02",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-08-24T20:23Z",
    "confirmed": true
   },
@@ -1954,8 +2044,8 @@
    "comment": "Raynaud (knee) has been ruled out for Sunday's game against the Thunder.",
    "updated": "2026-11-15T01:00Z",
    "returnDate": "2026-11-18",
-   "news": null,
-   "checks": 3265,
+   "news": "status",
+   "checks": 3266,
    "since": "2026-10-26T22:07Z",
    "confirmed": true
   },
@@ -1969,8 +2059,8 @@
    "comment": "Murray (illness) is questionable for Sunday's game against the Thunder.",
    "updated": "2026-11-15T01:00Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 65,
+   "news": "status",
+   "checks": 66,
    "since": "2026-11-14T21:40:32Z",
    "confirmed": true
   },
@@ -1984,8 +2074,8 @@
    "comment": "Achiuwa (ankle) is questionable for Sunday's game against the Thunder.",
    "updated": "2026-11-15T00:57Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 127,
+   "news": "status",
+   "checks": 128,
    "since": "2026-11-14T16:00:31Z",
    "was": "Out",
    "confirmed": true
@@ -2001,7 +2091,7 @@
    "updated": "2026-10-21T04:22Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-21T04:22Z",
    "confirmed": true
   },
@@ -2016,7 +2106,7 @@
    "updated": "2026-11-10T22:46Z",
    "returnDate": "2026-11-19",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-28T18:24Z",
    "confirmed": true
   },
@@ -2031,7 +2121,7 @@
    "updated": "2026-10-05T21:43Z",
    "returnDate": "2026-12-03",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-05T21:43Z",
    "confirmed": true
   },
@@ -2045,8 +2135,8 @@
    "comment": "Bittle (foot) has been ruled out for Sunday's game against the Knicks, Zulfi Sheikh of Sportsnet.ca reports.",
    "updated": "2026-11-14T21:59Z",
    "returnDate": "2026-11-23",
-   "news": null,
-   "checks": 3265,
+   "news": "status",
+   "checks": 3266,
    "since": "2026-10-27T19:31Z",
    "confirmed": true
   },
@@ -2054,16 +2144,18 @@
    "team": "TOR",
    "player": "Scottie Barnes",
    "pos": "F",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Left Groin Strain",
    "comment": "Barnes (groin) is listed as questionable for Sunday's game against the Knicks, Michael Grange of Sportsnet.ca reports.",
    "updated": "2026-11-14T17:33Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 906,
-   "since": "2026-11-10T21:55:31Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-15T05:01:03Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -2077,7 +2169,7 @@
    "updated": "2026-11-13T15:37Z",
    "returnDate": "2026-11-14",
    "news": null,
-   "checks": 338,
+   "checks": 339,
    "since": "2026-11-13T16:00:31Z",
    "confirmed": true
   },
@@ -2092,7 +2184,7 @@
    "updated": "2026-11-11T22:33Z",
    "returnDate": "2026-11-23",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-29T15:39Z",
    "confirmed": true
   },
@@ -2106,8 +2198,8 @@
    "comment": "Hayes (knee) has been ruled out for Sunday's game against the Spurs.",
    "updated": "2026-11-15T00:07Z",
    "returnDate": "2026-11-17",
-   "news": null,
-   "checks": 35,
+   "news": "status",
+   "checks": 36,
    "since": "2026-11-15T00:15:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -2123,7 +2215,7 @@
    "updated": "2026-11-12T15:42Z",
    "returnDate": "2026-11-16",
    "news": null,
-   "checks": 549,
+   "checks": 550,
    "since": "2026-11-12T16:00:33Z",
    "confirmed": true
   },
@@ -2138,7 +2230,7 @@
    "updated": "2026-11-11T18:22Z",
    "returnDate": "2027-01-04",
    "news": "injury",
-   "checks": 729,
+   "checks": 730,
    "since": "2026-11-11T18:35:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -2154,7 +2246,7 @@
    "updated": "2026-11-06T18:20Z",
    "returnDate": "2026-11-20",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-07T23:07Z",
    "confirmed": true
   },
@@ -2169,7 +2261,7 @@
    "updated": "2026-10-27T19:25Z",
    "returnDate": "2026-12-14",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-27T19:25Z",
    "confirmed": true
   },
@@ -2183,8 +2275,8 @@
    "comment": "Sarr (illness) is listed as questionable for Sunday's game against Houston.",
    "updated": "2026-11-14T21:24Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 66,
+   "news": "status",
+   "checks": 67,
    "since": "2026-11-14T21:35:31Z",
    "confirmed": true
   },
@@ -2198,8 +2290,8 @@
    "comment": "Johnson is listed as questionable for Sunday's game against the Rockets due to lower-back soreness.",
    "updated": "2026-11-14T21:09Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 69,
+   "news": "status",
+   "checks": 70,
    "since": "2026-11-14T21:20:31Z",
    "confirmed": true
   },
@@ -2213,8 +2305,8 @@
    "comment": "Carrington (chest) is listed as questionable for Sunday's game against Houston.",
    "updated": "2026-11-14T21:05Z",
    "returnDate": "2026-11-15",
-   "news": null,
-   "checks": 402,
+   "news": "status",
+   "checks": 403,
    "since": "2026-11-13T05:00:43Z",
    "was": "Out",
    "confirmed": true
@@ -2230,7 +2322,7 @@
    "updated": "2026-11-08T22:17Z",
    "returnDate": "2026-11-16",
    "news": null,
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-01T19:11Z",
    "confirmed": true
   },
@@ -2245,7 +2337,7 @@
    "updated": "2026-11-02T18:22Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 2627,
+   "checks": 2628,
    "since": "2026-11-02T18:25:49Z",
    "confirmed": true
   },
@@ -2260,7 +2352,7 @@
    "updated": "2026-10-28T18:38Z",
    "returnDate": "2027-02-25",
    "news": "status",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-10-28T18:38Z",
    "confirmed": true
   },
@@ -2275,7 +2367,7 @@
    "updated": "2026-07-30T20:11Z",
    "returnDate": "2027-04-02",
    "news": "injury",
-   "checks": 3265,
+   "checks": 3266,
    "since": "2026-07-30T20:11Z",
    "confirmed": true
   }
@@ -153682,3994 +153774,8 @@
    ]
   }
  ],
- "h2h": {
-  "401909980": [
-   {
-    "d": "2026-10-29",
-    "home": "NOP",
-    "away": "DEN",
-    "hp": 91,
-    "ap": 104
-   },
-   {
-    "d": "2026-10-25",
-    "home": "DEN",
-    "away": "NOP",
-    "hp": 141,
-    "ap": 135
-   },
-   {
-    "d": "2026-01-14",
-    "home": "NOP",
-    "away": "DEN",
-    "hp": 116,
-    "ap": 122
-   },
-   {
-    "d": "2025-11-20",
-    "home": "NOP",
-    "away": "DEN",
-    "hp": 118,
-    "ap": 125
-   }
-  ],
-  "401909981": [
-   {
-    "d": "2026-03-15",
-    "home": "CLE",
-    "away": "DAL",
-    "hp": 120,
-    "ap": 130
-   },
-   {
-    "d": "2026-03-13",
-    "home": "DAL",
-    "away": "CLE",
-    "hp": 105,
-    "ap": 138
-   }
-  ],
-  "401909982": [
-   {
-    "d": "2026-10-24",
-    "home": "MIA",
-    "away": "DET",
-    "hp": 111,
-    "ap": 128
-   },
-   {
-    "d": "2026-03-08",
-    "home": "MIA",
-    "away": "DET",
-    "hp": 121,
-    "ap": 110
-   },
-   {
-    "d": "2026-01-02",
-    "home": "DET",
-    "away": "MIA",
-    "hp": 112,
-    "ap": 118
-   },
-   {
-    "d": "2025-11-30",
-    "home": "MIA",
-    "away": "DET",
-    "hp": 135,
-    "ap": 138
-   }
-  ],
-  "401909983": [
-   {
-    "d": "2026-03-09",
-    "home": "BKN",
-    "away": "MEM",
-    "hp": 126,
-    "ap": 115
-   },
-   {
-    "d": "2026-01-11",
-    "home": "MEM",
-    "away": "BKN",
-    "hp": 103,
-    "ap": 98
-   }
-  ],
-  "401909984": [
-   {
-    "d": "2026-01-23",
-    "home": "MIN",
-    "away": "CHI",
-    "hp": 115,
-    "ap": 120
-   },
-   {
-    "d": "2025-12-30",
-    "home": "CHI",
-    "away": "MIN",
-    "hp": 101,
-    "ap": 136
-   }
-  ]
- },
- "props": [
-  {
-   "game": "401909980",
-   "player": "Cameron Johnson",
-   "key": "cameronjohnson",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -113,
-   "under": -113,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Zion Williamson",
-   "key": "zionwilliamson",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -130,
-   "under": 102,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Herb Jones",
-   "key": "herbertjones",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -128,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Yves Missi",
-   "key": "yvesmissi",
-   "market": "PTS",
-   "line": 5.5,
-   "over": -128,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jeremiah Fears",
-   "key": "jeremiahfears",
-   "market": "PTS",
-   "line": 18.5,
-   "over": -104,
-   "under": -122,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Nikola Jokic",
-   "key": "nikolajokic",
-   "market": "PTS",
-   "line": 26.5,
-   "over": -111,
-   "under": -115,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Karlo Matkovic",
-   "key": "karlomatkovic",
-   "market": "PTS",
-   "line": 6.5,
-   "over": 100,
-   "under": -130,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jordan Poole",
-   "key": "jordanpoole",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -106,
-   "under": -120,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Aaron Gordon",
-   "key": "aarongordon",
-   "market": "PTS",
-   "line": 13.5,
-   "over": 102,
-   "under": -130,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jamal Murray",
-   "key": "jamalmurray",
-   "market": "PTS",
-   "line": 24.5,
-   "over": 100,
-   "under": -128,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Christian Braun",
-   "key": "christianbraun",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -120,
-   "under": -106,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "DeMar DeRozan",
-   "key": "demarderozan",
-   "market": "PTS",
-   "line": 10.5,
-   "over": 100,
-   "under": -128,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "DeMar DeRozan",
-   "key": "demarderozan",
-   "market": "REB",
-   "line": 1.5,
-   "over": -154,
-   "under": 120,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Cameron Johnson",
-   "key": "cameronjohnson",
-   "market": "REB",
-   "line": 3.5,
-   "over": -120,
-   "under": -106,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Herb Jones",
-   "key": "herbertjones",
-   "market": "REB",
-   "line": 3.5,
-   "over": 126,
-   "under": -162,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Zion Williamson",
-   "key": "zionwilliamson",
-   "market": "REB",
-   "line": 5.5,
-   "over": -106,
-   "under": -120,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Yves Missi",
-   "key": "yvesmissi",
-   "market": "REB",
-   "line": 5.5,
-   "over": -120,
-   "under": -106,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Saddiq Bey",
-   "key": "saddiqbey",
-   "market": "REB",
-   "line": 4.5,
-   "over": -120,
-   "under": -106,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jeremiah Fears",
-   "key": "jeremiahfears",
-   "market": "REB",
-   "line": 4.5,
-   "over": -115,
-   "under": -111,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Nikola Jokic",
-   "key": "nikolajokic",
-   "market": "REB",
-   "line": 11.5,
-   "over": -130,
-   "under": 102,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jamal Murray",
-   "key": "jamalmurray",
-   "market": "REB",
-   "line": 3.5,
-   "over": -166,
-   "under": 130,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Aaron Gordon",
-   "key": "aarongordon",
-   "market": "REB",
-   "line": 4.5,
-   "over": -154,
-   "under": 120,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Christian Braun",
-   "key": "christianbraun",
-   "market": "REB",
-   "line": 4.5,
-   "over": 114,
-   "under": -146,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:16Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Nikola Jokic",
-   "key": "nikolajokic",
-   "market": "PTS",
-   "line": 26.5,
-   "over": -123,
-   "under": -104,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jamal Murray",
-   "key": "jamalmurray",
-   "market": "PTS",
-   "line": 24.5,
-   "over": -104,
-   "under": -123,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Zion Williamson",
-   "key": "zionwilliamson",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -119,
-   "under": -107,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Saddiq Bey",
-   "key": "saddiqbey",
-   "market": "PTS",
-   "line": 18.5,
-   "over": -118,
-   "under": -108,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jeremiah Fears",
-   "key": "jeremiahfears",
-   "market": "PTS",
-   "line": 18.5,
-   "over": -106,
-   "under": -121,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Aaron Gordon",
-   "key": "aarongordon",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -110,
-   "under": -116,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Cameron Johnson",
-   "key": "cameronjohnson",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -114,
-   "under": -112,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Christian Braun",
-   "key": "christianbraun",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -124,
-   "under": -103,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jordan Poole",
-   "key": "jordanpoole",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -110,
-   "under": -116,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "DeMar DeRozan",
-   "key": "demarderozan",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -107,
-   "under": -119,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Herb Jones",
-   "key": "herbertjones",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -105,
-   "under": -121,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Karlo Matkovic",
-   "key": "karlomatkovic",
-   "market": "PTS",
-   "line": 6.5,
-   "over": -107,
-   "under": -119,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Yves Missi",
-   "key": "yvesmissi",
-   "market": "PTS",
-   "line": 5.5,
-   "over": -112,
-   "under": -114,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Nikola Jokic",
-   "key": "nikolajokic",
-   "market": "REB",
-   "line": 11.5,
-   "over": -126,
-   "under": -104,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Yves Missi",
-   "key": "yvesmissi",
-   "market": "REB",
-   "line": 5.5,
-   "over": -120,
-   "under": -110,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Zion Williamson",
-   "key": "zionwilliamson",
-   "market": "REB",
-   "line": 5.5,
-   "over": -110,
-   "under": -119,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Saddiq Bey",
-   "key": "saddiqbey",
-   "market": "REB",
-   "line": 4.5,
-   "over": -141,
-   "under": 107,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Aaron Gordon",
-   "key": "aarongordon",
-   "market": "REB",
-   "line": 4.5,
-   "over": -135,
-   "under": 103,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jeremiah Fears",
-   "key": "jeremiahfears",
-   "market": "REB",
-   "line": 4.5,
-   "over": -117,
-   "under": -112,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Christian Braun",
-   "key": "christianbraun",
-   "market": "REB",
-   "line": 3.5,
-   "over": -149,
-   "under": 113,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jamal Murray",
-   "key": "jamalmurray",
-   "market": "REB",
-   "line": 3.5,
-   "over": -142,
-   "under": 108,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Karlo Matkovic",
-   "key": "karlomatkovic",
-   "market": "REB",
-   "line": 3.5,
-   "over": -127,
-   "under": -104,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Cameron Johnson",
-   "key": "cameronjohnson",
-   "market": "REB",
-   "line": 3.5,
-   "over": -121,
-   "under": -109,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Herb Jones",
-   "key": "herbertjones",
-   "market": "REB",
-   "line": 3.5,
-   "over": 119,
-   "under": -157,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:35Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Saddiq Bey",
-   "key": "saddiqbey",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Christian Braun",
-   "key": "christianbraun",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Cameron Johnson",
-   "key": "cameronjohnson",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Aaron Gordon",
-   "key": "aarongordon",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Nikola Jokic",
-   "key": "nikolajokic",
-   "market": "PTS",
-   "line": 27.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jamal Murray",
-   "key": "jamalmurray",
-   "market": "PTS",
-   "line": 24.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Herb Jones",
-   "key": "herbertjones",
-   "market": "PTS",
-   "line": 8.5,
-   "over": 100,
-   "under": -135,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Zion Williamson",
-   "key": "zionwilliamson",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "DeMar DeRozan",
-   "key": "demarderozan",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Yves Missi",
-   "key": "yvesmissi",
-   "market": "PTS",
-   "line": 5.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Christian Braun",
-   "key": "christianbraun",
-   "market": "REB",
-   "line": 3.5,
-   "over": -160,
-   "under": 120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Herb Jones",
-   "key": "herbertjones",
-   "market": "REB",
-   "line": 3.5,
-   "over": 110,
-   "under": -150,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Zion Williamson",
-   "key": "zionwilliamson",
-   "market": "REB",
-   "line": 5.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Cameron Johnson",
-   "key": "cameronjohnson",
-   "market": "REB",
-   "line": 3.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Saddiq Bey",
-   "key": "saddiqbey",
-   "market": "REB",
-   "line": 4.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Nikola Jokic",
-   "key": "nikolajokic",
-   "market": "REB",
-   "line": 11.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Aaron Gordon",
-   "key": "aarongordon",
-   "market": "REB",
-   "line": 4.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Jamal Murray",
-   "key": "jamalmurray",
-   "market": "REB",
-   "line": 4.5,
-   "over": 145,
-   "under": -200,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "DeMar DeRozan",
-   "key": "demarderozan",
-   "market": "REB",
-   "line": 1.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909980",
-   "player": "Yves Missi",
-   "key": "yvesmissi",
-   "market": "REB",
-   "line": 5.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Julius Randle",
-   "key": "juliusrandle",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -118,
-   "under": -112,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Egor Demin",
-   "key": "egordemin",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -102,
-   "under": -130,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cedric Coward",
-   "key": "cedriccoward",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -120,
-   "under": -110,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Day'Ron Sharpe",
-   "key": "dayronsharpe",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -112,
-   "under": -118,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cam Spencer",
-   "key": "camspencer",
-   "market": "PTS",
-   "line": 12.5,
-   "over": 102,
-   "under": -136,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jerami Grant",
-   "key": "jeramigrant",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -108,
-   "under": -122,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Nolan Traore",
-   "key": "nolantraore",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -112,
-   "under": -118,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cameron Boozer",
-   "key": "cameronboozer",
-   "market": "PTS",
-   "line": 19.5,
-   "over": 100,
-   "under": -132,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jaylen Wells",
-   "key": "jaylenwells",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -132,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Michael Porter Jr",
-   "key": "michaelporter",
-   "market": "PTS",
-   "line": 22.5,
-   "over": -106,
-   "under": -125,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Mikel Brown Jr.",
-   "key": "mikelbrown",
-   "market": "PTS",
-   "line": 12.5,
-   "over": 102,
-   "under": -136,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Zach Edey",
-   "key": "zachedey",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cedric Coward",
-   "key": "cedriccoward",
-   "market": "REB",
-   "line": 7.5,
-   "over": 124,
-   "under": -166,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Egor Demin",
-   "key": "egordemin",
-   "market": "REB",
-   "line": 2.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Day'Ron Sharpe",
-   "key": "dayronsharpe",
-   "market": "REB",
-   "line": 7.5,
-   "over": 100,
-   "under": -132,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Mikel Brown Jr.",
-   "key": "mikelbrown",
-   "market": "REB",
-   "line": 2.5,
-   "over": 110,
-   "under": -146,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Nolan Traore",
-   "key": "nolantraore",
-   "market": "REB",
-   "line": 1.5,
-   "over": -152,
-   "under": 114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cameron Boozer",
-   "key": "cameronboozer",
-   "market": "REB",
-   "line": 8.5,
-   "over": -144,
-   "under": 108,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Julius Randle",
-   "key": "juliusrandle",
-   "market": "REB",
-   "line": 6.5,
-   "over": 110,
-   "under": -146,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Michael Porter Jr",
-   "key": "michaelporter",
-   "market": "REB",
-   "line": 6.5,
-   "over": -122,
-   "under": -108,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jaylen Wells",
-   "key": "jaylenwells",
-   "market": "REB",
-   "line": 2.5,
-   "over": -138,
-   "under": 104,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Zach Edey",
-   "key": "zachedey",
-   "market": "REB",
-   "line": 7.5,
-   "over": -132,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:40Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Michael Porter Jr",
-   "key": "michaelporter",
-   "market": "PTS",
-   "line": 22.5,
-   "over": -107,
-   "under": -119,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Julius Randle",
-   "key": "juliusrandle",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -112,
-   "under": -114,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cameron Boozer",
-   "key": "cameronboozer",
-   "market": "PTS",
-   "line": 19.5,
-   "over": -105,
-   "under": -121,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cedric Coward",
-   "key": "cedriccoward",
-   "market": "PTS",
-   "line": 15.5,
-   "over": -109,
-   "under": -117,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cam Spencer",
-   "key": "camspencer",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -106,
-   "under": -120,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Mikel Brown Jr.",
-   "key": "mikelbrown",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -102,
-   "under": -125,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jaylen Wells",
-   "key": "jaylenwells",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -124,
-   "under": -103,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jerami Grant",
-   "key": "jeramigrant",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -122,
-   "under": -105,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Nolan Traore",
-   "key": "nolantraore",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -116,
-   "under": -110,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Egor Demin",
-   "key": "egordemin",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -105,
-   "under": -122,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Day'Ron Sharpe",
-   "key": "dayronsharpe",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -115,
-   "under": -111,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Zach Edey",
-   "key": "zachedey",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -110,
-   "under": -116,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cameron Boozer",
-   "key": "cameronboozer",
-   "market": "REB",
-   "line": 8.5,
-   "over": -145,
-   "under": 110,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Zach Edey",
-   "key": "zachedey",
-   "market": "REB",
-   "line": 7.5,
-   "over": -130,
-   "under": -101,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Day'Ron Sharpe",
-   "key": "dayronsharpe",
-   "market": "REB",
-   "line": 7.5,
-   "over": -108,
-   "under": -121,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cedric Coward",
-   "key": "cedriccoward",
-   "market": "REB",
-   "line": 7.5,
-   "over": 108,
-   "under": -142,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Michael Porter Jr",
-   "key": "michaelporter",
-   "market": "REB",
-   "line": 6.5,
-   "over": -140,
-   "under": 106,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Julius Randle",
-   "key": "juliusrandle",
-   "market": "REB",
-   "line": 6.5,
-   "over": -103,
-   "under": -128,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cam Spencer",
-   "key": "camspencer",
-   "market": "REB",
-   "line": 3.5,
-   "over": -127,
-   "under": -103,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jaylen Wells",
-   "key": "jaylenwells",
-   "market": "REB",
-   "line": 2.5,
-   "over": -146,
-   "under": 111,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Egor Demin",
-   "key": "egordemin",
-   "market": "REB",
-   "line": 2.5,
-   "over": -118,
-   "under": -111,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Mikel Brown Jr.",
-   "key": "mikelbrown",
-   "market": "REB",
-   "line": 2.5,
-   "over": 119,
-   "under": -156,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jerami Grant",
-   "key": "jeramigrant",
-   "market": "REB",
-   "line": 2.5,
-   "over": 120,
-   "under": -159,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Day'Ron Sharpe",
-   "key": "dayronsharpe",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Egor Demin",
-   "key": "egordemin",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jerami Grant",
-   "key": "jeramigrant",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Mikel Brown Jr.",
-   "key": "mikelbrown",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Michael Porter Jr",
-   "key": "michaelporter",
-   "market": "PTS",
-   "line": 21.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Julius Randle",
-   "key": "juliusrandle",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Nolan Traore",
-   "key": "nolantraore",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -120,
-   "under": -111,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cameron Boozer",
-   "key": "cameronboozer",
-   "market": "PTS",
-   "line": 19.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jaylen Wells",
-   "key": "jaylenwells",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Zach Edey",
-   "key": "zachedey",
-   "market": "PTS",
-   "line": 9.5,
-   "over": 115,
-   "under": -155,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cedric Coward",
-   "key": "cedriccoward",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cam Spencer",
-   "key": "camspencer",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Zach Edey",
-   "key": "zachedey",
-   "market": "REB",
-   "line": 7.5,
-   "over": -150,
-   "under": 110,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Egor Demin",
-   "key": "egordemin",
-   "market": "REB",
-   "line": 2.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Julius Randle",
-   "key": "juliusrandle",
-   "market": "REB",
-   "line": 6.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Michael Porter Jr",
-   "key": "michaelporter",
-   "market": "REB",
-   "line": 7.5,
-   "over": 120,
-   "under": -160,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Day'Ron Sharpe",
-   "key": "dayronsharpe",
-   "market": "REB",
-   "line": 7.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cameron Boozer",
-   "key": "cameronboozer",
-   "market": "REB",
-   "line": 8.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jaylen Wells",
-   "key": "jaylenwells",
-   "market": "REB",
-   "line": 2.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cedric Coward",
-   "key": "cedriccoward",
-   "market": "REB",
-   "line": 7.5,
-   "over": 110,
-   "under": -150,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Jerami Grant",
-   "key": "jeramigrant",
-   "market": "REB",
-   "line": 2.5,
-   "over": 110,
-   "under": -150,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Nolan Traore",
-   "key": "nolantraore",
-   "market": "REB",
-   "line": 1.5,
-   "over": -185,
-   "under": 135,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Mikel Brown Jr.",
-   "key": "mikelbrown",
-   "market": "REB",
-   "line": 2.5,
-   "over": 100,
-   "under": -135,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909983",
-   "player": "Cam Spencer",
-   "key": "camspencer",
-   "market": "REB",
-   "line": 3.5,
-   "over": -111,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:11Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "LaMelo Ball",
-   "key": "lameloball",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -128,
-   "under": -104,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Ayo Dosunmu",
-   "key": "ayodosunmu",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -132,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Rudy Gobert",
-   "key": "rudygobert",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -112,
-   "under": -118,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Josh Giddey",
-   "key": "joshgiddey",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -102,
-   "under": -130,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Matas Buzelis",
-   "key": "matasbuzelis",
-   "market": "PTS",
-   "line": 16.5,
-   "over": -118,
-   "under": -112,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jalen Smith",
-   "key": "jalensmith",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -118,
-   "under": -112,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Isaac Okoro",
-   "key": "isaacokoro",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -128,
-   "under": -104,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Nic Claxton",
-   "key": "nicclaxton",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -122,
-   "under": -108,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Norman Powell",
-   "key": "normanpowell",
-   "market": "PTS",
-   "line": 20.5,
-   "over": 100,
-   "under": -132,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Terrence Shannon Jr.",
-   "key": "terrenceshannon",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jonathan Kuminga",
-   "key": "jonathankuminga",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -110,
-   "under": -120,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jaden McDaniels",
-   "key": "jadenmcdaniels",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -106,
-   "under": -125,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "LaMelo Ball",
-   "key": "lameloball",
-   "market": "REB",
-   "line": 4.5,
-   "over": 102,
-   "under": -136,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jaden McDaniels",
-   "key": "jadenmcdaniels",
-   "market": "REB",
-   "line": 5.5,
-   "over": -140,
-   "under": 106,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Terrence Shannon Jr.",
-   "key": "terrenceshannon",
-   "market": "REB",
-   "line": 2.5,
-   "over": -122,
-   "under": -108,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Matas Buzelis",
-   "key": "matasbuzelis",
-   "market": "REB",
-   "line": 5.5,
-   "over": -106,
-   "under": -125,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Rudy Gobert",
-   "key": "rudygobert",
-   "market": "REB",
-   "line": 10.5,
-   "over": -138,
-   "under": 104,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Isaac Okoro",
-   "key": "isaacokoro",
-   "market": "REB",
-   "line": 2.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Norman Powell",
-   "key": "normanpowell",
-   "market": "REB",
-   "line": 2.5,
-   "over": -130,
-   "under": -102,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Nic Claxton",
-   "key": "nicclaxton",
-   "market": "REB",
-   "line": 5.5,
-   "over": 106,
-   "under": -140,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jalen Smith",
-   "key": "jalensmith",
-   "market": "REB",
-   "line": 7.5,
-   "over": -138,
-   "under": 104,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Josh Giddey",
-   "key": "joshgiddey",
-   "market": "REB",
-   "line": 6.5,
-   "over": -128,
-   "under": -104,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jonathan Kuminga",
-   "key": "jonathankuminga",
-   "market": "REB",
-   "line": 5.5,
-   "over": -122,
-   "under": -108,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Ayo Dosunmu",
-   "key": "ayodosunmu",
-   "market": "REB",
-   "line": 4.5,
-   "over": 112,
-   "under": -148,
-   "book": "fanduel",
-   "updated": "2026-11-14T21:00:02Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jonathan Kuminga",
-   "key": "jonathankuminga",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -120,
-   "under": -110,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Isaac Okoro",
-   "key": "isaacokoro",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "LaMelo Ball",
-   "key": "lameloball",
-   "market": "PTS",
-   "line": 21.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jaden McDaniels",
-   "key": "jadenmcdaniels",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Josh Giddey",
-   "key": "joshgiddey",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Matas Buzelis",
-   "key": "matasbuzelis",
-   "market": "PTS",
-   "line": 16.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Rudy Gobert",
-   "key": "rudygobert",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -111,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jalen Smith",
-   "key": "jalensmith",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Norman Powell",
-   "key": "normanpowell",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Terrence Shannon Jr.",
-   "key": "terrenceshannon",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Ayo Dosunmu",
-   "key": "ayodosunmu",
-   "market": "PTS",
-   "line": 18.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Matas Buzelis",
-   "key": "matasbuzelis",
-   "market": "REB",
-   "line": 5.5,
-   "over": 100,
-   "under": -135,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Isaac Okoro",
-   "key": "isaacokoro",
-   "market": "REB",
-   "line": 2.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Ayo Dosunmu",
-   "key": "ayodosunmu",
-   "market": "REB",
-   "line": 4.5,
-   "over": 100,
-   "under": -135,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Norman Powell",
-   "key": "normanpowell",
-   "market": "REB",
-   "line": 2.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jonathan Kuminga",
-   "key": "jonathankuminga",
-   "market": "REB",
-   "line": 5.5,
-   "over": -145,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Josh Giddey",
-   "key": "joshgiddey",
-   "market": "REB",
-   "line": 6.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Rudy Gobert",
-   "key": "rudygobert",
-   "market": "REB",
-   "line": 11.5,
-   "over": 120,
-   "under": -160,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "LaMelo Ball",
-   "key": "lameloball",
-   "market": "REB",
-   "line": 3.5,
-   "over": -190,
-   "under": 140,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jalen Smith",
-   "key": "jalensmith",
-   "market": "REB",
-   "line": 7.5,
-   "over": -150,
-   "under": 110,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Terrence Shannon Jr.",
-   "key": "terrenceshannon",
-   "market": "REB",
-   "line": 2.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jaden McDaniels",
-   "key": "jadenmcdaniels",
-   "market": "REB",
-   "line": 6.5,
-   "over": 110,
-   "under": -150,
-   "book": "betmgm",
-   "updated": "2026-11-14T21:00:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "LaMelo Ball",
-   "key": "lameloball",
-   "market": "PTS",
-   "line": 21.5,
-   "over": -108,
-   "under": -118,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Norman Powell",
-   "key": "normanpowell",
-   "market": "PTS",
-   "line": 20.5,
-   "over": -108,
-   "under": -119,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Ayo Dosunmu",
-   "key": "ayodosunmu",
-   "market": "PTS",
-   "line": 18.5,
-   "over": -103,
-   "under": -124,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jaden McDaniels",
-   "key": "jadenmcdaniels",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -115,
-   "under": -110,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Matas Buzelis",
-   "key": "matasbuzelis",
-   "market": "PTS",
-   "line": 16.5,
-   "over": -110,
-   "under": -116,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jonathan Kuminga",
-   "key": "jonathankuminga",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -110,
-   "under": -116,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Josh Giddey",
-   "key": "joshgiddey",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -103,
-   "under": -124,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jalen Smith",
-   "key": "jalensmith",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -126,
-   "under": -101,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Terrence Shannon Jr.",
-   "key": "terrenceshannon",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -119,
-   "under": -107,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Rudy Gobert",
-   "key": "rudygobert",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -102,
-   "under": -125,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Isaac Okoro",
-   "key": "isaacokoro",
-   "market": "PTS",
-   "line": 8.5,
-   "over": 104,
-   "under": -133,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Rudy Gobert",
-   "key": "rudygobert",
-   "market": "REB",
-   "line": 10.5,
-   "over": -116,
-   "under": -113,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jalen Smith",
-   "key": "jalensmith",
-   "market": "REB",
-   "line": 8.5,
-   "over": 108,
-   "under": -142,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Josh Giddey",
-   "key": "joshgiddey",
-   "market": "REB",
-   "line": 6.5,
-   "over": -132,
-   "under": 100,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jaden McDaniels",
-   "key": "jadenmcdaniels",
-   "market": "REB",
-   "line": 6.5,
-   "over": 115,
-   "under": -151,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Jonathan Kuminga",
-   "key": "jonathankuminga",
-   "market": "REB",
-   "line": 5.5,
-   "over": -130,
-   "under": -102,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Matas Buzelis",
-   "key": "matasbuzelis",
-   "market": "REB",
-   "line": 5.5,
-   "over": -114,
-   "under": -115,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Ayo Dosunmu",
-   "key": "ayodosunmu",
-   "market": "REB",
-   "line": 4.5,
-   "over": 100,
-   "under": -131,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "LaMelo Ball",
-   "key": "lameloball",
-   "market": "REB",
-   "line": 4.5,
-   "over": 101,
-   "under": -133,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Norman Powell",
-   "key": "normanpowell",
-   "market": "REB",
-   "line": 2.5,
-   "over": -137,
-   "under": 104,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Terrence Shannon Jr.",
-   "key": "terrenceshannon",
-   "market": "REB",
-   "line": 2.5,
-   "over": -125,
-   "under": -105,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909984",
-   "player": "Isaac Okoro",
-   "key": "isaacokoro",
-   "market": "REB",
-   "line": 2.5,
-   "over": -122,
-   "under": -108,
-   "book": "draftkings",
-   "updated": "2026-11-14T21:00:10Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Klay Thompson",
-   "key": "klaythompson",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -118,
-   "under": -112,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Bam Adebayo",
-   "key": "bamadebayo",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -118,
-   "under": -112,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Cade Cunningham",
-   "key": "cadecunningham",
-   "market": "PTS",
-   "line": 25.5,
-   "over": 102,
-   "under": -136,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Kevin Huerter",
-   "key": "kevinhuerter",
-   "market": "PTS",
-   "line": 9.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Paul Reed Jr",
-   "key": "paulreed",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -106,
-   "under": -125,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Giannis Antetokounmpo",
-   "key": "giannisantetokounmpo",
-   "market": "PTS",
-   "line": 28.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Davion Mitchell",
-   "key": "davionmitchell",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Duncan Robinson",
-   "key": "duncanrobinson",
-   "market": "PTS",
-   "line": 15.5,
-   "over": -112,
-   "under": -118,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Bobby Portis",
-   "key": "bobbyportis",
-   "market": "PTS",
-   "line": 6.5,
-   "over": -122,
-   "under": -108,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "John Collins",
-   "key": "johncollins",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -112,
-   "under": -118,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Ausar Thompson",
-   "key": "ausarthompson",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -108,
-   "under": -122,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Andrew Wiggins",
-   "key": "andrewwiggins",
-   "market": "PTS",
-   "line": 9.5,
-   "over": -114,
-   "under": -114,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Daniss Jenkins",
-   "key": "danissjenkins",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -104,
-   "under": -128,
-   "book": "fanduel",
-   "updated": "2026-11-14T20:59:09Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Giannis Antetokounmpo",
-   "key": "giannisantetokounmpo",
-   "market": "PTS",
-   "line": 29.5,
-   "over": -104,
-   "under": -123,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Cade Cunningham",
-   "key": "cadecunningham",
-   "market": "PTS",
-   "line": 25.5,
-   "over": -108,
-   "under": -118,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Bam Adebayo",
-   "key": "bamadebayo",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -115,
-   "under": -111,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Duncan Robinson",
-   "key": "duncanrobinson",
-   "market": "PTS",
-   "line": 15.5,
-   "over": -116,
-   "under": -110,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Daniss Jenkins",
-   "key": "danissjenkins",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -104,
-   "under": -123,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Davion Mitchell",
-   "key": "davionmitchell",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -101,
-   "under": -126,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Klay Thompson",
-   "key": "klaythompson",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -111,
-   "under": -115,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Paul Reed Jr",
-   "key": "paulreed",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -111,
-   "under": -114,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "John Collins",
-   "key": "johncollins",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -109,
-   "under": -117,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Ausar Thompson",
-   "key": "ausarthompson",
-   "market": "PTS",
-   "line": 10.5,
-   "over": 104,
-   "under": -132,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Kevin Huerter",
-   "key": "kevinhuerter",
-   "market": "PTS",
-   "line": 9.5,
-   "over": -126,
-   "under": -102,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Andrew Wiggins",
-   "key": "andrewwiggins",
-   "market": "PTS",
-   "line": 9.5,
-   "over": -125,
-   "under": -102,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Bobby Portis",
-   "key": "bobbyportis",
-   "market": "PTS",
-   "line": 6.5,
-   "over": -130,
-   "under": 102,
-   "book": "draftkings",
-   "updated": "2026-11-14T20:59:36Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Bam Adebayo",
-   "key": "bamadebayo",
-   "market": "PTS",
-   "line": 17.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Cade Cunningham",
-   "key": "cadecunningham",
-   "market": "PTS",
-   "line": 24.5,
-   "over": -120,
-   "under": -110,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Klay Thompson",
-   "key": "klaythompson",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -111,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "John Collins",
-   "key": "johncollins",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -165,
-   "under": 125,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Duncan Robinson",
-   "key": "duncanrobinson",
-   "market": "PTS",
-   "line": 15.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Daniss Jenkins",
-   "key": "danissjenkins",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -150,
-   "under": 110,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Ausar Thompson",
-   "key": "ausarthompson",
-   "market": "PTS",
-   "line": 10.5,
-   "over": 105,
-   "under": -140,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Giannis Antetokounmpo",
-   "key": "giannisantetokounmpo",
-   "market": "PTS",
-   "line": 29.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Paul Reed Jr",
-   "key": "paulreed",
-   "market": "PTS",
-   "line": 11.5,
-   "over": -111,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Andrew Wiggins",
-   "key": "andrewwiggins",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Kevin Huerter",
-   "key": "kevinhuerter",
-   "market": "PTS",
-   "line": 9.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Davion Mitchell",
-   "key": "davionmitchell",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -135,
-   "under": 100,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909982",
-   "player": "Bobby Portis",
-   "key": "bobbyportis",
-   "market": "PTS",
-   "line": 6.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T20:59:32Z",
-   "fetched": "2026-11-14T21:00:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "AST",
-   "line": 3.5,
-   "over": 108,
-   "under": -138,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Meleek Thomas",
-   "key": "meleekthomas",
-   "market": "AST",
-   "line": 2.5,
-   "over": 132,
-   "under": -170,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "AST",
-   "line": 6.5,
-   "over": 112,
-   "under": -142,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "AST",
-   "line": 2.5,
-   "over": -178,
-   "under": 138,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "AST",
-   "line": 4.5,
-   "over": 120,
-   "under": -154,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Craig Porter Jr",
-   "key": "craigporter",
-   "market": "AST",
-   "line": 5.5,
-   "over": -150,
-   "under": 118,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -125,
-   "under": -102,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Zaccharie Risacher",
-   "key": "zaccharierisacher",
-   "market": "PTS",
-   "line": 5.5,
-   "over": -128,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "PTS",
-   "line": 24.5,
-   "over": -108,
-   "under": -118,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Daniel Gafford",
-   "key": "danielgafford",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -128,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "PTS",
-   "line": 10.5,
-   "over": 100,
-   "under": -128,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Craig Porter Jr",
-   "key": "craigporter",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -102,
-   "under": -125,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "PTS",
-   "line": 22.5,
-   "over": -106,
-   "under": -120,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Santi Aldama",
-   "key": "santialdama",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -104,
-   "under": -122,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "PTS",
-   "line": 16.5,
-   "over": 106,
-   "under": -136,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Thomas Bryant",
-   "key": "thomasbryant",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -128,
-   "under": 100,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "PTS",
-   "line": 14.5,
-   "over": 100,
-   "under": -128,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Craig Porter Jr",
-   "key": "craigporter",
-   "market": "REB",
-   "line": 5.5,
-   "over": 102,
-   "under": -130,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Daniel Gafford",
-   "key": "danielgafford",
-   "market": "REB",
-   "line": 5.5,
-   "over": -120,
-   "under": -106,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "REB",
-   "line": 3.5,
-   "over": -125,
-   "under": -102,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "REB",
-   "line": 6.5,
-   "over": -115,
-   "under": -111,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "REB",
-   "line": 6.5,
-   "over": -104,
-   "under": -122,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Thomas Bryant",
-   "key": "thomasbryant",
-   "market": "REB",
-   "line": 6.5,
-   "over": -130,
-   "under": 102,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "REB",
-   "line": 6.5,
-   "over": -150,
-   "under": 118,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Caleb Martin",
-   "key": "calebmartin",
-   "market": "REB",
-   "line": 2.5,
-   "over": -140,
-   "under": 110,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "REB",
-   "line": 6.5,
-   "over": -130,
-   "under": 102,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Santi Aldama",
-   "key": "santialdama",
-   "market": "REB",
-   "line": 3.5,
-   "over": 100,
-   "under": -128,
-   "book": "fanduel",
-   "updated": "2026-11-14T23:14:51Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "AST",
-   "line": 6.5,
-   "over": 101,
-   "under": -133,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Craig Porter Jr",
-   "key": "craigporter",
-   "market": "AST",
-   "line": 5.5,
-   "over": -148,
-   "under": 113,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "AST",
-   "line": 4.5,
-   "over": 114,
-   "under": -150,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "AST",
-   "line": 3.5,
-   "over": 104,
-   "under": -136,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "AST",
-   "line": 3.5,
-   "over": 132,
-   "under": -175,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "AST",
-   "line": 2.5,
-   "over": -147,
-   "under": 112,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Meleek Thomas",
-   "key": "meleekthomas",
-   "market": "AST",
-   "line": 2.5,
-   "over": 130,
-   "under": -172,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "AST",
-   "line": 1.5,
-   "over": 114,
-   "under": -150,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "PTS",
-   "line": 24.5,
-   "over": -111,
-   "under": -115,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "PTS",
-   "line": 22.5,
-   "over": -120,
-   "under": -106,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "PTS",
-   "line": 16.5,
-   "over": -104,
-   "under": -123,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -110,
-   "under": -116,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Thomas Bryant",
-   "key": "thomasbryant",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -105,
-   "under": -121,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "PTS",
-   "line": 13.5,
-   "over": -103,
-   "under": -124,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -120,
-   "under": -106,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Craig Porter Jr",
-   "key": "craigporter",
-   "market": "PTS",
-   "line": 8.5,
-   "over": -117,
-   "under": -109,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Santi Aldama",
-   "key": "santialdama",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -131,
-   "under": 103,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Daniel Gafford",
-   "key": "danielgafford",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -128,
-   "under": 100,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Zaccharie Risacher",
-   "key": "zaccharierisacher",
-   "market": "PTS",
-   "line": 6.5,
-   "over": -104,
-   "under": -122,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Caleb Martin",
-   "key": "calebmartin",
-   "market": "PTS",
-   "line": 4.5,
-   "over": -119,
-   "under": -107,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "REB",
-   "line": 7.5,
-   "over": -107,
-   "under": -123,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "REB",
-   "line": 6.5,
-   "over": -141,
-   "under": 107,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "REB",
-   "line": 6.5,
-   "over": -130,
-   "under": -101,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Thomas Bryant",
-   "key": "thomasbryant",
-   "market": "REB",
-   "line": 6.5,
-   "over": -113,
-   "under": -117,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "REB",
-   "line": 6.5,
-   "over": -105,
-   "under": -125,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Daniel Gafford",
-   "key": "danielgafford",
-   "market": "REB",
-   "line": 5.5,
-   "over": -142,
-   "under": 108,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Craig Porter Jr",
-   "key": "craigporter",
-   "market": "REB",
-   "line": 5.5,
-   "over": -102,
-   "under": -130,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "REB",
-   "line": 3.5,
-   "over": -134,
-   "under": 102,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Santi Aldama",
-   "key": "santialdama",
-   "market": "REB",
-   "line": 3.5,
-   "over": -107,
-   "under": -122,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "REB",
-   "line": 3.5,
-   "over": 120,
-   "under": -159,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Zaccharie Risacher",
-   "key": "zaccharierisacher",
-   "market": "REB",
-   "line": 3.5,
-   "over": 127,
-   "under": -167,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Caleb Martin",
-   "key": "calebmartin",
-   "market": "REB",
-   "line": 2.5,
-   "over": -147,
-   "under": 112,
-   "book": "draftkings",
-   "updated": "2026-11-14T23:15:09Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "AST",
-   "line": 4.5,
-   "over": 105,
-   "under": -140,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "AST",
-   "line": 1.5,
-   "over": 125,
-   "under": -165,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "AST",
-   "line": 6.5,
-   "over": 105,
-   "under": -140,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "AST",
-   "line": 3.5,
-   "over": 130,
-   "under": -175,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Daniel Gafford",
-   "key": "danielgafford",
-   "market": "PTS",
-   "line": 8.5,
-   "over": 120,
-   "under": -160,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "PTS",
-   "line": 12.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "PTS",
-   "line": 24.5,
-   "over": -111,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "PTS",
-   "line": 22.5,
-   "over": -105,
-   "under": -125,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "PTS",
-   "line": 10.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Santi Aldama",
-   "key": "santialdama",
-   "market": "PTS",
-   "line": 7.5,
-   "over": -110,
-   "under": -120,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Caleb Martin",
-   "key": "calebmartin",
-   "market": "PTS",
-   "line": 4.5,
-   "over": 100,
-   "under": -135,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "PTS",
-   "line": 14.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "PTS",
-   "line": 15.5,
-   "over": -120,
-   "under": -110,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "P.J. Washington",
-   "key": "pjwashington",
-   "market": "REB",
-   "line": 6.5,
-   "over": -140,
-   "under": 105,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Kyrie Irving",
-   "key": "kyrieirving",
-   "market": "REB",
-   "line": 3.5,
-   "over": -125,
-   "under": -105,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Daniel Gafford",
-   "key": "danielgafford",
-   "market": "REB",
-   "line": 5.5,
-   "over": -155,
-   "under": 115,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Cooper Flagg",
-   "key": "cooperflagg",
-   "market": "REB",
-   "line": 7.5,
-   "over": 115,
-   "under": -155,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Naji Marshall",
-   "key": "najimarshall",
-   "market": "REB",
-   "line": 3.5,
-   "over": 115,
-   "under": -155,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Santi Aldama",
-   "key": "santialdama",
-   "market": "REB",
-   "line": 3.5,
-   "over": -115,
-   "under": -115,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Mario Hezonja",
-   "key": "mariohezonja",
-   "market": "REB",
-   "line": 7.5,
-   "over": 105,
-   "under": -140,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  },
-  {
-   "game": "401909981",
-   "player": "Jaylon Tyson",
-   "key": "jaylontyson",
-   "market": "REB",
-   "line": 5.5,
-   "over": -155,
-   "under": 115,
-   "book": "betmgm",
-   "updated": "2026-11-14T23:14:43Z",
-   "fetched": "2026-11-14T23:15:36Z"
-  }
- ],
+ "h2h": {},
+ "props": [],
  "gameLines": [],
  "sections": {
   "standings": {
@@ -157679,758 +153785,24 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-15T04:55:42Z",
+   "fetchedAt": "2026-11-15T05:01:03Z",
    "ok": true,
    "count": 110
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-15T04:55:41Z",
+   "fetchedAt": "2026-11-15T05:01:01Z",
    "ok": true,
-   "count": 5
+   "count": 9
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-15T04:55:41Z",
+   "fetchedAt": "2026-11-15T05:01:02Z",
    "ok": true,
+   "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
-  },
-  "players": {
-   "source": "ESPN game logs",
-   "fetchedAt": "2026-11-14T14:02:20Z",
-   "ok": true,
-   "count": 168,
-   "failures": 0
-  },
-  "h2h": {
-   "source": "ESPN team schedules",
-   "fetchedAt": "2026-11-14T14:02:24Z",
-   "ok": true
-  },
-  "odds": {
-   "source": "The Odds API (US books = reference only; UK game lines)",
-   "fetchedAt": "2026-11-14T23:15:37Z",
-   "ok": true,
-   "creditsUsed": 3,
-   "creditsRemaining": 263,
-   "eventsPriced": 5,
-   "notes": [],
-   "budgetToday": 3,
-   "gamesLeftThisMonth": 120,
-   "gameMarkets": {
-    "401909980": [
-     "PTS",
-     "REB"
-    ],
-    "401909981": [
-     "PTS",
-     "REB",
-     "AST"
-    ],
-    "401909983": [
-     "PTS",
-     "REB"
-    ],
-    "401909984": [
-     "PTS",
-     "REB"
-    ],
-    "401909982": [
-     "PTS"
-    ]
-   },
-   "runs": [
-    {
-     "at": "2026-11-14T21:00:39Z",
-     "window": "late",
-     "games": [
-      "401909980",
-      "401909981",
-      "401909982",
-      "401909983",
-      "401909984"
-     ],
-     "credits": 9
-    },
-    {
-     "at": "2026-11-14T23:15:37Z",
-     "window": "reprice",
-     "games": [
-      "401909981"
-     ],
-     "credits": 3,
-     "game": "401909981",
-     "for": [
-      "Peyton Watson",
-      "James Harden",
-      "Donovan Mitchell",
-      "Jarrett Allen"
-     ]
-    }
-   ],
-   "markets": [
-    "PTS",
-    "REB",
-    "AST"
-   ]
   }
  },
- "lineups": {
-  "401909980": {
-   "away": {
-    "starters": [
-     {
-      "name": "Aaron Gordon"
-     },
-     {
-      "name": "Cameron Johnson"
-     },
-     {
-      "name": "Nikola Jokic"
-     },
-     {
-      "name": "Jamal Murray"
-     },
-     {
-      "name": "Christian Braun"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T00:15:31Z"
-   },
-   "home": {
-    "starters": [
-     {
-      "name": "Herbert Jones"
-     },
-     {
-      "name": "Zion Williamson"
-     },
-     {
-      "name": "Saddiq Bey"
-     },
-     {
-      "name": "Yves Missi"
-     },
-     {
-      "name": "Jeremiah Fears"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T00:15:31Z"
-   }
-  },
-  "401909981": {
-   "away": {
-    "starters": [
-     {
-      "name": "Caleb Martin"
-     },
-     {
-      "name": "Daniel Gafford"
-     },
-     {
-      "name": "P.J. Washington"
-     },
-     {
-      "name": "Cooper Flagg"
-     },
-     {
-      "name": "Kyrie Irving"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T00:45:32Z"
-   },
-   "home": {
-    "starters": [
-     {
-      "name": "Evan Mobley"
-     },
-     {
-      "name": "Donovan Mitchell"
-     },
-     {
-      "name": "Jaylon Tyson"
-     },
-     {
-      "name": "Tyrese Proctor"
-     },
-     {
-      "name": "Meleek Thomas"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T00:45:32Z"
-   }
-  },
-  "401909982": {
-   "away": {
-    "starters": [
-     {
-      "name": "Duncan Robinson"
-     },
-     {
-      "name": "John Collins"
-     },
-     {
-      "name": "Cade Cunningham"
-     },
-     {
-      "name": "Ausar Thompson"
-     },
-     {
-      "name": "Daniss Jenkins"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T01:15:32Z"
-   },
-   "home": {
-    "starters": [
-     {
-      "name": "Giannis Antetokounmpo"
-     },
-     {
-      "name": "Myron Gardner"
-     },
-     {
-      "name": "Bam Adebayo"
-     },
-     {
-      "name": "Klay Thompson"
-     },
-     {
-      "name": "Davion Mitchell"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T01:15:32Z"
-   }
-  },
-  "401909983": {
-   "away": {
-    "starters": [
-     {
-      "name": "Julius Randle"
-     },
-     {
-      "name": "Noah Clowney"
-     },
-     {
-      "name": "Danny Wolf"
-     },
-     {
-      "name": "Day'Ron Sharpe"
-     },
-     {
-      "name": "Egor Demin"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T01:15:32Z"
-   },
-   "home": {
-    "starters": [
-     {
-      "name": "Cedric Coward"
-     },
-     {
-      "name": "Cameron Boozer"
-     },
-     {
-      "name": "Jaylen Wells"
-     },
-     {
-      "name": "Isaiah Stewart"
-     },
-     {
-      "name": "Cam Spencer"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T01:15:32Z"
-   }
-  },
-  "401909984": {
-   "away": {
-    "starters": [
-     {
-      "name": "Zach Collins"
-     },
-     {
-      "name": "Isaac Okoro"
-     },
-     {
-      "name": "Matas Buzelis"
-     },
-     {
-      "name": "Norman Powell"
-     },
-     {
-      "name": "Josh Giddey"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T01:15:32Z"
-   },
-   "home": {
-    "starters": [
-     {
-      "name": "Jaden McDaniels"
-     },
-     {
-      "name": "Jonathan Kuminga"
-     },
-     {
-      "name": "Rudy Gobert"
-     },
-     {
-      "name": "Ayo Dosunmu"
-     },
-     {
-      "name": "LaMelo Ball"
-     }
-    ],
-    "status": "started",
-    "source": "ESPN box score",
-    "fetchedAt": "2026-11-15T01:15:32Z"
-   }
-  }
- },
- "lineMoves": {
-  "Mikel Brown Jr.|PTS": {
-   "open": 12.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Mikel Brown Jr.|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Egor Demin|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Egor Demin|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Julius Randle|PTS": {
-   "open": 20.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Julius Randle|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Day'Ron Sharpe|PTS": {
-   "open": 8.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Day'Ron Sharpe|REB": {
-   "open": 7.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Nolan Traore|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Nolan Traore|REB": {
-   "open": 1.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Matas Buzelis|PTS": {
-   "open": 16.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Matas Buzelis|REB": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Josh Giddey|PTS": {
-   "open": 14.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Josh Giddey|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Isaac Okoro|PTS": {
-   "open": 7.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Isaac Okoro|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Norman Powell|PTS": {
-   "open": 20.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Norman Powell|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cooper Flagg|PTS": {
-   "open": 24.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cooper Flagg|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Daniel Gafford|PTS": {
-   "open": 7.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Daniel Gafford|REB": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Kyrie Irving|PTS": {
-   "open": 22.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Kyrie Irving|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Naji Marshall|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Naji Marshall|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Caleb Martin|PTS": {
-   "open": 4.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Caleb Martin|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Zaccharie Risacher|PTS": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Zaccharie Risacher|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "P.J. Washington|PTS": {
-   "open": 13.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "P.J. Washington|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Christian Braun|PTS": {
-   "open": 11.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Christian Braun|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "DeMar DeRozan|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "DeMar DeRozan|REB": {
-   "open": 1.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Aaron Gordon|PTS": {
-   "open": 13.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Aaron Gordon|REB": {
-   "open": 4.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cameron Johnson|PTS": {
-   "open": 12.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cameron Johnson|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Nikola Jokic|PTS": {
-   "open": 26.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Nikola Jokic|REB": {
-   "open": 11.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jamal Murray|PTS": {
-   "open": 24.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jamal Murray|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "John Collins|PTS": {
-   "open": 11.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cade Cunningham|PTS": {
-   "open": 25.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Kevin Huerter|PTS": {
-   "open": 9.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Daniss Jenkins|PTS": {
-   "open": 14.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Paul Reed|PTS": {
-   "open": 11.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Duncan Robinson|PTS": {
-   "open": 15.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Ausar Thompson|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cameron Boozer|PTS": {
-   "open": 19.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cameron Boozer|REB": {
-   "open": 8.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cedric Coward|PTS": {
-   "open": 14.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cedric Coward|REB": {
-   "open": 7.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cam Spencer|PTS": {
-   "open": 12.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Cam Spencer|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jaylen Wells|PTS": {
-   "open": 11.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jaylen Wells|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Bam Adebayo|PTS": {
-   "open": 17.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Giannis Antetokounmpo|PTS": {
-   "open": 29.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Davion Mitchell|PTS": {
-   "open": 13.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Bobby Portis|PTS": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Klay Thompson|PTS": {
-   "open": 13.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Andrew Wiggins|PTS": {
-   "open": 9.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "LaMelo Ball|PTS": {
-   "open": 21.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "LaMelo Ball|REB": {
-   "open": 4.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Ayo Dosunmu|PTS": {
-   "open": 18.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Ayo Dosunmu|REB": {
-   "open": 4.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Rudy Gobert|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Rudy Gobert|REB": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jonathan Kuminga|PTS": {
-   "open": 14.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jonathan Kuminga|REB": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jaden McDaniels|PTS": {
-   "open": 17.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jaden McDaniels|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Terrence Shannon Jr.|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Terrence Shannon Jr.|REB": {
-   "open": 2.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Saddiq Bey|PTS": {
-   "open": 17.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Saddiq Bey|REB": {
-   "open": 4.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jeremiah Fears|PTS": {
-   "open": 18.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jeremiah Fears|REB": {
-   "open": 4.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Herbert Jones|PTS": {
-   "open": 8.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Herbert Jones|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Karlo Matkovic|PTS": {
-   "open": 6.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Karlo Matkovic|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Yves Missi|PTS": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Yves Missi|REB": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Jordan Poole|PTS": {
-   "open": 10.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Zion Williamson|PTS": {
-   "open": 20.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Zion Williamson|REB": {
-   "open": 5.5,
-   "at": "2026-11-14T21:00:39Z"
-  },
-  "Thomas Bryant|PTS": {
-   "open": 13.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Thomas Bryant|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Mario Hezonja|PTS": {
-   "open": 14.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Mario Hezonja|REB": {
-   "open": 7.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Craig Porter Jr.|PTS": {
-   "open": 8.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Craig Porter Jr.|REB": {
-   "open": 5.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Meleek Thomas|AST": {
-   "open": 2.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Jaylon Tyson|PTS": {
-   "open": 16.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Jaylon Tyson|REB": {
-   "open": 6.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Jaylon Tyson|AST": {
-   "open": 3.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Santi Aldama|PTS": {
-   "open": 7.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Santi Aldama|REB": {
-   "open": 3.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Cooper Flagg|AST": {
-   "open": 6.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Kyrie Irving|AST": {
-   "open": 4.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "Naji Marshall|AST": {
-   "open": 3.5,
-   "at": "2026-11-14T23:15:37Z"
-  },
-  "P.J. Washington|AST": {
-   "open": 1.5,
-   "at": "2026-11-14T23:15:37Z"
-  }
- }
+ "lineups": {},
+ "lineMoves": {}
 }
