@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-15T00:40:32Z",
+ "generatedAt": "2026-11-15T00:45:32Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -938,15 +938,14 @@
    "line": 2.5,
    "side": "under",
    "price": -108,
-   "projection": 2.199,
-   "modelP": 0.49708,
+   "projection": 2.235,
+   "modelP": 0.49649,
    "mktP": 0.48582,
-   "edge": 0.01126,
+   "edge": 0.01068,
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -974,8 +973,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "actual": null,
    "result": null,
@@ -1111,10 +1109,8 @@
    "mktP": 0.51941,
    "edge": 0.01671,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1139,10 +1135,8 @@
    "mktP": 0.43653,
    "edge": 0.01191,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1169,36 +1163,7 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "status",
-    "min_unclear"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-14",
-   "game": "401909983",
-   "away": "BKN",
-   "home": "MEM",
-   "tipoff": "2026-11-15T01:00Z",
-   "player": "Cam Spencer",
-   "team": "MEM",
-   "market": "PTS",
-   "line": 12.5,
-   "side": "under",
-   "price": -127,
-   "projection": 10.349,
-   "modelP": 0.53566,
-   "mktP": 0.52441,
-   "edge": 0.01125,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
+    "status"
    ],
    "actual": null,
    "result": null,
@@ -3041,6 +3006,34 @@
     "big_gap"
    ],
    "actual": 3,
+   "result": "loss",
+   "profit": -10.0,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-12",
+   "game": "401909978",
+   "away": "DAL",
+   "home": "MIN",
+   "tipoff": "2026-11-13T01:00Z",
+   "player": "Santi Aldama",
+   "team": "DAL",
+   "market": "REB",
+   "line": 3.5,
+   "side": "over",
+   "price": -127,
+   "projection": 5.2,
+   "modelP": 0.53904,
+   "mktP": 0.52441,
+   "edge": 0.01463,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "big_gap"
+   ],
+   "actual": 1,
    "result": "loss",
    "profit": -10.0,
    "backfilled": false,
