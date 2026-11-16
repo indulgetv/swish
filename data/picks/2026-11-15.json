@@ -8156,7 +8156,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 31.5,
    "openOver": -125,
@@ -8207,7 +8207,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -108,
@@ -8231,34 +8231,34 @@
    "book": "fanduel, betmgm, draftkings",
    "fetched": "2026-11-15T21:00:43Z",
    "oddsUpdated": "2026-11-15T21:00:16Z",
-   "projection": 10.553,
-   "sd": 4.271,
-   "minutes": 26,
+   "projection": 10.502,
+   "sd": 4.262,
+   "minutes": 25,
    "games": 13,
    "curGames": 13,
    "roleDelta": 0,
-   "minBoost": 0.5,
+   "minBoost": 0.3,
    "boostFrom": [],
    "starterTonight": true,
    "back": false,
-   "pureO": 0.56862,
+   "pureO": 0.56546,
    "mktO": 0.51915,
-   "modelO": 0.5241,
+   "modelO": 0.52378,
    "dist": "normal",
    "side": "over",
    "lean": "none",
-   "modelP": 0.5241,
+   "modelP": 0.52378,
    "mktP": 0.51915,
    "price": -125,
-   "edge": 0.00495,
-   "ev": -0.05662,
+   "edge": 0.00463,
+   "ev": -0.05719,
    "value": false,
    "verdict": "none",
    "flags": [],
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -125,
@@ -8309,7 +8309,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 15.5,
    "openOver": -112,
@@ -8360,7 +8360,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 17.5,
    "openOver": -122,
@@ -8411,7 +8411,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -122,
@@ -8459,16 +8459,14 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "flagText": [
-    "Injury news after the line: De'Andre Hunter out, Zach LaVine out, Precious Achiuwa out",
-    "Minutes unclear — De'Andre Hunter, Zach LaVine out; waiting for the confirmed lineup"
+    "Injury news after the line: De'Andre Hunter out, Zach LaVine out, Precious Achiuwa out"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 23.5,
    "openOver": -113,
@@ -8521,16 +8519,14 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "flagText": [
-    "Injury news after the line: De'Andre Hunter out, Zach LaVine out, Precious Achiuwa out",
-    "Minutes unclear — De'Andre Hunter, Zach LaVine out; waiting for the confirmed lineup"
+    "Injury news after the line: De'Andre Hunter out, Zach LaVine out, Precious Achiuwa out"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -115,
@@ -8583,16 +8579,14 @@
    "value": false,
    "verdict": "check",
    "flags": [
-    "injury_after_line",
-    "min_unclear"
+    "injury_after_line"
    ],
    "flagText": [
-    "Injury news after the line: De'Andre Hunter out, Zach LaVine out, Precious Achiuwa out",
-    "Minutes unclear — De'Andre Hunter, Zach LaVine out; waiting for the confirmed lineup"
+    "Injury news after the line: De'Andre Hunter out, Zach LaVine out, Precious Achiuwa out"
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-16T01:35:46Z",
+   "savedAt": "2026-11-16T01:45:46Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -121,
@@ -12071,5 +12065,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-16T01:35:46Z"
+ "updated": "2026-11-16T01:45:46Z"
 }
