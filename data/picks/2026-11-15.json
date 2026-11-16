@@ -5339,7 +5339,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 22.0,
+   "settledAt": "2026-11-16T02:45:46Z",
+   "profit": 8.2
   },
   "401909991|Kevin Durant|PTS": {
    "game": "401909991",
@@ -5895,7 +5901,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-16T02:45:46Z",
+   "profit": -10.0
   },
   "401909991|Jabari Smith Jr.|REB": {
    "game": "401909991",
@@ -5951,7 +5963,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-16T02:45:46Z",
+   "profit": -10.0
   },
   "401909991|Amen Thompson|PTS": {
    "game": "401909991",
@@ -11941,7 +11959,13 @@
    "openUnder": 100,
    "firstSaved": "2026-11-15T22:50:43Z",
    "openFetched": "2026-11-15T22:50:42Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-16T02:45:46Z",
+   "profit": 7.69
   },
   "401909991|Amen Thompson|AST": {
    "game": "401909991",
@@ -12416,5 +12440,5 @@
    "profit": 7.46
   }
  },
- "updated": "2026-11-16T02:35:46Z"
+ "updated": "2026-11-16T02:45:46Z"
 }
