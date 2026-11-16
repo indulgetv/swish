@@ -8527,7 +8527,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 18.0,
+   "settledAt": "2026-11-16T04:25:45Z",
+   "profit": -10.0
   },
   "401909993|Aday Mara|PTS": {
    "game": "401909993",
@@ -8579,7 +8585,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 16,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-16T04:25:45Z",
+   "profit": 8.0
   },
   "401909993|Jared McCain|PTS": {
    "game": "401909993",
@@ -8735,7 +8747,13 @@
    "openUnder": -107,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 19.0,
+   "settledAt": "2026-11-16T04:25:45Z",
+   "profit": -10.0
   },
   "401909993|Darius Acuff Jr.|PTS": {
    "game": "401909993",
@@ -8791,7 +8809,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 26,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-16T04:25:45Z",
+   "profit": 8.85
   },
   "401909993|Keegan Murray|PTS": {
    "game": "401909993",
@@ -8913,7 +8937,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-16T04:25:45Z",
+   "profit": -10.0
   },
   "401909988|Stephon Castle|PTS": {
    "game": "401909988",
@@ -12590,5 +12620,5 @@
    "profit": 7.46
   }
  },
- "updated": "2026-11-16T04:15:45Z"
+ "updated": "2026-11-16T04:25:45Z"
 }
