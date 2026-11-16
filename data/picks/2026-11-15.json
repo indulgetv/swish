@@ -8475,7 +8475,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 37,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-16T04:35:46Z",
+   "profit": -10.0
   },
   "401909993|Isaiah Hartenstein|PTS": {
    "game": "401909993",
@@ -8643,7 +8649,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-16T04:35:46Z",
+   "profit": 8.62
   },
   "401909993|Ajay Mitchell|PTS": {
    "game": "401909993",
@@ -8695,7 +8707,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 14,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-16T04:35:46Z",
+   "profit": 9.43
   },
   "401909993|Kenrich Williams|PTS": {
    "game": "401909993",
@@ -8876,7 +8894,13 @@
    "openUnder": -114,
    "firstSaved": "2026-11-15T21:00:46Z",
    "openFetched": "2026-11-15T21:00:43Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 21.0,
+   "settledAt": "2026-11-16T04:35:46Z",
+   "profit": -10.0
   },
   "401909993|Domantas Sabonis|PTS": {
    "game": "401909993",
@@ -12620,5 +12644,5 @@
    "profit": 7.46
   }
  },
- "updated": "2026-11-16T04:25:45Z"
+ "updated": "2026-11-16T04:35:46Z"
 }
