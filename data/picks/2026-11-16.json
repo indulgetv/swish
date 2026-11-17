@@ -155,7 +155,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": 8.2
   },
   "401909997|Noah Clowney|REB": {
    "game": "401909997",
@@ -207,7 +213,13 @@
    "openUnder": -102,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": -10.0
   },
   "401909997|Egor Demin|PTS": {
    "game": "401909997",
@@ -675,7 +687,13 @@
    "openUnder": 102,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 11.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": -10.0
   },
   "401909997|Danny Wolf|REB": {
    "game": "401909997",
@@ -727,7 +745,13 @@
    "openUnder": 100,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 11.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": -10.0
   },
   "401909994|Paul George|PTS": {
    "game": "401909994",
@@ -8397,7 +8421,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": 8.7
   },
   "401909997|Dean Wade|PTS": {
    "game": "401909997",
@@ -8449,7 +8479,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 32.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": -10.0
   },
   "401909997|Dean Wade|REB": {
    "game": "401909997",
@@ -8501,7 +8537,13 @@
    "openUnder": -100,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 32.0,
+   "settledAt": "2026-11-17T03:15:54Z",
+   "profit": -10.0
   },
   "401910001|Devin Booker|PTS": {
    "game": "401910001",
@@ -9980,5 +10022,5 @@
    "profit": 9.71
   }
  },
- "updated": "2026-11-17T03:10:54Z"
+ "updated": "2026-11-17T03:15:54Z"
 }
