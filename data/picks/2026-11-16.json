@@ -9063,7 +9063,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-17T04:25:53Z",
+   "profit": 8.13
   },
   "401910001|Jordan Goodwin|PTS": {
    "game": "401910001",
@@ -9167,7 +9173,13 @@
    "openUnder": -113,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 16,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-17T04:25:53Z",
+   "profit": -10.0
   },
   "401910001|Oso Ighodaro|PTS": {
    "game": "401910001",
@@ -9219,7 +9231,13 @@
    "openUnder": -108,
    "firstSaved": "2026-11-16T21:00:39Z",
    "openFetched": "2026-11-16T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-17T04:25:53Z",
+   "profit": 8.26
   },
   "401910001|Luke Kennard|PTS": {
    "game": "401910001",
@@ -10376,5 +10394,5 @@
    "profit": 9.71
   }
  },
- "updated": "2026-11-17T04:20:53Z"
+ "updated": "2026-11-17T04:25:53Z"
 }
