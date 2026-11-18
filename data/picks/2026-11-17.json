@@ -50,7 +50,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 8.5,
    "openOver": -120,
@@ -107,7 +107,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -118,
@@ -164,7 +164,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 4.5,
    "openOver": -107,
@@ -221,7 +221,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 18.5,
    "openOver": -105,
@@ -278,7 +278,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 17.5,
    "openOver": -106,
@@ -335,7 +335,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -114,
@@ -1146,7 +1146,8 @@
    "openOver": -111,
    "openUnder": -118,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Kris Dunn|REB": {
    "game": "401910006",
@@ -1197,7 +1198,8 @@
    "openOver": -160,
    "openUnder": 120,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Darius Garland|PTS": {
    "game": "401910006",
@@ -1248,7 +1250,8 @@
    "openOver": -117,
    "openUnder": -110,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Darius Garland|REB": {
    "game": "401910006",
@@ -1299,7 +1302,8 @@
    "openOver": -153,
    "openUnder": 115,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Rui Hachimura|PTS": {
    "game": "401910006",
@@ -1350,7 +1354,8 @@
    "openOver": -125,
    "openUnder": -105,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Rui Hachimura|REB": {
    "game": "401910006",
@@ -1401,7 +1406,8 @@
    "openOver": 116,
    "openUnder": -154,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Derrick Jones Jr.|PTS": {
    "game": "401910006",
@@ -1452,7 +1458,8 @@
    "openOver": -123,
    "openUnder": -104,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Derrick Jones Jr.|REB": {
    "game": "401910006",
@@ -1503,7 +1510,8 @@
    "openOver": 106,
    "openUnder": -140,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Brook Lopez|PTS": {
    "game": "401910006",
@@ -1554,7 +1562,8 @@
    "openOver": -108,
    "openUnder": -121,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Brook Lopez|REB": {
    "game": "401910006",
@@ -1605,7 +1614,8 @@
    "openOver": -106,
    "openUnder": -126,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Keaton Wagler|PTS": {
    "game": "401910006",
@@ -1656,7 +1666,8 @@
    "openOver": -113,
    "openUnder": -114,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Keaton Wagler|REB": {
    "game": "401910006",
@@ -1707,7 +1718,8 @@
    "openOver": 113,
    "openUnder": -151,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910005|Luka Doncic|PTS": {
    "game": "401910005",
@@ -1759,7 +1771,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 36.5,
    "openOver": -103,
@@ -1817,7 +1829,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -121,
@@ -1875,7 +1887,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -109,
@@ -1933,7 +1945,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -123,
@@ -1991,7 +2003,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -110,
@@ -2049,7 +2061,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -109,
@@ -2107,7 +2119,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-18T03:25:49Z",
+   "savedAt": "2026-11-18T03:30:49Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -105,
@@ -5723,7 +5735,8 @@
    "openOver": -127,
    "openUnder": -103,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Ace Bailey|REB": {
    "game": "401910006",
@@ -5779,7 +5792,8 @@
    "openOver": -120,
    "openUnder": -110,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Keyonte George|PTS": {
    "game": "401910006",
@@ -5835,7 +5849,8 @@
    "openOver": -113,
    "openUnder": -114,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Keyonte George|REB": {
    "game": "401910006",
@@ -5891,7 +5906,8 @@
    "openOver": -165,
    "openUnder": 124,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Josh Green|PTS": {
    "game": "401910006",
@@ -5947,7 +5963,8 @@
    "openOver": -107,
    "openUnder": -121,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Josh Okogie|PTS": {
    "game": "401910006",
@@ -6003,7 +6020,8 @@
    "openOver": -125,
    "openUnder": -105,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Josh Okogie|REB": {
    "game": "401910006",
@@ -6059,7 +6077,8 @@
    "openOver": -125,
    "openUnder": -105,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Darryn Peterson|PTS": {
    "game": "401910006",
@@ -6115,7 +6134,8 @@
    "openOver": -126,
    "openUnder": -106,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Darryn Peterson|REB": {
    "game": "401910006",
@@ -6171,7 +6191,8 @@
    "openOver": -102,
    "openUnder": -131,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Brice Sensabaugh|PTS": {
    "game": "401910006",
@@ -6227,7 +6248,8 @@
    "openOver": -107,
    "openUnder": -120,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   },
   "401910006|Brice Sensabaugh|REB": {
    "game": "401910006",
@@ -6283,8 +6305,9 @@
    "openOver": -115,
    "openUnder": -114,
    "firstSaved": "2026-11-17T21:00:47Z",
-   "openFetched": "2026-11-17T21:00:44Z"
+   "openFetched": "2026-11-17T21:00:44Z",
+   "locked": true
   }
  },
- "updated": "2026-11-18T03:25:49Z"
+ "updated": "2026-11-18T03:30:49Z"
 }
