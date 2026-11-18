@@ -3,9 +3,9 @@
   "slateDate": "2026-11-18",
   "mode": "full",
   "errors": [],
-  "lastFullAt": "2026-11-18T07:01:05Z",
+  "lastFullAt": "2026-11-18T07:06:08Z",
   "season": 2027,
-  "writtenAt": "2026-11-18T07:05:44Z"
+  "writtenAt": "2026-11-18T07:12:18Z"
  },
  "games": [
   {
@@ -415,7 +415,7 @@
    "name": "Lakers",
    "displayName": "Los Angeles Lakers",
    "color": "#552583",
-   "record": "12-2",
+   "record": "13-2",
    "alt": "#fdb927"
   },
   "BKN": {
@@ -558,10 +558,10 @@
    {
     "team": "CHA",
     "w": 4,
-    "l": 9,
-    "gb": "7",
+    "l": 10,
+    "gb": "7.5",
     "seed": 11.0,
-    "streak": "L2"
+    "streak": "L3"
    },
    {
     "team": "WAS",
@@ -599,11 +599,27 @@
   "West": [
    {
     "team": "LAL",
-    "w": 12,
+    "w": 13,
     "l": 2,
     "gb": "-",
     "seed": 1.0,
-    "streak": "W8"
+    "streak": "W9"
+   },
+   {
+    "team": "SAS",
+    "w": 12,
+    "l": 3,
+    "gb": "1",
+    "seed": 2.0,
+    "streak": "L1"
+   },
+   {
+    "team": "MIN",
+    "w": 11,
+    "l": 4,
+    "gb": "2",
+    "seed": 3.0,
+    "streak": "W2"
    },
    {
     "team": "SAS",
@@ -625,7 +641,7 @@
     "team": "HOU",
     "w": 11,
     "l": 4,
-    "gb": "1.5",
+    "gb": "2",
     "seed": 4.0,
     "streak": "L1"
    },
@@ -633,7 +649,7 @@
     "team": "MEM",
     "w": 10,
     "l": 4,
-    "gb": "2",
+    "gb": "2.5",
     "seed": 5.0,
     "streak": "W3"
    },
@@ -641,7 +657,7 @@
     "team": "POR",
     "w": 9,
     "l": 5,
-    "gb": "3",
+    "gb": "3.5",
     "seed": 6.0,
     "streak": "L2"
    },
@@ -649,7 +665,7 @@
     "team": "OKC",
     "w": 9,
     "l": 5,
-    "gb": "3",
+    "gb": "3.5",
     "seed": 7.0,
     "streak": "W1"
    },
@@ -657,7 +673,7 @@
     "team": "DEN",
     "w": 7,
     "l": 5,
-    "gb": "4",
+    "gb": "4.5",
     "seed": 8.0,
     "streak": "L1"
    },
@@ -665,7 +681,7 @@
     "team": "GSW",
     "w": 8,
     "l": 6,
-    "gb": "4",
+    "gb": "4.5",
     "seed": 9.0,
     "streak": "L3"
    },
@@ -673,7 +689,7 @@
     "team": "DAL",
     "w": 7,
     "l": 7,
-    "gb": "5",
+    "gb": "5.5",
     "seed": 10.0,
     "streak": "L3"
    },
@@ -681,7 +697,7 @@
     "team": "PHX",
     "w": 6,
     "l": 7,
-    "gb": "5.5",
+    "gb": "6",
     "seed": 11.0,
     "streak": "W1"
    },
@@ -689,7 +705,7 @@
     "team": "NOP",
     "w": 5,
     "l": 10,
-    "gb": "7.5",
+    "gb": "8",
     "seed": 12.0,
     "streak": "W1"
    },
@@ -697,7 +713,7 @@
     "team": "LAC",
     "w": 4,
     "l": 9,
-    "gb": "7.5",
+    "gb": "8",
     "seed": 13.0,
     "streak": "L1"
    },
@@ -705,7 +721,7 @@
     "team": "UTA",
     "w": 2,
     "l": 13,
-    "gb": "10.5",
+    "gb": "11",
     "seed": 14.0,
     "streak": "W1"
    },
@@ -713,7 +729,7 @@
     "team": "SAC",
     "w": 1,
     "l": 12,
-    "gb": "10.5",
+    "gb": "11",
     "seed": 15.0,
     "streak": "L6"
    }
@@ -176154,6 +176170,22 @@
    "jersey": null,
    "season": [
     {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 18.0,
+     "PTS": 3,
+     "REB": 4,
+     "AST": 2,
+     "3PM": 0,
+     "STL": 0,
+     "BLK": 0,
+     "TOV": 0,
+     "PRA": 9
+    },
+    {
      "id": "401909899",
      "d": "2026-11-01",
      "opp": "SAC",
@@ -177438,6 +177470,22 @@
    "pos": "G",
    "jersey": "5",
    "season": [
+    {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 42.0,
+     "PTS": 47,
+     "REB": 6,
+     "AST": 3,
+     "3PM": 10,
+     "STL": 1,
+     "BLK": 0,
+     "TOV": 3,
+     "PRA": 56
+    },
     {
      "id": "401909986",
      "d": "2026-11-15",
@@ -181211,6 +181259,22 @@
    "jersey": "12",
    "season": [
     {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 23.0,
+     "PTS": 4,
+     "REB": 5,
+     "AST": 2,
+     "3PM": 0,
+     "STL": 0,
+     "BLK": 1,
+     "TOV": 1,
+     "PRA": 11
+    },
+    {
      "id": "401909986",
      "d": "2026-11-15",
      "opp": "PHX",
@@ -182741,6 +182805,22 @@
    "pos": "F",
    "jersey": "55",
    "season": [
+    {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 17.0,
+     "PTS": 4,
+     "REB": 8,
+     "AST": 0,
+     "3PM": 0,
+     "STL": 0,
+     "BLK": 0,
+     "TOV": 0,
+     "PRA": 12
+    },
     {
      "id": "401909971",
      "d": "2026-11-12",
@@ -186034,6 +186114,22 @@
    "jersey": "10",
    "season": [
     {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 25.0,
+     "PTS": 10,
+     "REB": 4,
+     "AST": 3,
+     "3PM": 1,
+     "STL": 0,
+     "BLK": 0,
+     "TOV": 2,
+     "PRA": 17
+    },
+    {
      "id": "401909986",
      "d": "2026-11-15",
      "opp": "PHX",
@@ -187341,6 +187437,22 @@
    "jersey": "1",
    "season": [
     {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 6.0,
+     "PTS": 0,
+     "REB": 0,
+     "AST": 1,
+     "3PM": 0,
+     "STL": 1,
+     "BLK": 0,
+     "TOV": 0,
+     "PRA": 1
+    },
+    {
      "id": "401909971",
      "d": "2026-11-12",
      "opp": "MIL",
@@ -187911,6 +188023,22 @@
    "pos": "G",
    "jersey": "4",
    "season": [
+    {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 31.0,
+     "PTS": 7,
+     "REB": 6,
+     "AST": 0,
+     "3PM": 2,
+     "STL": 3,
+     "BLK": 1,
+     "TOV": 1,
+     "PRA": 13
+    },
     {
      "id": "401909986",
      "d": "2026-11-15",
@@ -188706,6 +188834,22 @@
    "pos": "F",
    "jersey": "2",
    "season": [
+    {
+     "id": "401910005",
+     "d": "2026-11-18",
+     "opp": "CHA",
+     "home": true,
+     "result": "W",
+     "min": 14.0,
+     "PTS": 4,
+     "REB": 7,
+     "AST": 0,
+     "3PM": 0,
+     "STL": 0,
+     "BLK": 0,
+     "TOV": 0,
+     "PRA": 11
+    },
     {
      "id": "401909986",
      "d": "2026-11-15",
@@ -384976,38 +385120,38 @@
  "sections": {
   "standings": {
    "source": "ESPN standings",
-   "fetchedAt": "2026-11-18T07:01:05Z",
+   "fetchedAt": "2026-11-18T07:06:09Z",
    "ok": true
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-18T07:01:06Z",
+   "fetchedAt": "2026-11-18T07:06:10Z",
    "ok": true,
    "count": 108
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-18T07:01:05Z",
+   "fetchedAt": "2026-11-18T07:06:08Z",
    "ok": true,
    "count": 12
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-18T07:01:06Z",
+   "fetchedAt": "2026-11-18T07:06:09Z",
    "ok": true,
    "nba": "failed: HTTP Error 404: Not Found",
    "espn": "0 team starting fives from box scores"
   },
   "players": {
    "source": "ESPN game logs",
-   "fetchedAt": "2026-11-18T07:05:32Z",
+   "fetchedAt": "2026-11-18T07:12:05Z",
    "ok": true,
    "count": 406,
    "failures": 0
   },
   "h2h": {
    "source": "ESPN team schedules",
-   "fetchedAt": "2026-11-18T07:05:40Z",
+   "fetchedAt": "2026-11-18T07:12:13Z",
    "ok": true
   }
  },
