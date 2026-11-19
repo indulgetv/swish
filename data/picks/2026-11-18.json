@@ -13337,7 +13337,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": -10.0
   },
   "401910012|Jamal Shead|REB": {
    "game": "401910012",
@@ -13393,7 +13399,13 @@
    "openUnder": -145,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": 9.26
   },
   "401910012|Ja'Kobe Walter|PTS": {
    "game": "401910012",
@@ -13777,7 +13789,13 @@
    "openUnder": -121,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": -10.0
   },
   "401910012|Bilal Coulibaly|REB": {
    "game": "401910012",
@@ -13829,7 +13847,13 @@
    "openUnder": -146,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": 11.2
   },
   "401910012|Anthony Davis|PTS": {
    "game": "401910012",
@@ -14229,7 +14253,13 @@
    "openUnder": -117,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 0,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 8.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": -10.0
   },
   "401910012|Tre Johnson|REB": {
    "game": "401910012",
@@ -14281,7 +14311,13 @@
    "openUnder": -153,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 8.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": 6.76
   },
   "401910012|Alex Sarr|PTS": {
    "game": "401910012",
@@ -16123,7 +16159,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-18T23:15:37Z",
    "openFetched": "2026-11-18T23:15:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-19T03:10:54Z",
+   "profit": 8.33
   },
   "401910012|Ja'Kobe Walter|AST": {
    "game": "401910012",
@@ -17150,5 +17192,5 @@
    "profit": 4.88
   }
  },
- "updated": "2026-11-19T03:05:53Z"
+ "updated": "2026-11-19T03:10:54Z"
 }
