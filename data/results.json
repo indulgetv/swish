@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-18T23:55:32Z",
+ "generatedAt": "2026-11-19T00:00:31Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
-  "saved": 4253,
+  "saved": 4251,
   "graded": 3932,
   "void": 16,
-  "pending": 305
+  "pending": 303
  },
  "strong": {
   "n": 31,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 292,
-   "ourWay": 72,
-   "against": 129,
-   "avg": -0.0175
+   "n": 300,
+   "ourWay": 76,
+   "against": 133,
+   "avg": -0.0182
   },
   "strong": {
    "n": 0,
@@ -104,47 +104,47 @@
    "avg": null
   },
   "noLean": {
-   "n": 357,
-   "ourWay": 116,
-   "against": 142,
-   "avg": -0.0055
+   "n": 392,
+   "ourWay": 130,
+   "against": 154,
+   "avg": -0.0046
   },
   "over": {
-   "n": 129,
-   "ourWay": 34,
-   "against": 42,
-   "avg": -0.0029
+   "n": 132,
+   "ourWay": 36,
+   "against": 43,
+   "avg": -0.003
   },
   "under": {
-   "n": 163,
-   "ourWay": 38,
-   "against": 87,
-   "avg": -0.0289
+   "n": 168,
+   "ourWay": 40,
+   "against": 90,
+   "avg": -0.0302
   },
   "onHold": {
-   "n": 64,
-   "ourWay": 14,
-   "against": 29,
+   "n": 66,
+   "ourWay": 15,
+   "against": 30,
    "avg": -0.0145
   },
   "clear": {
-   "n": 228,
-   "ourWay": 58,
-   "against": 100,
-   "avg": -0.0183
+   "n": 234,
+   "ourWay": 61,
+   "against": 103,
+   "avg": -0.0193
   },
   "byMarket": {
    "PTS": {
-    "n": 143,
-    "ourWay": 36,
-    "against": 69,
-    "avg": -0.0183
+    "n": 149,
+    "ourWay": 39,
+    "against": 72,
+    "avg": -0.0202
    },
    "REB": {
-    "n": 103,
-    "ourWay": 27,
-    "against": 40,
-    "avg": -0.0108
+    "n": 105,
+    "ourWay": 28,
+    "against": 41,
+    "avg": -0.0105
    },
    "AST": {
     "n": 46,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 60,
+  "lineMoved": 65,
   "tol": 0.005
  },
  "byMarket": {
@@ -957,11 +957,11 @@
   },
   {
    "slate": "2026-11-18",
-   "saved": 305,
+   "saved": 303,
    "games": 12,
    "graded": 0,
    "void": 0,
-   "pending": 305,
+   "pending": 303,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1320,71 +1320,13 @@
    "line": 5.5,
    "side": "under",
    "price": -124,
-   "projection": 3.27,
-   "modelP": 0.53493,
+   "projection": 3.407,
+   "modelP": 0.5339,
    "mktP": 0.51941,
-   "edge": 0.01552,
+   "edge": 0.01449,
    "value": false,
-   "verdict": "check",
-   "flags": [
-    "big_gap"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-18",
-   "game": "401910016",
-   "away": "GSW",
-   "home": "DAL",
-   "tipoff": "2026-11-19T01:00Z",
-   "player": "Al Horford",
-   "team": "GSW",
-   "market": "PTS",
-   "line": 6.5,
-   "side": "under",
-   "price": -104,
-   "projection": 4.18,
-   "modelP": 0.49919,
-   "mktP": 0.47942,
-   "edge": 0.01977,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-18",
-   "game": "401910016",
-   "away": "GSW",
-   "home": "DAL",
-   "tipoff": "2026-11-19T01:00Z",
-   "player": "Al Horford",
-   "team": "GSW",
-   "market": "REB",
-   "line": 4.5,
-   "side": "under",
-   "price": -138,
-   "projection": 3.609,
-   "modelP": 0.55233,
-   "mktP": 0.54188,
-   "edge": 0.01044,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "status"
-   ],
+   "verdict": "slight",
+   "flags": [],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1404,10 +1346,10 @@
    "line": 23.5,
    "side": "under",
    "price": -107,
-   "projection": 20.208,
-   "modelP": 0.49719,
+   "projection": 20.511,
+   "modelP": 0.49621,
    "mktP": 0.48562,
-   "edge": 0.01157,
+   "edge": 0.01059,
    "value": false,
    "verdict": "slight",
    "flags": [],
@@ -1430,36 +1372,10 @@
    "line": 17.5,
    "side": "under",
    "price": -112,
-   "projection": 15.1,
-   "modelP": 0.50808,
+   "projection": 15.329,
+   "modelP": 0.50699,
    "mktP": 0.4969,
-   "edge": 0.01118,
-   "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-18",
-   "game": "401910016",
-   "away": "GSW",
-   "home": "DAL",
-   "tipoff": "2026-11-19T01:00Z",
-   "player": "Gui Santos",
-   "team": "GSW",
-   "market": "PTS",
-   "line": 8.5,
-   "side": "under",
-   "price": -118,
-   "projection": 5.806,
-   "modelP": 0.51888,
-   "mktP": 0.50713,
-   "edge": 0.01175,
+   "edge": 0.01008,
    "value": false,
    "verdict": "slight",
    "flags": [],
@@ -1933,7 +1849,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1961,7 +1877,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1987,7 +1903,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2013,7 +1929,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2039,7 +1955,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2065,7 +1981,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2091,7 +2007,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2117,7 +2033,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2143,7 +2059,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2171,7 +2087,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2197,7 +2113,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2223,7 +2139,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2249,7 +2165,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2275,7 +2191,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2301,7 +2217,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2327,7 +2243,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2353,7 +2269,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -3171,6 +3087,86 @@
    "actual": 6,
    "result": "win",
    "profit": 7.94,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-16",
+   "game": "401909994",
+   "away": "ORL",
+   "home": "BOS",
+   "tipoff": "2026-11-17T00:00Z",
+   "player": "Jordan Walsh",
+   "team": "BOS",
+   "market": "REB",
+   "line": 3.5,
+   "side": "over",
+   "price": 112,
+   "projection": 4.021,
+   "modelP": 0.45134,
+   "mktP": 0.4408,
+   "edge": 0.01054,
+   "value": false,
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
+   "actual": 2,
+   "result": "loss",
+   "profit": -10.0,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-16",
+   "game": "401909995",
+   "away": "CHI",
+   "home": "CLE",
+   "tipoff": "2026-11-17T00:00Z",
+   "player": "Matas Buzelis",
+   "team": "CHI",
+   "market": "REB",
+   "line": 5.5,
+   "side": "under",
+   "price": -106,
+   "projection": 4.927,
+   "modelP": 0.49429,
+   "mktP": 0.48356,
+   "edge": 0.01073,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": 3,
+   "result": "win",
+   "profit": 9.43,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-16",
+   "game": "401909995",
+   "away": "CHI",
+   "home": "CLE",
+   "tipoff": "2026-11-17T00:00Z",
+   "player": "Josh Giddey",
+   "team": "CHI",
+   "market": "REB",
+   "line": 6.5,
+   "side": "under",
+   "price": -115,
+   "projection": 5.636,
+   "modelP": 0.5129,
+   "mktP": 0.50205,
+   "edge": 0.01085,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": 4,
+   "result": "win",
+   "profit": 8.7,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
