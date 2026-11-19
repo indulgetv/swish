@@ -10105,7 +10105,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 16,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-19T03:40:52Z",
+   "profit": 9.17
   },
   "401910013|Jeremiah Fears|REB": {
    "game": "401910013",
@@ -10157,7 +10163,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-19T03:40:52Z",
+   "profit": 7.75
   },
   "401910013|Herbert Jones|PTS": {
    "game": "401910013",
@@ -17558,5 +17570,5 @@
    "profit": 4.88
   }
  },
- "updated": "2026-11-19T03:35:53Z"
+ "updated": "2026-11-19T03:40:52Z"
 }
