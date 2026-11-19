@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T00:25:32Z",
+ "generatedAt": "2026-11-19T00:30:32Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 300,
-   "ourWay": 76,
-   "against": 133,
-   "avg": -0.0182
+   "n": 309,
+   "ourWay": 77,
+   "against": 141,
+   "avg": -0.0188
   },
   "strong": {
    "n": 0,
@@ -104,22 +104,22 @@
    "avg": null
   },
   "noLean": {
-   "n": 392,
+   "n": 407,
    "ourWay": 130,
-   "against": 154,
-   "avg": -0.0046
+   "against": 161,
+   "avg": -0.0047
   },
   "over": {
-   "n": 132,
-   "ourWay": 36,
+   "n": 133,
+   "ourWay": 37,
    "against": 43,
-   "avg": -0.003
+   "avg": -0.0028
   },
   "under": {
-   "n": 168,
+   "n": 176,
    "ourWay": 40,
-   "against": 90,
-   "avg": -0.0302
+   "against": 98,
+   "avg": -0.0308
   },
   "onHold": {
    "n": 66,
@@ -128,23 +128,23 @@
    "avg": -0.0145
   },
   "clear": {
-   "n": 234,
-   "ourWay": 61,
-   "against": 103,
-   "avg": -0.0193
+   "n": 243,
+   "ourWay": 62,
+   "against": 111,
+   "avg": -0.0199
   },
   "byMarket": {
    "PTS": {
-    "n": 149,
-    "ourWay": 39,
-    "against": 72,
-    "avg": -0.0202
+    "n": 153,
+    "ourWay": 40,
+    "against": 75,
+    "avg": -0.0206
    },
    "REB": {
-    "n": 105,
+    "n": 110,
     "ourWay": 28,
-    "against": 41,
-    "avg": -0.0105
+    "against": 46,
+    "avg": -0.0117
    },
    "AST": {
     "n": 46,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 65,
+  "lineMoved": 67,
   "tol": 0.005
  },
  "byMarket": {
@@ -1463,7 +1463,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1489,7 +1489,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1515,7 +1515,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1541,7 +1541,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1567,7 +1567,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1593,7 +1593,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1619,7 +1619,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1645,7 +1645,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1671,7 +1671,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1697,7 +1697,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1723,7 +1723,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1749,7 +1749,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1775,7 +1775,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1801,7 +1801,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
