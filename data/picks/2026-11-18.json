@@ -289,7 +289,13 @@
    "openUnder": -102,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 16,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-19T03:20:53Z",
+   "profit": -10.0
   },
   "401910014|Luguentz Dort|REB": {
    "game": "401910014",
@@ -347,7 +353,13 @@
    "openUnder": -163,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-19T03:20:53Z",
+   "profit": -10.0
   },
   "401910014|Jalen Johnson|PTS": {
    "game": "401910014",
@@ -637,7 +649,13 @@
    "openUnder": -121,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 14,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-19T03:20:53Z",
+   "profit": -10.0
   },
   "401910014|Aaron Wiggins|REB": {
    "game": "401910014",
@@ -695,7 +713,13 @@
    "openUnder": 105,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-19T03:20:53Z",
+   "profit": -10.0
   },
   "401910011|Mikel Brown Jr.|PTS": {
    "game": "401910011",
@@ -10529,7 +10553,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-19T03:20:53Z",
+   "profit": 8.47
   },
   "401910014|Aday Mara|REB": {
    "game": "401910014",
@@ -10581,7 +10611,13 @@
    "openUnder": -134,
    "firstSaved": "2026-11-18T21:00:44Z",
    "openFetched": "2026-11-18T21:00:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-19T03:20:53Z",
+   "profit": -10.0
   },
   "401910014|Jared McCain|PTS": {
    "game": "401910014",
@@ -17192,5 +17228,5 @@
    "profit": 4.88
   }
  },
- "updated": "2026-11-19T03:15:53Z"
+ "updated": "2026-11-19T03:20:53Z"
 }
