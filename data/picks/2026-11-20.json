@@ -3277,7 +3277,13 @@
    "openUnder": -107,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-21T03:05:49Z",
+   "profit": -10.0
   },
   "401909307|Peyton Watson|REB": {
    "game": "401909307",
@@ -3329,7 +3335,13 @@
    "openUnder": -144,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-21T03:05:49Z",
+   "profit": -10.0
   },
   "401909312|Christian Braun|PTS": {
    "game": "401909312",
@@ -5021,7 +5033,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 17,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-21T03:05:49Z",
+   "profit": -10.0
   },
   "401909307|Kelly Oubre Jr.|REB": {
    "game": "401909307",
@@ -5073,7 +5091,13 @@
    "openUnder": 101,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-21T03:05:49Z",
+   "profit": -10.0
   },
   "401909307|Pascal Siakam|PTS": {
    "game": "401909307",
@@ -11208,5 +11232,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-21T03:00:49Z"
+ "updated": "2026-11-21T03:05:49Z"
 }
