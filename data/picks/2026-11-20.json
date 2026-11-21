@@ -2813,7 +2813,13 @@
    "openUnder": -100,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": 10.0
   },
   "401909307|Jarrett Allen|REB": {
    "game": "401909307",
@@ -2865,7 +2871,13 @@
    "openUnder": -105,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": 9.52
   },
   "401909307|James Harden|PTS": {
    "game": "401909307",
@@ -2917,7 +2929,13 @@
    "openUnder": -107,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 51,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 40.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|James Harden|REB": {
    "game": "401909307",
@@ -2969,7 +2987,13 @@
    "openUnder": 112,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 40.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Donovan Mitchell|PTS": {
    "game": "401909307",
@@ -3021,7 +3045,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 20,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Donovan Mitchell|REB": {
    "game": "401909307",
@@ -3073,7 +3103,13 @@
    "openUnder": 102,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Tyrese Proctor|PTS": {
    "game": "401909307",
@@ -3125,7 +3161,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Tyrese Proctor|REB": {
    "game": "401909307",
@@ -3177,7 +3219,13 @@
    "openUnder": -104,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Peyton Watson|PTS": {
    "game": "401909307",
@@ -3332,7 +3380,8 @@
    "openOver": -106,
    "openUnder": -123,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|DeMar DeRozan|PTS": {
    "game": "401909312",
@@ -3383,7 +3432,8 @@
    "openOver": -116,
    "openUnder": -111,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Aaron Gordon|PTS": {
    "game": "401909312",
@@ -3434,7 +3484,8 @@
    "openOver": -115,
    "openUnder": -113,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Cameron Johnson|PTS": {
    "game": "401909312",
@@ -3485,7 +3536,8 @@
    "openOver": -120,
    "openUnder": -109,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Nikola Jokic|PTS": {
    "game": "401909312",
@@ -3536,7 +3588,8 @@
    "openOver": -114,
    "openUnder": -115,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Jamal Murray|PTS": {
    "game": "401909312",
@@ -3587,7 +3640,8 @@
    "openOver": -105,
    "openUnder": -124,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909308|John Collins|PTS": {
    "game": "401909308",
@@ -4370,7 +4424,8 @@
    "openOver": -107,
    "openUnder": -122,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Tari Eason|PTS": {
    "game": "401909312",
@@ -4421,7 +4476,8 @@
    "openOver": -108,
    "openUnder": -121,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Alperen Sengun|PTS": {
    "game": "401909312",
@@ -4472,7 +4528,8 @@
    "openOver": -124,
    "openUnder": -105,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Marcus Smart|PTS": {
    "game": "401909312",
@@ -4523,7 +4580,8 @@
    "openOver": -122,
    "openUnder": -108,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Jabari Smith Jr.|PTS": {
    "game": "401909312",
@@ -4574,7 +4632,8 @@
    "openOver": -128,
    "openUnder": -101,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Amen Thompson|PTS": {
    "game": "401909312",
@@ -4625,7 +4684,8 @@
    "openOver": -108,
    "openUnder": -119,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909312|Fred VanVleet|PTS": {
    "game": "401909312",
@@ -4676,7 +4736,8 @@
    "openOver": -114,
    "openUnder": -114,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909307|Andrew Nembhard|PTS": {
    "game": "401909307",
@@ -4728,7 +4789,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Andrew Nembhard|REB": {
    "game": "401909307",
@@ -4780,7 +4847,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Aaron Nesmith|PTS": {
    "game": "401909307",
@@ -4832,7 +4905,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": 8.13
   },
   "401909307|Aaron Nesmith|REB": {
    "game": "401909307",
@@ -4884,7 +4963,13 @@
    "openUnder": -107,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Kelly Oubre Jr.|PTS": {
    "game": "401909307",
@@ -5040,7 +5125,13 @@
    "openUnder": -113,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 21,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": 8.85
   },
   "401909307|Pascal Siakam|REB": {
    "game": "401909307",
@@ -5092,7 +5183,13 @@
    "openUnder": -139,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Ivica Zubac|PTS": {
    "game": "401909307",
@@ -5144,7 +5241,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 21,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909307|Ivica Zubac|REB": {
    "game": "401909307",
@@ -5196,7 +5299,13 @@
    "openUnder": 103,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-21T03:00:49Z",
+   "profit": -10.0
   },
   "401909313|Luka Doncic|PTS": {
    "game": "401909313",
@@ -5247,7 +5356,8 @@
    "openOver": 105,
    "openUnder": -137,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Quentin Grimes|PTS": {
    "game": "401909313",
@@ -5298,7 +5408,8 @@
    "openOver": -126,
    "openUnder": -104,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Walker Kessler|PTS": {
    "game": "401909313",
@@ -5349,7 +5460,8 @@
    "openOver": -109,
    "openUnder": -120,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Jake LaRavia|PTS": {
    "game": "401909313",
@@ -5400,7 +5512,8 @@
    "openOver": -119,
    "openUnder": -109,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Sandro Mamukelashvili|PTS": {
    "game": "401909313",
@@ -5451,7 +5564,8 @@
    "openOver": -119,
    "openUnder": -110,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Collin Sexton|PTS": {
    "game": "401909313",
@@ -5502,7 +5616,8 @@
    "openOver": -112,
    "openUnder": -117,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Matisse Thybulle|PTS": {
    "game": "401909313",
@@ -5553,7 +5668,8 @@
    "openOver": -119,
    "openUnder": -110,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Ziaire Williams|PTS": {
    "game": "401909313",
@@ -5604,7 +5720,8 @@
    "openOver": -105,
    "openUnder": -124,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909310|Saddiq Bey|PTS": {
    "game": "401909310",
@@ -8363,7 +8480,8 @@
    "openOver": -103,
    "openUnder": -126,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|De'Andre Hunter|PTS": {
    "game": "401909313",
@@ -8418,7 +8536,8 @@
    "openOver": -105,
    "openUnder": -123,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Zach LaVine|PTS": {
    "game": "401909313",
@@ -8473,7 +8592,8 @@
    "openOver": -113,
    "openUnder": -115,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Malik Monk|PTS": {
    "game": "401909313",
@@ -8528,7 +8648,8 @@
    "openOver": -106,
    "openUnder": -123,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Keegan Murray|PTS": {
    "game": "401909313",
@@ -8583,7 +8704,8 @@
    "openOver": -106,
    "openUnder": -121,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909313|Domantas Sabonis|PTS": {
    "game": "401909313",
@@ -8638,7 +8760,8 @@
    "openOver": -118,
    "openUnder": -111,
    "firstSaved": "2026-11-20T21:00:57Z",
-   "openFetched": "2026-11-20T21:00:38Z"
+   "openFetched": "2026-11-20T21:00:38Z",
+   "locked": true
   },
   "401909308|Scottie Barnes|PTS": {
    "game": "401909308",
@@ -11085,5 +11208,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-21T02:55:49Z"
+ "updated": "2026-11-21T03:00:49Z"
 }
