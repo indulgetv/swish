@@ -229,7 +229,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-21T14:30:36Z",
    "openFetched": "2026-11-21T14:30:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 10.0,
+   "settledAt": "2026-11-21T20:45:35Z",
+   "profit": -10.0
   },
   "401910023|Jaime Jaquez Jr.|PTS": {
    "game": "401910023",
@@ -339,7 +345,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-21T14:30:36Z",
    "openFetched": "2026-11-21T14:30:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-21T20:45:35Z",
+   "profit": 8.55
   },
   "401910023|Ryan Rollins|PTS": {
    "game": "401910023",
@@ -391,7 +403,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-21T14:30:36Z",
    "openFetched": "2026-11-21T14:30:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-21T20:45:35Z",
+   "profit": -10.0
   },
   "401910023|Myles Turner|PTS": {
    "game": "401910023",
@@ -501,7 +519,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-21T14:30:36Z",
    "openFetched": "2026-11-21T14:30:36Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-21T20:45:35Z",
+   "profit": -10.0
   },
   "401910023|VJ Edgecombe|PTS": {
    "game": "401910023",
@@ -794,5 +818,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-21T20:40:35Z"
+ "updated": "2026-11-21T20:45:35Z"
 }
