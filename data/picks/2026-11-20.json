@@ -6889,7 +6889,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-21T03:25:49Z",
+   "profit": 9.26
   },
   "401909310|Jared McCain|REB": {
    "game": "401909310",
@@ -6941,7 +6947,13 @@
    "openUnder": -164,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-21T03:25:49Z",
+   "profit": -10.0
   },
   "401909310|Ajay Mitchell|PTS": {
    "game": "401909310",
@@ -7201,7 +7213,13 @@
    "openUnder": -128,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-21T03:25:49Z",
+   "profit": -10.0
   },
   "401909310|Kenrich Williams|REB": {
    "game": "401909310",
@@ -7253,7 +7271,13 @@
    "openUnder": -138,
    "firstSaved": "2026-11-20T21:00:57Z",
    "openFetched": "2026-11-20T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-21T03:25:49Z",
+   "profit": 7.25
   },
   "401909306|Desmond Bane|PTS": {
    "game": "401909306",
@@ -11532,5 +11556,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-21T03:20:49Z"
+ "updated": "2026-11-21T03:25:49Z"
 }
