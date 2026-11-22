@@ -2677,7 +2677,13 @@
    "openUnder": -119,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": -10.0
   },
   "401910026|Zach Edey|REB": {
    "game": "401910026",
@@ -2735,7 +2741,13 @@
    "openUnder": 101,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": 10.1
   },
   "401910026|Taylor Hendricks|PTS": {
    "game": "401910026",
@@ -3547,7 +3559,13 @@
    "openUnder": -102,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 19,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": 7.87
   },
   "401910026|Ayo Dosunmu|REB": {
    "game": "401910026",
@@ -3599,7 +3617,13 @@
    "openUnder": -163,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": -10.0
   },
   "401910026|Rudy Gobert|PTS": {
    "game": "401910026",
@@ -3651,7 +3675,13 @@
    "openUnder": -125,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 32.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": 8.0
   },
   "401910026|Rudy Gobert|REB": {
    "game": "401910026",
@@ -3703,7 +3733,13 @@
    "openUnder": -138,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 11,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 32.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": 10.4
   },
   "401910026|Bones Hyland|PTS": {
    "game": "401910026",
@@ -3929,7 +3965,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 25,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": 9.52
   },
   "401910026|Jaden McDaniels|REB": {
    "game": "401910026",
@@ -3981,7 +4023,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-22T03:25:43Z",
+   "profit": -10.0
   },
   "401910026|Terrence Shannon Jr.|PTS": {
    "game": "401910026",
@@ -7781,5 +7829,5 @@
    "profit": 10.0
   }
  },
- "updated": "2026-11-22T03:15:42Z"
+ "updated": "2026-11-22T03:25:43Z"
 }
