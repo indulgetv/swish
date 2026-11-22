@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-22T22:50:33Z",
+ "generatedAt": "2026-11-22T22:55:38Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
   "saved": 4829,
-  "graded": 4663,
+  "graded": 4668,
   "void": 16,
-  "pending": 150
+  "pending": 145
  },
  "strong": {
   "n": 31,
@@ -31,30 +31,30 @@
   "avgPrice": 1.895
  },
  "all": {
-  "n": 4663,
-  "wins": 2339,
-  "losses": 2324,
+  "n": 4668,
+  "wins": 2340,
+  "losses": 2328,
   "pushes": 0,
-  "hitRate": 0.5016,
-  "profit": -2635.54,
-  "roi": -0.0565,
+  "hitRate": 0.5013,
+  "profit": -2666.61,
+  "roi": -0.0571,
   "avgPrice": 1.895
  },
  "accuracy": {
-  "n": 4663,
-  "brierMarket": 0.24764,
-  "brierSwish": 0.24808,
+  "n": 4668,
+  "brierMarket": 0.24765,
+  "brierSwish": 0.24809,
   "brierModel": 0.25489,
   "skillSwish": -0.0018,
-  "skillModel": -0.0293
+  "skillModel": -0.0292
  },
  "calibration": [
   {
    "from": 0.5,
    "to": 0.53,
-   "n": 1557,
+   "n": 1561,
    "predicted": 0.5146,
-   "actual": 0.5151
+   "actual": 0.5144
   },
   {
    "from": 0.53,
@@ -86,9 +86,9 @@
   }
  ],
  "projection": {
-  "n": 4663,
-  "maeSwish": 3.589,
-  "maeLine": 3.478
+  "n": 4668,
+  "maeSwish": 3.592,
+  "maeLine": 3.482
  },
  "clv": {
   "leans": {
@@ -1079,9 +1079,9 @@
    "slate": "2026-11-22",
    "saved": 150,
    "games": 7,
-   "graded": 0,
+   "graded": 5,
    "void": 0,
-   "pending": 150,
+   "pending": 145,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1108,24 +1108,24 @@
  ],
  "overs": {
   "listed": {
-   "n": 1684,
+   "n": 1686,
    "wins": 779,
-   "losses": 905,
+   "losses": 907,
    "pushes": 0,
-   "hitRate": 0.4626,
-   "profit": -1968.61,
-   "roi": -0.1169,
+   "hitRate": 0.462,
+   "profit": -1988.61,
+   "roi": -0.1179,
    "avgPrice": 1.919,
    "predicted": 0.5008
   },
   "allOvers": {
-   "n": 4663,
-   "wins": 2229,
-   "losses": 2434,
+   "n": 4668,
+   "wins": 2231,
+   "losses": 2437,
    "pushes": 0,
-   "hitRate": 0.478,
-   "profit": -4635.65,
-   "roi": -0.0994,
+   "hitRate": 0.4779,
+   "profit": -4647.97,
+   "roi": -0.0996,
    "avgPrice": 1.899,
    "predicted": 0.4952
   },
@@ -1153,13 +1153,13 @@
     "predicted": 0.5668
    },
    "low": {
-    "n": 1565,
+    "n": 1567,
     "wins": 717,
-    "losses": 848,
+    "losses": 850,
     "pushes": 0,
-    "hitRate": 0.4581,
-    "profit": -1839.05,
-    "roi": -0.1175,
+    "hitRate": 0.4576,
+    "profit": -1859.05,
+    "roi": -0.1186,
     "avgPrice": 1.935,
     "predicted": 0.4957
    }
@@ -1422,34 +1422,6 @@
    "modelP": 0.5216,
    "mktP": 0.51136,
    "edge": 0.01023,
-   "value": false,
-   "verdict": "check",
-   "flags": [
-    "min_unclear"
-   ],
-   "actual": null,
-   "result": null,
-   "profit": null,
-   "backfilled": false,
-   "locked": null,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-22",
-   "game": "401910032",
-   "away": "DEN",
-   "home": "CHI",
-   "tipoff": "2026-11-23T00:00Z",
-   "player": "Buddy Hield",
-   "team": "CHI",
-   "market": "REB",
-   "line": 2.5,
-   "side": "under",
-   "price": 116,
-   "projection": 2.514,
-   "modelP": 0.44522,
-   "mktP": 0.43424,
-   "edge": 0.01097,
    "value": false,
    "verdict": "check",
    "flags": [
@@ -3288,6 +3260,32 @@
    "actual": 3,
    "result": "loss",
    "profit": -10.0,
+   "backfilled": false,
+   "locked": true,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
+  {
+   "slate": "2026-11-20",
+   "game": "401909310",
+   "away": "NOP",
+   "home": "OKC",
+   "tipoff": "2026-11-21T01:00Z",
+   "player": "Jaylin Williams",
+   "team": "OKC",
+   "market": "PTS",
+   "line": 5.5,
+   "side": "under",
+   "price": -111,
+   "projection": 3.88,
+   "modelP": 0.50637,
+   "mktP": 0.49287,
+   "edge": 0.0135,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": 3,
+   "result": "win",
+   "profit": 9.01,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
