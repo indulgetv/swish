@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T00:25:35Z",
+ "generatedAt": "2026-11-22T00:30:35Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 317,
+   "n": 322,
    "ourWay": 79,
-   "against": 145,
-   "avg": -0.0191
+   "against": 150,
+   "avg": -0.0198
   },
   "strong": {
    "n": 0,
@@ -104,22 +104,22 @@
    "avg": null
   },
   "noLean": {
-   "n": 432,
-   "ourWay": 138,
-   "against": 169,
-   "avg": -0.0046
+   "n": 446,
+   "ourWay": 142,
+   "against": 178,
+   "avg": -0.0052
   },
   "over": {
-   "n": 134,
+   "n": 136,
    "ourWay": 38,
-   "against": 43,
-   "avg": -0.0027
+   "against": 45,
+   "avg": -0.0037
   },
   "under": {
-   "n": 183,
+   "n": 186,
    "ourWay": 41,
-   "against": 102,
-   "avg": -0.0311
+   "against": 105,
+   "avg": -0.0316
   },
   "onHold": {
    "n": 66,
@@ -128,23 +128,23 @@
    "avg": -0.0145
   },
   "clear": {
-   "n": 251,
+   "n": 256,
    "ourWay": 64,
-   "against": 115,
-   "avg": -0.0203
+   "against": 120,
+   "avg": -0.0212
   },
   "byMarket": {
    "PTS": {
-    "n": 158,
+    "n": 162,
     "ourWay": 42,
-    "against": 77,
-    "avg": -0.0205
+    "against": 81,
+    "avg": -0.0217
    },
    "REB": {
-    "n": 113,
+    "n": 114,
     "ourWay": 28,
-    "against": 48,
-    "avg": -0.0127
+    "against": 49,
+    "avg": -0.0132
    },
    "AST": {
     "n": 46,
@@ -165,7 +165,7 @@
     "avg": null
    }
   },
-  "lineMoved": 71,
+  "lineMoved": 74,
   "tol": 0.005
  },
  "byMarket": {
@@ -1658,7 +1658,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1684,7 +1684,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1710,7 +1710,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1736,7 +1736,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1762,7 +1762,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1790,7 +1790,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1816,7 +1816,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1842,7 +1842,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
