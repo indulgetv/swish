@@ -864,7 +864,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 26.5,
    "openOver": -108,
@@ -923,7 +923,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -125,
@@ -978,7 +978,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 20.5,
    "openOver": -112,
@@ -1033,7 +1033,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -114,
@@ -1088,7 +1088,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -125,
@@ -1143,7 +1143,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -114,
@@ -4760,7 +4760,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 0,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 8.4
   },
   "401910024|Josh Hart|REB": {
    "game": "401910024",
@@ -4815,7 +4821,13 @@
    "openUnder": -129,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Landry Shamet|PTS": {
    "game": "401910024",
@@ -5026,7 +5038,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Toumani Camara|REB": {
    "game": "401910024",
@@ -5078,7 +5096,13 @@
    "openUnder": -146,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Sidy Cissoko|PTS": {
    "game": "401910024",
@@ -5338,7 +5362,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 9.17
   },
   "401910024|Jrue Holiday|REB": {
    "game": "401910024",
@@ -5390,7 +5420,13 @@
    "openUnder": -101,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 11.2
   },
   "401910024|Damian Lillard|PTS": {
    "game": "401910024",
@@ -5442,7 +5478,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Damian Lillard|REB": {
    "game": "401910024",
@@ -5494,7 +5536,13 @@
    "openUnder": -148,
    "firstSaved": "2026-11-21T21:00:40Z",
    "openFetched": "2026-11-21T21:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 6.71
   },
   "401910028|Darius Acuff Jr.|PTS": {
    "game": "401910028",
@@ -5539,7 +5587,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -117,
@@ -5590,7 +5638,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -120,
@@ -5641,7 +5689,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 16.5,
    "openOver": -125,
@@ -5692,7 +5740,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -118,
@@ -5743,7 +5791,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-22T02:45:42Z",
+   "savedAt": "2026-11-22T02:55:42Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -114,
@@ -6578,7 +6626,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-21T23:00:38Z",
    "openFetched": "2026-11-21T23:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 8.7
   },
   "401910024|Andre Drummond|REB": {
    "game": "401910024",
@@ -6633,7 +6687,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-21T23:00:38Z",
    "openFetched": "2026-11-21T23:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 23.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Josh Hart|AST": {
    "game": "401910024",
@@ -6688,7 +6748,13 @@
    "openUnder": 108,
    "firstSaved": "2026-11-21T23:00:38Z",
    "openFetched": "2026-11-21T23:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Miles McBride|PTS": {
    "game": "401910024",
@@ -6957,7 +7023,13 @@
    "openUnder": -129,
    "firstSaved": "2026-11-21T23:00:38Z",
    "openFetched": "2026-11-21T23:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 0,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 7.75
   },
   "401910024|Sidy Cissoko|AST": {
    "game": "401910024",
@@ -7269,7 +7341,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-21T23:00:38Z",
    "openFetched": "2026-11-21T23:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": 7.94
   },
   "401910024|Damian Lillard|AST": {
    "game": "401910024",
@@ -7321,7 +7399,13 @@
    "openUnder": 112,
    "firstSaved": "2026-11-21T23:00:38Z",
    "openFetched": "2026-11-21T23:00:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-22T02:55:42Z",
+   "profit": -10.0
   },
   "401910024|Robert Williams III|PTS": {
    "game": "401910024",
@@ -7428,5 +7512,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-22T02:45:42Z"
+ "updated": "2026-11-22T02:55:42Z"
 }
