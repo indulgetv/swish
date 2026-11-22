@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T22:25:35Z",
+ "generatedAt": "2026-11-22T22:30:32Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -1563,8 +1563,10 @@
    "mktP": 0.53554,
    "edge": 0.01205,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
@@ -1589,8 +1591,10 @@
    "mktP": 0.45494,
    "edge": 0.01962,
    "value": false,
-   "verdict": "slight",
-   "flags": [],
+   "verdict": "check",
+   "flags": [
+    "injury_after_line"
+   ],
    "actual": null,
    "result": null,
    "profit": null,
