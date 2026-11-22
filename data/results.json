@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-22T14:25:33Z",
+ "generatedAt": "2026-11-22T14:30:35Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
-  "saved": 4679,
+  "saved": 4692,
   "graded": 4663,
   "void": 16,
-  "pending": 0
+  "pending": 13
  },
  "strong": {
   "n": 31,
@@ -1077,11 +1077,11 @@
   },
   {
    "slate": "2026-11-22",
-   "saved": 0,
-   "games": 0,
+   "saved": 13,
+   "games": 1,
    "graded": 0,
    "void": 0,
-   "pending": 0,
+   "pending": 13,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1166,6 +1166,32 @@
   }
  },
  "recent": [
+  {
+   "slate": "2026-11-22",
+   "game": "401910029",
+   "away": "DET",
+   "home": "ATL",
+   "tipoff": "2026-11-22T20:30Z",
+   "player": "Isaiah Joe",
+   "team": "DET",
+   "market": "PTS",
+   "line": 9.5,
+   "side": "under",
+   "price": -121,
+   "projection": 6.529,
+   "modelP": 0.5313,
+   "mktP": 0.51438,
+   "edge": 0.01692,
+   "value": false,
+   "verdict": "slight",
+   "flags": [],
+   "actual": null,
+   "result": null,
+   "profit": null,
+   "backfilled": false,
+   "locked": null,
+   "modelVersion": "v1.10 (2026-11-05)"
+  },
   {
    "slate": "2026-11-21",
    "game": "401910028",
@@ -3242,32 +3268,6 @@
    "actual": 10,
    "result": "win",
    "profit": 8.47,
-   "backfilled": false,
-   "locked": true,
-   "modelVersion": "v1.10 (2026-11-05)"
-  },
-  {
-   "slate": "2026-11-18",
-   "game": "401910018",
-   "away": "PHX",
-   "home": "SAC",
-   "tipoff": "2026-11-19T03:00Z",
-   "player": "Jordan Goodwin",
-   "team": "PHX",
-   "market": "PTS",
-   "line": 8.5,
-   "side": "over",
-   "price": -122,
-   "projection": 10.431,
-   "modelP": 0.52665,
-   "mktP": 0.51644,
-   "edge": 0.01022,
-   "value": false,
-   "verdict": "slight",
-   "flags": [],
-   "actual": 2,
-   "result": "loss",
-   "profit": -10.0,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
