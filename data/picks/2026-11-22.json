@@ -5716,7 +5716,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 17,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": -10.0
   },
   "401910031|Desmond Bane|REB": {
    "game": "401910031",
@@ -5768,7 +5774,13 @@
    "openUnder": -127,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": 7.87
   },
   "401910031|Anthony Black|PTS": {
    "game": "401910031",
@@ -5924,7 +5936,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": -10.0
   },
   "401910031|Wendell Carter Jr.|REB": {
    "game": "401910031",
@@ -5976,7 +5994,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": -10.0
   },
   "401910031|Tristan da Silva|PTS": {
    "game": "401910031",
@@ -6028,7 +6052,13 @@
    "openUnder": -104,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": 8.2
   },
   "401910031|Tristan da Silva|REB": {
    "game": "401910031",
@@ -6080,7 +6110,13 @@
    "openUnder": 106,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": 10.6
   },
   "401910031|Jalen Suggs|PTS": {
    "game": "401910031",
@@ -7276,7 +7312,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": -10.0
   },
   "401910031|Alex Sarr|REB": {
    "game": "401910031",
@@ -7328,7 +7370,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-22T21:00:38Z",
    "openFetched": "2026-11-22T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-23T02:20:41Z",
+   "profit": 10.4
   },
   "401910031|Trae Young|PTS": {
    "game": "401910031",
@@ -8343,5 +8391,5 @@
    "profit": 13.0
   }
  },
- "updated": "2026-11-23T02:10:41Z"
+ "updated": "2026-11-23T02:20:41Z"
 }
