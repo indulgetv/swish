@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-11-24T02:20:51Z",
+ "generatedAt": "2026-11-24T02:25:55Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
  "since": "2026-10-28",
  "totals": {
   "saved": 5054,
-  "graded": 4813,
+  "graded": 4817,
   "void": 16,
-  "pending": 225
+  "pending": 221
  },
  "strong": {
   "n": 31,
@@ -21,54 +21,54 @@
   "avgPrice": 1.91
  },
  "leans": {
-  "n": 1774,
+  "n": 1775,
   "wins": 884,
-  "losses": 890,
+  "losses": 891,
   "pushes": 0,
-  "hitRate": 0.4983,
-  "profit": -1084.83,
-  "roi": -0.0612,
+  "hitRate": 0.498,
+  "profit": -1094.83,
+  "roi": -0.0617,
   "avgPrice": 1.895
  },
  "all": {
-  "n": 4813,
-  "wins": 2413,
-  "losses": 2400,
+  "n": 4817,
+  "wins": 2414,
+  "losses": 2403,
   "pushes": 0,
-  "hitRate": 0.5014,
-  "profit": -2734.79,
-  "roi": -0.0568,
+  "hitRate": 0.5011,
+  "profit": -2756.85,
+  "roi": -0.0572,
   "avgPrice": 1.895
  },
  "accuracy": {
-  "n": 4813,
-  "brierMarket": 0.24775,
+  "n": 4817,
+  "brierMarket": 0.24776,
   "brierSwish": 0.24818,
-  "brierModel": 0.25493,
+  "brierModel": 0.25496,
   "skillSwish": -0.0017,
-  "skillModel": -0.029
+  "skillModel": -0.0291
  },
  "calibration": [
   {
    "from": 0.5,
    "to": 0.53,
-   "n": 1618,
+   "n": 1619,
    "predicted": 0.5146,
-   "actual": 0.5142
+   "actual": 0.5139
   },
   {
    "from": 0.53,
    "to": 0.56,
-   "n": 801,
+   "n": 802,
    "predicted": 0.5429,
-   "actual": 0.5069
+   "actual": 0.5075
   },
   {
    "from": 0.56,
    "to": 0.6,
-   "n": 398,
+   "n": 399,
    "predicted": 0.5765,
-   "actual": 0.6256
+   "actual": 0.6241
   },
   {
    "from": 0.6,
@@ -86,7 +86,7 @@
   }
  ],
  "projection": {
-  "n": 4813,
+  "n": 4817,
   "maeSwish": 3.61,
   "maeLine": 3.501
  },
@@ -170,13 +170,13 @@
  },
  "byMarket": {
   "PTS": {
-   "n": 896,
+   "n": 897,
    "wins": 447,
-   "losses": 449,
+   "losses": 450,
    "pushes": 0,
-   "hitRate": 0.4989,
-   "profit": -528.93,
-   "roi": -0.059,
+   "hitRate": 0.4983,
+   "profit": -538.93,
+   "roi": -0.0601,
    "avgPrice": 1.885
   },
   "REB": {
@@ -255,13 +255,13 @@
     "avgPrice": null
    },
    "leans": {
-    "n": 534,
+    "n": 535,
     "wins": 269,
-    "losses": 265,
+    "losses": 266,
     "pushes": 0,
-    "hitRate": 0.5037,
-    "profit": -215.72,
-    "roi": -0.0404,
+    "hitRate": 0.5028,
+    "profit": -225.72,
+    "roi": -0.0422,
     "avgPrice": 1.907
    }
   },
@@ -1109,9 +1109,9 @@
    "slate": "2026-11-23",
    "saved": 225,
    "games": 10,
-   "graded": 0,
+   "graded": 4,
    "void": 0,
-   "pending": 225,
+   "pending": 221,
    "backfilled": false,
    "strong": {
     "n": 0,
@@ -1124,38 +1124,38 @@
     "avgPrice": null
    },
    "leans": {
-    "n": 0,
+    "n": 1,
     "wins": 0,
-    "losses": 0,
+    "losses": 1,
     "pushes": 0,
-    "hitRate": null,
-    "profit": 0,
-    "roi": null,
-    "avgPrice": null
+    "hitRate": 0.0,
+    "profit": -10.0,
+    "roi": -1.0,
+    "avgPrice": 1.926
    },
    "strongCumProfit": -52.59
   }
  ],
  "overs": {
   "listed": {
-   "n": 1725,
+   "n": 1727,
    "wins": 795,
-   "losses": 930,
+   "losses": 932,
    "pushes": 0,
-   "hitRate": 0.4609,
-   "profit": -2076.43,
-   "roi": -0.1204,
+   "hitRate": 0.4603,
+   "profit": -2096.43,
+   "roi": -0.1214,
    "avgPrice": 1.919,
    "predicted": 0.5006
   },
   "allOvers": {
-   "n": 4813,
-   "wins": 2297,
-   "losses": 2516,
+   "n": 4817,
+   "wins": 2298,
+   "losses": 2519,
    "pushes": 0,
-   "hitRate": 0.4772,
-   "profit": -4844.93,
-   "roi": -0.1007,
+   "hitRate": 0.4771,
+   "profit": -4863.43,
+   "roi": -0.101,
    "avgPrice": 1.899,
    "predicted": 0.4952
   },
@@ -1183,13 +1183,13 @@
     "predicted": 0.5668
    },
    "low": {
-    "n": 1605,
+    "n": 1607,
     "wins": 732,
-    "losses": 873,
+    "losses": 875,
     "pushes": 0,
-    "hitRate": 0.4561,
-    "profit": -1953.28,
-    "roi": -0.1217,
+    "hitRate": 0.4555,
+    "profit": -1973.28,
+    "roi": -0.1228,
     "avgPrice": 1.934,
     "predicted": 0.4957
    }
@@ -1663,9 +1663,9 @@
    "value": false,
    "verdict": "slight",
    "flags": [],
-   "actual": null,
-   "result": null,
-   "profit": null,
+   "actual": 3,
+   "result": "loss",
+   "profit": -10.0,
    "backfilled": false,
    "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
