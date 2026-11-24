@@ -779,7 +779,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 8.55
   },
   "401910036|Moussa Diabate|REB": {
    "game": "401910036",
@@ -831,7 +837,13 @@
    "openUnder": -101,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 7.63
   },
   "401910036|Sion James|PTS": {
    "game": "401910036",
@@ -883,7 +895,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 7.94
   },
   "401910036|Sion James|REB": {
    "game": "401910036",
@@ -935,7 +953,13 @@
    "openUnder": -170,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910036|Ryan Kalkbrenner|PTS": {
    "game": "401910036",
@@ -4308,7 +4332,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 35.5,
    "openOver": -110,
@@ -4359,7 +4383,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 16.5,
    "openOver": -110,
@@ -4410,7 +4434,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -123,
@@ -4461,7 +4485,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -127,
@@ -4512,7 +4536,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -106,
@@ -4563,7 +4587,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -115,
@@ -4614,7 +4638,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -120,
@@ -4665,7 +4689,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -119,
@@ -4931,7 +4955,13 @@
    "openUnder": 103,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910036|Taylor Hendricks|REB": {
    "game": "401910036",
@@ -4983,7 +5013,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 8.33
   },
   "401910036|Ty Jerome|PTS": {
    "game": "401910036",
@@ -5035,7 +5071,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 29,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 8.55
   },
   "401910036|Ty Jerome|REB": {
    "game": "401910036",
@@ -5087,7 +5129,13 @@
    "openUnder": -162,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 12.4
   },
   "401910036|Cam Spencer|PTS": {
    "game": "401910036",
@@ -5347,7 +5395,13 @@
    "openUnder": -112,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910036|Jaylen Wells|REB": {
    "game": "401910036",
@@ -5399,7 +5453,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.17
   },
   "401910039|Brayden Burries|PTS": {
    "game": "401910039",
@@ -7903,7 +7963,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 20,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 8.77
   },
   "401910037|Jaylen Brown|REB": {
    "game": "401910037",
@@ -7955,7 +8021,13 @@
    "openUnder": 109,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 11.6
   },
   "401910037|VJ Edgecombe|PTS": {
    "game": "401910037",
@@ -8007,7 +8079,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|VJ Edgecombe|REB": {
    "game": "401910037",
@@ -8059,7 +8137,13 @@
    "openUnder": 108,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 7.35
   },
   "401910037|LeBron James|PTS": {
    "game": "401910037",
@@ -8111,7 +8195,13 @@
    "openUnder": -127,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 23,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|LeBron James|REB": {
    "game": "401910037",
@@ -8163,7 +8253,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.17
   },
   "401910037|Tyrese Maxey|PTS": {
    "game": "401910037",
@@ -8215,7 +8311,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 22,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 8.2
   },
   "401910037|Tyrese Maxey|REB": {
    "game": "401910037",
@@ -8267,7 +8369,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 7.75
   },
   "401910037|Anfernee Simons|PTS": {
    "game": "401910037",
@@ -9105,7 +9213,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 31,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Deni Avdija|REB": {
    "game": "401910037",
@@ -9157,7 +9271,13 @@
    "openUnder": -104,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.8
   },
   "401910037|Toumani Camara|PTS": {
    "game": "401910037",
@@ -9209,7 +9329,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Toumani Camara|REB": {
    "game": "401910037",
@@ -9261,7 +9387,13 @@
    "openUnder": -117,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Sidy Cissoko|PTS": {
    "game": "401910037",
@@ -9313,7 +9445,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Sidy Cissoko|REB": {
    "game": "401910037",
@@ -9365,7 +9503,13 @@
    "openUnder": -147,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 11.2
   },
   "401910037|Donovan Clingan|PTS": {
    "game": "401910037",
@@ -9417,7 +9561,13 @@
    "openUnder": -104,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.8
   },
   "401910037|Donovan Clingan|REB": {
    "game": "401910037",
@@ -9469,7 +9619,13 @@
    "openUnder": -140,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 10.1
   },
   "401910037|Scoot Henderson|PTS": {
    "game": "401910037",
@@ -9521,7 +9677,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 17,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.01
   },
   "401910037|Scoot Henderson|REB": {
    "game": "401910037",
@@ -9573,7 +9735,13 @@
    "openUnder": -179,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 13.6
   },
   "401910037|Jrue Holiday|PTS": {
    "game": "401910037",
@@ -9625,7 +9793,13 @@
    "openUnder": -108,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 8.2
   },
   "401910037|Jrue Holiday|REB": {
    "game": "401910037",
@@ -9677,7 +9851,13 @@
    "openUnder": -151,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 6.76
   },
   "401910037|Damian Lillard|PTS": {
    "game": "401910037",
@@ -9838,7 +10018,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -119,
@@ -9889,7 +10069,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -120,
@@ -9940,7 +10120,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 16.5,
    "openOver": -111,
@@ -9991,7 +10171,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -114,
@@ -10042,7 +10222,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -119,
@@ -10102,7 +10282,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -114,
@@ -10162,7 +10342,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -130,
@@ -10222,7 +10402,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -117,
@@ -10906,7 +11086,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -115,
@@ -10966,7 +11146,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 21.5,
    "openOver": -132,
@@ -11026,7 +11206,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:25:51Z",
+   "savedAt": "2026-11-24T02:30:50Z",
    "backfilled": false,
    "openLine": 18.5,
    "openOver": -111,
@@ -11084,7 +11264,13 @@
    "openUnder": -153,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Kentavious Caldwell-Pope|PTS": {
    "game": "401910037",
@@ -11136,7 +11322,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 17.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|VJ Edgecombe|AST": {
    "game": "401910037",
@@ -11188,7 +11380,13 @@
    "openUnder": -148,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 11.3
   },
   "401910037|LeBron James|AST": {
    "game": "401910037",
@@ -11240,7 +11438,13 @@
    "openUnder": -103,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.71
   },
   "401910037|Tyrese Maxey|AST": {
    "game": "401910037",
@@ -11292,7 +11496,13 @@
    "openUnder": -147,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Dean Wade|PTS": {
    "game": "401910037",
@@ -11344,7 +11554,13 @@
    "openUnder": 106,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 10.6
   },
   "401910037|Dean Wade|REB": {
    "game": "401910037",
@@ -11396,7 +11612,13 @@
    "openUnder": -110,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.09
   },
   "401910037|Jabari Walker|PTS": {
    "game": "401910037",
@@ -11448,7 +11670,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 9.09
   },
   "401910037|Jabari Walker|REB": {
    "game": "401910037",
@@ -11500,7 +11728,13 @@
    "openUnder": -139,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 20.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Deni Avdija|AST": {
    "game": "401910037",
@@ -11552,7 +11786,13 @@
    "openUnder": -131,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Toumani Camara|AST": {
    "game": "401910037",
@@ -11604,7 +11844,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 10.2
   },
   "401910037|Sidy Cissoko|AST": {
    "game": "401910037",
@@ -11656,7 +11902,13 @@
    "openUnder": -101,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 0,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 24.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Donovan Clingan|AST": {
    "game": "401910037",
@@ -11708,7 +11960,13 @@
    "openUnder": -171,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 29.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 12.9
   },
   "401910037|Scoot Henderson|AST": {
    "game": "401910037",
@@ -11760,7 +12018,13 @@
    "openUnder": 115,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": -10.0
   },
   "401910037|Jrue Holiday|AST": {
    "game": "401910037",
@@ -11812,7 +12076,13 @@
    "openUnder": -152,
    "firstSaved": "2026-11-23T23:10:38Z",
    "openFetched": "2026-11-23T23:10:38Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:30:50Z",
+   "profit": 11.6
   },
   "401910037|Damian Lillard|AST": {
    "game": "401910037",
@@ -11873,5 +12143,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-24T02:25:51Z"
+ "updated": "2026-11-24T02:30:50Z"
 }
