@@ -3421,7 +3421,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": 9.01
   },
   "401910038|Andrew Nembhard|REB": {
    "game": "401910038",
@@ -3479,7 +3485,13 @@
    "openUnder": -154,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Kelly Oubre Jr.|PTS": {
    "game": "401910038",
@@ -3537,7 +3549,13 @@
    "openUnder": -111,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 20,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Kelly Oubre Jr.|REB": {
    "game": "401910038",
@@ -3595,7 +3613,13 @@
    "openUnder": -154,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": 6.49
   },
   "401910038|Pascal Siakam|PTS": {
    "game": "401910038",
@@ -3653,7 +3677,13 @@
    "openUnder": -113,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 20,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Pascal Siakam|REB": {
    "game": "401910038",
@@ -3711,7 +3741,13 @@
    "openUnder": 111,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Ivica Zubac|PTS": {
    "game": "401910038",
@@ -3769,7 +3805,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 14,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Ivica Zubac|REB": {
    "game": "401910038",
@@ -3827,7 +3869,13 @@
    "openUnder": 107,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910043|Darius Garland|PTS": {
    "game": "401910043",
@@ -4392,7 +4440,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 35.5,
    "openOver": -110,
@@ -4443,7 +4491,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 16.5,
    "openOver": -110,
@@ -4494,7 +4542,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -123,
@@ -4545,7 +4593,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -127,
@@ -4596,7 +4644,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -106,
@@ -4647,7 +4695,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -115,
@@ -4698,7 +4746,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 6.5,
    "openOver": -120,
@@ -4749,7 +4797,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -119,
@@ -7724,7 +7772,13 @@
    "openUnder": -135,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Isaiah Hartenstein|REB": {
    "game": "401910038",
@@ -7783,7 +7837,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": 8.47
   },
   "401910038|Jared McCain|PTS": {
    "game": "401910038",
@@ -7842,7 +7902,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Jared McCain|REB": {
    "game": "401910038",
@@ -7901,7 +7967,13 @@
    "openUnder": -142,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": 10.8
   },
   "401910038|Ajay Mitchell|PTS": {
    "game": "401910038",
@@ -7960,7 +8032,13 @@
    "openUnder": -125,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": -10.0
   },
   "401910038|Ajay Mitchell|REB": {
    "game": "401910038",
@@ -8019,7 +8097,13 @@
    "openUnder": -114,
    "firstSaved": "2026-11-23T21:00:44Z",
    "openFetched": "2026-11-23T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-24T02:55:52Z",
+   "profit": 8.77
   },
   "401910037|Jaylen Brown|PTS": {
    "game": "401910037",
@@ -10126,7 +10210,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -119,
@@ -10177,7 +10261,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -120,
@@ -10228,7 +10312,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 16.5,
    "openOver": -111,
@@ -10279,7 +10363,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -114,
@@ -10330,7 +10414,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -119,
@@ -10390,7 +10474,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 19.5,
    "openOver": -114,
@@ -10450,7 +10534,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 11.5,
    "openOver": -130,
@@ -10510,7 +10594,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -117,
@@ -11194,7 +11278,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 14.5,
    "openOver": -115,
@@ -11254,7 +11338,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 21.5,
    "openOver": -132,
@@ -11314,7 +11398,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-24T02:50:51Z",
+   "savedAt": "2026-11-24T02:55:52Z",
    "backfilled": false,
    "openLine": 18.5,
    "openOver": -111,
@@ -12251,5 +12335,5 @@
    "profit": -10.0
   }
  },
- "updated": "2026-11-24T02:50:51Z"
+ "updated": "2026-11-24T02:55:52Z"
 }
