@@ -1,11 +1,11 @@
 {
  "meta": {
   "slateDate": "2026-11-25",
-  "mode": "odds",
+  "mode": "light",
   "errors": [],
   "lastFullAt": "2026-11-25T14:00:31Z",
   "season": 2027,
-  "writtenAt": "2026-11-25T21:00:39Z"
+  "writtenAt": "2026-11-25T21:05:33Z"
  },
  "games": [
   {
@@ -130,7 +130,11 @@
    "completed": false,
    "awayScore": "0",
    "homeScore": "0",
-   "espnLine": null
+   "espnLine": {
+    "details": "GS -7.5",
+    "overUnder": 215.5,
+    "provider": "DraftKings"
+   }
   },
   {
    "id": "401909325",
@@ -679,7 +683,7 @@
    "updated": "2026-11-21T22:12Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 1290,
+   "checks": 1291,
    "since": "2026-11-19T22:20:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -695,7 +699,7 @@
    "updated": "2026-11-17T21:16Z",
    "returnDate": "2027-03-17",
    "news": "injury",
-   "checks": 3610,
+   "checks": 3611,
    "since": "2026-11-08T22:20:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -711,7 +715,7 @@
    "updated": "2026-11-17T21:08Z",
    "returnDate": "2026-12-19",
    "news": "status",
-   "checks": 1724,
+   "checks": 1725,
    "since": "2026-11-17T21:20:38Z",
    "confirmed": true
   },
@@ -726,7 +730,7 @@
    "updated": "2026-11-13T00:06Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-19T19:38Z",
    "confirmed": true
   },
@@ -741,7 +745,7 @@
    "updated": "2026-09-21T19:50Z",
    "returnDate": "2027-07-01",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-09-21T19:50Z",
    "confirmed": true
   },
@@ -756,7 +760,7 @@
    "updated": "2026-11-23T21:09Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 636,
+   "checks": 637,
    "since": "2026-11-22T21:05:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -772,7 +776,7 @@
    "updated": "2026-11-23T15:22Z",
    "returnDate": "2027-01-27",
    "news": "injury",
-   "checks": 638,
+   "checks": 639,
    "since": "2026-11-22T20:50:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -788,7 +792,7 @@
    "updated": "2026-11-25T17:41Z",
    "returnDate": "2026-11-28",
    "news": "status",
-   "checks": 33,
+   "checks": 34,
    "since": "2026-11-25T17:45:33Z",
    "was": "Doubtful",
    "confirmed": true
@@ -804,7 +808,7 @@
    "updated": "2026-11-25T17:39Z",
    "returnDate": "2026-11-28",
    "news": "status",
-   "checks": 33,
+   "checks": 34,
    "since": "2026-11-25T17:45:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -820,7 +824,7 @@
    "updated": "2026-11-24T22:32Z",
    "returnDate": "2026-12-12",
    "news": "status",
-   "checks": 4087,
+   "checks": 4088,
    "since": "2026-11-06T18:26:02Z",
    "was": "Questionable",
    "confirmed": true
@@ -838,7 +842,7 @@
    "espnStatus": "Questionable",
    "statusFrom": "report",
    "news": "status",
-   "checks": 120,
+   "checks": 121,
    "since": "2026-11-25T05:00:43Z",
    "was": "Questionable",
    "confirmed": true
@@ -854,7 +858,7 @@
    "updated": "2026-11-08T22:31Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 4259,
+   "checks": 4260,
    "since": "2026-11-05T22:15:29Z",
    "was": "Questionable",
    "confirmed": true
@@ -870,7 +874,7 @@
    "updated": "2026-11-24T18:21Z",
    "returnDate": "2026-11-25",
    "news": "status",
-   "checks": 238,
+   "checks": 239,
    "since": "2026-11-24T18:25:37Z",
    "confirmed": true
   },
@@ -885,7 +889,7 @@
    "updated": "2026-11-22T15:25Z",
    "returnDate": "2026-11-28",
    "news": "injury",
-   "checks": 693,
+   "checks": 694,
    "since": "2026-11-22T15:45:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -901,7 +905,7 @@
    "updated": "2026-11-12T21:35Z",
    "returnDate": "2026-12-13",
    "news": "status",
-   "checks": 2774,
+   "checks": 2775,
    "since": "2026-11-12T21:35:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -917,7 +921,7 @@
    "updated": "2026-11-17T22:18Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 2540,
+   "checks": 2541,
    "since": "2026-11-13T23:40:31Z",
    "confirmed": true
   },
@@ -932,7 +936,7 @@
    "updated": "2026-11-16T22:06Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 2130,
+   "checks": 2131,
    "since": "2026-11-15T22:00:44Z",
    "was": "Questionable",
    "confirmed": true
@@ -948,7 +952,7 @@
    "updated": "2026-11-23T23:25Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 651,
+   "checks": 652,
    "since": "2026-11-22T19:15:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -964,7 +968,7 @@
    "updated": "2026-11-20T19:31Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-22T20:10Z",
    "confirmed": true
   },
@@ -979,7 +983,7 @@
    "updated": "2026-11-17T22:53Z",
    "returnDate": "2026-11-27",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-29T22:06Z",
    "confirmed": true
   },
@@ -994,7 +998,7 @@
    "updated": "2026-11-17T22:42Z",
    "returnDate": "2026-11-27",
    "news": "status",
-   "checks": 5519,
+   "checks": 5520,
    "since": "2026-10-30T22:20:29Z",
    "confirmed": true
   },
@@ -1009,7 +1013,7 @@
    "updated": "2026-11-25T19:00Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 15,
+   "checks": 16,
    "since": "2026-11-25T19:15:32Z",
    "was": "Out",
    "confirmed": true
@@ -1025,7 +1029,7 @@
    "updated": "2026-11-24T18:37Z",
    "returnDate": "2026-12-13",
    "news": "status",
-   "checks": 409,
+   "checks": 410,
    "since": "2026-11-23T22:25:36Z",
    "was": "Questionable",
    "confirmed": true
@@ -1041,7 +1045,7 @@
    "updated": "2026-11-24T18:33Z",
    "returnDate": "2026-12-26",
    "news": "injury",
-   "checks": 1294,
+   "checks": 1295,
    "since": "2026-11-19T22:00:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -1057,7 +1061,7 @@
    "updated": "2026-11-24T18:30Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 1921,
+   "checks": 1922,
    "since": "2026-11-16T22:40:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -1073,7 +1077,7 @@
    "updated": "2026-11-24T18:27Z",
    "returnDate": "2026-11-30",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-25T14:56Z",
    "confirmed": true
   },
@@ -1088,7 +1092,7 @@
    "updated": "2026-11-24T23:20Z",
    "returnDate": "2026-11-25",
    "news": "status",
-   "checks": 183,
+   "checks": 184,
    "since": "2026-11-24T23:35:35Z",
    "confirmed": true
   },
@@ -1105,7 +1109,7 @@
    "espnStatus": "Out",
    "statusFrom": "report",
    "news": "status",
-   "checks": 210,
+   "checks": 211,
    "since": "2026-11-24T21:20:35Z",
    "was": "Out",
    "confirmed": true
@@ -1121,7 +1125,7 @@
    "updated": "2026-11-12T17:03Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 2820,
+   "checks": 2821,
    "since": "2026-11-12T17:10:34Z",
    "was": "Questionable",
    "confirmed": true
@@ -1137,7 +1141,7 @@
    "updated": "2026-11-06T21:26Z",
    "returnDate": "2027-01-02",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-28T14:25Z",
    "confirmed": true
   },
@@ -1152,7 +1156,7 @@
    "updated": "2026-10-16T16:14Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-16T16:14Z",
    "confirmed": true
   },
@@ -1167,7 +1171,7 @@
    "updated": "2026-10-16T16:11Z",
    "returnDate": "2027-01-02",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-16T16:11Z",
    "confirmed": true
   },
@@ -1182,7 +1186,7 @@
    "updated": "2026-11-24T19:43Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 333,
+   "checks": 334,
    "since": "2026-11-24T05:00:53Z",
    "was": "Out",
    "confirmed": true
@@ -1198,7 +1202,7 @@
    "updated": "2026-11-24T19:41Z",
    "returnDate": "2026-12-13",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-28T21:30Z",
    "confirmed": true
   },
@@ -1213,7 +1217,7 @@
    "updated": "2026-11-24T04:40Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 333,
+   "checks": 334,
    "since": "2026-11-24T05:00:53Z",
    "was": "Out",
    "confirmed": true
@@ -1229,7 +1233,7 @@
    "updated": "2026-11-24T02:00Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 366,
+   "checks": 367,
    "since": "2026-11-24T02:15:50Z",
    "confirmed": true
   },
@@ -1244,7 +1248,7 @@
    "updated": "2026-10-28T21:41Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-28T21:41Z",
    "confirmed": true
   },
@@ -1259,7 +1263,7 @@
    "updated": "2026-10-15T01:03Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-15T01:03Z",
    "confirmed": true
   },
@@ -1274,7 +1278,7 @@
    "updated": "2026-08-26T20:04Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-08-26T20:04Z",
    "confirmed": true
   },
@@ -1289,7 +1293,7 @@
    "updated": "2026-11-25T20:33Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 333,
+   "checks": 334,
    "since": "2026-11-24T05:00:53Z",
    "was": "Probable",
    "confirmed": true
@@ -1305,7 +1309,7 @@
    "updated": "2026-11-24T23:04Z",
    "returnDate": "2026-12-12",
    "news": "status",
-   "checks": 4666,
+   "checks": 4667,
    "since": "2026-11-03T23:25:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -1321,7 +1325,7 @@
    "updated": "2026-11-23T23:07Z",
    "returnDate": "2026-12-21",
    "news": "injury",
-   "checks": 621,
+   "checks": 622,
    "since": "2026-11-22T22:30:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1337,7 +1341,7 @@
    "updated": "2026-11-23T04:04Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 569,
+   "checks": 570,
    "since": "2026-11-23T04:20:42Z",
    "was": "Questionable",
    "confirmed": true
@@ -1353,7 +1357,7 @@
    "updated": "2026-11-17T23:18Z",
    "returnDate": "2027-01-18",
    "news": "injury",
-   "checks": 2127,
+   "checks": 2128,
    "since": "2026-11-15T22:15:38Z",
    "was": "Questionable",
    "confirmed": true
@@ -1369,7 +1373,7 @@
    "updated": "2026-11-07T17:24Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 3879,
+   "checks": 3880,
    "since": "2026-11-07T18:20:28Z",
    "confirmed": true
   },
@@ -1386,7 +1390,7 @@
    "espnStatus": "Questionable",
    "statusFrom": "report",
    "news": "status",
-   "checks": 4,
+   "checks": 5,
    "since": "2026-11-25T20:40:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -1402,7 +1406,7 @@
    "updated": "2026-11-24T17:10Z",
    "returnDate": "2027-01-03",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-05T20:53Z",
    "confirmed": true
   },
@@ -1417,7 +1421,7 @@
    "updated": "2026-11-15T22:40Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 2121,
+   "checks": 2122,
    "since": "2026-11-15T22:45:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -1433,7 +1437,7 @@
    "updated": "2026-10-29T18:33Z",
    "returnDate": "2026-12-21",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-29T18:33Z",
    "confirmed": true
   },
@@ -1448,7 +1452,7 @@
    "updated": "2026-11-25T16:11Z",
    "returnDate": "2026-11-25",
    "news": null,
-   "checks": 50,
+   "checks": 51,
    "since": "2026-11-25T16:20:33Z",
    "confirmed": true
   },
@@ -1463,7 +1467,7 @@
    "updated": "2026-11-21T18:21Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 2781,
+   "checks": 2782,
    "since": "2026-11-12T20:55:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -1479,7 +1483,7 @@
    "updated": "2026-11-19T21:07Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 1726,
+   "checks": 1727,
    "since": "2026-11-17T21:10:39Z",
    "was": "Questionable",
    "confirmed": true
@@ -1495,7 +1499,7 @@
    "updated": "2026-11-13T20:19Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 2575,
+   "checks": 2576,
    "since": "2026-11-13T20:30:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -1513,7 +1517,7 @@
    "espnStatus": "Questionable",
    "statusFrom": "report",
    "news": "status",
-   "checks": 27,
+   "checks": 28,
    "since": "2026-11-25T18:15:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -1529,7 +1533,7 @@
    "updated": "2026-11-25T17:57Z",
    "returnDate": "2026-11-27",
    "news": "status",
-   "checks": 27,
+   "checks": 28,
    "since": "2026-11-25T18:15:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -1547,7 +1551,7 @@
    "espnStatus": "Questionable",
    "statusFrom": "report",
    "news": "status",
-   "checks": 30,
+   "checks": 31,
    "since": "2026-11-25T18:00:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1563,7 +1567,7 @@
    "updated": "2026-11-25T17:53Z",
    "returnDate": "2026-11-25",
    "news": "status",
-   "checks": 30,
+   "checks": 31,
    "since": "2026-11-25T18:00:32Z",
    "confirmed": true
   },
@@ -1578,7 +1582,7 @@
    "updated": "2026-11-24T21:56Z",
    "returnDate": "2026-11-27",
    "news": "status",
-   "checks": 663,
+   "checks": 664,
    "since": "2026-11-22T18:15:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1594,7 +1598,7 @@
    "updated": "2026-11-24T21:53Z",
    "returnDate": "2026-11-27",
    "news": "status",
-   "checks": 203,
+   "checks": 204,
    "since": "2026-11-24T21:55:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -1610,7 +1614,7 @@
    "updated": "2026-11-24T23:29Z",
    "returnDate": "2026-11-28",
    "news": "status",
-   "checks": 444,
+   "checks": 445,
    "since": "2026-11-23T18:55:42Z",
    "was": "Questionable",
    "confirmed": true
@@ -1626,7 +1630,7 @@
    "updated": "2026-11-24T23:24Z",
    "returnDate": "2026-11-28",
    "news": "status",
-   "checks": 182,
+   "checks": 183,
    "since": "2026-11-24T23:40:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -1642,7 +1646,7 @@
    "updated": "2026-11-24T23:19Z",
    "returnDate": "2026-11-28",
    "news": "status",
-   "checks": 185,
+   "checks": 186,
    "since": "2026-11-24T23:25:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -1658,7 +1662,7 @@
    "updated": "2026-11-23T18:43Z",
    "returnDate": "2027-03-02",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-28T23:41Z",
    "confirmed": true
   },
@@ -1673,7 +1677,7 @@
    "updated": "2026-11-18T00:01Z",
    "returnDate": "2027-01-31",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-27T21:43Z",
    "confirmed": true
   },
@@ -1688,7 +1692,7 @@
    "updated": "2026-10-31T01:16Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-26T22:05Z",
    "confirmed": true
   },
@@ -1703,7 +1707,7 @@
    "updated": "2026-10-31T01:02Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 5516,
+   "checks": 5517,
    "since": "2026-10-30T22:35:30Z",
    "confirmed": true
   },
@@ -1718,7 +1722,7 @@
    "updated": "2026-11-21T21:09Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-29T18:29Z",
    "confirmed": true
   },
@@ -1733,7 +1737,7 @@
    "updated": "2026-11-18T17:25Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-09-28T21:33Z",
    "confirmed": true
   },
@@ -1748,7 +1752,7 @@
    "updated": "2026-11-14T17:33Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-17T22:19Z",
    "confirmed": true
   },
@@ -1763,7 +1767,7 @@
    "updated": "2026-10-24T16:47Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-24T16:47Z",
    "confirmed": true
   },
@@ -1778,7 +1782,7 @@
    "updated": "2026-11-25T20:07Z",
    "returnDate": "2026-11-27",
    "news": "status",
-   "checks": 7,
+   "checks": 8,
    "since": "2026-11-25T20:25:33Z",
    "was": "Doubtful",
    "confirmed": true
@@ -1794,7 +1798,7 @@
    "updated": "2026-10-06T19:17Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-06T19:17Z",
    "confirmed": true
   },
@@ -1809,7 +1813,7 @@
    "updated": "2026-09-11T16:03Z",
    "returnDate": "2027-02-03",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-09-11T16:03Z",
    "confirmed": true
   },
@@ -1824,7 +1828,7 @@
    "updated": "2026-11-20T22:18Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 2116,
+   "checks": 2117,
    "since": "2026-11-15T23:15:38Z",
    "was": "Questionable",
    "confirmed": true
@@ -1840,7 +1844,7 @@
    "updated": "2026-11-11T19:56Z",
    "returnDate": "2027-01-12",
    "news": "injury",
-   "checks": 4416,
+   "checks": 4417,
    "since": "2026-11-05T04:20:41Z",
    "confirmed": true
   },
@@ -1855,7 +1859,7 @@
    "updated": "2026-11-08T02:18Z",
    "returnDate": "2026-12-01",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-30T18:45Z",
    "confirmed": true
   },
@@ -1870,8 +1874,23 @@
    "updated": "2026-08-24T20:23Z",
    "returnDate": "2027-03-02",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-08-24T20:23Z",
+   "confirmed": true
+  },
+  {
+   "team": "SAC",
+   "player": "Zach LaVine",
+   "pos": "G",
+   "status": "Questionable",
+   "rawStatus": "Day-To-Day",
+   "detail": "Right Knee Soreness",
+   "comment": "LaVine (knee) has been downgraded to questionable for Wednesday's game against Golden State.",
+   "updated": "2026-11-25T20:49Z",
+   "returnDate": "2026-11-25",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-25T21:05:33Z",
    "confirmed": true
   },
   {
@@ -1885,7 +1904,7 @@
    "updated": "2026-11-25T16:25Z",
    "returnDate": "2026-12-02",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-26T22:07Z",
    "confirmed": true
   },
@@ -1900,7 +1919,7 @@
    "updated": "2026-10-21T04:22Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-21T04:22Z",
    "confirmed": true
   },
@@ -1915,7 +1934,7 @@
    "updated": "2026-11-25T01:27Z",
    "returnDate": "2026-11-25",
    "news": "status",
-   "checks": 318,
+   "checks": 319,
    "since": "2026-11-24T06:15:51Z",
    "was": "Out",
    "confirmed": true
@@ -1931,7 +1950,7 @@
    "updated": "2026-11-25T01:23Z",
    "returnDate": "2026-11-25",
    "news": "status",
-   "checks": 318,
+   "checks": 319,
    "since": "2026-11-24T06:15:51Z",
    "was": "Out",
    "confirmed": true
@@ -1947,7 +1966,7 @@
    "updated": "2026-11-19T20:07Z",
    "returnDate": "2026-12-13",
    "news": "status",
-   "checks": 1490,
+   "checks": 1491,
    "since": "2026-11-18T23:20:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1963,7 +1982,7 @@
    "updated": "2026-11-16T19:26Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-28T18:24Z",
    "confirmed": true
   },
@@ -1978,7 +1997,7 @@
    "updated": "2026-10-05T21:43Z",
    "returnDate": "2026-12-03",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-05T21:43Z",
    "confirmed": true
   },
@@ -1993,7 +2012,7 @@
    "updated": "2026-11-24T21:15Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-29T15:39Z",
    "confirmed": true
   },
@@ -2008,7 +2027,7 @@
    "updated": "2026-11-22T21:13Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-27T19:31Z",
    "confirmed": true
   },
@@ -2023,7 +2042,7 @@
    "updated": "2026-11-19T21:13Z",
    "returnDate": "2026-12-13",
    "news": "injury",
-   "checks": 1303,
+   "checks": 1304,
    "since": "2026-11-19T21:15:34Z",
    "was": "Questionable",
    "confirmed": true
@@ -2039,7 +2058,7 @@
    "updated": "2026-11-24T06:07Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 318,
+   "checks": 319,
    "since": "2026-11-24T06:15:51Z",
    "was": "Out",
    "confirmed": true
@@ -2055,7 +2074,7 @@
    "updated": "2026-11-20T22:40Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-07T23:07Z",
    "confirmed": true
   },
@@ -2070,7 +2089,7 @@
    "updated": "2026-11-11T18:22Z",
    "returnDate": "2027-01-04",
    "news": "injury",
-   "checks": 3014,
+   "checks": 3015,
    "since": "2026-11-11T18:35:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -2086,7 +2105,7 @@
    "updated": "2026-10-27T19:25Z",
    "returnDate": "2026-12-14",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-27T19:25Z",
    "confirmed": true
   },
@@ -2101,7 +2120,7 @@
    "updated": "2026-11-23T22:10Z",
    "returnDate": "2026-11-30",
    "news": null,
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-01T19:11Z",
    "confirmed": true
   },
@@ -2116,7 +2135,7 @@
    "updated": "2026-11-02T18:22Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 4912,
+   "checks": 4913,
    "since": "2026-11-02T18:25:49Z",
    "confirmed": true
   },
@@ -2131,7 +2150,7 @@
    "updated": "2026-10-28T18:38Z",
    "returnDate": "2027-02-25",
    "news": "status",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-10-28T18:38Z",
    "confirmed": true
   },
@@ -2146,7 +2165,7 @@
    "updated": "2026-07-30T20:11Z",
    "returnDate": "2027-04-02",
    "news": "injury",
-   "checks": 5550,
+   "checks": 5551,
    "since": "2026-07-30T20:11Z",
    "confirmed": true
   }
@@ -311652,19 +311671,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-25T20:55:34Z",
+   "fetchedAt": "2026-11-25T21:05:33Z",
    "ok": true,
-   "count": 95
+   "count": 96
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-25T21:00:33Z",
+   "fetchedAt": "2026-11-25T21:05:33Z",
    "ok": true,
    "count": 9
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-25T20:55:33Z",
+   "fetchedAt": "2026-11-25T21:05:33Z",
    "ok": true,
    "nba": "ok: 18 team lineups posted",
    "espn": "0 team starting fives from box scores"
@@ -311779,7 +311798,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -311806,7 +311825,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909318": {
@@ -311835,7 +311854,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -311862,7 +311881,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909319": {
@@ -311891,7 +311910,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -311918,7 +311937,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909320": {
@@ -311947,7 +311966,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -311974,7 +311993,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909321": {
@@ -312003,7 +312022,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -312030,7 +312049,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909322": {
@@ -312059,7 +312078,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -312086,7 +312105,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909323": {
@@ -312115,7 +312134,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -312142,7 +312161,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909324": {
@@ -312171,7 +312190,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -312198,7 +312217,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   },
   "401909325": {
@@ -312227,7 +312246,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    },
    "home": {
     "starters": [
@@ -312254,7 +312273,7 @@
     ],
     "status": "expected",
     "source": "NBA.com",
-    "fetchedAt": "2026-11-25T20:55:33Z"
+    "fetchedAt": "2026-11-25T21:05:33Z"
    }
   }
  },
