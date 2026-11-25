@@ -720,7 +720,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 24.5,
    "openOver": -112,
@@ -771,7 +771,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 9.5,
    "openOver": -113,
@@ -822,7 +822,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -116,
@@ -873,7 +873,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -104,
@@ -924,7 +924,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 5.5,
    "openOver": -113,
@@ -975,7 +975,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 7.5,
    "openOver": -119,
@@ -1030,7 +1030,7 @@
    ],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -107,
@@ -1081,7 +1081,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -125,
@@ -1132,7 +1132,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 10.5,
    "openOver": -106,
@@ -1183,7 +1183,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 13.5,
    "openOver": -112,
@@ -1234,7 +1234,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 12.5,
    "openOver": -115,
@@ -1285,7 +1285,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 25.5,
    "openOver": -111,
@@ -1336,7 +1336,7 @@
    "flagText": [],
    "modelVersion": "v1.10 (2026-11-05)",
    "modelWeight": 0.1,
-   "savedAt": "2026-11-25T02:20:43Z",
+   "savedAt": "2026-11-25T02:25:43Z",
    "backfilled": false,
    "openLine": 22.5,
    "openOver": -122,
@@ -1403,7 +1403,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 12,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.01
   },
   "401909314|John Collins|REB": {
    "game": "401909314",
@@ -1464,7 +1470,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 26.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 8.06
   },
   "401909314|Kevin Huerter|PTS": {
    "game": "401909314",
@@ -1525,7 +1537,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 13,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 32.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.09
   },
   "401909314|Kevin Huerter|REB": {
    "game": "401909314",
@@ -1586,7 +1604,13 @@
    "openUnder": -141,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 32.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": -10.0
   },
   "401909314|Daniss Jenkins|PTS": {
    "game": "401909314",
@@ -1642,7 +1666,13 @@
    "openUnder": -102,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 7.81
   },
   "401909314|Daniss Jenkins|REB": {
    "game": "401909314",
@@ -1698,7 +1728,13 @@
    "openUnder": 122,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 35.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": -10.0
   },
   "401909314|Isaiah Joe|PTS": {
    "game": "401909314",
@@ -1759,7 +1795,13 @@
    "openUnder": -127,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 21,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 30.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.9
   },
   "401909314|Paul Reed|PTS": {
    "game": "401909314",
@@ -1954,7 +1996,13 @@
    "openUnder": -108,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": -10.0
   },
   "401909314|Ausar Thompson|REB": {
    "game": "401909314",
@@ -2015,7 +2063,13 @@
    "openUnder": 111,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 10,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 31.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 6.85
   },
   "401909314|Desmond Bane|PTS": {
    "game": "401909314",
@@ -2067,7 +2121,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 21,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.62
   },
   "401909314|Desmond Bane|REB": {
    "game": "401909314",
@@ -2119,7 +2179,13 @@
    "openUnder": -106,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.43
   },
   "401909314|Anthony Black|PTS": {
    "game": "401909314",
@@ -2403,7 +2469,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 16,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.43
   },
   "401909314|Tristan da Silva|REB": {
    "game": "401909314",
@@ -2455,7 +2527,13 @@
    "openUnder": -118,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 33.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": -10.0
   },
   "401909314|Jalen Suggs|PTS": {
    "game": "401909314",
@@ -2623,7 +2701,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 20,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": -10.0
   },
   "401909314|Franz Wagner|REB": {
    "game": "401909314",
@@ -2675,7 +2759,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-24T21:00:38Z",
    "openFetched": "2026-11-24T21:00:37Z",
-   "locked": true
+   "locked": true,
+   "actual": 9,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 38.0,
+   "settledAt": "2026-11-25T02:25:43Z",
+   "profit": 9.35
   },
   "401909315|Bilal Coulibaly|PTS": {
    "game": "401909315",
@@ -3302,5 +3392,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-25T02:20:43Z"
+ "updated": "2026-11-25T02:25:43Z"
 }
