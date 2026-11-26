@@ -5,7 +5,7 @@
   "errors": [],
   "lastFullAt": "2026-11-25T14:00:31Z",
   "season": 2027,
-  "writtenAt": "2026-11-26T03:40:43Z"
+  "writtenAt": "2026-11-26T03:41:54Z"
  },
  "games": [
   {
@@ -98,10 +98,10 @@
    "home": "GSW",
    "tipoff": "2026-11-26T03:00Z",
    "state": "in",
-   "status": "11:20 - 2nd",
+   "status": "11:05 - 2nd",
    "completed": false,
    "awayScore": "19",
-   "homeScore": "46",
+   "homeScore": "48",
    "espnLine": null
   },
   {
@@ -110,9 +110,9 @@
    "home": "POR",
    "tipoff": "2026-11-26T03:00Z",
    "state": "in",
-   "status": "45.2 - 1st",
+   "status": "44.8 - 1st",
    "completed": false,
-   "awayScore": "30",
+   "awayScore": "31",
    "homeScore": "35",
    "espnLine": null
   }
@@ -1333,7 +1333,7 @@
    "detail": "Left Ankle",
    "comment": "Ball headed to the locker room after turning his left ankle against the Thunder, Tim MacMahon of ESPN.com reports.",
    "updated": "2026-11-26T03:08Z",
-   "returnDate": "2026-11-25",
+   "returnDate": "2026-11-27",
    "news": null,
    "checks": 6,
    "since": "2026-11-26T03:15:45Z",
@@ -312386,19 +312386,19 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-26T03:40:43Z",
+   "fetchedAt": "2026-11-26T03:41:54Z",
    "ok": true,
    "count": 93
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-26T03:40:42Z",
+   "fetchedAt": "2026-11-26T03:41:53Z",
    "ok": true,
    "count": 9
   },
   "lineups": {
    "source": "NBA.com daily lineups (experimental) + ESPN box scores",
-   "fetchedAt": "2026-11-26T03:40:42Z",
+   "fetchedAt": "2026-11-26T03:41:53Z",
    "ok": true,
    "espn": "0 team starting fives from box scores"
   },
