@@ -2113,7 +2113,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 28,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": 9.52
   },
   "401909319|James Harden|REB": {
    "game": "401909319",
@@ -2165,7 +2171,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": -10.0
   },
   "401909319|Sam Merrill|PTS": {
    "game": "401909319",
@@ -2333,7 +2345,13 @@
    "openUnder": -113,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 30,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": 8.77
   },
   "401909319|Donovan Mitchell|REB": {
    "game": "401909319",
@@ -2385,7 +2403,13 @@
    "openUnder": -142,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 34.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": 7.04
   },
   "401909319|Tyrese Proctor|PTS": {
    "game": "401909319",
@@ -7330,7 +7354,13 @@
    "openUnder": -124,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 19,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 37.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": -10.0
   },
   "401909319|Mikal Bridges|REB": {
    "game": "401909319",
@@ -7385,7 +7415,13 @@
    "openUnder": -172,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 37.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": 13.1
   },
   "401909319|Jalen Brunson|PTS": {
    "game": "401909319",
@@ -7437,7 +7473,13 @@
    "openUnder": -116,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 19,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": -10.0
   },
   "401909319|Jalen Brunson|REB": {
    "game": "401909319",
@@ -7489,7 +7531,13 @@
    "openUnder": 114,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": 6.58
   },
   "401909319|Andre Drummond|PTS": {
    "game": "401909319",
@@ -7666,7 +7714,13 @@
    "openUnder": -104,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 15,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": -10.0
   },
   "401909319|Josh Hart|REB": {
    "game": "401909319",
@@ -7721,7 +7775,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-25T21:00:39Z",
    "openFetched": "2026-11-25T21:00:35Z",
-   "locked": true
+   "locked": true,
+   "actual": 7,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 36.0,
+   "settledAt": "2026-11-26T03:05:43Z",
+   "profit": 8.2
   },
   "401909319|Landry Shamet|PTS": {
    "game": "401909319",
@@ -12678,5 +12738,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-26T03:00:44Z"
+ "updated": "2026-11-26T03:05:43Z"
 }
