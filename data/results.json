@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T23:55:33Z",
+ "generatedAt": "2026-11-26T00:00:35Z",
  "stake": 10.0,
  "modelVersion": "v1.10 (2026-11-05)",
  "modelWeight": 0.1,
@@ -92,10 +92,10 @@
  },
  "clv": {
   "leans": {
-   "n": 338,
+   "n": 340,
    "ourWay": 82,
    "against": 161,
-   "avg": -0.0217
+   "avg": -0.0216
   },
   "strong": {
    "n": 0,
@@ -104,10 +104,10 @@
    "avg": null
   },
   "noLean": {
-   "n": 483,
-   "ourWay": 154,
-   "against": 195,
-   "avg": -0.0058
+   "n": 502,
+   "ourWay": 160,
+   "against": 204,
+   "avg": -0.0061
   },
   "over": {
    "n": 139,
@@ -116,10 +116,10 @@
    "avg": -0.0033
   },
   "under": {
-   "n": 199,
+   "n": 201,
    "ourWay": 43,
    "against": 115,
-   "avg": -0.0346
+   "avg": -0.0342
   },
   "onHold": {
    "n": 72,
@@ -128,23 +128,23 @@
    "avg": -0.0142
   },
   "clear": {
-   "n": 266,
+   "n": 268,
    "ourWay": 64,
    "against": 129,
-   "avg": -0.0237
+   "avg": -0.0236
   },
   "byMarket": {
    "PTS": {
-    "n": 167,
+    "n": 168,
     "ourWay": 42,
     "against": 85,
-    "avg": -0.0238
+    "avg": -0.0237
    },
    "REB": {
-    "n": 121,
+    "n": 122,
     "ourWay": 30,
     "against": 54,
-    "avg": -0.0159
+    "avg": -0.0157
    },
    "AST": {
     "n": 50,
@@ -1967,7 +1967,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -1993,7 +1993,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2019,7 +2019,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2045,7 +2045,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
@@ -2071,7 +2071,7 @@
    "result": null,
    "profit": null,
    "backfilled": false,
-   "locked": null,
+   "locked": true,
    "modelVersion": "v1.10 (2026-11-05)"
   },
   {
