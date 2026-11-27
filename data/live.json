@@ -1,13 +1,190 @@
 {
  "meta": {
-  "slateDate": "2026-11-26",
+  "slateDate": "2026-11-27",
   "mode": "light",
   "errors": [],
   "lastFullAt": "2026-11-26T14:00:32Z",
   "season": 2027,
-  "writtenAt": "2026-11-27T04:55:44Z"
+  "writtenAt": "2026-11-27T05:00:44Z"
  },
- "games": [],
+ "games": [
+  {
+   "id": "401909326",
+   "away": "MIA",
+   "home": "NYK",
+   "tipoff": "2026-11-28T00:00Z",
+   "state": "pre",
+   "status": "11/27 - 7:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "NY -3.5",
+    "overUnder": 222.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909327",
+   "away": "MIL",
+   "home": "DET",
+   "tipoff": "2026-11-28T00:30Z",
+   "state": "pre",
+   "status": "11/27 - 7:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "DET -9.5",
+    "overUnder": 219.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909328",
+   "away": "PHI",
+   "home": "IND",
+   "tipoff": "2026-11-28T00:30Z",
+   "state": "pre",
+   "status": "11/27 - 7:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "PHI -3.5",
+    "overUnder": 231.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909329",
+   "away": "BKN",
+   "home": "TOR",
+   "tipoff": "2026-11-28T00:30Z",
+   "state": "pre",
+   "status": "11/27 - 7:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "TOR -7.5",
+    "overUnder": 219.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909330",
+   "away": "ATL",
+   "home": "BOS",
+   "tipoff": "2026-11-28T01:00Z",
+   "state": "pre",
+   "status": "11/27 - 8:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "BOS -9.5",
+    "overUnder": 221.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909331",
+   "away": "MEM",
+   "home": "MIN",
+   "tipoff": "2026-11-28T01:30Z",
+   "state": "pre",
+   "status": "11/27 - 8:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "MIN -3.5",
+    "overUnder": 220.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909332",
+   "away": "DAL",
+   "home": "PHX",
+   "tipoff": "2026-11-28T02:00Z",
+   "state": "pre",
+   "status": "11/27 - 9:00 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "PHX -2.5",
+    "overUnder": 227.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909333",
+   "away": "LAL",
+   "home": "SAS",
+   "tipoff": "2026-11-28T02:30Z",
+   "state": "pre",
+   "status": "11/27 - 9:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "SA -5.5",
+    "overUnder": 225.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909334",
+   "away": "DEN",
+   "home": "UTA",
+   "tipoff": "2026-11-28T02:30Z",
+   "state": "pre",
+   "status": "11/27 - 9:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "DEN -9.5",
+    "overUnder": 229.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909335",
+   "away": "NOP",
+   "home": "LAC",
+   "tipoff": "2026-11-28T02:30Z",
+   "state": "pre",
+   "status": "11/27 - 9:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "LAC -3.5",
+    "overUnder": 231.5,
+    "provider": "DraftKings"
+   }
+  },
+  {
+   "id": "401909336",
+   "away": "GSW",
+   "home": "POR",
+   "tipoff": "2026-11-28T02:30Z",
+   "state": "pre",
+   "status": "11/27 - 9:30 PM EST",
+   "completed": false,
+   "awayScore": "0",
+   "homeScore": "0",
+   "espnLine": {
+    "details": "POR -9.5",
+    "overUnder": 220.5,
+    "provider": "DraftKings"
+   }
+  }
+ ],
  "teams": {
   "ATL": {
    "espnId": "1",
@@ -150,7 +327,7 @@
    "name": "Warriors",
    "displayName": "Golden State Warriors",
    "color": "#fdb927",
-   "record": "9-8",
+   "record": "10-8",
    "alt": "#1d428a"
   },
   "NOP": {
@@ -168,7 +345,7 @@
    "name": "Nuggets",
    "displayName": "Denver Nuggets",
    "color": "#0e2240",
-   "record": "10-5",
+   "record": "10-6",
    "alt": "#fec524"
   },
   "UTA": {
@@ -177,7 +354,7 @@
    "name": "Jazz",
    "displayName": "Utah Jazz",
    "color": "#4e008e",
-   "record": "3-15",
+   "record": "3-16",
    "alt": "#79a3dc"
   },
   "SAS": {
@@ -186,7 +363,7 @@
    "name": "Spurs",
    "displayName": "San Antonio Spurs",
    "color": "#000000",
-   "record": "15-3",
+   "record": "15-4",
    "alt": "#c4ced4"
   },
   "DAL": {
@@ -195,7 +372,7 @@
    "name": "Mavericks",
    "displayName": "Dallas Mavericks",
    "color": "#0064b1",
-   "record": "10-7",
+   "record": "11-7",
    "alt": "#bbc4ca"
   },
   "OKC": {
@@ -222,7 +399,7 @@
    "name": "Lakers",
    "displayName": "Los Angeles Lakers",
    "color": "#552583",
-   "record": "14-3",
+   "record": "15-3",
    "alt": "#fdb927"
   },
   "BKN": {
@@ -267,7 +444,7 @@
    "name": "Trail Blazers",
    "displayName": "Portland Trail Blazers",
    "color": "#e03a3e",
-   "record": "11-6",
+   "record": "12-6",
    "alt": "#000000"
   },
   "MEM": {
@@ -537,8 +714,8 @@
    "comment": "Landale (hip) is out for Friday's game against the Celtics.",
    "updated": "2026-11-26T22:44Z",
    "returnDate": "2026-11-29",
-   "news": null,
-   "checks": 1578,
+   "news": "status",
+   "checks": 1579,
    "since": "2026-11-19T22:20:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -554,7 +731,7 @@
    "updated": "2026-11-17T21:16Z",
    "returnDate": "2027-03-17",
    "news": "injury",
-   "checks": 3898,
+   "checks": 3899,
    "since": "2026-11-08T22:20:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -570,7 +747,7 @@
    "updated": "2026-11-17T21:08Z",
    "returnDate": "2026-12-19",
    "news": "status",
-   "checks": 2012,
+   "checks": 2013,
    "since": "2026-11-17T21:20:38Z",
    "confirmed": true
   },
@@ -585,7 +762,7 @@
    "updated": "2026-11-13T00:06Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-19T19:38Z",
    "confirmed": true
   },
@@ -600,7 +777,7 @@
    "updated": "2026-09-21T19:50Z",
    "returnDate": "2027-07-01",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-09-21T19:50Z",
    "confirmed": true
   },
@@ -608,16 +785,18 @@
    "team": "BOS",
    "player": "Mitchell Robinson",
    "pos": "C",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Illness",
    "comment": "Robinson (illness) is questionable for Friday's game against the Hawks.",
    "updated": "2026-11-26T19:00Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 924,
-   "since": "2026-11-22T21:05:33Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -631,7 +810,7 @@
    "updated": "2026-11-26T21:33Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 224,
+   "checks": 225,
    "since": "2026-11-26T02:45:45Z",
    "confirmed": true
   },
@@ -646,7 +825,7 @@
    "updated": "2026-11-23T15:22Z",
    "returnDate": "2027-01-27",
    "news": "injury",
-   "checks": 926,
+   "checks": 927,
    "since": "2026-11-22T20:50:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -662,7 +841,7 @@
    "updated": "2026-11-26T05:30Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 190,
+   "checks": 191,
    "since": "2026-11-26T05:35:44Z",
    "was": "Out",
    "confirmed": true
@@ -678,7 +857,7 @@
    "updated": "2026-11-25T17:39Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 321,
+   "checks": 322,
    "since": "2026-11-25T17:45:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -694,7 +873,7 @@
    "updated": "2026-11-24T22:32Z",
    "returnDate": "2026-12-12",
    "news": null,
-   "checks": 4375,
+   "checks": 4376,
    "since": "2026-11-06T18:26:02Z",
    "was": "Questionable",
    "confirmed": true
@@ -710,7 +889,7 @@
    "updated": "2026-11-08T22:31Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 4547,
+   "checks": 4548,
    "since": "2026-11-05T22:15:29Z",
    "was": "Questionable",
    "confirmed": true
@@ -726,7 +905,7 @@
    "updated": "2026-11-26T05:29Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 190,
+   "checks": 191,
    "since": "2026-11-26T05:35:44Z",
    "was": "Out",
    "confirmed": true
@@ -742,7 +921,7 @@
    "updated": "2026-11-22T15:25Z",
    "returnDate": "2026-11-28",
    "news": "injury",
-   "checks": 981,
+   "checks": 982,
    "since": "2026-11-22T15:45:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -758,7 +937,7 @@
    "updated": "2026-11-12T21:35Z",
    "returnDate": "2026-12-13",
    "news": "status",
-   "checks": 3062,
+   "checks": 3063,
    "since": "2026-11-12T21:35:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -774,7 +953,7 @@
    "updated": "2026-11-17T22:18Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 2828,
+   "checks": 2829,
    "since": "2026-11-13T23:40:31Z",
    "confirmed": true
   },
@@ -789,7 +968,7 @@
    "updated": "2026-11-16T22:06Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 2418,
+   "checks": 2419,
    "since": "2026-11-15T22:00:44Z",
    "was": "Questionable",
    "confirmed": true
@@ -804,8 +983,8 @@
    "comment": "Lawal (groin) is out for Friday's game against the Suns.",
    "updated": "2026-11-27T00:01Z",
    "returnDate": "2026-11-30",
-   "news": null,
-   "checks": 939,
+   "news": "status",
+   "checks": 940,
    "since": "2026-11-22T19:15:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -820,8 +999,8 @@
    "comment": "De Larrea (knee) is out for Friday's game against the Suns.",
    "updated": "2026-11-26T23:59Z",
    "returnDate": "2026-12-14",
-   "news": null,
-   "checks": 5838,
+   "news": "status",
+   "checks": 5839,
    "since": "2026-10-29T22:06Z",
    "confirmed": true
   },
@@ -835,8 +1014,8 @@
    "comment": "Lively (foot) is out for Friday's game against the Suns.",
    "updated": "2026-11-26T23:56Z",
    "returnDate": "2026-11-30",
-   "news": null,
-   "checks": 5838,
+   "news": "status",
+   "checks": 5839,
    "since": "2026-10-22T20:10Z",
    "confirmed": true
   },
@@ -850,8 +1029,8 @@
    "comment": "Biberovic (heel) is out for Friday's game against the Suns.",
    "updated": "2026-11-26T23:53Z",
    "returnDate": "2026-12-04",
-   "news": null,
-   "checks": 5807,
+   "news": "status",
+   "checks": 5808,
    "since": "2026-10-30T22:20:29Z",
    "confirmed": true
   },
@@ -865,8 +1044,8 @@
    "comment": "Robinson (quadriceps) is out for Friday's game against the Bucks.",
    "updated": "2026-11-26T22:26Z",
    "returnDate": "2026-11-29",
-   "news": null,
-   "checks": 2209,
+   "news": "status",
+   "checks": 2210,
    "since": "2026-11-16T22:40:31Z",
    "was": "Questionable",
    "confirmed": true
@@ -881,8 +1060,8 @@
    "comment": "Cunningham (knee) is out for Friday's game against the Bucks.",
    "updated": "2026-11-26T22:25Z",
    "returnDate": "2026-11-29",
-   "news": null,
-   "checks": 76,
+   "news": "status",
+   "checks": 77,
    "since": "2026-11-26T22:30:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -898,7 +1077,7 @@
    "updated": "2026-11-26T15:31Z",
    "returnDate": "2026-11-30",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-25T14:56Z",
    "confirmed": true
   },
@@ -913,7 +1092,7 @@
    "updated": "2026-11-24T18:37Z",
    "returnDate": "2026-12-13",
    "news": "status",
-   "checks": 697,
+   "checks": 698,
    "since": "2026-11-23T22:25:36Z",
    "was": "Questionable",
    "confirmed": true
@@ -929,7 +1108,7 @@
    "updated": "2026-11-24T18:33Z",
    "returnDate": "2026-12-26",
    "news": "injury",
-   "checks": 1582,
+   "checks": 1583,
    "since": "2026-11-19T22:00:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -945,7 +1124,7 @@
    "updated": "2026-11-26T01:36Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 3108,
+   "checks": 3109,
    "since": "2026-11-12T17:10:34Z",
    "was": "Questionable",
    "confirmed": true
@@ -961,7 +1140,7 @@
    "updated": "2026-11-06T21:26Z",
    "returnDate": "2027-01-02",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-28T14:25Z",
    "confirmed": true
   },
@@ -976,7 +1155,7 @@
    "updated": "2026-10-16T16:14Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-16T16:14Z",
    "confirmed": true
   },
@@ -991,7 +1170,7 @@
    "updated": "2026-10-16T16:11Z",
    "returnDate": "2027-01-02",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-16T16:11Z",
    "confirmed": true
   },
@@ -1005,8 +1184,8 @@
    "comment": "Oubre is questionable for Friday's game against the 76ers due to a right hand laceration.",
    "updated": "2026-11-27T00:42Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 48,
+   "news": "status",
+   "checks": 49,
    "since": "2026-11-27T00:50:34Z",
    "confirmed": true
   },
@@ -1020,8 +1199,8 @@
    "comment": "Nance (ankle) is questionable for Friday's game against the 76ers.",
    "updated": "2026-11-26T22:43Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 654,
+   "news": "status",
+   "checks": 655,
    "since": "2026-11-24T02:15:50Z",
    "confirmed": true
   },
@@ -1035,8 +1214,8 @@
    "comment": "McConnell (hamstring) is questionable for Friday's game against the 76ers.",
    "updated": "2026-11-26T22:29Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 621,
+   "news": "status",
+   "checks": 622,
    "since": "2026-11-24T05:00:53Z",
    "was": "Out",
    "confirmed": true
@@ -1052,7 +1231,7 @@
    "updated": "2026-11-24T19:41Z",
    "returnDate": "2026-12-13",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-28T21:30Z",
    "confirmed": true
   },
@@ -1067,7 +1246,7 @@
    "updated": "2026-10-28T21:41Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-28T21:41Z",
    "confirmed": true
   },
@@ -1082,7 +1261,7 @@
    "updated": "2026-10-15T01:03Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-15T01:03Z",
    "confirmed": true
   },
@@ -1097,7 +1276,7 @@
    "updated": "2026-08-26T20:04Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-08-26T20:04Z",
    "confirmed": true
   },
@@ -1105,16 +1284,18 @@
    "team": "LAL",
    "player": "Austin Reaves",
    "pos": "G",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Left Heel Bruise",
    "comment": "Reaves (heel) is questionable for Friday's game against the Spurs.",
    "updated": "2026-11-26T23:21Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 621,
-   "since": "2026-11-24T05:00:53Z",
-   "was": "Probable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -1127,8 +1308,8 @@
    "comment": "Stewart is questionable for Friday's game against the Timberwolves due to right hip soreness.",
    "updated": "2026-11-26T23:27Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 61,
+   "news": "status",
+   "checks": 62,
    "since": "2026-11-26T23:45:34Z",
    "confirmed": true
   },
@@ -1142,8 +1323,8 @@
    "comment": "Edey (ankle) is questionable for Friday's game against the Timberwolves.",
    "updated": "2026-11-26T23:24Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 210,
+   "news": "status",
+   "checks": 211,
    "since": "2026-11-26T03:55:44Z",
    "was": "Doubtful",
    "confirmed": true
@@ -1159,7 +1340,7 @@
    "updated": "2026-11-24T23:04Z",
    "returnDate": "2026-12-12",
    "news": null,
-   "checks": 4954,
+   "checks": 4955,
    "since": "2026-11-03T23:25:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -1175,7 +1356,7 @@
    "updated": "2026-11-23T23:07Z",
    "returnDate": "2026-12-21",
    "news": "injury",
-   "checks": 909,
+   "checks": 910,
    "since": "2026-11-22T22:30:32Z",
    "was": "Questionable",
    "confirmed": true
@@ -1191,7 +1372,7 @@
    "updated": "2026-11-23T04:04Z",
    "returnDate": "2026-12-12",
    "news": "injury",
-   "checks": 857,
+   "checks": 858,
    "since": "2026-11-23T04:20:42Z",
    "was": "Questionable",
    "confirmed": true
@@ -1207,7 +1388,7 @@
    "updated": "2026-11-17T23:18Z",
    "returnDate": "2027-01-18",
    "news": "injury",
-   "checks": 2415,
+   "checks": 2416,
    "since": "2026-11-15T22:15:38Z",
    "was": "Questionable",
    "confirmed": true
@@ -1223,7 +1404,7 @@
    "updated": "2026-11-07T17:24Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 4167,
+   "checks": 4168,
    "since": "2026-11-07T18:20:28Z",
    "confirmed": true
   },
@@ -1231,30 +1412,36 @@
    "team": "MIA",
    "player": "Giannis Antetokounmpo",
    "pos": "F",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Right Groin",
    "comment": "Antetokounmpo is probable for Friday's game against the Knicks due to right groin tendinitis.",
    "updated": "2026-11-26T21:15Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 76,
-   "since": "2026-11-26T22:30:35Z",
+   "espnStatus": "Questionable",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Questionable",
    "confirmed": true
   },
   {
    "team": "MIA",
    "player": "Andrew Wiggins",
    "pos": "F",
-   "status": "Questionable",
+   "status": "Probable",
    "rawStatus": "Day-To-Day",
    "detail": "Right Ankle Sprain",
    "comment": "Wiggins is probable for Friday's game against the Knicks due to a right ankle sprain.",
    "updated": "2026-11-26T21:08Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 76,
-   "since": "2026-11-26T22:30:35Z",
+   "espnStatus": "Questionable",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Questionable",
    "confirmed": true
   },
   {
@@ -1267,8 +1454,8 @@
    "comment": "Ball (ankle) is questionable for Friday's game against the Grizzlies.",
    "updated": "2026-11-26T23:14Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 218,
+   "news": "status",
+   "checks": 219,
    "since": "2026-11-26T03:15:45Z",
    "confirmed": true
   },
@@ -1283,7 +1470,7 @@
    "updated": "2026-11-24T17:10Z",
    "returnDate": "2027-01-03",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-05T20:53Z",
    "confirmed": true
   },
@@ -1298,7 +1485,7 @@
    "updated": "2026-11-15T22:40Z",
    "returnDate": "2026-11-29",
    "news": "status",
-   "checks": 2409,
+   "checks": 2410,
    "since": "2026-11-15T22:45:41Z",
    "was": "Questionable",
    "confirmed": true
@@ -1314,7 +1501,7 @@
    "updated": "2026-10-29T18:33Z",
    "returnDate": "2026-12-21",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-29T18:33Z",
    "confirmed": true
   },
@@ -1322,32 +1509,36 @@
    "team": "NOP",
    "player": "Trendon Watford",
    "pos": "F",
-   "status": "Out",
+   "status": "Probable",
    "rawStatus": "Out",
    "detail": "Right Ankle Sprain",
    "comment": "Watford (ankle) is probable for Friday's game against the Clippers.",
    "updated": "2026-11-26T21:22Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 3069,
-   "since": "2026-11-12T20:55:30Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
    "team": "NOP",
    "player": "Bennedict Mathurin",
    "pos": "G",
-   "status": "Out",
+   "status": "Doubtful",
    "rawStatus": "Out",
    "detail": "Left Foot Plantar Fasciitis",
    "comment": "Mathurin (foot) is doubtful for Friday's game against the Clippers.",
    "updated": "2026-11-26T21:21Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 2014,
-   "since": "2026-11-17T21:10:39Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -1361,7 +1552,7 @@
    "updated": "2026-11-25T16:11Z",
    "returnDate": "2026-12-01",
    "news": null,
-   "checks": 338,
+   "checks": 339,
    "since": "2026-11-25T16:20:33Z",
    "confirmed": true
   },
@@ -1375,8 +1566,8 @@
    "comment": "Murray (ankle) is out for Friday's game against Memphis.",
    "updated": "2026-11-13T20:19Z",
    "returnDate": "2026-11-29",
-   "news": null,
-   "checks": 2863,
+   "news": "status",
+   "checks": 2864,
    "since": "2026-11-13T20:30:30Z",
    "was": "Questionable",
    "confirmed": true
@@ -1391,8 +1582,8 @@
    "comment": "McBride (groin) is questionable for Friday's game against the Heat.",
    "updated": "2026-11-26T22:11Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 189,
+   "news": "status",
+   "checks": 190,
    "since": "2026-11-26T05:40:44Z",
    "was": "Out",
    "confirmed": true
@@ -1401,32 +1592,36 @@
    "team": "NYK",
    "player": "Jordan Clarkson",
    "pos": "G",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Right Foot Plantar Fasciitis",
    "comment": "Clarkson (foot) is questionable for Friday's game against the Heat.",
    "updated": "2026-11-26T22:03Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 951,
-   "since": "2026-11-22T18:15:32Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
    "team": "NYK",
    "player": "OG Anunoby",
    "pos": "F",
-   "status": "Out",
+   "status": "Doubtful",
    "rawStatus": "Out",
    "detail": "Left Calf Soreness",
    "comment": "Anunoby (calf) is doubtful for Friday's game against the Heat.",
    "updated": "2026-11-26T21:57Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 491,
-   "since": "2026-11-24T21:55:35Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -1439,8 +1634,8 @@
    "comment": "Drummond (head) is questionable for Friday's game against the Heat.",
    "updated": "2026-11-26T21:51Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 225,
+   "news": "status",
+   "checks": 226,
    "since": "2026-11-26T02:40:43Z",
    "confirmed": true
   },
@@ -1455,7 +1650,7 @@
    "updated": "2026-11-24T23:29Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 732,
+   "checks": 733,
    "since": "2026-11-23T18:55:42Z",
    "was": "Questionable",
    "confirmed": true
@@ -1471,7 +1666,7 @@
    "updated": "2026-11-24T23:24Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 470,
+   "checks": 471,
    "since": "2026-11-24T23:40:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -1487,7 +1682,7 @@
    "updated": "2026-11-24T23:19Z",
    "returnDate": "2026-11-28",
    "news": null,
-   "checks": 473,
+   "checks": 474,
    "since": "2026-11-24T23:25:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -1503,7 +1698,7 @@
    "updated": "2026-11-23T18:43Z",
    "returnDate": "2027-03-02",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-28T23:41Z",
    "confirmed": true
   },
@@ -1518,7 +1713,7 @@
    "updated": "2026-11-18T00:01Z",
    "returnDate": "2027-01-31",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-27T21:43Z",
    "confirmed": true
   },
@@ -1533,7 +1728,7 @@
    "updated": "2026-10-31T01:16Z",
    "returnDate": "2027-03-02",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-26T22:05Z",
    "confirmed": true
   },
@@ -1548,7 +1743,7 @@
    "updated": "2026-10-31T01:02Z",
    "returnDate": "2027-01-02",
    "news": "status",
-   "checks": 5804,
+   "checks": 5805,
    "since": "2026-10-30T22:35:30Z",
    "confirmed": true
   },
@@ -1563,7 +1758,7 @@
    "updated": "2026-11-26T16:10Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 126,
+   "checks": 127,
    "since": "2026-11-26T16:20:33Z",
    "confirmed": true
   },
@@ -1578,7 +1773,7 @@
    "updated": "2026-11-21T21:09Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-29T18:29Z",
    "confirmed": true
   },
@@ -1593,7 +1788,7 @@
    "updated": "2026-11-18T17:25Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-09-28T21:33Z",
    "confirmed": true
   },
@@ -1608,7 +1803,7 @@
    "updated": "2026-11-14T17:33Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-17T22:19Z",
    "confirmed": true
   },
@@ -1623,7 +1818,7 @@
    "updated": "2026-10-24T16:47Z",
    "returnDate": "2026-11-29",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-24T16:47Z",
    "confirmed": true
   },
@@ -1637,8 +1832,8 @@
    "comment": "Embiid (illness) is questionable for Friday's game against the Pacers.",
    "updated": "2026-11-26T22:16Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 197,
+   "news": "status",
+   "checks": 198,
    "since": "2026-11-26T05:00:44Z",
    "was": "Out",
    "confirmed": true
@@ -1653,8 +1848,8 @@
    "comment": "Brown (hamstring) is out for Friday's game against the Pacers.",
    "updated": "2026-11-26T22:13Z",
    "returnDate": "2026-11-28",
-   "news": null,
-   "checks": 76,
+   "news": "status",
+   "checks": 77,
    "since": "2026-11-26T22:30:35Z",
    "was": "Questionable",
    "confirmed": true
@@ -1670,7 +1865,7 @@
    "updated": "2026-10-06T19:17Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-06T19:17Z",
    "confirmed": true
   },
@@ -1685,7 +1880,7 @@
    "updated": "2026-09-11T16:03Z",
    "returnDate": "2027-02-03",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-09-11T16:03Z",
    "confirmed": true
   },
@@ -1699,8 +1894,8 @@
    "comment": "Youngblood (heel) is out for Friday's game against the Warriors.",
    "updated": "2026-11-27T00:56Z",
    "returnDate": "2026-11-29",
-   "news": null,
-   "checks": 2404,
+   "news": "status",
+   "checks": 2405,
    "since": "2026-11-15T23:15:38Z",
    "was": "Questionable",
    "confirmed": true
@@ -1716,7 +1911,7 @@
    "updated": "2026-11-11T19:56Z",
    "returnDate": "2027-01-12",
    "news": "injury",
-   "checks": 4704,
+   "checks": 4705,
    "since": "2026-11-05T04:20:41Z",
    "confirmed": true
   },
@@ -1731,7 +1926,7 @@
    "updated": "2026-11-08T02:18Z",
    "returnDate": "2026-12-01",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-30T18:45Z",
    "confirmed": true
   },
@@ -1746,7 +1941,7 @@
    "updated": "2026-08-24T20:23Z",
    "returnDate": "2027-03-02",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-08-24T20:23Z",
    "confirmed": true
   },
@@ -1761,7 +1956,7 @@
    "updated": "2026-11-26T05:33Z",
    "returnDate": "2026-11-29",
    "news": null,
-   "checks": 190,
+   "checks": 191,
    "since": "2026-11-26T05:35:44Z",
    "was": "Out",
    "confirmed": true
@@ -1777,7 +1972,7 @@
    "updated": "2026-11-25T21:38Z",
    "returnDate": "2026-12-02",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-26T22:07Z",
    "confirmed": true
   },
@@ -1792,7 +1987,7 @@
    "updated": "2026-10-21T04:22Z",
    "returnDate": "2027-10-01",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-21T04:22Z",
    "confirmed": true
   },
@@ -1800,16 +1995,18 @@
    "team": "SAS",
    "player": "Dylan Harper",
    "pos": "G",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Left Hip Strain",
    "comment": "Harper (hip) is questionable for Friday's game against the Lakers.",
    "updated": "2026-11-26T23:41Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 1778,
-   "since": "2026-11-18T23:20:32Z",
-   "was": "Questionable",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -1822,8 +2019,8 @@
    "comment": "Fox (shin) is questionable for Friday's game against the Lakers.",
    "updated": "2026-11-26T23:35Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 182,
+   "news": "status",
+   "checks": 183,
    "since": "2026-11-26T06:15:43Z",
    "was": "Out",
    "confirmed": true
@@ -1839,7 +2036,7 @@
    "updated": "2026-11-16T19:26Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-28T18:24Z",
    "confirmed": true
   },
@@ -1854,7 +2051,7 @@
    "updated": "2026-10-05T21:43Z",
    "returnDate": "2026-12-03",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-05T21:43Z",
    "confirmed": true
   },
@@ -1868,8 +2065,8 @@
    "comment": "Martin is questionable for Friday's game against the Nets due to left knee soreness.",
    "updated": "2026-11-26T21:18Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 76,
+   "news": "status",
+   "checks": 77,
    "since": "2026-11-26T22:30:35Z",
    "confirmed": true
   },
@@ -1884,7 +2081,7 @@
    "updated": "2026-11-24T21:15Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-29T15:39Z",
    "confirmed": true
   },
@@ -1899,7 +2096,7 @@
    "updated": "2026-11-22T21:13Z",
    "returnDate": "2026-11-27",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-27T19:31Z",
    "confirmed": true
   },
@@ -1914,7 +2111,7 @@
    "updated": "2026-11-19T21:13Z",
    "returnDate": "2026-12-13",
    "news": "injury",
-   "checks": 1591,
+   "checks": 1592,
    "since": "2026-11-19T21:15:34Z",
    "was": "Questionable",
    "confirmed": true
@@ -1929,8 +2126,8 @@
    "comment": "Hayes (knee) is questionable for Friday's game against the Nuggets.",
    "updated": "2026-11-27T00:11Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 606,
+   "news": "status",
+   "checks": 607,
    "since": "2026-11-24T06:15:51Z",
    "was": "Out",
    "confirmed": true
@@ -1939,15 +2136,18 @@
    "team": "UTA",
    "player": "Jusuf Nurkic",
    "pos": "C",
-   "status": "Out",
+   "status": "Questionable",
    "rawStatus": "Out",
    "detail": "Right Foot Strain",
    "comment": "Nurkic (foot) is questionable for Friday's game against the Nuggets.",
    "updated": "2026-11-27T00:08Z",
    "returnDate": "2026-11-27",
-   "news": null,
-   "checks": 5838,
-   "since": "2026-10-07T23:07Z",
+   "espnStatus": "Out",
+   "statusFrom": "report",
+   "news": "status",
+   "checks": 1,
+   "since": "2026-11-27T05:00:44Z",
+   "was": "Out",
    "confirmed": true
   },
   {
@@ -1961,7 +2161,7 @@
    "updated": "2026-11-11T18:22Z",
    "returnDate": "2027-01-04",
    "news": "injury",
-   "checks": 3302,
+   "checks": 3303,
    "since": "2026-11-11T18:35:33Z",
    "was": "Questionable",
    "confirmed": true
@@ -1977,7 +2177,7 @@
    "updated": "2026-10-27T19:25Z",
    "returnDate": "2026-12-14",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-27T19:25Z",
    "confirmed": true
   },
@@ -1992,7 +2192,7 @@
    "updated": "2026-11-23T22:10Z",
    "returnDate": "2026-11-30",
    "news": null,
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-01T19:11Z",
    "confirmed": true
   },
@@ -2007,7 +2207,7 @@
    "updated": "2026-11-02T18:22Z",
    "returnDate": "2026-12-03",
    "news": "injury",
-   "checks": 5200,
+   "checks": 5201,
    "since": "2026-11-02T18:25:49Z",
    "confirmed": true
   },
@@ -2022,7 +2222,7 @@
    "updated": "2026-10-28T18:38Z",
    "returnDate": "2027-02-25",
    "news": "status",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-10-28T18:38Z",
    "confirmed": true
   },
@@ -2037,7 +2237,7 @@
    "updated": "2026-07-30T20:11Z",
    "returnDate": "2027-04-02",
    "news": "injury",
-   "checks": 5838,
+   "checks": 5839,
    "since": "2026-07-30T20:11Z",
    "confirmed": true
   }
@@ -304342,16 +304542,24 @@
   },
   "injuries": {
    "source": "ESPN injuries",
-   "fetchedAt": "2026-11-27T04:55:44Z",
+   "fetchedAt": "2026-11-27T05:00:44Z",
    "ok": true,
    "count": 98
   },
   "games": {
    "source": "ESPN scoreboard",
-   "fetchedAt": "2026-11-27T04:55:43Z",
+   "fetchedAt": "2026-11-27T05:00:43Z",
    "ok": true,
-   "count": 0
+   "count": 11
+  },
+  "lineups": {
+   "source": "NBA.com daily lineups (experimental) + ESPN box scores",
+   "fetchedAt": "2026-11-27T05:00:44Z",
+   "ok": true,
+   "nba": "failed: HTTP Error 404: Not Found",
+   "espn": "0 team starting fives from box scores"
   }
  },
- "lineups": {}
+ "lineups": {},
+ "lineMoves": {}
 }
