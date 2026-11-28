@@ -6653,7 +6653,13 @@
    "openUnder": -122,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 22,
+   "went": "over",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-28T04:00:44Z",
+   "profit": -10.0
   },
   "401909331|Cedric Coward|REB": {
    "game": "401909331",
@@ -6711,7 +6717,13 @@
    "openUnder": -120,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 28.0,
+   "settledAt": "2026-11-28T04:00:44Z",
+   "profit": -10.0
   },
   "401909331|Zach Edey|PTS": {
    "game": "401909331",
@@ -6769,7 +6781,13 @@
    "openUnder": -129,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 12.0,
+   "settledAt": "2026-11-28T04:00:44Z",
+   "profit": -10.0
   },
   "401909331|Zach Edey|REB": {
    "game": "401909331",
@@ -6827,7 +6845,13 @@
    "openUnder": -132,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 6,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 12.0,
+   "settledAt": "2026-11-28T04:00:44Z",
+   "profit": 7.58
   },
   "401909331|Ty Jerome|PTS": {
    "game": "401909331",
@@ -6885,7 +6909,13 @@
    "openUnder": -121,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 18,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-28T04:00:44Z",
+   "profit": -10.0
   },
   "401909331|Ty Jerome|REB": {
    "game": "401909331",
@@ -6943,7 +6973,13 @@
    "openUnder": -136,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 27.0,
+   "settledAt": "2026-11-28T04:00:44Z",
+   "profit": -10.0
   },
   "401909331|Kris Murray|PTS": {
    "game": "401909331",
@@ -15200,5 +15236,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-28T03:55:45Z"
+ "updated": "2026-11-28T04:00:44Z"
 }
