@@ -2891,7 +2891,13 @@
    "openUnder": -107,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 14.0,
+   "settledAt": "2026-11-28T04:40:45Z",
+   "profit": -10.0
   },
   "401909332|Caleb Martin|REB": {
    "game": "401909332",
@@ -2951,7 +2957,13 @@
    "openUnder": -152,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 14.0,
+   "settledAt": "2026-11-28T04:40:45Z",
+   "profit": 6.58
   },
   "401909332|Zaccharie Risacher|PTS": {
    "game": "401909332",
@@ -12001,7 +12013,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-28T04:40:45Z",
+   "profit": 9.71
   },
   "401909332|Jordan Goodwin|REB": {
    "game": "401909332",
@@ -12053,7 +12071,13 @@
    "openUnder": 110,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 4,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-28T04:40:45Z",
+   "profit": 6.67
   },
   "401909332|Jalen Green|PTS": {
    "game": "401909332",
@@ -12105,7 +12129,13 @@
    "openUnder": -123,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 5,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 19.0,
+   "settledAt": "2026-11-28T04:40:45Z",
+   "profit": 8.13
   },
   "401909332|Jalen Green|REB": {
    "game": "401909332",
@@ -12157,7 +12187,13 @@
    "openUnder": -109,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 1,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 19.0,
+   "settledAt": "2026-11-28T04:40:45Z",
+   "profit": -10.0
   },
   "401909332|Oso Ighodaro|PTS": {
    "game": "401909332",
@@ -15356,5 +15392,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-28T04:35:45Z"
+ "updated": "2026-11-28T04:40:45Z"
 }
