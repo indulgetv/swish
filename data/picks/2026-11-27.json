@@ -1699,7 +1699,13 @@
    "openUnder": -115,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 8,
+   "went": "over",
+   "result": "win",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-28T03:25:45Z",
+   "profit": 8.85
   },
   "401909330|Sam Hauser|REB": {
    "game": "401909330",
@@ -1751,7 +1757,13 @@
    "openUnder": -169,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 2,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 25.0,
+   "settledAt": "2026-11-28T03:25:45Z",
+   "profit": -10.0
   },
   "401909330|Payton Pritchard|PTS": {
    "game": "401909330",
@@ -2015,7 +2027,13 @@
    "openUnder": -126,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "win",
+   "minutesPlayed": 12.0,
+   "settledAt": "2026-11-28T03:25:45Z",
+   "profit": 7.94
   },
   "401909330|Baylor Scheierman|REB": {
    "game": "401909330",
@@ -2067,7 +2085,13 @@
    "openUnder": -159,
    "firstSaved": "2026-11-27T21:00:38Z",
    "openFetched": "2026-11-27T21:00:34Z",
-   "locked": true
+   "locked": true,
+   "actual": 3,
+   "went": "under",
+   "result": "loss",
+   "minutesPlayed": 12.0,
+   "settledAt": "2026-11-28T03:25:45Z",
+   "profit": -10.0
   },
   "401909330|Jayson Tatum|PTS": {
    "game": "401909330",
@@ -14924,5 +14948,5 @@
    "locked": true
   }
  },
- "updated": "2026-11-28T03:20:45Z"
+ "updated": "2026-11-28T03:25:45Z"
 }
